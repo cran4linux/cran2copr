@@ -236,7 +236,7 @@ create_spec <- function(pkg, tarfile) {
       "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'", 
       "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
     askpass = {
-      unlink(dir(file.path(tempdir(), pkg, "inst"), "mac*"))
+      unlink(dir(file.path(tempdir(), pkg, "inst"), "^mac.*"))
       "rm -f %{packname}/inst/mac*" }
   ))
   
