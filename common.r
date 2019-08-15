@@ -80,15 +80,18 @@ with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
   
   avail <- pkgs %in% cran[,"Package"]
   if (any(!avail))
-    stop("package(s) ", paste(pkgs[!avail], collapse=", "),
-         " not available", call.=FALSE)
+    warning("ignoring ", paste(pkgs[!avail], collapse=", "),
+            " because they are not on CRAN", call.=FALSE)
+  pkgs <- pkgs[avail]
   
   deps <- tools::package_dependencies(pkgs, db=cran, recursive=TRUE, reverse=reverse)
+  
   avail <- sapply(deps, function(i) all(setdiff(i, base) %in% cran[,"Package"]))
   if (any(!avail))
     warning("ignoring ", paste(names(avail)[!avail], collapse=", "),
             " because one or more dependencies are not on CRAN", call.=FALSE)
   deps <- deps[avail]
+  
   setdiff(unique(c(names(deps), unlist(deps))), base)
 }
 
