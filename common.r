@@ -32,7 +32,7 @@ list_pkgs <- function() {
 
 watch_builds <- function(ids) {
   if (!length(ids)) return(logical(0))
-  
+
   out <- try(copr("watch-build", paste(ids, collapse=" ")), silent=TRUE)
   if (class(out) == "try-error") out <- strsplit(out, "\n")[[1]]
   sapply(ids, function(i) {
@@ -74,24 +74,24 @@ del_pkg_scm <- function(pkg) {
 
 with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
   if (!length(pkgs)) return(list())
-  
+
   base <- rownames(installed.packages(priority="high"))
   pkgs <- setdiff(pkgs, base)
-  
+
   avail <- pkgs %in% cran[,"Package"]
   if (any(!avail))
     warning("ignoring ", paste(pkgs[!avail], collapse=", "),
             " because they are not on CRAN", call.=FALSE)
   pkgs <- pkgs[avail]
-  
+
   deps <- tools::package_dependencies(pkgs, db=cran, recursive=TRUE, reverse=reverse)
-  
+
   avail <- sapply(deps, function(i) all(setdiff(i, base) %in% cran[,"Package"]))
   if (any(!avail))
     warning("ignoring ", paste(names(avail)[!avail], collapse=", "),
             " because one or more dependencies are not on CRAN", call.=FALSE)
   deps <- deps[avail]
-  
+
   setdiff(unique(c(names(deps), unlist(deps))), base)
 }
 
@@ -99,14 +99,14 @@ get_build_list <- function(pkgs, cran=available.packages()) {
   base <- rownames(installed.packages(priority="high"))
   pkgs <- lapply(tools::package_dependencies(pkgs, db=cran), setdiff, base)
   pkgs <- lapply(Filter(Negate(is.null), pkgs), intersect, names(pkgs))
-  
+
   build <- list()
   while (length(pkgs)) {
     x <- names(Filter(function(i) all(i %in% unlist(build)), pkgs))
     build[[length(build)+1]] <- x
     pkgs <- pkgs[!names(pkgs) %in% x]
   }
-  
+
   build
 }
 
@@ -138,23 +138,23 @@ pkg_files <- function(pkg, path) {
   topdir <- "^DESCRIPTION$|^NAMESPACE$|^LICEN(S|C)E$|^NEWS|^R$|data|demo|exec"
   nodocs <- "DESCRIPTION|INDEX|NAMESPACE|/R$|libs|data|include|LICEN"
   license <- "LICEN"
-  
+
   files <- grep(topdir, dir(path), value=TRUE)
   files <- c(files, dir(file.path(path, "inst")))
-  
+
   if (length(dir(file.path(path, "man"))))
     files <- c(files, "INDEX")
   if (file.exists(file.path(path, "src")))
     files <- c(files, "libs")
-  
+
   # exceptions
   files <- c(files, switch(
     pkg, stringi="include", readr="rcon", processx=,ps=,zip="bin", StanHeaders="lib"))
-  
+
   files <- paste0("%{rlibdir}/%{packname}/", files)
   files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
   files[grep(license, files)] <- paste("%license", files[grep(license, files)])
-  
+
   files
 }
 
@@ -162,7 +162,7 @@ pkg_files <- function(pkg, path) {
   keys <- c("Depends", "Imports", "LinkingTo")
   for (i in keys) if (is.null(desc[[i]]))
     desc[[i]] <- ""
-  
+
   deps <- gsub("\n", " ", as.matrix(desc)[,keys])
   deps <- sub(",[[:space:]]*$", "", deps)
   deps <- strsplit(deps, ",[[:space:]]*")
@@ -184,12 +184,12 @@ pkg_files <- function(pkg, path) {
 .sys_deps <- function(desc) {
   if (!"SystemRequirements" %in% colnames(desc))
     return(character(0))
-  
+
   deps <- read.csv("sysreqs.csv", na.strings="", stringsAsFactors=FALSE)
   deps <- deps[deps$pkg == desc$Package,]
   if (!nrow(deps))
     return(character(0))
-  
+
   x <- character(0)
   if (!is.na(deps$build))
     x <- c(x, paste0("BuildRequires:    ", strsplit(deps$build, ", ")[[1]]))
@@ -201,33 +201,33 @@ pkg_files <- function(pkg, path) {
 pkg_deps <- function(desc) {
   x <- .sys_deps(desc)
   deps <- .r_deps(desc)
-  
+
   rdep <- deps$pkg == "R"
   rver <- deps[rdep, "ver"]
   deps <- deps[!rdep,]
   inbase <- deps$pkg %in% rownames(installed.packages(priority="high"))
   deps$pkg[inbase] <- paste0("R-", deps$pkg[inbase])
   deps$pkg[!inbase] <- paste0(getOption("copr.prefix"), deps$pkg[!inbase])
-  
+
   x <- c(x, paste0("BuildRequires:    R-devel", rver))
   x <- c(x, paste0("Requires:         R-core", rver))
-  
+
   if (!isTRUE(desc$NeedsCompilation == "yes"))
     x <- c(x, "BuildArch:        noarch")
-  
+
   if (nrow(deps)) {
     x <- c(x, paste0("BuildRequires:    ", deps$pkg, deps$ver))
     deps <- deps[!grepl("LinkingTo", rownames(deps)),]
     x <- c(x, paste0("Requires:         ", deps$pkg, deps$ver))
   }
-  
+
   x[!duplicated(x)]
 }
 
 create_spec <- function(pkg, tarfile) {
   tpl <- readLines(getOption("copr.tpl"))
   untar(tarfile, exdir=tempdir())
-  
+
   # exceptions
   tpl <- c(switch(
     pkg, StanHeaders=,reshape=,SIBER="%global debug_package %{nil}",
@@ -236,20 +236,20 @@ create_spec <- function(pkg, tarfile) {
   tpl[setup] <- paste0(tpl[setup], "\n", switch(
     pkg,
     tcltk2 = paste(
-      "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'", 
+      "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'",
       "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
     askpass = {
       unlink(dir(file.path(tempdir(), pkg, "inst"), "^mac.*", full.names=TRUE))
       "rm -f %{packname}/inst/mac*" }
   ))
-  
+
   # fields
   desc <- read.dcf(file.path(tempdir(), pkg, "DESCRIPTION"))
   desc <- as.data.frame(desc, stringsAsFactors=FALSE)
   deps <- pkg_deps(desc)
   description <- strwrap(desc$Description, 75)
   files <- pkg_files(pkg, file.path(tempdir(), pkg))
-  
+
   tpl <- sub("\\{\\{prefix\\}\\}", getOption("copr.prefix"), tpl)
   tpl <- sub("\\{\\{packname\\}\\}", pkg, tpl)
   tpl <- sub("\\{\\{packver\\}\\}", desc$Version, tpl)
@@ -259,12 +259,12 @@ create_spec <- function(pkg, tarfile) {
   tpl <- sub("\\{\\{dependencies\\}\\}", paste(deps, collapse="\n"), tpl)
   tpl <- sub("\\{\\{description\\}\\}", paste(description, collapse="\n"), tpl)
   tpl <- sub("\\{\\{files\\}\\}", paste(files, collapse="\n"), tpl)
-  
+
   # java
   if (any(grepl("BuildRequires:[[:space:]]+R-java-devel", deps))) {
     inst <- grep("R CMD INSTALL", tpl)
     tpl[inst] <- paste0("%{_bindir}/R CMD javareconf -e '", tpl[inst], "'")
   }
-  
+
   tpl
 }

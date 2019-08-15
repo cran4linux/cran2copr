@@ -12,15 +12,15 @@ n <- length(unlist(blist))
 
 for (pkgs in blist) {
   message("Building ", length(pkgs), " packages of ", n, " remaining...")
-  
+
   pkgs <- paste0(getOption("copr.prefix"), pkgs)
-  
+
   ids <- sapply(pkgs, build_pkg)
   res <- watch_builds(ids)
-  
+
   if (any(res))
     stop("Some builds failed:\n",
          paste("  Build", ids[res], "for", pkgs[res], "failed", collapse="\n"))
-  
+
   n <- n - length(pkgs)
 }
