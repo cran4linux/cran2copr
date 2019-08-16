@@ -149,7 +149,8 @@ pkg_files <- function(pkg, path) {
 
   # exceptions
   files <- c(files, switch(
-    pkg, stringi="include", readr="rcon", processx=,ps=,zip="bin", StanHeaders="lib"))
+    pkg, stringi="include", readr="rcon", processx=,ps=,zip="bin", maps="maps",
+    Rttf2pt1="exec", StanHeaders="lib"))
 
   files <- paste0("%{rlibdir}/%{packname}/", files)
   files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
@@ -212,7 +213,8 @@ pkg_deps <- function(desc) {
   x <- c(x, paste0("BuildRequires:    R-devel", rver))
   x <- c(x, paste0("Requires:         R-core", rver))
 
-  if (!isTRUE(desc$NeedsCompilation == "yes"))
+  old_nc <- c("proj4", "pdist")
+  if (!isTRUE(desc$NeedsCompilation == "yes") && !desc$Package %in% old_nc)
     x <- c(x, "BuildArch:        noarch")
 
   if (nrow(deps)) {
@@ -240,7 +242,11 @@ create_spec <- function(pkg, tarfile) {
       "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
     askpass = {
       unlink(dir(file.path(tempdir(), pkg, "inst"), "^mac.*", full.names=TRUE))
-      "rm -f %{packname}/inst/mac*" }
+      "rm -f %{packname}/inst/mac*" },
+    RUnit = paste(
+      "sed -i '/Sexpr/d' %{packname}/man/checkFuncs.Rd\n",
+      "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
+      "%{packname}/man/checkFuncs.Rd")
   ))
 
   # fields
