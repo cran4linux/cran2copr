@@ -149,8 +149,8 @@ pkg_files <- function(pkg, path) {
 
   # exceptions
   files <- c(files, switch(
-    pkg, stringi="include", readr="rcon", processx=,ps=,zip="bin", maps="maps",
-    Rttf2pt1="exec", StanHeaders="lib"))
+    pkg, stringi="include", readr="rcon", processx=,ps=,zip="bin", maps="mapdata",
+    Rttf2pt1="exec", RcppParallel=,StanHeaders="lib"))
 
   files <- paste0("%{rlibdir}/%{packname}/", files)
   files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
@@ -246,8 +246,14 @@ create_spec <- function(pkg, tarfile) {
     RUnit = paste(
       "sed -i '/Sexpr/d' %{packname}/man/checkFuncs.Rd\n",
       "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
-      "%{packname}/man/checkFuncs.Rd")
+      "%{packname}/man/checkFuncs.Rd"),
+    rPython = "export RPYTHON_PYTHON_VERSION=3"
   ))
+  if (pkg %in% "rtweet") system(paste(
+    "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'",
+    file.path(tempdir(), pkg, "DESCRIPTION")))
+  if (pkg %in% "rgeolocate") system(paste(
+    "echo PKG_LDFLAGS = -lrt >>", file.path(tempdir(), pkg, "src/Makevars.in")))
 
   # fields
   desc <- read.dcf(file.path(tempdir(), pkg, "DESCRIPTION"))
