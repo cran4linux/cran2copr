@@ -11,7 +11,8 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-BuildRequires:    optional: libsecret on linux (libsecret-1-dev on
+BuildRequires:    libsecret-devel
+Requires:         libsecret
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-assertthat 
