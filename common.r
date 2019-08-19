@@ -183,9 +183,6 @@ pkg_files <- function(pkg, path) {
 }
 
 .sys_deps <- function(desc) {
-  if (!"SystemRequirements" %in% colnames(desc))
-    return(character(0))
-
   deps <- read.csv("sysreqs.csv", na.strings="", stringsAsFactors=FALSE)
   deps <- deps[deps$pkg == desc$Package,]
   if (!nrow(deps))
