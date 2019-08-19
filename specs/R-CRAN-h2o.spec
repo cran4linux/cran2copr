@@ -10,6 +10,7 @@ Summary:          R Interface for 'H2O'
 License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+Source1:          https://s3.amazonaws.com/h2o-release/h2o/rel-yau/2/Rjar/h2o.jar
 
 Requires:         java
 BuildRequires:    R-devel >= 2.13.0
@@ -41,11 +42,12 @@ machine learning algorithm (AutoML).
 
 %prep
 %setup -q -c -n %{packname}
-
+cp %{SOURCE1} %{packname}/inst/java
 
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

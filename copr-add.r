@@ -20,7 +20,7 @@ for (pkgs in blist) {
   pkgs <- paste0(getOption("copr.prefix"), pkgs)
   dest <- paste0(getOption("copr.subdir"), "/", pkgs, ".spec")
 
-  for (i in pkgs[!pkgs %in% get_copr_list()])
+  for (i in pkgs[!pkgs %in% list_pkgs()])
     add_pkg_scm(i)
   mapply(writeLines, spec, dest)
   ids <- sapply(dest, build_spec)

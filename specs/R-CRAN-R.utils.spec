@@ -1,32 +1,33 @@
-%global packname  ggstance
-%global packver   0.3.3
+%global packname  R.utils
+%global packver   2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          2.9.0
 Release:          1%{?dist}
-Summary:          Horizontal 'ggplot2' Components
+Summary:          Various Programming Utilities
 
-License:          GPL-3
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-R.methodsS3 >= 1.7.1
+BuildRequires:    R-CRAN-R.oo >= 1.22.0
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-R.methodsS3 >= 1.7.1
+Requires:         R-CRAN-R.oo >= 1.22.0
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-tools 
 
 %description
-A 'ggplot2' extension that provides flipped components: horizontal
-versions of 'Stats' and 'Geoms', and vertical versions of 'Positions'.
+Utility functions useful when programming and developing R packages.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +49,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/data-ex
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

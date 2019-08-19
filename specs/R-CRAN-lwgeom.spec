@@ -1,32 +1,39 @@
-%global packname  rgeolocate
-%global packver   1.0.1
+%global packname  lwgeom
+%global packver   0.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.7
 Release:          1%{?dist}
-Summary:          IP Address Geolocation
+Summary:          Bindings to Selected 'liblwgeom' Functions for Simple Features
 
-License:          Apache License (== 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    geos-devel >= 3.3.0
+BuildRequires:    proj-devel >= 4.8.0
+Requires:         geos
+Requires:         proj
+Requires:         proj-nad
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-sf >= 0.6.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-units 
+Requires:         R-CRAN-sf >= 0.6.0
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-units 
 
 %description
-Connectors to online and offline sources for taking IP addresses and
-geolocating them to country, city, timezone and other geographic ranges.
-For individual connectors, see the package index.
+Access to selected functions found in 'liblwgeom'
+<https://github.com/postgis/postgis/tree/svn-trunk/liblwgeom>, the
+light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
 
 %prep
 %setup -q -c -n %{packname}
-echo "PKG_LIBS += -lrt" >> %{packname}/src/Makevars.in
+
 
 %build
 
@@ -44,9 +51,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/COPYRIGHTS
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

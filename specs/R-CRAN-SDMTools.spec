@@ -1,32 +1,35 @@
-%global packname  rgeolocate
-%global packver   1.0.1
+%global packname  SDMTools
+%global packver   1.1-221.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.221.1
 Release:          1%{?dist}
-Summary:          IP Address Geolocation
+Summary:          Species Distribution Modelling Tools: Tools for processing dataassociated with species distribution modelling exercises
 
-License:          Apache License (== 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-R.utils 
+Requires:         R-CRAN-R.utils 
 
 %description
-Connectors to online and offline sources for taking IP addresses and
-geolocating them to country, city, timezone and other geographic ranges.
-For individual connectors, see the package index.
+This packages provides a set of tools for post processing the outcomes of
+species distribution modeling exercises. It includes novel methods for
+comparing models and tracking changes in distributions through time. It
+further includes methods for visualizing outcomes, selecting thresholds,
+calculating measures of accuracy and landscape fragmentation statistics,
+etc.. This package was made possible in part by financial support from the
+Australian Research Council & ARC Research Network for Earth System
+Science.
 
 %prep
 %setup -q -c -n %{packname}
-echo "PKG_LIBS += -lrt" >> %{packname}/src/Makevars.in
+
 
 %build
 
@@ -44,9 +47,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

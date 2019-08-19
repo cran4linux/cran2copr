@@ -13,7 +13,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-magrittr >= 1.5.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-tibble >= 1.3.4
 BuildRequires:    R-CRAN-httr >= 1.3.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.22
@@ -21,7 +21,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-httpuv 
-Requires:         R-CRAN-magrittr >= 1.5.0
+Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-tibble >= 1.3.4
 Requires:         R-CRAN-httr >= 1.3.0
 Requires:         R-CRAN-jsonlite >= 0.9.22

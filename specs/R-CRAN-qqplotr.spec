@@ -1,31 +1,37 @@
-%global packname  benchmarkmeData
-%global packver   1.0.2
+%global packname  qqplotr
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.3
 Release:          1%{?dist}
-Summary:          Data Set for the 'benchmarkme' Package
+Summary:          Quantile-Quantile Plot Extensions for 'ggplot2'
 
-License:          GPL-2 | GPL-3
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-dplyr 
-Requires:         R-graphics 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-MASS 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Crowd sourced benchmarks from running the 'benchmarkme' package.
+Extensions of 'ggplot2' Q-Q plot functionalities.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,8 +53,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/shinyapps_io
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/shiny
 %{rlibdir}/%{packname}/INDEX

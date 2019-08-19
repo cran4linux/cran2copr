@@ -1,32 +1,28 @@
-%global packname  ggstance
-%global packver   0.3.3
+%global packname  linl
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.0.3
 Release:          1%{?dist}
-Summary:          Horizontal 'ggplot2' Components
+Summary:          'linl' is not 'Letter'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-knitr 
 
 %description
-A 'ggplot2' extension that provides flipped components: horizontal
-versions of 'Stats' and 'Geoms', and vertical versions of 'Positions'.
+A 'LaTeX' Letter class for 'rmarkdown', using the 'pandoc-letter' template
+adapted for use with 'markdown'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +44,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/NEWS.Rd
+%doc %{rlibdir}/%{packname}/rmarkdown
 %{rlibdir}/%{packname}/INDEX

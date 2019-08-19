@@ -165,6 +165,7 @@ pkg_files <- function(pkg, path) {
     desc[[i]] <- ""
 
   deps <- gsub("\n", " ", as.matrix(desc)[,keys])
+  deps <- gsub("compiler,*", "", deps)
   deps <- sub(",[[:space:]]*$", "", deps)
   deps <- strsplit(deps, ",[[:space:]]*")
   deps <- do.call(rbind, lapply(deps, function(i) {
@@ -226,7 +227,7 @@ pkg_deps <- function(desc) {
 pkg_exceptions <- function(tpl, pkg, root) {
   # top
   tpl <- c(switch(
-    pkg, StanHeaders=,reshape=,SIBER="%global debug_package %{nil}",
+    pkg, StanHeaders=,reshape=,SIBER=,bestglm="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -253,7 +254,7 @@ pkg_exceptions <- function(tpl, pkg, root) {
       "sed -i '/Sexpr/d' %{packname}/man/checkFuncs.Rd\n",
       "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
       "%{packname}/man/checkFuncs.Rd"),
-    rgeolocate = "echo \"LDFLAGS += -lrt\" >> %{packname}/src/Makevars.in",
+    rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
     h2o = "cp %{SOURCE1} %{packname}/inst/java"
   ))
 

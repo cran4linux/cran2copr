@@ -47,4 +47,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/README.md
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
-%doc %{rlibdir}/%{packname}/maps
+%{rlibdir}/%{packname}/mapdata

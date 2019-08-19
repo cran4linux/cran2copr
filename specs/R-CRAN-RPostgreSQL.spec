@@ -11,6 +11,9 @@ License:          GPL-2 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
+
+BuildRequires:    libpq-devel
+Requires:         libpq
 BuildRequires:    R-devel >= 2.9.0
 Requires:         R-core >= 2.9.0
 BuildRequires:    R-CRAN-DBI >= 0.3
@@ -35,6 +38,7 @@ used.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

@@ -1,32 +1,34 @@
-%global packname  ggstance
-%global packver   0.3.3
+%global packname  gdalUtils
+%global packver   2.0.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          2.0.1.14
 Release:          1%{?dist}
-Summary:          Horizontal 'ggplot2' Components
+Summary:          Wrappers for the Geospatial Data Abstraction Library (GDAL)Utilities
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+Requires:         gdal
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
 
 %description
-A 'ggplot2' extension that provides flipped components: horizontal
-versions of 'Stats' and 'Geoms', and vertical versions of 'Positions'.
+Wrappers for the Geospatial Data Abstraction Library (GDAL) Utilities.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/external
 %{rlibdir}/%{packname}/INDEX

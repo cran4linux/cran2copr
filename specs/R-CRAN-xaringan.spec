@@ -1,32 +1,38 @@
-%global packname  rgeolocate
-%global packver   1.0.1
+%global packname  xaringan
+%global packver   0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.11
 Release:          1%{?dist}
-Summary:          IP Address Geolocation
+Summary:          Presentation Ninja
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-httr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr >= 1.21
+BuildRequires:    R-CRAN-xfun >= 0.6
+BuildRequires:    R-CRAN-servr >= 0.13
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-knitr >= 1.21
+Requires:         R-CRAN-xfun >= 0.6
+Requires:         R-CRAN-servr >= 0.13
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Connectors to online and offline sources for taking IP addresses and
-geolocating them to country, city, timezone and other geographic ranges.
-For individual connectors, see the package index.
+Create HTML5 slides with R Markdown and the JavaScript library 'remark.js'
+(<https://remarkjs.com>).
 
 %prep
 %setup -q -c -n %{packname}
-echo "PKG_LIBS += -lrt" >> %{packname}/src/Makevars.in
+
 
 %build
 
@@ -43,10 +49,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/examples
+%doc %{rlibdir}/%{packname}/NEWS.Rd
+%doc %{rlibdir}/%{packname}/rmarkdown
+%doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

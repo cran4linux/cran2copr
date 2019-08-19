@@ -11,8 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-BuildRequires:    julia >= 0.6.0
-BuildRequires:    rcall.jl
+Requires:         julia
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-knitr >= 1.18

@@ -1,32 +1,37 @@
-%global packname  ggstance
-%global packver   0.3.3
+%global packname  rticles
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.9
 Release:          1%{?dist}
-Summary:          Horizontal 'ggplot2' Components
+Summary:          Article Formats for R Markdown
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    make
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-tinytex 
+BuildRequires:    R-CRAN-xfun 
+Requires:         R-utils 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-tinytex 
+Requires:         R-CRAN-xfun 
 
 %description
-A 'ggplot2' extension that provides flipped components: horizontal
-versions of 'Stats' and 'Geoms', and vertical versions of 'Positions'.
+A suite of custom R Markdown formats and templates for authoring journal
+articles and conference submissions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,4 +55,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/rmarkdown
 %{rlibdir}/%{packname}/INDEX

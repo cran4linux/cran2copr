@@ -11,7 +11,7 @@ License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-BuildRequires:    spark: 1.6.x or 2.x
+Requires:         java
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch

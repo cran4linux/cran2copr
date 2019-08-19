@@ -11,7 +11,8 @@ License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-BuildRequires:    python >= 2.7 and python headers and libraries
+BuildRequires:    python3-devel
+Requires:         python3
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-RJSONIO >= 0.7.3
@@ -28,6 +29,7 @@ from R.
 %build
 
 %install
+export RPYTHON_PYTHON_VERSION=3
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

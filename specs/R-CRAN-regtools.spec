@@ -1,32 +1,40 @@
-%global packname  rgeolocate
+%global packname  regtools
 %global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}
-Summary:          IP Address Geolocation
+Summary:          Regression Tools
 
-License:          Apache License (== 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-httr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-dummies 
+BuildRequires:    R-CRAN-car 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-dummies 
+Requires:         R-CRAN-car 
 
 %description
-Connectors to online and offline sources for taking IP addresses and
-geolocating them to country, city, timezone and other geographic ranges.
-For individual connectors, see the package index.
+Tools for linear, nonlinear and nonparametric regression and
+classification.  Parametric fit assessment using nonparametric methods.
+One vs. All and All vs. All multiclass classification.  Nonparametric
+regression for general dimension, locally-linear option.  Nonlinear
+regression with Eickert-White method for dealing with heteroscedasticity,
+k-NN for general dimension and general descriptive functions.
 
 %prep
 %setup -q -c -n %{packname}
-echo "PKG_LIBS += -lrt" >> %{packname}/src/Makevars.in
+
 
 %build
 
@@ -42,11 +50,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/README
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

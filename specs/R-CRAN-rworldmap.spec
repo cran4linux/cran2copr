@@ -1,32 +1,31 @@
-%global packname  ggstance
-%global packver   0.3.3
+%global packname  rworldmap
+%global packver   1.3-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.3.6
 Release:          1%{?dist}
-Summary:          Horizontal 'ggplot2' Components
+Summary:          Mapping Global Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-fields 
+Requires:         R-methods 
 
 %description
-A 'ggplot2' extension that provides flipped components: horizontal
-versions of 'Stats' and 'Geoms', and vertical versions of 'Positions'.
+Enables mapping of country level and gridded user datasets.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,8 +45,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

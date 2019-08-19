@@ -49,3 +49,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/tests
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
+%doc %{rlibdir}/%{packname}/lib
