@@ -226,14 +226,22 @@ pkg_deps <- function(desc) {
   x[!duplicated(x)]
 }
 
-create_spec <- function(pkg, tarfile) {
-  tpl <- readLines(getOption("copr.tpl"))
-  untar(tarfile, exdir=tempdir())
-
-  # exceptions
+pkg_exceptions <- function(tpl, pkg, root) {
+  # top
   tpl <- c(switch(
     pkg, StanHeaders=,reshape=,SIBER="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
+
+  # source
+  src <- grep("Source0", tpl)
+  tpl[src] <- paste0(tpl[src], "\n", switch(
+    h2o = paste0(
+      "Source1:          https://s3.amazonaws.com/h2o-release/h2o/",
+      readLines(file.path(tempdir(), "h2o/inst/branch.txt")), "/",
+      readLines(file.path(tempdir(), "h2o/inst/buildnum.txt")), "/Rjar/h2o.jar")
+  ))
+
+  # setup
   setup <- grep("%setup", tpl)
   tpl[setup] <- paste0(tpl[setup], "\n", switch(
     pkg,
@@ -241,23 +249,34 @@ create_spec <- function(pkg, tarfile) {
       "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'",
       "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
     askpass = {
-      unlink(dir(file.path(tempdir(), pkg, "inst"), "^mac.*", full.names=TRUE))
+      unlink(dir(file.path(root, "inst"), "^mac.*", full.names=TRUE))
       "rm -f %{packname}/inst/mac*" },
     RUnit = paste(
       "sed -i '/Sexpr/d' %{packname}/man/checkFuncs.Rd\n",
       "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
       "%{packname}/man/checkFuncs.Rd"),
-    rgeolocate = paste(
-      "echo \"PKG_LDFLAGS = -lrt\" >> %{packname}/src/Makevars.in")
+    rgeolocate = "echo \"LDFLAGS += -lrt\" >> %{packname}/src/Makevars.in",
+    h2o = "cp %{SOURCE1} %{packname}/inst/java"
   ))
+
+  # install
   install <- grep("%install", tpl)
   tpl[install] <- paste0(tpl[install], "\n", switch(
     pkg,
     rPython = "export RPYTHON_PYTHON_VERSION=3"
   ))
+
+  # other
   if (pkg %in% "rtweet") system(paste(
-    "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'",
-    file.path(tempdir(), pkg, "DESCRIPTION")))
+    "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'", file.path(root, "DESCRIPTION")))
+
+  tpl
+}
+
+create_spec <- function(pkg, tarfile) {
+  untar(tarfile, exdir=tempdir())
+  tpl <- readLines(getOption("copr.tpl"))
+  tpl <- pkg_exceptions(tpl, pkg, file.path(tempdir(), pkg))
 
   # fields
   desc <- read.dcf(file.path(tempdir(), pkg, "DESCRIPTION"))
