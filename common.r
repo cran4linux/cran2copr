@@ -149,8 +149,9 @@ pkg_files <- function(pkg, path) {
 
   # exceptions
   files <- c(files, switch(
-    pkg, stringi="include", readr="rcon", processx=,ps=,zip="bin", maps="mapdata",
-    Rttf2pt1="exec", RcppParallel=,StanHeaders="lib"))
+    pkg, stringi="include", readr="rcon", littler=,processx=,ps=,zip="bin",
+    maps="mapdata", Rttf2pt1="exec", RcppParallel=,StanHeaders=,RInside="lib",
+    pbdZMQ="etc"))
 
   files <- paste0("%{rlibdir}/%{packname}/", files)
   files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
@@ -211,7 +212,7 @@ pkg_deps <- function(desc) {
   x <- c(x, paste0("BuildRequires:    R-devel", rver))
   x <- c(x, paste0("Requires:         R-core", rver))
 
-  old_nc <- c("proj4", "pdist")
+  old_nc <- c("proj4", "pdist", "FMStable", "mlbench")
   if (!isTRUE(desc$NeedsCompilation == "yes") && !desc$Package %in% old_nc)
     x <- c(x, "BuildArch:        noarch")
 
@@ -227,7 +228,8 @@ pkg_deps <- function(desc) {
 pkg_exceptions <- function(tpl, pkg, root) {
   # top
   tpl <- c(switch(
-    pkg, StanHeaders=,reshape=,SIBER=,bestglm="%global debug_package %{nil}",
+    pkg,
+    StanHeaders=,reshape=,SIBER=,bestglm=,pbdRPC="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -255,7 +257,10 @@ pkg_exceptions <- function(tpl, pkg, root) {
       "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
       "%{packname}/man/checkFuncs.Rd"),
     rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
-    h2o = "cp %{SOURCE1} %{packname}/inst/java"
+    h2o = "cp %{SOURCE1} %{packname}/inst/java",
+    nws = paste(
+      "find %{packname}/inst -type f -exec",
+      "sed -Ei 's@#!/usr/bin/(env )*python@#!/usr/bin/python2@g' {} \\;")
   ))
 
   # install
@@ -263,6 +268,11 @@ pkg_exceptions <- function(tpl, pkg, root) {
   tpl[install] <- paste0(tpl[install], "\n", switch(
     pkg,
     rPython = "export RPYTHON_PYTHON_VERSION=3"
+  ))
+  install <- grep("CMD INSTALL", tpl)
+  tpl[install] <- paste0(tpl[install], switch(
+    pkg,
+    udunits2 = "\\\n  --configure-args='--with-udunits2-include=/usr/include/udunits2'"
   ))
 
   # other
