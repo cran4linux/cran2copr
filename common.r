@@ -237,8 +237,8 @@ pkg_exceptions <- function(tpl, pkg, root) {
   tpl[src] <- paste0(tpl[src], "\n", switch(
     h2o = paste0(
       "Source1:          https://s3.amazonaws.com/h2o-release/h2o/",
-      readLines(file.path(tempdir(), "h2o/inst/branch.txt")), "/",
-      readLines(file.path(tempdir(), "h2o/inst/buildnum.txt")), "/Rjar/h2o.jar")
+      readLines(file.path(root, "inst/branch.txt")), "/",
+      readLines(file.path(root, "inst/buildnum.txt")), "/Rjar/h2o.jar")
   ))
 
   # setup
