@@ -247,13 +247,17 @@ create_spec <- function(pkg, tarfile) {
       "sed -i '/Sexpr/d' %{packname}/man/checkFuncs.Rd\n",
       "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
       "%{packname}/man/checkFuncs.Rd"),
+    rgeolocate = paste(
+      "echo \"PKG_LDFLAGS = -lrt\" >> %{packname}/src/Makevars.in")
+  ))
+  install <- grep("%install", tpl)
+  tpl[install] <- paste0(tpl[install], "\n", switch(
+    pkg,
     rPython = "export RPYTHON_PYTHON_VERSION=3"
   ))
   if (pkg %in% "rtweet") system(paste(
     "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'",
     file.path(tempdir(), pkg, "DESCRIPTION")))
-  if (pkg %in% "rgeolocate") system(paste(
-    "echo PKG_LDFLAGS = -lrt >>", file.path(tempdir(), pkg, "src/Makevars.in")))
 
   # fields
   desc <- read.dcf(file.path(tempdir(), pkg, "DESCRIPTION"))
