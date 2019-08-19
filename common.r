@@ -235,6 +235,7 @@ pkg_exceptions <- function(tpl, pkg, root) {
   # source
   src <- grep("Source0", tpl)
   tpl[src] <- paste0(tpl[src], "\n", switch(
+    pkg,
     h2o = paste0(
       "Source1:          https://s3.amazonaws.com/h2o-release/h2o/",
       readLines(file.path(root, "inst/branch.txt")), "/",
