@@ -1,1 +1,12 @@
 BRugs
+cplexAPI
+gcbd
+av
+moveVis
+P2C2M
+trackdem
+RAppArmor
+Rblpapi
+Rcplex
+PythonInR
+SnakeCharmR
