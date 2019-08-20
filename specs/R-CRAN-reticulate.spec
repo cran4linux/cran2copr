@@ -4,14 +4,15 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to 'Python'
 
 License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-BuildRequires:    python >= 2.7.0
+Requires:         python2
+Requires:         python3
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
