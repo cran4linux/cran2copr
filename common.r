@@ -111,7 +111,8 @@ get_build_list <- function(pkgs, cran=available.packages()) {
 }
 
 get_copr_list <- function(subset) {
-  pkgs <- sub(getOption("copr.prefix"), "", list_pkgs())
+  pkgs <- grep(getOption("copr.prefix"), list_pkgs(), value=TRUE)
+  pkgs <- sub(getOption("copr.prefix"), "", pkgs)
   if (missing(subset) || "--all" %in% subset)
     return(pkgs)
   avail <- subset %in% pkgs
