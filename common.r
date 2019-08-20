@@ -76,6 +76,7 @@ with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
   if (!length(pkgs)) return(list())
 
   base <- rownames(installed.packages(priority="high"))
+  excl <- unlist(sapply(dir(pattern="excl-.*\\.txt"), readLines))
   pkgs <- setdiff(pkgs, base)
 
   avail <- pkgs %in% cran[,"Package"]
@@ -84,12 +85,24 @@ with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
             " because they are not on CRAN", call.=FALSE)
   pkgs <- pkgs[avail]
 
+  avail <- !pkgs %in% excl
+  if (any(!avail))
+    warning("ignoring ", paste(pkgs[!avail], collapse=", "),
+            " because they are exclusions", call.=FALSE)
+  pkgs <- pkgs[avail]
+
   deps <- tools::package_dependencies(pkgs, db=cran, recursive=TRUE, reverse=reverse)
 
   avail <- sapply(deps, function(i) all(setdiff(i, base) %in% cran[,"Package"]))
   if (any(!avail))
     warning("ignoring ", paste(names(avail)[!avail], collapse=", "),
             " because one or more dependencies are not on CRAN", call.=FALSE)
+  deps <- deps[avail]
+
+  avail <- sapply(deps, function(i) all(!setdiff(i, base) %in% excl))
+  if (any(!avail))
+    warning("ignoring ", paste(names(avail)[!avail], collapse=", "),
+            " because one or more dependencies are exclusions", call.=FALSE)
   deps <- deps[avail]
 
   setdiff(unique(c(names(deps), unlist(deps))), base)
