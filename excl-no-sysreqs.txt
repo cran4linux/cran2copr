@@ -10,3 +10,4 @@ Rblpapi
 Rcplex
 PythonInR
 SnakeCharmR
+RGtk2
