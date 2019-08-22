@@ -6,6 +6,7 @@ check_copr()
 
 args <- get_args("Usage: ", script_name(), " pkg1 [pkg2 ...]")
 
+copr <- list_pkgs()
 cran <- available.packages()
 pkgs <- with_deps(args, cran)
 pkgs <- pkgs[need_update(pkgs, cran)]
@@ -15,15 +16,18 @@ n <- length(unlist(blist))
 for (pkgs in blist) {
   message("Building ", length(pkgs), " packages of ", n, " remaining...")
 
-  tars <- download.packages(pkgs, tempdir(), cran)[,2]
-  spec <- mapply(create_spec, pkgs, tars, SIMPLIFY=FALSE)
-  pkgs <- paste0(getOption("copr.prefix"), pkgs)
-  dest <- paste0(getOption("copr.subdir"), "/", pkgs, ".spec")
+  ids <- sapply(pkgs, function(pkg) {
+    tarf <- download.packages(pkg, tempdir(), cran, quiet=TRUE)
+    spec <- create_spec(pkg, tarf[,2])
+    pkg <- paste0(getOption("copr.prefix"), pkg)
+    dest <- paste0(getOption("copr.subdir"), "/", pkg, ".spec")
+    if (!pkg %in% copr) add_pkg_scm(pkg)
+    writeLines(spec, dest)
+    build_spec(dest)
+  })
 
-  for (i in pkgs[!pkgs %in% list_pkgs()])
-    add_pkg_scm(i)
-  mapply(writeLines, spec, dest)
-  ids <- sapply(dest, build_spec)
+  message("Waiting for ", length(pkgs), " packages of ", n, " remaining...")
+
   res <- watch_builds(ids)
 
   if (any(res))

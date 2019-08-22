@@ -10,7 +10,7 @@ get_args <- function(...) {
   args
 }
 
-copr <- function(...) {
+copr_call <- function(...) {
   copr.cmd <- getOption("copr.cmd")
   if (Sys.which(copr.cmd) == "")
     stop("command '", copr.cmd, "' not found", call.=FALSE)
@@ -22,18 +22,18 @@ copr <- function(...) {
 }
 
 check_copr <- function() {
-  tryCatch(invisible(copr("whoami")), error=function(e)
+  tryCatch(invisible(copr_call("whoami")), error=function(e)
     stop("file '~/.config/copr' not found or outdated", call.=FALSE))
 }
 
 list_pkgs <- function() {
-  copr("list-package-names", getOption("copr.repo"))
+  copr_call("list-package-names", getOption("copr.repo"))
 }
 
 watch_builds <- function(ids) {
   if (!length(ids)) return(logical(0))
 
-  out <- try(copr("watch-build", paste(ids, collapse=" ")), silent=TRUE)
+  out <- try(copr_call("watch-build", paste(ids, collapse=" ")), silent=TRUE)
   if (class(out) == "try-error") out <- strsplit(out, "\n")[[1]]
   sapply(ids, function(i) {
     build <- paste0(".* Build ", i, ": ")
@@ -44,7 +44,7 @@ watch_builds <- function(ids) {
 
 build_spec <- function(spec) {
   pkg <- sub("\\.spec", "", basename(spec))
-  out <- copr("build", "--nowait", getOption("copr.repo"), spec)
+  out <- copr_call("build", "--nowait", getOption("copr.repo"), spec)
   out <- grep("Created builds", out, value=TRUE)
   out <- as.numeric(strsplit(out, ": ")[[1]][2])
   message("  Build ", out, " for ", pkg, " created from SPEC")
@@ -52,7 +52,7 @@ build_spec <- function(spec) {
 }
 
 build_pkg <- function(pkg) {
-  out <- copr("build-package", "--nowait", getOption("copr.repo"), "--name", pkg)
+  out <- copr_call("build-package", "--nowait", getOption("copr.repo"), "--name", pkg)
   out <- grep("Created builds", out, value=TRUE)
   out <- as.numeric(strsplit(out, ": ")[[1]][2])
   message("  Build ", out, " for ", pkg, " created from repo")
@@ -60,7 +60,7 @@ build_pkg <- function(pkg) {
 }
 
 add_pkg_scm <- function(pkg) {
-  out <- copr(
+  out <- copr_call(
     "add-package-scm", getOption("copr.repo"), "--name", pkg,
     "--clone-url", getOption("copr.clone.url"),
     "--subdir", getOption("copr.subdir"), "--spec", paste0(pkg, ".spec"))
@@ -68,7 +68,7 @@ add_pkg_scm <- function(pkg) {
 }
 
 del_pkg_scm <- function(pkg) {
-  out <- copr("delete-package", getOption("copr.repo"), "--name", pkg)
+  out <- copr_call("delete-package", getOption("copr.repo"), "--name", pkg)
   message("  Package ", pkg, " removed")
 }
 
@@ -99,11 +99,13 @@ with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
             " because one or more dependencies are not on CRAN", call.=FALSE)
   deps <- deps[avail]
 
-  avail <- sapply(deps, function(i) all(!setdiff(i, base) %in% excl))
-  if (any(!avail))
-    warning("ignoring ", paste(names(avail)[!avail], collapse=", "),
-            " because one or more dependencies are exclusions", call.=FALSE)
-  deps <- deps[avail]
+  if (!reverse) {
+    avail <- sapply(deps, function(i) all(!setdiff(i, base) %in% excl))
+    if (any(!avail))
+      warning("ignoring ", paste(names(avail)[!avail], collapse=", "),
+              " because one or more dependencies are exclusions", call.=FALSE)
+    deps <- deps[avail]
+  }
 
   setdiff(unique(c(names(deps), unlist(deps))), base)
 }
@@ -153,6 +155,11 @@ pkg_files <- function(pkg, path) {
   nodocs <- "DESCRIPTION|INDEX|NAMESPACE|/R$|libs|data|include|LICEN"
   license <- "LICEN"
 
+  instignore <- file.path(path, ".Rinstignore")
+  if (file.exists(instignore))
+    unlink(unlist(sapply(setdiff(readLines(instignore), ""), function(i)
+      dir(file.path(path, "inst"), i, full.names=TRUE, recursive=TRUE))))
+
   files <- grep(topdir, dir(path), value=TRUE)
   files <- c(files, dir(file.path(path, "inst")))
 
@@ -163,9 +170,10 @@ pkg_files <- function(pkg, path) {
 
   # exceptions
   files <- c(files, switch(
-    pkg, stringi="include", readr="rcon", littler=,processx=,ps=,zip="bin",
-    maps="mapdata", Rttf2pt1="exec", RcppParallel=,StanHeaders=,RInside="lib",
-    pbdZMQ="etc"))
+    pkg, stringi="include", readr="rcon", maps="mapdata", Rttf2pt1="exec",
+    littler=,processx=,ps=,zip=,phylocomr=,arulesSequences="bin",
+    RcppParallel=,StanHeaders=,RInside="lib",
+    pbdZMQ="etc", antiword=c("bin", "share")))
 
   files <- paste0("%{rlibdir}/%{packname}/", files)
   files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
@@ -181,13 +189,13 @@ pkg_files <- function(pkg, path) {
 
   deps <- gsub("\n", " ", as.matrix(desc)[,keys])
   deps <- gsub("compiler,*", "", deps)
-  deps <- sub(",[[:space:]]*$", "", deps)
-  deps <- strsplit(deps, ",[[:space:]]*")
+  deps <- sub("[[:space:]]*,[[:space:]]*$", "", deps)
+  deps <- strsplit(deps, "[[:space:]]*,[[:space:]]*")
   deps <- do.call(rbind, lapply(deps, function(i) {
     pkg <- trimws(sub("[[:space:]]*\\(.*\\)$", "", i))
     ver <- mapply(function(x, y) sub(x, "", y), pkg, i)
     ver <- sub("\\((.*)\\)", "\\1", ver)
-    ver <- sub("-", ".", ver)
+    ver <- gsub("-", ".", ver)
     data.frame(pkg=pkg, ver=ver, stringsAsFactors=FALSE)
   }))
   if (nrow(deps)) deps$ver <- paste0(" ", trimws(deps$ver))
@@ -226,15 +234,16 @@ pkg_deps <- function(desc) {
   x <- c(x, paste0("BuildRequires:    R-devel", rver))
   x <- c(x, paste0("Requires:         R-core", rver))
 
-  old_nc <- c("proj4", "pdist", "FMStable", "mlbench")
+  old_nc <- c("proj4", "pdist", "FMStable", "mlbench", "allelic", "apple",
+              "nnls", "fracdiff", "flashClust")
   if (!isTRUE(desc$NeedsCompilation == "yes") && !desc$Package %in% old_nc)
     x <- c(x, "BuildArch:        noarch")
 
-  if (nrow(deps)) {
+  if (nrow(deps))
     x <- c(x, paste0("BuildRequires:    ", deps$pkg, deps$ver))
-    deps <- deps[!grepl("LinkingTo", rownames(deps)),]
+  deps <- deps[!grepl("LinkingTo", rownames(deps)),]
+  if (nrow(deps))
     x <- c(x, paste0("Requires:         ", deps$pkg, deps$ver))
-  }
 
   x[!duplicated(x)]
 }
@@ -243,7 +252,8 @@ pkg_exceptions <- function(tpl, pkg, root) {
   # top
   tpl <- c(switch(
     pkg,
-    StanHeaders=,reshape=,SIBER=,bestglm=,pbdRPC="%global debug_package %{nil}",
+    StanHeaders=,reshape=,SIBER=,bestglm=,pbdRPC=,AGHmatrix=,anacor=,aspect=,
+    analogueExtra="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -272,7 +282,7 @@ pkg_exceptions <- function(tpl, pkg, root) {
       "%{packname}/man/checkFuncs.Rd"),
     rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
     h2o = "cp %{SOURCE1} %{packname}/inst/java",
-    nws = paste(
+    nws =, OpenMx = paste(
       "find %{packname}/inst -type f -exec",
       "sed -Ei 's@#!/usr/bin/(env )*python@#!/usr/bin/python2@g' {} \\;")
   ))
@@ -292,6 +302,8 @@ pkg_exceptions <- function(tpl, pkg, root) {
   # other
   if (pkg %in% "rtweet") system(paste(
     "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'", file.path(root, "DESCRIPTION")))
+  if (pkg %in% "abstractr") system(paste(
+    "sed -i 's/gridExtra (>= 2.3.0)/gridExtra (>= 2.3)/g'", file.path(root, "DESCRIPTION")))
 
   tpl
 }
@@ -311,7 +323,7 @@ create_spec <- function(pkg, tarfile) {
   tpl <- sub("\\{\\{prefix\\}\\}", getOption("copr.prefix"), tpl)
   tpl <- sub("\\{\\{packname\\}\\}", pkg, tpl)
   tpl <- sub("\\{\\{packver\\}\\}", desc$Version, tpl)
-  tpl <- sub("\\{\\{version\\}\\}", sub("-", ".", desc$Version), tpl)
+  tpl <- sub("\\{\\{version\\}\\}", gsub("-", ".", desc$Version), tpl)
   tpl <- sub("\\{\\{summary\\}\\}", gsub("\n", "", desc$Title), tpl)
   tpl <- sub("\\{\\{license\\}\\}", desc$License, tpl)
   tpl <- sub("\\{\\{dependencies\\}\\}", paste(deps, collapse="\n"), tpl)
