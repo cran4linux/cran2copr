@@ -1,15 +1,16 @@
 %global packname  rmarkdown
-%global packver   1.14
+%global packver   1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14
+Version:          1.15
 Release:          1%{?dist}
 Summary:          Dynamic Documents for R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 Requires:         pandoc >= 1.12.3
 BuildRequires:    R-devel >= 3.0
@@ -52,6 +53,7 @@ Convert R Markdown documents into a variety of formats.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
