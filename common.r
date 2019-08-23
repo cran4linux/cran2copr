@@ -249,7 +249,7 @@ pkg_deps <- function(desc) {
   x[!duplicated(x)]
 }
 
-pkg_exceptions <- function(tpl, pkg, root) {
+pkg_exceptions <- function(tpl, pkg, path) {
   # top
   tpl <- c(switch(
     pkg,
@@ -264,8 +264,8 @@ pkg_exceptions <- function(tpl, pkg, root) {
     pkg,
     h2o = paste0(
       "Source1:          https://s3.amazonaws.com/h2o-release/h2o/",
-      readLines(file.path(root, "inst/branch.txt")), "/",
-      readLines(file.path(root, "inst/buildnum.txt")), "/Rjar/h2o.jar"),
+      readLines(file.path(path, "inst/branch.txt")), "/",
+      readLines(file.path(path, "inst/buildnum.txt")), "/Rjar/h2o.jar"),
     rscala = paste0(
       "Source1:          https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz\n",
       "Source2:          https://github.com/sbt/sbt/releases/download/v1.2.8/sbt-1.2.8.tgz")
@@ -287,7 +287,7 @@ pkg_exceptions <- function(tpl, pkg, root) {
         "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'",
         "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
       askpass = {
-        unlink(dir(file.path(root, "inst"), "^mac.*", full.names=TRUE))
+        unlink(dir(file.path(path, "inst"), "^mac.*", full.names=TRUE))
         "rm -f %{packname}/inst/mac*" },
       RUnit = paste(
         "sed -i '/Sexpr/d' %{packname}/man/checkFuncs.Rd\n",
@@ -320,26 +320,27 @@ pkg_exceptions <- function(tpl, pkg, root) {
 
   # other
   if (pkg %in% "rtweet") system(paste(
-    "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'", file.path(root, "DESCRIPTION")))
+    "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'", file.path(path, "DESCRIPTION")))
   if (pkg %in% "abstractr") system(paste(
-    "sed -i 's/gridExtra (>= 2.3.0)/gridExtra (>= 2.3)/g'", file.path(root, "DESCRIPTION")))
+    "sed -i 's/gridExtra (>= 2.3.0)/gridExtra (>= 2.3)/g'", file.path(path, "DESCRIPTION")))
   if (pkg %in% "adapr")
-    unlink(file.path(root, "data"))
+    unlink(file.path(path, "data"))
 
   tpl
 }
 
 create_spec <- function(pkg, tarfile) {
   untar(tarfile, exdir=tempdir())
+  path <- file.path(tempdir(), pkg)
   tpl <- readLines(getOption("copr.tpl"))
-  tpl <- pkg_exceptions(tpl, pkg, file.path(tempdir(), pkg))
+  tpl <- pkg_exceptions(tpl, pkg, path)
 
   # fields
-  desc <- read.dcf(file.path(tempdir(), pkg, "DESCRIPTION"))
+  desc <- read.dcf(file.path(path, "DESCRIPTION"))
   desc <- as.data.frame(desc, stringsAsFactors=FALSE)
   deps <- pkg_deps(desc)
   description <- strwrap(desc$Description, 75)
-  files <- pkg_files(pkg, file.path(tempdir(), pkg))
+  files <- pkg_files(pkg, path)
 
   tpl <- sub("\\{\\{prefix\\}\\}", getOption("copr.prefix"), tpl)
   tpl <- sub("\\{\\{packname\\}\\}", pkg, tpl)
