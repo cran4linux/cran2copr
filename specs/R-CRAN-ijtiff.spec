@@ -14,6 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    libtiff-devel
 Requires:         libtiff
+BuildRequires:    libjpeg-turbo-devel
+Requires:         libjpeg-turbo
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-CRAN-filesstrings >= 3.1.5

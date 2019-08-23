@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 1.10.0
 Requires:         R-core >= 1.10.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-waveslim 
 Requires:         R-CRAN-waveslim 
 

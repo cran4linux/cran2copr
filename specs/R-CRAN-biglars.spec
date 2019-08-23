@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
 BuildRequires:    R-CRAN-ff 
 Requires:         R-CRAN-ff 
 

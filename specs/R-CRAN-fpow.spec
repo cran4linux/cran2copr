@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.14.1
 Requires:         R-core >= 2.14.1
-BuildArch:        noarch
 
 %description
 Returns the noncentrality parameter of the noncentral F distribution if

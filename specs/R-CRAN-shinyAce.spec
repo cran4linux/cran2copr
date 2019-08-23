@@ -26,7 +26,7 @@ Shiny.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname}/inst -type f -exec chmod a-x {} \;
 
 %build
 

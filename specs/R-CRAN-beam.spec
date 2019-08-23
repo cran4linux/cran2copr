@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 %global packname  beam
 %global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library

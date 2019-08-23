@@ -14,6 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    glpk-devel >= 4.42
 Requires:         glpk
+BuildRequires:    gmp-devel
+Requires:         gmp
 BuildRequires:    R-devel >= 2.6.0
 Requires:         R-core >= 2.6.0
 BuildRequires:    R-methods 

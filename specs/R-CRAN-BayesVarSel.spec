@@ -11,7 +11,8 @@ License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-
+BuildRequires:    gsl-devel
+Requires:         gsl
 BuildRequires:    R-devel >= 3.3.2
 Requires:         R-core >= 3.3.2
 BuildRequires:    R-MASS >= 7.3.45

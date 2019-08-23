@@ -10,10 +10,11 @@ Summary:          Bridge Between 'R' and 'Scala' with Callbacks
 License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+Source1:          https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz
+Source2:          https://github.com/sbt/sbt/releases/download/v1.2.8/sbt-1.2.8.tgz
 
-
+BuildRequires:    java
 Requires:         java
-Requires:         scala >= 2.11
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
@@ -27,8 +28,10 @@ that access 'Scala'. After installation, please run
 'rscala::scalaConfig()'.
 
 %prep
-%setup -q -c -n %{packname}
-
+%setup -q -c -n %{packname} -a 1 -a 2
+mkdir %{packname}/inst/dependencies
+mv scala* %{packname}/inst/dependencies/scala
+mv sbt* %{packname}/inst/dependencies/sbt
 
 %build
 
@@ -56,3 +59,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/java
 %doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX
+%doc %{rlibdir}/%{packname}/dependencies

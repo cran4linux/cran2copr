@@ -11,7 +11,7 @@ License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-
+BuildRequires:    R-java-devel
 BuildRequires:    make
 BuildRequires:    R-devel >= 2.4.0
 Requires:         R-core >= 2.4.0
@@ -30,7 +30,7 @@ implementation. Simple AWT and Swing implementations are included.
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD javareconf -e '%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}'
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 %global packname  BNPdensity
 %global packver   2019.7.9
 %global rlibdir   /usr/local/lib/R/library

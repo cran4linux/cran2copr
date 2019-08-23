@@ -41,7 +41,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

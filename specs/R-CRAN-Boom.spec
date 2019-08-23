@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 %global packname  Boom
 %global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
@@ -49,3 +50,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}/lib

@@ -12,6 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    xorg-x11-server-Xvfb
+BuildRequires:    bwidget
 Requires:         bwidget
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
@@ -33,9 +35,11 @@ referred to as 'cartoons', are provided.
 %build
 
 %install
-
+Xvfb :0 &
+XVFB_PID=$!
+export DISPLAY=:0
 mkdir -p %{buildroot}%{rlibdir}
-%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname} && kill $XVFB_PID
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

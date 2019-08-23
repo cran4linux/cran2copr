@@ -47,3 +47,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}/bin

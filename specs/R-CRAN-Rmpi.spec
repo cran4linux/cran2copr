@@ -11,7 +11,8 @@ License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-
+BuildRequires:    openmpi-devel
+Requires:         openmpi
 BuildRequires:    R-devel >= 2.15.1
 Requires:         R-core >= 2.15.1
 BuildRequires:    R-parallel 
@@ -28,7 +29,7 @@ worker environment.
 %build
 
 %install
-
+%{_openmpi_load}
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

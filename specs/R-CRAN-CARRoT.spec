@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 %global packname  CARRoT
 %global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library

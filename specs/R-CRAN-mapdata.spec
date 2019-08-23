@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 %global packname  mapdata
 %global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
@@ -45,3 +46,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}/mapdata

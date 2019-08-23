@@ -14,6 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    cmake
 BuildRequires:    make
+BuildRequires:    fftw-devel
+Requires:         fftw
+BuildRequires:    soxr-devel
+Requires:         soxr
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-tuneR >= 1.3.0

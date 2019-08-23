@@ -151,7 +151,7 @@ need_update <- function(pkgs, cran=available.packages()) {
 }
 
 pkg_files <- function(pkg, path) {
-  topdir <- "^DESCRIPTION$|^NAMESPACE$|^LICEN(S|C)E$|^NEWS|^R$|data|demo|exec"
+  topdir <- "^DESCRIPTION$|^NAMESPACE$|^LICEN(S|C)E$|^NEWS|^R$|^data$|demo|exec"
   nodocs <- "DESCRIPTION|INDEX|NAMESPACE|/R$|libs|data|include|LICEN"
   license <- "LICEN"
 
@@ -170,10 +170,10 @@ pkg_files <- function(pkg, path) {
 
   # exceptions
   files <- c(files, switch(
-    pkg, stringi="include", readr="rcon", maps="mapdata", Rttf2pt1="exec",
-    littler=,processx=,ps=,zip=,phylocomr=,arulesSequences="bin",
-    RcppParallel=,StanHeaders=,RInside="lib",
-    pbdZMQ="etc", antiword=c("bin", "share")))
+    pkg, stringi="include", readr="rcon", maps=,mapdata="mapdata", Rttf2pt1="exec",
+    littler=,processx=,ps=,zip=,phylocomr=,arulesSequences=,brotli="bin",
+    RcppParallel=,StanHeaders=,RInside=,Boom="lib", rscala="dependencies",
+    pbdZMQ="etc", antiword=c("bin", "share"), TMB="Matrix-version"))
 
   files <- paste0("%{rlibdir}/%{packname}/", files)
   files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
@@ -235,7 +235,8 @@ pkg_deps <- function(desc) {
   x <- c(x, paste0("Requires:         R-core", rver))
 
   old_nc <- c("proj4", "pdist", "FMStable", "mlbench", "allelic", "apple",
-              "nnls", "fracdiff", "flashClust")
+              "nnls", "fracdiff", "flashClust", "biglars", "fpow", "mcclust",
+              "brainwaver")
   if (!isTRUE(desc$NeedsCompilation == "yes") && !desc$Package %in% old_nc)
     x <- c(x, "BuildArch:        noarch")
 
@@ -253,7 +254,8 @@ pkg_exceptions <- function(tpl, pkg, root) {
   tpl <- c(switch(
     pkg,
     StanHeaders=,reshape=,SIBER=,bestglm=,pbdRPC=,AGHmatrix=,anacor=,aspect=,
-    analogueExtra="%global debug_package %{nil}",
+    analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,
+    BNPdensity="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -263,39 +265,56 @@ pkg_exceptions <- function(tpl, pkg, root) {
     h2o = paste0(
       "Source1:          https://s3.amazonaws.com/h2o-release/h2o/",
       readLines(file.path(root, "inst/branch.txt")), "/",
-      readLines(file.path(root, "inst/buildnum.txt")), "/Rjar/h2o.jar")
+      readLines(file.path(root, "inst/buildnum.txt")), "/Rjar/h2o.jar"),
+    rscala = paste0(
+      "Source1:          https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz\n",
+      "Source2:          https://github.com/sbt/sbt/releases/download/v1.2.8/sbt-1.2.8.tgz")
   ))
 
   # setup
   setup <- grep("%setup", tpl)
-  tpl[setup] <- paste0(tpl[setup], "\n", switch(
-    pkg,
-    tcltk2 = paste(
-      "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'",
-      "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
-    askpass = {
-      unlink(dir(file.path(root, "inst"), "^mac.*", full.names=TRUE))
-      "rm -f %{packname}/inst/mac*" },
-    RUnit = paste(
-      "sed -i '/Sexpr/d' %{packname}/man/checkFuncs.Rd\n",
-      "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
-      "%{packname}/man/checkFuncs.Rd"),
-    rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
-    h2o = "cp %{SOURCE1} %{packname}/inst/java",
-    nws =, OpenMx = paste(
-      "find %{packname}/inst -type f -exec",
-      "sed -Ei 's@#!/usr/bin/(env )*python@#!/usr/bin/python2@g' {} \\;")
-  ))
+  tpl[setup] <- paste0(
+    tpl[setup], switch(
+      pkg,
+      rscala = " -a 1 -a 2"
+    ), "\n", switch(
+      pkg,
+      rscala = paste(
+        "mkdir %{packname}/inst/dependencies",
+        "mv scala* %{packname}/inst/dependencies/scala",
+        "mv sbt* %{packname}/inst/dependencies/sbt", sep="\n"),
+      tcltk2 = paste(
+        "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'",
+        "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
+      askpass = {
+        unlink(dir(file.path(root, "inst"), "^mac.*", full.names=TRUE))
+        "rm -f %{packname}/inst/mac*" },
+      RUnit = paste(
+        "sed -i '/Sexpr/d' %{packname}/man/checkFuncs.Rd\n",
+        "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
+        "%{packname}/man/checkFuncs.Rd"),
+      rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
+      h2o = "cp %{SOURCE1} %{packname}/inst/java",
+      nws =, OpenMx = paste(
+        "find %{packname}/inst -type f -exec",
+        "sed -Ei 's@#!/usr/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
+      shinyAce = "find %{packname}/inst -type f -exec chmod a-x {} \\;",
+      TMB = "sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R"
+    )
+  )
 
   # install
   install <- grep("%install", tpl)
   tpl[install] <- paste0(tpl[install], "\n", switch(
     pkg,
-    rPython = "export RPYTHON_PYTHON_VERSION=3"
+    rPython = "export RPYTHON_PYTHON_VERSION=3",
+    Rmpi = "%{_openmpi_load}",
+    rpanel = "Xvfb :0 &\nXVFB_PID=$!\nexport DISPLAY=:0"
   ))
   install <- grep("CMD INSTALL", tpl)
   tpl[install] <- paste0(tpl[install], switch(
     pkg,
+    rpanel = " && kill $XVFB_PID",
     udunits2 = "\\\n  --configure-args='--with-udunits2-include=/usr/include/udunits2'"
   ))
 

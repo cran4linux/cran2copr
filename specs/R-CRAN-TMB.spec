@@ -12,6 +12,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Requires:         gcc-c++
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-Matrix >= 1.0.12
@@ -37,7 +38,7 @@ through 'BLAS' and parallel user templates.
 
 %prep
 %setup -q -c -n %{packname}
-
+sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R
 
 %build
 
@@ -64,3 +65,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/template.cpp
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
+%doc %{rlibdir}/%{packname}/Matrix-version
