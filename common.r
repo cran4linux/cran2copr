@@ -254,7 +254,7 @@ pkg_exceptions <- function(tpl, pkg, root) {
   tpl <- c(switch(
     pkg,
     StanHeaders=,reshape=,SIBER=,bestglm=,pbdRPC=,AGHmatrix=,anacor=,aspect=,
-    analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,
+    analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,BANOVA=,
     BNPdensity="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
@@ -323,6 +323,8 @@ pkg_exceptions <- function(tpl, pkg, root) {
     "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'", file.path(root, "DESCRIPTION")))
   if (pkg %in% "abstractr") system(paste(
     "sed -i 's/gridExtra (>= 2.3.0)/gridExtra (>= 2.3)/g'", file.path(root, "DESCRIPTION")))
+  if (pkg %in% "adapr")
+    unlink(file.path(root, "data"))
 
   tpl
 }
