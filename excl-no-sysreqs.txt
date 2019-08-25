@@ -11,3 +11,4 @@ Rcplex
 PythonInR
 SnakeCharmR
 RGtk2
+Rmpi

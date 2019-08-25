@@ -236,7 +236,7 @@ pkg_deps <- function(desc) {
 
   old_nc <- c("proj4", "pdist", "FMStable", "mlbench", "allelic", "apple",
               "nnls", "fracdiff", "flashClust", "biglars", "fpow", "mcclust",
-              "brainwaver")
+              "brainwaver", "emoa")
   if (!isTRUE(desc$NeedsCompilation == "yes") && !desc$Package %in% old_nc)
     x <- c(x, "BuildArch:        noarch")
 
@@ -254,8 +254,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
   tpl <- c(switch(
     pkg,
     StanHeaders=,reshape=,SIBER=,bestglm=,pbdRPC=,AGHmatrix=,anacor=,aspect=,
-    analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,BANOVA=,
-    BNPdensity="%global debug_package %{nil}",
+    analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,BANOVA=,deisotoper=,
+    BNPdensity=,bcgam=,jmdl=,brglm2="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
