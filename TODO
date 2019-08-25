@@ -1,0 +1,28 @@
+# SPEC generation
+
+- RGtk2 requires pango < 1.44 at the moment, so it doesn't compile in rawhide
+- Rmpi requires libmpi.so.40()(ARCH), it should be libmpi.so.40()(ARCH)(openmpi)
+- it would be nice to provide -openmpi, -mpich, etc., packages, as described in
+  the packaging guidelines
+- some packages do not generate debuginfo (now, debug package disabled)
+  - StanHeaders generates a .a, and dependencies are statically linked against it
+  - others are marked as NeedsCompilation, but they don't, e.g., reshape
+- there are old packages that need compilation, but they don't have that in the
+  DESCRIPTION file, e.g., proj4 (now, hardcoded as old_nc)
+- some packages generate installed files or directories on the fly during the
+  installation, e.g., stringi, but these are hard to discover automatically
+  without actually installing the package
+- in general, need a better way to inject exceptions
+- there must be a better way to install rpanel
+- translate LICENSEs to Fedora format
+- detect which packages are in the main repos and depend on them, instead of
+  rebuilding everything in Copr
+
+# Copr operation
+
+- ability to fetch the status of packages per chroot
+- ability to rebuild packages in a particular chroot
+- ability to automatically relaunch builds that failed and do not require manual
+  inspection (i.e., when the failure is due to a server error, because the
+  builder wasn't able to fetch the repo metadata or some packages; aparently,
+  this is quite common))
