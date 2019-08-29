@@ -51,8 +51,10 @@ build_spec <- function(spec) {
   out
 }
 
-build_pkg <- function(pkg) {
-  out <- copr_call("build-package", "--nowait", getOption("copr.repo"), "--name", pkg)
+build_pkg <- function(pkg, chroots) {
+  chroots <- if (missing(chroots)) "" else paste("-r", chroots, collapse=" ")
+  out <- copr_call("build-package", "--nowait",
+                   getOption("copr.repo"), "--name", pkg, chroots)
   out <- grep("Created builds", out, value=TRUE)
   out <- as.numeric(strsplit(out, ": ")[[1]][2])
   message("  Build ", out, " for ", pkg, " created from repo")
