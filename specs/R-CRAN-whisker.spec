@@ -1,23 +1,23 @@
 %global packname  whisker
-%global packver   0.3-2
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4
 Release:          1%{?dist}
-Summary:          {{mustache}} for R, logicless templating
+Summary:          {{mustache}} for R, Logicless Templating
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 
 %description
-logicless templating, reuse templates in many programming languages
-including R
+Implements 'Mustache' logicless templating.
 
 %prep
 %setup -q -c -n %{packname}
@@ -26,6 +26,7 @@ including R
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

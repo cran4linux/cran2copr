@@ -1,9 +1,9 @@
 %global packname  bcrm
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}
 Summary:          Bayesian Continual Reassessment Method for Phase IDose-Escalation Trials
 
@@ -34,7 +34,8 @@ Requires:         R-CRAN-knitr
 Implements a wide variety of one- and two-parameter Bayesian CRM designs.
 The program can run interactively, allowing the user to enter outcomes
 after each cohort has been recruited, or via simulation to assess
-operating characteristics.
+operating characteristics. See Sweeting et al. (2013):
+<doi:10.18637/jss.v054.i13>.
 
 %prep
 %setup -q -c -n %{packname}

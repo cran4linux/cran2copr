@@ -1,15 +1,16 @@
 %global packname  raster
-%global packver   2.9-23
+%global packver   3.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.23
+Version:          3.0.2
 Release:          1%{?dist}
 Summary:          Geographic Data Analysis and Modeling
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
@@ -34,6 +35,7 @@ operations such as intersections. See the manual and tutorials on
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

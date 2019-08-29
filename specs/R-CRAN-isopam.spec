@@ -1,0 +1,51 @@
+%global packname  isopam
+%global packver   0.9-13
+%global rlibdir   /usr/local/lib/R/library
+
+Name:             R-CRAN-%{packname}
+Version:          0.9.13
+Release:          1%{?dist}
+Summary:          Isopam (Clustering)
+
+License:          GPL-2
+URL:              https://cran.r-project.org/package=%{packname}
+Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
+
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-cluster 
+Requires:         R-CRAN-vegan 
+Requires:         R-cluster 
+
+%description
+Isopam clustering algorithm and utilities. Isopam optimizes clusters and
+optionally cluster numbers in a brute force style and aims at an optimum
+separation by all or some descriptors (typically species).
+
+%prep
+%setup -q -c -n %{packname}
+
+
+%build
+
+%install
+
+mkdir -p %{buildroot}%{rlibdir}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+rm -f %{buildroot}%{rlibdir}/R.css
+
+%files
+%dir %{rlibdir}/%{packname}
+%doc %{rlibdir}/%{packname}/html
+%{rlibdir}/%{packname}/Meta
+%{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
+%{rlibdir}/%{packname}/DESCRIPTION
+%{rlibdir}/%{packname}/NAMESPACE
+%{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%{rlibdir}/%{packname}/INDEX
