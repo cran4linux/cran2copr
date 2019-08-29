@@ -16,6 +16,9 @@ for (pkgs in blist) {
   pkgs <- paste0(getOption("copr.prefix"), pkgs)
 
   ids <- sapply(pkgs, build_pkg)
+
+  message("Waiting for ", length(pkgs), " packages of ", n, " remaining...")
+
   res <- watch_builds(ids)
 
   if (any(res))

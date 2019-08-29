@@ -13,5 +13,7 @@ pkgs <- paste0(getOption("copr.prefix"), pkgs)
 
 message("Removing ", length(pkgs), " packages")
 
-for (pkg in pkgs) del_pkg_scm(pkg)
-unlink(paste0(getOption("copr.subdir"), "/", pkgs, ".spec"))
+for (pkg in pkgs) {
+  del_pkg_scm(pkg)
+  unlink(paste0(getOption("copr.subdir"), "/", pkg, ".spec"))
+}

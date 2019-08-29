@@ -156,9 +156,12 @@ pkg_files <- function(pkg, path) {
   license <- "LICEN"
 
   instignore <- file.path(path, ".Rinstignore")
-  if (file.exists(instignore))
-    unlink(unlist(sapply(setdiff(readLines(instignore), ""), function(i)
-      dir(file.path(path, "inst"), i, full.names=TRUE, recursive=TRUE))))
+  if (file.exists(instignore)) {
+    instignore <- suppressWarnings(readLines(instignore))
+    instignore <- setdiff(sub("^inst/", "", instignore), "")
+    unlink(unlist(sapply(instignore, function(i)
+      dir(file.path(path, "inst"), i, full.names=TRUE))), recursive=TRUE)
+  }
 
   files <- grep(topdir, dir(path), value=TRUE)
   files <- c(files, dir(file.path(path, "inst")))
@@ -170,10 +173,11 @@ pkg_files <- function(pkg, path) {
 
   # exceptions
   files <- c(files, switch(
-    pkg, stringi="include", readr="rcon", maps=,mapdata="mapdata", Rttf2pt1="exec",
-    littler=,processx=,ps=,zip=,phylocomr=,arulesSequences=,brotli="bin",
+    pkg, stringi=,dparser="include", readr="rcon", maps=,mapdata="mapdata",
+    littler=,processx=,ps=,zip=,phylocomr=,arulesSequences=,brotli=,cepreader="bin",
     RcppParallel=,StanHeaders=,RInside=,Boom="lib", rscala="dependencies",
-    pbdZMQ="etc", antiword=c("bin", "share"), TMB="Matrix-version"))
+    pbdZMQ="etc", antiword=c("bin", "share"), TMB="Matrix-version", icd="COPYING",
+    Rttf2pt1="exec", FastRWeb=c("Rcgi", "cgi-bin")))
 
   files <- paste0("%{rlibdir}/%{packname}/", files)
   files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
@@ -234,9 +238,14 @@ pkg_deps <- function(desc) {
   x <- c(x, paste0("BuildRequires:    R-devel", rver))
   x <- c(x, paste0("Requires:         R-core", rver))
 
-  old_nc <- c("proj4", "pdist", "FMStable", "mlbench", "allelic", "apple",
-              "nnls", "fracdiff", "flashClust", "biglars", "fpow", "mcclust",
-              "brainwaver", "emoa")
+  old_nc <- c(
+    "proj4", "pdist", "FMStable", "mlbench", "allelic", "apple", "nnls", "mlmmm",
+    "fracdiff", "flashClust", "biglars", "fpow", "mcclust", "brainwaver", "EL",
+    "emoa", "genepi", "EMC", "clusteval", "cgh", "lassoshooting", "ftnonpar",
+    "IndependenceTests", "imputeMDR", "hier.part", "factorQR", "dblcens", "ifa",
+    "datamap", "condmixt", "emdist", "exactLoglinTest", "darts", "coxrobust",
+    "ezglm", "fugeR", "GWASExactHW", "HybridMC", "identity", "ieeeround",
+    "JASPAR", "Kendall", "LogitNet", "endogMNP", "dpglasso")
   if (!isTRUE(desc$NeedsCompilation == "yes") && !desc$Package %in% old_nc)
     x <- c(x, "BuildArch:        noarch")
 
@@ -254,8 +263,10 @@ pkg_exceptions <- function(tpl, pkg, path) {
   tpl <- c(switch(
     pkg,
     StanHeaders=,reshape=,SIBER=,bestglm=,pbdRPC=,AGHmatrix=,anacor=,aspect=,
-    analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,BANOVA=,deisotoper=,
-    BNPdensity=,bcgam=,jmdl=,brglm2="%global debug_package %{nil}",
+    analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,BANOVA=,deisotoper=,cfa=,
+    BNPdensity=,bcgam=,jmdl=,brglm2=,FastRWeb=,HDDesign=,mQTL=,MHTmult=,dfped=,
+    intRegGOF=,idmTPreg=,fxtract=,doubcens=,IGG=,ITRLearn=,ITRSelect=,lcc=,
+    esmprep=,MBSP=,MOLHD=,isotone="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -295,9 +306,9 @@ pkg_exceptions <- function(tpl, pkg, path) {
         "%{packname}/man/checkFuncs.Rd"),
       rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
       h2o = "cp %{SOURCE1} %{packname}/inst/java",
-      nws =, OpenMx = paste(
+      nws=, OpenMx=, irace=, configr=, goldi= paste(
         "find %{packname}/inst -type f -exec",
-        "sed -Ei 's@#!/usr/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
+        "sed -Ei 's@#!( )*/usr/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
       shinyAce = "find %{packname}/inst -type f -exec chmod a-x {} \\;",
       TMB = "sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R"
     )
@@ -308,21 +319,27 @@ pkg_exceptions <- function(tpl, pkg, path) {
   tpl[install] <- paste0(tpl[install], "\n", switch(
     pkg,
     rPython = "export RPYTHON_PYTHON_VERSION=3",
-    Rmpi = "%{_openmpi_load}",
-    rpanel = "Xvfb :0 &\nXVFB_PID=$!\nexport DISPLAY=:0"
+    Rmpi = "%{_openmpi_load}"
   ))
   install <- grep("CMD INSTALL", tpl)
   tpl[install] <- paste0(tpl[install], switch(
     pkg,
-    rpanel = " && kill $XVFB_PID",
     udunits2 = "\\\n  --configure-args='--with-udunits2-include=/usr/include/udunits2'"
   ))
 
   # other
-  if (pkg %in% "rtweet") system(paste(
+  if (pkg %in% c("rtweet", "gunit", "ggasym", "facerec")) system(paste(
     "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'", file.path(path, "DESCRIPTION")))
   if (pkg %in% "abstractr") system(paste(
     "sed -i 's/gridExtra (>= 2.3.0)/gridExtra (>= 2.3)/g'", file.path(path, "DESCRIPTION")))
+  if (pkg %in% "cNORM") system(paste(
+    "sed -i 's/leaps (>= 3.0.0)/leaps (>= 3.0)/g'", file.path(path, "DESCRIPTION")))
+  if (pkg %in% "imgrec") system(paste(
+    "sed -i 's/jsonlite (>= 1.6.0)/jsonlite (>= 1.6)/g'", file.path(path, "DESCRIPTION")))
+  if (pkg %in% "facerec") system(paste(
+    "sed -i 's/jsonlite (>= 1.5.0)/jsonlite (>= 1.5)/g'", file.path(path, "DESCRIPTION")))
+  if (pkg %in% c("imgrec", "facerec")) system(paste(
+    "sed -i 's/knitr (>= 1.2.0)/knitr (>= 1.2)/g'", file.path(path, "DESCRIPTION")))
   if (pkg %in% "adapr")
     unlink(file.path(path, "data"))
 
@@ -356,6 +373,11 @@ create_spec <- function(pkg, tarfile) {
   if (any(grepl("BuildRequires:[[:space:]]+R-java-devel", deps))) {
     inst <- grep("R CMD INSTALL", tpl)
     tpl[inst] <- paste0("%{_bindir}/R CMD javareconf -e '", tpl[inst], "'")
+  }
+  # display
+  if (any(grepl("BuildRequires:[[:space:]]+xorg-x11-server-Xvfb", deps))) {
+    inst <- grep("R CMD INSTALL", tpl)
+    tpl[inst] <- paste("xvfb-run", tpl[inst])
   }
 
   tpl

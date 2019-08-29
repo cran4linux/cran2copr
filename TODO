@@ -13,7 +13,6 @@
   installation, e.g., stringi, but these are hard to discover automatically
   without actually installing the package
 - in general, need a better way to inject exceptions
-- there must be a better way to install rpanel
 - translate LICENSEs to Fedora format
 - detect which packages are in the main repos and depend on them, instead of
   rebuilding everything in Copr

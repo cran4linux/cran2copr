@@ -10,5 +10,9 @@ Rblpapi
 Rcplex
 PythonInR
 SnakeCharmR
+kmcudaR
 RGtk2
 Rmpi
+commonsMath
+googleformr
+gifski
