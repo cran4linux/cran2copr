@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8
-Release:          2%{?dist}
+Release:          1%{?dist}
 Summary:          Topic Models
 
 License:          GPL-2
