@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Loads Shapefiles of Official Spatial Data Sets of Brazil
 
 License:          MIT + file LICENSE
