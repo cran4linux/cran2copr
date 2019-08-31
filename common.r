@@ -310,9 +310,20 @@ pkg_exceptions <- function(tpl, pkg, path) {
       h2o = "cp %{SOURCE1} %{packname}/inst/java",
       nws=, OpenMx=, irace=, configr=, goldi= paste(
         "find %{packname}/inst -type f -exec",
-        "sed -Ei 's@#!( )*/usr/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
-      shinyAce = "find %{packname}/inst -type f -exec chmod a-x {} \\;",
-      TMB = "sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R"
+        "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
+      shinyAce=, googleComputeEngineR =
+        "find %{packname}/inst -type f -exec chmod a-x {} \\;",
+      TMB = "sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R",
+      excerptr = paste(
+        "find %{packname}/inst -type f -name *.cl -exec chmod a-x {} \\;\n",
+        "find %{packname}/inst -type f -exec",
+        "sed -Ei 's@#!( )*(/usr)*/bin/(env )*dash@#!/usr/bin/sh@g' {} \\;"),
+      funr = paste(
+        "find %{packname}/inst -type f -exec",
+        "sed -Ei 's@#!( )*(/usr)/bin/(env )*lr@#!/usr/bin/r@g' {} \\;"),
+      getopt = paste(
+        "find %{packname} -type f -exec",
+        "sed -Ei 's@/path/to/Rscript@/usr/bin/Rscript@g' {} \\;")
     )
   )
 

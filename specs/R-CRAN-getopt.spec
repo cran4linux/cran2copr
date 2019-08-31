@@ -27,7 +27,7 @@ positional argument support, etc.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname} -type f -exec sed -Ei 's@/path/to/Rscript@/usr/bin/Rscript@g' {} \;
 
 %build
 

@@ -24,7 +24,7 @@ from the shell.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname}/inst -type f -exec sed -Ei 's@#!( )*(/usr)/bin/(env )*lr@#!/usr/bin/r@g' {} \;
 
 %build
 

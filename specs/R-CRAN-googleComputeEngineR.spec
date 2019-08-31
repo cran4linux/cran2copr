@@ -35,7 +35,7 @@ instances, with templates for common R needs.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname}/inst -type f -exec chmod a-x {} \;
 
 %build
 

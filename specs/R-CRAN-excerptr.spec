@@ -26,7 +26,8 @@ This is an R interface to the python package 'excerpts'
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname}/inst -type f -name *.cl -exec chmod a-x {} \;
+ find %{packname}/inst -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*dash@#!/usr/bin/sh@g' {} \;
 
 %build
 

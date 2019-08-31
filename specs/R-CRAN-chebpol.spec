@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    fftw-devel >= 3.1.2
 BuildRequires:    gsl-devel
-Requires:         fttw
+Requires:         fftw
 Requires:         gsl
 BuildRequires:    R-devel
 Requires:         R-core
