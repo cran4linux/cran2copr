@@ -81,17 +81,19 @@ with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
   excl <- unlist(sapply(dir(pattern="excl-.*\\.txt"), readLines))
   pkgs <- setdiff(pkgs, base)
 
-  avail <- pkgs %in% cran[,"Package"]
-  if (any(!avail))
-    warning("ignoring ", paste(pkgs[!avail], collapse=", "),
-            " because they are not on CRAN", call.=FALSE)
-  pkgs <- pkgs[avail]
+  if (!reverse) {
+    avail <- pkgs %in% cran[,"Package"]
+    if (any(!avail))
+      warning("ignoring ", paste(pkgs[!avail], collapse=", "),
+              " because they are not on CRAN", call.=FALSE)
+    pkgs <- pkgs[avail]
 
-  avail <- !pkgs %in% excl
-  if (any(!avail))
-    warning("ignoring ", paste(pkgs[!avail], collapse=", "),
-            " because they are exclusions", call.=FALSE)
-  pkgs <- pkgs[avail]
+    avail <- !pkgs %in% excl
+    if (any(!avail))
+      warning("ignoring ", paste(pkgs[!avail], collapse=", "),
+              " because they are exclusions", call.=FALSE)
+    pkgs <- pkgs[avail]
+  }
 
   deps <- tools::package_dependencies(pkgs, db=cran, recursive=TRUE, reverse=reverse)
 
