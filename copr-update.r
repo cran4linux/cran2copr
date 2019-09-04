@@ -7,10 +7,16 @@ check_copr()
 args <- get_args("Usage: ", script_name(), " [--all | pkg1 ...]")
 
 cran <- available.packages()
-pkgs <- get_copr_list(args)
-pkgs <- pkgs[need_update(pkgs, cran)]
-pkgs <- with_deps(pkgs, cran)
-pkgs <- pkgs[need_update(pkgs, cran)]
+copr <- get_copr_list(args)
 
-if (length(pkgs))
-  system2("./copr-add.r", paste(pkgs, collapse=" "))
+pkgs <- split(copr, copr %in% cran[,"Package"])
+pkgs.del <- pkgs[["FALSE"]]
+pkgs.upd <- pkgs[["TRUE"]]
+pkgs.upd <- pkgs.upd[need_update(pkgs.upd, cran)]
+pkgs.upd <- with_deps(pkgs.upd, cran)
+pkgs.upd <- pkgs.upd[need_update(pkgs.upd, cran)]
+
+if (length(pkgs.del))
+  system2("./copr-del.r", paste(pkgs.del, collapse=" "))
+if (length(pkgs.upd))
+  system2("./copr-add.r", paste(pkgs.upd, collapse=" "))

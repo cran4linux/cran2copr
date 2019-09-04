@@ -146,9 +146,14 @@ get_spec_version <- function(spec) {
 }
 
 need_update <- function(pkgs, cran=available.packages()) {
+  indb <- cran[cran[,"Package"] %in% pkgs, "Version"]
+  if (length(indb) != length(pkgs))
+    stop("cannot update packages removed from CRAN")
+  nver <- package_version(indb[rank(pkgs)])
+
   spec <- paste0(getOption("copr.subdir"), "/", getOption("copr.prefix"), pkgs, ".spec")
   over <- package_version(sapply(spec, get_spec_version))
-  nver <- package_version(cran[cran[,"Package"] %in% pkgs, "Version"][rank(pkgs)])
+
   over < nver
 }
 
