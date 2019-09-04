@@ -1,9 +1,9 @@
 %global packname  fhidata
-%global packver   2019.6.24
+%global packver   2019.8.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2019.6.24
+Version:          2019.8.27
 Release:          1%{?dist}
 Summary:          Structural Data for Norway
 

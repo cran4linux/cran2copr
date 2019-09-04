@@ -1,9 +1,9 @@
 %global packname  mfe
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Meta-Feature Extractor
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-clusterCrit 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-infotheo 
 BuildRequires:    R-MASS 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-rrcov
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-cluster 
+Requires:         R-CRAN-clusterCrit 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-infotheo 
 Requires:         R-MASS 
@@ -42,10 +44,9 @@ recent characterization measures. By making available a large set of
 meta-feature extraction functions, tasks like comprehensive data
 characterization, deep data exploration and large number of Meta-Learning
 based data analysis can be performed. These concepts are described in the
-paper: Fabio Pinto, Carlos Soares, and Joao Mendes-Moreira. Towards
-automatic generation of metafeatures. In Pacific-Asia Conference on
-Knowledge Discovery and Data Mining (PAKDD), pages 215 - 226, 2016,
-<doi:10.1007/978-3-319-31753-3_18>.
+paper: Adriano Rivolli, Luis Garcia, Carlos Soares, Joaquin Vanschoren,
+and Andre de Carvalho. Towards Reproducible Empirical Research in
+Meta-Learning.
 
 %prep
 %setup -q -c -n %{packname}

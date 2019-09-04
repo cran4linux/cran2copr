@@ -1,9 +1,9 @@
 %global packname  fastNaiveBayes
-%global packver   1.1.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Extremely Fast Implementation of a Naive Bayes Classifier
 
@@ -28,16 +28,10 @@ making it suitable for both binary features, frequency counts, and
 numerical features. Another feature is the support of a mix of different
 event models. Only numerical variables are allowed, however, categorical
 variables can be transformed into dummies and used with the Bernoulli
-distribution. This implementation offers a huge performance gain compared
-to other implementations in R. The execution times were compared on a data
-set of tweets and this package was found to be around 283 to 34,841 times
-faster for the Bernoulli event models and 17 to 60 times faster for the
-Multinomial model. See the vignette for more details. For the Gaussian
-distribution this package was found to be between 2.8 and 1679 times
-faster. The implementation is largely based on the paper "A comparison of
-event models for Naive Bayes anti-spam e-mail filtering" written by K.M.
-Schneider (2003) <doi:10.3115/1067807>. Any issues can be submitted to:
-<https://github.com/mskogholt/fastNaiveBayes/issues>.
+distribution. The implementation is largely based on the paper "A
+comparison of event models for Naive Bayes anti-spam e-mail filtering"
+written by K.M. Schneider (2003) <doi:10.3115/1067807>. Any issues can be
+submitted to: <https://github.com/mskogholt/fastNaiveBayes/issues>.
 
 %prep
 %setup -q -c -n %{packname}

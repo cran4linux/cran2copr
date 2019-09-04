@@ -1,9 +1,9 @@
 %global packname  mma
-%global packver   8.0-0
+%global packver   9.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.0
+Version:          9.0.0
 Release:          1%{?dist}
 Summary:          Multiple Mediation Analysis
 
@@ -66,4 +66,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

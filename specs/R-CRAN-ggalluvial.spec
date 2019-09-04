@@ -1,9 +1,9 @@
 %global packname  ggalluvial
-%global packver   0.9.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}
 Summary:          Alluvial Diagrams in 'ggplot2'
 

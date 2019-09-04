@@ -1,23 +1,28 @@
-%global packname  gof
-%global packver   0.9.1
+%global debug_package %{nil}
+%global packname  GENEAread
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
-Release:          1%{?dist}
-Summary:          Model-diagnostics based on cumulative residuals
+Version:          2.0.7
+Release:          2%{?dist}
+Summary:          Package for Reading Binary Files
 
-License:          GPL
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-bitops 
+BuildRequires:    R-CRAN-mmap 
+Requires:         R-CRAN-bitops 
+Requires:         R-CRAN-mmap 
 
 %description
-Implementation of model-checking techniques for generalized linear models
-and linear structural equation models based on cumulative residuals
+Functions and analytics for GENEA-compatible accelerometer data into R
+objects. See topic 'GENEAread' for an introduction to the package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,12 +42,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/binfile
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  gitgadget
-%global packver   0.4.0
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.4
 Release:          1%{?dist}
 Summary:          Rstudio Addin for Version Control and Assignment Managementusing Git
 
@@ -17,21 +17,21 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 3.2
 BuildRequires:    R-CRAN-callr >= 2.0.4
+BuildRequires:    R-CRAN-usethis >= 1.5.1
 BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-usethis >= 1.4.0
 BuildRequires:    R-CRAN-shiny >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.6
-BuildRequires:    R-CRAN-shinyFiles >= 0.7.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-shinyFiles >= 0.7.3
 BuildRequires:    R-CRAN-rstudioapi >= 0.7
 BuildRequires:    R-CRAN-miniUI >= 0.1.1.1
 BuildRequires:    R-CRAN-markdown 
 Requires:         R-CRAN-curl >= 3.2
 Requires:         R-CRAN-callr >= 2.0.4
+Requires:         R-CRAN-usethis >= 1.5.1
 Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-usethis >= 1.4.0
 Requires:         R-CRAN-shiny >= 1.1.0
-Requires:         R-CRAN-dplyr >= 0.7.6
-Requires:         R-CRAN-shinyFiles >= 0.7.0
+Requires:         R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-shinyFiles >= 0.7.3
 Requires:         R-CRAN-rstudioapi >= 0.7
 Requires:         R-CRAN-miniUI >= 0.1.1.1
 Requires:         R-CRAN-markdown 

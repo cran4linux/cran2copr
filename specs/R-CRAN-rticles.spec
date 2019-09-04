@@ -1,9 +1,9 @@
 %global packname  rticles
-%global packver   0.9
+%global packver   0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.10
 Release:          1%{?dist}
 Summary:          Article Formats for R Markdown
 

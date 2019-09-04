@@ -1,9 +1,9 @@
 %global packname  DiPs
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Directional Penalties for Optimal Matching in ObservationalStudies
 
@@ -33,10 +33,8 @@ Improves the balance of optimal matching with near-fine balance by giving
 penalties on the unbalanced covariates with the unbalanced directions.
 Many directional penalties can also be viewed as Lagrange multipliers,
 pushing a matched sample in the direction of satisfying a linear
-constraint that would not be satisfied without penalization. Rosenbaum,
-P.R. (1989). <DOI:10.1080/01621459.1989.10478868>. Yang, D., Small, D. S.,
-Silber, J. H., and Rosenbaum, P. R. (2012).
-<DOI:10.1111/j.1541-0420.2011.01691.x>.
+constraint that would not be satisfied without penalization. Yu, R., and
+Rosenbaum, P. R. (2019). <doi:10.1111/biom.13098>.
 
 %prep
 %setup -q -c -n %{packname}

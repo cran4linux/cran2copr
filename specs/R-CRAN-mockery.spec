@@ -1,9 +1,9 @@
 %global packname  mockery
-%global packver   0.4.1.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1.1
+Version:          0.4.2
 Release:          1%{?dist}
 Summary:          Mocking Library for R
 
@@ -24,7 +24,7 @@ The two main functionalities of this package are creating mock objects
 originate in some other function. It can be used with any testing
 framework available for R. Mock objects can be injected with either this
 package's own stub() function or a similar with_mock() facility present in
-the testthat package.
+the 'testthat' package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,7 +47,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

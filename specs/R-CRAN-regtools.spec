@@ -1,36 +1,40 @@
 %global packname  regtools
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}
-Summary:          Regression Tools
+Summary:          Regression and Classification Tools
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-dummies 
-BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-dummies 
-Requires:         R-CRAN-car 
+Requires:         R-CRAN-sandwich 
 
 %description
 Tools for linear, nonlinear and nonparametric regression and
-classification.  Parametric fit assessment using nonparametric methods.
-One vs. All and All vs. All multiclass classification.  Nonparametric
-regression for general dimension, locally-linear option.  Nonlinear
-regression with Eickert-White method for dealing with heteroscedasticity,
-k-NN for general dimension and general descriptive functions.
+classification.  Novel graphical methods for assessment of parametric
+models using nonparametric methods. One vs. All and All vs. All multiclass
+classification, optional class probabilities adjustment.  Nonparametric
+regression (k-NN) for general dimension, local-linear option.  Nonlinear
+regression with Eickert-White method for dealing with heteroscedasticity.
+Utilities for converting time series to rectangular form.  Utilities for
+conversion between factors and indicator variables.  Some code related to
+"Statistical Regression and Classification: from Linear Models to Machine
+Learning", N. Matloff, 2017, CRC, ISBN 9781498710916.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,5 +59,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/images
 %doc %{rlibdir}/%{packname}/README
+%doc %{rlibdir}/%{packname}/vn.save
 %{rlibdir}/%{packname}/INDEX

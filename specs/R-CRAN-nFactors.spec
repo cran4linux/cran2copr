@@ -1,9 +1,9 @@
 %global packname  nFactors
-%global packver   2.3.3
+%global packver   2.3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.3.1
 Release:          1%{?dist}
 Summary:          Parallel Analysis and Non Graphical Solutions to the CattellScree Test
 

@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  Boom
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}
 Summary:          Bayesian Object Oriented Modeling
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-BH >= 1.65.0
 BuildRequires:    R-MASS 
 Requires:         R-MASS 
 
@@ -50,4 +49,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
-%{rlibdir}/%{packname}/lib
+%doc %{rlibdir}/%{packname}/lib

@@ -1,11 +1,11 @@
-%global packname  condmixt
-%global packver   1.0
+%global packname  sparsenet
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.3
 Release:          1%{?dist}
-Summary:          Conditional Density Estimation with Neural Network ConditionalMixtures
+Summary:          Fit Sparse Linear Regression Models via Nonconvex Optimization
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,12 +14,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-evd 
-Requires:         R-CRAN-evd 
+BuildRequires:    R-Matrix >= 1.0.6
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-shape 
+BuildRequires:    R-methods 
+Requires:         R-Matrix >= 1.0.6
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-shape 
+Requires:         R-methods 
 
 %description
-Conditional density estimation with mixtures for heavy-tailed
-distributions
+Efficient procedure for fitting regularization paths between L1 and L0,
+using the MC+ penalty of Zhang, C.H. (2010)<doi:10.1214/09-AOS729>.
+Implements the methodology described in Mazumder, Friedman and Hastie
+(2011) <DOI: 10.1198/jasa.2011.tm09738>. Sparsenet computes the
+regularization surface over both the family parameter and the tuning
+parameter by coordinate descent.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,5 +52,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/mortran
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

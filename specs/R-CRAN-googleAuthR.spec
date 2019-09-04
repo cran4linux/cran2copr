@@ -1,9 +1,9 @@
 %global packname  googleAuthR
-%global packver   0.8.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Authenticate and Create Google APIs
 
@@ -15,19 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.1.0
+BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-memoise >= 1.1.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.16
+BuildRequires:    R-CRAN-gargle >= 0.3.1
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.1.0
+Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-memoise >= 1.1.0
-Requires:         R-CRAN-jsonlite >= 0.9.16
+Requires:         R-CRAN-gargle >= 0.3.1
 Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 
 %description
@@ -64,7 +66,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/img
 %doc %{rlibdir}/%{packname}/js
 %doc %{rlibdir}/%{packname}/js_auth_demo
-%doc %{rlibdir}/%{packname}/jupyter
 %doc %{rlibdir}/%{packname}/rstudio
 %doc %{rlibdir}/%{packname}/server_side_auth_demo
 %doc %{rlibdir}/%{packname}/server_side_auth_function

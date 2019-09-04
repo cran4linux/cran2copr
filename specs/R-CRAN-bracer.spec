@@ -1,9 +1,9 @@
 %global packname  bracer
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Brace Expansions
 
@@ -20,7 +20,7 @@ Requires:         R-CRAN-stringr
 
 %description
 Performs brace expansions on strings.  Made popular by Unix shells, brace
-expansion allows users to quickly generate certain character vectors by
+expansion allows users to concisely generate certain character vectors by
 taking a single string and (recursively) expanding the comma-separated
 lists and double-period-separated integer and character sequences enclosed
 within braces in that string.  The double-period-separated numeric integer

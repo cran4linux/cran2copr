@@ -1,11 +1,11 @@
 %global packname  tinytest
-%global packver   0.9.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Lightweight but Feature Complete Unit Testing Framework
+Summary:          Lightweight and Feature Complete Unit Testing Framework
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,7 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
+Requires:         R-parallel 
 Requires:         R-utils 
 
 %description
@@ -25,7 +27,8 @@ treated as data that can be stored and manipulated. Test files are R
 scripts interspersed with test commands, that can be programmed over.
 Fully automated build-install-test sequence for packages. Skip tests when
 not run locally (e.g. on CRAN). Flexible and configurable output printing.
-Compare computed output with output stored with the package.
+Compare computed output with output stored with the package. Run tests in
+parallel. Extensible by other packages. Report side effects.
 
 %prep
 %setup -q -c -n %{packname}

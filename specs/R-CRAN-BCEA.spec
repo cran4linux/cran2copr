@@ -1,9 +1,9 @@
 %global packname  BCEA
-%global packver   2.3-1
+%global packver   2.3-1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.1.1
 Release:          1%{?dist}
 Summary:          Bayesian Cost Effectiveness Analysis
 

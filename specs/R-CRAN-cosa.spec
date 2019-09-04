@@ -1,9 +1,9 @@
 %global packname  cosa
-%global packver   1.2.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Bound Constrained Optimal Sample Allocation
 
@@ -15,15 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-msm >= 1.6.7
 BuildRequires:    R-CRAN-nloptr >= 1.0.4
+Requires:         R-CRAN-msm >= 1.6.7
 Requires:         R-CRAN-nloptr >= 1.0.4
 
 %description
-Implements bound constrained optimization of sample sizes in power
-analysis of multilevel regression discontinuity designs (MRDDs) and
-multilevel randomized trials (MRTs) with continuous outcomes. Bulus, M. &
-Dong, N. (2019). Bound Constrained Optimization of Sample Sizes Subject to
-Monetary Restrictions in Planning MRTs and MRDDs (Revise & Resubmit).
+Implements bound constrained optimal sample allocation (BCOSA) framework
+described in Bulus & Dong (2019) <doi:10.1080/00220973.2019.1636197> for
+power analysis of multilevel regression discontinuity designs (MRDDs) and
+multilevel randomized trials (MRTs) with continuous outcomes. Separate
+tools for statistical power and minimum detectable effect size
+computations are provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  forecastSNSTS
-%global packver   1.2-0
+%global packver   1.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Forecasting for Stationary and Non-Stationary Time Series
 
@@ -23,7 +23,8 @@ localised and iterated Yule-Walker estimates and empirical mean squared
 and absolute prediction errors for the resulting predictors. Also,
 functions to compute autocovariances for AR(p) processes, to simulate
 tvARMA(p,q) time series, and to verify an assumption from Kley et al.
-(2017), Preprint <http://personal.lse.ac.uk/kley/forecastSNSTS.pdf>.
+(2019), Electronic of Statistics, forthcoming. Preprint
+<arXiv:1611.04460>.
 
 %prep
 %setup -q -c -n %{packname}

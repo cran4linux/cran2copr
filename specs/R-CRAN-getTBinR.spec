@@ -1,9 +1,9 @@
 %global packname  getTBinR
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}
 Summary:          Access and Summarise World Health Organisation Tuberculosis data
 
@@ -17,27 +17,27 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.9.0
 BuildRequires:    R-CRAN-ggthemes >= 4.2.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
-BuildRequires:    R-CRAN-tibble >= 2.1.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
+BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-data.table >= 1.12.2
 BuildRequires:    R-CRAN-scales >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
-BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-viridis >= 0.5.1
-BuildRequires:    R-CRAN-rlang >= 0.3.4
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-plotly >= 4.9.0
 Requires:         R-CRAN-ggthemes >= 4.2.0
-Requires:         R-CRAN-ggplot2 >= 3.1.1
-Requires:         R-CRAN-tibble >= 2.1.2
+Requires:         R-CRAN-ggplot2 >= 3.2.1
+Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-scales >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-tidyr >= 0.8.3
-Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-viridis >= 0.5.1
-Requires:         R-CRAN-rlang >= 0.3.4
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.2
 
 %description

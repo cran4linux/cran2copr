@@ -1,9 +1,9 @@
 %global packname  dynsurv
-%global packver   0.3-6
+%global packver   0.3-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}
 Summary:          Dynamic Models for Survival Data
 
@@ -35,13 +35,16 @@ Requires:         R-survival
 Requires:         R-utils 
 
 %description
-Functions fitting time-varying coefficient models for interval censored
-and right censored survival data. Three major approaches are implemented:
-1) Bayesian Cox model with time-independent, time-varying or dynamic
-coefficients for right censored and interval censored data; 2) Spline
-based time-varying coefficient Cox model for right censored data; 3)
-Transformation model with time-varying coefficients for right censored
-data using estimating equations.
+Time-varying coefficient models for interval censored and right censored
+survival data including 1) Bayesian Cox model with time-independent,
+time-varying or dynamic coefficients for right censored and interval
+censored data studied by Sinha et al. (1999)
+<doi:10.1111/j.0006-341X.1999.00585.x> and Wang et al. (2013)
+<doi:10.1007/s10985-013-9246-8>, 2) Spline based time-varying coefficient
+Cox model for right censored data proposed by Perperoglou et al. (2006)
+<doi:10.1016/j.cmpb.2005.11.006>, and 3) Transformation model with
+time-varying coefficients for right censored data using estimating
+equations proposed by Peng and Huang (2007) <doi:10.1093/biomet/asm058>.
 
 %prep
 %setup -q -c -n %{packname}

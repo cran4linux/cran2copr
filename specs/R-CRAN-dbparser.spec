@@ -1,9 +1,9 @@
 %global packname  dbparser
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          'DrugBank' Database XML Parser
 
@@ -18,6 +18,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-odbc 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-RMariaDB 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
@@ -25,6 +27,8 @@ BuildRequires:    R-CRAN-XML
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-odbc 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-RMariaDB 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 

@@ -1,9 +1,9 @@
 %global packname  hBayesDM
-%global packver   0.7.2
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Hierarchical Bayesian Modeling of Decision-Making Tasks
 

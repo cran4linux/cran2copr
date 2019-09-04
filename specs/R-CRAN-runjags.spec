@@ -1,9 +1,9 @@
 %global packname  runjags
-%global packver   2.0.4-2
+%global packver   2.0.4-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4.2
+Version:          2.0.4.4
 Release:          1%{?dist}
 Summary:          Interface Utilities, Model Templates, Parallel Computing Methodsand Additional Distributions for MCMC Models in JAGS
 

@@ -1,9 +1,9 @@
 %global packname  lodi
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Limit of Detection Imputation for Single-Pollutant Models
 

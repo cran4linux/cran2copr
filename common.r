@@ -275,7 +275,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
     analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,BANOVA=,deisotoper=,cfa=,
     BNPdensity=,bcgam=,jmdl=,brglm2=,FastRWeb=,HDDesign=,mQTL=,MHTmult=,dfped=,
     intRegGOF=,idmTPreg=,fxtract=,doubcens=,IGG=,ITRLearn=,ITRSelect=,lcc=,
-    esmprep=,MBSP=,MOLHD=,isotone="%global debug_package %{nil}",
+    esmprep=,MBSP=,MOLHD=,isotone=,GENEAread="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source

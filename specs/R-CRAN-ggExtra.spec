@@ -1,15 +1,16 @@
 %global packname  ggExtra
-%global packver   0.8
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9
 Release:          1%{?dist}
 Summary:          Add Marginal Histograms to 'ggplot2', and More 'ggplot2'Enhancements
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 Requires:         pandoc
 BuildRequires:    R-devel >= 3.1.0
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-shiny >= 0.13.0
 BuildRequires:    R-CRAN-miniUI >= 0.1.1
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-R6 
 Requires:         R-grid >= 3.1.3
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-colourpicker >= 1.0
@@ -35,6 +37,7 @@ Requires:         R-CRAN-shiny >= 0.13.0
 Requires:         R-CRAN-miniUI >= 0.1.1
 Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-CRAN-R6 
 
 %description
 Collection of functions and layers to enhance 'ggplot2'. The flagship
@@ -48,6 +51,7 @@ histograms/boxplots/density plots to 'ggplot2' scatterplots.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

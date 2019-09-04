@@ -1,9 +1,9 @@
 %global packname  RODBC
-%global packver   1.3-15
+%global packver   1.3-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.15
+Version:          1.3.16
 Release:          1%{?dist}
 Summary:          ODBC Database Access
 

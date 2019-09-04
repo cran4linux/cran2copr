@@ -1,23 +1,24 @@
 %global packname  feather
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
-Release:          1%{?dist}
+Version:          0.3.4
+Release:          2%{?dist}
 Summary:          R Bindings to the Feather 'API'
 
 License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
+
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-hms 
+Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-hms 
 
 %description
@@ -31,6 +32,7 @@ designed for maximum speed.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

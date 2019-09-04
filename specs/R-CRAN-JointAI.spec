@@ -1,9 +1,9 @@
 %global packname  JointAI
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Joint Analysis and Imputation of Incomplete Data
 
@@ -39,7 +39,7 @@ framework. The package performs some preprocessing of the data and creates
 a 'JAGS' model, which will then automatically be passed to 'JAGS'
 <http://mcmc-jags.sourceforge.net> with the help of the package 'rjags'.
 It also provides summary and plotting functions for the output and allows
-to export imputed values.
+the user to export imputed values.
 
 %prep
 %setup -q -c -n %{packname}
@@ -64,5 +64,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

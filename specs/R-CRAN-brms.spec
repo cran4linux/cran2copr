@@ -1,9 +1,9 @@
 %global packname  brms
-%global packver   2.9.0
+%global packver   2.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          2.10.0
 Release:          1%{?dist}
 Summary:          Bayesian Regression Models using 'Stan'
 
@@ -11,16 +11,17 @@ License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
+
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shinystan >= 2.4.0
-BuildRequires:    R-CRAN-rstan >= 2.17.2
+BuildRequires:    R-CRAN-rstan >= 2.19.2
 BuildRequires:    R-CRAN-loo >= 2.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-mgcv >= 1.8.13
+BuildRequires:    R-CRAN-rstantools >= 1.5.1
 BuildRequires:    R-CRAN-bayesplot >= 1.5.0
-BuildRequires:    R-CRAN-rstantools >= 1.3.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-Matrix >= 1.1.1
 BuildRequires:    R-CRAN-bridgesampling >= 0.3.0
@@ -38,12 +39,12 @@ BuildRequires:    R-parallel
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-backports 
 Requires:         R-CRAN-shinystan >= 2.4.0
-Requires:         R-CRAN-rstan >= 2.17.2
+Requires:         R-CRAN-rstan >= 2.19.2
 Requires:         R-CRAN-loo >= 2.1.0
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-mgcv >= 1.8.13
+Requires:         R-CRAN-rstantools >= 1.5.1
 Requires:         R-CRAN-bayesplot >= 1.5.0
-Requires:         R-CRAN-rstantools >= 1.3.0
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-Matrix >= 1.1.1
 Requires:         R-CRAN-bridgesampling >= 0.3.0
@@ -75,8 +76,8 @@ regression. Prior specifications are flexible and explicitly encourage
 users to apply prior distributions that actually reflect their beliefs.
 Model fit can easily be assessed and compared with posterior predictive
 checks and leave-one-out cross-validation. References: Bürkner (2017)
-<doi:10.18637/jss.v080.i01>; Carpenter et al. (2017)
-<doi:10.18637/jss.v076.i01>.
+<doi:10.18637/jss.v080.i01>; Bürkner (2018) <doi:10.32614/RJ-2018-017>;
+Carpenter et al. (2017) <doi:10.18637/jss.v076.i01>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -85,6 +86,7 @@ checks and leave-one-out cross-validation. References: Bürkner (2017)
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

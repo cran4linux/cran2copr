@@ -1,9 +1,9 @@
 %global packname  GSED
-%global packver   2.4
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.5
 Release:          1%{?dist}
 Summary:          Group Sequential Enrichment Design
 
@@ -16,9 +16,11 @@ BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
 BuildRequires:    R-survival >= 2.37.7
+BuildRequires:    R-CRAN-R.utils >= 2.3.0
 BuildRequires:    R-CRAN-rootSolve >= 1.6.6
 BuildRequires:    R-CRAN-memoise >= 1.0.0
 Requires:         R-survival >= 2.37.7
+Requires:         R-CRAN-R.utils >= 2.3.0
 Requires:         R-CRAN-rootSolve >= 1.6.6
 Requires:         R-CRAN-memoise >= 1.0.0
 

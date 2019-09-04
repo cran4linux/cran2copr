@@ -1,9 +1,9 @@
 %global packname  glmmboot
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Bootstrap Resampling for Mixed Effects and Plain Models
 
@@ -22,11 +22,12 @@ Requires:         R-stats
 
 %description
 Performs bootstrap resampling for most models that update() works for.
-There are two main functions: BootGlmm() performs block resampling if
-random effects are present, and case resampling if not; BootCI() converts
-output from bootstrap model runs into confidence intervals and p-values.
-By default, BootGlmm() calls BootCI(). Package motivated by Humphrey and
-Swingley (2018) <arXiv:1805.08670>.
+There are two primary functions: bootstrap_model() performs block
+resampling if random effects are present, and case resampling if not;
+bootstrap_ci() converts output from bootstrap model runs into confidence
+intervals and p-values. By default, bootstrap_model() calls
+bootstrap_ci(). Package motivated by Humphrey and Swingley (2018)
+<arXiv:1805.08670>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  jmvconnect
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}
 Summary:          Connect to the 'jamovi' Statistical Spreadsheet
 
@@ -14,13 +14,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-jmvcore >= 0.9.5
+BuildRequires:    R-CRAN-jmvcore >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-jmvcore >= 0.9.5
+Requires:         R-CRAN-jmvcore >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-rappdirs 

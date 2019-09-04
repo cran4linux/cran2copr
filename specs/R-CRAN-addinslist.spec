@@ -1,9 +1,9 @@
 %global packname  addinslist
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}
 Summary:          Discover and Install Useful RStudio Addins
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-xml2 >= 0.1.2
 BuildRequires:    R-CRAN-DT >= 0.1
 BuildRequires:    R-CRAN-miniUI >= 0.1
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-shinyjs >= 0.6
@@ -34,7 +34,7 @@ Requires:         R-CRAN-xml2 >= 0.1.2
 Requires:         R-CRAN-DT >= 0.1
 Requires:         R-CRAN-miniUI >= 0.1
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-utils 
 

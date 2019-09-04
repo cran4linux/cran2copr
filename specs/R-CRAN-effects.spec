@@ -1,9 +1,9 @@
 %global packname  effects
-%global packver   4.1-1
+%global packver   4.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          4.1.2
 Release:          1%{?dist}
 Summary:          Effect Displays for Linear, Generalized Linear, and Other Models
 

@@ -1,9 +1,9 @@
 %global packname  LPCM
-%global packver   0.46-2
+%global packver   0.46-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.46.2
+Version:          0.46.3
 Release:          1%{?dist}
 Summary:          Local Principal Curve Methods
 

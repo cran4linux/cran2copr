@@ -1,9 +1,9 @@
 %global packname  lingtypology
-%global packver   1.0.13
+%global packver   1.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.13
+Version:          1.0.14
 Release:          1%{?dist}
 Summary:          Linguistic Typology and Mapping
 
@@ -12,31 +12,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-leaflet.minicharts 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rowr 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgeos 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-leaflet.minicharts 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-magrittr 
 Requires:         R-grDevices 
 Requires:         R-CRAN-rowr 
-Requires:         R-MASS 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgeos 
 
 %description
 Provides R with the Glottolog database <http://glottolog.org> and some

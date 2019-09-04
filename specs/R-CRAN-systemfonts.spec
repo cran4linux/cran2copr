@@ -1,32 +1,28 @@
-%global packname  CARrampsOcl
-%global packver   0.1.4
+%global packname  systemfonts
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Reparameterized and marginalized posterior sampling forconditional autoregressive models, OpenCL implementation
+Summary:          System Native Font Finding
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    make
-BuildRequires:    pocl-devel
-Requires:         pocl
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-OpenCL 
-BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-OpenCL 
-Requires:         R-CRAN-fields 
 
 %description
-This package fits Bayesian conditional autoregressive models for spatial
-and spatiotemporal data on a lattice.  It uses OpenCL kernels running on
-GPUs to perform rejection sampling to obtain independent samples from the
-joint posterior distribution of model parameters.
+Provides system native access to the font catalogue. As font handling
+varies between systems it is difficult to correctly locate installed fonts
+across different operating systems. The 'systemfonts' package provides
+bindings to the native libraries on Windows, macOS and Linux for finding
+font files that can then be used further by e.g. graphic devices. The main
+use is intended to be from compiled code but 'systemfonts' also provides
+access from R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,9 +42,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

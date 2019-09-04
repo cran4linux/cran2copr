@@ -1,10 +1,10 @@
 %global packname  ClinReport
-%global packver   0.9.1.13.1
+%global packver   0.9.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1.13.1
-Release:          1%{?dist}
+Version:          0.9.1.14
+Release:          2%{?dist}
 Summary:          Statistical Reporting for Scientific Publications,Epidemiological Studies and Clinical Trials
 
 License:          GPL-3
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-emmeans >= 1.3.2
 Requires:         R-CRAN-dplyr >= 0.8.0.1
 Requires:         R-CRAN-flextable >= 0.5.1
@@ -33,6 +35,8 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-reshape2 
 Requires:         R-utils 
 Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-car 
 
 %description
 Export to 'Microsoft Word' or R markdown documents nicely formatted tables
@@ -69,14 +73,13 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/clean.character.R
 %{rlibdir}/%{packname}/data.creation.R
+%{rlibdir}/%{packname}/data.RData
 %doc %{rlibdir}/%{packname}/dev_check_build.R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/global.report.frailty.R
-%doc %{rlibdir}/%{packname}/report.ae.R
 %doc %{rlibdir}/%{packname}/report.chisq.frailty.R
 %doc %{rlibdir}/%{packname}/report.frailty.R
 %doc %{rlibdir}/%{packname}/report.HR.frailty.R
 %doc %{rlibdir}/%{packname}/test.R
 %doc %{rlibdir}/%{packname}/TODO
-%doc %{rlibdir}/%{packname}/transpose.desc.R
 %{rlibdir}/%{packname}/INDEX

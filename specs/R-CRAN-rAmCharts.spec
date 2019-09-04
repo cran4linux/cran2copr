@@ -1,9 +1,9 @@
 %global packname  rAmCharts
-%global packver   2.1.10
+%global packver   2.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.10
+Version:          2.1.11
 Release:          1%{?dist}
 Summary:          JavaScript Charts Tool
 
