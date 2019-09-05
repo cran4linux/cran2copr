@@ -1,26 +1,27 @@
 %global packname  IrishDirectorates
-%global packver   0.2.0
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.4
 Release:          1%{?dist}
-Summary:          Irish Companies' Boards from 2003 to 2013
+Summary:          A Dynamic Bipartite Latent Space Model to Analyse IrishCompanies' Boards from 2003 to 2013
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.19
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.19
 
 %description
-This data package contains the boards' compositions of companies quoted in
-the Irish Stock Exchange at the end of each year from 2003 to 2013. The
-data have been first analysed in Friel, N., Rastelli, R., Wyse, J. and
-Raftery, A.E. (2016) <DOI:10.1073/pnas.1606295113>.
+Provides the dataset and an implementation of the method illustrated in
+Friel, N., Rastelli, R., Wyse, J. and Raftery, A.E. (2016)
+<DOI:10.1073/pnas.1606295113>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,4 +44,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

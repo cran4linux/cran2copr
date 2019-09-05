@@ -1,9 +1,9 @@
 %global packname  fdaMixed
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}
 Summary:          Functional Data Analysis in a Mixed Model Framework
 
@@ -24,6 +24,7 @@ Requires:         R-CRAN-Rcpp
 Likelihood based analysis of 1-dimension functional data in a
 mixed-effects model framework. Matrix computation are approximated by
 semi-explicit operator equivalents with linear computational complexity.
+Markussen (2013) <doi:10.3150/11-BEJ389>.
 
 %prep
 %setup -q -c -n %{packname}

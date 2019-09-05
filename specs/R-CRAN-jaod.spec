@@ -1,9 +1,9 @@
 %global packname  jaod
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Directory of Open Access Journals Client
 
@@ -24,9 +24,9 @@ Requires:         R-CRAN-crul >= 0.3.8
 
 %description
 Client for the Directory of Open Access Journals ('DOAJ')
-(<https://doaj.org/>). 'API' documentation at
+(<https://doaj.org/>). API documentation at
 <https://doaj.org/api/v1/docs>. Methods included for working with all
-'DOAJ' 'API' routes: fetch article information by identifier, search for
+'DOAJ' API routes: fetch article information by identifier, search for
 articles, fetch journal information by identifier, and search for
 journals.
 
@@ -53,4 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

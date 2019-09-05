@@ -1,9 +1,9 @@
 %global packname  GSODR
-%global packver   1.3.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Global Surface Summary of the Day ('GSOD') Weather Data Client
 
@@ -15,48 +15,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-purrr >= 0.2.0
+BuildRequires:    R-CRAN-data.table >= 1.11.6
+BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-purrr >= 0.2.0
+Requires:         R-CRAN-data.table >= 1.11.6
+Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description
 Provides automated downloading, parsing, cleaning, unit conversion and
 formatting of Global Surface Summary of the Day ('GSOD') weather data from
-the from the USA National Centers for Environmental Information ('NCEI')
-for use in R.  Units are converted from from United States Customary
-System ('USCS') units to International System of Units ('SI'). Stations
-may be individually checked for number of missing days defined by the
-user, where stations with too many missing observations are omitted. Only
-stations with valid reported latitude and longitude values are permitted
-in the final data.  Additional useful elements, saturation vapour pressure
+the from the USA National Centers for Environmental Information ('NCEI').
+Units are converted from from United States Customary System ('USCS')
+units to International System of Units ('SI').  Stations may be
+individually checked for number of missing days defined by the user, where
+stations with too many missing observations are omitted.  Only stations
+with valid reported latitude and longitude values are permitted in the
+final data.  Additional useful elements, saturation vapour pressure
 ('es'), actual vapour pressure ('ea') and relative humidity are calculated
 from the original data and included in the final data set.  The resulting
-data include station identification information, state, country, latitude,
-longitude, elevation, weather observations and associated flags.
-Additional data are included with this R package: a list of elevation
-values for stations between -60 and 60 degrees latitude derived from the
-Shuttle Radar Topography Measuring Mission ('SRTM').  For information on
-the 'GSOD' data from 'NCEI', please see the 'GSOD' 'readme.txt' file
-available from, <http://www1.ncdc.noaa.gov/pub/data/gsod/readme.txt>.
+metadata include station identification information, country, state,
+latitude, longitude, elevation, weather observations and associated flags.
+For information on the 'GSOD' data from 'NCEI', please see the 'GSOD'
+'readme.txt' file available from,
+<http://www1.ncdc.noaa.gov/pub/data/gsod/readme.txt>.
 
 %prep
 %setup -q -c -n %{packname}

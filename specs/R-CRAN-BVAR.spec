@@ -1,25 +1,25 @@
 %global packname  BVAR
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Hierarchical Bayesian Vector Autoregression
 
-License:          GPL-3
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-Requires:         R-MASS 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
@@ -29,7 +29,8 @@ Toolkit for the estimation of hierarchical Bayesian vector
 autoregressions. Implements hierarchical prior selection for conjugate
 priors in the fashion of Giannone, Lenza & Primiceri (2015)
 <doi:10.1162/REST_a_00483>. Allows for the computation of impulse
-responses and forecasts and provides functionality for assessing results.
+responses and forecasts and provides several methods for assessing
+results.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,7 +52,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX

@@ -1,25 +1,25 @@
 %global packname  ggraph
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          An Implementation of Grammar of Graphics for Graphs and Networks
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-igraph >= 1.0.0
+BuildRequires:    R-CRAN-graphlayouts >= 0.5.0
+BuildRequires:    R-CRAN-ggforce >= 0.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.2
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-MASS 
@@ -29,12 +29,14 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidygraph 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-igraph >= 1.0.0
+Requires:         R-CRAN-graphlayouts >= 0.5.0
+Requires:         R-CRAN-ggforce >= 0.3.1
 Requires:         R-CRAN-Rcpp >= 0.12.2
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-ggforce 
 Requires:         R-grid 
 Requires:         R-CRAN-scales 
 Requires:         R-MASS 
@@ -44,6 +46,8 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidygraph 
 
 %description
 The grammar of graphics as implemented in ggplot2 is a poor fit for graph
@@ -72,9 +76,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/ggraph.png
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  googleCloudStorageR
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Interface with Google Cloud Storage API
 
@@ -15,24 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-zip >= 2.0.3
 BuildRequires:    R-CRAN-httr >= 1.2.1
+BuildRequires:    R-CRAN-googleAuthR >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.0
-BuildRequires:    R-CRAN-googleAuthR >= 0.8.1
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-zip >= 2.0.3
 Requires:         R-CRAN-httr >= 1.2.1
+Requires:         R-CRAN-googleAuthR >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 1.0
-Requires:         R-CRAN-googleAuthR >= 0.8.1
 Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-openssl 
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-zip 
 
 %description
 Interact with Google Cloud Storage <https://cloud.google.com/storage/> API
@@ -64,5 +64,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/example
+%doc %{rlibdir}/%{packname}/secret
 %doc %{rlibdir}/%{packname}/shiny
 %{rlibdir}/%{packname}/INDEX

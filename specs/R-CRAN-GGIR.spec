@@ -1,9 +1,9 @@
 %global packname  GGIR
-%global packver   1.9-2
+%global packver   1.10-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.2
+Version:          1.10.1
 Release:          1%{?dist}
 Summary:          Raw Accelerometer Data Analysis
 
@@ -12,16 +12,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-mmap 
+BuildRequires:    R-CRAN-bitops 
+BuildRequires:    R-CRAN-matlab 
+BuildRequires:    R-CRAN-GENEAread 
+BuildRequires:    R-CRAN-tuneR 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-MASS 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-mmap 
+Requires:         R-CRAN-bitops 
+Requires:         R-CRAN-matlab 
+Requires:         R-CRAN-GENEAread 
+Requires:         R-CRAN-tuneR 
 
 %description
 A tool to process and analyse data collected with wearable raw
@@ -60,5 +80,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/NEWS.Rd
+%doc %{rlibdir}/%{packname}/testfiles
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

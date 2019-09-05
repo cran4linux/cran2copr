@@ -1,9 +1,9 @@
 %global packname  markovchain
-%global packver   0.6.9.16
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9.16
+Version:          0.7.0
 Release:          1%{?dist}
 Summary:          Easy Handling Discrete Time Markov Chains
 
@@ -15,7 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    make
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600.4.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-Matrix 
@@ -27,8 +28,7 @@ BuildRequires:    R-CRAN-RcppParallel
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-methods 
 Requires:         R-CRAN-igraph 
 Requires:         R-Matrix 

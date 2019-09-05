@@ -1,9 +1,9 @@
 %global packname  glm.predict
-%global packver   3.0-1
+%global packver   3.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.0
 Release:          1%{?dist}
 Summary:          Predicted Values and Discrete Changes for GLM
 
@@ -26,7 +26,10 @@ Requires:         R-nnet
 
 %description
 Functions to calculate predicted values and the difference between the two
-cases with confidence interval for glm(), glm.nb(), polr() and multinom().
+cases with confidence interval for lm() [linear model], glm() [general
+linear model], glm.nb() [negative binomial model], polr() [ordinal
+logistic model] and multinom() [multinomial model] using Monte Carlo
+simulations. Reference: Bennet A. Zelner (2009) <doi:10.1002/smj.783>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  MicSim
-%global packver   1.0.13
+%global packver   1.0.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.13
+Version:          1.0.15
 Release:          1%{?dist}
 Summary:          Performing Continuous-Time Microsimulation
 
