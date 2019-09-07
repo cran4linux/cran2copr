@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          1%{?dist}
 Summary:          A Very Fast 2D Concave Hull Algorithm
 
 License:          GPL-3
@@ -12,13 +12,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 2.0.0
-BuildRequires:    geos-devel >= 3.3.0
-BuildRequires:    proj-devel >= 4.8.0
-Requires:         gdal
-Requires:         geos
-Requires:         proj
-Requires:         proj-nad
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
