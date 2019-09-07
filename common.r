@@ -182,11 +182,12 @@ pkg_files <- function(pkg, path) {
 
   # exceptions
   files <- c(files, switch(
-    pkg, stringi=,dparser="include", readr="rcon", maps=,mapdata="mapdata",
+    pkg, stringi=,dparser=,PreciseSums="include", readr="rcon", maps=,mapdata="mapdata",
     littler=,processx=,ps=,zip=,phylocomr=,arulesSequences=,brotli=,cepreader="bin",
     RcppParallel=,StanHeaders=,RInside=,Boom="lib", rscala="dependencies",
-    pbdZMQ="etc", antiword=c("bin", "share"), TMB="Matrix-version", icd="COPYING",
-    Rttf2pt1="exec", FastRWeb=c("Rcgi", "cgi-bin")))
+    pbdZMQ=,pbdMPI="etc", antiword=c("bin", "share"), TMB="Matrix-version",
+    icd="COPYING", Rttf2pt1="exec", FastRWeb=c("Rcgi", "cgi-bin"),
+    sundialr="libsundials_all.a"))
 
   files <- paste0("%{rlibdir}/%{packname}/", files)
   files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
@@ -253,8 +254,8 @@ pkg_deps <- function(desc) {
     "emoa", "genepi", "EMC", "clusteval", "cgh", "lassoshooting", "ftnonpar",
     "IndependenceTests", "imputeMDR", "hier.part", "factorQR", "dblcens", "ifa",
     "datamap", "condmixt", "emdist", "exactLoglinTest", "darts", "coxrobust",
-    "ezglm", "fugeR", "GWASExactHW", "HybridMC", "identity", "ieeeround",
-    "JASPAR", "Kendall", "LogitNet", "endogMNP", "dpglasso")
+    "ezglm", "fugeR", "GWASExactHW", "HybridMC", "identity", "ieeeround", "RAD",
+    "JASPAR", "Kendall", "LogitNet", "endogMNP", "dpglasso", "survC1", "stepwise")
   if (!isTRUE(desc$NeedsCompilation == "yes") && !desc$Package %in% old_nc)
     x <- c(x, "BuildArch:        noarch")
 
@@ -315,7 +316,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
         "%{packname}/man/checkFuncs.Rd"),
       rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
       h2o = "cp %{SOURCE1} %{packname}/inst/java",
-      nws=, OpenMx=, irace=, configr=, goldi= paste(
+      nws=, OpenMx=, irace=, configr=, goldi=, RWebLogo= paste(
         "find %{packname}/inst -type f -exec",
         "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
       shinyAce=, googleComputeEngineR =
@@ -330,7 +331,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
         "sed -Ei 's@#!( )*(/usr)/bin/(env )*lr@#!/usr/bin/r@g' {} \\;"),
       getopt = paste(
         "find %{packname} -type f -exec",
-        "sed -Ei 's@/path/to/Rscript@/usr/bin/Rscript@g' {} \\;")
+        "sed -Ei 's@/path/to/Rscript@/usr/bin/Rscript@g' {} \\;"),
+      rhli = "rm -f %{packname}/src/Makevars*"
     )
   )
 
@@ -348,9 +350,9 @@ pkg_exceptions <- function(tpl, pkg, path) {
   ))
 
   # other
-  if (pkg %in% c("rtweet", "gunit", "ggasym", "facerec")) system(paste(
+  if (pkg %in% c("rtweet", "gunit", "ggasym", "facerec", "rollmatch", "modelplotr")) system(paste(
     "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'", file.path(path, "DESCRIPTION")))
-  if (pkg %in% "abstractr") system(paste(
+  if (pkg %in% c("abstractr", "modelplotr")) system(paste(
     "sed -i 's/gridExtra (>= 2.3.0)/gridExtra (>= 2.3)/g'", file.path(path, "DESCRIPTION")))
   if (pkg %in% "cNORM") system(paste(
     "sed -i 's/leaps (>= 3.0.0)/leaps (>= 3.0)/g'", file.path(path, "DESCRIPTION")))
@@ -360,7 +362,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
     "sed -i 's/jsonlite (>= 1.5.0)/jsonlite (>= 1.5)/g'", file.path(path, "DESCRIPTION")))
   if (pkg %in% c("imgrec", "facerec")) system(paste(
     "sed -i 's/knitr (>= 1.2.0)/knitr (>= 1.2)/g'", file.path(path, "DESCRIPTION")))
-  if (pkg %in% "adapr")
+  if (pkg %in% c("adapr", "taber"))
     unlink(file.path(path, "data"))
 
   tpl
