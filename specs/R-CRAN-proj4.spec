@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A simple interface to the PROJ.4 cartographic projectionslibrary
 
 License:          GPL-2
@@ -30,7 +30,8 @@ geographic coordinates from one projection and/or datum to another.
 
 %install
 mkdir -p %{buildroot}%{rlibdir}
-%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}\
+  --configure-vars="PKG_CPPFLAGS=-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
