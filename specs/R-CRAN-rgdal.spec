@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bindings for the 'Geospatial' Data Abstraction Library
 
 License:          GPL (>= 2)
@@ -15,7 +15,6 @@ BuildRequires:    gdal-devel >= 1.11.4
 BuildRequires:    proj-devel >= 4.8.0
 Requires:         gdal
 Requires:         proj
-Requires:         proj-nad
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-sp >= 1.1.0

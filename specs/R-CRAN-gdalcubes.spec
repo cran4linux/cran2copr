@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Earth Observation Data Cubes from Satellite Image Collections
 
 License:          MIT + file LICENSE
@@ -19,7 +19,6 @@ BuildRequires:    netcdf-devel
 BuildRequires:    sqlite-devel
 Requires:         gdal
 Requires:         proj
-Requires:         proj-nad
 Requires:         libcurl
 Requires:         netcdf
 Requires:         sqlite

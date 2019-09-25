@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bindings to Selected 'liblwgeom' Functions for Simple Features
 
 License:          GPL-2
@@ -16,7 +16,6 @@ BuildRequires:    geos-devel >= 3.3.0
 BuildRequires:    proj-devel >= 4.8.0
 Requires:         geos
 Requires:         proj
-Requires:         proj-nad
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-sf >= 0.6.0
