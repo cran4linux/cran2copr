@@ -1,9 +1,9 @@
 %global packname  sf
-%global packver   0.7-7
+%global packver   0.8-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.8.0
 Release:          2%{?dist}
 Summary:          Simple Features for R
 
@@ -11,18 +11,20 @@ License:          GPL-2 | MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
+
 BuildRequires:    gdal-devel >= 2.0.1
 BuildRequires:    geos-devel >= 3.4.0
 BuildRequires:    proj-devel >= 4.8.0
+BuildRequires:    sqlite-devel
 Requires:         gdal
 Requires:         geos
 Requires:         proj
-Requires:         proj-nad
+Requires:         sqlite
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-DBI >= 0.8
 BuildRequires:    R-CRAN-units >= 0.6.0
-BuildRequires:    R-CRAN-classInt >= 0.2.1
+BuildRequires:    R-CRAN-classInt >= 0.4.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
@@ -34,7 +36,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 Requires:         R-CRAN-DBI >= 0.8
 Requires:         R-CRAN-units >= 0.6.0
-Requires:         R-CRAN-classInt >= 0.2.1
+Requires:         R-CRAN-classInt >= 0.4.1
 Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-methods 
 Requires:         R-graphics 
@@ -58,6 +60,7 @@ transformations.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
