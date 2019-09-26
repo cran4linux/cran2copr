@@ -1,15 +1,16 @@
 %global packname  plm
-%global packver   2.1-0
+%global packver   2.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}
 Summary:          Linear Models for Panel Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
@@ -51,6 +52,7 @@ Econometrics with R, ISBN:978-1-118-94918-4.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

@@ -1,15 +1,16 @@
 %global packname  matrixStats
-%global packver   0.54.0
+%global packver   0.55.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.54.0
+Version:          0.55.0
 Release:          1%{?dist}
 Summary:          Functions that Apply to Rows and Columns of Matrices (and toVectors)
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 2.12.0
 Requires:         R-core >= 2.12.0
@@ -28,6 +29,7 @@ vector-based methods, e.g. binMeans(), madDiff() and weightedMedian().
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
@@ -44,5 +46,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/benchmarking
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

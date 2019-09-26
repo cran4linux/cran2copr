@@ -1,15 +1,16 @@
 %global packname  knitr
-%global packver   1.24
+%global packver   1.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24
+Version:          1.25
 Release:          1%{?dist}
 Summary:          A General-Purpose Package for Dynamic Report Generation in R
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 Requires:         pandoc
 Requires:         pandoc-citeproc
@@ -44,6 +45,7 @@ Literate Programming techniques.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

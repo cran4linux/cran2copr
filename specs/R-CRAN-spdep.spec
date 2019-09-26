@@ -1,11 +1,11 @@
 %global packname  spdep
-%global packver   1.1-2
+%global packver   1.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}
-Summary:          Spatial Dependence: Weighting Schemes, Statistics and Models
+Summary:          Spatial Dependence: Weighting Schemes, Statistics
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

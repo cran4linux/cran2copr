@@ -1,9 +1,9 @@
 %global packname  recipes
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          Preprocessing Tools to Create Design Matrices
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 BuildRequires:    R-CRAN-purrr >= 0.2.3
@@ -28,10 +29,10 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-tidyselect >= 0.2.5
 Requires:         R-CRAN-purrr >= 0.2.3
@@ -45,7 +46,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-Matrix 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-timeDate 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 

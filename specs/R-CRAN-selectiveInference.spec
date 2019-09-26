@@ -1,9 +1,9 @@
 %global packname  selectiveInference
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}
 Summary:          Tools for Post-Selection Inference
 
@@ -12,14 +12,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-intervals 
 BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-adaptMCMC 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-intervals 
 Requires:         R-survival 
+Requires:         R-CRAN-adaptMCMC 
+Requires:         R-MASS 
+Requires:         R-CRAN-Rcpp 
 
 %description
 New tools for post-selection inference, for use with forward stepwise

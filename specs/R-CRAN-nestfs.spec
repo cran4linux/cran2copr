@@ -1,9 +1,9 @@
 %global packname  nestfs
-%global packver   0.9.2
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0
 Release:          1%{?dist}
 Summary:          Cross-Validated (Nested) Forward Selection
 
@@ -17,13 +17,13 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pROC >= 1.9
 BuildRequires:    R-CRAN-dgof 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-pROC >= 1.9
 Requires:         R-CRAN-dgof 
-Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 

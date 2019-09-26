@@ -1,9 +1,9 @@
 %global packname  TTR
-%global packver   0.23-4
+%global packver   0.23-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.4
+Version:          0.23.5
 Release:          1%{?dist}
 Summary:          Technical Trading Rules
 

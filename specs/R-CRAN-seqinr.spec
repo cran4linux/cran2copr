@@ -1,9 +1,9 @@
 %global packname  seqinr
-%global packver   3.4-5
+%global packver   3.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.5
+Version:          3.6.1
 Release:          1%{?dist}
 Summary:          Biological Sequences Retrieval and Analysis
 

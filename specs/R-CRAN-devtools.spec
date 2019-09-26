@@ -1,9 +1,9 @@
 %global packname  devtools
-%global packver   2.1.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.1
 Release:          1%{?dist}
 Summary:          Tools to Make Developing R Packages Easier
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-roxygen2 >= 6.1.1
+BuildRequires:    R-CRAN-covr >= 3.2.0
 BuildRequires:    R-CRAN-testthat >= 2.1.1
 BuildRequires:    R-CRAN-remotes >= 2.1.0
 BuildRequires:    R-CRAN-usethis >= 1.5.0
@@ -26,16 +27,24 @@ BuildRequires:    R-CRAN-pkgload >= 1.0.2
 BuildRequires:    R-CRAN-memoise >= 1.0.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.7
 BuildRequires:    R-CRAN-httr >= 0.4
+BuildRequires:    R-CRAN-ellipsis >= 0.3.0
 BuildRequires:    R-CRAN-git2r >= 0.23.0
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rversions 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-roxygen2 >= 6.1.1
+Requires:         R-CRAN-covr >= 3.2.0
 Requires:         R-CRAN-testthat >= 2.1.1
 Requires:         R-CRAN-remotes >= 2.1.0
 Requires:         R-CRAN-usethis >= 1.5.0
@@ -46,11 +55,18 @@ Requires:         R-CRAN-pkgload >= 1.0.2
 Requires:         R-CRAN-memoise >= 1.0.0
 Requires:         R-CRAN-rstudioapi >= 0.7
 Requires:         R-CRAN-httr >= 0.4
+Requires:         R-CRAN-ellipsis >= 0.3.0
 Requires:         R-CRAN-git2r >= 0.23.0
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-desc 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rversions 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
@@ -83,6 +99,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/rstudio
-%doc %{rlibdir}/%{packname}/templates
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

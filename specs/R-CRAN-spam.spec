@@ -1,15 +1,16 @@
 %global packname  spam
-%global packver   2.2-2
+%global packver   2.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          SPArse Matrix
 
 License:          LGPL-2 | BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
@@ -25,7 +26,9 @@ Set of functions for sparse matrix algebra. Differences with other sparse
 matrix packages are: (1) we only support (essentially) one sparse matrix
 format, (2) based on transparent and simple structure(s), (3) tailored for
 MCMC calculations within G(M)RF. (4) and it is fast and scalable (with the
-extension package spam64).
+extension package spam64). Documentation about 'spam' is provided by
+vignettes included in this package, see also Furrer and Sain (2010)
+<doi:10.18637/jss.v036.i10>; see 'citation("spam")' for details.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +37,7 @@ extension package spam64).
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

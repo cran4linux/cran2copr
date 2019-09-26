@@ -1,15 +1,16 @@
 %global packname  curl
-%global packver   4.0
+%global packver   4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          4.2
 Release:          1%{?dist}
 Summary:          A Modern and Flexible Web Client for R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    libcurl-devel
 Requires:         libcurl
@@ -34,6 +35,7 @@ this package with http specific tools and logic.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

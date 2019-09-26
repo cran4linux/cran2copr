@@ -1,9 +1,9 @@
 %global packname  MVar.pt
-%global packver   2.0.9
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Analise multivariada (brazilian portuguese)
 

@@ -1,9 +1,9 @@
 %global packname  MESS
-%global packver   0.5.5
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}
 Summary:          Miscellaneous Esoteric Statistical Scripts
 
@@ -12,24 +12,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-CRAN-geeM 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-MASS 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-geeM 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggformula 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-kinship2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-geepack 
-Requires:         R-CRAN-geeM 
 Requires:         R-MASS 
 Requires:         R-Matrix 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-geeM 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggformula 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-kinship2 
 Requires:         R-methods 

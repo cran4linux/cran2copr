@@ -1,9 +1,9 @@
 %global packname  fusedest
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}
 Summary:          Block Splitting Algorithm for Estimation with Fused PenaltyFunctions
 
@@ -30,7 +30,8 @@ Requires:         R-stats
 
 %description
 Provides methods fusedest_normal() and fusedest_logit() for carrying out
-block splitting algorithms for fused penalty estimation.
+block splitting algorithms for fused penalty estimation. For details,
+please see Tso-Jung Yen (2019) <doi.10618600.2019.1660178>.
 
 %prep
 %setup -q -c -n %{packname}

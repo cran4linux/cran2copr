@@ -1,9 +1,9 @@
 %global packname  spam64
-%global packver   2.2-2
+%global packver   2.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          64-Bit Extension of the SPArse Matrix R Package 'spam'
 
@@ -19,7 +19,8 @@ Requires:         R-core
 Provides the Fortran code of the R package 'spam' with 64-bit integers.
 Loading this package together with the R package spam enables the sparse
 matrix class spam to handle huge sparse matrices with more than 2^31-1
-non-zero elements.
+non-zero elements. Documentation is provided in Gerber, Moesinger and
+Furrer (2017) <doi:10.1016/j.cageo.2016.11.015>.
 
 %prep
 %setup -q -c -n %{packname}

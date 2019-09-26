@@ -1,9 +1,9 @@
 %global packname  ellipsis
-%global packver   0.2.0.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0.1
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Tools for Working with ...
 
@@ -11,8 +11,9 @@ License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-rlang >= 0.3.0
 
@@ -29,6 +30,7 @@ and alert the user.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

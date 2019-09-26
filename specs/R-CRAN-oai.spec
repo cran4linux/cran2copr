@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  oai
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          General Purpose 'Oai-PMH' Services Client
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-httr >= 1.2.0
 BuildRequires:    R-CRAN-tibble >= 1.2
@@ -61,4 +62,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

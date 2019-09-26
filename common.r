@@ -186,8 +186,8 @@ pkg_files <- function(pkg, path) {
     littler=,processx=,ps=,zip=,phylocomr=,arulesSequences=,brotli=,cepreader="bin",
     RcppParallel=,StanHeaders=,RInside=,Boom="lib", rscala="dependencies",
     pbdZMQ=,pbdMPI="etc", antiword=c("bin", "share"), TMB="Matrix-version",
-    icd="COPYING", Rttf2pt1="exec", FastRWeb=c("Rcgi", "cgi-bin"),
-    sundialr="libsundials_all.a"))
+    biomod2="HasBeenCustom.txt", icd="COPYING", Rttf2pt1="exec",
+    FastRWeb=c("Rcgi", "cgi-bin"), sundialr="libsundials_all.a"))
 
   files <- paste0("%{rlibdir}/%{packname}/", files)
   files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
@@ -276,7 +276,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
     analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,BANOVA=,deisotoper=,cfa=,
     BNPdensity=,bcgam=,jmdl=,brglm2=,FastRWeb=,HDDesign=,mQTL=,MHTmult=,dfped=,
     intRegGOF=,idmTPreg=,fxtract=,doubcens=,IGG=,ITRLearn=,ITRSelect=,lcc=,
-    esmprep=,MBSP=,MOLHD=,isotone=,GENEAread="%global debug_package %{nil}",
+    esmprep=,MBSP=,MOLHD=,isotone=,GENEAread=,tbl2xts=,
+    reproducible="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -316,7 +317,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
         "%{packname}/man/checkFuncs.Rd"),
       rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
       h2o = "cp %{SOURCE1} %{packname}/inst/java",
-      nws=, OpenMx=, irace=, configr=, goldi=, RWebLogo= paste(
+      nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=paste(
         "find %{packname}/inst -type f -exec",
         "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
       shinyAce=, googleComputeEngineR =

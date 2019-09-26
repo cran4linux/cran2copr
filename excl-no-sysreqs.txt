@@ -11,8 +11,10 @@ Rcplex
 PythonInR
 SnakeCharmR
 kmcudaR
+KoNLP
 RGtk2
 Rmpi
+pbdMPI
 commonsMath
 googleformr
 gifski
