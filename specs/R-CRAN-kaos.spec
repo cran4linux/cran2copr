@@ -1,9 +1,9 @@
 %global packname  kaos
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Encoding of Sequences Based on Frequency Matrix Chaos GameRepresentation
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-reshape2
 
 %description
 Sequences encoding by using the chaos game representation. Löchel et al.
-(2019) <doi:10.1101/575324>.
+(2019) <doi:10.1093/bioinformatics/btz493>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,4 +46,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

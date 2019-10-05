@@ -1,9 +1,9 @@
 %global packname  assertable
-%global packver   0.2.5
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.7
 Release:          1%{?dist}
 Summary:          Verbose Assertions for Tabular Data (Data.frames andData.tables)
 

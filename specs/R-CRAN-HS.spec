@@ -1,9 +1,9 @@
 %global packname  HS
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Homogenous Segmentation for Spatial Lines Data
 
@@ -16,12 +16,28 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-partitions 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-partitions 
+Requires:         R-utils 
 
 %description
 Methods of homogenous segmentation for spatial lines data, such as
-pavement performance indicators and traffic volumes. A moving coefficient
-of variation method is available for homogenous segmentation.
+pavement performance indicators and traffic volumes. Three methods are
+available for homogenous segmentation, including cumulative difference
+approach, minimization coefficient of variation, and spatial heterogeneity
+based method.
 
 %prep
 %setup -q -c -n %{packname}

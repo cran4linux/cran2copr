@@ -1,9 +1,9 @@
 %global packname  buildmer
-%global packver   1.2.1
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3
 Release:          1%{?dist}
 Summary:          Stepwise Elimination and Term Reordering for Mixed-EffectsRegression
 
@@ -32,7 +32,7 @@ Requires:         R-utils
 Finds the largest possible regression model that will still converge for
 various types of regression analyses (including mixed models and
 generalized additive models) and then optionally performs stepwise
-elimination similar to the forward and backward effect selection methods
+elimination similar to the forward and backward effect-selection methods
 in SAS, based on the change in log-likelihood or its significance,
 Akaike's Information Criterion, or the Bayesian Information Criterion.
 

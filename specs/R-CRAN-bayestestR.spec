@@ -1,9 +1,9 @@
 %global packname  bayestestR
-%global packver   0.2.5
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Understand and Describe Bayesian Models and PosteriorDistributions
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.4.0
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-insight >= 0.5.0
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.4.0
-Requires:         R-stats 
+Requires:         R-CRAN-insight >= 0.5.0
 Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description

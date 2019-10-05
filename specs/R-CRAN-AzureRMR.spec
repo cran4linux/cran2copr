@@ -1,9 +1,9 @@
 %global packname  AzureRMR
-%global packver   2.1.3
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.2.0
 Release:          1%{?dist}
 Summary:          Interface to 'Azure Resource Manager'
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr >= 1.3
-BuildRequires:    R-CRAN-AzureAuth >= 1.0.1
+BuildRequires:    R-CRAN-AzureAuth >= 1.2.1
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-httr >= 1.3
-Requires:         R-CRAN-AzureAuth >= 1.0.1
+Requires:         R-CRAN-AzureAuth >= 1.2.1
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-R6 

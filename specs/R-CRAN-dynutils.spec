@@ -1,9 +1,9 @@
 %global packname  dynutils
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Common Functionality for the 'dynverse' Packages
 
@@ -45,7 +45,7 @@ Requires:         R-CRAN-tibble
 Provides common functionality for the 'dynverse' packages. 'dynverse' is
 created to support the development, execution, and benchmarking of
 trajectory inference methods. For more information, check out
-<dynverse.org>.
+<https://dynverse.org>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -67,9 +67,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

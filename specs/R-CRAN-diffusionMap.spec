@@ -1,31 +1,36 @@
 %global packname  diffusionMap
-%global packver   1.1-0.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.1
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Diffusion Map
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.4.0
-Requires:         R-core >= 2.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-Matrix 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-scatterplot3d 
+Requires:         R-graphics 
 Requires:         R-CRAN-igraph 
 Requires:         R-Matrix 
+Requires:         R-stats 
 
 %description
 Implements diffusion map method of data parametrization, including
 creation and visualization of diffusion map, clustering with diffusion
-K-means and regression using adaptive regression model.
+K-means and regression using adaptive regression model. Richards (2009)
+<doi:10.1088/0004-637X/691/1/32>.
 
 %prep
 %setup -q -c -n %{packname}

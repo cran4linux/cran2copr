@@ -1,9 +1,9 @@
 %global packname  cherry
-%global packver   0.6-12
+%global packver   0.6-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.12
+Version:          0.6.13
 Release:          1%{?dist}
 Summary:          Multiple Testing Methods for Exploratory Research
 
@@ -19,10 +19,12 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-hommel 
 Requires:         R-methods 
 Requires:         R-CRAN-bitops 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-Matrix 
+Requires:         R-CRAN-hommel 
 
 %description
 Provides an alternative approach to multiple testing by calculating a

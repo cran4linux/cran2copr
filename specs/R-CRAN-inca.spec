@@ -1,9 +1,9 @@
 %global packname  inca
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}
 Summary:          Integer Calibration
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.1
 BuildRequires:    R-stats 
 BuildRequires:    R-Matrix 
@@ -26,7 +26,11 @@ Requires:         R-Matrix
 Specific functions are provided for rounding real weights to integers and
 performing an integer programming algorithm for calibration problems. They
 are useful for census-weights adjustments, or for performing linear
-regression with integer parameters.
+regression with integer parameters. This research was supported in part by
+the U.S. Department of Agriculture, National Agriculture Statistics
+Service. The findings and conclusions in this publication are those of the
+authors and should not be construed to represent any official USDA, or US
+Government determination or policy.
 
 %prep
 %setup -q -c -n %{packname}

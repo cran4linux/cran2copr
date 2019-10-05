@@ -1,9 +1,9 @@
 %global packname  ML.MSBD
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Maximum Likelihood Inference on Multi-State Trees
 
@@ -15,8 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape >= 4.1
-Requires:         R-CRAN-ape >= 4.1
+BuildRequires:    R-CRAN-ape >= 5.1
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-ape >= 5.1
+Requires:         R-CRAN-foreach 
 
 %description
 Inference of a multi-states birth-death model from a phylogeny, comprising

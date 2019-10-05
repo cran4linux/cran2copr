@@ -1,9 +1,9 @@
 %global packname  distcomp
-%global packver   1.0-1
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Computations over Distributed Data without Aggregation
 
@@ -41,9 +41,10 @@ and a singular value decomposition are provided. The former makes direct
 use of code from the R 'survival' package. (That is, the underlying Cox
 model code is derived from that in the R 'survival' package.) Sites may
 provide data via several means: CSV files, Redcap API, etc. An extensible
-design allows for new methods to be added in the future. Web applications
-are provided (via 'shiny') for the implemented methods to help in
-designing and deploying the computations.
+design allows for new methods to be added in the future and includes
+facilities for local prototyping and testing. Web applications are
+provided (via 'shiny') for the implemented methods to help in designing
+and deploying the computations.
 
 %prep
 %setup -q -c -n %{packname}
@@ -71,6 +72,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/doc_src
 %doc %{rlibdir}/%{packname}/ex
+%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/stuff
 %doc %{rlibdir}/%{packname}/webApps
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  datos
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Traduce al Español Varios Conjuntos de Datos de Práctica
 
@@ -16,17 +16,20 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
 Provee una versión traducida de los siguientes conjuntos de datos:
-'airlines', 'airports', 'babynames', 'Batting', 'diamonds', 'faithful',
-'flights', 'gapminder', 'gss_cat', 'iris', 'mpg', 'mtcars', 'atmos',
-'planes', 'presidential', 'table1', 'table2', 'table3', 'table4a',
-'table4b', 'table5', 'vehicles','weather', 'who'. English: It provides a
-Spanish translated version of the datasets listed above.
+'airlines', 'airports', 'AwardsManagers', 'babynames', 'Batting',
+'diamonds', 'faithful', 'fueleconomy', 'Fielding', 'flights', 'gapminder',
+'gss_cat', 'iris', 'Managers', 'mpg', 'mtcars', 'atmos', 'People,
+'Pitching', 'planes', 'presidential', 'table1', 'table2', 'table3',
+'table4a', 'table4b', 'table5', 'vehicles', 'weather', 'who'. English: It
+provides a Spanish translated version of the datasets listed above.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +52,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/scripts
 %doc %{rlibdir}/%{packname}/specs

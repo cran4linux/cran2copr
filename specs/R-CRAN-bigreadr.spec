@@ -1,9 +1,9 @@
 %global packname  bigreadr
-%global packver   0.1.7
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.10
 Release:          1%{?dist}
 Summary:          Read Large Text Files
 
@@ -17,12 +17,10 @@ Requires:         R-core
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-fpeek 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
-Requires:         R-CRAN-fpeek 
 Requires:         R-utils 
 
 %description
@@ -50,6 +48,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/testdata
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

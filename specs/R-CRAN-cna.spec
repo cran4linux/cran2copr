@@ -1,9 +1,9 @@
 %global packname  cna
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}
 Summary:          Causal Modeling with Coincidence Analysis
 

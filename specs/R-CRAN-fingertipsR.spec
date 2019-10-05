@@ -1,9 +1,9 @@
 %global packname  fingertipsR
-%global packver   0.2.7
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.9
 Release:          1%{?dist}
 Summary:          Fingertips Data for Public Health
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinycssloaders 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinycssloaders 

@@ -1,9 +1,9 @@
 %global packname  DescToolsAddIns
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Interactive Functions to be Used as Shortcuts in 'RStudio'
 

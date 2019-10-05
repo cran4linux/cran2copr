@@ -1,9 +1,9 @@
 %global packname  blogdown
-%global packver   0.15
+%global packver   0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15
+Version:          0.16
 Release:          1%{?dist}
 Summary:          Create Blogs and Websites with R Markdown
 

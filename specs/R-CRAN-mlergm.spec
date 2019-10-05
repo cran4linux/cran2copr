@@ -1,9 +1,9 @@
 %global packname  mlergm
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}
 Summary:          Multilevel Exponential-Family Random Graph Models
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-parallel >= 3.6.0
 BuildRequires:    R-CRAN-ergm >= 3.10.1
 BuildRequires:    R-CRAN-sna >= 2.4
-BuildRequires:    R-Matrix >= 1.2.17
 BuildRequires:    R-CRAN-network >= 1.15
+BuildRequires:    R-parallel 
+BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-GGally 
@@ -29,11 +29,11 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
-Requires:         R-parallel >= 3.6.0
 Requires:         R-CRAN-ergm >= 3.10.1
 Requires:         R-CRAN-sna >= 2.4
-Requires:         R-Matrix >= 1.2.17
 Requires:         R-CRAN-network >= 1.15
+Requires:         R-parallel 
+Requires:         R-Matrix 
 Requires:         R-CRAN-stringr 
 Requires:         R-stats 
 Requires:         R-CRAN-GGally 

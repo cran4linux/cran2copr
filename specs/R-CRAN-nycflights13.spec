@@ -1,9 +1,9 @@
 %global packname  nycflights13
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Flights that Departed NYC in 2013
 
@@ -12,14 +12,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-tibble 
 
 %description
-Airline on-time data for all flights departing NYC in 2013. Also includes
+Airline on-time data for all flights departing NYC in 2013.  Also includes
 useful 'metadata' on airlines, airports, weather, and planes.
 
 %prep

@@ -1,9 +1,9 @@
 %global packname  spatialEco
-%global packver   1.2-0
+%global packver   1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Spatial Analysis and Modelling Utilities
 
@@ -12,10 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SpatialPack >= 0.3
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fasterize 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
@@ -34,6 +36,8 @@ BuildRequires:    R-CRAN-EnvStats
 BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-SpatialPack >= 0.3
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fasterize 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
@@ -82,7 +86,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/INDEX

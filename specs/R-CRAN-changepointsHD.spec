@@ -1,9 +1,9 @@
 %global packname  changepointsHD
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Change-Point Estimation for Expensive and High-DimensionalModels
 

@@ -1,9 +1,9 @@
 %global packname  adoptr
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Adaptive Optimal Two-Stage Designs in R
 
@@ -17,8 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-nloptr 
 Requires:         R-methods 
+Requires:         R-CRAN-glue 
 
 %description
 Optimize one or two-arm, two-stage designs for clinical trials with

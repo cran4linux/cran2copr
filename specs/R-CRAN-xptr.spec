@@ -1,27 +1,24 @@
-%global packname  gmat
-%global packver   0.2.0
+%global packname  xptr
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1.1
 Release:          1%{?dist}
-Summary:          Simulation of Graphically Constrained Matrices
+Summary:          Manipulating External Pointer
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-igraph 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 
 %description
-Simulation of positive definite matrices constrained by an undirected or
-acyclic directed graph structure.
+There is limited native support for external pointers in the R interface.
+This package provides some basic tools to verify, create and modify
+'externalptr' objects.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,9 +39,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

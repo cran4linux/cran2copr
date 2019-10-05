@@ -1,9 +1,9 @@
 %global packname  hypercube
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Organizing Data in a Hypercube
 
@@ -16,17 +16,21 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-stats 
+Requires:         R-CRAN-plotly 
 Requires:         R-methods 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Provides methods for organizing data in a hypercube (i.e. a
+Provides methods for organizing data in a hypercube (i.e., a
 multi-dimensional cube). Cubes are generated from molten data frames. Each
 cube can be manipulated with five operations: rotation
-(changeDimensionOrder()), dicing and slicing (add.selection(),
+(change.dimensionOrder()), dicing and slicing (add.selection(),
 remove.selection()), drilling down (add.aggregation()), and rolling up
 (remove.aggregation()).
 
@@ -51,5 +55,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

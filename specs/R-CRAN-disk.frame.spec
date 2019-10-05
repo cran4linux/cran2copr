@@ -1,9 +1,9 @@
 %global packname  disk.frame
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Larger-than-RAM Disk-Based Data Manipulation Framework
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-fs >= 1.3.1
 BuildRequires:    R-CRAN-future.apply >= 1.3.0
 BuildRequires:    R-CRAN-future >= 1.14.0
 BuildRequires:    R-CRAN-data.table >= 1.12.2
+BuildRequires:    R-CRAN-benchmarkme >= 1.0.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-fst >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
@@ -29,8 +30,10 @@ BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-CRAN-globals >= 0.12.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
+BuildRequires:    R-CRAN-bigreadr >= 0.1.9
 BuildRequires:    R-CRAN-pryr >= 0.1.4
 BuildRequires:    R-CRAN-furrr >= 0.1.0
+BuildRequires:    R-CRAN-bit64 
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-crayon >= 1.3.4
@@ -39,6 +42,7 @@ Requires:         R-CRAN-fs >= 1.3.1
 Requires:         R-CRAN-future.apply >= 1.3.0
 Requires:         R-CRAN-future >= 1.14.0
 Requires:         R-CRAN-data.table >= 1.12.2
+Requires:         R-CRAN-benchmarkme >= 1.0.2
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-fst >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.4.0
@@ -46,12 +50,16 @@ Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-globals >= 0.12.4
 Requires:         R-CRAN-Rcpp >= 0.12.13
+Requires:         R-CRAN-bigreadr >= 0.1.9
 Requires:         R-CRAN-pryr >= 0.1.4
 Requires:         R-CRAN-furrr >= 0.1.0
+Requires:         R-CRAN-bit64 
 
 %description
-A disk-based data manipulation tool for working with arbitrarily large
-datasets as long as they fit on disk.
+A disk-based data manipulation tool for working with large-than-RAM
+datasets. Aims to lower the barrier-to-entry for manipulating large
+datasets by adhering closely to popular and familiar data manipulation
+paradigms like dplyr verbs and data.table syntax.
 
 %prep
 %setup -q -c -n %{packname}
@@ -74,7 +82,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/bugs.R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/figures
 %doc %{rlibdir}/%{packname}/options.rmd

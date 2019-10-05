@@ -1,9 +1,9 @@
 %global packname  FitUltD
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}
 Summary:          Fit Univariate Mixed and Usual Distributions
 
@@ -38,8 +38,8 @@ Requires:         R-stats
 
 %description
 Extends the fitdist() (from 'fitdistrplus') adding the Anderson-Darling
-ad.test() (from 'ADGofTest') and Kolmogorov Smirnov Test ks.test() inside
-and trying the distributions (from 'stats') by default and offering a
+ad.test() (from 'ADGofTest') and Kolmogorov Smirnov Test ks.test() inside,
+trying the distributions from 'stats' package by default and offering a
 second function which uses mixed distributions to fit, this distributions
 are split with unsupervised learning, with Mclust() function (from
 'mclust').
@@ -64,5 +64,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

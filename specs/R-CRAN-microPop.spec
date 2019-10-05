@@ -1,9 +1,9 @@
 %global packname  microPop
-%global packver   1.4.1
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5
 Release:          1%{?dist}
 Summary:          Modelling Microbial Populations
 
@@ -50,4 +50,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/DemoFiles
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
+%{rlibdir}/%{packname}/testdata
 %{rlibdir}/%{packname}/INDEX

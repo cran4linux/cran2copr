@@ -1,9 +1,9 @@
 %global packname  pinp
-%global packver   0.0.7
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.9
 Release:          1%{?dist}
 Summary:          'pinp' is not 'PNAS'
 

@@ -1,22 +1,23 @@
 %global packname  rgdal
-%global packver   1.4-4
+%global packver   1.4-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
-Release:          3%{?dist}
+Version:          1.4.6
+Release:          1%{?dist}
 Summary:          Bindings for the 'Geospatial' Data Abstraction Library
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
+
 BuildRequires:    gdal-devel >= 1.11.4
 BuildRequires:    proj-devel >= 4.8.0
 Requires:         gdal
 Requires:         proj
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-sp >= 1.1.0
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
@@ -50,6 +51,7 @@ Windows and Mac Intel OS X binaries (including 'GDAL', 'PROJ.4' and
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

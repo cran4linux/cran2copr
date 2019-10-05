@@ -1,9 +1,9 @@
 %global packname  auk
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          eBird Data Extraction and Processing in R
 

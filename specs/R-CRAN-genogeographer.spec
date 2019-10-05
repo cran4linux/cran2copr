@@ -1,9 +1,9 @@
 %global packname  genogeographer
-%global packver   0.1.8
+%global packver   0.1.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.19
 Release:          1%{?dist}
 Summary:          Methods for Analysing Forensic Ancestry Informative Markers
 
@@ -31,6 +31,9 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
@@ -47,6 +50,9 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rio 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-rlang 
 
 %description
 Evaluates likelihood ratio tests for alleged ancestry. Implements the

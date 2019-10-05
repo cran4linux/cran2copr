@@ -1,29 +1,23 @@
-%global packname  lettercase
-%global packver   0.13.1
+%global packname  wesanderson
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.3.6
 Release:          1%{?dist}
-Summary:          Utilities for Formatting Strings with Consistent Capitalization,Word Breaks and White Space
+Summary:          A Wes Anderson Palette Generator
 
-License:          GPL-2 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr >= 1.0.0
-Requires:         R-CRAN-stringr >= 1.0.0
 
 %description
-Utilities for formatting strings and character vectors to for
-capitalization, word break and white space. Supported formats are:
-snake_case, spine-case, camelCase, PascalCase, Title Case, UPPERCASE,
-lowercase, Sentence case or combinations thereof. 'lettercase' strives to
-provide a simple, consistent, intuitive and high performing interface.
+Palettes generated mostly from 'Wes Anderson' movies.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,10 +37,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

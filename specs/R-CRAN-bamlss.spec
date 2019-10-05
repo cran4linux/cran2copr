@@ -1,19 +1,19 @@
 %global packname  bamlss
-%global packver   1.0-2
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}
-Summary:          Bayesian Additive Models for Location Scale and Shape (andBeyond)
+Summary:          Bayesian Additive Models for Location, Scale, and Shape (andBeyond)
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-mgcv 
@@ -43,8 +43,9 @@ models in a Bayesian framework. The distribution parameters may capture
 location, scale, shape, etc. and every parameter may depend on complex
 additive terms (fixed, random, smooth, spatial, etc.) similar to a
 generalized additive model. The conceptual and computational framework is
-introduced in Umlauf, Klein, Zeileis (2018)
-<doi:10.1080/10618600.2017.1407325>.
+introduced in Umlauf, Klein, Zeileis (2019)
+<doi:10.1080/10618600.2017.1407325> and the R package in Umlauf, Klein,
+Simon, Zeileis (2019) <arXiv:1909.11784>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -70,5 +71,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

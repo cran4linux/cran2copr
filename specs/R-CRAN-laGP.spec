@@ -1,9 +1,9 @@
 %global packname  laGP
-%global packver   1.5-3
+%global packver   1.5-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.5
 Release:          1%{?dist}
 Summary:          Local Approximate Gaussian Process Regression
 

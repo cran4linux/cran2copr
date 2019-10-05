@@ -1,9 +1,9 @@
 %global packname  ccda
-%global packver   1.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Combined Cluster and Discriminant Analysis
 
@@ -19,11 +19,11 @@ BuildRequires:    R-MASS
 Requires:         R-MASS 
 
 %description
-This package implements the combined cluster and discriminant analysis
-method for finding homogeneous groups of data with known origin as
-described in Kovacs et. al (2014): Classification into homogeneous groups
-using combined cluster and discriminant analysis (CCDA). Environmental
-Modelling & Software. DOI: http://dx.doi.org/10.1016/j.envsoft.2014.01.010
+Implements the combined cluster and discriminant analysis method for
+finding homogeneous groups of data with known origin as described in
+Kovacs et. al (2014): Classification into homogeneous groups using
+combined cluster and discriminant analysis (CCDA). Environmental Modelling
+& Software. <doi:10.1016/j.envsoft.2014.01.010>.
 
 %prep
 %setup -q -c -n %{packname}

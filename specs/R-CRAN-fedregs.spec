@@ -1,9 +1,9 @@
 %global packname  fedregs
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Text Analysis of the US Code of Federal Regulations
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-httr >= 1.3.1
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
 BuildRequires:    R-CRAN-stringi >= 1.1.7
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-rvest >= 0.3.2
 BuildRequires:    R-CRAN-purrr >= 0.2.5
@@ -27,6 +28,7 @@ Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-httr >= 1.3.1
 Requires:         R-CRAN-xml2 >= 1.2.0
 Requires:         R-CRAN-stringi >= 1.1.7
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-rvest >= 0.3.2
 Requires:         R-CRAN-purrr >= 0.2.5

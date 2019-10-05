@@ -1,10 +1,10 @@
 %global packname  feather
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
-Release:          2%{?dist}
+Version:          0.3.5
+Release:          1%{?dist}
 Summary:          R Bindings to the Feather 'API'
 
 License:          Apache License 2.0

@@ -1,9 +1,9 @@
 %global packname  hgutils
-%global packver   0.2.5
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.7
 Release:          1%{?dist}
 Summary:          Collection of Utility Functions
 
@@ -12,19 +12,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-limSolve 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
 Requires:         R-CRAN-limSolve 
 Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 

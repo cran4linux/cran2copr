@@ -1,9 +1,9 @@
 %global packname  badger
-%global packver   0.0.4
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.6
 Release:          1%{?dist}
 Summary:          Badge for R Package
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dlstats 
 BuildRequires:    R-CRAN-rvcheck 
+BuildRequires:    R-CRAN-desc 
 Requires:         R-CRAN-dlstats 
 Requires:         R-CRAN-rvcheck 
+Requires:         R-CRAN-desc 
 
 %description
 Query information and generate badge for using in README and GitHub Pages.

@@ -1,9 +1,9 @@
 %global packname  fdapace
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Functional Data Analysis and Empirical Dynamics
 
@@ -43,8 +43,8 @@ few longitudinal observations. PACE is a viable and flexible alternative
 to random effects modeling of longitudinal data. There is also a Matlab
 version (PACE) that contains some methods not available on fdapace and
 vice versa. Please cite our package if you use it (You may run the command
-devtools::citation("fdapace") to get the citation format and bibtex
-entry). References: Wang, J.L., Chiou, J., Müller, H.G. (2016)
+citation("fdapace") to get the citation format and bibtex entry).
+References: Wang, J.L., Chiou, J., Müller, H.G. (2016)
 <doi:10.1146/annurev-statistics-041715-033624>; Chen, K., Zhang, X.,
 Petersen, A., Müller, H.G. (2017) <doi:10.1007/s12561-015-9137-5>.
 

@@ -1,11 +1,11 @@
 %global packname  FunChisq
-%global packver   2.4.5-3
+%global packver   2.4.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5.3
+Version:          2.4.9.1
 Release:          1%{?dist}
-Summary:          Chi-Square and Exact Tests for Model-Free Functional Dependency
+Summary:          Model-Free Functional Chi-Squared and Exact Tests
 
 License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,23 +21,25 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-stats 
 
 %description
-Statistical hypothesis testing methods for model-free functional
-dependency using asymptotic chi-square or exact distributions. Functional
-chi-squares are asymmetric and functionally optimal, unique from other
+Statistical hypothesis testing methods for inferring model-free functional
+dependency using asymptotic chi-squared or exact distributions. Functional
+test statistics are asymmetric and functionally optimal, unique from other
 related statistics. Tests in this package reveal evidence for causality
 based on the causality-by-functionality principle. They include asymptotic
-functional chi-square tests, an exact functional test, a comparative
-functional chi-square test, and also a comparative chi-square test. The
-normalized non-constant functional chi-square test was used by Best
-Performer NMSUSongLab in HPN-DREAM (DREAM8) Breast Cancer Network
-Inference Challenges. A function index derived from the functional
-chi-square offers a new effect size measure for the strength of function
-dependency, a better alternative to conditional entropy in many aspects.
-For continuous data, these tests offer an advantage over regression
-analysis when a parametric functional form cannot be assumed; for
-categorical data, they provide a novel means to assess directional
-dependency not possible with symmetrical Pearson's chi-square or Fisher's
-exact tests.
+functional chi-squared tests ('Zhang & Song' 2013) <arXiv:1311.2707> and
+an exact functional test ('Zhong & Song' 2019)
+<doi:10.1109/TCBB.2018.2809743>. The normalized functional chi-squared
+test was used by Best Performer 'NMSUSongLab' in HPN-DREAM (DREAM8) Breast
+Cancer Network Inference Challenges ('Hill et al' 2016)
+<doi:10.1038/nmeth.3773>. A function index ('Zhong & Song' in press)
+('Kumar et al' 2018) <doi:10.1109/BIBM.2018.8621502> derived from the
+functional test statistic offers a new effect size measure for the
+strength of functional dependency, a better alternative to conditional
+entropy in many aspects. For continuous data, these tests offer an
+advantage over regression analysis when a parametric functional form
+cannot be assumed; for categorical data, they provide a novel means to
+assess directional dependency not possible with symmetrical Pearson's
+chi-squared or Fisher's exact tests.
 
 %prep
 %setup -q -c -n %{packname}

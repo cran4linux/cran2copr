@@ -1,9 +1,9 @@
 %global packname  GLMMadaptive
-%global packver   0.6-0
+%global packver   0.6-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.5
 Release:          1%{?dist}
 Summary:          Generalized Linear Mixed Models using Adaptive GaussianQuadrature
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-MASS 
 BuildRequires:    R-nlme 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-MASS 
 Requires:         R-nlme 
 Requires:         R-parallel 
+Requires:         R-CRAN-matrixStats 
 
 %description
 Fits generalized linear mixed models for a single grouping factor under

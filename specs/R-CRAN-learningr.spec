@@ -1,19 +1,19 @@
 %global packname  learningr
-%global packver   0.29
+%global packver   0.29.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.29
+Version:          0.29.1
 Release:          1%{?dist}
-Summary:          Data and functions to accompany the book "Learning R".
+Summary:          Data and Functions to Accompany the Book "Learning R"
 
 License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-plyr 

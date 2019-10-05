@@ -1,9 +1,9 @@
 %global packname  GGIR
-%global packver   1.10-1
+%global packver   1.10-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          1.10.4
 Release:          1%{?dist}
 Summary:          Raw Accelerometer Data Analysis
 
@@ -20,10 +20,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-mmap 
 BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-matlab 
 BuildRequires:    R-CRAN-GENEAread 
@@ -34,10 +32,8 @@ Requires:         R-utils
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-MASS 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-mmap 
 Requires:         R-CRAN-bitops 
 Requires:         R-CRAN-matlab 
 Requires:         R-CRAN-GENEAread 
@@ -52,7 +48,10 @@ for binary data from 'GENEActiv' <https://www.activinsights.com/> and
 GENEA devices (not for sale), .csv-export data from 'Actigraph'
 <http://actigraphcorp.com> devices, and .cwa and .wav-format data from
 'Axivity' <https://axivity.com/product/ax3>. These devices are currently
-widely used in research on human daily physical activity.
+widely used in research on human daily physical activity. Further, the
+package can handle accelerometer data file from any other sensor brand
+providing that the data is stored in csv format and has either no header
+or a two column header.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global packname  EHRtemporalVariability
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Delineating Reference Changes in Electronic Health Records overTime
+Summary:          Delineating Temporal Dataset Shifts in Electronic Health Records
 
 License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,16 +38,16 @@ Requires:         R-methods
 
 %description
 The 'EHRtemporalVariability' package contains functions to delineate
-reference changes over time in Electronic Health Records through the
+temporal dataset shifts in Electronic Health Records through the
 projection and visualization of dissimilarities among data temporal
 batches. This is done through the estimation of data statistical
 distributions over time and their projection in non-parametric statistical
 manifolds uncovering the patterns of the data latent temporal variability.
-Results can be explored through visual analytics formats such as Data
-Temporal Heatmaps and Information Geometric Temporal (IGT) plots. An
-additional 'EHRtemporalVariability' Shiny app can be used to load and
-explore the package results and even to allow the use of these functions
-to those users non-experienced in R coding.
+Dataset shifts can be explored and identified through visual analytics
+formats such as Data Temporal heatmaps and Information Geometric Temporal
+(IGT) plots. An additional 'EHRtemporalVariability' Shiny app can be used
+to load and explore the package results and even to allow the use of these
+functions to those users non-experienced in R coding.
 
 %prep
 %setup -q -c -n %{packname}

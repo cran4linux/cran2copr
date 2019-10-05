@@ -1,9 +1,9 @@
 %global packname  htmltidy
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Tidy Up and Test XPath Queries on HTML and XML Content
 
@@ -38,10 +38,10 @@ formatted and "pretty printed" HTML/XML content from HTML/XML document
 objects, nodes, node sets and plain character HTML/XML using 'vkbeautify'
 (by Vadim Kiryukhin) and 'highlight.js' (by Ivan Sagalaev). Also
 (optionally) enables filtering of nodes via XPath or viewing an HTML/XML
-document in "tree" view using 'xml-viewer' (by Julian Gruber). See
+document in "tree" view using 'XMLDisplay' (by Lev Muchnik). See
 <https://github.com/vkiryukhin/vkBeautify> and
-<https://github.com/juliangruber/xml-viewer> for more information about
-'vkbeautify' and 'xml-viewer', respectively.
+<http://www.levmuchnik.net/Content/ProgrammingTips/WEB/XMLDisplay/DisplayXMLFileWithJavascript.html>
+for more information about 'vkbeautify' and 'XMLDisplay', respectively.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  excelR
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          A Wrapper of the 'JavaScript' Library 'jExcel'
 

@@ -1,9 +1,9 @@
 %global packname  abtest
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Bayesian A/B Testing
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-plotrix
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-Matrix 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-sn 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-plotrix
 Requires:         R-grDevices 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-Matrix 
+Requires:         R-parallel 
 
 %description
 Provides functions for Bayesian A/B testing including prior elicitation

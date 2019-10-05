@@ -1,9 +1,9 @@
 %global packname  auth0
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Secure Authentication in Shiny with Auth0
 
@@ -17,11 +17,13 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-yaml 
 Requires:         R-utils 
@@ -53,7 +55,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/bookmark
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/logout
 %doc %{rlibdir}/%{packname}/simple
+%doc %{rlibdir}/%{packname}/ui-server
+%doc %{rlibdir}/%{packname}/ui-server-bookmark
+%doc %{rlibdir}/%{packname}/ui-server-userinfo
 %doc %{rlibdir}/%{packname}/userinfo
 %{rlibdir}/%{packname}/INDEX

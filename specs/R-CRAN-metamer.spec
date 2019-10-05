@@ -1,25 +1,25 @@
 %global packname  metamer
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Creates Data with Identical Statistics
+Summary:          Create Data with Identical Statistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-progress >= 1.2.0
 BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-progress >= 1.2.0
 Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-progress 
 Requires:         R-methods 
 
 %description

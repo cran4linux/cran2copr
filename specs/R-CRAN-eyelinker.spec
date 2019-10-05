@@ -1,37 +1,34 @@
 %global packname  eyelinker
-%global packver   0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Load Raw Data from Eyelink Eye Trackers
+Summary:          Import ASC Files from EyeLink Eye Trackers
 
-License:          GPL-3
+License:          GPL-3 | file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-intervals 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-intervals 
 
 %description
-Eyelink eye trackers output a horrible mess, typically under the form of a
-'.asc' file. The file in question is an assorted collection of messages,
-events and raw data. This R package will attempt to make sense of it.
+Imports plain-text ASC data files from EyeLink eye trackers into
+(relatively) tidy data frames for analysis and visualization.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,8 +49,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENCE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata

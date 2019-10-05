@@ -1,11 +1,11 @@
 %global packname  funModeling
-%global packver   1.9
+%global packver   1.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          1.9.2
 Release:          1%{?dist}
-Summary:          Exploratory Data Analysis and Data Preparation Tool-Box Book
+Summary:          Exploratory Data Analysis and Data Preparation Tool-Box
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,6 +28,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-entropy 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-Hmisc >= 3.17.1
 Requires:         R-CRAN-ROCR 
 Requires:         R-CRAN-ggplot2 
@@ -41,6 +43,8 @@ Requires:         R-utils
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-entropy 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-stringr 
 
 %description
 Around 10% of almost any predictive modeling project is spent in

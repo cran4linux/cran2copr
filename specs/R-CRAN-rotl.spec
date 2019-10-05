@@ -1,9 +1,9 @@
 %global packname  rotl
-%global packver   3.0.9
+%global packver   3.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.9
+Version:          3.0.10
 Release:          1%{?dist}
 Summary:          Interface to the 'Open Tree of Life' API
 
@@ -17,15 +17,15 @@ Requires:         R-core >= 3.1.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rncl >= 0.6.0
 BuildRequires:    R-CRAN-assertthat >= 0.1
+BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-rentrez 
 Requires:         R-CRAN-rncl >= 0.6.0
 Requires:         R-CRAN-assertthat >= 0.1
+Requires:         R-CRAN-ape 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ape 
 Requires:         R-CRAN-rentrez 
 
 %description

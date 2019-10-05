@@ -1,9 +1,9 @@
 %global packname  future.BatchJobs
-%global packver   0.16.1
+%global packver   0.16.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.1
+Version:          0.16.2
 Release:          1%{?dist}
 Summary:          A Future API for Parallel and Distributed Processing usingBatchJobs
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BatchJobs >= 1.7
-BuildRequires:    R-CRAN-future >= 1.10.0
+BuildRequires:    R-CRAN-BatchJobs >= 1.8
+BuildRequires:    R-CRAN-future >= 1.14.0
 BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-BatchJobs >= 1.7
-Requires:         R-CRAN-future >= 1.10.0
+Requires:         R-CRAN-BatchJobs >= 1.8
+Requires:         R-CRAN-future >= 1.14.0
 Requires:         R-CRAN-R.utils 
 
 %description

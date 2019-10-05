@@ -1,9 +1,9 @@
 %global packname  AzureStor
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Storage Management in 'Azure'
 
@@ -40,7 +40,8 @@ accounts. On the client side, it includes an interface to blob storage,
 file storage, and 'Azure Data Lake Storage Gen2': upload and download
 files and blobs; list containers and files/blobs; create containers; and
 so on. Authenticated access to storage is supported, via either a shared
-access key or a shared access signature (SAS).
+access key or a shared access signature (SAS). Part of the 'AzureR' family
+of packages.
 
 %prep
 %setup -q -c -n %{packname}

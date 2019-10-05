@@ -1,9 +1,9 @@
 %global packname  echor
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Access EPA 'ECHO' Data
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-httr 
@@ -24,8 +25,8 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-httr 
@@ -35,7 +36,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description

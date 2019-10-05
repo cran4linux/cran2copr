@@ -1,9 +1,9 @@
 %global packname  calibrate
-%global packver   1.7.2
+%global packver   1.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.7.5
 Release:          1%{?dist}
 Summary:          Calibration of Scatterplot and Biplot Axes
 
@@ -12,15 +12,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.8.0
-Requires:         R-core >= 1.8.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-MASS 
 Requires:         R-MASS 
 
 %description
 Package for drawing calibrated scales with tick marks on (non-orthogonal)
-variable vectors in scatterplots and biplots.
+variable vectors in scatterplots and biplots. Also provides some functions
+for multivariate analysis such principal coordinate analysis.
 
 %prep
 %setup -q -c -n %{packname}

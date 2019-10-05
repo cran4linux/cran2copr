@@ -1,15 +1,16 @@
 %global packname  data.table
-%global packver   1.12.2
+%global packver   1.12.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.2
+Version:          1.12.4
 Release:          1%{?dist}
 Summary:          Extension of `data.frame`
 
 License:          MPL-2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
@@ -29,6 +30,7 @@ natural and flexible syntax, for faster development.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

@@ -1,9 +1,9 @@
 %global packname  ConvergenceConcepts
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Seeing Convergence Concepts in Action
 
@@ -32,8 +32,8 @@ in law and in mean) of a sequence of i.i.d. random variables.
 Visualisation of simulated sample paths is possible through interactive
 plots. The approach is illustrated by examples and exercises through the
 function 'investigate', as described in Lafaye de Micheaux and Liquet
-(2009) <http://dx.doi.org/10.1198/tas.2009.0032>. The user can study
-his/her own sequences of random variables.
+(2009) <doi:10.1198/tas.2009.0032>. The user can study his/her own
+sequences of random variables.
 
 %prep
 %setup -q -c -n %{packname}

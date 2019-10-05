@@ -1,9 +1,9 @@
 %global packname  AzureGraph
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Simple Interface to 'Microsoft Graph'
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr >= 1.3
-BuildRequires:    R-CRAN-AzureAuth 
+BuildRequires:    R-CRAN-AzureAuth >= 1.0.1
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-httr >= 1.3
-Requires:         R-CRAN-AzureAuth 
+Requires:         R-CRAN-AzureAuth >= 1.0.1
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-openssl 

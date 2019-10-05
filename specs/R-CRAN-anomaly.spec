@@ -1,9 +1,9 @@
 %global packname  anomaly
-%global packver   1.1.0
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Detecting Anomalies in Data
 
@@ -14,19 +14,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-assertive 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-robust 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-methods 
+Requires:         R-CRAN-assertive 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-robust 
 
 %description
-An implementation of CAPA (Collective And Point Anomaly) for the detection
-of anomalies in time series data. The package also contains Kepler
-lightcurve data and shows how CAPA can be applied to detect exoplanets.
+Implements Collective And Point Anomaly (CAPA) <arXiv:1806.01947>,
+Multi-Variate Collective And Point Anomaly (MVCAPA) <arXiv:1909.01691>,
+and Proportion Adaptive Segment Selection (PASS)
+<doi:10.1093/biomet/ass059> methods for the detection of anomalies in time
+series data.
 
 %prep
 %setup -q -c -n %{packname}

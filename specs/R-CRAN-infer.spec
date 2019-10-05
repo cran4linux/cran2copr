@@ -1,9 +1,9 @@
 %global packname  infer
-%global packver   0.4.0.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0.1
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Tidy Statistical Inference
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-rlang >= 0.2.0
@@ -31,6 +32,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-grDevices 
+Requires:         R-CRAN-purrr 
 
 %description
 The objective of this package is to perform inference using an expressive
@@ -56,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

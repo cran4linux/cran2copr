@@ -1,9 +1,9 @@
 %global packname  gProfileR
-%global packver   0.6.7
+%global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.6.8
 Release:          1%{?dist}
 Summary:          Interface to the 'g:Profiler' Toolkit
 
@@ -23,9 +23,12 @@ Requires:         R-CRAN-plyr
 Requires:         R-utils 
 
 %description
-Functional enrichment analysis, gene identifier conversion and mapping
-homologous genes across related organisms via the 'g:Profiler' toolkit
-(<https://biit.cs.ut.ee/gprofiler/>).
+This package has been deprecated and will not be updated. New users should
+use the package 'gprofiler2'
+(<https://CRAN.R-project.org/package=gprofiler2>) for up-to-date data and
+improved functionality. Functional enrichment analysis, gene identifier
+conversion and mapping homologous genes across related organisms via the
+'g:Profiler' toolkit (<https://biit.cs.ut.ee/gprofiler/>).
 
 %prep
 %setup -q -c -n %{packname}

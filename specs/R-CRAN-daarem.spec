@@ -1,9 +1,9 @@
 %global packname  daarem
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}
 Summary:          Damped Anderson Acceleration with Epsilon Monotonicity forAccelerating EM-Like Monotone Algorithms
 

@@ -1,9 +1,9 @@
 %global packname  FENmlm
-%global packver   2.4.2
+%global packver   2.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          2.4.3
 Release:          1%{?dist}
 Summary:          Fixed Effects Nonlinear Maximum Likelihood Models
 

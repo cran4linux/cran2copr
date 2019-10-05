@@ -1,9 +1,9 @@
 %global packname  meta
-%global packver   4.9-6
+%global packver   4.9-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.6
+Version:          4.9.7
 Release:          1%{?dist}
 Summary:          General Package for Meta-Analysis
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.9.1
 Requires:         R-core >= 2.9.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-metafor >= 1.9.9
+BuildRequires:    R-CRAN-metafor >= 2.1.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-metafor >= 1.9.9
+Requires:         R-CRAN-metafor >= 2.1.0
 Requires:         R-grid 
 Requires:         R-CRAN-lme4 
 

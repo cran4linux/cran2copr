@@ -1,9 +1,9 @@
 %global packname  Ecdat
-%global packver   0.3-1
+%global packver   0.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Data Sets for Econometrics
 
@@ -12,14 +12,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Ecfun 
 Requires:         R-CRAN-Ecfun 
 
 %description
-Data sets for econometrics.
+Data sets for econometrics, including political science.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +42,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %doc %{rlibdir}/%{packname}/demoFiles
 %doc %{rlibdir}/%{packname}/scripts
 %{rlibdir}/%{packname}/INDEX

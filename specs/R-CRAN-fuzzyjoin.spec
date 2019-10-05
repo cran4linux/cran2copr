@@ -1,9 +1,9 @@
 %global packname  fuzzyjoin
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Join Tables Together on Inexact Matching
 
@@ -15,18 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-tidyr >= 0.4.0
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-tidyr >= 0.4.0
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-tibble 
 
 %description
 Join tables together based not on whether columns match exactly, but

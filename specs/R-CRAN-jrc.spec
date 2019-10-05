@@ -1,9 +1,9 @@
 %global packname  jrc
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Exchange Commands Between R and 'JavaScript'
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-httpuv
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-utils 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 
 %description
 An 'httpuv' based bridge between R and 'JavaScript'. Provides an easy way
@@ -49,6 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/http_root
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  joint.Cox
-%global packver   3.4
+%global packver   3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4
+Version:          3.6
 Release:          1%{?dist}
 Summary:          Joint Frailty-Copula Models for Tumour Progression and Death inMeta-Analysis
 
@@ -28,8 +28,10 @@ The methods can analyze data having information on both terminal event
 time (e.g., time-to-death) and non-terminal event time (e.g.,
 time-to-tumour progression). See Emura et al. (2017)
 <doi:10.1177/0962280215604510> for likelihood estimation, and Emura et al.
-(2018) <doi:10.1177/0962280216688032> for dynamic prediction. Survival
-data from ovarian cancer patients are also available.
+(2018) <doi:10.1177/0962280216688032> for dynamic prediction. More details
+on these methods can also be found in a book of Emura et al. (2019)
+<doi:10.1007/978-981-13-3516-7>. Survival data from ovarian cancer
+patients are also available.
 
 %prep
 %setup -q -c -n %{packname}

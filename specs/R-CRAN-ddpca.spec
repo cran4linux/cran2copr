@@ -1,9 +1,9 @@
 %global packname  ddpca
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Diagonally Dominant Principal Component Analysis
 
@@ -25,17 +25,13 @@ Requires:         R-CRAN-quantreg
 Requires:         R-MASS 
 
 %description
-Consider the problem of decomposing a large covariance matrix into a low
-rank matrix plus a diagonally dominant matrix. This problem is called
-Diagonally Dominant Principal Component Analysis (DD-PCA) in the reference
-Ke, Z., Xue, L. and Yang, F. (2019) <arXiv:1906.00051>. DD-PCA can be used
-in covariance matrix estimation and global detection in multiple testing.
-This package implements DD-PCA using both convex approach and non-convex
-approach; Convex approach refers to solving a convex relaxation of the
-original problem using Alternating Direction Method of Multipliers (ADMM),
-while non-convex approach resorts to an iterative projection algorithm.
-This package also implements two global testing methods proposed in the
-reference.
+Efficient procedures for fitting the DD-PCA (Ke et al., 2019,
+<arXiv:1906.00051>) by decomposing a large covariance matrix into a
+low-rank matrix plus a diagonally dominant matrix. The implementation of
+DD-PCA includes the convex approach using the Alternating Direction Method
+of Multipliers (ADMM) and the non-convex approach using the iterative
+projection algorithm. Applications of DD-PCA to large covariance matrix
+estimation and global multiple testing are also included in this package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  rsf
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Report of Statistical Findings in 'bookdown'
 
@@ -16,15 +16,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-whoami 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-ymlthis 
 Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-whoami 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-ymlthis 
 
 %description
 A report of statistical findings (RSF) project template is generated using

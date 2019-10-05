@@ -1,9 +1,9 @@
 %global packname  BART
-%global packver   2.5
+%global packver   2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          2.6
 Release:          1%{?dist}
 Summary:          Bayesian Additive Regression Trees
 

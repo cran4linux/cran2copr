@@ -1,9 +1,9 @@
 %global packname  DDIwR
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}
 Summary:          DDI with R
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-admisc 
+BuildRequires:    R-CRAN-admisc >= 0.4
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-admisc 
+Requires:         R-CRAN-admisc >= 0.4
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 

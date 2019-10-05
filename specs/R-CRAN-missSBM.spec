@@ -1,9 +1,9 @@
 %global packname  missSBM
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Handling Missing Data in Stochastic Block Models
 
@@ -19,6 +19,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-magrittr 
@@ -28,6 +29,7 @@ Requires:         R-methods
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-magrittr 

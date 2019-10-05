@@ -1,9 +1,9 @@
 %global packname  gargle
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Utilities for Working with Google APIs
 
@@ -18,15 +18,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-fs >= 1.3.1
 BuildRequires:    R-CRAN-glue >= 1.3.0
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-fs >= 1.3.1
 Requires:         R-CRAN-glue >= 1.3.0
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-withr 
 

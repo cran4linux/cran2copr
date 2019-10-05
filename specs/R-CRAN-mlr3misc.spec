@@ -1,9 +1,9 @@
 %global packname  mlr3misc
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Helper Functions for 'mlr3'
 
@@ -14,11 +14,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-backports >= 0.1.5
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-backports 
+Requires:         R-CRAN-backports >= 0.1.5
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
@@ -52,5 +52,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/references.bib
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  gamlss.dist
-%global packver   5.1-4
+%global packver   5.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.4
+Version:          5.1.5
 Release:          1%{?dist}
 Summary:          Distributions for Generalized Additive Models for Location Scaleand Shape
 

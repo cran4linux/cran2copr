@@ -1,9 +1,9 @@
 %global packname  tibbletime
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Time Aware Tibbles
 
@@ -20,20 +20,26 @@ BuildRequires:    R-CRAN-tibble >= 1.4.1
 BuildRequires:    R-CRAN-glue >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-hms >= 0.4
+BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
+BuildRequires:    R-CRAN-vctrs >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-CRAN-rlang >= 0.1.6
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-zoo >= 1.8.0
 Requires:         R-CRAN-lubridate >= 1.6.0
 Requires:         R-CRAN-tibble >= 1.4.1
 Requires:         R-CRAN-glue >= 1.1.1
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-hms >= 0.4
+Requires:         R-CRAN-tidyselect >= 0.2.5
 Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-CRAN-assertthat >= 0.2.0
+Requires:         R-CRAN-vctrs >= 0.2.0
 Requires:         R-CRAN-Rcpp >= 0.12.7
 Requires:         R-CRAN-rlang >= 0.1.6
+Requires:         R-CRAN-lifecycle 
 
 %description
 Built on top of the 'tibble' package, 'tibbletime' is an extension that

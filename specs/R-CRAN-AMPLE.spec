@@ -1,9 +1,9 @@
 %global packname  AMPLE
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}
 Summary:          Common Code for the 'AMPED' and 'PIMPLE' 'shiny' Apps forStakeholder Engagement and Harvest Strategies
 
@@ -17,16 +17,16 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
 BuildRequires:    R-CRAN-shiny >= 1.3.2
-BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
 BuildRequires:    R-CRAN-shinyjs >= 1.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
+BuildRequires:    R-CRAN-wesanderson >= 0.3.6
 Requires:         R-CRAN-ggplot2 >= 3.1.1
 Requires:         R-CRAN-shiny >= 1.3.2
-Requires:         R-CRAN-RColorBrewer >= 1.1.2
 Requires:         R-CRAN-shinyjs >= 1.0
 Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-dplyr >= 0.8.1
+Requires:         R-CRAN-wesanderson >= 0.3.6
 
 %description
 A collection of common code for the 'AMPED' and 'PIMPLE' 'shiny'

@@ -1,9 +1,9 @@
 %global packname  morse
-%global packver   3.2.4
+%global packver   3.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          3.2.5
 Release:          1%{?dist}
 Summary:          Modelling Tools for Reproduction and Survival Data inEcotoxicology
 

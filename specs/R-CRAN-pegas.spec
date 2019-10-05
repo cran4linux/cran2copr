@@ -1,9 +1,9 @@
 %global packname  pegas
-%global packver   0.11
+%global packver   0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.12
 Release:          1%{?dist}
 Summary:          Population and Evolutionary Genetics Analysis System
 
@@ -18,10 +18,12 @@ BuildRequires:    R-CRAN-ape >= 2.4
 BuildRequires:    R-CRAN-adegenet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-ape >= 2.4
 Requires:         R-CRAN-adegenet 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-methods 
 
 %description
 Functions for reading, writing, plotting, analysing, and manipulating

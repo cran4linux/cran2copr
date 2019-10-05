@@ -1,9 +1,9 @@
 %global packname  belg
-%global packver   0.2.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Boltzmann Entropy of a Landscape Gradient
 
@@ -21,8 +21,9 @@ Requires:         R-CRAN-Rcpp
 %description
 Calculates the Boltzmann entropy of a landscape gradient. This package
 uses the analytical method created by Gao, P., Zhang, H. and Li, Z., 2018
-(<doi:10.1111/tgis.12315>). It also extend the original idea by allowing
-calculations on data with missing values.
+(<doi:10.1111/tgis.12315>) and by Gao, P. and Li, Z., 2019
+(<doi:10.1007/s10980-019-00854-3>). It also extend the original ideas by
+allowing calculations on data with missing values.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +49,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

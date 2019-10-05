@@ -1,9 +1,9 @@
 %global packname  compound.Cox
-%global packver   3.18
+%global packver   3.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.18
+Version:          3.19
 Release:          1%{?dist}
 Summary:          Univariate Feature Selection and Compound Covariate forPredicting Survival
 

@@ -1,15 +1,16 @@
 %global packname  rstanarm
-%global packver   2.18.2
+%global packver   2.19.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.18.2
+Version:          2.19.2
 Release:          1%{?dist}
 Summary:          Bayesian Applied Regression Modeling via Stan
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    make
 Requires:         pandoc >= 1.12.3
@@ -20,12 +21,12 @@ BuildRequires:    R-nlme >= 3.1.124
 BuildRequires:    R-survival >= 2.40.1
 BuildRequires:    R-CRAN-shinystan >= 2.3.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-loo >= 2.0.0
+BuildRequires:    R-CRAN-rstan >= 2.19.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.19.0
+BuildRequires:    R-CRAN-loo >= 2.1.0
+BuildRequires:    R-CRAN-rstantools >= 2.0.0
+BuildRequires:    R-CRAN-bayesplot >= 1.7.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-bayesplot >= 1.5.0
-BuildRequires:    R-CRAN-rstantools >= 1.4.0
 BuildRequires:    R-Matrix >= 1.2.13
 BuildRequires:    R-CRAN-lme4 >= 1.1.8
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
@@ -37,10 +38,10 @@ Requires:         R-nlme >= 3.1.124
 Requires:         R-survival >= 2.40.1
 Requires:         R-CRAN-shinystan >= 2.3.0
 Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-loo >= 2.0.0
-Requires:         R-CRAN-bayesplot >= 1.5.0
-Requires:         R-CRAN-rstantools >= 1.4.0
+Requires:         R-CRAN-rstan >= 2.19.1
+Requires:         R-CRAN-loo >= 2.1.0
+Requires:         R-CRAN-rstantools >= 2.0.0
+Requires:         R-CRAN-bayesplot >= 1.7.0
 Requires:         R-Matrix >= 1.2.13
 Requires:         R-CRAN-lme4 >= 1.1.8
 Requires:         R-CRAN-Rcpp >= 0.12.0
@@ -61,6 +62,7 @@ and data.frame plus some additional arguments for priors.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

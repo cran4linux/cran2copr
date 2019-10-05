@@ -1,9 +1,9 @@
 %global packname  MazamaSpatialUtils
-%global packver   0.6.1
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.4
 Release:          1%{?dist}
 Summary:          Spatial Data Download and Utility Functions
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-rvest >= 0.3.0
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-countrycode 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-magrittr 
 
 %description
 A suite of conversion scripts to create internally standardized spatial

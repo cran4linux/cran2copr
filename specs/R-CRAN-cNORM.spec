@@ -1,9 +1,9 @@
 %global packname  cNORM
-%global packver   1.2.0
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Continuous Norming
 
@@ -27,7 +27,8 @@ Conventional methods for producing standard scores in psychometrics or
 biometrics are often plagued with "jumps" or "gaps" (i.e.,
 discontinuities) in norm tables and low confidence for assessing extreme
 scores. The continuous norming method introduced by A. Lenhard et al.
-(2016), <doi:10.1177/1073191116656437>, generates continuous test norm
+(2016, <doi:10.1177/1073191116656437>; 2019,
+<doi:10.1371/journal.pone.0222279>) and generates continuous test norm
 scores on the basis of the raw data from standardization samples, without
 requiring assumptions about the distribution of the raw data: Norm scores
 are directly established from raw data by modeling the latter ones as a
@@ -60,6 +61,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/shiny
 %{rlibdir}/%{packname}/INDEX

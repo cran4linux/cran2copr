@@ -1,9 +1,9 @@
 %global packname  eggCounts
-%global packver   2.2
+%global packver   2.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.2.1
 Release:          1%{?dist}
 Summary:          Hierarchical Modelling of Faecal Egg Counts
 

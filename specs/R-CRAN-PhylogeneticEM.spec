@@ -1,9 +1,9 @@
 %global packname  PhylogeneticEM
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Automatic Shift Detection using a Phylogenetic EM
 
@@ -12,41 +12,41 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-MASS >= 7.3.45
-BuildRequires:    R-CRAN-ape >= 3.5
-BuildRequires:    R-graphics >= 3.2.1
-BuildRequires:    R-grDevices >= 3.2.1
-BuildRequires:    R-methods >= 3.2.1
-BuildRequires:    R-stats >= 3.2.1
-BuildRequires:    R-utils >= 3.2.1
+BuildRequires:    R-CRAN-ape >= 5.3
+BuildRequires:    R-graphics >= 3.6.0
+BuildRequires:    R-grDevices >= 3.6.0
+BuildRequires:    R-methods >= 3.6.0
+BuildRequires:    R-stats >= 3.6.0
+BuildRequires:    R-utils >= 3.6.0
 BuildRequires:    R-CRAN-glmnet >= 2.0.5
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-foreach >= 1.4.3
 BuildRequires:    R-CRAN-gglasso >= 1.4
 BuildRequires:    R-Matrix >= 1.2.3
 BuildRequires:    R-CRAN-capushe >= 1.1.1
+BuildRequires:    R-CRAN-LINselect >= 1.1.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-CRAN-robustbase >= 0.92.6
-BuildRequires:    R-CRAN-Rcpp >= 0.12.6
-BuildRequires:    R-CRAN-LINselect >= 0.0.2
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-MASS >= 7.3.45
-Requires:         R-CRAN-ape >= 3.5
-Requires:         R-graphics >= 3.2.1
-Requires:         R-grDevices >= 3.2.1
-Requires:         R-methods >= 3.2.1
-Requires:         R-stats >= 3.2.1
-Requires:         R-utils >= 3.2.1
+Requires:         R-CRAN-ape >= 5.3
+Requires:         R-graphics >= 3.6.0
+Requires:         R-grDevices >= 3.6.0
+Requires:         R-methods >= 3.6.0
+Requires:         R-stats >= 3.6.0
+Requires:         R-utils >= 3.6.0
 Requires:         R-CRAN-glmnet >= 2.0.5
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-foreach >= 1.4.3
 Requires:         R-CRAN-gglasso >= 1.4
 Requires:         R-Matrix >= 1.2.3
 Requires:         R-CRAN-capushe >= 1.1.1
+Requires:         R-CRAN-LINselect >= 1.1.1
+Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-CRAN-robustbase >= 0.92.6
-Requires:         R-CRAN-Rcpp >= 0.12.6
-Requires:         R-CRAN-LINselect >= 0.0.2
 
 %description
 Implementation of the automatic shift detection method for Brownian Motion

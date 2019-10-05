@@ -1,9 +1,9 @@
 %global packname  hansard
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}
 Summary:          Provides Easy Downloading Capabilities for the UK Parliament API
 

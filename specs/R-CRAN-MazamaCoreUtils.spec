@@ -1,9 +1,9 @@
 %global packname  MazamaCoreUtils
-%global packver   0.3.1
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.9
 Release:          1%{?dist}
 Summary:          Utility Functions for Production R Code
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-CRAN-lubridate 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-futile.logger 
 Requires:         R-CRAN-lubridate 
@@ -55,7 +57,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md

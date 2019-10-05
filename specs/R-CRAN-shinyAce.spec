@@ -1,9 +1,9 @@
 %global packname  shinyAce
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Ace Editor Bindings for Shiny
 
@@ -17,8 +17,12 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.0.5
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-shiny >= 1.0.5
 Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
+Requires:         R-tools 
 
 %description
 Ace editor bindings to enable a rich text editing environment within

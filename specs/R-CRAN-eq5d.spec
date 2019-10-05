@@ -1,9 +1,9 @@
 %global packname  eq5d
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Methods for Calculating 'EQ-5D' Utility Index Scores
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
@@ -31,10 +31,10 @@ Frequently the scores on these five dimensions are converted to a single
 utility index using country specific value sets, which can be used in the
 clinical and economic evaluation of health care as well as in population
 health surveys. The eq5d package provides methods to calculate index
-scores from a subject's dimension scores. 19 TTO and 9 VAS EQ-5D-3L value
+scores from a subject's dimension scores. 20 TTO and 11 VAS EQ-5D-3L value
 sets including those for countries in Szende et al (2007)
 <doi:10.1007/1-4020-5511-0> and Szende et al (2014)
-<doi:10.1007/978-94-007-7596-1>, 15 EQ-5D-5L EQ-VT value sets from the
+<doi:10.1007/978-94-007-7596-1>, 16 EQ-5D-5L EQ-VT value sets from the
 EuroQol website, and the EQ-5D-5L crosswalk value sets developed by van
 Hout et al. (2012) <doi:10.1016/j.jval.2012.02.008> are included.
 Additionally, a shiny web tool is included to enable the calculation and
