@@ -184,9 +184,9 @@ pkg_files <- function(pkg, path) {
   files <- c(files, switch(
     pkg, stringi=,dparser=,PreciseSums="include", readr="rcon", maps=,mapdata="mapdata",
     littler=,processx=,ps=,zip=,phylocomr=,arulesSequences=,brotli=,cepreader="bin",
-    RcppParallel=,StanHeaders=,RInside=,Boom="lib", rscala="dependencies",
-    pbdZMQ=,pbdMPI="etc", antiword=c("bin", "share"), TMB="Matrix-version",
-    biomod2="HasBeenCustom.txt", icd="COPYING", Rttf2pt1="exec",
+    RcppParallel=,StanHeaders=,RInside=,Boom=,RcppMLPACK=,RcppClassic=,emstreeR="lib",
+    rscala="dependencies", pbdZMQ=,pbdMPI="etc", antiword=c("bin", "share"),
+    TMB="Matrix-version", biomod2="HasBeenCustom.txt", icd="COPYING", Rttf2pt1="exec",
     FastRWeb=c("Rcgi", "cgi-bin"), sundialr="libsundials_all.a"))
 
   files <- paste0("%{rlibdir}/%{packname}/", files)
@@ -196,7 +196,16 @@ pkg_files <- function(pkg, path) {
   files
 }
 
-.r_deps <- function(desc) {
+.fix_version <- function(deps, cran=available.packages()) {
+  # fix 2-component versions declared as 3-component
+  two_comp <- grep("^[0-9]+.[0-9]+$", cran[,"Version"], value=TRUE)
+  two_comp <- deps$pkg %in% names(two_comp)
+  deps[two_comp,]$ver <- sub("([0-9]+.[0-9]+).[0-9]+", "\\1", deps[two_comp,]$ver)
+
+  deps
+}
+
+.r_deps <- function(desc, cran=available.packages()) {
   keys <- c("Depends", "Imports", "LinkingTo")
   for (i in keys) if (is.null(desc[[i]]))
     desc[[i]] <- ""
@@ -217,7 +226,8 @@ pkg_files <- function(pkg, path) {
   dups <- deps$pkg[duplicated(deps$pkg)]
   for (dup in dups)
     deps$ver[deps$pkg==dup] <- deps$ver[deps$pkg==dup][1]
-  deps
+
+  .fix_version(deps, cran)
 }
 
 .sys_deps <- function(desc) {
@@ -234,9 +244,9 @@ pkg_files <- function(pkg, path) {
   x
 }
 
-pkg_deps <- function(desc) {
+pkg_deps <- function(desc, cran=available.packages()) {
   x <- .sys_deps(desc)
-  deps <- .r_deps(desc)
+  deps <- .r_deps(desc, cran)
 
   rdep <- deps$pkg == "R"
   rver <- deps[rdep, "ver"]
@@ -248,15 +258,7 @@ pkg_deps <- function(desc) {
   x <- c(x, paste0("BuildRequires:    R-devel", rver))
   x <- c(x, paste0("Requires:         R-core", rver))
 
-  old_nc <- c(
-    "proj4", "pdist", "FMStable", "mlbench", "allelic", "apple", "nnls", "mlmmm",
-    "fracdiff", "flashClust", "biglars", "fpow", "mcclust", "brainwaver", "EL",
-    "emoa", "genepi", "EMC", "clusteval", "cgh", "lassoshooting", "ftnonpar",
-    "IndependenceTests", "imputeMDR", "hier.part", "factorQR", "dblcens", "ifa",
-    "datamap", "condmixt", "emdist", "exactLoglinTest", "darts", "coxrobust",
-    "ezglm", "fugeR", "GWASExactHW", "HybridMC", "identity", "ieeeround", "RAD",
-    "JASPAR", "Kendall", "LogitNet", "endogMNP", "dpglasso", "survC1", "stepwise")
-  if (!isTRUE(desc$NeedsCompilation == "yes") && !desc$Package %in% old_nc)
+  if (!isTRUE(cran[cran[,"Package"] == desc$Package, "NeedsCompilation"] == "yes"))
     x <- c(x, "BuildArch:        noarch")
 
   if (nrow(deps))
@@ -276,8 +278,10 @@ pkg_exceptions <- function(tpl, pkg, path) {
     analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,BANOVA=,deisotoper=,cfa=,
     BNPdensity=,bcgam=,jmdl=,brglm2=,FastRWeb=,HDDesign=,mQTL=,MHTmult=,dfped=,
     intRegGOF=,idmTPreg=,fxtract=,doubcens=,IGG=,ITRLearn=,ITRSelect=,lcc=,
-    esmprep=,MBSP=,MOLHD=,isotone=,GENEAread=,tbl2xts=,
-    reproducible="%global debug_package %{nil}",
+    esmprep=,MBSP=,MOLHD=,isotone=,GENEAread=,tbl2xts=,reproducible=,GESE=,
+    PACBO=,robustsae=,pMineR=,DWreg=,musica=,dgo=,NormalBetaPrime=,VGAMextra=,
+    ccrs=,WRS2=,stratifyR=,orderedLasso=,dimRed=,GGMM=,
+    ROpenCVLite="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -295,47 +299,47 @@ pkg_exceptions <- function(tpl, pkg, path) {
 
   # setup
   setup <- grep("%setup", tpl)
-  tpl[setup] <- paste0(
-    tpl[setup], switch(
-      pkg,
-      rscala = " -a 1 -a 2"
-    ), "\n", switch(
-      pkg,
-      rscala = paste(
-        "mkdir %{packname}/inst/dependencies",
-        "mv scala* %{packname}/inst/dependencies/scala",
-        "mv sbt* %{packname}/inst/dependencies/sbt", sep="\n"),
-      tcltk2 = paste(
-        "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'",
-        "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
-      askpass = {
-        unlink(dir(file.path(path, "inst"), "^mac.*", full.names=TRUE))
-        "rm -f %{packname}/inst/mac*" },
-      RUnit = paste(
-        "sed -i '/Sexpr/d' %{packname}/man/checkFuncs.Rd\n",
-        "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
-        "%{packname}/man/checkFuncs.Rd"),
-      rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
-      h2o = "cp %{SOURCE1} %{packname}/inst/java",
-      nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=paste(
-        "find %{packname}/inst -type f -exec",
-        "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
-      shinyAce=, googleComputeEngineR =
-        "find %{packname}/inst -type f -exec chmod a-x {} \\;",
-      TMB = "sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R",
-      excerptr = paste(
-        "find %{packname}/inst -type f -name *.cl -exec chmod a-x {} \\;\n",
-        "find %{packname}/inst -type f -exec",
-        "sed -Ei 's@#!( )*(/usr)*/bin/(env )*dash@#!/usr/bin/sh@g' {} \\;"),
-      funr = paste(
-        "find %{packname}/inst -type f -exec",
-        "sed -Ei 's@#!( )*(/usr)/bin/(env )*lr@#!/usr/bin/r@g' {} \\;"),
-      getopt = paste(
-        "find %{packname} -type f -exec",
-        "sed -Ei 's@/path/to/Rscript@/usr/bin/Rscript@g' {} \\;"),
-      rhli = "rm -f %{packname}/src/Makevars*"
-    )
-  )
+  tpl[setup] <- paste0(tpl[setup], switch(
+    pkg,
+    rscala = " -a 1 -a 2"
+  ))
+  tpl[setup] <- paste0(tpl[setup], "\n", switch(
+    pkg,
+    rscala = paste(
+      "mkdir %{packname}/inst/dependencies",
+      "mv scala* %{packname}/inst/dependencies/scala",
+      "mv sbt* %{packname}/inst/dependencies/sbt", sep="\n"),
+    tcltk2 = paste(
+      "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'",
+      "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
+    askpass = {
+      unlink(dir(file.path(path, "inst"), "^mac.*", full.names=TRUE))
+      "rm -f %{packname}/inst/mac*" },
+    RUnit = paste(
+      "sed -i '/Sexpr/d' %{packname}/man/checkFuncs.Rd\n",
+      "sed -i 's/\"runitVirtualClassTest.r\")}/\"runitVirtualClassTest.r\"/g'",
+      "%{packname}/man/checkFuncs.Rd"),
+    rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
+    h2o = "cp %{SOURCE1} %{packname}/inst/java",
+    nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=,ndl=,scrobbler=paste(
+      "find %{packname}/inst -type f -exec",
+      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
+    shinyAce=, googleComputeEngineR =
+      "find %{packname}/inst -type f -exec chmod a-x {} \\;",
+    TMB = "sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R",
+    excerptr = paste(
+      "find %{packname}/inst -type f -name *.cl -exec chmod a-x {} \\;\n",
+      "find %{packname}/inst -type f -exec",
+      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*dash@#!/usr/bin/sh@g' {} \\;"),
+    funr = paste(
+      "find %{packname}/inst -type f -exec",
+      "sed -Ei 's@#!( )*(/usr)/bin/(env )*lr@#!/usr/bin/r@g' {} \\;"),
+    getopt = paste(
+      "find %{packname} -type f -exec",
+      "sed -Ei 's@/path/to/Rscript@/usr/bin/Rscript@g' {} \\;"),
+    rhli = "rm -f %{packname}/src/Makevars*",
+    spcosa = "sed -i '/Sexpr/d' %{packname}/man/spcosa-package.Rd"
+  ))
 
   # install
   install <- grep("%install", tpl)
@@ -350,27 +354,19 @@ pkg_exceptions <- function(tpl, pkg, path) {
     udunits2 = "\\\n  --configure-args='--with-udunits2-include=/usr/include/udunits2'",
     proj4 = "\\\n --configure-vars='PKG_CPPFLAGS=-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H'"
   ))
+  tpl[install] <- paste0(tpl[install], "\n", switch(
+    pkg,
+    polmineR = "sed -i '/HOME\\|INFO/d' %{packname}/inst/extdata/cwb/registry/*"
+  ))
 
   # other
-  if (pkg %in% c("rtweet", "gunit", "ggasym", "facerec", "rollmatch", "modelplotr")) system(paste(
-    "sed -i 's/magrittr (>= 1.5.0)/magrittr (>= 1.5)/g'", file.path(path, "DESCRIPTION")))
-  if (pkg %in% c("abstractr", "modelplotr")) system(paste(
-    "sed -i 's/gridExtra (>= 2.3.0)/gridExtra (>= 2.3)/g'", file.path(path, "DESCRIPTION")))
-  if (pkg %in% "cNORM") system(paste(
-    "sed -i 's/leaps (>= 3.0.0)/leaps (>= 3.0)/g'", file.path(path, "DESCRIPTION")))
-  if (pkg %in% "imgrec") system(paste(
-    "sed -i 's/jsonlite (>= 1.6.0)/jsonlite (>= 1.6)/g'", file.path(path, "DESCRIPTION")))
-  if (pkg %in% "facerec") system(paste(
-    "sed -i 's/jsonlite (>= 1.5.0)/jsonlite (>= 1.5)/g'", file.path(path, "DESCRIPTION")))
-  if (pkg %in% c("imgrec", "facerec")) system(paste(
-    "sed -i 's/knitr (>= 1.2.0)/knitr (>= 1.2)/g'", file.path(path, "DESCRIPTION")))
   if (pkg %in% c("adapr", "taber"))
     unlink(file.path(path, "data"))
 
   tpl
 }
 
-create_spec <- function(pkg, tarfile) {
+create_spec <- function(pkg, tarfile, cran=available.packages()) {
   untar(tarfile, exdir=tempdir())
   path <- file.path(tempdir(), pkg)
   tpl <- readLines(getOption("copr.tpl"))
@@ -379,7 +375,7 @@ create_spec <- function(pkg, tarfile) {
   # fields
   desc <- read.dcf(file.path(path, "DESCRIPTION"))
   desc <- as.data.frame(desc, stringsAsFactors=FALSE)
-  deps <- pkg_deps(desc)
+  deps <- pkg_deps(desc, cran)
   description <- strwrap(desc$Description, 75)
   files <- pkg_files(pkg, path)
 

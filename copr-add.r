@@ -18,7 +18,7 @@ for (pkgs in blist) {
 
   ids <- sapply(pkgs, function(pkg) {
     tarf <- download.packages(pkg, tempdir(), cran, quiet=TRUE)
-    spec <- create_spec(pkg, tarf[,2])
+    spec <- create_spec(pkg, tarf[,2], cran)
     pkg <- paste0(getOption("copr.prefix"), pkg)
     dest <- paste0(getOption("copr.subdir"), "/", pkg, ".spec")
     if (!pkg %in% copr) add_pkg_scm(pkg)

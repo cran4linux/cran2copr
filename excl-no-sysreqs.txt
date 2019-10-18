@@ -19,3 +19,9 @@ commonsMath
 googleformr
 gifski
 traitdataform
+freetypeharfbuzz
+pcaL1
+wrswoR.benchmark
+GeneBook
+rLindo
+salso
