@@ -1,5 +1,6 @@
 .Rproj.user
 .Rhistory
 .RData
-^desc$
+desc/
+DEBUG
 

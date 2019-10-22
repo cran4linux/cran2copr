@@ -10,6 +10,12 @@ copr <- list_pkgs()
 cran <- available.packages()
 pkgs <- with_deps(args, cran)
 pkgs <- pkgs[need_update(pkgs, cran)]
+
+if (file.exists("DEBUG")) {
+  cat(pkgs, sep="\n")
+  quit(status=0)
+}
+
 blist <- get_build_list(pkgs, cran)
 n <- length(unlist(blist))
 
