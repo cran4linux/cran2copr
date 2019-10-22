@@ -1,9 +1,9 @@
 %global packname  strucchange
-%global packver   1.5-1
+%global packver   1.5-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}
 Summary:          Testing, Monitoring, and Dating Structural Changes
 
@@ -14,15 +14,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-sandwich 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Testing, monitoring and dating structural changes in (linear) regression
@@ -62,3 +63,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

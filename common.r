@@ -356,7 +356,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
   ))
   tpl[install] <- paste0(tpl[install], "\n", switch(
     pkg,
-    polmineR = "sed -i '/HOME\\|INFO/d' %{packname}/inst/extdata/cwb/registry/*"
+    polmineR = "sed -i '/HOME\\|INFO/d' %{buildroot}%{rlibdir}/%{packname}/extdata/cwb/registry/*"
   ))
 
   # other

@@ -1,9 +1,9 @@
 %global packname  cmprsk
-%global packver   2.2-8
+%global packver   2.2-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.8
+Version:          2.2.9
 Release:          1%{?dist}
 Summary:          Subdistribution Analysis of Competing Risks
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildRequires:    R-survival 
 Requires:         R-survival 
 

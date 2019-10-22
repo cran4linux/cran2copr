@@ -1,9 +1,9 @@
 %global packname  exact2x2
-%global packver   1.6.3
+%global packver   1.6.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.6.3.1
 Release:          1%{?dist}
 Summary:          Exact Tests and Confidence Intervals for 2x2 Tables
 

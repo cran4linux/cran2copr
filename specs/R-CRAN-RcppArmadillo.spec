@@ -1,9 +1,9 @@
 %global packname  RcppArmadillo
-%global packver   0.9.700.2.0
+%global packver   0.9.800.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.700.2.0
+Version:          0.9.800.1.0
 Release:          1%{?dist}
 Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear AlgebraLibrary
 
@@ -69,6 +69,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/skeleton
-%doc %{rlibdir}/%{packname}/unitTests
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

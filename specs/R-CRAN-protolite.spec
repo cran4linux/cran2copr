@@ -1,11 +1,11 @@
 %global packname  protolite
-%global packver   1.9
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          2.0
 Release:          1%{?dist}
-Summary:          Fast and Simple Object Serialization to Protocol Buffers
+Summary:          Highly Optimized Protocol Buffer Serializers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,11 +23,14 @@ Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-jsonlite 
 
 %description
-Optimized C++ implementations for reading and writing protocol-buffers.
-Currently supports 'rexp.proto' for serializing R objects and
-'geobuf.proto' for geojson data. This lightweight package is complementary
-to the much larger 'RProtoBuf' package which provides a full featured
-toolkit for working with protocol-buffers in R.
+Pure C++ implementations for reading and writing several common data
+formats based on Google protocol-buffers. Currently supports 'rexp.proto'
+for serialized R objects, 'geobuf.proto' for binary geojson, and
+'mvt.proto' for vector tiles. This package uses the auto-generated C++
+code by protobuf-compiler, hence the entire serialization is optimized at
+compile time. The 'RProtoBuf' package on the other hand uses the protobuf
+runtime library to provide a general- purpose toolkit for reading and
+writing arbitrary protocol-buffer data in R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,5 +55,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

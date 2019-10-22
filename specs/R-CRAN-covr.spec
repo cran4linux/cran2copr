@@ -1,9 +1,9 @@
 %global packname  covr
-%global packver   3.3.1
+%global packver   3.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.1
+Version:          3.3.2
 Release:          1%{?dist}
 Summary:          Test Coverage for Packages
 

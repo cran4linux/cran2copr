@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  brglm2
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}
 Summary:          Bias Reduction in Generalized Linear Models
 
@@ -42,16 +42,18 @@ bias-reduction adjusted score equations in Kenne et al. (2016)
 <arXiv:1604.04768>, or through the direct subtraction of an estimate of
 the bias of the maximum likelihood estimator from the maximum likelihood
 estimates as in Cordeiro and McCullagh (1991)
-<http://www.jstor.org/stable/2345592>. Estimation in all cases takes place
-via a quasi Fisher scoring algorithm, and S3 methods for the construction
-of of confidence intervals for the reduced-bias estimates are provided. In
-the special case of generalized linear models for binomial and multinomial
-responses (both ordinal and nominal), the adjusted score approaches return
-estimates with improved frequentist properties, that are also always
-finite, even in cases where the maximum likelihood estimates are infinite
-(e.g. complete and quasi-complete separation). 'brglm2' also provides
-pre-fit and post-fit methods for detecting separation and infinite maximum
-likelihood estimates in binomial response generalized linear models.
+<http://www.jstor.org/stable/2345592>. See Kosmidis et al (2019)
+<doi:10.1007/s11222-019-09860-6> for more details. Estimation in all cases
+takes place via a quasi Fisher scoring algorithm, and S3 methods for the
+construction of of confidence intervals for the reduced-bias estimates are
+provided. In the special case of generalized linear models for binomial
+and multinomial responses (both ordinal and nominal), the adjusted score
+approaches return estimates with improved frequentist properties, that are
+also always finite, even in cases where the maximum likelihood estimates
+are infinite (e.g. complete and quasi-complete separation). 'brglm2' also
+provides pre-fit and post-fit methods for detecting separation and
+infinite maximum likelihood estimates in binomial response generalized
+linear models.
 
 %prep
 %setup -q -c -n %{packname}

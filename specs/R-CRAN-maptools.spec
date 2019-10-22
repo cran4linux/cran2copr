@@ -1,15 +1,16 @@
 %global packname  maptools
-%global packver   0.9-5
+%global packver   0.9-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.8
 Release:          1%{?dist}
 Summary:          Tools for Handling Spatial Objects
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
@@ -43,6 +44,7 @@ for exchanging spatial objects with packages such as 'PBSmapping',
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

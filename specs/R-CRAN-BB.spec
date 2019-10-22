@@ -1,9 +1,9 @@
 %global packname  BB
-%global packver   2014.10-1
+%global packver   2019.10-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2014.10.1
+Version:          2019.10.1
 Release:          1%{?dist}
 Summary:          Solving and Optimizing Large-Scale Nonlinear Systems
 
@@ -37,6 +37,7 @@ loaded in an R session, with vignette("BB").
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  geomorph
-%global packver   3.1.2
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.1.3
 Release:          1%{?dist}
 Summary:          Geometric Morphometric Analyses of 2D/3D Landmark Data
 

@@ -1,9 +1,9 @@
 %global packname  hutils
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}
 Summary:          Miscellaneous R Functions and Aliases
 
@@ -15,18 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-stats < 4.0.0
-BuildRequires:    R-utils < 4.0.0
-BuildRequires:    R-grDevices < 4.0.0
 BuildRequires:    R-CRAN-data.table < 2.0.0
 BuildRequires:    R-CRAN-magrittr < 2.0.0
 BuildRequires:    R-CRAN-fastmatch < 2.0.0
-Requires:         R-stats < 4.0.0
-Requires:         R-utils < 4.0.0
-Requires:         R-grDevices < 4.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-data.table < 2.0.0
 Requires:         R-CRAN-magrittr < 2.0.0
 Requires:         R-CRAN-fastmatch < 2.0.0
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
 Provides utility functions for, and drawing on, the 'data.table' package.

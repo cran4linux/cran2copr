@@ -1,9 +1,9 @@
 %global packname  bayesm
-%global packver   3.1-3
+%global packver   3.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.1.4
 Release:          1%{?dist}
 Summary:          Bayesian Inference for Marketing/Micro-Econometrics
 

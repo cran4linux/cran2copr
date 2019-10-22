@@ -1,9 +1,9 @@
 %global packname  miscTools
-%global packver   0.6-22
+%global packver   0.6-24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.22
+Version:          0.6.24
 Release:          1%{?dist}
 Summary:          Miscellaneous Tools and Utilities
 
@@ -11,9 +11,12 @@ License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
+
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-digest 
 
 %description
 Miscellaneous small tools and utilities. Many of them facilitate the work
@@ -30,6 +33,7 @@ values.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

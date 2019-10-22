@@ -1,9 +1,9 @@
 %global packname  bigreadr
-%global packver   0.1.10
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Read Large Text Files
 
@@ -14,18 +14,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-bigassertr >= 0.1.1
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-bigassertr >= 0.1.1
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
 Requires:         R-utils 
 
 %description
-Read large text files by splitting them in smaller files. Package bigreadr
-also provides some convenient wrappers of fread/fwrite.
+Read large text files by splitting them in smaller files. Package
+'bigreadr' also provides some convenient wrappers around fread() and
+fwrite() from package 'data.table'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +40,7 @@ also provides some convenient wrappers of fread/fwrite.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
