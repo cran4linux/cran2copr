@@ -44,7 +44,8 @@ watch_builds <- function(ids) {
 
 build_spec <- function(spec) {
   pkg <- sub("\\.spec", "", basename(spec))
-  out <- copr_call("build", "--nowait", getOption("copr.repo"), spec)
+  out <- copr_call("build", "--nowait", getOption("copr.bflags"),
+                   getOption("copr.repo"), spec)
   out <- grep("Created builds", out, value=TRUE)
   out <- as.numeric(strsplit(out, ": ")[[1]][2])
   message("  Build ", out, " for ", pkg, " created from SPEC")
@@ -53,7 +54,7 @@ build_spec <- function(spec) {
 
 build_pkg <- function(pkg, chroots) {
   chroots <- if (missing(chroots)) "" else paste("-r", chroots, collapse=" ")
-  out <- copr_call("build-package", "--nowait",
+  out <- copr_call("build-package", "--nowait", getOption("copr.bflags"),
                    getOption("copr.repo"), "--name", pkg, chroots)
   out <- grep("Created builds", out, value=TRUE)
   out <- as.numeric(strsplit(out, ": ")[[1]][2])
@@ -172,6 +173,7 @@ pkg_files <- function(pkg, path) {
   if (file.exists(instignore)) {
     instignore <- suppressWarnings(readLines(instignore))
     instignore <- setdiff(sub("^inst/", "", instignore), "")
+    instignore <- instignore[!grepl("\\{", instignore)] # mRMRe
     unlink(unlist(sapply(instignore, function(i)
       dir(file.path(path, "inst"), i, full.names=TRUE))), recursive=TRUE)
   }
@@ -284,8 +286,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
     intRegGOF=,idmTPreg=,fxtract=,doubcens=,IGG=,ITRLearn=,ITRSelect=,lcc=,
     esmprep=,MBSP=,MOLHD=,isotone=,GENEAread=,tbl2xts=,reproducible=,GESE=,
     PACBO=,robustsae=,pMineR=,DWreg=,musica=,dgo=,NormalBetaPrime=,VGAMextra=,
-    ccrs=,WRS2=,stratifyR=,orderedLasso=,dimRed=,GGMM=,
-    ROpenCVLite="%global debug_package %{nil}",
+    ccrs=,WRS2=,stratifyR=,orderedLasso=,dimRed=,GGMM=,cpcens=,BayesianFROC=,
+    ROpenCVLite=,DREGAR="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -327,6 +329,9 @@ pkg_exceptions <- function(tpl, pkg, path) {
     h2o = "cp %{SOURCE1} %{packname}/inst/java",
     nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=,ndl=,scrobbler=paste(
       "find %{packname}/inst -type f -exec",
+      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
+    chromoR = paste(
+      "find %{packname}/exec -type f -exec",
       "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
     shinyAce=, googleComputeEngineR =
       "find %{packname}/inst -type f -exec chmod a-x {} \\;",
