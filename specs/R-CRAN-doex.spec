@@ -1,9 +1,9 @@
 %global packname  doex
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          The One-Way Heteroscedastic ANOVA Tests
 
@@ -17,7 +17,8 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Contains several one-way heteroscedastic ANOVA tests such as
+Contains the heteroscedastic ANOVA tests for normal and two-parameter
+exponential distributed populations. For normal distributions,
 Alexander-Govern test by Alexandern and Govern (1994)
 <doi:10.2307/1165140>, Alvandi et al. Generalized F test by Alvandi et al.
 (2012) <doi:10.1080/03610926.2011.573160>, Approximate F test by Asiribo
@@ -39,11 +40,18 @@ F test by Berry and Mielke (2002) <doi:10.2466/pr0.2002.90.2.495>,
 Scott-Smith test by Scott and Smith (1971) <doi:10.2307/2346757>, Welch
 test by Welch(1951) <doi:10.2307/2332579>, and Welch-Aspin test by Aspin
 (1948) <doi:10.1093/biomet/35.1-2.88>. These tests are used to test the
-equality of group means under unequal variance. Furthermore, a modified
-version of Generalized F-test is improved to test the equality of
-non-normal group means under unequal variances and a revised version of
-Generalized F-test is given to test the equality of non-normal group means
-caused by skewness.
+equality of group means under unequal variance. Also, a modified version
+of Generalized F-test is improved to test the equality of non-normal group
+means under unequal variances and a revised version of Generalized F-test
+is given to test the equality of non-normal group means caused by
+skewness. Furthermore, it consists some procedures for testing equality of
+several two-parameter exponentially distributed population means under
+unequal scale parameters such as generalized p-value, parametric bootstrap
+and fiducial approach test by Malekzadeh and Jafari (2019)
+<doi:10.1080/03610918.2018.1538452>. There is also Hsieh test by Hsieh
+(1986) <doi:10.2307/1270452> for testing equality of location parameters
+of two-parameter exponentially distributed populations under unequal scale
+parameters.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +63,7 @@ caused by skewness.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

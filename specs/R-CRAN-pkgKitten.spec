@@ -1,15 +1,16 @@
 %global packname  pkgKitten
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Create Simple Packages Which Do not Upset R Package Checks
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel
 Requires:         R-core
@@ -28,8 +29,10 @@ helpful for beginners, kitten() offers an alternative.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -44,4 +47,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/replacements
+%doc %{rlibdir}/%{packname}/skel
 %{rlibdir}/%{packname}/INDEX

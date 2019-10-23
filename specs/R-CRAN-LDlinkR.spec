@@ -1,11 +1,11 @@
 %global packname  LDlinkR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Access LDlink API with R
+Summary:          An R Package for Calculating Linkage Disequilibrium
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.5.2
+BuildRequires:    R-utils >= 3.4.2
 BuildRequires:    R-CRAN-httr >= 1.4.0
-Requires:         R-utils >= 3.5.2
+Requires:         R-utils >= 3.4.2
 Requires:         R-CRAN-httr >= 1.4.0
 
 %description
@@ -36,6 +36,7 @@ performing batch queries in 1000 Genomes Project data using LDlink.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -47,4 +48,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

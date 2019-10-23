@@ -1,9 +1,9 @@
 %global packname  zoib
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}
 Summary:          Bayesian Inference for Beta Regression and Zero-or-One InflatedBeta Regression
 
@@ -41,6 +41,7 @@ implemented in JAGS.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

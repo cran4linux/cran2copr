@@ -1,9 +1,9 @@
 %global packname  lmfor
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Functions for Forest Biometrics
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-spatstat
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magic 
 Requires:         R-stats4 
 Requires:         R-nlme 
 Requires:         R-CRAN-spatstat 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-magic 
 
 %description
 Functions for different purposes related to Forest biometrics, including
@@ -45,6 +47,7 @@ empirical datasets are also included.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

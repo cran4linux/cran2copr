@@ -1,9 +1,9 @@
 %global packname  data.table
-%global packver   1.12.4
+%global packver   1.12.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.4
+Version:          1.12.6
 Release:          1%{?dist}
 Summary:          Extension of `data.frame`
 
@@ -33,6 +33,7 @@ natural and flexible syntax, for faster development.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

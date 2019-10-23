@@ -1,11 +1,11 @@
 %global packname  tidytransit
-%global packver   0.5.2
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6
 Release:          1%{?dist}
-Summary:          Read, Validate, Analyze, and Map Files in the General TransitFeed Specification (GTFS)
+Summary:          Read, Validate, Analyze, and Map Files in the General TransitFeed Specification
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -71,6 +71,7 @@ see the GTFS documentation here for more detail: <http://gtfs.org/>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

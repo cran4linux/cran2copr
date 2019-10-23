@@ -1,9 +1,9 @@
 %global packname  KSPM
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Kernel Semi-Parametric Models
 
@@ -31,7 +31,8 @@ leave-one-out error. It includes predictions with confidence/prediction
 intervals, statistical tests for the significance of each kernel, a
 procedure for variable selection and graphical tools for diagnostics and
 interpretation of covariate effects. Currently it is implemented for
-continuous dependent variables.
+continuous dependent variables. The package is based on the paper of Liu
+et al. (2007), <doi:10.1111/j.1541-0420.2007.00799.x>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +44,7 @@ continuous dependent variables.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -55,4 +57,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

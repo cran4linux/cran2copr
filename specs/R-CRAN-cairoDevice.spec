@@ -1,9 +1,9 @@
 %global packname  cairoDevice
-%global packver   2.27
+%global packver   2.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.27
+Version:          2.28
 Release:          1%{?dist}
 Summary:          Embeddable Cairo Graphics Device Driver
 
@@ -13,8 +13,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    cairo-devel >= 1.0
-Requires:         cairo
 BuildRequires:    gtk2-devel
+Requires:         cairo
 Requires:         gtk2
 BuildRequires:    R-devel >= 2.12.0
 Requires:         R-core >= 2.12.0
@@ -37,6 +37,7 @@ features of other graphics devices, including getGraphicsEvent().
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  comorbidity
-%global packver   0.5.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.2
 Release:          1%{?dist}
 Summary:          Computing Comorbidity Scores
 
@@ -17,12 +17,10 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -43,6 +41,7 @@ comorbidity score (Elixhauser, 1998
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

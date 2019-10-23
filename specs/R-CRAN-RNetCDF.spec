@@ -1,11 +1,11 @@
 %global packname  RNetCDF
-%global packver   2.0-3
+%global packver   2.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.1.1
 Release:          1%{?dist}
-Summary:          Interface to NetCDF Datasets
+Summary:          Interface to 'NetCDF' Datasets
 
 License:          GPL (>= 2) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,10 +18,10 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 
 %description
-An interface to the NetCDF file format designed by Unidata for efficient
-storage of array-oriented scientific data and descriptions. This R
-interface is closely based on the C API of the NetCDF4 library, and it
-includes calendar conversions from the Unidata UDUNITS2 library.
+An interface to the 'NetCDF' file formats designed by Unidata for
+efficient storage of array-oriented scientific data and descriptions. Most
+capabilities of 'NetCDF' version 4 are supported. Optional conversions of
+time units are enabled by 'UDUNITS' version 2, also from Unidata.
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +33,7 @@ includes calendar conversions from the Unidata UDUNITS2 library.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

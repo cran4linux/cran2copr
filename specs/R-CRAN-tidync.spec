@@ -1,9 +1,9 @@
 %global packname  tidync
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          A Tidy Approach to 'NetCDF' Data Exploration and Extraction
 
@@ -54,6 +54,7 @@ via hyper_tibble() or hyper_array().
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -66,6 +67,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/blog
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/WORDLIST

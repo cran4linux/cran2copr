@@ -1,9 +1,9 @@
 %global packname  IsoplotR
-%global packver   3.0
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          3.1
 Release:          1%{?dist}
 Summary:          Statistical Toolbox for Radiometric Geochronology
 
@@ -52,6 +52,7 @@ Lu-Hf, Rb-Sr and 230Th-U isochrons as well as 230Th-U evolution plots.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -104,6 +105,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/UPb2.csv
 %doc %{rlibdir}/%{packname}/UPb3.csv
 %doc %{rlibdir}/%{packname}/UPb4.csv
+%doc %{rlibdir}/%{packname}/UPb41.csv
 %doc %{rlibdir}/%{packname}/UPb5.csv
 %doc %{rlibdir}/%{packname}/UPb6.csv
 %doc %{rlibdir}/%{packname}/UPb7.csv

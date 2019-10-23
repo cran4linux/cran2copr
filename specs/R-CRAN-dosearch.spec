@@ -1,9 +1,9 @@
 %global packname  dosearch
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Causal Effect Identification from Multiple Incomplete DataSources
 
@@ -27,7 +27,11 @@ transportability (Bareinboim, E. and Pearl, J. (2014)
 <http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>), missing data (Mohan, K.
 and Pearl, J. and Tian., J. (2013)
 <http://ftp.cs.ucla.edu/pub/stat_ser/r410.pdf>) and arbitrary combinations
-of these.
+of these. Also supports identification in the presence of context-specific
+independence (CSI) relations through labeled directed acyclic graphs
+(LDAG). For details on CSIs see Corander et al. (2019)
+<doi:10.1016/j.apal.2019.04.004>. For further information on the
+search-based approach see Tikka et al. (2019) <arXiv:1902.01073>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +43,7 @@ of these.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -52,6 +57,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

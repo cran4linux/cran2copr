@@ -1,0 +1,66 @@
+%global packname  clustcurv
+%global packver   1.0.0
+%global rlibdir   /usr/local/lib/R/library
+
+Name:             R-CRAN-%{packname}
+Version:          1.0.0
+Release:          1%{?dist}
+Summary:          Determining Groups in Multiples Curves
+
+License:          MIT + file LICENSE
+URL:              https://cran.r-project.org/package=%{packname}
+Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
+
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggfortify 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-Gmedian 
+BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-wesanderson 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggfortify 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-Gmedian 
+Requires:         R-survival 
+Requires:         R-CRAN-wesanderson 
+
+%description
+A method for determining groups in multiple survival curves with an
+automatic selection of their number based on k-means or k-medians
+algorithms. The selection of the optimal number is provided by bootstrap
+methods. Implemented methods are: Grouping multiple survival curves
+described by Villanueva et al. (2018) <doi:10.1002/sim.8016>.
+
+%prep
+%setup -q -c -n %{packname}
+
+
+%build
+
+%install
+
+mkdir -p %{buildroot}%{rlibdir}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
+test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+rm -f %{buildroot}%{rlibdir}/R.css
+
+%files
+%dir %{rlibdir}/%{packname}
+%doc %{rlibdir}/%{packname}/html
+%{rlibdir}/%{packname}/Meta
+%{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
+%{rlibdir}/%{packname}/NAMESPACE
+%{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%{rlibdir}/%{packname}/INDEX

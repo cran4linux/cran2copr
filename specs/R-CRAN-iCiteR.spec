@@ -1,11 +1,11 @@
 %global packname  iCiteR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Returns Data from the NIH's 'iCite' API
+Summary:          A Minimal Wrapper Around NIH's 'iCite' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,10 +24,11 @@ Requires:         R-CRAN-httr >= 1.4
 A minimal wrapper around the NIH's 'iCite' API
 (<https://icite.od.nih.gov/api>). Given a vector of pubmed IDs, this
 package returns a dataframe of the information yielded by the 'iCite' API.
-The primary metric yielded by 'iCite' is the paper's relative citation
-ratio, but the API also returns other meta-data from the paper, including
-author names, publication journal, publication year, paper title, doi, and
-a number of other citation metrics.
+The primary metrics yielded by 'iCite' are measurements of a paper's
+scientific influence and translational potential, but the API also returns
+other meta-data from the paper, including author names, publication
+journal, publication year, paper title, doi, and a number of other
+citation metrics.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +40,7 @@ a number of other citation metrics.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

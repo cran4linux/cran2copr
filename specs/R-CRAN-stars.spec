@@ -1,9 +1,9 @@
 %global packname  stars
-%global packver   0.3-1
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Spatiotemporal Arrays, Raster and Vector Data Cubes
 
@@ -15,18 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.7.3
-BuildRequires:    R-CRAN-classInt >= 0.2.2
+BuildRequires:    R-CRAN-sf >= 0.8.0
+BuildRequires:    R-CRAN-classInt >= 0.4.1
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf >= 0.7.3
-Requires:         R-CRAN-classInt >= 0.2.2
+Requires:         R-CRAN-sf >= 0.8.0
+Requires:         R-CRAN-classInt >= 0.4.1
 Requires:         R-CRAN-abind 
 Requires:         R-methods 
 Requires:         R-parallel 
+Requires:         R-CRAN-lwgeom 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-units 
 
@@ -45,6 +47,7 @@ and vector data cubes) in 'R', using 'GDAL' bindings provided by 'sf', and
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

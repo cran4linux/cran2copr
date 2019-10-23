@@ -1,9 +1,9 @@
 %global packname  blocksdesign
-%global packver   3.5
+%global packver   3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5
+Version:          3.7
 Release:          1%{?dist}
 Summary:          Nested and Crossed Block Designs for Factorial, FractionalFactorial and Unstructured Treatment Sets
 
@@ -17,10 +17,10 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-crossdes 
+BuildRequires:    R-CRAN-PolynomF 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-crossdes 
+Requires:         R-CRAN-PolynomF 
 
 %description
 Constructs D-optimal or near D-optimal nested and crossed block designs
@@ -46,6 +46,7 @@ for each block and treatment design.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

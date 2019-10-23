@@ -1,9 +1,9 @@
 %global packname  threeBrain
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          3D Brain Visualization
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-htmlwidgets >= 1.3
 BuildRequires:    R-CRAN-reticulate >= 1.13
+BuildRequires:    R-CRAN-oro.nifti >= 0.9.1
 BuildRequires:    R-CRAN-gifti >= 0.7.5
 BuildRequires:    R-CRAN-htmltools >= 0.3.6
 BuildRequires:    R-CRAN-startup >= 0.12.0
@@ -34,6 +35,7 @@ Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-htmlwidgets >= 1.3
 Requires:         R-CRAN-reticulate >= 1.13
+Requires:         R-CRAN-oro.nifti >= 0.9.1
 Requires:         R-CRAN-gifti >= 0.7.5
 Requires:         R-CRAN-htmltools >= 0.3.6
 Requires:         R-CRAN-startup >= 0.12.0
@@ -69,6 +71,7 @@ to one template 141 brain.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

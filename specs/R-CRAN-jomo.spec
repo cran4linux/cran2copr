@@ -1,9 +1,9 @@
 %global packname  jomo
-%global packver   2.6-9
+%global packver   2.6-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.9
+Version:          2.6.10
 Release:          1%{?dist}
 Summary:          Multilevel Joint Modelling Multiple Imputation
 
@@ -43,6 +43,7 @@ compatibly with the substantive model.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

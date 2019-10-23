@@ -1,9 +1,9 @@
 %global packname  asciiSetupReader
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}
 Summary:          Reads Fixed-Width ASCII Data Files (.txt or .dat) that HaveAccompanying Setup Files (.sps or .sas)
 
@@ -15,11 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rstudioapi >= 0.5
+BuildRequires:    R-CRAN-shiny >= 0.13
+BuildRequires:    R-CRAN-miniUI >= 0.1.1
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-rstudioapi >= 0.5
+Requires:         R-CRAN-shiny >= 0.13
+Requires:         R-CRAN-miniUI >= 0.1.1
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-readr 
@@ -45,6 +51,7 @@ files are common in older (pre-2000) government data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -60,5 +67,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/testdata
 %{rlibdir}/%{packname}/INDEX

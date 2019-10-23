@@ -1,9 +1,9 @@
 %global packname  smooth
-%global packver   2.5.3
+%global packver   2.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.3
+Version:          2.5.4
 Release:          1%{?dist}
 Summary:          Forecasting Using State Space Models
 
@@ -56,6 +56,7 @@ framework (Svetunkov & Boylan, 2017, <doi: 10.13140/RG.2.2.35897.06242>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

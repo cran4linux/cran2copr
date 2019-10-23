@@ -1,9 +1,9 @@
 %global packname  mediation
-%global packver   4.4.7
+%global packver   4.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.7
+Version:          4.5.0
 Release:          1%{?dist}
 Summary:          Causal Mediation Analysis
 
@@ -26,6 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+BuildRequires:    R-boot 
 Requires:         R-CRAN-lme4 >= 1.0
 Requires:         R-MASS 
 Requires:         R-Matrix 
@@ -37,6 +38,7 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-boot 
 
 %description
 We implement parametric and non parametric mediation analysis. This
@@ -59,6 +61,7 @@ researchers to conduct sensitivity analysis for certain parametric models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -71,6 +74,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

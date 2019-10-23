@@ -1,11 +1,11 @@
 %global packname  cotrend
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Consistant Cotrend Rank Selection
+Summary:          Consistent Co-Trending Rank Selection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,11 +19,11 @@ BuildRequires:    R-CRAN-xts
 Requires:         R-CRAN-xts 
 
 %description
-Implements cointegration/cotrending rank selection algorithm in Guo and
-Shintani (2013) "Consistant cotrending rank selection when both stochastic
-and nonlinear deterministic trends are present". The Econometrics Journal
-16: 473-483 <doi:10.1111/j.1368-423X.2012.00392.x>. Numbered examples
-correspond to Feb 2011 preprint
+Implements cointegration/co-trending rank selection algorithm in Guo and
+Shintani (2013) "Consistent co-trending rank selection when both
+stochastic and nonlinear deterministic trends are present". The
+Econometrics Journal 16: 473-483 <doi:10.1111/j.1368-423X.2012.00392.x>.
+Numbered examples correspond to Feb 2011 preprint
 <http://www.fas.nus.edu.sg/ecs/events/seminar/seminar-papers/05Apr11.pdf>.
 
 %prep
@@ -36,6 +36,7 @@ correspond to Feb 2011 preprint
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

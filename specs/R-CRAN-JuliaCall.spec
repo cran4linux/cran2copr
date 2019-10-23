@@ -1,15 +1,16 @@
 %global packname  JuliaCall
-%global packver   0.16.6
+%global packver   0.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.6
+Version:          0.17.0
 Release:          1%{?dist}
 Summary:          Seamless Integration Between R and 'Julia'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 Requires:         julia
 BuildRequires:    R-devel >= 3.4.0
@@ -38,8 +39,10 @@ high-level programming language like 'Julia'.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

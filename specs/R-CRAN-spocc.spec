@@ -1,9 +1,9 @@
 %global packname  spocc
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Interface to Species Occurrence Data Sources
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-rvertnet >= 0.7.0
 BuildRequires:    R-CRAN-rbison >= 0.6.0
 BuildRequires:    R-CRAN-ridigbio >= 0.3.5
 BuildRequires:    R-CRAN-crul >= 0.3.4
-BuildRequires:    R-CRAN-whisker >= 0.3.2
+BuildRequires:    R-CRAN-whisker >= 0.3
 BuildRequires:    R-CRAN-wicket >= 0.3.0
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.9.6
@@ -38,7 +38,7 @@ Requires:         R-CRAN-rvertnet >= 0.7.0
 Requires:         R-CRAN-rbison >= 0.6.0
 Requires:         R-CRAN-ridigbio >= 0.3.5
 Requires:         R-CRAN-crul >= 0.3.4
-Requires:         R-CRAN-whisker >= 0.3.2
+Requires:         R-CRAN-whisker >= 0.3
 Requires:         R-CRAN-wicket >= 0.3.0
 Requires:         R-utils 
 
@@ -62,6 +62,7 @@ data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

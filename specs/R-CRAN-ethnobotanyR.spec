@@ -1,9 +1,9 @@
 %global packname  ethnobotanyR
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Calculate Quantitative Ethnobotany Indices
 
@@ -12,23 +12,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-circlize 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cowplot 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-reshape 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-circlize 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-magrittr 
 
 %description
 Calculate common quantitative ethnobotany indices to assess the cultural
@@ -49,6 +47,7 @@ Comparative Analysis Based on the Useful Wild Plants of Southern Cantabria
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

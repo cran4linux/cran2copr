@@ -1,9 +1,9 @@
 %global packname  LeMaRns
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Length-Based Multispecies Analysis by Numerical Simulation
 
@@ -23,9 +23,9 @@ Requires:         R-CRAN-abind
 Requires:         R-methods 
 
 %description
-Set up, run and explore the outputs of the Length-based Multispecies model
-(LeMans; Hall et al. 2006 <doi:10.1139/f06-039>), focused on the marine
-environment.
+Set up, run and explore the outputs of the Length-based Multi-species
+model (LeMans; Hall et al. 2006 <doi:10.1139/f06-039>), focused on the
+marine environment.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +37,7 @@ environment.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

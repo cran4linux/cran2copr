@@ -1,9 +1,9 @@
 %global packname  HelpersMG
-%global packver   3.7
+%global packver   3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          3.8
 Release:          1%{?dist}
 Summary:          Tools for Environmental Analyses, Ecotoxicology and Various RFunctions
 
@@ -40,6 +40,7 @@ content, read the contents of all files from a folder at one time.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

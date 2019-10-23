@@ -1,0 +1,74 @@
+%global packname  SimInf
+%global packver   6.3.0
+%global rlibdir   /usr/local/lib/R/library
+
+Name:             R-CRAN-%{packname}
+Version:          6.3.0
+Release:          1%{?dist}
+Summary:          A Framework for Data-Driven Stochastic Disease SpreadSimulations
+
+License:          GPL-3
+URL:              https://cran.r-project.org/package=%{packname}
+Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
+
+BuildRequires:    gsl-devel
+Requires:         gsl
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-Matrix 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-Matrix 
+
+%description
+Provides an efficient and very flexible framework to conduct data-driven
+epidemiological modeling in realistic large scale disease spread
+simulations. The framework integrates infection dynamics in subpopulations
+as continuous-time Markov chains using the Gillespie stochastic simulation
+algorithm and incorporates available data such as births, deaths and
+movements as scheduled events at predefined time-points. Using C code for
+the numerical solvers and 'OpenMP' (if available) to divide work over
+multiple processors ensures high performance when simulating a sample
+outcome. One of our design goals was to make the package extendable and
+enable usage of the numerical solvers from other R extension packages in
+order to facilitate complex epidemiological research. The package contains
+template models and can be extended with user-defined models.
+
+%prep
+%setup -q -c -n %{packname}
+
+
+%build
+
+%install
+
+mkdir -p %{buildroot}%{rlibdir}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
+test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+rm -f %{buildroot}%{rlibdir}/R.css
+
+%files
+%dir %{rlibdir}/%{packname}
+%doc %{rlibdir}/%{packname}/html
+%{rlibdir}/%{packname}/Meta
+%{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
+%{rlibdir}/%{packname}/DESCRIPTION
+%{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
+%{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/include
+%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

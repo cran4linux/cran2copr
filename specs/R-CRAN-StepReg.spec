@@ -1,9 +1,9 @@
 %global packname  StepReg
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Stepwise Regression Analysis
 
@@ -21,14 +21,15 @@ Requires:         R-CRAN-Rcpp >= 0.12.13
 %description
 Stepwise regression analysis for variable selection can be used to get the
 best candidate final regression model in univariate or multivariate
-regression analysis with the 'forward' and 'stepwise' steps. Procedure can
-use Akaike information criterion, corrected Akaike information criterion,
-Bayesian information criterion, Hannan and Quinn information criterion,
-corrected Hannan and Quinn information criterion, Schwarz criterion and
-significance levels as selection criteria. Multicollinearity detection in
-regression model are performed by checking tolerance value. Continuous
-variables nested within class effect and weighted stepwise regression are
-also considered in this package.
+regression analysis with the 'forward', 'backward' and 'bidirection'
+steps. Besides, best subset selection is included in this package.
+Procedure can use Akaike information criterion, corrected Akaike
+information criterion, Bayesian information criterion, Hannan and Quinn
+information criterion, corrected Hannan and Quinn information criterion,
+Schwarz criterion and significance levels as selection criteria.
+Multicollinearity detection in regression model are performed by checking
+tolerance value. Continuous variables nested within class effect and
+weighted stepwise regression are also considered.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +41,7 @@ also considered in this package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

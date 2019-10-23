@@ -1,15 +1,16 @@
 %global packname  RcppGSL
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
-Release:          3%{?dist}
+Version:          0.3.7
+Release:          1%{?dist}
 Summary:          'Rcpp' Integration for 'GNU GSL' Vectors and Matrices
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    gsl-devel
 Requires:         gsl-devel
@@ -41,8 +42,10 @@ another library.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -59,6 +62,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/skeleton
-%doc %{rlibdir}/%{packname}/unitTests
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

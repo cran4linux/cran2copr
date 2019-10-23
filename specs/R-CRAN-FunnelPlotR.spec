@@ -1,9 +1,9 @@
 %global packname  FunnelPlotR
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Funnel Plots for Indirectly-Standardised Ratios
 
@@ -27,8 +27,9 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-scales 
 
 %description
-An implementation of the Spiegelhalter(2005) <doi:10.1002/sim.1970> Funnel
-plots for reporting standardised ratio, with overdispersion adjustment.
+An implementation of the Spiegelhalter (2005) <doi:10.1002/sim.1970>
+Funnel plots for reporting standardised ratios, with overdispersion
+adjustment.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +41,7 @@ plots for reporting standardised ratio, with overdispersion adjustment.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

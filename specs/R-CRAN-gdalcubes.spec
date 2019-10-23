@@ -1,10 +1,10 @@
 %global packname  gdalcubes
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
-Release:          3%{?dist}
+Version:          0.2.3
+Release:          1%{?dist}
 Summary:          Earth Observation Data Cubes from Satellite Image Collections
 
 License:          MIT + file LICENSE
@@ -22,8 +22,8 @@ Requires:         proj
 Requires:         libcurl
 Requires:         netcdf
 Requires:         sqlite
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-jsonlite 
@@ -58,6 +58,7 @@ for further details.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

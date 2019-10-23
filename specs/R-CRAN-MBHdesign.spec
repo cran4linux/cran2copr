@@ -1,9 +1,9 @@
 %global packname  MBHdesign
-%global packver   1.0.79
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.79
+Version:          2.1.5
 Release:          1%{?dist}
 Summary:          Spatial Designs for Ecological and Environmental Surveys
 
@@ -21,19 +21,21 @@ BuildRequires:    R-CRAN-randtoolbox
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
 BuildRequires:    R-class 
+BuildRequires:    R-parallel 
 Requires:         R-mgcv 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-randtoolbox 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-class 
+Requires:         R-parallel 
 
 %description
 Provides spatially balanced designs from a set of (contiguous) potential
-sampling locations in a study region. Accommodates , without detrimental
-effects on spatial balance, sites that the researcher wishes to include in
-the survey for reasons other than the current randomisation (legacy
-sites).
+sampling locations in a study region for point-based and for
+transect-based surveys. Accommodates, without detrimental effects on
+spatial balance, sites that the researcher wishes to include in the survey
+for reasons other than the current randomisation (legacy sites).
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +47,7 @@ sites).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -56,5 +59,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

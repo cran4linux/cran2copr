@@ -1,9 +1,9 @@
 %global packname  CorBin
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Generate High-Dimensional Binary Data with CorrelationStructures
 
@@ -22,9 +22,8 @@ dimension for three commonly studied correlation structures, including
 exchangeable, decaying-product and K-dependent correlation structures, and
 extend the algorithms to generate binary data of general non-negative
 correlation matrices with quadratic time complexity. Jiang, W., Song, S.,
-Hou, L. and Zhao, H. "CorBin: An efficient R package to generate
-high-dimensional binary data with correlation structures." Submitted to
-Journal of Statistical Software.
+Hou, L. and Zhao, H. "A set of efficient methods to generate
+high-dimensional binary data with correlation structures." Submitted.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +35,7 @@ Journal of Statistical Software.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

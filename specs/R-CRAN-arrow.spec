@@ -1,9 +1,9 @@
 %global packname  arrow
-%global packver   0.14.1.1
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.1.1
+Version:          0.15.0
 Release:          1%{?dist}
 Summary:          Integration to 'Apache' 'Arrow'
 
@@ -17,7 +17,7 @@ Requires:         R-core >= 3.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
@@ -26,7 +26,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-fs 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
@@ -50,6 +50,7 @@ package provides an interface to the 'Arrow C++' library.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -62,6 +63,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/NOTICE.txt
 %doc %{rlibdir}/%{packname}/v0.7.1.parquet
 %{rlibdir}/%{packname}/INDEX

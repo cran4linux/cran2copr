@@ -1,9 +1,9 @@
 %global packname  packageRank
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Computation and Visualization of Package Download Counts andPercentiles
 
@@ -18,13 +18,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.12.2
 BuildRequires:    R-CRAN-cranlogs 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-rversions 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-cranlogs 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-rversions 
+Requires:         R-stats 
 
 %description
 Compute and visualize the cross-sectional and longitudinal number and rank
@@ -40,6 +46,7 @@ percentile of package downloads from RStudio's CRAN mirror.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
