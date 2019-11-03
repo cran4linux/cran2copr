@@ -13,6 +13,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    make
+BuildRequires:    gsl-devel
+Requires:         gsl
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-ggplot2 

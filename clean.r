@@ -1,10 +1,11 @@
 source("config.r")
 source("common.r")
-library(rvest)
 
-df <- "https://copr.fedorainfracloud.org/coprs" %>%
-  paste(copr_call("whoami"), getOption("copr.repo"), "builds", sep="/") %>%
-  xml2::read_html() %>% html_table() %>% .[[1]]
+URL.COPR <- paste("https://copr.fedorainfracloud.org/coprs",
+                  copr_call("whoami"), getOption("copr.repo"), sep="/")
+
+html <- xml2::read_html(paste(URL.COPR, "builds", sep="/"))
+df <- rvest::html_table(html)[[1]]
 
 df.rm <- df[df$Status == "succeeded",]
 df.rm <- df.rm[duplicated(df.rm[,2:3]),]
