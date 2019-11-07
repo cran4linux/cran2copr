@@ -17,6 +17,8 @@
 - detect which packages are in the main repos and depend on them, instead of
   rebuilding everything in Copr
 
+- integration with r-hub/sysreqsdb -> https://sysreqs.r-hub.io/
+
 # Copr operation
 
 - ability to fetch the status of packages per chroot
