@@ -42,10 +42,11 @@ watch_builds <- function(ids) {
   })
 }
 
-build_spec <- function(spec) {
+build_spec <- function(spec, chroots) {
+  chroots <- if (missing(chroots)) "" else paste("-r", chroots, collapse=" ")
   pkg <- sub("\\.spec", "", basename(spec))
   out <- copr_call("build", "--nowait", getOption("copr.bflags"),
-                   getOption("copr.repo"), spec)
+                   getOption("copr.repo"), spec, chroots)
   out <- grep("Created builds", out, value=TRUE)
   out <- as.numeric(strsplit(out, ": ")[[1]][2])
   message("  Build ", out, " for ", pkg, " created from SPEC")
