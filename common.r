@@ -42,8 +42,8 @@ watch_builds <- function(ids) {
   })
 }
 
-build_spec <- function(spec, chroots) {
-  chroots <- if (missing(chroots)) "" else paste("-r", chroots, collapse=" ")
+build_spec <- function(spec, chroots=getOption("copr.chroots")) {
+  chroots <- if (is.null(chroots)) "" else paste("-r", chroots, collapse=" ")
   pkg <- sub("\\.spec", "", basename(spec))
   out <- copr_call("build", "--nowait", getOption("copr.bflags"),
                    getOption("copr.repo"), spec, chroots)
@@ -53,8 +53,8 @@ build_spec <- function(spec, chroots) {
   out
 }
 
-build_pkg <- function(pkg, chroots) {
-  chroots <- if (missing(chroots)) "" else paste("-r", chroots, collapse=" ")
+build_pkg <- function(pkg, chroots=getOption("copr.chroots")) {
+  chroots <- if (is.null(chroots)) "" else paste("-r", chroots, collapse=" ")
   out <- copr_call("build-package", "--nowait", getOption("copr.bflags"),
                    getOption("copr.repo"), "--name", pkg, chroots)
   out <- grep("Created builds", out, value=TRUE)
