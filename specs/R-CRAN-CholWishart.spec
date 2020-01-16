@@ -1,9 +1,9 @@
 %global packname  CholWishart
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Cholesky Decomposition of the Wishart Distribution
 
@@ -22,6 +22,8 @@ factorization of an inverse Wishart random variable, sampling from the
 pseudo Wishart distribution, sampling from the generalized inverse Wishart
 distribution, computing densities for the Wishart and inverse Wishart
 distributions, and computing the multivariate gamma and digamma functions.
+Provides a header file so the C functions can be called directly from
+other programs.
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +35,7 @@ distributions, and computing the multivariate gamma and digamma functions.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -47,5 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/AUTHORS
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

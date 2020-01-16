@@ -1,9 +1,9 @@
 %global packname  sparsenet
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Fit Sparse Linear Regression Models via Nonconvex Optimization
 
@@ -15,11 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-Matrix >= 1.0.6
-BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-shape 
 BuildRequires:    R-methods 
 Requires:         R-Matrix >= 1.0.6
-Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-shape 
 Requires:         R-methods 
 
@@ -41,6 +39,7 @@ parameter by coordinate descent.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

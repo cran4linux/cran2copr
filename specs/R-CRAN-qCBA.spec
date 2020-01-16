@@ -1,13 +1,13 @@
 %global packname  qCBA
-%global packver   0.3.1
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4
 Release:          1%{?dist}
 Summary:          Quantitative Classification by Association Rules
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

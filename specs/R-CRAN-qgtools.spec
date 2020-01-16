@@ -1,11 +1,11 @@
 %global packname  qgtools
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}
-Summary:          Tools for Quantitative Genetics Data Analyses
+Summary:          Generalized Quantitative Genetics Data Analyses
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,12 +17,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-MASS 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-Matrix 
-Requires:         R-MASS 
 
 %description
 Two linear mixed model approaches: REML(restricted maximum likelihood) and
@@ -31,8 +27,7 @@ resampling techniques are integrated for various quantitative genetics
 analyses. With these two types of approaches, various unbalanced data
 structures, missing data, and any irregular genetic mating designs can be
 analyzed and statistically tested. This package also offers fast
-computations for many large data sets. Other functions will be added to
-this R tool in the future.
+computations for many large data sets.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  Pade
-%global packver   0.1.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Padé Approximant Coefficients
 

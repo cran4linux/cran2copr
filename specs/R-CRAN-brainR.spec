@@ -1,9 +1,9 @@
 %global packname  brainR
-%global packver   1.5.1
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.0
 Release:          1%{?dist}
 Summary:          Helper Functions to 'misc3d' and 'rgl' Packages for BrainImaging
 
@@ -39,6 +39,7 @@ This includes functions for creating 3D and 4D images using 'WebGL',
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -51,6 +52,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/COPYRIGHTS
 %doc %{rlibdir}/%{packname}/index_template.html
 %doc %{rlibdir}/%{packname}/MNI152_T1_1mm_brain.nii.gz

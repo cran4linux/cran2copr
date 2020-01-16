@@ -1,9 +1,9 @@
 %global packname  spam64
-%global packver   2.3-0
+%global packver   2.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.5.1
 Release:          1%{?dist}
 Summary:          64-Bit Extension of the SPArse Matrix R Package 'spam'
 
@@ -32,6 +32,7 @@ Furrer (2017) <doi:10.1016/j.cageo.2016.11.015>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

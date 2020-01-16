@@ -1,9 +1,9 @@
 %global packname  LinRegInteractive
-%global packver   0.3-1
+%global packver   0.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Interactive Interpretation of Linear Regression Models
 
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rpanel >= 1.1.3
+BuildRequires:    R-CRAN-rpanel >= 1.1.4
 BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-rpanel >= 1.1.3
+Requires:         R-CRAN-rpanel >= 1.1.4
 Requires:         R-CRAN-xtable 
 
 %description
@@ -41,6 +41,7 @@ customize the graphical output are useful features as well.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

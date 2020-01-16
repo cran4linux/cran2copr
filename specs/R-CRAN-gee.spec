@@ -1,9 +1,9 @@
 %global packname  gee
-%global packver   4.13-19
+%global packver   4.13-20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.13.19
+Version:          4.13.20
 Release:          1%{?dist}
 Summary:          Generalized Estimation Equation Solver
 
@@ -30,6 +30,7 @@ Generalized Estimation Equation solver.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

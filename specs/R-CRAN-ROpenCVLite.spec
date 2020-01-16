@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  ROpenCVLite
-%global packver   0.3.410
+%global packver   0.3.412
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.410
+Version:          0.3.412
 Release:          1%{?dist}
 Summary:          Install 'OpenCV'
 
@@ -16,12 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    cmake
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-pkgbuild 
 BuildRequires:    R-parallel 
 Requires:         R-utils 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-pkgbuild 
 Requires:         R-parallel 
 
@@ -56,7 +55,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/OpenCVDetectDirectX.4.1.0.cmake
-%doc %{rlibdir}/%{packname}/OpenCVDetectOpenCL.4.1.0.cmake
-%doc %{rlibdir}/%{packname}/OpenCVModule.4.1.0.cmake
+%doc %{rlibdir}/%{packname}/OpenCVModule.4.1.2.cmake
 %{rlibdir}/%{packname}/INDEX

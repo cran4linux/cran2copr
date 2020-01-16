@@ -1,9 +1,9 @@
 %global packname  Thermimage
-%global packver   3.2.1
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          4.0.1
 Release:          1%{?dist}
 Summary:          Thermal Image Analysis
 
@@ -33,7 +33,9 @@ calculations and an import function for thermal image files (v2.2.3 fixed
 error importing thermal image to windows OS). v3. Added numerous functions
 for converting thermal image, videos, rewriting and exporting. v3.1. Added
 new functions to convert files. v3.2.  Fixed the various functions related
-to finding frame times.
+to finding frame times. v4.0. fixed an error in atmospheric attenuation
+constants, affecting raw2temp and temp2raw functions. Recommend update for
+use with long distance calculations.
 
 %prep
 %setup -q -c -n %{packname}

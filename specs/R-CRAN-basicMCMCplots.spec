@@ -1,9 +1,9 @@
 %global packname  basicMCMCplots
-%global packver   0.2.2
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          Trace Plots, Density Plots and Chain Comparisons for MCMCSamples
 
@@ -36,6 +36,7 @@ Anderson-Bergman, Temple Lang and Bodik (2017)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

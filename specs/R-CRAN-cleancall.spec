@@ -1,9 +1,9 @@
 %global packname  cleancall
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          C Resource Cleanup via Exit Handlers
 
@@ -29,6 +29,7 @@ managing C (non-R) resources while using the R API.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -43,6 +44,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/README.markdown
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

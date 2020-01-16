@@ -1,9 +1,9 @@
 %global packname  unifed
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}
 Summary:          The Unifed Distribution
 
@@ -18,8 +18,9 @@ BuildRequires:    R-methods
 Requires:         R-methods 
 
 %description
-Probability functions and family for glm() of the unifed distribution
-(Quijano Xacur, 2018; <arXiv:1812.00251>).
+Probability functions, family for glm() and Stan code for working with the
+unifed distribution (Quijano Xacur, 2019;
+<doi:10.1186/s40488-019-0102-6>).
 
 %prep
 %setup -q -c -n %{packname}

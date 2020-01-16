@@ -1,9 +1,9 @@
 %global packname  imagefx
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Extract Features from Images
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-signal 
 Requires:         R-CRAN-moments 
+Requires:         R-CRAN-signal 
 
 %description
 Synthesize images into characteristic features for time-series analysis or
@@ -36,6 +38,7 @@ processing, analyzing, filtering, and plotting.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

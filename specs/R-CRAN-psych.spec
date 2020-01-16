@@ -1,9 +1,9 @@
 %global packname  psych
-%global packver   1.8.12
+%global packver   1.9.12.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.12
+Version:          1.9.12.31
 Release:          1%{?dist}
 Summary:          Procedures for Psychological, Psychometric, and PersonalityResearch
 
@@ -11,8 +11,9 @@ License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-parallel 
@@ -20,7 +21,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-foreign 
 BuildRequires:    R-lattice 
 BuildRequires:    R-nlme 
 Requires:         R-CRAN-mnormt 
@@ -29,7 +29,6 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-foreign 
 Requires:         R-lattice 
 Requires:         R-nlme 
 
@@ -57,8 +56,10 @@ publications in personality research. For more information, see the
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -73,5 +74,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NEWS.Rd
+%doc %{rlibdir}/%{packname}/News.Rd
 %{rlibdir}/%{packname}/INDEX

@@ -1,34 +1,37 @@
-%global packname  PET
-%global packver   0.5.1
+%global packname  meditate
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.3
 Release:          1%{?dist}
-Summary:          Simulation and Reconstruction of PET Images
+Summary:          Meditation Timer
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-adimpro >= 0.8.2
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-audio 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-adimpro >= 0.8.2
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-wesanderson 
+Requires:         R-CRAN-audio 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-deldir 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-wesanderson 
 
 %description
-Implementation of different analytic/direct and iterative reconstruction
-methods of radon transformed data such as PET data. It also offer the
-possibility to simulate PET data.
+A simple meditation timer that logs session information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,11 +52,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHT
-%doc %{rlibdir}/%{packname}/Info
+%doc %{rlibdir}/%{packname}/CITATION
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

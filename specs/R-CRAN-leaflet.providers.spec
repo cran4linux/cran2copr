@@ -1,9 +1,9 @@
 %global packname  leaflet.providers
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}
 Summary:          Leaflet Providers
 
@@ -15,8 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-htmltools 
 
 %description
 Contains third-party map tile provider information from 'Leaflet.js',
@@ -34,6 +32,7 @@ retrieve up-to-date provider information between package updates.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -47,5 +46,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/leaflet-providers_1.8.0.js
+%doc %{rlibdir}/%{packname}/leaflet-providers_1.9.0.js
 %{rlibdir}/%{packname}/INDEX

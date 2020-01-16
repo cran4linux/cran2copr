@@ -1,9 +1,9 @@
 %global packname  PBSddesolve
-%global packver   1.12.4
+%global packver   1.12.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.4
+Version:          1.12.6
 Release:          1%{?dist}
 Summary:          Solver for Delay Differential Equations
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 
 %description
-Routines for solving systems of delay differential equations by
-interfacing numerical routines written by Simon N. Wood , with
-contributions by Benjamin J. Cairns. These numerical routines first
+Functions for solving systems of delay differential equations by
+interfacing with numerical routines written by Simon N. Wood, including
+contributions from Benjamin J. Cairns. These numerical routines first
 appeared in Simon Wood's 'solv95' program. This package includes a
 vignette and a complete user's guide. 'PBSddesolve' originally appeared on
 CRAN under the name 'ddesolve'. That version is no longer supported. The
-current name emphasizes a close association with other PBS packages,
+current name emphasizes a close association with other 'PBS' packages,
 particularly 'PBSmodelling'.
 
 %prep
@@ -35,6 +35,7 @@ particularly 'PBSmodelling'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,11 +1,11 @@
 %global packname  Rfit
-%global packver   0.23.0
+%global packver   0.24.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.0
+Version:          0.24.2
 Release:          1%{?dist}
-Summary:          Rank Estimation for Linear Models
+Summary:          Rank-Based Estimation for Linear Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,8 +18,9 @@ BuildRequires:    R-methods
 Requires:         R-methods 
 
 %description
-R estimation and inference for linear models.  Estimation is for general
-scores and a library of commonly used score functions is included.
+Rank-based (R) estimation and inference for linear models.  Estimation is
+for general scores and a library of commonly used score functions is
+included.
 
 %prep
 %setup -q -c -n %{packname}

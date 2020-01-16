@@ -1,9 +1,9 @@
 %global packname  Rcapture
-%global packver   1.4-2
+%global packver   1.4-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}
 Summary:          Loglinear Models for Capture-Recapture Experiments
 
@@ -17,11 +17,13 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Estimation of abundance and other of demographic parameters for closed
+Estimation of abundance and other demographic parameters for closed
 populations, open populations and the robust design in capture-recapture
 experiments using loglinear models.
 

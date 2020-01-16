@@ -1,9 +1,9 @@
 %global packname  SimInf
-%global packver   6.3.0
+%global packver   6.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.3.0
+Version:          6.4.0
 Release:          1%{?dist}
 Summary:          A Framework for Data-Driven Stochastic Disease SpreadSimulations
 
@@ -41,7 +41,9 @@ multiple processors ensures high performance when simulating a sample
 outcome. One of our design goals was to make the package extendable and
 enable usage of the numerical solvers from other R extension packages in
 order to facilitate complex epidemiological research. The package contains
-template models and can be extended with user-defined models.
+template models and can be extended with user-defined models. For more
+details see the paper by Widgren, Bauer, Eriksson and Engblom (2019)
+<doi:10.18637/jss.v091.i12>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,7 +67,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

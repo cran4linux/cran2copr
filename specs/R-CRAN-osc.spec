@@ -1,9 +1,9 @@
 %global packname  osc
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          Orthodromic Spatial Clustering
 
@@ -14,14 +14,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.14
 Requires:         R-core >= 2.14
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-raster 
+Requires:         R-methods 
 Requires:         R-CRAN-raster 
 
 %description
 Allows distance based spatial clustering of georeferenced data by
 implementing the City Clustering Algorithm - CCA. Multiple versions allow
-clustering for matrix, raster and single coordinates on a plain (euclidean
-distance) or on a sphere (great-circle or orthodromic distance).
+clustering for a matrix, raster and single coordinates on a plain
+(Euclidean distance) or on a sphere (great-circle or orthodromic
+distance).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  BEDMatrix
-%global packver   1.6.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Extract Genotypes from a PLINK .bed File
 
@@ -12,14 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-crochet >= 2.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-crochet >= 2.2.0
-Requires:         R-CRAN-Rcpp >= 0.12.1
 Requires:         R-methods 
 
 %description
@@ -38,6 +35,7 @@ analysis toolset, without loading the entire file into memory.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -53,6 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/extdata
+%{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/THANKS
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

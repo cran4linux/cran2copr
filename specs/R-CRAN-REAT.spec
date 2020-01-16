@@ -1,9 +1,9 @@
 %global packname  REAT
-%global packver   3.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}
 Summary:          Regional Economic Analysis Toolbox
 
@@ -32,6 +32,7 @@ as well as accessibility and spatial interaction models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -44,4 +45,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

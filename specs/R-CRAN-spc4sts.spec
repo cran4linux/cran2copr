@@ -1,9 +1,9 @@
 %global packname  spc4sts
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}
 Summary:          Statistical Process Control for Stochastic Textured Surfaces
 
@@ -15,12 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-LS2Wstat 
 BuildRequires:    R-rpart 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-LS2Wstat 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-LS2Wstat 
 Requires:         R-rpart 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-LS2Wstat 
+Requires:         R-parallel 
 
 %description
 Provides statistical process control tools for stochastic textured

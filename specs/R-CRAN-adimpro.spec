@@ -1,9 +1,9 @@
 %global packname  adimpro
-%global packver   0.9.0
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.2
 Release:          1%{?dist}
 Summary:          Adaptive Smoothing of Digital Images
 
@@ -14,14 +14,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 Requires:         ImageMagick
 Requires:         dcraw
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-awsMethods >= 1.1.1
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-awsMethods 
+Requires:         R-CRAN-awsMethods >= 1.1.1
 Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-awsMethods 
 
 %description
 Implements tools for manipulation of digital images and the Propagation
@@ -39,6 +39,7 @@ and Tabelow (2007) <DOI:10.18637/jss.v019.i01>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

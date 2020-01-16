@@ -1,9 +1,9 @@
 %global packname  Replicate
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Statistical Metrics for Multisite Replication Studies
 
@@ -17,23 +17,26 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-metafor 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-For a multisite replication project, computes metrics and confidence
-intervals representing: (1) the probability that the original study would
-observe an estimated effect size as extreme or more extreme than it
-actually did, if in fact the original study is statistically consistent
-with the replications; (2) the probability of a true effect of
-scientifically meaningful size in the same direction as the estimate the
-original study; and (3) the probability of a true effect of meaningful
-size in the direction opposite the original study's estimate. Additionally
-computes older metrics used in replication projects (namely expected
-agreement in "statistical significance" between an original study and
-replication studies as well as prediction intervals for the replication
-estimates). See Mathur and VanderWeele (2017; <https://osf.io/apnjk/>) for
-details.
+For a multisite replication project, computes the consistency metric
+P_orig, which is the probability that the original study would observe an
+estimated effect size as extreme or more extreme than it actually did, if
+in fact the original study were statistically consistent with the
+replications. Other recommended metrics are: (1) the probability of a true
+effect of scientifically meaningful size in the same direction as the
+estimate the original study; and (2) the probability of a true effect of
+meaningful size in the direction opposite the original study's estimate.
+These two can be computed using the package
+code{MetaUtility::prop_stronger}. Additionally computes older metrics
+used in replication projects (namely expected agreement in "statistical
+significance" between an original study and replication studies as well as
+prediction intervals for the replication estimates). See Mathur and
+VanderWeele (under review; <https://osf.io/apnjk/>) for details.
 
 %prep
 %setup -q -c -n %{packname}

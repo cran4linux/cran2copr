@@ -1,9 +1,9 @@
 %global packname  smartsizer
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Power Analysis for a SMART Design
 
@@ -23,8 +23,10 @@ A set of tools for determining the necessary sample size in order to
 identify the optimal dynamic treatment regime in a sequential, multiple
 assignment, randomized trial (SMART). Utilizes multiple comparisons with
 the best methodology to adjust for multiple comparisons. Designed for an
-arbitrary SMART design. Please see Artman (2018) <arXiv:1804.04587> for
-more details.
+arbitrary SMART design. Please see Artman (2018)
+<10.1093/biostatistics/kxy064> for more details. The basic functionality
+of this R package has been implemented in a Shiny app
+<https://wilart.shinyapps.io/smartsizer-power-sample-size/>.
 
 %prep
 %setup -q -c -n %{packname}

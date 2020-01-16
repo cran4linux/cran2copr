@@ -1,9 +1,9 @@
 %global packname  listviewer
-%global packver   2.1.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          3.0.0
 Release:          1%{?dist}
 Summary:          'htmlwidget' for Interactive Views of R Lists
 
@@ -39,6 +39,7 @@ installed from CRAN or <https://github.com/timelyportfolio/reactR>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

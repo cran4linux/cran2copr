@@ -1,9 +1,9 @@
 %global packname  phyclust
-%global packver   0.1-26
+%global packver   0.1-28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.26
+Version:          0.1.28
 Release:          1%{?dist}
 Summary:          Phylogenetic Clustering (Phyloclustering)
 

@@ -1,9 +1,9 @@
 %global packname  OBsMD
-%global packver   5.0
+%global packver   5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0
+Version:          5.3
 Release:          1%{?dist}
 Summary:          Objective Bayesian Model Discrimination in Follow-Up Designs
 

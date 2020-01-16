@@ -1,9 +1,9 @@
 %global packname  rym
-%global packver   0.5.2
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.4
 Release:          1%{?dist}
 Summary:          R Interface to Yandex Metrica API
 
@@ -54,7 +54,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/README.html
+%doc %{rlibdir}/%{packname}/logo
 %{rlibdir}/%{packname}/INDEX

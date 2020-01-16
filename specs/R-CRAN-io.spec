@@ -1,9 +1,9 @@
 %global packname  io
-%global packver   0.3.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          A Unified Framework for Input-Output Operations in R
 

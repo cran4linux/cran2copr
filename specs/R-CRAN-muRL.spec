@@ -1,13 +1,13 @@
 %global packname  muRL
-%global packver   0.1-11
+%global packver   0.1-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}
 Summary:          Mailmerge using R, LaTeX, and the Web
 
-License:          GPL-2 | file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

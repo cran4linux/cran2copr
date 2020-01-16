@@ -1,9 +1,9 @@
 %global packname  lomb
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Lomb-Scargle Periodogram
 
@@ -30,6 +30,7 @@ Includes a randomization procedure to obtain reliable p-values.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

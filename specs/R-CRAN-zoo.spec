@@ -1,15 +1,16 @@
 %global packname  zoo
-%global packver   1.8-6
+%global packver   1.8-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.6
+Version:          1.8.7
 Release:          1%{?dist}
 Summary:          S3 Infrastructure for Regular and Irregular Time Series (Z'sOrdered Observations)
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
@@ -38,8 +39,10 @@ methods to extend standard generics.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

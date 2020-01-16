@@ -1,9 +1,9 @@
 %global packname  aws
-%global packver   2.2-1
+%global packver   2.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Adaptive Weights Smoothing
 
@@ -14,10 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-awsMethods >= 1.0.1
+BuildRequires:    R-CRAN-awsMethods >= 1.1.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-gsl 
-Requires:         R-CRAN-awsMethods >= 1.0.1
+Requires:         R-CRAN-awsMethods >= 1.1.1
 Requires:         R-methods 
 Requires:         R-CRAN-gsl 
 
@@ -41,6 +41,7 @@ filter.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

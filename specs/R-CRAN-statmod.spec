@@ -1,15 +1,16 @@
 %global packname  statmod
-%global packver   1.4.32
+%global packver   1.4.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.32
+Version:          1.4.33
 Release:          1%{?dist}
 Summary:          Statistical Modeling
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
@@ -23,9 +24,9 @@ A collection of algorithms and functions to aid statistical modeling.
 Includes limiting dilution analysis (aka ELDA), growth curve comparisons,
 mixed linear models, heteroscedastic regression, inverse-Gaussian
 probability calculations, Gauss quadrature and a secure convergence
-algorithm for nonlinear models.  Also includes a number of advanced
-generalized linear model functions including new Tweedie and Digamma glm
-families and a secure convergence algorithm.
+algorithm for nonlinear models. Also includes advanced generalized linear
+model functions including Tweedie and Digamma distributional families and
+a secure convergence algorithm.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,8 +35,10 @@ families and a secure convergence algorithm.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

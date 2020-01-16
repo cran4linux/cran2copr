@@ -1,9 +1,9 @@
 %global packname  StratigrapheR
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}
 Summary:          Integrated Stratigraphy
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -22,8 +22,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-diagram 
 Requires:         R-graphics 
@@ -33,8 +31,6 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-diagram 
 

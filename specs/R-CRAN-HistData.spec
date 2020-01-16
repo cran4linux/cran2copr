@@ -1,9 +1,9 @@
 %global packname  HistData
-%global packver   0.8-4
+%global packver   0.8-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.8.6
 Release:          1%{?dist}
 Summary:          Data Sets from the History of Statistics and Data Visualization
 
@@ -33,6 +33,7 @@ interesting challenges for graphics or analysis in R.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

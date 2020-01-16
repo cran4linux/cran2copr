@@ -1,15 +1,16 @@
 %global packname  jpeg
-%global packver   0.1-8
+%global packver   0.1-8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.8.1
 Release:          1%{?dist}
 Summary:          Read and write JPEG images
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    libjpeg-turbo-devel
 Requires:         libjpeg-turbo
@@ -28,8 +29,10 @@ and in-memory raw vectors.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

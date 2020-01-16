@@ -1,9 +1,9 @@
 %global packname  ptw
-%global packver   1.9-13
+%global packver   1.9-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.13
+Version:          1.9.15
 Release:          1%{?dist}
 Summary:          Parametric Time Warping
 
@@ -32,7 +32,9 @@ several references. One can choose between calculating individual
 warpings, or one global warping for a set of samples and one reference.
 Two optimization criteria are implemented: RMS (Root Mean Square error)
 and WCC (Weighted Cross Correlation). Both warping of peak profiles and of
-peak lists are supported.
+peak lists are supported. A vignette for the latter is contained in the
+inst/doc directory of the source package - the vignette source can be
+found on the package github site.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +46,7 @@ peak lists are supported.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

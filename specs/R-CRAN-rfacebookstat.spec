@@ -1,9 +1,9 @@
 %global packname  rfacebookstat
-%global packver   1.10.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Load Data from Facebook API Marketing
 
@@ -15,24 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr >= 1.0.0
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-stringr >= 1.0.0
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-bitops 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Load data by campaigns, ads, ad sets and insights, ad account and business

@@ -1,9 +1,9 @@
 %global packname  ssc
-%global packver   2.0.0
+%global packver   2.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Semi-Supervised Classification Methods
 
@@ -57,4 +57,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

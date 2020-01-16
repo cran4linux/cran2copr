@@ -1,9 +1,9 @@
 %global packname  adjclust
-%global packver   0.5.7
+%global packver   0.5.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.5.9
 Release:          1%{?dist}
 Summary:          Adjacency-Constrained Clustering of a Block-Diagonal SimilarityMatrix
 
@@ -51,6 +51,7 @@ Alia Dehman (2015) <https://hal.archives-ouvertes.fr/tel-01288568v1>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

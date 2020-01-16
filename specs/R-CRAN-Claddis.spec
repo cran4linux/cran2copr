@@ -1,9 +1,9 @@
 %global packname  Claddis
-%global packver   0.3.0
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Measuring Morphological Diversity and Evolutionary Tempo
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-strap 
+BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-gdata 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -26,6 +27,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-strap 
+Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-gdata 
 Requires:         R-graphics 
 Requires:         R-grDevices 

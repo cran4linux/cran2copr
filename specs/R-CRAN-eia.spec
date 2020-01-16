@@ -1,9 +1,9 @@
 %global packname  eia
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          API Wrapper for 'US Energy Information Administration' Open Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readxl 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-httr 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readxl 
 
 %description
 Provides API access to data from the 'US Energy Information
@@ -42,7 +44,8 @@ by these functions are provided in a tidy format or alternatively in more
 raw form. It also offers helper functions for working with 'EIA' date
 strings and time formats and for inspecting different summaries of series
 metadata. The package also provides control over API key storage and
-caching of API request results.
+caching of API request results. This package has been peer-reviewed by
+rOpenSci (v. 0.3.4).
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +57,7 @@ caching of API request results.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

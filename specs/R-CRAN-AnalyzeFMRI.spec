@@ -1,9 +1,9 @@
 %global packname  AnalyzeFMRI
-%global packver   1.1-20
+%global packver   1.1-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.20
+Version:          1.1.21
 Release:          1%{?dist}
 Summary:          Functions for Analysis of fMRI Datasets Stored in the ANALYZE orNIFTI Format
 
@@ -38,6 +38,7 @@ Note that the latest version of XQuartz seems to be necessary under MacOS.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,11 +1,11 @@
 %global packname  support.BWS2
-%global packver   0.2-2
+%global packver   0.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}
-Summary:          Basic Functions for Supporting an Implementation of Case 2Best-Worst Scaling
+Summary:          Tools for Case 2 Best-Worst Scaling
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,6 +21,8 @@ Provides three basic functions that support an implementation of Case 2
 (profile case) best-worst scaling. The first is to convert an orthogonal
 main-effect design into questions, the second is to create a dataset
 suitable for analysis, and the third is to calculate count-based scores.
+For details, see Aizaki and Fogarty (2019)
+<doi:10.1016/j.jocm.2019.100171>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,4 +48,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

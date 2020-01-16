@@ -1,9 +1,9 @@
 %global packname  lass0
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Lasso-Zero for (High-Dimensional) Linear Regression
 
@@ -16,11 +16,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lpSolve >= 5.6.13
+BuildRequires:    R-CRAN-doRNG >= 1.7.1
 BuildRequires:    R-CRAN-ismev >= 1.42
 BuildRequires:    R-CRAN-foreach >= 1.4.4
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-lpSolve >= 5.6.13
+Requires:         R-CRAN-doRNG >= 1.7.1
 Requires:         R-CRAN-ismev >= 1.42
 Requires:         R-CRAN-foreach >= 1.4.4
 Requires:         R-stats 

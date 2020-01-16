@@ -1,9 +1,9 @@
 %global packname  indicspecies
-%global packver   1.7.6
+%global packver   1.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.6
+Version:          1.7.8
 Release:          1%{?dist}
 Summary:          Relationship Between Species and Groups of Sites
 
@@ -20,9 +20,10 @@ Requires:         R-CRAN-permute
 
 %description
 Functions to assess the strength and statistical significance of the
-relationship between species occurrence/abundance and groups of sites.
-Also includes functions to measure species niche breadth using resource
-categories.
+relationship between species occurrence/abundance and groups of sites [De
+Caceres & Legendre (2009) <doi:10.1890/08-1823.1>]. Also includes
+functions to measure species niche breadth using resource categories [De
+Caceres et al. (2011) <doi:10.1111/J.1600-0706.2011.19679.x>].
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +35,7 @@ categories.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -45,6 +47,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

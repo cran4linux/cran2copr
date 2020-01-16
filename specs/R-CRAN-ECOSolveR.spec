@@ -1,9 +1,9 @@
 %global packname  ECOSolveR
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}
 Summary:          Embedded Conic Solver in R
 
@@ -33,6 +33,7 @@ interface and has similar calling conventions.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  Taxonstand
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}
 Summary:          Taxonomic Standardization of Plant Species Names
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pbapply >= 1.3.2
 Requires:         R-CRAN-pbapply >= 1.3.2
@@ -33,6 +33,7 @@ errors in plant species names using 'The Plant List' website
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

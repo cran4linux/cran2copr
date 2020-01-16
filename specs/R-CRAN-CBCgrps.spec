@@ -1,9 +1,9 @@
 %global packname  CBCgrps
-%global packver   2.3
+%global packver   2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.6
 Release:          1%{?dist}
 Summary:          Compare Baseline Characteristics Between Groups
 
@@ -34,6 +34,7 @@ statistical description and bivariate analysis.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

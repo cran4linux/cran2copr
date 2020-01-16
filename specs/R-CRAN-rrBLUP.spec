@@ -1,9 +1,9 @@
 %global packname  rrBLUP
-%global packver   4.6
+%global packver   4.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6
+Version:          4.6.1
 Release:          1%{?dist}
 Summary:          Ridge Regression and Other Kernels for Genomic Selection
 
@@ -38,6 +38,7 @@ calculated based on an additive relationship matrix or a Gaussian kernel.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

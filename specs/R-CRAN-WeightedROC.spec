@@ -1,9 +1,9 @@
 %global packname  WeightedROC
-%global packver   2018.10.1
+%global packver   2019.11.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2018.10.1
+Version:          2019.11.12
 Release:          1%{?dist}
 Summary:          Fast, Weighted ROC Curves
 

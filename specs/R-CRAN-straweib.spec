@@ -1,31 +1,30 @@
-%global packname  formulize
-%global packver   0.1.0
+%global packname  straweib
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1
 Release:          1%{?dist}
-Summary:          Add Formula Interfaces to Modelling Functions
+Summary:          Stratified Weibull Regression Model
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-recipes 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-recipes 
 
 %description
-Automatically generates wrappers for modelling functions that accept data
-as a data matrix X and a data vector y and produces a wrapper that allows
-users to specify input data with a formula and a data frame. In addition
-to generating formula interfaces, users may also generated wrapper S3
-generics.
+The main function is icweib(), which fits a stratified Weibull
+proportional hazards model for left censored, right censored, interval
+censored, and non-censored survival data. We parameterize the Weibull
+regression model so that it allows a stratum-specific baseline hazard
+function, but where the effects of other covariates are assumed to be
+constant across strata. Please refer to Xiangdong Gu, David Shapiro,
+Michael D. Hughes and Raji Balasubramanian (2014)
+<doi:10.32614/RJ-2014-003> for more details.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +36,7 @@ generics.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -45,9 +45,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

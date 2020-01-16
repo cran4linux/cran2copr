@@ -1,9 +1,9 @@
 %global packname  Cubist
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Rule- And Instance-Based Regression Modeling
 
@@ -16,8 +16,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-utils 
 Requires:         R-lattice 
 Requires:         R-CRAN-reshape2 
+Requires:         R-utils 
 
 %description
 Regression modeling using rules with added instance-based corrections.
@@ -32,6 +34,7 @@ Regression modeling using rules with added instance-based corrections.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

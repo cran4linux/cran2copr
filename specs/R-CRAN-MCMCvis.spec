@@ -1,9 +1,9 @@
 %global packname  MCMCvis
-%global packver   0.13.1
+%global packver   0.13.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.13.5
 Release:          1%{?dist}
 Summary:          Tools to Visualize, Manipulate, and Summarize MCMC Output
 
@@ -17,9 +17,11 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-overlapping 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-rstan 
+Requires:         R-methods 
 Requires:         R-CRAN-overlapping 
 
 %description

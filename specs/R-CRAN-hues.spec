@@ -1,11 +1,11 @@
 %global packname  hues
-%global packver   0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Distinct Colours Palettes Based on 'iwanthue'
+Summary:          Distinct Colour Palettes Based on 'iwanthue'
 
 License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,6 +38,7 @@ constraints on hue, chroma, and lightness.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -48,5 +49,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

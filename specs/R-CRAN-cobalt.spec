@@ -1,9 +1,9 @@
 %global packname  cobalt
-%global packver   3.9.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          4.0.0
 Release:          1%{?dist}
 Summary:          Covariate Balance Tables and Plots
 
@@ -17,14 +17,14 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-backports >= 1.1.1
+BuildRequires:    R-CRAN-backports >= 1.1.5
 BuildRequires:    R-CRAN-gtable >= 0.3.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-backports >= 1.1.1
+Requires:         R-CRAN-backports >= 1.1.5
 Requires:         R-CRAN-gtable >= 0.3.0
 Requires:         R-grid 
 Requires:         R-CRAN-ggstance 
@@ -67,4 +67,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/figures
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

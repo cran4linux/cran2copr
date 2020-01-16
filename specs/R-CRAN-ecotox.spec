@@ -1,9 +1,9 @@
 %global packname  ecotox
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}
 Summary:          Analysis of Ecotoxicology
 
@@ -15,10 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 
@@ -46,6 +44,7 @@ R.M., and Preisler, H.K. (2007, ISBN: 0849323312).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

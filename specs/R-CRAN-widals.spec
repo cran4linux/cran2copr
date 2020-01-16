@@ -1,11 +1,11 @@
 %global packname  widals
-%global packver   0.5.4
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.6.1
 Release:          1%{?dist}
-Summary:          Weighting by Inverse Distance with Adaptive Least Squares forMassive Space-Time Data
+Summary:          Weighting by Inverse Distance with Adaptive Least Squares
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,10 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-snowfall 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-snowfall 
+Requires:         R-methods 
 
 %description
-Fit, forecast, predict massive spacio-temporal data
+Computationally easy modeling, interpolation, forecasting of massive
+temporal-spacial data.
 
 %prep
 %setup -q -c -n %{packname}

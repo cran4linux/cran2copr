@@ -1,11 +1,11 @@
 %global packname  sunburstR
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}
-Summary:          'Htmlwidget' for 'Kerry Rodden' 'd3.js' Sequence and 'd2b'Sunburst
+Summary:          Sunburst 'Htmlwidget'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

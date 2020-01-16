@@ -1,9 +1,9 @@
 %global packname  zCompositions
-%global packver   1.3.2-1
+%global packver   1.3.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2.1
+Version:          1.3.3.1
 Release:          1%{?dist}
 Summary:          Treatment of Zeros, Left-Censored and Missing Values inCompositional Data Sets
 
@@ -15,16 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-NADA 
 BuildRequires:    R-CRAN-truncnorm 
+Requires:         R-methods 
 Requires:         R-MASS 
 Requires:         R-CRAN-NADA 
 Requires:         R-CRAN-truncnorm 
 
 %description
 Principled methods for the imputation of zeros, left-censored and missing
-data in compositional data sets.
+data in compositional data sets (Palarea-Albaladejo and Martin-Fernandez
+(2015) <doi:10.1016/j.chemolab.2015.02.019>).
 
 %prep
 %setup -q -c -n %{packname}

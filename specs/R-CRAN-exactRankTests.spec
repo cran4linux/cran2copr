@@ -1,9 +1,9 @@
 %global packname  exactRankTests
-%global packver   0.8-30
+%global packver   0.8-31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.30
+Version:          0.8.31
 Release:          1%{?dist}
 Summary:          Exact Distributions for Rank and Permutation Tests
 
@@ -33,6 +33,7 @@ of the Shift-Algorithm by Streitberg & Roehmel.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

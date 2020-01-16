@@ -1,9 +1,9 @@
 %global packname  epubr
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Read EPUB File Metadata and Text
 
@@ -18,11 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-xslt 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-xslt 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 
@@ -75,4 +77,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/dracula.epub
 %doc %{rlibdir}/%{packname}/text.xml
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

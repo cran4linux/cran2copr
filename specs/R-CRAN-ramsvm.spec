@@ -1,9 +1,9 @@
 %global packname  ramsvm
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}
 Summary:          Reinforced Angle-Based Multicategory Support Vector Machines
 
@@ -28,7 +28,8 @@ Requires:         R-stats
 %description
 Provides a solution path for Reinforced Angle-based Multicategory Support
 Vector Machines, with linear learning, polynomial learning, and Gaussian
-kernel learning.
+kernel learning. C. Zhang, Y. Liu, J. Wang and H. Zhu. (2016)
+<doi:10.1080/10618600.2015.1043010>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +52,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

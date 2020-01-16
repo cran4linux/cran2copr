@@ -1,9 +1,9 @@
 %global packname  rdwd
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Select and Download Climate Data from 'DWD' (German WeatherService)
 
@@ -16,6 +16,7 @@ Requires:         pandoc
 Requires:         pandoc-citeproc
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-berryFunctions >= 1.17.0
 BuildRequires:    R-CRAN-pbapply 
 Requires:         R-CRAN-berryFunctions >= 1.17.0
@@ -53,4 +54,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

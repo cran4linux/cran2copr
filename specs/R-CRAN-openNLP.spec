@@ -1,9 +1,9 @@
 %global packname  openNLP
-%global packver   0.2-6
+%global packver   0.2-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}
 Summary:          Apache OpenNLP Tools Interface
 
@@ -29,7 +29,7 @@ OpenNLP library is a machine learning based toolkit for the processing of
 natural language text written in Java. It supports the most common NLP
 tasks, such as tokenization, sentence segmentation, part-of-speech
 tagging, named entity extraction, chunking, parsing, and coreference
-resolution. See <http://opennlp.apache.org/> for more information.
+resolution. See <https://opennlp.apache.org/> for more information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +41,7 @@ resolution. See <http://opennlp.apache.org/> for more information.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -52,4 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/po
 %{rlibdir}/%{packname}/INDEX

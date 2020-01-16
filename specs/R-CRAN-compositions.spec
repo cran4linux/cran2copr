@@ -1,9 +1,9 @@
 %global packname  compositions
-%global packver   1.40-2
+%global packver   1.40-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.40.2
+Version:          1.40.3
 Release:          1%{?dist}
 Summary:          Compositional Data Analysis
 
@@ -16,11 +16,9 @@ BuildRequires:    R-devel >= 2.2.0
 Requires:         R-core >= 2.2.0
 BuildRequires:    R-CRAN-tensorA 
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-bayesm 
 Requires:         R-CRAN-tensorA 
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-energy 
 Requires:         R-CRAN-bayesm 
 
 %description
@@ -38,6 +36,7 @@ way proposed by J. Aitchison and V. Pawlowsky-Glahn.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

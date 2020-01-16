@@ -1,9 +1,9 @@
 %global packname  ohtadstats
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Tomoka Ohta D Statistics
 
@@ -26,8 +26,8 @@ Requires:         R-utils
 
 %description
 Calculate's Tomoka Ohta's partitioning of linkage disequilibrium, deemed
-D-statistics, for pairs of loci. Beissinger et al. (2016)
-<doi:10.1038/hdy.2015.81>.
+D-statistics, for pairs of loci. Petrowski et al. (2019)
+<doi:10.5334/jors.250>.
 
 %prep
 %setup -q -c -n %{packname}

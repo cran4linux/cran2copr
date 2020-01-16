@@ -1,9 +1,9 @@
 %global packname  PowerfulMaxEigenpair
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Powerful Algorithm for Maximal Eigenpair
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-formatR 
 Requires:         R-stats 
+Requires:         R-CRAN-formatR 
 
 %description
 An implementation for using powerful algorithm to compute the maximal

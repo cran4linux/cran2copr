@@ -1,9 +1,9 @@
 %global packname  leafpop
-%global packver   0.0.1
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          Include Tables, Images and Graphs in Leaflet Pop-Ups
 
@@ -14,18 +14,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-brew 
-BuildRequires:    R-CRAN-gdalUtils 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-CRAN-uuid 
-Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-brew 
-Requires:         R-CRAN-gdalUtils 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-svglite 
 Requires:         R-CRAN-uuid 
 
@@ -46,6 +47,7 @@ created with 'htmlwidgets'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -57,7 +59,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/templates
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

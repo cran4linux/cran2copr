@@ -1,9 +1,9 @@
 %global packname  stddiff
-%global packver   2.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.0
 Release:          1%{?dist}
 Summary:          Calculate the Standardized Difference for Numeric, Binary andCategory Variables
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.3
-Requires:         R-core >= 3.3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description

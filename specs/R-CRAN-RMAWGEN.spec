@@ -1,9 +1,9 @@
 %global packname  RMAWGEN
-%global packver   1.3.3
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.7
 Release:          1%{?dist}
 Summary:          Multi-Site Auto-Regressive Weather GENerator
 

@@ -1,13 +1,13 @@
 %global packname  maSAE
-%global packver   0.1-5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Mandallaz' Model-Assisted Small Area Estimators
 
-License:          GPL (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,7 +25,7 @@ An S4 implementation of the unbiased extension of the model- assisted
 synthetic-regression estimator proposed by Mandallaz (2013)
 <DOI:10.1139/cjfr-2012-0381>, Mandallaz et al. (2013)
 <DOI:10.1139/cjfr-2013-0181> and Mandallaz (2014)
-<DOI:10.1139/cjfr-2013-0449>. It yields smaller variances than the
+<DOI:10.1139/cjfr-2013-0449>.  It yields smaller variances than the
 standard bias correction, the generalised regression estimator.
 
 %prep
@@ -38,6 +38,7 @@ standard bias correction, the generalised regression estimator.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -49,7 +50,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/runit_tests
 %{rlibdir}/%{packname}/INDEX

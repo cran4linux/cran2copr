@@ -1,9 +1,9 @@
 %global packname  eha
-%global packver   2.7.6
+%global packver   2.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.6
+Version:          2.8.0
 Release:          1%{?dist}
 Summary:          Event History Analysis
 
@@ -38,6 +38,7 @@ failure time models for left truncated and right censored data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  sccr
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}
 Summary:          The Self-Consistent, Competing Risks (SC-CR) Algorithms
 
@@ -12,19 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-dplyr 
 
 %description
-An algorithm for producing fully non-parametric and self-consistent
-estimators of the cause-specific failure probabilities in the presence of
-interval-censoring data. See Adamic P., Caron S. (2014)
-<doi:10.1080/03461238.2012.693457>, Adamic P., Dixon S., Gillis D. (2010)
-<doi:10.1080/03461230903134780>, Turnbull B. (1976)
-<doi:10.1111/j.2517-6161.1976.tb01597.x>.
+The SC-SR Algorithm is used to calculate the cause-deleted life expectancy
+improvement for left and right censored data. In the version 2.0 the
+function creating the probability matrix from double-censored data is
+added.
 
 %prep
 %setup -q -c -n %{packname}

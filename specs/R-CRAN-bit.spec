@@ -1,15 +1,16 @@
 %global packname  bit
-%global packver   1.1-14
+%global packver   1.1-15.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.14
+Version:          1.1.15.1
 Release:          1%{?dist}
 Summary:          A Class for Vectors of 1-Bit Booleans
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 2.9.2
 Requires:         R-core >= 2.9.2
@@ -42,8 +43,10 @@ can be used for subsetting 'ff' objects (ff-2.1-0 and higher).
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

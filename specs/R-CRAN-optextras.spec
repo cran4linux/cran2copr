@@ -1,9 +1,9 @@
 %global packname  optextras
-%global packver   2016-8.8
+%global packver   2019-12.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2016.8.8
+Version:          2019.12.4
 Release:          1%{?dist}
 Summary:          Tools to Support Optimization Possibly with Bounds and Masks
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-utils 
 
 %description
 Tools to assist in safely applying user generated objective and derivative
@@ -40,6 +42,7 @@ gradient approximation codes.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

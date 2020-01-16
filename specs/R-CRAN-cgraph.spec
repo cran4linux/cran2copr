@@ -1,9 +1,9 @@
 %global packname  cgraph
-%global packver   4.0.3
+%global packver   5.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.3
+Version:          5.0.1
 Release:          1%{?dist}
 Summary:          Computational Graphs
 
@@ -39,6 +39,7 @@ optimization, and machine learning.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

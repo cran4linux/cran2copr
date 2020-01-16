@@ -1,9 +1,9 @@
 %global packname  ivmte
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Instrumental Variables: Extrapolation by Marginal TreatmentEffects
 
@@ -12,15 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-polynom >= 1.3.9
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-polynom >= 1.3.9
 Requires:         R-CRAN-Formula 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -45,8 +43,8 @@ can be obtained from <http://www.gurobi.com/index>. CPLEX can be obtained
 from <https://www.ibm.com/analytics/cplex-optimizer>. CPLEX R APIs
 'Rcplex' and 'cplexAPI' are available from CRAN. The lp_solve library is
 freely available from <http://lpsolve.sourceforge.net/5.5/>, and is
-included when installing either of its R APIs, 'lpSolve' or 'lpSolveAPI',
-which are available from CRAN.
+included when installing its API 'lpSolveAPI', which is available from
+CRAN.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,6 +56,7 @@ which are available from CRAN.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -70,4 +69,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

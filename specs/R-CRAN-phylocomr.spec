@@ -1,9 +1,9 @@
 %global packname  phylocomr
-%global packver   0.1.4
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Interface to 'Phylocom'
 
@@ -36,6 +36,7 @@ executables, as well as higher level interfaces for methods like 'aot',
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -53,7 +54,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/COPYRIGHT
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/img
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
-%{rlibdir}/%{packname}/bin
+%doc %{rlibdir}/%{packname}/bin

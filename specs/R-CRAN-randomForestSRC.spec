@@ -1,9 +1,9 @@
 %global packname  randomForestSRC
-%global packver   2.9.1
+%global packver   2.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          2.9.2
 Release:          1%{?dist}
 Summary:          Fast Unified Random Forests for Survival, Regression, andClassification (RF-SRC)
 
@@ -35,6 +35,7 @@ using subsampling and confidence regions for variable importance.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

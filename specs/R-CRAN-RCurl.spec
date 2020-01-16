@@ -1,21 +1,22 @@
 %global packname  RCurl
-%global packver   1.95-4.12
+%global packver   1.95-4.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.95.4.12
+Version:          1.95.4.13
 Release:          1%{?dist}
 Summary:          General Network (HTTP/FTP/...) Client Interface for R
 
-License:          BSD
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    make
 BuildRequires:    libcurl-devel
 Requires:         libcurl
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-bitops 
 Requires:         R-methods 
@@ -39,8 +40,10 @@ ldap, and also supports cookies, redirects, authentication, etc.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -51,6 +54,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CurlSSL

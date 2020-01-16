@@ -1,9 +1,9 @@
 %global packname  ConvergenceClubs
-%global packver   1.4.3
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          2.2.1
 Release:          1%{?dist}
 Summary:          Finding Convergence Clubs
 
@@ -22,7 +22,8 @@ Requires:         R-CRAN-lmtest >= 0.9.35
 
 %description
 Functions for clustering regions that form convergence clubs, according to
-the definition of Phillips and Sul (2009) <doi:10.1002/jae.1080>.
+the definition of Phillips and Sul (2009) <doi:10.1002/jae.1080>. A
+package description is available in Sichera and Pizzuto (2019).
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +35,7 @@ the definition of Phillips and Sul (2009) <doi:10.1002/jae.1080>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -46,4 +48,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

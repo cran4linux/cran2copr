@@ -1,9 +1,9 @@
 %global packname  adoptr
-%global packver   0.2.3
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Adaptive Optimal Two-Stage Designs in R
 
@@ -28,8 +28,8 @@ respect to several pre-implemented objective criteria or implement custom
 objectives. Optimization under uncertainty and conditional (given
 stage-one outcome) constraints are supported. See Pilz M, Kunzmann K,
 Herrmann C, Rauch G, Kieser M. A variational approach to optimal two-stage
-designs. Statistics in Medicine. 2019;1–13. <doi:10.1002/sim.8291> for
-details.
+designs. Statistics in Medicine. 2019;38(21):4159–4171.
+<doi:10.1002/sim.8291> for details.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +41,7 @@ details.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

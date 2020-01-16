@@ -1,9 +1,9 @@
 %global packname  gim
-%global packver   0.11.0
+%global packver   0.28.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.28.0
 Release:          1%{?dist}
 Summary:          Generalized Integration Model
 
@@ -22,7 +22,8 @@ Requires:         R-CRAN-numDeriv
 Implements the generalized integration model, which integrates
 individual-level data and summary statistics under a generalized linear
 model framework. It supports continuous and binary outcomes to be modeled
-by the linear and logistic regression models.
+by the linear and logistic regression models. For binary outcome, data can
+be sampled in prospective cohort studies or case-control studies.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +35,7 @@ by the linear and logistic regression models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  rPraat
-%global packver   1.2.0-2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0.2
+Version:          1.3
 Release:          1%{?dist}
 Summary:          Interface to Praat
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-dplyr >= 0.7.8
 
 %description
 Read, write and manipulate 'Praat' TextGrid, PitchTier, Pitch,
-IntensityTier, Formant, and Collection files
+IntensityTier, Formant, Sound, and Collection files
 <http://www.fon.hum.uva.nl/praat/>.
 
 %prep

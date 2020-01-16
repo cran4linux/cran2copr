@@ -1,9 +1,9 @@
 %global packname  iCiteR
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          A Minimal Wrapper Around NIH's 'iCite' API
 
@@ -15,9 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-httr >= 1.4
-Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-httr >= 1.4
 
 %description

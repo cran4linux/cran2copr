@@ -1,9 +1,9 @@
 %global packname  vcd
-%global packver   1.4-4
+%global packver   1.4-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.5
 Release:          1%{?dist}
 Summary:          Visualizing Categorical Data
 
@@ -48,6 +48,7 @@ Analysis with R" by Michael Friendly and David Meyer (2015).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

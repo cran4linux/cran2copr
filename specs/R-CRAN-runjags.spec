@@ -1,9 +1,9 @@
 %global packname  runjags
-%global packver   2.0.4-4
+%global packver   2.0.4-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4.4
+Version:          2.0.4.6
 Release:          1%{?dist}
 Summary:          Interface Utilities, Model Templates, Parallel Computing Methodsand Additional Distributions for MCMC Models in JAGS
 
@@ -48,6 +48,7 @@ family of distributions, the DuMouchel prior and the half-Cauchy prior.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

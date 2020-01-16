@@ -1,9 +1,9 @@
 %global packname  MultNonParam
-%global packver   1.2.8
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Multivariate Nonparametric Methods
 
@@ -51,6 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/Makefile
 %doc %{rlibdir}/%{packname}/test.csv
 %doc %{rlibdir}/%{packname}/testaov.f90
+%doc %{rlibdir}/%{packname}/testconcord.f90
 %doc %{rlibdir}/%{packname}/testperm.f90
 %doc %{rlibdir}/%{packname}/testprobest.f90
 %{rlibdir}/%{packname}/INDEX

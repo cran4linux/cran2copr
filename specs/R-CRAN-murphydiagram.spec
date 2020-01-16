@@ -1,9 +1,9 @@
 %global packname  murphydiagram
-%global packver   0.11
+%global packver   0.12.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.12.2
 Release:          1%{?dist}
 Summary:          Murphy Diagrams for Forecast Comparisons
 
@@ -19,7 +19,8 @@ BuildArch:        noarch
 %description
 Data and code for the paper by Ehm, Gneiting, Jordan and Krueger ('Of
 Quantiles and Expectiles: Consistent Scoring Functions, Choquet
-Representations, and Forecast Rankings', 2015).
+Representations, and Forecast Rankings', JRSS-B, 2016
+<DOI:10.1111/rssb.12154>).
 
 %prep
 %setup -q -c -n %{packname}

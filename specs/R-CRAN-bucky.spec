@@ -1,9 +1,9 @@
 %global packname  bucky
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}
 Summary:          Bucky's Archive for Data Analysis in the Social Sciences
 
@@ -26,10 +26,7 @@ Requires:         R-CRAN-lmtest
 Provides functions for various statistical techniques commonly used in the
 social sciences, including functions to compute clustered robust standard
 errors, combine results across multiply-imputed data sets, and simplify
-the addition of robust and clustered robust standard errors. The package
-was originally developed, in part, to assist porting of replication code
-from 'Stata' and attempts to replicate default options from 'Stata' where
-possible.
+the addition of robust and clustered robust standard errors.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +38,7 @@ possible.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -51,6 +49,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

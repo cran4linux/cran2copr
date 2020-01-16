@@ -1,9 +1,9 @@
 %global packname  lazytrade
-%global packver   0.3.4
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.9
 Release:          1%{?dist}
 Summary:          Learn Computer and Data Science using Algorithmic Trading
 
@@ -15,17 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-h2o 
 BuildRequires:    R-CRAN-ReinforcementLearning 
 BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-CRAN-h2o 
 Requires:         R-CRAN-ReinforcementLearning 
 Requires:         R-CRAN-openssl 
@@ -48,6 +54,7 @@ price changes using pattern recognition deep regression learning.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

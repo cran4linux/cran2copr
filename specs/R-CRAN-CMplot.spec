@@ -1,9 +1,9 @@
 %global packname  CMplot
-%global packver   3.4.0
+%global packver   3.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.5.1
 Release:          1%{?dist}
 Summary:          Circle Manhattan Plot
 
@@ -27,7 +27,9 @@ package that can lay out. Genome-wide association study P-value results in
 both traditional rectangular patterns, QQ-plot and novel circular ones.
 United in only one bull's eye style plot, association results from
 multiple traits can be compared interactively, thereby to reveal both
-similarities and differences between signals.
+similarities and differences between signals. Additional functions
+include: hightlight signals, a group of SNPs, chromosome visualization and
+candidate genes around SNPs.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +41,7 @@ similarities and differences between signals.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

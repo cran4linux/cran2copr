@@ -1,9 +1,9 @@
 %global packname  visNetwork
-%global packver   2.0.8
+%global packver   2.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.8
+Version:          2.0.9
 Release:          1%{?dist}
 Summary:          Network Visualization using 'vis.js' Library
 
@@ -46,6 +46,7 @@ allows an interactive visualization of networks.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

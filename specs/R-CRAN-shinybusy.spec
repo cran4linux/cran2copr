@@ -1,9 +1,9 @@
 %global packname  shinybusy
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Busy Indicator for 'Shiny' Applications
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 Add a global indicator (spinner, progress bar, gif) in your 'shiny'
@@ -51,4 +53,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/assets
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/htmlwidgets
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  gmm
-%global packver   1.6-2
+%global packver   1.6-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.4
 Release:          1%{?dist}
 Summary:          Generalized Method of Moments and Generalized EmpiricalLikelihood
 
@@ -11,9 +11,9 @@ License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
+
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
@@ -43,8 +43,10 @@ that belong to the Generalized Empirical Likelihood family of estimators
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -61,3 +63,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

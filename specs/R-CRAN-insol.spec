@@ -1,9 +1,9 @@
 %global packname  insol
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Solar Radiation
 
@@ -15,10 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-raster 
 Requires:         R-methods 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-raster 
 
 %description
@@ -34,6 +32,7 @@ Functions to compute insolation on complex terrain.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,13 +1,13 @@
 %global packname  minque
-%global packver   1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0.0
 Release:          1%{?dist}
-Summary:          An R Package for Linear Mixed Model Analyses
+Summary:          Various Linear Mixed Model Analyses
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-klaR 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-Matrix 
-Requires:         R-CRAN-klaR 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-Matrix 
 
 %description
 This package offers three important components: (1) to construct a
@@ -44,6 +36,7 @@ large data sets analyses for various irregular data structures.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

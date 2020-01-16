@@ -1,9 +1,9 @@
 %global packname  HelpersMG
-%global packver   3.8
+%global packver   3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8
+Version:          3.9
 Release:          1%{?dist}
 Summary:          Tools for Environmental Analyses, Ecotoxicology and Various RFunctions
 

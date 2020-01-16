@@ -1,9 +1,9 @@
 %global packname  RTDE
-%global packver   0.2-0
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Robust Tail Dependence Estimation
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
 Requires:         R-parallel 
+Requires:         R-methods 
 
 %description
 Robust tail dependence estimation for bivariate models. This package is

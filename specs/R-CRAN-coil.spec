@@ -1,9 +1,9 @@
 %global packname  coil
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Contextualization and Evaluation of COI-5P Barcode Data
 

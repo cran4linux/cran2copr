@@ -1,9 +1,9 @@
 %global packname  basicspace
-%global packver   0.20
+%global packver   0.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.24
 Release:          1%{?dist}
 Summary:          Recovering a Basic Space from Issue Scales
 
@@ -31,6 +31,7 @@ Conducts Aldrich-McKelvey and Blackbox Scaling (Poole et al 2016)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

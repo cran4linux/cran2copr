@@ -1,15 +1,16 @@
 %global packname  stringi
-%global packver   1.4.3
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.5
 Release:          1%{?dist}
 Summary:          Character String Processing Facilities
 
 License:          file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    libicu-devel >= 52
 Requires:         libicu
@@ -23,15 +24,15 @@ Requires:         R-utils
 Requires:         R-stats 
 
 %description
-Fast, correct, consistent, portable, as well as convenient character
-string/text processing in every locale and any native encoding. Owing to
-the use of the 'ICU' (International Components for Unicode) library, the
-package provides 'R' users with platform-independent functions known to
-'Java', 'Perl', 'Python', 'PHP', and 'Ruby' programmers. Available
-features include: pattern searching (e.g., with 'Java'-like regular
-expressions or the 'Unicode' collation algorithm), random string
-generation, case mapping, string transliteration, concatenation, Unicode
-normalization, date-time formatting and parsing, and many more.
+Fast, correct, consistent, portable and convenient character string/text
+processing in every locale and any native encoding. Owing to the use of
+the 'ICU' (International Components for Unicode) library, the package
+provides 'R' users with platform-independent functions known to 'Java',
+'Perl', 'Python', 'PHP' and 'Ruby' programmers. Available features
+include: pattern searching (e.g., with 'Java'-like regular expressions or
+the 'Unicode' collation algorithm), random string generation, case
+mapping, string transliteration, concatenation, Unicode normalization,
+date-time formatting and parsing and many more.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,8 +41,10 @@ normalization, date-time formatting and parsing, and many more.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

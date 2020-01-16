@@ -1,9 +1,9 @@
 %global packname  Rbeast
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Bayesian Change-Point Detection and Time Series Decomposition
 
@@ -38,7 +38,7 @@ regime shifts in ecological data, map forest disturbance and land
 degradation from satellite imagery, detect market trends in economic data,
 pinpoint anomaly and extreme events in climate data, and unravel system
 dynamics in biological data. Details on BEAST are reported in Zhao et al.
-(2019).
+(2019) <doi:10.1016/j.rse.2019.04.034>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  refund
-%global packver   0.1-17
+%global packver   0.1-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.17
+Version:          0.1.21
 Release:          1%{?dist}
 Summary:          Regression with Functional Data
 
@@ -12,10 +12,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.00.0
+Requires:         R-core >= 3.00.0
 BuildArch:        noarch
-BuildRequires:    R-mgcv >= 1.8.12
+BuildRequires:    R-mgcv >= 1.8.23
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-lattice 
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pbs 
 BuildRequires:    R-methods 
-Requires:         R-mgcv >= 1.8.12
+Requires:         R-mgcv >= 1.8.23
 Requires:         R-CRAN-fda 
 Requires:         R-Matrix 
 Requires:         R-lattice 

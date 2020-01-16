@@ -1,9 +1,9 @@
 %global packname  NPCD
-%global packver   1.0-10
+%global packver   1.0-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.11
 Release:          1%{?dist}
 Summary:          Nonparametric Methods for Cognitive Diagnosis
 
@@ -16,10 +16,8 @@ BuildRequires:    R-devel >= 2.14.2
 Requires:         R-core >= 2.14.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-R.oo 
 BuildRequires:    R-CRAN-R.methodsS3 
 Requires:         R-CRAN-BB 
-Requires:         R-CRAN-R.oo 
 Requires:         R-CRAN-R.methodsS3 
 
 %description

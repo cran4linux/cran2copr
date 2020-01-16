@@ -1,11 +1,11 @@
 %global packname  nlsmsn
-%global packver   0.0-4
+%global packver   0.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}
-Summary:          Fitting nonlinear models with scale mixture of skew-normaldistributions.
+Summary:          Fitting Nonlinear Models with Scale Mixture of Skew-NormalDistributions
 
 License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,7 +18,9 @@ BuildArch:        noarch
 
 %description
 Fit univariate non-linear scale mixture of skew-normal(NL-SMSN)
-regression.
+regression, details in Garay, Lachos and Abanto-Valle (2011)
+<doi.org/10.1016/j.jkss.2010.08.003> and Lachos, Bandyopadhyay and Garay
+(2011) <doi.org/10.1016/j.spl.2011.03.019>.
 
 %prep
 %setup -q -c -n %{packname}

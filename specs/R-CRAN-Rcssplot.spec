@@ -1,9 +1,9 @@
 %global packname  Rcssplot
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Styling of Graphics using Cascading Style Sheets
 
@@ -12,13 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-methods 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
 

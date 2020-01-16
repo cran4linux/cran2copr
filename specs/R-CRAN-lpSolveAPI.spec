@@ -1,9 +1,9 @@
 %global packname  lpSolveAPI
-%global packver   5.5.2.0-17.4
+%global packver   5.5.2.0-17.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.2.0.17.4
+Version:          5.5.2.0.17.6
 Release:          1%{?dist}
 Summary:          R Interface to 'lp_solve' Version 5.5.2.0
 
@@ -31,6 +31,7 @@ models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -42,7 +43,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/lpSolve
 %doc %{rlibdir}/%{packname}/tests

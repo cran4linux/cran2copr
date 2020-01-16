@@ -1,11 +1,11 @@
 %global packname  vtable
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}
-Summary:          Variable Table
+Summary:          Variable Table for Variable Documentation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,8 +16,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-sjlabelled 
 Requires:         R-utils 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-sjlabelled 
 
 %description

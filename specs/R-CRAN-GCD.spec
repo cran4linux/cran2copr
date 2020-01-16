@@ -1,9 +1,9 @@
 %global packname  GCD
-%global packver   4.0.4
+%global packver   4.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.4
+Version:          4.0.5
 Release:          1%{?dist}
 Summary:          Global Charcoal Database
 
@@ -33,6 +33,7 @@ mirrors the online SQL database at <http://paleofire.org>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

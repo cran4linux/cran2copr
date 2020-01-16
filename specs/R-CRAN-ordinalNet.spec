@@ -1,9 +1,9 @@
 %global packname  ordinalNet
-%global packver   2.6
+%global packver   2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          2.7
 Release:          1%{?dist}
 Summary:          Penalized Ordinal Regression
 
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 Requires:         R-stats 
@@ -48,6 +47,7 @@ refer to Wurm, Hanlon, and Rathouz (2017) <arXiv:1706.05003>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  spam
-%global packver   2.3-0
+%global packver   2.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.5.1
 Release:          1%{?dist}
 Summary:          SPArse Matrix
 
@@ -40,6 +40,7 @@ vignettes included in this package, see also Furrer and Sain (2010)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

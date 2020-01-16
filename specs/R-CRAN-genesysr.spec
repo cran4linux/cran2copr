@@ -1,9 +1,9 @@
 %global packname  genesysr
-%global packver   0.9.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Genesys PGR Client
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
 
 %description
 Access data on plant genetic resources from genebanks around the world
@@ -36,6 +38,7 @@ subject to terms and conditions available at
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

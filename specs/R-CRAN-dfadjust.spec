@@ -1,9 +1,9 @@
 %global packname  dfadjust
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Degrees of Freedom Adjustment for Robust Standard Errors
 
@@ -19,7 +19,7 @@ BuildArch:        noarch
 %description
 Computes small-sample degrees of freedom adjustment for heteroskedasticity
 robust standard errors, and for clustered standard errors in linear
-regression. See Imbens and Kolesár (1994) <doi:10.1162/REST_a_00552> for a
+regression. See Imbens and Kolesár (2016) <doi:10.1162/REST_a_00552> for a
 discussion of these adjustments.
 
 %prep

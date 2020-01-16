@@ -1,9 +1,9 @@
 %global packname  DrBats
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Data Representation: Bayesian Approach That's Sparse
 
@@ -15,17 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-MASS 
 BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-sde 
+Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-coda 
 Requires:         R-MASS 
 Requires:         R-Matrix 
-Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-sde 
 
 %description
@@ -45,6 +45,7 @@ Analysis", Actes des JdS 2016.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  meta
-%global packver   4.9-7
+%global packver   4.9-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.7
+Version:          4.9.9
 Release:          1%{?dist}
 Summary:          General Package for Meta-Analysis
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-metafor >= 2.1.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-CompQuadForm 
 Requires:         R-CRAN-metafor >= 2.1.0
 Requires:         R-grid 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-CompQuadForm 
 
 %description
 User-friendly general package providing standard methods for meta-analysis
@@ -44,6 +46,7 @@ produce forest plot summarising several (subgroup) meta-analyses.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

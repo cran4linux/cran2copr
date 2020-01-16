@@ -1,9 +1,9 @@
 %global packname  kyotil
-%global packver   2018.10-17
+%global packver   2019.11-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2018.10.17
+Version:          2019.11.22
 Release:          1%{?dist}
 Summary:          Utility Functions for Statistical Analysis Report Generation andMonte Carlo Studies
 
@@ -32,6 +32,7 @@ experiments.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

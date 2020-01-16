@@ -1,9 +1,9 @@
 %global packname  lqmm
-%global packver   1.5.4
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.5
 Release:          1%{?dist}
 Summary:          Linear Quantile Mixed Models
 
@@ -56,6 +56,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

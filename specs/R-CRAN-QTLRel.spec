@@ -1,9 +1,9 @@
 %global packname  QTLRel
-%global packver   1.1
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Tools for Mapping of Quantitative Traits of Genetically RelatedIndividuals and Calculating Identity Coefficients fromPedigrees
 

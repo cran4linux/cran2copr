@@ -1,9 +1,9 @@
 %global packname  Deriv
-%global packver   3.9.0
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          4.0
 Release:          1%{?dist}
 Summary:          Symbolic Differentiation
 
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
 R-based solution for symbolic differentiation. It admits user-defined
@@ -31,6 +33,7 @@ differentiated. Some symbolic simplification is part of the work.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

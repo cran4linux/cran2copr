@@ -1,9 +1,9 @@
 %global packname  runstats
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Fast Computation of Running Statistics for Time Series
 
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fftwtools 
+Requires:         R-CRAN-fftwtools 
 
 %description
 Provides methods for fast computation of running sample statistics for

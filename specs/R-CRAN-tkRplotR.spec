@@ -1,9 +1,9 @@
 %global packname  tkRplotR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Display Resizable Plots
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    xorg-x11-server-Xvfb
 Requires:         tcl >= 8.6
 Requires:         tk >= 8.6
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-tcltk 
 BuildRequires:    R-grDevices 

@@ -1,9 +1,9 @@
 %global packname  admisc
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}
 Summary:          Adrian Dusa's Miscellaneous
 
@@ -20,13 +20,12 @@ Requires:         R-methods
 
 %description
 Contains functions used across packages 'QCA', 'DDIwR', and 'venn'.
-Interprets and translates DNF - Disjunctive Normal Form and SOP - Sum of
-Products expressions, for both binary and multi-value crisp sets, and
-extracts information (set names, set values) from those expressions. Other
-functions perform various other checks if possibly numeric (even if all
-numbers reside in a character vector) and coerce to numeric, or check if
-the numbers are whole. It also offers, among others, a highly flexible
-recoding function.
+Interprets and translates SOP - Sum of Products expressions, for both
+binary and multi-value crisp sets, and extracts information (set names,
+set values) from those expressions. Other functions perform various other
+checks if possibly numeric (even if all numbers reside in a character
+vector) and coerce to numeric, or check if the numbers are whole. It also
+offers, among others, a highly flexible recoding function.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +37,7 @@ recoding function.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

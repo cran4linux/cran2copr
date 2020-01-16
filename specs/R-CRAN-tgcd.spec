@@ -1,9 +1,9 @@
 %global packname  tgcd
-%global packver   2.1
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.3
 Release:          1%{?dist}
 Summary:          Thermoluminescence Glow Curve Deconvolution
 
@@ -24,12 +24,13 @@ Requires:         R-utils
 %description
 Deconvolving thermoluminescence glow curves according to various kinetic
 models (first-order, second-order, general-order, and mixed-order) using a
-modified Levenberg-Marquardt algorithm. It provides the possibility of
-setting constraints or fixing any of parameters. It offers an interactive
-way to initialize parameters by clicking with a mouse on a plot at
-positions where peak maxima should be located. The optimal estimate is
-obtained by "trial-and-error". It also provides routines for simulating
-first-order, second-order, and general-order glow peaks.
+modified Levenberg-Marquardt algorithm (More, 1978)
+<DOI:10.1007/BFb0067700>. It provides the possibility of setting
+constraints or fixing any of parameters. It offers an interactive way to
+initialize parameters by clicking with a mouse on a plot at positions
+where peak maxima should be located. The optimal estimate is obtained by
+"trial-and-error". It also provides routines for simulating first-order,
+second-order, and general-order glow peaks.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +42,7 @@ first-order, second-order, and general-order glow peaks.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

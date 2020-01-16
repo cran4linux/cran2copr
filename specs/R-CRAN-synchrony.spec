@@ -1,9 +1,9 @@
 %global packname  synchrony
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}
 Summary:          Methods for Computing Spatial, Temporal, and SpatiotemporalStatistics
 
@@ -17,10 +17,11 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Methods for computing spatial, temporal, and spatiotemporal statistics
-including: empirical univariate, bivariate and multivariate variograms;
-fitting variogram models; phase locking and synchrony analysis; generating
-autocorrelated and cross-correlated matrices.
+Methods for computing spatial, temporal, and spatiotemporal statistics as
+described in Gouhier and Guichard (2014) <doi:10.1111/2041-210X.12188>.
+These methods include empirical univariate, bivariate and multivariate
+variograms; fitting variogram models; phase locking and synchrony
+analysis; generating autocorrelated and cross-correlated matrices.
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +33,7 @@ autocorrelated and cross-correlated matrices.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

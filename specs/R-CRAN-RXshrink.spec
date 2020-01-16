@@ -1,13 +1,13 @@
 %global packname  RXshrink
-%global packver   1.1
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.3
 Release:          1%{?dist}
-Summary:          Maximum Likelihood Shrinkage via Generalized Ridge or LeastAngle Regression
+Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or LeastAngle Regression Methods
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,12 +19,14 @@ BuildRequires:    R-CRAN-lars
 Requires:         R-CRAN-lars 
 
 %description
-Identify and display TRACEs for a specified shrinkage path and determine
-the extent of shrinkage most likely, under normal distribution theory, to
-produce an optimal reduction in MSE Risk in estimates of regression (beta)
-coefficients. Alternative estimates are also provided when ill-conditioned
-(nearly multicollinear) models yield OLS estimates with "wrong" numerical
-signs.
+Functions are provided to calculate and display ridge TRACEs for various
+shrinkage PATHS. They determine the m-Extent of shrinkage most likely,
+under Normal-distribution theory, to produce biased estimates of
+regression (beta) coefficients with minimum MSE Risk. An alternative
+function, correct.signs(), provides beta coefficient estimates when an
+ill-conditioned (nearly multicollinear) model yields OLS estimates with
+("wrong") numerical signs that disagree with the signs of the observed
+correlations between the Y-outcome and the selected X-predictor variables.
 
 %prep
 %setup -q -c -n %{packname}

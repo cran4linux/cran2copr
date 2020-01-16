@@ -1,9 +1,9 @@
 %global packname  hdpca
-%global packver   1.0.0
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.3
 Release:          1%{?dist}
 Summary:          Principal Component Analysis in High-Dimensional Data
 
@@ -26,7 +26,8 @@ on the Generalized Spiked Population (GSP) model. Estimate the population
 eigenvalues, angles between the sample and population eigenvectors,
 correlations between the sample and population PC scores, and the
 asymptotic shrinkage factors. Adjust the shrinkage bias in the predicted
-PC scores.
+PC scores. Dey, R. and Lee, S. (2019)
+<doi.org/10.1016/j.jmva.2019.02.007>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +39,7 @@ PC scores.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  cbsodataR
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          Statistics Netherlands (CBS) Open Data API Client
 
@@ -37,6 +37,7 @@ Statistics Netherlands.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -50,6 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/app
+%{rlibdir}/%{packname}/cbsodataR.Rmd
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/issues
 %doc %{rlibdir}/%{packname}/iv3.R

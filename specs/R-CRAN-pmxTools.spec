@@ -1,9 +1,9 @@
 %global packname  pmxTools
-%global packver   0.1.1
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0
 Release:          1%{?dist}
 Summary:          Pharmacometric and Pharmacokinetic Toolkit
 
@@ -15,28 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grid 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-PKNCA 
-Requires:         R-grid 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-chron 
 Requires:         R-MASS 
-Requires:         R-CRAN-XML 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-XML 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-PKNCA 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-chron 
 
 %description
 Pharmacometric tools for common data analytical tasks; closed-form
@@ -59,6 +51,7 @@ Perl-speaks-NONMEM (PsN).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

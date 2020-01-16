@@ -1,9 +1,9 @@
 %global packname  readJDX
-%global packver   0.3.250
+%global packver   0.4.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.250
+Version:          0.4.29
 Release:          1%{?dist}
 Summary:          Import Data in the JCAMP-DX Format
 
@@ -46,7 +46,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata

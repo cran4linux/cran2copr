@@ -1,9 +1,9 @@
 %global packname  vtree
-%global packver   3.0.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          4.0.0
 Release:          1%{?dist}
 Summary:          Display Information About Nested Subsets of a Data Frame
 
@@ -18,9 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-rsvg 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-rsvg 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-shiny 
 
 %description
 A tool for calculating and drawing "variable trees". Variable trees
@@ -52,4 +56,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
+%doc %{rlibdir}/%{packname}/www
 %{rlibdir}/%{packname}/INDEX

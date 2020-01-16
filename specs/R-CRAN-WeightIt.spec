@@ -1,9 +1,9 @@
 %global packname  WeightIt
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          Weighting for Covariate Balance in Observational Studies
 
@@ -43,6 +43,7 @@ checking of covariate balance by interfacing directly with 'cobalt'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

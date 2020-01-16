@@ -1,9 +1,9 @@
 %global packname  bpcp
-%global packver   1.3.4
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Beta Product Confidence Procedure for Right Censored Data
 
@@ -16,14 +16,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-survival 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Calculates nonparametric pointwise confidence intervals for the survival
-distribution for right censored data. Has two-sample tests for
-dissimilarity (e.g., difference, ratio or odds ratio) in survival at a
-fixed time. Especially important for small sample sizes or heavily
-censored data. Includes mid-p options.
+distribution for right censored data, and for medians [Fay and Brittain
+<doi:10.1002/sim.6905>]. Has two-sample tests for dissimilarity (e.g.,
+difference, ratio or odds ratio) in survival at a fixed time, and
+differences in medians [Fay, Proschan, and Brittain
+<doi:10.1111/biom.12231>]. Especially important for latter parts of the
+survival curve, small sample sizes or heavily censored data. Includes
+mid-p options.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +42,7 @@ censored data. Includes mid-p options.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

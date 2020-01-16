@@ -1,9 +1,9 @@
 %global packname  TeachingSampling
-%global packver   3.4.2
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.2
+Version:          3.6.0
 Release:          1%{?dist}
 Summary:          Selection of Samples and Parameter Estimation in FinitePopulation
 
@@ -30,6 +30,7 @@ finite population based on several sampling designs.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

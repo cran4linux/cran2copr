@@ -1,9 +1,9 @@
 %global packname  Tmisc
-%global packver   0.1.20
+%global packver   0.1.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.20
+Version:          0.1.22
 Release:          1%{?dist}
 Summary:          Turner Miscellaneous
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-methods 
 
 %description
 Miscellaneous utility functions for data manipulation, data tidying, and
@@ -38,6 +40,7 @@ working with gene expression data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

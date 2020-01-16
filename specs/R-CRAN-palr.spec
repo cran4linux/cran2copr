@@ -1,9 +1,9 @@
 %global packname  palr
-%global packver   0.0.6
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Colour Palettes for Data
 
@@ -18,6 +18,8 @@ BuildArch:        noarch
 
 %description
 Colour palettes for data, based on some well known public data sets.
+Includes helper functions to map absolute values to known palettes, and
+capture the work of image colour mapping as raster data sets.
 
 %prep
 %setup -q -c -n %{packname}
@@ -29,6 +31,7 @@ Colour palettes for data, based on some well known public data sets.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -40,7 +43,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

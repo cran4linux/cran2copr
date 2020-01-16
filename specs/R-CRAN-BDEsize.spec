@@ -1,9 +1,9 @@
 %global packname  BDEsize
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Efficient Determination of Sample Size in Balanced Design ofExperiments
 
@@ -47,6 +47,7 @@ Lenth,R.V.(2006-9) <http://www.stat.uiowa.edu/~rlenth/Power> Lim, Yong Bin
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

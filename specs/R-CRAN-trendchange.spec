@@ -1,9 +1,9 @@
 %global packname  trendchange
-%global packver   0.1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Innovative Trend Analysis and Time-Series Change Point Analysis
 
@@ -39,6 +39,7 @@ World Meteorological Organization, Geneva, 192 pp.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

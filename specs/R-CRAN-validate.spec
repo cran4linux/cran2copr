@@ -1,9 +1,9 @@
 %global packname  validate
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}
 Summary:          Data Validation Infrastructure
 
@@ -42,6 +42,7 @@ Loo and De Jonge (2018) <doi:10.1002/9781118897126>, chapter 6.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -55,6 +56,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX

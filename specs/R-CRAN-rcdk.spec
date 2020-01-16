@@ -1,9 +1,9 @@
 %global packname  rcdk
-%global packver   3.4.7.1
+%global packver   3.4.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.7.1
+Version:          3.4.7.2
 Release:          1%{?dist}
 Summary:          Interface to the 'CDK' Libraries
 
