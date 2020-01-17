@@ -1,9 +1,9 @@
 %global packname  misaem
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}
 Summary:          Logistic Regression with Missing Covariates
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
 BuildRequires:    R-MASS 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-MASS 
+Requires:         R-methods 
 
 %description
 Estimate parameters of logistic regression with missing data and perform
@@ -36,6 +38,7 @@ model selection, using algorithm Stochastic Approximation EM.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

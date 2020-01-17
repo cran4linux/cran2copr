@@ -1,9 +1,9 @@
 %global packname  paws.cost.management
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Amazon Web Services Cost Management APIs
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.2.4
-Requires:         R-CRAN-paws.common >= 0.2.4
+BuildRequires:    R-CRAN-paws.common >= 0.2.5
+Requires:         R-CRAN-paws.common >= 0.2.5
 
 %description
 Interface to Amazon Web Services cost management APIs, including cost and

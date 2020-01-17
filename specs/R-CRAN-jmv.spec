@@ -1,9 +1,9 @@
 %global packname  jmv
-%global packver   0.9.6.1
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6.1
+Version:          1.0.8
 Release:          1%{?dist}
 Summary:          The 'jamovi' Analyses
 
@@ -19,7 +19,7 @@ BuildRequires:    R-CRAN-car >= 3.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-psych >= 1.7.5
 BuildRequires:    R-CRAN-emmeans >= 1.1.3
-BuildRequires:    R-CRAN-jmvcore >= 0.9.5.2
+BuildRequires:    R-CRAN-jmvcore >= 1.0.8
 BuildRequires:    R-CRAN-afex >= 0.20.2
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-multcomp 
@@ -39,7 +39,7 @@ Requires:         R-CRAN-car >= 3.0.0
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-psych >= 1.7.5
 Requires:         R-CRAN-emmeans >= 1.1.3
-Requires:         R-CRAN-jmvcore >= 0.9.5.2
+Requires:         R-CRAN-jmvcore >= 1.0.8
 Requires:         R-CRAN-afex >= 0.20.2
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-multcomp 

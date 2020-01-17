@@ -1,9 +1,9 @@
 %global packname  RTest
-%global packver   1.2.4
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.6
 Release:          1%{?dist}
 Summary:          A XML-Based Testing Framework for Automated Component Tests of RPackages
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-tcltk 
 Requires:         R-CRAN-testthat >= 2.0.0
 Requires:         R-CRAN-magick >= 1.3
 Requires:         R-methods 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
-Requires:         R-tcltk 
 
 %description
 This provides a framework for R packages developed for a regulatory

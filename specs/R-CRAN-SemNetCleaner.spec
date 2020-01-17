@@ -1,9 +1,9 @@
 %global packname  SemNetCleaner
-%global packver   1.1.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.3
 Release:          1%{?dist}
 Summary:          An Automated Cleaning Tool for Semantic and Linguistic Data
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SemNetDictionaries >= 0.1.3
+BuildRequires:    R-CRAN-SemNetDictionaries >= 0.1.5
 BuildRequires:    R-CRAN-hunspell 
 BuildRequires:    R-CRAN-searcher 
 BuildRequires:    R-CRAN-stringdist 
@@ -23,7 +23,7 @@ BuildRequires:    R-tcltk
 BuildRequires:    R-foreign 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-R.matlab 
-Requires:         R-CRAN-SemNetDictionaries >= 0.1.3
+Requires:         R-CRAN-SemNetDictionaries >= 0.1.5
 Requires:         R-CRAN-hunspell 
 Requires:         R-CRAN-searcher 
 Requires:         R-CRAN-stringdist 
@@ -49,6 +49,7 @@ cleaning process more accurate, efficient, and reproducible.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

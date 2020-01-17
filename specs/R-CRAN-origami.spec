@@ -1,9 +1,9 @@
 %global packname  origami
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}
 Summary:          Generalized Framework for Cross-Validation
 
@@ -18,12 +18,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-listenv 
 Requires:         R-CRAN-abind 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-listenv 

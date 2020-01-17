@@ -1,9 +1,9 @@
 %global packname  palasso
-%global packver   0.0.5
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.7
 Release:          1%{?dist}
 Summary:          Paired Lasso Regression
 
@@ -24,8 +24,8 @@ Requires:         R-survival
 
 %description
 Implements sparse regression with paired covariates (Rauschenberger et al.
-2019). For the optional shrinkage, install ashr
-(<https://github.com/stephens999/ashr>) and CorShrink
+2019 <doi:10.1007/s11634-019-00375-6>). For the optional shrinkage,
+install ashr (<https://github.com/stephens999/ashr>) and CorShrink
 (<https://github.com/kkdey/CorShrink>) from GitHub (see README).
 
 %prep
@@ -38,6 +38,7 @@ Implements sparse regression with paired covariates (Rauschenberger et al.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -48,7 +49,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION

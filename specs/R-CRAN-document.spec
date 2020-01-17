@@ -1,9 +1,9 @@
 %global packname  document
-%global packver   3.1.0
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.0
 Release:          1%{?dist}
 Summary:          Run 'roxygen2' on (Chunks of) Single Code Files
 
@@ -46,6 +46,7 @@ packages (yet)? This is exactly what this package is about: running
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -62,5 +63,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/expected_files
 %doc %{rlibdir}/%{packname}/files
-%doc %{rlibdir}/%{packname}/runit
+%doc %{rlibdir}/%{packname}/runit_tests
 %{rlibdir}/%{packname}/INDEX

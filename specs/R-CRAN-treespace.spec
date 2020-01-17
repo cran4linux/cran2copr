@@ -1,9 +1,9 @@
 %global packname  treespace
-%global packver   1.1.3.1
+%global packver   1.1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3.1
+Version:          1.1.3.2
 Release:          1%{?dist}
 Summary:          Statistical Exploration of Landscapes of Phylogenetic Trees
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-distory
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-phytools 
@@ -44,6 +45,7 @@ Requires:         R-CRAN-distory
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-MASS 
+Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-phytools 

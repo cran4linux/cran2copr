@@ -1,9 +1,9 @@
 %global packname  bipartite
-%global packver   2.13
+%global packver   2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13
+Version:          2.14
 Release:          1%{?dist}
 Summary:          Visualising Bipartite Networks and Calculating Some (Ecological)Indices
 
@@ -47,6 +47,7 @@ the web's topology.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

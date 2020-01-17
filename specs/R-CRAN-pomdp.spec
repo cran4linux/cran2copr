@@ -1,9 +1,9 @@
 %global packname  pomdp
-%global packver   0.9.1-1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1.1
+Version:          0.9.2
 Release:          1%{?dist}
 Summary:          Solver for Partially Observable Markov Decision Processes(POMDP)
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-igraph 
 

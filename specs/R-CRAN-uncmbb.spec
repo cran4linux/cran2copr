@@ -1,9 +1,9 @@
 %global packname  uncmbb
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          UNC Men's Basketball Match Results Since 1949-1950 Season
 

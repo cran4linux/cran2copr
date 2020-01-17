@@ -1,9 +1,9 @@
 %global packname  relSim
-%global packver   0.2-9
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Relative Simulator
 
@@ -14,18 +14,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.8
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-multicool 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.8
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-multicool 
 Requires:         R-utils 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
 
 %description
 A set of tools to explore the behaviour statistics used for forensic DNA

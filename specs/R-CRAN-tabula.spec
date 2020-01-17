@@ -1,9 +1,9 @@
 %global packname  tabula
-%global packver   1.3.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.5.0
 Release:          1%{?dist}
 Summary:          Analysis, Seriation and Visualization of Archaeological CountData
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
 BuildRequires:    R-CRAN-ca >= 0.71
 BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-arkhe 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -25,6 +26,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-ggplot2 >= 3.2.1
 Requires:         R-CRAN-ca >= 0.71
 Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-arkhe 
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -53,6 +55,7 @@ data and statistical thresholds: rank vs. abundance plots, heatmaps, Ford
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

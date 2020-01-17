@@ -1,9 +1,9 @@
 %global packname  multicool
-%global packver   0.1-10
+%global packver   0.1-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.11
 Release:          1%{?dist}
 Summary:          Permutations of Multisets in Cool-Lex Order
 
@@ -23,17 +23,16 @@ Requires:         R-methods
 A set of tools to permute multisets without loops or hash tables and to
 generate integer partitions. The permutation functions are based on C code
 from Aaron Williams. Cool-lex order is similar to colexicographical order.
-The algorithm is described in Williams, A. (2009)
-<DOI:10.1145/1496770.1496877> Loopless Generation of Multiset Permutations
-by Prefix Shifts. Symposium on Discrete Algorithms, New York, United
-States. The permutation code is distributed without restrictions. The code
-for stable and efficient computation of multinomial coefficients comes
-from Dave Barber. The code can be download from
-<http://tamivox.org/dave/multinomial/code.html> and is distributed without
-conditions. The package also generates the integer partitions of a
+The algorithm is described in Williams, A. Loopless Generation of Multiset
+Permutations by Prefix Shifts. SODA 2009, Symposium on Discrete
+Algorithms, New York, United States. The permutation code is distributed
+without restrictions. The code for stable and efficient computation of
+multinomial coefficients comes from Dave Barber. The code can be download
+from <http://tamivox.org/dave/multinomial/index.html> and is distributed
+without conditions. The package also generates the integer partitions of a
 positive, non-zero integer n. The C++ code for this is based on Python
 code from Jerome Kelleher which can be found here
-<http://jeromekelleher.net/tag/integer-partitions.html>. The C++ code and
+<http://jeromekelleher.net/category/combinatorics.html>. The C++ code and
 Python code are distributed without conditions.
 
 %prep
@@ -46,6 +45,7 @@ Python code are distributed without conditions.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

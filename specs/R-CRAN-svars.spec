@@ -1,9 +1,9 @@
 %global packname  svars
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}
 Summary:          Data-Driven Identification of SVAR Models
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-copula
 BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-steadyICA 
-BuildRequires:    R-CRAN-tsDyn 
 BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-strucchange 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-copula
 Requires:         R-CRAN-clue 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-steadyICA 
-Requires:         R-CRAN-tsDyn 
 Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-strucchange 
@@ -67,6 +65,7 @@ or non-Gaussian maximum likelihood (Lanne, M., Meitz, M., Saikkonen, P.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -80,5 +79,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

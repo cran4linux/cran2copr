@@ -1,9 +1,9 @@
 %global packname  grf
-%global packver   0.10.4
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.4
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Generalized Random Forests
 
@@ -13,8 +13,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    make
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-sandwich >= 2.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.15
 BuildRequires:    R-CRAN-DiceKriging 
@@ -45,6 +45,7 @@ regression, quantile regression, and treatment effect estimation
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

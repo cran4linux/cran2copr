@@ -1,9 +1,9 @@
 %global packname  kde1d
-%global packver   0.4.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Univariate Kernel Density Estimation
 
@@ -14,18 +14,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-cctools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-qrng 
+BuildRequires:    R-CRAN-randtoolbox 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-cctools 
 Requires:         R-graphics 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-qrng 
+Requires:         R-CRAN-randtoolbox 
 Requires:         R-stats 
 Requires:         R-utils 
 

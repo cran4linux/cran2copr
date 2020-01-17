@@ -1,9 +1,9 @@
 %global packname  cgmanalysis
-%global packver   2.4
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.5
 Release:          1%{?dist}
 Summary:          Clean and Analyze Continuous Glucose Monitor Data
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-pastecs 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-pastecs 
 Requires:         R-tools 
-Requires:         R-CRAN-gdata 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-readr 
 
 %description
@@ -61,6 +61,7 @@ new-user guide.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

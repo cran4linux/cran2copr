@@ -1,9 +1,9 @@
 %global packname  opalr
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          'Opal' Data Repository Client and 'DataSHIELD' Utils
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-mime 
+Requires:         R-CRAN-progress 
 
 %description
 Data integration Web application for biobanks by 'OBiBa'. 'Opal' is the

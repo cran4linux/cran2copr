@@ -1,9 +1,9 @@
 %global packname  RCzechia
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}
 Summary:          Spatial Objects of the Czech Republic
 
@@ -16,17 +16,17 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lwgeom 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lwgeom 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
 
 %description
 Administrative regions and other spatial objects of the Czech Republic.

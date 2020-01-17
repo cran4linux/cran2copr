@@ -1,9 +1,9 @@
 %global packname  NCA
-%global packver   3.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}
 Summary:          Necessary Condition Analysis
 
@@ -21,14 +21,18 @@ BuildRequires:    R-CRAN-sfa
 BuildRequires:    R-KernSmooth 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-iterators 
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-sfa 
 Requires:         R-KernSmooth 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-progress 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-iterators 
 
 %description
 Performs a Necessary Condition Analysis (NCA). (Dul, J. 2016. Necessary
@@ -60,6 +64,7 @@ using this package can be found here: <http://repub.eur.nl/pub/78323/> or
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

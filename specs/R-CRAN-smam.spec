@@ -1,9 +1,9 @@
 %global packname  smam
-%global packver   0.4.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.2
 Release:          1%{?dist}
 Summary:          Statistical Modeling of Animal Movements
 
@@ -25,8 +25,10 @@ BuildRequires:    R-CRAN-RcppParallel
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-RcppGSL 
 Requires:         R-CRAN-nloptr 
 Requires:         R-Matrix 
@@ -36,8 +38,10 @@ Requires:         R-CRAN-RcppParallel
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
+Requires:         R-CRAN-doSNOW 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-EnvStats 
 
 %description
 Animal movement models including moving-resting process with embedded

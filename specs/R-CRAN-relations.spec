@@ -1,9 +1,9 @@
 %global packname  relations
-%global packver   0.6-8
+%global packver   0.6-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          0.6.9
 Release:          1%{?dist}
 Summary:          Data Structures and Algorithms for Relations
 

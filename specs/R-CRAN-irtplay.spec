@@ -1,9 +1,9 @@
 %global packname  irtplay
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Evaluation of Model-Data Fit in Item Response Theory (IRT) andUseful Functions Related to IRT
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-statmod 
@@ -60,10 +60,10 @@ importing item and/or ability parameters from popular IRT software,
 generating simulated data, computing the conditional distribution of
 observed scores using the Lord-Wingersky recursion formula (Lord &
 Wingersky (1984) <doi:10.1207/s15324818ame1002_1>), computing the
-loglikelihood of individual items, computing item and test information
-functions, computing item and test characteristic curve functions, and
-plotting item and test characteristic curves and item and test information
-functions.
+loglikelihood of individual items, computing the loglikelihood of
+abilities, computing item and test information functions, computing item
+and test characteristic curve functions, and plotting item and test
+characteristic curves and item and test information functions.
 
 %prep
 %setup -q -c -n %{packname}

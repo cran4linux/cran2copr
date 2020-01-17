@@ -1,9 +1,9 @@
 %global packname  rJST
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Joint Sentiment Topic Modelling
 
@@ -14,19 +14,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-quanteda 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppProgress 
 Requires:         R-CRAN-SnowballC 
 
@@ -45,6 +45,7 @@ Everson and Ruger (2012) <DOI:10.1109/TKDE.2011.48>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

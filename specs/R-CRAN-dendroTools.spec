@@ -1,9 +1,9 @@
 %global packname  dendroTools
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}
 Summary:          Linear and Nonlinear Methods for Analyzing Daily and MonthlyDendroclimatological Data
 
@@ -17,7 +17,7 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.7.1
 BuildRequires:    R-CRAN-randomForest >= 4.6.14
-BuildRequires:    R-CRAN-gridExtra >= 2.2.1
+BuildRequires:    R-CRAN-gridExtra >= 2.2
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
 BuildRequires:    R-CRAN-psych >= 1.8.3.3
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
@@ -29,12 +29,13 @@ BuildRequires:    R-CRAN-MLmetrics >= 1.1.1
 BuildRequires:    R-CRAN-oce >= 0.9.21
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-brnn >= 0.6
+BuildRequires:    R-CRAN-viridis >= 0.5.1
 BuildRequires:    R-CRAN-scales >= 0.4.1
 BuildRequires:    R-CRAN-Cubist >= 0.2.2
 BuildRequires:    R-stats 
 Requires:         R-CRAN-plotly >= 4.7.1
 Requires:         R-CRAN-randomForest >= 4.6.14
-Requires:         R-CRAN-gridExtra >= 2.2.1
+Requires:         R-CRAN-gridExtra >= 2.2
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-psych >= 1.8.3.3
 Requires:         R-CRAN-lubridate >= 1.7.4
@@ -46,6 +47,7 @@ Requires:         R-CRAN-MLmetrics >= 1.1.1
 Requires:         R-CRAN-oce >= 0.9.21
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-brnn >= 0.6
+Requires:         R-CRAN-viridis >= 0.5.1
 Requires:         R-CRAN-scales >= 0.4.1
 Requires:         R-CRAN-Cubist >= 0.2.2
 Requires:         R-stats 
@@ -71,6 +73,7 @@ regression algorithms on the task of climate reconstruction.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,11 +1,11 @@
 %global packname  coinmarketcapr
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}
-Summary:          Get Cryptocurrencies Market Cap Prices from Coin Market Cap
+Summary:          Get 'Cryptocurrencies' Market Cap Prices from Coin Market Cap
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,10 +17,16 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
 
 %description
 Extract and monitor price and market cap of 'Cryptocurrencies' from 'Coin
@@ -36,6 +42,7 @@ Market Cap' <https://coinmarketcap.com/api/>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

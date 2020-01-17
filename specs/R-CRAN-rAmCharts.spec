@@ -1,9 +1,9 @@
 %global packname  rAmCharts
-%global packver   2.1.12
+%global packver   2.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.12
+Version:          2.1.13
 Release:          1%{?dist}
 Summary:          JavaScript Charts Tool
 
@@ -45,7 +45,7 @@ source code for charts. Most of classes in the library have their
 equivalent in R with S4 classes; for those classes, not all properties
 have been referenced but can easily be added in the constructors. Complex
 properties (e.g. 'JavaScript' object) can be passed as named list. See
-examples at <http://datastorm- open.github.io/introduction_ramcharts/> and
+examples at <http://datastorm-open.github.io/introduction_ramcharts/> and
 <http://www.amcharts.com/> for more information about the library. The
 package includes the free version of 'AmCharts' Library. Its only
 limitation is a small link to the web site displayed on your charts. If

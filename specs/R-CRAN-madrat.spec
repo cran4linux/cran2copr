@@ -1,9 +1,9 @@
 %global packname  madrat
-%global packver   1.61.0
+%global packver   1.64.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.61.0
+Version:          1.64.5
 Release:          1%{?dist}
 Summary:          May All Data be Reproducible and Transparent (MADRaT) *
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magclass >= 4.49
+BuildRequires:    R-CRAN-magclass >= 5.7.0
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
@@ -23,12 +23,9 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-magclass >= 4.49
+Requires:         R-CRAN-magclass >= 5.7.0
 Requires:         R-CRAN-spam 
 Requires:         R-tools 
 Requires:         R-utils 
@@ -36,9 +33,6 @@ Requires:         R-CRAN-digest
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-stats 
-Requires:         R-CRAN-nnls 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-assertthat 
 

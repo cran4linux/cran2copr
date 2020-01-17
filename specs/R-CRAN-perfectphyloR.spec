@@ -1,9 +1,9 @@
 %global packname  perfectphyloR
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Reconstruct Perfect Phylogenies from DNA Sequence Data
 
@@ -16,21 +16,17 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-HHG 
-BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-HHG 
-Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-phytools 
 
 %description
 Reconstructs perfect phylogeny at a user-given focal point and to depict
 and test association in a genomic region based on the reconstructed
 partitions. Charith B Karunarathna and Jinko Graham (2019)
-<bioarXiv:10.1101/674523>.
+<bioRxiv:10.1101/674523>.
 
 %prep
 %setup -q -c -n %{packname}

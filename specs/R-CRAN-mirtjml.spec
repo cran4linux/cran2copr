@@ -1,9 +1,9 @@
 %global packname  mirtjml
-%global packver   1.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Joint Maximum Likelihood Estimation for High-Dimensional ItemFactor Analysis
 
@@ -34,9 +34,10 @@ is facilitated by multiprocessing 'OpenMP' API. For more information,
 please refer to: 1. Chen, Y., Li, X., & Zhang, S. (2018). Joint Maximum
 Likelihood Estimation for High-Dimensional Exploratory Item Factor
 Analysis. Psychometrika, 1-23. <doi:10.1007/s11336-018-9646-5>; 2. Chen,
-Y., Li, X., & Zhang, S. (2017). Structured Latent Factor Analysis for
+Y., Li, X., & Zhang, S. (2019). Structured Latent Factor Analysis for
 Large-scale Data: Identifiability, Estimability, and Their Implications.
-arXiv preprint <arXiv:1712.08966>.
+Journal of the American Statistical Association, <doi:
+10.1080/01621459.2019.1635485>.
 
 %prep
 %setup -q -c -n %{packname}

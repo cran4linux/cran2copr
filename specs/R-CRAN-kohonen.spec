@@ -1,9 +1,9 @@
 %global packname  kohonen
-%global packver   3.0.8
+%global packver   3.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.8
+Version:          3.0.10
 Release:          1%{?dist}
 Summary:          Supervised and Unsupervised Self-Organising Maps
 
@@ -15,9 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-MASS 
 Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-MASS 
 
 %description
 Functions to train self-organising maps (SOMs). Also interrogation of the
@@ -34,6 +32,7 @@ package refers to Teuvo Kohonen, the inventor of the SOM.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

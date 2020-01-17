@@ -1,9 +1,9 @@
 %global packname  graph4lg
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Build Graphs for Landscape Genetics Analysis
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-adegenet 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-utils 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-adegenet 
 Requires:         R-CRAN-ade4 
 Requires:         R-stats 
+Requires:         R-CRAN-spatstat 
 Requires:         R-Matrix 
 Requires:         R-CRAN-vegan 
 Requires:         R-utils 
@@ -73,7 +75,7 @@ weight their links with several genetic distances, plot and analyse
 graphs, compare them with other graphs. It uses functions from other
 packages such as 'adegenet' (Jombart, 2008)
 <doi:10.1093/bioinformatics/btn129> and 'igraph' (Csardi et Nepusz, 2006)
-<https://bit.ly/2028mcO>. It also implements methods commonly used in
+<https://bit.ly/35a3V3H>. It also implements methods commonly used in
 landscape genetics to create graphs, described by Dyer et Nason (2004)
 <doi:10.1111/j.1365-294X.2004.02177.x> and Greenbaum et Fefferman (2017)
 <doi:10.1111/mec.14059>, and to analyse distance data (van Strien et al.,

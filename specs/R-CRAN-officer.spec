@@ -1,9 +1,9 @@
 %global packname  officer
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}
 Summary:          Manipulation of Microsoft Word and PowerPoint Documents
 
@@ -14,8 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-zip >= 2.0.0
+BuildRequires:    R-CRAN-zip >= 2.0.3
 BuildRequires:    R-CRAN-xml2 >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-grDevices 
@@ -25,9 +26,9 @@ BuildRequires:    R-CRAN-uuid
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-zip >= 2.0.0
+Requires:         R-CRAN-zip >= 2.0.3
 Requires:         R-CRAN-xml2 >= 1.1.0
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-R6 
 Requires:         R-grDevices 
@@ -37,7 +38,6 @@ Requires:         R-CRAN-uuid
 Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rlang 
 
 %description
 Access and manipulate 'Microsoft Word' and 'Microsoft PowerPoint'
@@ -61,6 +61,7 @@ Microsoft products to be able to write Microsoft files.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

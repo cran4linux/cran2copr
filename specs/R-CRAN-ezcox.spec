@@ -1,9 +1,9 @@
 %global packname  ezcox
-%global packver   0.1.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Easily Process a Batch of Cox Models
 
@@ -20,11 +20,15 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-forestmodel 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-survival 
+Requires:         R-CRAN-forestmodel 
+Requires:         R-utils 
 
 %description
 A tool to operate a batch of univariate or multivariate Cox models and
@@ -53,6 +57,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/test.R
 %{rlibdir}/%{packname}/INDEX

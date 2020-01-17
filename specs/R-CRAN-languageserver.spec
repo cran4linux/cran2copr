@@ -1,9 +1,9 @@
 %global packname  languageserver
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Language Server Protocol
 
@@ -15,29 +15,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-callr >= 3.0.0
-BuildRequires:    R-CRAN-lintr >= 1.0.3
-BuildRequires:    R-CRAN-styler >= 1.0.2
-BuildRequires:    R-CRAN-collections 
+BuildRequires:    R-CRAN-lintr >= 2.0.0
+BuildRequires:    R-CRAN-styler >= 1.2.0
+BuildRequires:    R-CRAN-collections >= 0.2.0
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-repr 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-repr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-xmlparsedata 
 Requires:         R-CRAN-callr >= 3.0.0
-Requires:         R-CRAN-lintr >= 1.0.3
-Requires:         R-CRAN-styler >= 1.0.2
-Requires:         R-CRAN-collections 
+Requires:         R-CRAN-lintr >= 2.0.0
+Requires:         R-CRAN-styler >= 1.2.0
+Requires:         R-CRAN-collections >= 0.2.0
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-repr 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-repr 
 Requires:         R-CRAN-stringr 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-xmlparsedata 
 
 %description
 An implementation of the Language Server Protocol for R. The Language

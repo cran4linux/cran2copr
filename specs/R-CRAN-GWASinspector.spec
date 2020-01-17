@@ -1,9 +1,9 @@
 %global packname  GWASinspector
-%global packver   1.2
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3.4
 Release:          1%{?dist}
 Summary:          Comprehensive and Easy to Use Quality Control of GWAS Results
 
@@ -19,7 +19,7 @@ BuildRequires:    R-tools >= 3.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0
 BuildRequires:    R-CRAN-hash >= 2.2
 BuildRequires:    R-CRAN-futile.logger >= 1.4
-BuildRequires:    R-CRAN-data.table >= 1.10
+BuildRequires:    R-CRAN-data.table >= 1.12
 BuildRequires:    R-CRAN-knitr >= 1.1
 BuildRequires:    R-CRAN-rmarkdown >= 0.9
 BuildRequires:    R-CRAN-kableExtra >= 0.8
@@ -27,11 +27,12 @@ BuildRequires:    R-CRAN-ini >= 0.3
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-methods 
 Requires:         R-tools >= 3.0
 Requires:         R-CRAN-ggplot2 >= 3.0
 Requires:         R-CRAN-hash >= 2.2
 Requires:         R-CRAN-futile.logger >= 1.4
-Requires:         R-CRAN-data.table >= 1.10
+Requires:         R-CRAN-data.table >= 1.12
 Requires:         R-CRAN-knitr >= 1.1
 Requires:         R-CRAN-rmarkdown >= 0.9
 Requires:         R-CRAN-kableExtra >= 0.8
@@ -39,6 +40,7 @@ Requires:         R-CRAN-ini >= 0.3
 Requires:         R-CRAN-gridExtra 
 Requires:         R-grid 
 Requires:         R-CRAN-RSQLite 
+Requires:         R-methods 
 
 %description
 When evaluating the results of a genome-wide association study (GWAS), it
@@ -58,6 +60,7 @@ provide the user with a comprehensive report.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

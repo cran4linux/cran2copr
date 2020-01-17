@@ -1,9 +1,9 @@
 %global packname  rvinecopulib
-%global packver   0.3.2.1.1
+%global packver   0.5.1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2.1.1
+Version:          0.5.1.1.0
 Release:          1%{?dist}
 Summary:          High Performance Algorithms for Vine Copula Modeling
 
@@ -14,12 +14,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-kde1d >= 1.0.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-cctools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-kde1d 
 BuildRequires:    R-lattice 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -27,25 +26,24 @@ BuildRequires:    R-CRAN-BH
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppThread 
 BuildRequires:    R-CRAN-wdm 
+Requires:         R-CRAN-kde1d >= 1.0.2
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-cctools 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-kde1d 
 Requires:         R-lattice 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
 Provides an interface to 'vinecopulib', a C++ library for vine copula
-modeling based on 'Boost' and 'Eigen'. The 'rvinecopulib' package
-implements the core features of the popular 'VineCopula' package, in
-particular inference algorithms for both vine copula and bivariate copula
-models. Advantages over 'VineCopula' are a sleeker and more modern API,
-improved performances, especially in high dimensions, nonparametric and
-multi-parameter families. The 'rvinecopulib' package includes
-'vinecopulib' as header-only C++ library (currently version 0.3.1). Thus
+modeling. The 'rvinecopulib' package implements the core features of the
+popular 'VineCopula' package, in particular inference algorithms for both
+vine copula and bivariate copula models. Advantages over 'VineCopula' are
+a sleeker and more modern API, improved performances, especially in high
+dimensions, nonparametric and multi-parameter families, and the ability to
+model discrete variables. The 'rvinecopulib' package includes
+'vinecopulib' as header-only C++ library (currently version 0.5.1). Thus
 users do not need to install 'vinecopulib' itself in order to use
 'rvinecopulib'. Since their initial releases, 'vinecopulib' is licensed
 under the MIT License, and 'rvinecopulib' is licensed under the GNU GPL

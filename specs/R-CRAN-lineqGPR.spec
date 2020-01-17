@@ -1,9 +1,9 @@
 %global packname  lineqGPR
-%global packver   0.0.4
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Gaussian Process Regression Models with Linear InequalityConstraints
 
@@ -20,27 +20,29 @@ BuildRequires:    R-CRAN-nloptr
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-tmg 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-restrictedMVN 
 BuildRequires:    R-CRAN-TruncatedNormal 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plot3D 
 Requires:         R-stats 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-tmg 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-purrr 
 Requires:         R-MASS 
 Requires:         R-CRAN-quadprog 
 Requires:         R-Matrix 
-Requires:         R-CRAN-restrictedMVN 
 Requires:         R-CRAN-TruncatedNormal 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plot3D 
 
 %description
 Gaussian processes regression models with linear inequality constraints

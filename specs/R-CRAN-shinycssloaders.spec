@@ -1,9 +1,9 @@
 %global packname  shinycssloaders
-%global packver   0.2.0
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3
 Release:          1%{?dist}
 Summary:          Add CSS Loading Animations to 'shiny' Outputs
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-glue 
@@ -25,9 +25,9 @@ Requires:         R-grDevices
 Requires:         R-CRAN-shiny 
 
 %description
-Create a lightweight Shiny wrapper for the css-loaders created by Luke
-Hass <https://github.com/lukehaas/css-loaders>. Wrapping a Shiny output
-will automatically show a loader when the output is (re)calculating.
+Automatically show loader animations while a Shiny output is
+(re)calculating. This is mostly a wrapper around the css-loaders created
+by Luke Hass <https://github.com/lukehaas/css-loaders>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,4 +54,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/assets
 %doc %{rlibdir}/%{packname}/css-loaders
+%doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  generalCorr
-%global packver   1.1.3
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.5
 Release:          1%{?dist}
 Summary:          Generalized Correlations and Plausible Causal Paths
 
@@ -28,7 +28,7 @@ Requires:         R-lattice
 
 %description
 Since causal paths from data are important for all sciences, the package
-provides many sophisticated functions. causeSummary() gives
+provides many sophisticated functions. causeSummBlk() gives
 easy-to-interpret causal paths.  Let Z denote control variables and
 compare two flipped kernel regressions: X=f(Y, Z)+e1 and Y=g(X,Z)+e2. Our
 criterion Cr1 says that if |e1*Y|>|e2*X| then variation in X is more
@@ -36,12 +36,13 @@ criterion Cr1 says that if |e1*Y|>|e2*X| then variation in X is more
 Cr2 requires |e2|<|e1|. These inequalities between many absolute value are
 quantified by four orders of stochastic dominance. Our third criterion Cr3
 for the causal path X to Y requires new generalized partial correlations
-to satisfy |r*(x|y,z)|< |r*(y|x,z)|. The function parcorMany() reports
+to satisfy |r*(x|y,z)|< |r*(y|x,z)|. The function parcorBMany() reports
 generalized partials between the first variable and all others.  The
 package provides additional R tools for causal assessment, "outlier
 detection," and for numerical integration by the trapezoidal rule,
 stochastic dominance, pillar 3D charts, etc. We also provide functions for
-bootstrap-based statistical inference for causal paths.
+bootstrap-based statistical inference for causal paths. causeSummary() and
+causeSummBlk() are easiest to use functions.
 
 %prep
 %setup -q -c -n %{packname}

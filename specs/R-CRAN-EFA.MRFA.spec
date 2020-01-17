@@ -1,9 +1,9 @@
 %global packname  EFA.MRFA
-%global packver   1.0.5
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.7
 Release:          1%{?dist}
 Summary:          Dimensionality Assessment Using Minimum Rank Factor Analysis
 

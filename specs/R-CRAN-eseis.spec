@@ -1,9 +1,9 @@
 %global packname  eseis
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Environmental Seismology Toolbox
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.5
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-multitaper 
@@ -26,7 +26,9 @@ BuildRequires:    R-CRAN-matrixStats
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-IRISSeismic 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-reticulate 
 Requires:         R-CRAN-Rcpp >= 0.12.5
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-multitaper 
@@ -39,7 +41,9 @@ Requires:         R-CRAN-matrixStats
 Requires:         R-methods 
 Requires:         R-CRAN-IRISSeismic 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-reticulate 
 
 %description
 Environmental seismology is a scientific field that studies the seismic
@@ -72,5 +76,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/shiny
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

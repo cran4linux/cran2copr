@@ -1,9 +1,9 @@
 %global packname  plotKML
-%global packver   0.5-9
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.9
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Visualization of Spatial and Spatio-Temporal Objects in GoogleEarth
 
@@ -22,11 +22,11 @@ BuildRequires:    R-CRAN-XML
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-aqp 
 BuildRequires:    R-CRAN-spacetime 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-aqp 
 BuildRequires:    R-CRAN-pixmap 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-stringr 
@@ -44,11 +44,11 @@ Requires:         R-CRAN-XML
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-aqp 
 Requires:         R-CRAN-spacetime 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-aqp 
 Requires:         R-CRAN-pixmap 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-stringr 

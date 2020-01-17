@@ -1,9 +1,9 @@
 %global packname  mvSLOUCH
-%global packver   2.0.7
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          2.2
 Release:          1%{?dist}
 Summary:          Multivariate Stochastic Linear Ornstein-Uhlenbeck Models forPhylogenetic Comparative Hypotheses
 
@@ -15,32 +15,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ape >= 5.3
+BuildRequires:    R-CRAN-PCMBase >= 1.2.10
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-ouch 
-BuildRequires:    R-CRAN-PCMBase 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-TreeSim 
+Requires:         R-CRAN-ape >= 5.3
+Requires:         R-CRAN-PCMBase >= 1.2.10
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-ape 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-Matrix 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-ouch 
-Requires:         R-CRAN-PCMBase 
 Requires:         R-stats 
+Requires:         R-CRAN-TreeSim 
 
 %description
 Fits multivariate Ornstein-Uhlenbeck types of models to continues trait
 data from species related by a common evolutionary history. See K.
 Bartoszek, J, Pienaar, P. Mostad, S. Andersson, T. F.Hansen (2012)
-<doi:10.1016/j.jtbi.2012.08.005>.
+<doi:10.1016/j.jtbi.2012.08.005>. The suggested PCMBaseCpp package (which
+significantly speeds up the likelihood calculations) can be obtained from
+<https://github.com/venelin/PCMBaseCpp/>.
 
 %prep
 %setup -q -c -n %{packname}

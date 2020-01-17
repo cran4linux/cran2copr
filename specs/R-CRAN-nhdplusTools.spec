@@ -1,9 +1,9 @@
 %global packname  nhdplusTools
-%global packver   0.3.10
+%global packver   0.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.3.12
 Release:          1%{?dist}
 Summary:          NHDPlus Tools
 
@@ -26,6 +26,10 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rosm 
+BuildRequires:    R-CRAN-prettymapr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-RANN 
@@ -37,6 +41,10 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-R.utils 
 Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-methods 
+Requires:         R-CRAN-rosm 
+Requires:         R-CRAN-prettymapr 
 
 %description
 Tools for traversing and working with National Hydrography Dataset Plus

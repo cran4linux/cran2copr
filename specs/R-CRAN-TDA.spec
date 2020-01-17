@@ -1,9 +1,9 @@
 %global packname  TDA
-%global packver   1.6.5
+%global packver   1.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.6.9
 Release:          1%{?dist}
 Summary:          Statistical Tools for Topological Data Analysis
 

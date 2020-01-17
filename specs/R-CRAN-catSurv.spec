@@ -1,9 +1,9 @@
 %global packname  catSurv
-%global packver   1.0.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Computerized Adaptive Testing for Survey Research
 
@@ -13,25 +13,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    make
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-BH >= 1.62.0.1
-BuildRequires:    R-CRAN-ltm >= 1.0.0
-BuildRequires:    R-CRAN-RcppGSL >= 0.3.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-BH >= 1.69.0.1
+BuildRequires:    R-CRAN-ltm >= 1.1.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-RcppGSL >= 0.3.6
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ltm >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 0.12.11
+Requires:         R-CRAN-ltm >= 1.1.1
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-RcppParallel 
 
 %description
 Provides methods of computerized adaptive testing for survey researchers.
-Includes functionality for data fit with the classic item response methods
+See Montgomery and Rossiter (2019) <doi:10.1093/jssam/smz027>. Includes
+functionality for data fit with the classic item response methods
 including the latent trait model, Birnbaum`s three parameter model, the
 graded response, and the generalized partial credit model.  Additionally,
 includes several ability parameter estimation and item selection routines.

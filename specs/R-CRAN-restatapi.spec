@@ -1,9 +1,9 @@
 %global packname  restatapi
-%global packver   0.4.0
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.6.2
 Release:          1%{?dist}
 Summary:          Search and Retrieve Data from Eurostat Database
 
@@ -17,11 +17,9 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-rsdmx 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-rsdmx 
 Requires:         R-CRAN-xml2 
 
 %description

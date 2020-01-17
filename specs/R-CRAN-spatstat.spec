@@ -1,9 +1,9 @@
 %global packname  spatstat
-%global packver   1.61-0
+%global packver   1.62-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.61.0
+Version:          1.62.2
 Release:          1%{?dist}
 Summary:          Spatial Point Pattern Analysis, Model-Fitting, Simulation, Tests
 
@@ -15,7 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-spatstat.data >= 1.4.0
-BuildRequires:    R-CRAN-spatstat.utils >= 1.13.0
+BuildRequires:    R-CRAN-goftest >= 1.2.2
+BuildRequires:    R-CRAN-spatstat.utils >= 1.15.0
 BuildRequires:    R-CRAN-polyclip >= 1.10.0
 BuildRequires:    R-CRAN-deldir >= 0.0.21
 BuildRequires:    R-stats 
@@ -29,9 +30,9 @@ BuildRequires:    R-mgcv
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-tensor 
-BuildRequires:    R-CRAN-goftest 
 Requires:         R-CRAN-spatstat.data >= 1.4.0
-Requires:         R-CRAN-spatstat.utils >= 1.13.0
+Requires:         R-CRAN-goftest >= 1.2.2
+Requires:         R-CRAN-spatstat.utils >= 1.15.0
 Requires:         R-CRAN-polyclip >= 1.10.0
 Requires:         R-CRAN-deldir >= 0.0.21
 Requires:         R-stats 
@@ -45,7 +46,6 @@ Requires:         R-mgcv
 Requires:         R-Matrix 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-tensor 
-Requires:         R-CRAN-goftest 
 
 %description
 Comprehensive open-source toolbox for analysing Spatial Point Patterns.
@@ -96,6 +96,7 @@ added variable plots.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

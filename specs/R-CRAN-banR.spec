@@ -1,13 +1,13 @@
 %global packname  banR
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          R Client for the BAN API
 
-License:          GPL-3
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
@@ -49,6 +47,7 @@ about the BAN and its API, please see <https://adresse.data.gouv.fr/api>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -59,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R

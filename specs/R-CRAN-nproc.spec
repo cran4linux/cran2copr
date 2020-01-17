@@ -1,9 +1,9 @@
 %global packname  nproc
-%global packver   2.1.4
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.1.5
 Release:          1%{?dist}
 Summary:          Neyman-Pearson (NP) Classification Algorithms and NP ReceiverOperating Characteristic (NP-ROC) Curves
 

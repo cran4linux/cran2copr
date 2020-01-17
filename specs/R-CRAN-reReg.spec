@@ -1,9 +1,9 @@
 %global packname  reReg
-%global packver   1.1.6
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Recurrent Event Regression
 
@@ -12,32 +12,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-reda >= 0.5.0
 BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-survival 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-scam 
+Requires:         R-CRAN-reda >= 0.5.0
 Requires:         R-CRAN-BB 
 Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-SQUAREM 
 Requires:         R-survival 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-scam 
 
 %description
 A collection of regression models for recurrent event process and failure
@@ -67,9 +61,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/bib
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

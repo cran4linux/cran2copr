@@ -1,9 +1,9 @@
 %global packname  GenEst
-%global packver   1.3.2
+%global packver   1.4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0.1
 Release:          1%{?dist}
 Summary:          Generalized Mortality Estimator
 
@@ -18,6 +18,7 @@ BuildRequires:    R-CRAN-corpus
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-hellno 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-matrixStats 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-corpus
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-gsl 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-hellno 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-matrixStats 

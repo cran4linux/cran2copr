@@ -1,9 +1,9 @@
 %global packname  RRI
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Residual Randomization Inference for Regression Models
 
@@ -21,8 +21,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.1
 %description
 Testing and inference for regression models using residual randomization
 methods. The basis of inference is an invariance assumption on the
-regression errors. This includes cluster errors, and exchangeability
-within clusters or sign symmetry across clusters.
+regression errors, e.g., clustered errors, or doubly-clustered errors.
 
 %prep
 %setup -q -c -n %{packname}

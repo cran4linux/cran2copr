@@ -1,9 +1,9 @@
 %global packname  mRMRe
-%global packver   2.0.9
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          "Parallelized Minimum Redundancy, Maximum Relevance (mRMR)Ensemble Feature Selection"
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 

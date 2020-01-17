@@ -1,9 +1,9 @@
 %global packname  TMB
-%global packver   1.7.15
+%global packver   1.7.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.15
+Version:          1.7.16
 Release:          1%{?dist}
 Summary:          Template Model Builder: A General Random Effect Tool Inspired by'ADMB'
 
@@ -46,6 +46,7 @@ sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

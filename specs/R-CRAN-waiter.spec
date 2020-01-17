@@ -1,9 +1,9 @@
 %global packname  waiter
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Loading Screen for 'Shiny'
 
@@ -15,11 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-magrittr 
 
 %description
-Full screen splash loading screens for 'Shiny'.
+Full screen and partial loading screens for 'Shiny' with spinners,
+progress bars, and notifications.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,7 +48,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/assets
-%doc %{rlibdir}/%{packname}/examples
+%doc %{rlibdir}/%{packname}/waiter
+%doc %{rlibdir}/%{packname}/waitress
 %{rlibdir}/%{packname}/INDEX

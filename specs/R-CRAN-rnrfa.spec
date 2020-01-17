@@ -1,9 +1,9 @@
 %global packname  rnrfa
-%global packver   2.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          UK National River Flow Archive Data from R
 
@@ -46,10 +46,11 @@ Requires:         R-CRAN-tibble
 
 %description
 Utility functions to retrieve data from the UK National River Flow Archive
-(<http://nrfa.ceh.ac.uk/>). The package contains R wrappers to the UK NRFA
-data temporary-API. There are functions to retrieve stations falling in a
-bounding box, to generate a map and extracting time series and general
-information.
+(<http://nrfa.ceh.ac.uk/>, terms and conditions:
+<http://nrfa.ceh.ac.uk/costs-terms-and-conditions>). The package contains
+R wrappers to the UK NRFA data temporary-API. There are functions to
+retrieve stations falling in a bounding box, to generate a map and
+extracting time series and general information.
 
 %prep
 %setup -q -c -n %{packname}

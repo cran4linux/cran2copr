@@ -1,11 +1,11 @@
 %global packname  MultiFit
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Multivariate Multiscale Framework for Independence Tests
+Summary:          Multiscale Fisher's Independence Test for MultivariateDependence
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,6 +35,7 @@ dependency structure. For more information, see Gorsky and Ma (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  elastic
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          General Purpose Interface to 'Elasticsearch'
 
@@ -17,12 +17,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 2.2
 BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-CRAN-crul >= 0.7.0
+BuildRequires:    R-CRAN-crul >= 0.9.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-curl >= 2.2
 Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-CRAN-crul >= 0.7.0
+Requires:         R-CRAN-crul >= 0.9.0
 Requires:         R-utils 
 Requires:         R-CRAN-R6 
 
@@ -46,6 +46,7 @@ interface to the cat API, and more.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

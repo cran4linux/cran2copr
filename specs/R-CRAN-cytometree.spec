@@ -1,9 +1,9 @@
 %global packname  cytometree
-%global packver   2.0.0
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Automated Cytometry Gating and Annotation
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-GoFKernel 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-graphics 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-mclust 
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-GoFKernel 
@@ -38,7 +40,9 @@ the algorithm constructs a binary tree, the nodes of which are
 subpopulations of cells. At each node, observed cells and markers are
 modeled by both a family of normal distributions and a family of bi-modal
 normal mixture distributions. Splitting is done according to a normalized
-difference of AIC between the two families.
+difference of AIC between the two families. Method is detailed in:
+Commenges, Alkhassim, Gottardo, Hejblum & Thiebaut (2018) <doi:
+10.1002/cyto.a.23601>.
 
 %prep
 %setup -q -c -n %{packname}

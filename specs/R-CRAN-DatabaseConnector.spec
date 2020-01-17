@@ -1,9 +1,9 @@
 %global packname  DatabaseConnector
-%global packver   2.4.1
+%global packver   2.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          2.4.2
 Release:          1%{?dist}
 Summary:          Connecting to Various Database Platforms
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SqlRender >= 1.6.0
+BuildRequires:    R-CRAN-SqlRender >= 1.6.3
 BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-ffbase >= 0.12.1
 BuildRequires:    R-CRAN-DatabaseConnectorJars 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-ff
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-SqlRender >= 1.6.0
+Requires:         R-CRAN-SqlRender >= 1.6.3
 Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-ffbase >= 0.12.1
 Requires:         R-CRAN-DatabaseConnectorJars 

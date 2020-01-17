@@ -1,9 +1,9 @@
 %global packname  crosswalkr
-%global packver   0.2.4
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.6
 Release:          1%{?dist}
 Summary:          Rename and Encode Data Frames Using External Crosswalk Files
 
@@ -15,14 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-labelled 
 Requires:         R-methods 
@@ -46,6 +44,7 @@ consistently across files. Based on similar commands in 'Stata'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

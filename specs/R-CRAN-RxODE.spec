@@ -1,19 +1,19 @@
 %global packname  RxODE
-%global packver   0.9.1-4
+%global packver   0.9.1-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1.4
+Version:          0.9.1.9
 Release:          1%{?dist}
 Summary:          Facilities for Simulating from ODE-Based Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.300.2.0
 BuildRequires:    R-CRAN-units >= 0.6.0
 BuildRequires:    R-CRAN-PreciseSums >= 0.3
@@ -85,6 +85,7 @@ is available in the inst/COPYRIGHTS.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -97,16 +98,14 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/benchAll.rds
-%doc %{rlibdir}/%{packname}/benchThread.rds
 %doc %{rlibdir}/%{packname}/Changes.txt
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/COPYRIGHTS
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/Install-windows.Rmd
-%doc %{rlibdir}/%{packname}/Porting
 %doc %{rlibdir}/%{packname}/THANKS
+%doc %{rlibdir}/%{packname}/tools
 %doc %{rlibdir}/%{packname}/tran.g
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

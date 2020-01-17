@@ -1,9 +1,9 @@
 %global packname  InvariantCausalPrediction
-%global packver   0.7-2
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8
 Release:          1%{?dist}
 Summary:          Invariant Causal Prediction
 

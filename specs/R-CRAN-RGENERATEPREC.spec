@@ -1,9 +1,9 @@
 %global packname  RGENERATEPREC
-%global packver   1.2
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.5
 Release:          1%{?dist}
 Summary:          Tools to Generate Daily-Precipitation Time Series
 
@@ -57,6 +57,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/example.dw.spell.R
 %doc %{rlibdir}/%{packname}/example.generate.R
 %doc %{rlibdir}/%{packname}/example.wilks1998_second.R
 %doc %{rlibdir}/%{packname}/example.wilks1998.R

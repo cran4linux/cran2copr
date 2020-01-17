@@ -1,9 +1,9 @@
 %global packname  insurancerating
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}
 Summary:          Analytic Insurance Rating Techniques
 
@@ -16,13 +16,17 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-evtree 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-mgcv 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-evtree 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
 Requires:         R-mgcv 
 Requires:         R-CRAN-stringr 
 

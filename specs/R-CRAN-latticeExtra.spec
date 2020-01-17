@@ -1,9 +1,9 @@
 %global packname  latticeExtra
-%global packver   0.6-28
+%global packver   0.6-29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.28
+Version:          0.6.29
 Release:          1%{?dist}
 Summary:          Extra Graphical Utilities Based on Lattice
 
@@ -11,21 +11,26 @@ License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-lattice 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-lattice 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-grid 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-grDevices 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
 Building on the infrastructure provided by the lattice package, this
@@ -39,8 +44,10 @@ additional utilities such as panel and axis annotation functions.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -54,6 +61,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/old.svnlog
 %doc %{rlibdir}/%{packname}/scripts
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  SPAS
-%global packver   2019.2
+%global packver   2020.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2019.2
+Version:          2020.1.1
 Release:          1%{?dist}
 Summary:          Stratified-Petersen Analysis System
 
@@ -14,13 +14,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-TMB >= 1.7.15
 BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-MASS 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB >= 1.7.15
 Requires:         R-CRAN-BB 
 Requires:         R-MASS 
 Requires:         R-Matrix 
@@ -56,6 +58,7 @@ program available at
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -70,3 +73,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

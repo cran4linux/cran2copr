@@ -1,9 +1,9 @@
 %global packname  flexrsurv
-%global packver   1.4.1
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.4
 Release:          1%{?dist}
 Summary:          Flexible Relative Survival Analysis
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-methods 
-BuildRequires:    R-splines 
 BuildRequires:    R-survival 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-matrixcalc 
@@ -23,8 +22,8 @@ BuildRequires:    R-CRAN-Epi
 BuildRequires:    R-CRAN-formula.tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-orthogonalsplinebasis 
+BuildRequires:    R-CRAN-statmod 
 Requires:         R-methods 
-Requires:         R-splines 
 Requires:         R-survival 
 Requires:         R-stats 
 Requires:         R-CRAN-matrixcalc 
@@ -32,6 +31,7 @@ Requires:         R-CRAN-Epi
 Requires:         R-CRAN-formula.tools 
 Requires:         R-utils 
 Requires:         R-CRAN-orthogonalsplinebasis 
+Requires:         R-CRAN-statmod 
 
 %description
 Package for parametric relative survival analyses. It allows to model

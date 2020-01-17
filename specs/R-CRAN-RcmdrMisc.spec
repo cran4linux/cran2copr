@@ -1,9 +1,9 @@
 %global packname  RcmdrMisc
-%global packver   2.5-1
+%global packver   2.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.7.0
 Release:          1%{?dist}
 Summary:          R Commander Miscellaneous Functions
 
@@ -62,6 +62,7 @@ Rcmdr package in the R Commander GUI for R.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

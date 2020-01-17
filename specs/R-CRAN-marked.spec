@@ -1,9 +1,9 @@
 %global packname  marked
-%global packver   1.2.1
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.6
 Release:          1%{?dist}
 Summary:          Mark-Recapture Analysis for Survival and Abundance Estimation
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-optimx >= 2013.8.6
 BuildRequires:    R-CRAN-Rcpp >= 0.9.13
 BuildRequires:    R-CRAN-lme4 
@@ -29,6 +29,10 @@ BuildRequires:    R-Matrix
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-bookdown 
 Requires:         R-CRAN-optimx >= 2013.8.6
 Requires:         R-CRAN-Rcpp >= 0.9.13
 Requires:         R-CRAN-lme4 
@@ -44,6 +48,10 @@ Requires:         R-Matrix
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-TMB 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-bookdown 
 
 %description
 Functions for fitting various models to capture-recapture data including
@@ -64,6 +72,7 @@ models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -89,8 +98,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/minfil.cpp
 %doc %{rlibdir}/%{packname}/models.txt
+%doc %{rlibdir}/%{packname}/msld_tmb.cpp
 %doc %{rlibdir}/%{packname}/multistate_tmb.cpp
 %doc %{rlibdir}/%{packname}/multistate.tpl
+%doc %{rlibdir}/%{packname}/mvms_tmb.cpp
 %doc %{rlibdir}/%{packname}/mvms.tpl
 %doc %{rlibdir}/%{packname}/parameters.txt
 %doc %{rlibdir}/%{packname}/README.txt

@@ -1,9 +1,9 @@
 %global packname  caretEnsemble
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Ensembles of Caret Models
 
@@ -35,12 +35,12 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-caret 
 
 %description
-Functions for creating ensembles of caret models: caretList and
-caretStack.  caretList is a convenience function for fitting multiple
-caret::train models to the same dataset. caretStack will make linear or
-non-linear combinations of these models, using a caret::train model as a
-meta-model, and caretEnsemble will make a robust linear combination of
-models using a glm.
+Functions for creating ensembles of caret models: caretList() and
+caretStack().  caretList() is a convenience function for fitting multiple
+caret::train() models to the same dataset. caretStack() will make linear
+or non-linear combinations of these models, using a caret::train() model
+as a meta-model, and caretEnsemble() will make a robust linear combination
+of models using a GLM.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +52,7 @@ models using a glm.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

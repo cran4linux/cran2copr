@@ -1,9 +1,9 @@
 %global packname  EdSurvey
-%global packver   2.3.2
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          2.4.0
 Release:          1%{?dist}
 Summary:          Analysis of NCES Education Survey and Assessment Data
 
@@ -12,10 +12,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-WeMix >= 2.1.0
+BuildRequires:    R-CRAN-WeMix >= 3.1.3
 BuildRequires:    R-CRAN-data.table >= 1.11.4
 BuildRequires:    R-CRAN-lfactors >= 1.0.3
 BuildRequires:    R-CRAN-car 
@@ -39,7 +39,7 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-wCorr 
 BuildRequires:    R-CRAN-quantreg 
-Requires:         R-CRAN-WeMix >= 2.1.0
+Requires:         R-CRAN-WeMix >= 3.1.3
 Requires:         R-CRAN-data.table >= 1.11.4
 Requires:         R-CRAN-lfactors >= 1.0.3
 Requires:         R-CRAN-car 
@@ -65,13 +65,20 @@ Requires:         R-CRAN-wCorr
 Requires:         R-CRAN-quantreg 
 
 %description
-Read in and analysis functions for education survey and assessment data
+Read in and analyze functions for education survey and assessment data
 from the National Center for Education Statistics (NCES)
 <https://nces.ed.gov/>, including National Assessment of Educational
 Progress (NAEP) data <https://nces.ed.gov/nationsreportcard/> and data
-from the International Assessment Database: OECD <http://www.oecd.org/>,
-including PISA, TALIS, PIAAC, and IEA <http://www.iea.nl/>, including
-TIMSS, TIMSS Advanced, PIRLS, ICCS, ICILS, and CivEd.
+from the International Assessment Database: Organisation for Economic
+Co-operation and Development (OECD) <https://www.oecd.org/>, including
+Programme for International Student Assessment (PISA), Teaching and
+Learning International Survey (TALIS), Programme for the International
+Assessment of Adult Competencies (PIAAC), and International Association
+for the Evaluation of Educational Achievement (IEA) <https://www.iea.nl/>,
+including Trends in International Mathematics and Science Study (TIMSS),
+TIMSS Advanced, Progress in International Reading Literacy Study (PIRLS),
+International Civic and Citizenship Study (ICCS), International Computer
+and Information Literacy Study (ICILS), and Civic Education Study (CivEd).
 
 %prep
 %setup -q -c -n %{packname}
@@ -96,6 +103,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/linkingErrors
 %doc %{rlibdir}/%{packname}/mapproj
 %doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/suggestWeights

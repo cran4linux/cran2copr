@@ -1,9 +1,9 @@
 %global packname  moderndive
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Tidyverse-Friendly Introductory Linear Regression
 
@@ -42,10 +42,8 @@ Requires:         R-CRAN-glue
 
 %description
 Datasets and wrapper functions for tidyverse-friendly introductory linear
-regression, used in ModernDive: An Introduction to Statistical and Data
-Sciences via R available at <http://moderndive.com/> and DataCamp's
-Modeling with Data in the Tidyverse available at
-<https://www.datacamp.com/courses/modeling-with-data-in-the-tidyverse>.
+regression, used in "Statistical Inference via Data Science: A ModernDive
+into R and the Tidyverse" available at <https://moderndive.com/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,6 +55,7 @@ Modeling with Data in the Tidyverse available at
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

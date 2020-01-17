@@ -1,9 +1,9 @@
 %global packname  lidR
-%global packver   2.1.4
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.2.0
 Release:          1%{?dist}
 Summary:          Airborne LiDAR Data Manipulation and Visualization for ForestryApplications
 
@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-BH >= 1.72.0
 BuildRequires:    R-CRAN-rlas >= 1.3.0
 BuildRequires:    R-CRAN-data.table >= 1.12.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
@@ -22,7 +23,6 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-gdalUtils 
-BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lazyeval 
@@ -35,7 +35,6 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-rlas >= 1.3.0
 Requires:         R-CRAN-data.table >= 1.12.0
@@ -45,7 +44,6 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-gdalUtils 
-Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lazyeval 
@@ -76,6 +74,7 @@ individual tree segmentation and other manipulations.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

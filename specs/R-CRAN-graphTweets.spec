@@ -1,9 +1,9 @@
 %global packname  graphTweets
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}
 Summary:          Visualise Twitter Interactions
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-rtweet 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-zeallot
 BuildRequires:    R-CRAN-combinat 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-rtweet 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
@@ -50,6 +48,7 @@ function to build nodes and another create a temporal graph.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

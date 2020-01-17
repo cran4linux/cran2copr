@@ -1,9 +1,9 @@
 %global packname  eph
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Argentina's Permanent Household Survey Data and ManipulationUtilities
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-expss 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-glue 
@@ -28,10 +29,15 @@ BuildRequires:    R-CRAN-questionr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-attempt 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-expss 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-glue 
@@ -41,6 +47,10 @@ Requires:         R-CRAN-questionr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-readr 
 Requires:         R-utils 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-attempt 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-tidyverse 
 
 %description
 Tools to download and manipulate the Permanent Household Survey from
@@ -82,4 +92,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

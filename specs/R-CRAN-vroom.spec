@@ -1,9 +1,9 @@
 %global packname  vroom
-%global packver   1.0.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Read and Write Rectangular Text Data Quickly
 
@@ -16,19 +16,23 @@ BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-progress >= 1.2.1
+BuildRequires:    R-CRAN-rlang >= 0.4.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18.3
+BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-tibble >= 2.0.0
+Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-CRAN-Rcpp >= 0.12.18.3
+Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-hms 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-withr 
 
@@ -49,6 +53,7 @@ asynchronously from formatting.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

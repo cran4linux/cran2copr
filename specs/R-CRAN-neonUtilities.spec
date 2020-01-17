@@ -1,9 +1,9 @@
 %global packname  neonUtilities
-%global packver   1.3.1
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.3
 Release:          1%{?dist}
 Summary:          Utilities for Working with NEON Data
 
@@ -26,6 +26,10 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-gdata >= 2.18
 Requires:         R-CRAN-dplyr >= 0.7.1
 Requires:         R-CRAN-httr 
@@ -37,11 +41,15 @@ Requires:         R-stats
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-pbapply 
+Requires:         R-parallel 
+Requires:         R-CRAN-plyr 
 
 %description
 NEON data packages can be accessed through the NEON Data Portal
-<http://data.neonscience.org> or through the NEON Data API (see
-<http://data.neonscience.org/data-api> for documentation). Data delivered
+<https://data.neonscience.org/home> or through the NEON Data API (see
+<https://data.neonscience.org/data-api> for documentation). Data delivered
 from the Data Portal are provided as monthly zip files packaged within a
 parent zip file, while individual files can be accessed from the API. This
 package provides tools that aid in discovering, downloading, and

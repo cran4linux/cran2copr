@@ -1,9 +1,9 @@
 %global packname  spMaps
-%global packver   0.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Europe SpatialPolygonsDataFrame Builder
 
@@ -27,7 +27,7 @@ Build custom Europe SpatialPolygonsDataFrame, if you don't know what is a
 SpatialPolygonsDataFrame see SpatialPolygons() in 'sp', by example for
 mapLayout() in 'antaresViz'. Antares is a powerful software developed by
 RTE to simulate and study electric power systems (more information about
-'Antares' here: <https://antares.rte-france.com>).
+'Antares' here: <https://antares-simulator.org/>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +39,7 @@ RTE to simulate and study electric power systems (more information about
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

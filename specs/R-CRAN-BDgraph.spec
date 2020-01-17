@@ -1,9 +1,9 @@
 %global packname  BDgraph
-%global packver   2.61
+%global packver   2.62
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.61
+Version:          2.62
 Release:          1%{?dist}
 Summary:          Bayesian Structure Learning in Graphical Models usingBirth-Death MCMC
 
@@ -34,6 +34,7 @@ Mohammadi and Wit (2019) <doi:10.18637/jss.v089.i03>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

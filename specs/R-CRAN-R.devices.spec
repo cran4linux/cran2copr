@@ -1,9 +1,9 @@
 %global packname  R.devices
-%global packver   2.16.0
+%global packver   2.16.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.16.0
+Version:          2.16.1
 Release:          1%{?dist}
 Summary:          Unified Handling of Graphics Devices
 
@@ -45,6 +45,7 @@ files behind, even on errors or user interrupts.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

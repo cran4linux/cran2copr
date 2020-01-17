@@ -1,9 +1,9 @@
 %global packname  paletteer
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Comprehensive Collection of Color Palettes
 
@@ -25,6 +25,10 @@ BuildRequires:    R-CRAN-pals
 BuildRequires:    R-CRAN-scico 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rematch2 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-prismatic 
 Requires:         R-CRAN-ggthemes >= 4.0.0
 Requires:         R-CRAN-harrypotter >= 2.1.0
 Requires:         R-CRAN-gameofthrones >= 1.0.0
@@ -35,6 +39,10 @@ Requires:         R-CRAN-pals
 Requires:         R-CRAN-scico 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rematch2 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-prismatic 
 
 %description
 The choices of color palettes in R can be quite overwhelming with palettes
@@ -52,6 +60,7 @@ with a streamlined API.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  NNS
-%global packver   0.4.6
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.8
 Release:          1%{?dist}
 Summary:          Nonlinear Nonparametric Statistics
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dtw 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dtw 
 
 %description
 Nonlinear nonparametric statistics using partial moments.  Partial moments
@@ -45,6 +47,7 @@ Using Partial Moments (ISBN: 1490523995).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

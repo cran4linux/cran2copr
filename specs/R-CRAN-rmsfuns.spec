@@ -1,9 +1,9 @@
 %global packname  rmsfuns
-%global packver   0.0.0.2
+%global packver   0.0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.2
+Version:          0.0.0.3
 Release:          1%{?dist}
 Summary:          Quickly View Data Frames in 'Excel', Build Folder Paths andCreate Date Vectors
 
@@ -14,19 +14,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.1
 Requires:         R-core >= 3.2.1
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-tbl2xts 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-tbl2xts 
 Requires:         R-CRAN-zoo 
 Requires:         R-utils 
-Requires:         R-CRAN-xts 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-PerformanceAnalytics 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 
 %description

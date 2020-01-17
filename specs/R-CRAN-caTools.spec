@@ -1,19 +1,19 @@
 %global packname  caTools
-%global packver   1.17.1.4
+%global packver   1.18.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17.1.4
+Version:          1.18.0
 Release:          1%{?dist}
-Summary:          Tools: moving window statistics, GIF, Base64, ROC AUC, etc
+Summary:          Tools: Moving Window Statistics, GIF, Base64, ROC AUC, etc
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-bitops 
 Requires:         R-CRAN-bitops 
 
@@ -44,6 +44,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

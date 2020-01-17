@@ -1,9 +1,9 @@
 %global packname  tidync
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          A Tidy Approach to 'NetCDF' Data Exploration and Extraction
 
@@ -17,7 +17,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RNetCDF >= 1.9.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-ncmeta >= 0.0.4
+BuildRequires:    R-CRAN-ncmeta >= 0.2.0
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ncdf4 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-RNetCDF >= 1.9.1
 Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-ncmeta >= 0.0.4
+Requires:         R-CRAN-ncmeta >= 0.2.0
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ncdf4 
@@ -67,8 +67,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/blog
+%doc %{rlibdir}/%{packname}/blog-01
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/erddap
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  GDINA
-%global packver   2.7.3
+%global packver   2.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.3
+Version:          2.7.8
 Release:          1%{?dist}
 Summary:          The Generalized DINA Model Framework
 
@@ -63,6 +63,7 @@ graphical user interface is also provided.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

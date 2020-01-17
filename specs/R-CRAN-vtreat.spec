@@ -1,9 +1,9 @@
 %global packname  vtreat
-%global packver   1.4.7
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          1.5.1
 Release:          1%{?dist}
 Summary:          A Statistically Sound 'data.frame' Processor/Conditioner
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.1
 Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wrapr >= 1.9.0
+BuildRequires:    R-CRAN-wrapr >= 1.9.3
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-wrapr >= 1.9.0
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-wrapr >= 1.9.3
 Requires:         R-stats 
-Requires:         R-parallel 
+Requires:         R-CRAN-digest 
 
 %description
 A 'data.frame' processor/conditioner that prepares real-world data for

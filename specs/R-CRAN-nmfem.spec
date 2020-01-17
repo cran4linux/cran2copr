@@ -1,9 +1,9 @@
 %global packname  nmfem
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          NMF-EM Algorithm
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-d3heatmap 
 BuildRequires:    R-CRAN-mixtools 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-capushe 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-d3heatmap 
 Requires:         R-CRAN-mixtools 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-capushe 
 
 %description
 Provides a version of the Expectation-Maximization algorithm for

@@ -1,9 +1,9 @@
 %global packname  ctrdata
-%global packver   1.0.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nodbi >= 0.3
+BuildRequires:    R-CRAN-nodbi >= 0.4
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-nodbi >= 0.3
+Requires:         R-CRAN-nodbi >= 0.4
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-curl 

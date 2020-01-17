@@ -1,9 +1,9 @@
 %global packname  rcarbon
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Calibration and Analysis of Radiocarbon Dates
 
@@ -12,11 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
@@ -26,6 +27,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-spatstat 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 

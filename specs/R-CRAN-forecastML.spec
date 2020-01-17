@@ -1,9 +1,9 @@
 %global packname  forecastML
-%global packver   0.5.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.7.0
 Release:          1%{?dist}
 Summary:          Time Series Forecasting with Machine Learning Methods
 
@@ -18,20 +18,22 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-future.apply >= 1.3.0
+BuildRequires:    R-CRAN-data.table >= 1.12.6
+BuildRequires:    R-CRAN-dtplyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-tidyr >= 0.8.1
-BuildRequires:    R-CRAN-dplyr >= 0.7.8
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-methods 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-future.apply >= 1.3.0
+Requires:         R-CRAN-data.table >= 1.12.6
+Requires:         R-CRAN-dtplyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-tidyr >= 0.8.1
-Requires:         R-CRAN-dplyr >= 0.7.8
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-methods 
@@ -40,11 +42,12 @@ Requires:         R-methods
 The purpose of 'forecastML' is to simplify the process of multi-step-ahead
 direct forecasting with standard machine learning algorithms. 'forecastML'
 supports lagged, dynamic, static, and grouping features for modeling
-single and grouped time series. In addition, simple wrapper functions are
-used to support model-building with most R packages. This approach to
-forecasting is inspired by Bergmeir, Hyndman, and Koo's (2018) paper "A
-note on the validity of cross-validation for evaluating autoregressive
-time series prediction" <doi:10.1016/j.csda.2017.11.003>.
+single and grouped numeric or factor/sequence time series. In addition,
+simple wrapper functions are used to support model-building with most R
+packages. This approach to forecasting is inspired by Bergmeir, Hyndman,
+and Koo's (2018) paper "A note on the validity of cross-validation for
+evaluating autoregressive time series prediction"
+<doi:10.1016/j.csda.2017.11.003>.
 
 %prep
 %setup -q -c -n %{packname}

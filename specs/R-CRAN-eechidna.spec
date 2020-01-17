@@ -1,9 +1,9 @@
 %global packname  eechidna
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Exploring Election and Census Highly Informative Data Nationallyfor Australia
 
@@ -31,6 +31,8 @@ BuildRequires:    R-CRAN-colourpicker
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-plotly >= 4.5.6
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-shiny 
@@ -47,14 +49,17 @@ Requires:         R-CRAN-colourpicker
 Requires:         R-CRAN-rgdal 
 Requires:         R-methods 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Data from the six Australian Federal Elections (House of Representatives)
-between 2001 and 2016, and from the four Australian Censuses over the same
-period. Includes tools for visualizing and analysing the data, as well as
-imputing Census data for years in which a Census does not occur. This
-package incorporates data that is copyright Commonwealth of Australia
-(Australian Electoral Commission) 2016.
+Data from the seven Australian Federal Elections (House of
+Representatives) between 2001 and 2019, and from the four Australian
+Censuses over the same period. Includes tools for visualizing and
+analysing the data, as well as imputing Census data for years in which a
+Census does not occur. This package incorporates data that is copyright
+Commonwealth of Australia (Australian Electoral Commission and Australian
+Bureau of Statistics) 2019.
 
 %prep
 %setup -q -c -n %{packname}
@@ -66,6 +71,7 @@ package incorporates data that is copyright Commonwealth of Australia
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

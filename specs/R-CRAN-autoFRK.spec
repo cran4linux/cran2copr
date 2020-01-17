@@ -1,9 +1,9 @@
 %global packname  autoFRK
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Automatic Fixed Rank Kriging
 
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-fields >= 6.9.1
+BuildRequires:    R-CRAN-fields >= 6.9
 BuildRequires:    R-CRAN-LatticeKrig >= 5.4
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-filehashSQLite 
@@ -24,10 +24,11 @@ BuildRequires:    R-mgcv
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-filematrix 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppParallel 
-Requires:         R-CRAN-fields >= 6.9.1
+Requires:         R-CRAN-fields >= 6.9
 Requires:         R-CRAN-LatticeKrig >= 5.4
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-filehashSQLite 
@@ -37,6 +38,7 @@ Requires:         R-mgcv
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-filematrix 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
 Automatic fixed rank kriging for (irregularly located) spatial data using
@@ -65,6 +67,7 @@ stationary structure in the spatial covariance, which utilizes
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

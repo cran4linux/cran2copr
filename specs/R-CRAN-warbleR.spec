@@ -1,9 +1,9 @@
 %global packname  warbleR
-%global packver   1.1.17
+%global packver   1.1.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          1.1.20
 Release:          1%{?dist}
 Summary:          Streamline Bioacoustic Analysis
 
@@ -16,16 +16,12 @@ BuildRequires:    R-devel >= 3.2.1
 Requires:         R-core >= 3.2.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-seewave >= 2.0.1
-BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-NatureSounds 
-BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-dtw 
 BuildRequires:    R-CRAN-fftw 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-monitoR 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
@@ -36,18 +32,14 @@ BuildRequires:    R-utils
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-Sim.DiffProc 
-BuildRequires:    R-CRAN-soundgen 
+BuildRequires:    R-CRAN-maps 
 Requires:         R-CRAN-seewave >= 2.0.1
-Requires:         R-CRAN-maps 
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-NatureSounds 
-Requires:         R-CRAN-bitops 
 Requires:         R-CRAN-dtw 
 Requires:         R-CRAN-fftw 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-monitoR 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
@@ -58,7 +50,7 @@ Requires:         R-utils
 Requires:         R-methods 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-Sim.DiffProc 
-Requires:         R-CRAN-soundgen 
+Requires:         R-CRAN-maps 
 
 %description
 Functions aiming to facilitate the analysis of the structure of animal
@@ -71,7 +63,7 @@ package are the use of loops to apply tasks through acoustic signals
 referenced in a selection (annotation) table and the production of
 spectrograms in image files that allow to organize data and verify
 acoustic analyzes. The package offers functions to explore, organize and
-manipulate multiple sound files, explore and download 'XenoCanto'
+manipulate multiple sound files, explore and download 'Xeno-Canto'
 recordings, detect signals automatically, create spectrograms of complete
 recordings or individual signals, run different measures of acoustic
 signal structure, evaluate the performance of measurement methods, catalog

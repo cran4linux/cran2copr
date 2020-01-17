@@ -1,9 +1,9 @@
 %global packname  vinereg
-%global packver   0.5.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.7.0
 Release:          1%{?dist}
 Summary:          D-Vine Quantile Regression
 
@@ -14,17 +14,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rvinecopulib >= 0.3.0
-BuildRequires:    R-CRAN-kde1d >= 0.2.0
-BuildRequires:    R-CRAN-cctools 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-furrr 
-Requires:         R-CRAN-rvinecopulib >= 0.3.0
-Requires:         R-CRAN-kde1d >= 0.2.0
-Requires:         R-CRAN-cctools 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-furrr 
+BuildRequires:    R-CRAN-kde1d >= 1.0.2
+BuildRequires:    R-CRAN-rvinecopulib >= 0.5.0.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-wdm 
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-kde1d >= 1.0.2
+Requires:         R-CRAN-rvinecopulib >= 0.5.0.1.0
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-assertthat 
 
 %description
 Implements D-vine quantile regression models with parametric or
@@ -56,4 +57,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

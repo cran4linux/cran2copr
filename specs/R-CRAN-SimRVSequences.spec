@@ -1,9 +1,9 @@
 %global packname  SimRVSequences
-%global packver   0.1.3
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Simulate Genetic Sequence Data for Pedigrees
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-methods >= 3.5.0
 BuildRequires:    R-stats >= 3.3.0
 BuildRequires:    R-CRAN-kinship2 >= 1.6.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-dplyr >= 0.7.5
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-intervals >= 0.15.1
 BuildRequires:    R-CRAN-SimRVPedigree >= 0.1.0
+Requires:         R-methods >= 3.5.0
 Requires:         R-stats >= 3.3.0
 Requires:         R-CRAN-kinship2 >= 1.6.4
 Requires:         R-CRAN-magrittr >= 1.5

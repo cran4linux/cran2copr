@@ -1,9 +1,9 @@
 %global packname  ECoL
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Complexity Measures for Supervised Problems
 
@@ -32,7 +32,7 @@ regression problems based on aspects that quantify the linearity of the
 data, the presence of informative feature, the sparsity and dimensionality
 of the datasets. This package provides bug fixes, generalizations and
 implementations of many state of the art measures. The measures are
-described in the papers: Ho and Basu (2002) <doi:10.1109/34.990132> and
+described in the papers: Lorena et al. (2019) <doi:10.1145/3347711> and
 Lorena et al. (2018) <doi:10.1007/s10994-017-5681-1>.
 
 %prep
@@ -45,6 +45,7 @@ Lorena et al. (2018) <doi:10.1007/s10994-017-5681-1>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

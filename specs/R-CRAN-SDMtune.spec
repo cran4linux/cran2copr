@@ -1,9 +1,9 @@
 %global packname  SDMtune
-%global packver   0.2.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Species Distribution Model Selection
 

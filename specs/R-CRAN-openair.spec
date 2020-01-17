@@ -1,9 +1,9 @@
 %global packname  openair
-%global packver   2.6-6
+%global packver   2.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.6
+Version:          2.7.0
 Release:          1%{?dist}
 Summary:          Tools for the Analysis of Air Pollution Data
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-mgcv 
 BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-latticeExtra 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
 Requires:         R-mgcv 
 Requires:         R-lattice 
 Requires:         R-CRAN-latticeExtra 
@@ -69,6 +71,7 @@ including meteorological and traffic data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

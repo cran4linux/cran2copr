@@ -1,9 +1,9 @@
 %global packname  aws.s3
-%global packver   0.3.12
+%global packver   0.3.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.12
+Version:          0.3.12.1
 Release:          1%{?dist}
 Summary:          'AWS S3' Client Package
 
@@ -44,6 +44,7 @@ Service ('S3') 'REST' 'API' <https://aws.amazon.com/s3/>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

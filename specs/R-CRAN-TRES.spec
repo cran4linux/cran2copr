@@ -1,9 +1,9 @@
 %global packname  TRES
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Tensor Regression with Envelope Structure and Three GenericEnvelope Estimation Approaches
 
@@ -38,7 +38,12 @@ computation and good initialization; the one-directional optimization
 approaches (1D and ECD algorithms) are faster, stable and does not require
 carefully chosen initial values; the SIMPLS-type is motivated by the
 partial least squares regression and is computationally the least
-expensive.
+expensive. For details of TRR, see Li L, Zhang X (2017)
+<doi:10.1080/01621459.2016.1193022>. For details of TPR, see Zhang X, Li L
+(2017) <doi:10.1080/00401706.2016.1272495>. For details of 1D algorithm,
+see Cook RD, Zhang X (2016) <doi:10.1080/10618600.2015.1029577>. For
+details of ECD algorithm, see Cook RD, Zhang X (2018)
+<doi:10.5705/ss.202016.0037>.
 
 %prep
 %setup -q -c -n %{packname}

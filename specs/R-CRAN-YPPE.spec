@@ -1,9 +1,9 @@
 %global packname  YPPE
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Yang and Prentice Model with Piecewise Exponential BaselineDistribution
 
@@ -22,20 +22,22 @@ BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-survival 
 BuildRequires:    R-methods 
+BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-Formula 
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-survival 
 Requires:         R-methods 
+Requires:         R-MASS 
 Requires:         R-CRAN-Formula 
 
 %description
 Semiparametric modeling of lifetime data with crossing survival curves via
-Yang and Prentice model with piecewise exponential baseline distribution
-curves. Details about the model can be found in Demarqui and Mayrink
-(2019) <arXiv:1910.02406>. Model fitting carried out via likelihood-based
-and Bayesian approaches. The package also provides point and interval
+Yang and Prentice model with piecewise exponential baseline distribution.
+Details about the model can be found in Demarqui and Mayrink (2019)
+<arXiv:1910.02406>. Model fitting carried out via likelihood-based and
+Bayesian approaches. The package also provides point and interval
 estimation for the crossing survival times.
 
 %prep
@@ -60,6 +62,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/stan

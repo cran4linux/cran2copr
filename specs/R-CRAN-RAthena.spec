@@ -1,9 +1,9 @@
 %global packname  RAthena
-%global packver   1.2.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.7.0
 Release:          1%{?dist}
 Summary:          Connect to 'AWS Athena' using 'Boto3' ('DBI' Interface)
 
@@ -17,11 +17,13 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate >= 1.13
 BuildRequires:    R-CRAN-DBI >= 0.7
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-reticulate >= 1.13
 Requires:         R-CRAN-DBI >= 0.7
+Requires:         R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -58,4 +60,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/icons
 %{rlibdir}/%{packname}/INDEX

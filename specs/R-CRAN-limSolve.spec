@@ -1,9 +1,9 @@
 %global packname  limSolve
-%global packver   1.5.5.3
+%global packver   1.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5.3
+Version:          1.5.6
 Release:          1%{?dist}
 Summary:          Solving Linear Inverse Models
 
@@ -28,7 +28,6 @@ sum(a_i*x_i) subject to equality constraints Ex=f and/or inequality
 constraints Gx>=h, (2) sample an underdetermined- or overdetermined system
 Ex=f subject to Gx>=h, and if applicable Ax~=b, (3) solve a linear system
 Ax=B for the unknown x. It includes banded and tridiagonal linear systems.
-The package calls Fortran functions from 'LINPACK'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +39,7 @@ The package calls Fortran functions from 'LINPACK'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

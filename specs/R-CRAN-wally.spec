@@ -1,9 +1,9 @@
 %global packname  wally
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}
 Summary:          The Wally Calibration Plot for Risk Prediction Models
 

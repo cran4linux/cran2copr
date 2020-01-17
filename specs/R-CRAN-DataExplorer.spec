@@ -1,9 +1,9 @@
 %global packname  DataExplorer
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}
 Summary:          Automate Data Exploration and Treatment
 
@@ -12,28 +12,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc >= 1.12.3
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+Requires:         pandoc
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-ggplot2 >= 2.2
-BuildRequires:    R-CRAN-reshape2 >= 1.4
-BuildRequires:    R-CRAN-data.table >= 1.11
-BuildRequires:    R-CRAN-rmarkdown >= 1.10
-BuildRequires:    R-CRAN-scales >= 1.0
+BuildRequires:    R-CRAN-rmarkdown >= 2.0
+BuildRequires:    R-CRAN-reshape2 >= 1.4.3
+BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-networkD3 >= 0.4
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-ggplot2 >= 2.2
-Requires:         R-CRAN-reshape2 >= 1.4
-Requires:         R-CRAN-data.table >= 1.11
-Requires:         R-CRAN-rmarkdown >= 1.10
-Requires:         R-CRAN-scales >= 1.0
+Requires:         R-CRAN-rmarkdown >= 2.0
+Requires:         R-CRAN-reshape2 >= 1.4.3
+Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-networkD3 >= 0.4
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-tools 
@@ -56,6 +56,7 @@ also available to treat and format data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

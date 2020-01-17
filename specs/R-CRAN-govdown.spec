@@ -1,9 +1,9 @@
 %global packname  govdown
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          GOV.UK Style Templates for R Markdown
 

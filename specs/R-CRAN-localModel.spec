@@ -1,9 +1,9 @@
 %global packname  localModel
-%global packver   0.3.11
+%global packver   0.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          0.3.12
 Release:          1%{?dist}
 Summary:          LIME-Based Explanations with Interpretable Inputs Based onCeteris Paribus Profiles
 

@@ -1,9 +1,9 @@
 %global packname  pbv
-%global packver   0.2-16
+%global packver   0.3-19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.16
+Version:          0.3.19
 Release:          1%{?dist}
 Summary:          Probabilities for Bivariate Normal Distribution
 

@@ -1,9 +1,9 @@
 %global packname  fpc
-%global packver   2.2-3
+%global packver   2.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          2.2.4
 Release:          1%{?dist}
 Summary:          Flexible Procedures for Clustering
 
@@ -73,6 +73,7 @@ Modality diagnosis for Gaussian mixtures. For an overview see package?fpc.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

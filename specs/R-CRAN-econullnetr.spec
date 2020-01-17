@@ -1,9 +1,9 @@
 %global packname  econullnetr
-%global packver   0.1.0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Null Model Analysis for Ecological Networks
 
@@ -29,11 +29,12 @@ resource preferences or non-random interactions among network nodes. Tools
 are provided to run null models, test for and plot preferences, plot and
 analyse bipartite networks, and export null model results in a form
 compatible with other network analysis packages. The underlying null model
-was developed by Agusti et al. (2003)
+was developed by Agusti et al. (2003) Molecular Ecology
 <doi:10.1046/j.1365-294X.2003.02014.x> and the full application to
-ecological networks by Vaughan et al. (2017) econullnetr: an R package
+ecological networks by Vaughan et al. (2018) econullnetr: an R package
 using null models to analyse the structure of ecological networks and
-identify resource selection. Methods in Ecology & Evolution, in press.
+identify resource selection. Methods in Ecology & Evolution,
+<doi.org/10.1111/2041-210X.12907>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +46,7 @@ identify resource selection. Methods in Ecology & Evolution, in press.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

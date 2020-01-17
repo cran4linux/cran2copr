@@ -1,9 +1,9 @@
 %global packname  knnp
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Time Series Prediction using K-Nearest Neighbors Algorithm(Parallel)
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.3
-Requires:         R-core >= 3.3.3
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-parallelDist 
 BuildRequires:    R-CRAN-forecast 
@@ -21,12 +21,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-parallelDist 
 Requires:         R-CRAN-forecast 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-plyr 
 
 %description
 Two main functionalities are provided. One of them is predicting values

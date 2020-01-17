@@ -1,9 +1,9 @@
 %global packname  gllvm
-%global packver   1.1.7
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Generalized Linear Latent Variable Models
 
@@ -49,6 +49,7 @@ et al., (2016), <doi:10.18637/jss.v070.i05>). For details see Niku et al.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

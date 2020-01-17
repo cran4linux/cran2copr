@@ -1,9 +1,9 @@
 %global packname  BMA
-%global packver   3.18.10
+%global packver   3.18.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.18.10
+Version:          3.18.11
 Release:          1%{?dist}
 Summary:          Bayesian Model Averaging
 

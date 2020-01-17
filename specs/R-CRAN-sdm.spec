@@ -1,9 +1,9 @@
 %global packname  sdm
-%global packver   1.0-67
+%global packver   1.0-81
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.67
+Version:          1.0.81
 Release:          1%{?dist}
 Summary:          Species Distribution Modelling
 
@@ -39,6 +39,7 @@ B., Araujo, M.B. (2016) <doi:10.1111/ecog.01881>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

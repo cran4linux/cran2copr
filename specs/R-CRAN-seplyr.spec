@@ -1,9 +1,9 @@
 %global packname  seplyr
-%global packver   0.8.4
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.8.5
 Release:          1%{?dist}
 Summary:          Improved Standard Evaluation Interfaces for Common DataManipulation Tasks
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wrapr >= 1.8.8
+BuildRequires:    R-CRAN-wrapr >= 1.9.3
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-wrapr >= 1.8.8
+Requires:         R-CRAN-wrapr >= 1.9.3
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-tidyr 

@@ -1,9 +1,9 @@
 %global packname  neurobase
-%global packver   1.27.11
+%global packver   1.29.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.27.11
+Version:          1.29.0
 Release:          1%{?dist}
 Summary:          'Neuroconductor' Base Package with Helper Functions for 'nifti'Objects
 

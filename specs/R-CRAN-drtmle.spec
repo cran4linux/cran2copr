@@ -1,9 +1,9 @@
 %global packname  drtmle
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          Doubly-Robust Nonparametric Estimation and Inference
 
@@ -12,18 +12,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-future.batchtools 
 Requires:         R-CRAN-SuperLearner 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-doFuture 

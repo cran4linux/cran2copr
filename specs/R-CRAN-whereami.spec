@@ -1,9 +1,9 @@
 %global packname  whereami
-%global packver   0.1.8.1
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8.1
+Version:          0.1.9
 Release:          1%{?dist}
 Summary:          Reliably Return the Source and Call Location of a Command
 
@@ -16,11 +16,19 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Robust and reliable functions to return informative outputs to console
@@ -38,6 +46,7 @@ with the run or source location of a command. This can be from the
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

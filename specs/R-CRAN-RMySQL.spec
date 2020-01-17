@@ -1,9 +1,9 @@
 %global packname  RMySQL
-%global packver   0.10.17
+%global packver   0.10.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.17
+Version:          0.10.18
 Release:          1%{?dist}
 Summary:          Database Interface and 'MySQL' Driver for R
 
@@ -35,6 +35,7 @@ from S-PLUS. A modern 'MySQL' client based on 'Rcpp' is available from the
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

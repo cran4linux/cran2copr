@@ -1,9 +1,9 @@
 %global packname  wkb
-%global packver   0.3-0
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Convert Between Spatial Objects and Well-Known Binary Geometry
 
@@ -21,7 +21,7 @@ Requires:         R-CRAN-sp
 %description
 Utility functions to convert between the 'Spatial' classes specified by
 the package 'sp', and the well-known binary '(WKB)' representation for
-geometry specified by the Open Geospatial Consortium. Supports 'Spatial'
+geometry specified by the 'Open Geospatial Consortium'. Supports 'Spatial'
 objects of class 'SpatialPoints', 'SpatialPointsDataFrame',
 'SpatialLines', 'SpatialLinesDataFrame', 'SpatialPolygons', and
 'SpatialPolygonsDataFrame'. Supports 'WKB' geometry types 'Point',
@@ -51,5 +51,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

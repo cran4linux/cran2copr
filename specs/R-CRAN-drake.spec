@@ -1,9 +1,9 @@
 %global packname  drake
-%global packver   7.7.0
+%global packver   7.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.7.0
+Version:          7.9.0
 Release:          1%{?dist}
 Summary:          A Pipeline Toolkit for Reproducible Computation at Scale
 
@@ -16,19 +16,23 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-storr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 0.2.0
+BuildRequires:    R-CRAN-vctrs >= 0.2.0
 BuildRequires:    R-CRAN-txtq >= 0.1.3
 BuildRequires:    R-CRAN-base64url 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-storr >= 1.1.0
 Requires:         R-CRAN-rlang >= 0.2.0
+Requires:         R-CRAN-vctrs >= 0.2.0
 Requires:         R-CRAN-txtq >= 0.1.3
 Requires:         R-CRAN-base64url 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-utils 
 
 %description
@@ -40,7 +44,7 @@ computing, and completed projects have tangible evidence that they are
 reproducible.  Extensive documentation, from beginner-friendly tutorials
 to practical examples and more, is available at the reference website
 <https://docs.ropensci.org/drake/> and the online manual
-<https://ropenscilabs.github.io/drake-manual/>.
+<https://books.ropensci.org/drake/>.
 
 %prep
 %setup -q -c -n %{packname}

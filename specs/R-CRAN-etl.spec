@@ -1,9 +1,9 @@
 %global packname  etl
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}
 Summary:          Extract-Transform-Load Framework for Medium Data
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-datasets 
 BuildRequires:    R-CRAN-downloader 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringr 
@@ -26,12 +27,14 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DBI 
 Requires:         R-datasets 
 Requires:         R-CRAN-downloader 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-stringr 
@@ -39,6 +42,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-usethis 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
 
@@ -60,6 +64,7 @@ remote relational database management system.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -74,5 +79,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/png
 %doc %{rlibdir}/%{packname}/sql
+%doc %{rlibdir}/%{packname}/src
 %{rlibdir}/%{packname}/INDEX

@@ -1,11 +1,11 @@
 %global packname  bigalgebra
-%global packver   0.8.4.1
+%global packver   0.8.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4.1
+Version:          0.8.4.2
 Release:          1%{?dist}
-Summary:          BLAS routines for native R matrices and big.matrix objects.
+Summary:          BLAS Routines for Native R Matrices and 'big.matrix' Objects
 
 License:          LGPL-3 | Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,8 +21,7 @@ Requires:         R-CRAN-bigmemory >= 4.0.0
 Requires:         R-methods 
 
 %description
-This package provides arithmetic functions for R matrix and big.matrix
-objects.
+Provides arithmetic functions for R matrix and 'big.matrix' objects.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +33,7 @@ objects.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

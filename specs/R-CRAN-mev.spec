@@ -1,9 +1,9 @@
 %global packname  mev
-%global packver   1.12
+%global packver   1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12
+Version:          1.13
 Release:          1%{?dist}
 Summary:          Multivariate Extreme Value Distributions
 
@@ -35,9 +35,16 @@ Requires:         R-CRAN-nleqslv
 Requires:         R-stats 
 
 %description
-Exact simulation from max-stable processes, R-Pareto processes for various
-parametric models. Threshold selection methods. Multivariate extreme
-diagnostics. Estimation and likelihoods for univariate extremes.
+Various tools for the analysis of univariate, multivariate and functional
+extremes. Exact simulation from max-stable processes [Dombry, Engelke and
+Oesting (2016) <doi:10.1093/biomet/asw008>, R-Pareto processes for various
+parametric models, including Brown-Resnick (Wadsworth and Tawn, 2014,
+<doi:10.1093/biomet/ast042>) and Extremal Student (Thibaud and Opitz,
+2015, <doi:10.1093/biomet/asv045>). Threshold selection methods, including
+Wadsworth (2016) <doi:10.1080/00401706.2014.998345>, and Northrop and
+Coleman (2014) <doi:10.1007/s10687-014-0183-z>. Multivariate extreme
+diagnostics. Estimation and likelihoods for univariate extremes, e.g.,
+Coles (2001) <doi:10.1007/978-1-4471-3675-0>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +56,7 @@ diagnostics. Estimation and likelihoods for univariate extremes.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

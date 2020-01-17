@@ -1,9 +1,9 @@
 %global packname  RLumModel
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Solving Ordinary Differential Equations to UnderstandLuminescence
 

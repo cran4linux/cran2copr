@@ -1,72 +1,60 @@
 %global packname  PCRedux
-%global packver   0.2.6-4
+%global packver   1.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6.4
+Version:          1.0.4
 Release:          1%{?dist}
-Summary:          Quantitative Polymerase Chain Reaction (qPCR) Data Mining andMachine Learning Helper Tool
+Summary:          Quantitative Polymerase Chain Reaction (qPCR) Data Mining andMachine Learning Toolkit
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bcp 
 BuildRequires:    R-CRAN-changepoint 
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-chipPCR 
 BuildRequires:    R-CRAN-ecp 
 BuildRequires:    R-CRAN-fda.usc 
-BuildRequires:    R-CRAN-FFTrees 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MBmca 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-qpcR 
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-visdat 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-bcp 
 Requires:         R-CRAN-changepoint 
-Requires:         R-CRAN-caret 
 Requires:         R-CRAN-chipPCR 
 Requires:         R-CRAN-ecp 
 Requires:         R-CRAN-fda.usc 
-Requires:         R-CRAN-FFTrees 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MBmca 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-qpcR 
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-shiny 
 Requires:         R-stats 
-Requires:         R-CRAN-testthat 
 Requires:         R-utils 
-Requires:         R-CRAN-visdat 
 Requires:         R-CRAN-zoo 
 
 %description
 Extracts features from amplification curve data of quantitative Polymerase
-Chain Reactions (qPCR) (Pabinger, Stephan, Stefan Roediger, Albert
-Kriegner, Klemens Vierlinger, and Andreas Weinhauusel (2014)
+Chain Reactions (qPCR) (Pabinger S. et al. (2014)
 <doi:10.1016/j.bdq.2014.08.002>) for machine learning purposes. Helper
 functions prepare the amplification curve data for processing as
 functional data (e.g., Hausdorff distance) or enable the plotting of
 amplification curve classes (negative, ambiguous, positive). The hookreg()
-and hookregNL() functions can be used to predict amplification curves with
-an hook effect-like curvature. The pcrfit_single() function can be used to
-extract features from an amplification curve.
+and hookregNL() functions (Burdukiewicz M. et al. (2018)
+<doi:10.1016/j.bdq.2018.08.001>) can be used to predict amplification
+curves with an hook effect-like curvature. The pcrfit_single() function
+can be used to extract features from an amplification curve.
 
 %prep
 %setup -q -c -n %{packname}
@@ -78,6 +66,7 @@ extract features from an amplification curve.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -129,9 +118,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/decision_res_vermeulen1.csv
 %doc %{rlibdir}/%{packname}/decision_res_vermeulen2.csv
 %doc %{rlibdir}/%{packname}/decision_res_VIMCFX96_60.csv
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/HCU32_aggR.csv
 %doc %{rlibdir}/%{packname}/hookreg.rdml
+%doc %{rlibdir}/%{packname}/PCRedux-app
 %doc %{rlibdir}/%{packname}/RAS002.rdml
 %doc %{rlibdir}/%{packname}/RAS003.rdml
 %doc %{rlibdir}/%{packname}/Table_human_rated.xlsx
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

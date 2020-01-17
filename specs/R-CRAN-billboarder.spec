@@ -1,9 +1,9 @@
 %global packname  billboarder
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}
 Summary:          Create Interactive Chart with the JavaScript 'Billboard' Library
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shiny 
 
 %description
 Provides an 'htmlwidgets' interface to 'billboard.js', a re-usable easy
@@ -46,6 +48,7 @@ again in 'shiny' apps.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

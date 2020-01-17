@@ -1,9 +1,9 @@
 %global packname  netmeta
-%global packver   1.1-0
+%global packver   1.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Network Meta-Analysis using Frequentist Methods
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 4.9.6
+BuildRequires:    R-CRAN-meta >= 4.9.8
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-MASS 
-Requires:         R-CRAN-meta >= 4.9.6
+Requires:         R-CRAN-meta >= 4.9.8
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-magic 
 Requires:         R-MASS 
@@ -59,6 +59,7 @@ graphs described in Rücker & Schwarzer (2016) <DOI:10.1002/jrsm.1143>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  sptm
-%global packver   17.12-7
+%global packver   2019.11-25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          17.12.7
+Version:          2019.11.25
 Release:          1%{?dist}
 Summary:          SemiParametric Transformation Model Methods
 
@@ -39,6 +39,7 @@ sampling. Statistics in Medicine <DOI:10.1002/sim.6439>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

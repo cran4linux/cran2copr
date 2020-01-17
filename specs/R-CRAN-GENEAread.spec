@@ -1,11 +1,11 @@
 %global debug_package %{nil}
 %global packname  GENEAread
-%global packver   2.0.7
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
-Release:          2%{?dist}
+Version:          2.0.8
+Release:          1%{?dist}
 Summary:          Package for Reading Binary Files
 
 License:          GPL-2 | GPL-3
@@ -22,7 +22,9 @@ Requires:         R-CRAN-mmap
 
 %description
 Functions and analytics for GENEA-compatible accelerometer data into R
-objects. See topic 'GENEAread' for an introduction to the package.
+objects. See topic 'GENEAread' for an introduction to the package. See
+<https://www.activinsights.com/products/geneactiv/> for more details on
+the GENEActiv device.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +36,7 @@ objects. See topic 'GENEAread' for an introduction to the package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

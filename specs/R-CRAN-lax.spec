@@ -1,9 +1,9 @@
 %global packname  lax
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Loglikelihood Adjustment for Extreme Value Models
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-chandwich 
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-revdbayes 
 BuildRequires:    R-CRAN-sandwich 
@@ -25,7 +24,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-chandwich 
 Requires:         R-graphics 
-Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-revdbayes 
 Requires:         R-CRAN-sandwich 
@@ -39,7 +37,8 @@ likelihood estimation, by the extreme value analysis packages 'evd'
 <https://cran.r-project.org/package=evir>, 'extRemes'
 <https://cran.r-project.org/package=extRemes>, 'fExtremes'
 <https://cran.r-project.org/package=fExtremes>, 'ismev'
-<https://cran.r-project.org/package=ismev>, 'POT'
+<https://cran.r-project.org/package=ismev>, 'mev'
+<https://cran.r-project.org/package=mev>, 'POT'
 <https://cran.r-project.org/package=POT> and 'texmex'
 <https://cran.r-project.org/package=texmex>. Adjusted standard errors and
 an adjusted loglikelihood are provided, using the 'chandwich' package
@@ -75,6 +74,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

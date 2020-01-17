@@ -1,9 +1,9 @@
 %global packname  fungible
-%global packver   1.92
+%global packver   1.95
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.92
+Version:          1.95
 Release:          1%{?dist}
 Summary:          Psychometric Functions from the Waller Lab
 
@@ -81,4 +81,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/news
 %{rlibdir}/%{packname}/INDEX

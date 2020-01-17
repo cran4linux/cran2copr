@@ -1,9 +1,9 @@
 %global packname  skpr
-%global packver   0.61.3
+%global packver   0.62.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.61.3
+Version:          0.62.0
 Release:          1%{?dist}
 Summary:          Design of Experiments Suite: Generate and Evaluate OptimalDesigns
 
@@ -36,6 +36,8 @@ BuildRequires:    R-CRAN-car
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-shiny 
@@ -59,6 +61,8 @@ Requires:         R-CRAN-car
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-lmerTest 
+Requires:         R-methods 
+Requires:         R-CRAN-lazyeval 
 
 %description
 Generates and evaluates D, I, A, Alias, E, T, and G optimal designs.

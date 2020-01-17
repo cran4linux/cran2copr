@@ -1,9 +1,9 @@
 %global packname  ks
-%global packver   1.11.5
+%global packver   1.11.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.5
+Version:          1.11.6
 Release:          1%{?dist}
 Summary:          Kernel Smoothing
 
@@ -47,6 +47,7 @@ hypothesis tests. Chacon & Duong (2018) <doi:10.1201/9780429485572>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

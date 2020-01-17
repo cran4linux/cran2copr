@@ -1,9 +1,9 @@
 %global packname  Rata
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}
 Summary:          Automated Test Assembly
 
@@ -29,9 +29,9 @@ Requires:         R-CRAN-reshape2
 Requires:         R-stats 
 
 %description
-Automated test assembly of linear and adaptive tests under the mixed
-integer programming framework using open source solvers. The full
-documentation and tutorials are at <https://github.com/xluo11/Rata>.
+Automated test assembly of linear and adaptive tests using the
+mixed-integer programming. The full documentation and tutorials are at
+<https://github.com/xluo11/Rata>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +43,7 @@ documentation and tutorials are at <https://github.com/xluo11/Rata>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

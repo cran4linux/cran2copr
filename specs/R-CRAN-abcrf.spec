@@ -1,9 +1,9 @@
 %global packname  abcrf
-%global packver   1.8
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.8.1
 Release:          1%{?dist}
 Summary:          Approximate Bayesian Computation via Random Forests
 
@@ -53,6 +53,7 @@ J.-M., Pudlo P., Ribatet M., Robert C. P. and Estoup A. (2019)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

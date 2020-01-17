@@ -1,9 +1,9 @@
 %global packname  Eagle
-%global packver   1.5.2
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Multiple Locus Association Mapping on a Genome-Wide Scale
 
@@ -12,11 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-mmap 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
@@ -31,6 +33,8 @@ BuildRequires:    R-CRAN-Rcpp
 Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-mmap 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
@@ -63,6 +67,7 @@ data, and for performing genome-wide analysis.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -73,6 +78,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/shiny_app

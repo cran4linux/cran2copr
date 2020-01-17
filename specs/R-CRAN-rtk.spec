@@ -1,9 +1,9 @@
 %global packname  rtk
-%global packver   0.2.5.7
+%global packver   0.2.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5.7
+Version:          0.2.5.8
 Release:          1%{?dist}
 Summary:          Rarefaction Tool Kit
 
@@ -15,7 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-methods 
 
 %description
 Rarefy data, calculate diversity and plot the results.

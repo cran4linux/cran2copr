@@ -1,9 +1,9 @@
 %global packname  robustHD
-%global packver   0.5.1
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Robust Methods for High-Dimensional Data
 
@@ -26,6 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-robustbase >= 0.9.5
 Requires:         R-CRAN-ggplot2 >= 0.9.2
+Requires:         R-CRAN-Rcpp >= 0.9.10
 Requires:         R-CRAN-perry >= 0.2.0
 Requires:         R-MASS 
 Requires:         R-grDevices 
@@ -48,6 +49,7 @@ regression.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

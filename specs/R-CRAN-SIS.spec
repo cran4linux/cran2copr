@@ -1,9 +1,9 @@
 %global packname  SIS
-%global packver   0.8-6
+%global packver   0.8-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          0.8.7
 Release:          1%{?dist}
 Summary:          Sure Independence Screening
 
@@ -26,9 +26,11 @@ Requires:         R-survival
 Variable selection techniques are essential tools for model selection and
 estimation in high-dimensional statistical models. Through this publicly
 available package, we provide a unified environment to carry out variable
-selection using iterative sure independence screening (SIS) and all of its
-variants in generalized linear models and the Cox proportional hazards
-model.
+selection using iterative sure independence screening (SIS) (Fan and Lv
+(2008)<doi:10.1111/j.1467-9868.2008.00674.x>) and all of its variants in
+generalized linear models (Fan and Song (2009)<doi:10.1214/10-AOS798>) and
+the Cox proportional hazards model (Fan, Feng and Wu
+(2010)<doi:10.1214/10-IMSCOLL606>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +42,7 @@ model.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

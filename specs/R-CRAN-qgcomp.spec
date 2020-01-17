@@ -1,9 +1,9 @@
 %global packname  qgcomp
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Quantile G-Computation
 
@@ -12,20 +12,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats >= 3.0
-BuildRequires:    R-CRAN-ggplot2 >= 2.5
+BuildRequires:    R-CRAN-arm 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-stats 
 BuildRequires:    R-survival 
-Requires:         R-stats >= 3.0
-Requires:         R-CRAN-ggplot2 >= 2.5
+Requires:         R-CRAN-arm 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-pscl 
+Requires:         R-stats 
 Requires:         R-survival 
 
 %description
@@ -33,7 +41,8 @@ G-computation for a set of time-fixed exposures with quantile-based basis
 functions, possibly under linearity and homogeneity assumptions. This
 approach estimates a regression line corresponding to the expected change
 in the outcome (on the link basis) given a simultaneous increase in the
-quantile-based category for all exposures.  Reference: Alexander P. Keil,
+quantile-based category for all exposures. Works with continuous, binary,
+and right-censored time-to-event outcomes.  Reference: Alexander P. Keil,
 Jessie P. Buckley, Katie M. OBrien, Kelly K. Ferguson, Shanshan Zhao
 Alexandra J. White (2019) A quantile-based g-computation approach to
 addressing the effects of exposure mixtures; <arXiv:1902.04200> [stat.ME].

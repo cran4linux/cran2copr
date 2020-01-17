@@ -1,9 +1,9 @@
 %global packname  MSGARCH
-%global packver   2.3
+%global packver   2.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.31
 Release:          1%{?dist}
 Summary:          Markov-Switching GARCH Models
 
@@ -34,8 +34,8 @@ Requires:         R-CRAN-numDeriv
 
 %description
 Fit (by Maximum Likelihood or MCMC/Bayesian), simulate, and forecast
-various Markov-Switching GARCH models as described in Ardia et al. (2017)
-<https://ssrn.com/abstract=2845809>.
+various Markov-Switching GARCH models as described in Ardia et al. (2019)
+<doi:10.18637/jss.v091.i04>.
 
 %prep
 %setup -q -c -n %{packname}

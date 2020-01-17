@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  brglm2
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Bias Reduction in Generalized Linear Models
 
@@ -34,7 +34,8 @@ Requires:         R-CRAN-numDeriv
 
 %description
 Estimation and inference from generalized linear models based on various
-methods for bias reduction. The 'brglmFit' fitting method can achieve
+methods for bias reduction and maximum penalized likelihood with powers of
+the Jeffreys prior as penalty. The 'brglmFit' fitting method can achieve
 reduction of estimation bias by solving either the mean bias-reducing
 adjusted score equations in Firth (1993) <doi:10.1093/biomet/80.1.27> and
 Kosmidis and Firth (2009) <doi:10.1093/biomet/asp055>, or the median
@@ -65,6 +66,7 @@ linear models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -80,4 +82,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/empir_tests.R
+%doc %{rlibdir}/%{packname}/empirical_br_tests.R
 %{rlibdir}/%{packname}/INDEX

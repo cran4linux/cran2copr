@@ -1,9 +1,9 @@
 %global packname  propr
-%global packver   4.1.6
+%global packver   4.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.6
+Version:          4.2.6
 Release:          1%{?dist}
 Summary:          Calculating Proportionality Between Vectors of CompositionalData
 

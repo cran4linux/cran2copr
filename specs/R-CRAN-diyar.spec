@@ -1,9 +1,9 @@
 %global packname  diyar
-%global packver   0.0.1
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.3
 Release:          1%{?dist}
 Summary:          Multistage Record Linkage and Case Definition forEpidemiological Analysis
 
@@ -21,14 +21,12 @@ BuildRequires:    R-CRAN-dplyr >= 0.7.5
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-tidyr >= 0.8.2
 Requires:         R-CRAN-dplyr >= 0.7.5
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 
 %description
 Perform multistage deterministic linkages, apply case definitions to
@@ -38,7 +36,7 @@ order of certainty. The linkage process handles missing data and
 conflicting matches based on this same order of certainty. For episode
 grouping, rows of dated events (e.g. sample collection) or interval of
 events (e.g. hospital admission) are grouped into chronological episodes
-beginning with a "case". The process permits several options such as
+beginning with a "Case". The process permits several options such as
 episode lengths and recurrence periods which are used to build custom
 preferences for case assignment (definition). The record linkage and
 episode grouping processes assign unique group IDs to matching records or

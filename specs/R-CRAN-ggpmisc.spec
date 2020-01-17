@@ -1,9 +1,9 @@
 %global packname  ggpmisc
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Miscellaneous Extensions to 'ggplot2'
 
@@ -11,41 +11,42 @@ License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.51.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
+BuildRequires:    R-MASS >= 7.3.51.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-tibble >= 2.0.1
+BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-zoo >= 1.8.6
 BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-zoo >= 1.8.4
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-polynom >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-polynom >= 1.3.9
 BuildRequires:    R-CRAN-splus2R >= 1.2.2
 BuildRequires:    R-CRAN-scales >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
-BuildRequires:    R-CRAN-broom >= 0.5.1
-BuildRequires:    R-CRAN-rlang >= 0.3.1
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-broom >= 0.5.2
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-xts >= 0.11.2
 BuildRequires:    R-grid 
-Requires:         R-MASS >= 7.3.51.1
-Requires:         R-CRAN-ggplot2 >= 3.1.0
+Requires:         R-MASS >= 7.3.51.3
+Requires:         R-CRAN-ggplot2 >= 3.2.1
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-tibble >= 2.0.1
+Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-zoo >= 1.8.6
 Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-zoo >= 1.8.4
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-polynom >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-polynom >= 1.3.9
 Requires:         R-CRAN-splus2R >= 1.2.2
 Requires:         R-CRAN-scales >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.0.1
-Requires:         R-CRAN-broom >= 0.5.1
-Requires:         R-CRAN-rlang >= 0.3.1
+Requires:         R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-broom >= 0.5.2
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-xts >= 0.11.2
 Requires:         R-grid 
 
@@ -61,7 +62,9 @@ label with the equation of a polynomial fitted with lm() or other types of
 models; labels with P-value, R^2 or adjusted R^2 or information criteria
 for fitted models; label with ANOVA table for fitted models; label with
 summary for fitted models. Model fit classes for which suitable methods
-are provided by package 'broom' are supported.
+are provided by package 'broom' are supported. Scales and stats to build
+volcano and quadrant plots based on outcomes, fold changes, p-values and
+false discovery rates.
 
 %prep
 %setup -q -c -n %{packname}
@@ -70,8 +73,10 @@ are provided by package 'broom' are supported.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -80,11 +85,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

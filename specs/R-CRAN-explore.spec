@@ -1,9 +1,9 @@
 %global packname  explore
-%global packver   0.5.1
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.3
 Release:          1%{?dist}
 Summary:          Simplifies Exploratory Data Analysis
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DBI 
@@ -29,8 +30,11 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-rpart 
 BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DBI 
@@ -44,6 +48,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-rpart 
 Requires:         R-CRAN-rpart.plot 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rmarkdown 
 
 %description

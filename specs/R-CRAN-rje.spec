@@ -1,9 +1,9 @@
 %global packname  rje
-%global packver   1.10.10
+%global packver   1.10.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.10
+Version:          1.10.13
 Release:          1%{?dist}
 Summary:          Miscellaneous Useful Functions for Statistics
 
@@ -33,6 +33,7 @@ combinations and more...
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

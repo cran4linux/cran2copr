@@ -1,9 +1,9 @@
 %global packname  rdmulti
-%global packver   0.2
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.4
 Release:          1%{?dist}
 Summary:          Analysis of RD Designs with Multiple Cutoffs or Scores
 
@@ -25,8 +25,8 @@ provides tools to analyze RD designs with multiple cutoffs or scores:
 rdmc() estimates pooled and cutoff specific effects for multi-cutoff
 designs, rdmcplot() draws RD plots for multi-cutoff designs and rdms()
 estimates effects in cumulative cutoffs or multi-score designs. See
-Cattaneo, Titiunik and Vazquez-Bare (2018)
-<https://sites.google.com/site/rdpackages/rdmulti/Cattaneo-Titiunik-VazquezBare_2018_rdmulti.pdf>
+Cattaneo, Titiunik and Vazquez-Bare (2019)
+<https://sites.google.com/site/rdpackages/rdmulti/Cattaneo-Titiunik-VazquezBare_2019_rdmulti.pdf>
 for further methodological details.
 
 %prep

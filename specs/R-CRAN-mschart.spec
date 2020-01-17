@@ -1,9 +1,9 @@
 %global packname  mschart
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Chart Generation for 'Microsoft Word' and 'Microsoft PowerPoint'Documents
 
@@ -16,7 +16,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-CRAN-officer >= 0.2.0
+BuildRequires:    R-CRAN-officer >= 0.3.6
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-writexl
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-CRAN-officer >= 0.2.0
+Requires:         R-CRAN-officer >= 0.3.6
 Requires:         R-stats 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
@@ -52,6 +52,7 @@ contain any feature for 'Microsoft' native charts production.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

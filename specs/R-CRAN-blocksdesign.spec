@@ -1,9 +1,9 @@
 %global packname  blocksdesign
-%global packver   3.7
+%global packver   3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          3.8
 Release:          1%{?dist}
 Summary:          Nested and Crossed Block Designs for Factorial, FractionalFactorial and Unstructured Treatment Sets
 
@@ -31,10 +31,10 @@ defined set of block factors and is conditional on the defined treatment
 design. The block factors are added in sequence and each added block
 factor is optimized conditional on all previously added block factors. The
 block design can have repeated nesting down to any required depth of
-nesting with either simple nested blocks or a crossed blocks design at
-each level of nesting. Outputs include a table showing the allocation of
-treatments to blocks and tables showing the achieved D-efficiency factors
-for each block and treatment design.
+nesting with either simple nested blocks or crossed blocks at each level
+of nesting. Outputs include a table showing the allocation of treatments
+to blocks and tables showing the achieved D-efficiency factors for each
+block and treatment design.
 
 %prep
 %setup -q -c -n %{packname}

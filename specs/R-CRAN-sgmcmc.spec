@@ -1,9 +1,9 @@
 %global packname  sgmcmc
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Stochastic Gradient Markov Chain Monte Carlo
 
@@ -38,6 +38,7 @@ C. E. Guestrin (2014) <arXiv:1402.4102>; N. Ding, Y. Fang, R. Babbush, C.
 Chen, R. D. Skeel, H. Neven (2014)
 <https://papers.nips.cc/paper/5592-bayesian-sampling-using-stochastic-gradient-thermostats>;
 J. Baker, P. Fearnhead, E. B. Fox, C. Nemeth (2017) <arXiv:1706.05439>.
+For more details see <doi:10.18637/jss.v091.i03>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,5 +63,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

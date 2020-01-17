@@ -1,9 +1,9 @@
 %global packname  qrmtools
-%global packver   0.0-10
+%global packver   0.0-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10
+Version:          0.0.12
 Release:          1%{?dist}
 Summary:          Tools for Quantitative Risk Management
 
@@ -25,6 +25,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rugarch 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ADGofTest 
 Requires:         R-graphics 
 Requires:         R-lattice 
 Requires:         R-CRAN-quantmod 
@@ -36,6 +37,7 @@ Requires:         R-grDevices
 Requires:         R-stats 
 Requires:         R-CRAN-rugarch 
 Requires:         R-utils 
+Requires:         R-CRAN-ADGofTest 
 
 %description
 Functions and data sets for reproducing selected results from the book
@@ -53,6 +55,7 @@ Risk Management practice.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -61,7 +64,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENCE

@@ -1,9 +1,9 @@
 %global packname  SortedEffects
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Estimation and Inference Methods for Sorted Causal Effects andClassification Analysis
 
@@ -18,17 +18,23 @@ BuildArch:        noarch
 BuildRequires:    R-boot 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dummies 
 Requires:         R-boot 
 Requires:         R-graphics 
 Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-pbapply 
+Requires:         R-parallel 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-SparseM 
 Requires:         R-stats 
+Requires:         R-CRAN-dummies 
 
 %description
 Implements the estimation and inference methods for sorted causal effects
@@ -58,6 +64,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  DescToolsAddIns
-%global packver   1.4
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.6
 Release:          1%{?dist}
 Summary:          Interactive Functions to be Used as Shortcuts in 'RStudio'
 
@@ -12,17 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DescTools >= 0.99.20
+BuildRequires:    R-CRAN-DescTools >= 0.99.30
 BuildRequires:    R-CRAN-rstudioapi >= 0.1
 BuildRequires:    R-base 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-manipulate 
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-foreign 
-Requires:         R-CRAN-DescTools >= 0.99.20
+Requires:         R-CRAN-DescTools >= 0.99.30
 Requires:         R-CRAN-rstudioapi >= 0.1
 Requires:         R-base 
 Requires:         R-stats 
@@ -49,6 +49,7 @@ to these addins will save you quite a few keystrokes.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

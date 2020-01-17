@@ -1,9 +1,9 @@
 %global packname  nlmixr
-%global packver   1.1.1-2
+%global packver   1.1.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1.2
+Version:          1.1.1.3
 Release:          1%{?dist}
 Summary:          Nonlinear Mixed Effects Models in Population Pharmacokineticsand Pharmacodynamics
 
@@ -16,7 +16,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-vpc >= 1.0.0
-BuildRequires:    R-CRAN-RxODE >= 0.9.1.3
+BuildRequires:    R-CRAN-RxODE >= 0.9.1.7
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.5.600.2.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
@@ -49,7 +49,7 @@ BuildRequires:    R-CRAN-yaml
 BuildRequires:    R-CRAN-lbfgsb3c 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-vpc >= 1.0.0
-Requires:         R-CRAN-RxODE >= 0.9.1.3
+Requires:         R-CRAN-RxODE >= 0.9.1.7
 Requires:         R-CRAN-RcppArmadillo >= 0.5.600.2.0
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-brew 
@@ -110,18 +110,14 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/codegen.py
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/COPYRIGHT
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/fit.rds
-%doc %{rlibdir}/%{packname}/fit2.rds
-%doc %{rlibdir}/%{packname}/fitF.rds
 %{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/nlmixr-template.docx
 %doc %{rlibdir}/%{packname}/quadrule.diff
 %doc %{rlibdir}/%{packname}/revision.txt
 %doc %{rlibdir}/%{packname}/THANKS
 %doc %{rlibdir}/%{packname}/TODOs.txt
-%doc %{rlibdir}/%{packname}/xpdb.rds
+%doc %{rlibdir}/%{packname}/tools
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  uGMAR
-%global packver   3.2.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}
 Summary:          Estimate Univariate Gaussian or Student's t MixtureAutoregressive Model
 
@@ -26,7 +26,7 @@ Requires:         R-parallel
 
 %description
 Maximum likelihood estimation of univariate Gaussian Mixture
-Autoregressive (GMAR), Student's t Mixture Autoregressive (StMAR) and
+Autoregressive (GMAR), Student's t Mixture Autoregressive (StMAR), and
 Gaussian and Student's t Mixture Autoregressive (G-StMAR) models, quantile
 residual tests, graphical diagnostics, forecast and simulate from GMAR,
 StMAR and G-StMAR processes. Leena Kalliovirta, Mika Meitz, Pentti

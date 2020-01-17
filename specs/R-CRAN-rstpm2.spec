@@ -1,9 +1,9 @@
 %global packname  rstpm2
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}
 Summary:          Smooth Survival Models, Including Generalized Survival Models
 

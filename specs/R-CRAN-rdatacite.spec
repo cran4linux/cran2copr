@@ -1,11 +1,11 @@
 %global packname  rdatacite
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}
-Summary:          'DataCite' Client for 'OAI-PMH' Methods and their Search API
+Summary:          Client for the 'DataCite' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,21 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-solrium >= 1.0.0
 BuildRequires:    R-CRAN-crul >= 0.7.4
-BuildRequires:    R-CRAN-oai >= 0.2.2
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-solrium >= 1.0.0
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-crul >= 0.7.4
-Requires:         R-CRAN-oai >= 0.2.2
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
 
 %description
 Client for the web service methods provided by 'DataCite'
 (<https://www.datacite.org/>), including functions to interface with their
-'OAI-PMH' 'metadata' service, and a 'RESTful' search API. The API is
-backed by 'SOLR', allowing expressive queries, including faceting,
-statistics on variables, and 'more-like-this' queries.
+'RESTful' search API. The API is backed by 'Elasticsearch', allowing
+expressive queries, including faceting.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global packname  fma
-%global packver   2.3
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.4
 Release:          1%{?dist}
 Summary:          Data Sets from "Forecasting: Methods and Applications" byMakridakis, Wheelwright & Hyndman (1998)
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,12 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.0.0
 Requires:         R-core >= 2.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forecast 
-Requires:         R-CRAN-forecast 
+BuildRequires:    R-CRAN-forecast >= 8.1
+Requires:         R-CRAN-forecast >= 8.1
 
 %description
 All data sets from "Forecasting: methods and applications" by Makridakis,
-Wheelwright & Hyndman (Wiley, 3rd ed., 1998).
+Wheelwright & Hyndman (Wiley, 3rd ed., 1998)
+<https://robjhyndman.com/forecasting/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,4 +45,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
+%{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

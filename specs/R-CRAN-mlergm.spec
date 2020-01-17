@@ -1,9 +1,9 @@
 %global packname  mlergm
-%global packver   0.3
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.5
 Release:          1%{?dist}
 Summary:          Multilevel Exponential-Family Random Graph Models
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-CRAN-ergm >= 3.10.1
 Requires:         R-CRAN-sna >= 2.4
 Requires:         R-CRAN-network >= 1.15
@@ -43,6 +44,7 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-plyr 
 Requires:         R-methods 
 Requires:         R-graphics 
+Requires:         R-CRAN-lpSolve 
 
 %description
 Estimates exponential-family random graph models for multilevel network
@@ -66,6 +68,7 @@ models and visualization of networks.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

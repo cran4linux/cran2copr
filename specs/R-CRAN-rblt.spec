@@ -1,9 +1,9 @@
 %global packname  rblt
-%global packver   0.2.4.4
+%global packver   0.2.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4.4
+Version:          0.2.4.5
 Release:          1%{?dist}
 Summary:          Bio-Logging Toolbox
 
@@ -17,14 +17,14 @@ Requires:         hdf5
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-h5 >= 0.9
+BuildRequires:    R-CRAN-hdf5r >= 1.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-dygraphs 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-h5 >= 0.9
+Requires:         R-CRAN-hdf5r >= 1.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-dygraphs 

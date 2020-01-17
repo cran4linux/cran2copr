@@ -1,11 +1,11 @@
 %global packname  isocat
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}
-Summary:          Isotope Clustering and Assignment Tools
+Summary:          Isotope Origin Clustering and Assignment Tools
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}

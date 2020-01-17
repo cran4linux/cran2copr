@@ -1,9 +1,9 @@
 %global packname  ggeffects
-%global packver   0.12.0
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.14.0
 Release:          1%{?dist}
 Summary:          Create Tidy Data Frames of Marginal Effects for 'ggplot' fromModel Outputs
 
@@ -15,30 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sjmisc >= 2.8.0
-BuildRequires:    R-CRAN-sjlabelled >= 1.1.0
-BuildRequires:    R-CRAN-insight >= 0.4.1
+BuildRequires:    R-CRAN-sjmisc >= 2.8.2
+BuildRequires:    R-CRAN-sjlabelled >= 1.1.1
+BuildRequires:    R-CRAN-insight >= 0.7.1
 BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-sjmisc >= 2.8.0
-Requires:         R-CRAN-sjlabelled >= 1.1.0
-Requires:         R-CRAN-insight >= 0.4.1
+BuildRequires:    R-stats 
+Requires:         R-CRAN-sjmisc >= 2.8.2
+Requires:         R-CRAN-sjlabelled >= 1.1.1
+Requires:         R-CRAN-insight >= 0.7.1
 Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-MASS 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+Requires:         R-stats 
 
 %description
 Compute marginal effects from statistical models and returns the result as

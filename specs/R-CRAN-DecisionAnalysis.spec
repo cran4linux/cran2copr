@@ -1,9 +1,9 @@
 %global packname  DecisionAnalysis
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Implementation of Multi Objective Decision Analysis
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-data.tree
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-Cairo 
+BuildRequires:    R-CRAN-DiagrammeR 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-data.tree
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-Cairo 
+Requires:         R-CRAN-DiagrammeR 
 
 %description
 Aides in the multi objective decision analysis process by simplifying the
@@ -52,6 +54,7 @@ ISBN:978-1-118-17313-8) Kirkwood (1997, ISBN:0-534-51692-0).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

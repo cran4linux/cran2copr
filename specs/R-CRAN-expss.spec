@@ -1,9 +1,9 @@
 %global packname  expss
-%global packver   0.9.1
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.1
 Release:          1%{?dist}
 Summary:          Tables, Labels and Some Useful Functions from Spreadsheets and'SPSS' Statistics
 
@@ -53,6 +53,7 @@ surveys. Package intended to help people to move data processing from
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

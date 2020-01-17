@@ -1,9 +1,9 @@
 %global packname  nph
-%global packver   1.9
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          2.0
 Release:          1%{?dist}
 Summary:          Planning and Analysing Survival Studies under Non-ProportionalHazards
 

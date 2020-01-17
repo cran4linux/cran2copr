@@ -1,9 +1,9 @@
 %global packname  periscope
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}
 Summary:          Enterprise Streamlined 'Shiny' Application Framework
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx >= 3.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-shiny >= 1.0
 BuildRequires:    R-CRAN-logging >= 0.7.103
 BuildRequires:    R-CRAN-shinyBS >= 0.61
 BuildRequires:    R-CRAN-shinydashboard >= 0.5
+BuildRequires:    R-CRAN-shinydashboardPlus >= 0.5
 BuildRequires:    R-CRAN-DT >= 0.2
 Requires:         R-CRAN-openxlsx >= 3.0
 Requires:         R-CRAN-ggplot2 >= 2.2
@@ -30,6 +31,7 @@ Requires:         R-CRAN-shiny >= 1.0
 Requires:         R-CRAN-logging >= 0.7.103
 Requires:         R-CRAN-shinyBS >= 0.61
 Requires:         R-CRAN-shinydashboard >= 0.5
+Requires:         R-CRAN-shinydashboardPlus >= 0.5
 Requires:         R-CRAN-DT >= 0.2
 
 %description

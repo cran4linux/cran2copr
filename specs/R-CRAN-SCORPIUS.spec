@@ -1,9 +1,9 @@
 %global packname  SCORPIUS
-%global packver   1.0.4.1
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4.1
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          Inferring Developmental Chronologies from Single-Cell RNASequencing Data
 
@@ -18,39 +18,43 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-princurve >= 2.1.4
 BuildRequires:    R-CRAN-ggplot2 >= 2.0
 BuildRequires:    R-CRAN-dynutils >= 1.0.3
-BuildRequires:    R-CRAN-dyndimred >= 1.0.1
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dynwrap 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lmds 
 BuildRequires:    R-MASS 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-pheatmap 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-TSP 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-princurve >= 2.1.4
 Requires:         R-CRAN-ggplot2 >= 2.0
 Requires:         R-CRAN-dynutils >= 1.0.3
-Requires:         R-CRAN-dyndimred >= 1.0.1
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dynwrap 
 Requires:         R-grDevices 
+Requires:         R-CRAN-lmds 
 Requires:         R-MASS 
 Requires:         R-Matrix 
 Requires:         R-CRAN-mclust 
+Requires:         R-methods 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-pheatmap 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-TSP 
-Requires:         R-utils 
 
 %description
 An accurate and easy tool for performing linear trajectory inference on
@@ -81,8 +85,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/dynwrap
 %{rlibdir}/%{packname}/INDEX

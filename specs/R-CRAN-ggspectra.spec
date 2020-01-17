@@ -1,9 +1,9 @@
 %global packname  ggspectra
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          Extensions to 'ggplot2' for Radiation Spectra
 
@@ -18,16 +18,16 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-scales >= 1.0.0
-BuildRequires:    R-CRAN-photobiology >= 0.9.29
-BuildRequires:    R-CRAN-tidyr >= 0.8.3
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-photobiology >= 0.9.30
 BuildRequires:    R-CRAN-ggrepel >= 0.8.1
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-photobiologyWavebands >= 0.4.3
 Requires:         R-CRAN-ggplot2 >= 3.1.1
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-scales >= 1.0.0
-Requires:         R-CRAN-photobiology >= 0.9.29
-Requires:         R-CRAN-tidyr >= 0.8.3
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-photobiology >= 0.9.30
 Requires:         R-CRAN-ggrepel >= 0.8.1
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-photobiologyWavebands >= 0.4.3

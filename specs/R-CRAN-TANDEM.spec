@@ -1,9 +1,9 @@
 %global packname  TANDEM
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}
 Summary:          A Two-Stage Approach to Maximize Interpretability of DrugResponse Models Based on Multiple Molecular Data Types
 
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-glmnet >= 3.0
 BuildRequires:    R-Matrix 
-Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-glmnet >= 3.0
 Requires:         R-Matrix 
 
 %description

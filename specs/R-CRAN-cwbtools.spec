@@ -1,9 +1,9 @@
 %global packname  cwbtools
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Tools to create, modify and manage 'CWB' Corpora
 
@@ -45,7 +45,7 @@ Additional functionality to add and modify annotations of corpora from
 within R makes working with CWB indexed corpora much more flexible and
 convenient. The 'cwbtools' package in combination with the R packages
 'RcppCWB' (<https://CRAN.R-project.org/package=RcppCWB>) and 'polmineR'
-(<https://CRAN.R-project.org/package=polmineR>) offers a leightweight
+(<https://CRAN.R-project.org/package=polmineR>) offers a lightweight
 infrastructure to support the combination of quantitative and qualitative
 approaches for working with textual data.
 

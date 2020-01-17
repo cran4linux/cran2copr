@@ -1,9 +1,9 @@
 %global packname  ALTopt
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Optimal Experimental Designs for Accelerated Life Testing
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cubature >= 1.0
 BuildRequires:    R-lattice >= 0.20
+BuildRequires:    R-methods 
 Requires:         R-CRAN-cubature >= 1.0
 Requires:         R-lattice >= 0.20
+Requires:         R-methods 
 
 %description
 Creates the optimal (D, U and I) designs for the accelerated life testing
@@ -31,7 +33,8 @@ parameters and stress variables. The acceleration model may have multiple
 stress factors, although most ALTs involve only two or less stress
 factors. ALTopt package also provides several plotting functions including
 contour plot, Fraction of Use Space (FUS) plot and Variance Dispersion
-graphs of Use Space (VDUS) plot.
+graphs of Use Space (VDUS) plot. For more details, see Seo and Pan (2015)
+<doi:10.32614/RJ-2015-029>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +46,7 @@ graphs of Use Space (VDUS) plot.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

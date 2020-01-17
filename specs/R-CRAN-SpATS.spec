@@ -1,9 +1,9 @@
 %global packname  SpATS
-%global packver   1.0-9
+%global packver   1.0-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}
 Summary:          Spatial Analysis of Field Trials with Splines
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-fields
 BuildRequires:    R-CRAN-plot3Drgl 
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-fields
 Requires:         R-CRAN-plot3Drgl 
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-data.table 
+Requires:         R-methods 
 
 %description
 Analysis of field trial experiments by modelling spatial trends using

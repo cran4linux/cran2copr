@@ -1,9 +1,9 @@
 %global packname  SimJoint
-%global packver   0.2.2
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          Simulate Joint Distribution
 
@@ -39,7 +39,8 @@ algorithm is additionally designed to optimize the joint distribution in
 the post-simulation stage. This heuristic demonstrated not only strong
 capability of cost reduction, but also good potential of achieving the
 same level of precision of approximation without the enhanced
-Iman-Conover-Ruscio-Kaczetow.
+Iman-Conover-Ruscio-Kaczetow. The package contains a copy of Permuted
+Congruential Generator from <http://www.pcg-random.org>.
 
 %prep
 %setup -q -c -n %{packname}

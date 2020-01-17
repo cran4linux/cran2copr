@@ -1,9 +1,9 @@
 %global packname  touch
-%global packver   0.1-4
+%global packver   0.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Tools of Utilization and Cost in Healthcare
 
@@ -53,5 +53,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/ahrq
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

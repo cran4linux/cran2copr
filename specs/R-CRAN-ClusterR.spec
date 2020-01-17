@@ -1,9 +1,9 @@
 %global packname  ClusterR
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Gaussian Mixture Models, K-Means, Mini-Batch-Kmeans, K-Medoidsand Affinity Propagation Clustering
 
@@ -20,18 +20,16 @@ BuildRequires:    R-CRAN-gtools
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-gmp 
-BuildRequires:    R-CRAN-FD 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-Rcpp >= 0.12.5
 Requires:         R-CRAN-gtools 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-CRAN-gmp 
-Requires:         R-CRAN-FD 
 Requires:         R-stats 
+Requires:         R-CRAN-gmp 
 Requires:         R-CRAN-ggplot2 
 
 %description
@@ -60,6 +58,7 @@ Science 16 Feb 2007: Vol. 315, Issue 5814, pp. 972-976,
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

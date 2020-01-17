@@ -1,9 +1,9 @@
 %global packname  momentuHMM
-%global packver   1.4.3
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.5.0
 Release:          1%{?dist}
 Summary:          Maximum Likelihood Analysis of Animal Movement Behavior UsingMultivariate Hidden Markov Models
 
@@ -28,21 +28,23 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-argosfilter 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-Brobdingnag 
-BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-CRAN-conicfit 
 BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-qdapRegex 
 BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-prodlim 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-crawl >= 2.2.1
 Requires:         R-CRAN-Rcpp 
@@ -58,33 +60,35 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-argosfilter 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-boot 
 Requires:         R-CRAN-sp 
 Requires:         R-MASS 
 Requires:         R-CRAN-Brobdingnag 
-Requires:         R-CRAN-gstat 
 Requires:         R-CRAN-conicfit 
 Requires:         R-CRAN-nleqslv 
 Requires:         R-survival 
 Requires:         R-CRAN-qdapRegex 
 Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-prodlim 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-rlang 
 
 %description
 Extended tools for analyzing telemetry data using generalized hidden
 Markov models. Features of momentuHMM (pronounced ``momentum'') include
 data pre-processing and visualization, fitting HMMs to location and
 auxiliary biotelemetry or environmental data, biased and correlated random
-walk movement models, multiple imputation for incorporating location
-measurement error and missing data, user-specified design matrices and
-constraints for covariate modelling of parameters, decoding of the state
-process, visualization of fitted models, model checking and selection, and
-simulation. See McClintock and Michelot (2018)
-<doi:10.1111/2041-210X.12995>.
+walk movement models, hierarchical HMMs, multiple imputation for
+incorporating location measurement error and missing data, user-specified
+design matrices and constraints for covariate modelling of parameters,
+random effects, decoding of the state process, visualization of fitted
+models, model checking and selection, and simulation. See McClintock and
+Michelot (2018) <doi:10.1111/2041-210X.12995>.
 
 %prep
 %setup -q -c -n %{packname}

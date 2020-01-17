@@ -1,9 +1,9 @@
 %global packname  optimr
-%global packver   2016-8.16
+%global packver   2019-12.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2016.8.16
+Version:          2019.12.16
 Release:          1%{?dist}
 Summary:          A Replacement and Extension of the 'optim' Function
 
@@ -56,6 +56,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/developmentnotes
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

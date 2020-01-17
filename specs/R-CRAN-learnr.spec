@@ -1,13 +1,13 @@
 %global packname  learnr
-%global packver   0.9.2.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2.1
+Version:          0.10.0
 Release:          1%{?dist}
 Summary:          Interactive Tutorials for R
 
-License:          Apache License 2.0 | file LICENSE
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,10 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.8
 BuildRequires:    R-CRAN-knitr >= 1.14
+BuildRequires:    R-CRAN-rmarkdown >= 1.12
 BuildRequires:    R-CRAN-shiny >= 1.0
+BuildRequires:    R-CRAN-renv >= 0.8.0
 BuildRequires:    R-CRAN-htmltools >= 0.3.5
+BuildRequires:    R-CRAN-ellipsis >= 0.2.0.1
 BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-withr 
@@ -28,10 +30,13 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-markdown 
-Requires:         R-CRAN-rmarkdown >= 1.8
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-knitr >= 1.14
+Requires:         R-CRAN-rmarkdown >= 1.12
 Requires:         R-CRAN-shiny >= 1.0
+Requires:         R-CRAN-renv >= 0.8.0
 Requires:         R-CRAN-htmltools >= 0.3.5
+Requires:         R-CRAN-ellipsis >= 0.2.0.1
 Requires:         R-utils 
 Requires:         R-parallel 
 Requires:         R-CRAN-withr 
@@ -41,6 +46,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-markdown 
+Requires:         R-CRAN-checkmate 
 
 %description
 Create interactive tutorials using R Markdown. Use a combination of
@@ -57,6 +63,7 @@ tutorials for learning about R and R packages.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -66,12 +73,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/lib
 %doc %{rlibdir}/%{packname}/rmarkdown
 %doc %{rlibdir}/%{packname}/tutorials

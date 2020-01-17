@@ -1,9 +1,9 @@
 %global packname  OUwie
-%global packver   1.53
+%global packver   1.57
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.53
+Version:          1.57
 Release:          1%{?dist}
 Summary:          Analysis of Evolutionary Rates in an OU Framework
 
@@ -45,11 +45,10 @@ Requires:         R-CRAN-corHMM
 Requires:         R-CRAN-Rmpfr 
 
 %description
-Calculates and compares rate differences of continuous character evolution
-under Brownian motion and a new set of Ornstein-Uhlenbeck based Hansen
-models that allow the strength of selection and stochastic motion to vary
-across selective regimes. Beaulieu et al (2012)
-<doi:10.1111/j.1558-5646.2012.01619.x>.
+Estimates rates for continuous character evolution under Brownian motion
+and a new set of Ornstein-Uhlenbeck based Hansen models that allow both
+the strength of the pull and stochastic motion to vary across selective
+regimes. Beaulieu et al (2012) <doi:10.1111/j.1558-5646.2012.01619.x>.
 
 %prep
 %setup -q -c -n %{packname}

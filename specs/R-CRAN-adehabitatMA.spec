@@ -1,9 +1,9 @@
 %global packname  adehabitatMA
-%global packver   0.3.13
+%global packver   0.3.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.13
+Version:          0.3.14
 Release:          1%{?dist}
 Summary:          Tools to Deal with Raster Maps
 
@@ -42,6 +42,7 @@ A collection of tools to deal with raster maps.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

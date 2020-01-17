@@ -1,9 +1,9 @@
 %global packname  taxlist
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          Handling Taxonomic Lists
 
@@ -12,24 +12,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-foreign 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-taxa 
 BuildRequires:    R-CRAN-taxize 
 BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegdata 
-Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-foreign 
-Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-taxa 
 Requires:         R-CRAN-taxize 
 Requires:         R-CRAN-stringdist 
+Requires:         R-utils 
 Requires:         R-CRAN-vegdata 
 
 %description
@@ -49,6 +49,7 @@ implemented as summary-methods.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -65,5 +66,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/cyperus
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/taxlist_examples
 %{rlibdir}/%{packname}/tv_data
 %{rlibdir}/%{packname}/INDEX

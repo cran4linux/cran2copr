@@ -1,9 +1,9 @@
 %global packname  gluvarpro
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}
 Summary:          Glucose Variability Measures from Continuous Glucose MonitoringData
 
@@ -16,12 +16,16 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
@@ -31,17 +35,17 @@ Requires:         R-CRAN-zoo
 %description
 Calculate different glucose variability measures, including average
 measures of glycemia, measures of glycemic variability and measures of
-glycemic risk, from continuous glucose monitoring data obtained from
-diabetic patients. Boris P. Kovatchev, Erik Otto, Daniel Cox, Linda
-Gonder-Frederick, and William Clarke (2006) <doi:10.2337/dc06-1085>.
-Jean-Pierre Le Floch, Philippe Escuyer, Eric Baudin, Dominique Baudon, and
-Leon Perlemuter (1990) <doi:10.2337/diacare.13.2.172>. C.M. McDonnell,
-S.M. Donath, S.I. Vidmar, G.A. Werther, and F.J. Cameron (2005)
-<doi:10.1089/dia.2005.7.253>. Everitt, Brian (1998)
-<doi:10.1111/j.1751-5823.2011.00149_2.x>. Becker, R. A., Chambers, J. M.
-and Wilks, A. R. (1988) <doi:10.2307/2234167>. Dougherty, R. L., Edelman,
-A. and Hyman, J. M. (1989) <doi:10.1090/S0025-5718-1989-0962209-1>. Tukey,
-J. W. (1977) <doi:10.1016/0377-2217(86)90209-2>. F. John Service (2013)
+glycemic risk, from continuous glucose monitoring data. Boris P.
+Kovatchev, Erik Otto, Daniel Cox, Linda Gonder-Frederick, and William
+Clarke (2006) <doi:10.2337/dc06-1085>. Jean-Pierre Le Floch, Philippe
+Escuyer, Eric Baudin, Dominique Baudon, and Leon Perlemuter (1990)
+<doi:10.2337/diacare.13.2.172>. C.M. McDonnell, S.M. Donath, S.I. Vidmar,
+G.A. Werther, and F.J. Cameron (2005) <doi:10.1089/dia.2005.7.253>.
+Everitt, Brian (1998) <doi:10.1111/j.1751-5823.2011.00149_2.x>. Becker, R.
+A., Chambers, J. M. and Wilks, A. R. (1988) <doi:10.2307/2234167>.
+Dougherty, R. L., Edelman, A. and Hyman, J. M. (1989)
+<doi:10.1090/S0025-5718-1989-0962209-1>. Tukey, J. W. (1977)
+<doi:10.1016/0377-2217(86)90209-2>. F. John Service (2013)
 <doi:10.2337/db12-1396>. Edmond A. Ryan, Tami Shandro, Kristy Green, Breay
 W. Paty, Peter A. Senior, David Bigam, A.M. James Shapiro, and
 Marie-Christine Vantyghem (2004) <doi:10.2337/diabetes.53.4.955>. Seniz
@@ -63,6 +67,7 @@ Hermann, Attila J. Szabo, and Peter Toth-Heyn (2015)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

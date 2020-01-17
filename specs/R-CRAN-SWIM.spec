@@ -1,9 +1,9 @@
 %global packname  SWIM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Scenario Weights for Importance Measurement
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-nleqslv
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-Hmisc 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-nleqslv
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-spatstat 
 Requires:         R-stats 
 
 %description
@@ -62,8 +60,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %doc %{rlibdir}/%{packname}/WORDLIST

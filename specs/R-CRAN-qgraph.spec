@@ -1,9 +1,9 @@
 %global packname  qgraph
-%global packver   1.6.3
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.6.4
 Release:          1%{?dist}
 Summary:          Graph Plotting Methods, Psychometric Data Visualization andGraphical Model Estimation
 
@@ -39,6 +39,9 @@ BuildRequires:    R-CRAN-BDgraph
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-ggraph 
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-methods 
 Requires:         R-grDevices 
@@ -64,6 +67,9 @@ Requires:         R-CRAN-BDgraph
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-ggraph 
 
 %description
 Weighted network visualization and analysis, as well as Gaussian graphical
@@ -79,6 +85,7 @@ model computation. See Epskamp et al. (2012) <doi:10.18637/jss.v048.i04>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

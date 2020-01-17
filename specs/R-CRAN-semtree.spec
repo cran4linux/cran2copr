@@ -1,9 +1,9 @@
 %global packname  semtree
-%global packver   0.9.13
+%global packver   0.9.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.13
+Version:          0.9.14
 Release:          1%{?dist}
 Summary:          Recursive Partitioning for Structural Equation Models
 
@@ -12,29 +12,45 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rpart.plot >= 3.0.6
 BuildRequires:    R-CRAN-OpenMx >= 2.6.9
 BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-sets 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-rpart 
-BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-methods 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-rpart.plot >= 3.0.6
 Requires:         R-CRAN-OpenMx >= 2.6.9
 Requires:         R-CRAN-bitops 
 Requires:         R-CRAN-sets 
 Requires:         R-CRAN-digest 
 Requires:         R-rpart 
-Requires:         R-CRAN-rpart.plot 
 Requires:         R-parallel 
 Requires:         R-CRAN-plotrix 
 Requires:         R-cluster 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-methods 
+Requires:         R-MASS 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 SEM Trees and SEM Forests -- an extension of model-based decision trees
@@ -71,5 +87,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

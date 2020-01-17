@@ -1,9 +1,9 @@
 %global packname  coxed
-%global packver   0.3.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Duration-Based Quantities of Interest for the Cox ProportionalHazards Model
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-survival 
@@ -36,7 +36,9 @@ Requires:         R-utils
 
 %description
 Functions for generating, simulating, and visualizing expected durations
-and marginal changes in duration from the Cox proportional hazards model.
+and marginal changes in duration from the Cox proportional hazards model
+as described in Kropko and Harden (2017) <doi:10.1017/S000712341700045X>
+and Harden and Kropko (2018) <doi:10.1017/psrm.2018.19>.
 
 %prep
 %setup -q -c -n %{packname}

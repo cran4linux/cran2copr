@@ -1,9 +1,9 @@
 %global packname  ssdtools
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Species Sensitivity Distributions
 
@@ -15,34 +15,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkr 
+BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-CRAN-FAdist 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-VGAM 
-Requires:         R-CRAN-checkr 
+Requires:         R-CRAN-chk 
 Requires:         R-CRAN-fitdistrplus 
-Requires:         R-CRAN-FAdist 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grid 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-VGAM 
 
 %description
 Species sensitivity distributions are cumulative probability distributions
-which are fitted to toxicity concentrations for multiple species. The
-ssdtools package uses Maximum Likelihood to fit log-normal, log-logistic,
-log-Gumbel, Gompertz, gamma or Weibull distributions. Multiple
-distributions can be averaged using Information Criteria. Confidence
-intervals can be calculated for the fitted cumulative distribution
-function or specific hazard concentrations (percentiles). Confidence
-intervals are currently produced by bootstrapping.
+which are fitted to toxicity concentrations for different species as
+described by Posthuma et al. (2001) <isbn:9781566705783>. The ssdtools
+package uses Maximum Likelihood to fit distributions such as the
+log-normal, gamma, burr Type-III, log-logistic, log-Gumbel, Gompertz and
+Weibull. The user can provide custom distributions. Multiple distributions
+can be averaged using Information Criteria. Confidence intervals on hazard
+concentrations and proportions are produced by parametric bootstrapping.
 
 %prep
 %setup -q -c -n %{packname}
@@ -70,6 +74,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

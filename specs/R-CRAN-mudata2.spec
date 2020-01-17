@@ -1,9 +1,9 @@
 %global packname  mudata2
-%global packver   1.0.7
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Interchange Tools for Multi-Parameter Spatiotemporal Data
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.2
 BuildRequires:    R-CRAN-dplyr >= 0.7
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-jsonlite >= 1.2
 Requires:         R-CRAN-dplyr >= 0.7
@@ -40,6 +41,7 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-fs 
 
 %description
@@ -59,6 +61,7 @@ Dunnington and Spooner (2018) <doi:10.1139/facets-2017-0026>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -71,5 +74,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

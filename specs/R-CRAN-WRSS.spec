@@ -1,9 +1,9 @@
 %global packname  WRSS
-%global packver   2.3
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          3.0
 Release:          1%{?dist}
 Summary:          Water Resources System Simulator
 

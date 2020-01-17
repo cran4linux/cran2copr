@@ -1,9 +1,9 @@
 %global packname  hmi
-%global packver   0.9.16
+%global packver   0.9.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.16
+Version:          0.9.17
 Release:          1%{?dist}
 Summary:          Hierarchical Multiple Imputation
 
@@ -17,9 +17,9 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-MASS >= 7.3.49
 BuildRequires:    R-nnet >= 7.3.12
+BuildRequires:    R-CRAN-mice >= 3.5.0
 BuildRequires:    R-nlme >= 3.1.131.1
 BuildRequires:    R-graphics >= 3.0.0
-BuildRequires:    R-CRAN-mice >= 3.0.0
 BuildRequires:    R-stats >= 3.0.0
 BuildRequires:    R-CRAN-ordinal >= 2015.6.28
 BuildRequires:    R-CRAN-MCMCglmm >= 2.25
@@ -37,9 +37,9 @@ BuildRequires:    R-CRAN-coda >= 0.19.1
 BuildRequires:    R-utils 
 Requires:         R-MASS >= 7.3.49
 Requires:         R-nnet >= 7.3.12
+Requires:         R-CRAN-mice >= 3.5.0
 Requires:         R-nlme >= 3.1.131.1
 Requires:         R-graphics >= 3.0.0
-Requires:         R-CRAN-mice >= 3.0.0
 Requires:         R-stats >= 3.0.0
 Requires:         R-CRAN-ordinal >= 2015.6.28
 Requires:         R-CRAN-MCMCglmm >= 2.25

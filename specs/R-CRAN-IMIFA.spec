@@ -1,9 +1,9 @@
 %global packname  IMIFA
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Infinite Mixtures of Infinite Factor Analysers and RelatedModels
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mclust >= 5.1
-BuildRequires:    R-CRAN-Rfast >= 1.8.4
+BuildRequires:    R-CRAN-Rfast >= 1.9.4
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-mclust >= 5.1
-Requires:         R-CRAN-Rfast >= 1.8.4
+Requires:         R-CRAN-Rfast >= 1.9.4
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-slam 
@@ -31,8 +31,8 @@ Requires:         R-CRAN-viridis
 %description
 Provides flexible Bayesian estimation of Infinite Mixtures of Infinite
 Factor Analysers and related models, for nonparametrically clustering
-high-dimensional data, introduced by Murphy et al. (2018)
-<arXiv:1701.07010v4>. The IMIFA model conducts Bayesian nonparametric
+high-dimensional data, introduced by Murphy et al. (2019)
+<doi:10.1214/19-BA1179>. The IMIFA model conducts Bayesian nonparametric
 model-based clustering with factor analytic covariance structures without
 recourse to model selection criteria to choose the number of clusters or
 cluster-specific latent factors, mostly via efficient Gibbs updates.

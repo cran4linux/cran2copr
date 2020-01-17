@@ -1,9 +1,9 @@
 %global packname  DLMtool
-%global packver   5.4.0
+%global packver   5.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.0
+Version:          5.4.1
 Release:          1%{?dist}
 Summary:          Data-Limited Methods Toolkit
 
@@ -88,6 +88,7 @@ procedures for data-limited fisheries (see Carruthers & Hordyk (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

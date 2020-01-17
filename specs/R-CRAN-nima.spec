@@ -1,9 +1,9 @@
 %global packname  nima
-%global packver   0.5.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Nima Hejazi's R Toolbox
 
@@ -17,38 +17,32 @@ Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-survival 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-ProjectTemplate 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-gtools 
-Requires:         R-survival 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-ProjectTemplate 
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-dplyr 
 Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Miscellaneous R functions developed over the course of statistical
-research and scientific computing. These include, for example, utilities
-that supplement existing idiosyncrasies of the R language, extend existing
-plotting functionality and aesthetics, provide alternative presentations
-of matrix decompositions, and extend access to command line tools and
-systems-level information.
+Miscellaneous R functions developed as collateral damage over the course
+of work in statistical and scientific computing for research. These
+include, for example, utilities that supplement existing idiosyncrasies of
+the R language, extend existing plotting functionality and aesthetics,
+help prepare data objects for imputation, and extend access to command
+line tools and systems-level information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -60,6 +54,7 @@ systems-level information.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  batchtools
-%global packver   0.9.11
+%global packver   0.9.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.11
+Version:          0.9.12
 Release:          1%{?dist}
 Summary:          Tools for Computation on Batch Systems
 
@@ -53,12 +53,12 @@ performance computing systems managed by schedulers 'IBM Spectrum LSF'
 'OpenLava' (<http://www.openlava.org/>), 'Univa Grid Engine'/'Oracle Grid
 Engine' (<http://www.univa.com/>), 'Slurm' (<http://slurm.schedmd.com/>),
 'TORQUE/PBS'
-(<http://www.adaptivecomputing.com/products/open-source/torque/>), or
-'Docker Swarm' (<https://docs.docker.com/swarm/>). A multicore and socket
-mode allow the parallelization on a local machines, and multiple machines
-can be hooked up via SSH to create a makeshift cluster. Moreover, the
-package provides an abstraction mechanism to define large-scale computer
-experiments in a well-organized and reproducible way.
+(<https://adaptivecomputing.com/cherry-services/torque-resource-manager/>),
+or 'Docker Swarm' (<https://docs.docker.com/swarm/>). A multicore and
+socket mode allow the parallelization on a local machines, and multiple
+machines can be hooked up via SSH to create a makeshift cluster. Moreover,
+the package provides an abstraction mechanism to define large-scale
+computer experiments in a well-organized and reproducible way.
 
 %prep
 %setup -q -c -n %{packname}
@@ -70,6 +70,7 @@ experiments in a well-organized and reproducible way.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

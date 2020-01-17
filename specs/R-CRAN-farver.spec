@@ -1,9 +1,9 @@
 %global packname  farver
-%global packver   2.0.1
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.3
 Release:          1%{?dist}
 Summary:          High Performance Colour Space Manipulation
 

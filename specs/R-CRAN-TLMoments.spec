@@ -1,9 +1,9 @@
 %global packname  TLMoments
-%global packver   0.7.4.4
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4.4
+Version:          0.7.5
 Release:          1%{?dist}
 Summary:          Calculate TL-Moments and Convert Them to Distribution Parameters
 

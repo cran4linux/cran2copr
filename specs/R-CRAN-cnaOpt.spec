@@ -1,9 +1,9 @@
 %global packname  cnaOpt
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Optimizing Consistency and Coverage in Configurational CausalModeling
 
@@ -14,14 +14,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-cna >= 2.2.1
+BuildRequires:    R-CRAN-cna >= 2.2.2
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-cna >= 2.2.1
+Requires:         R-CRAN-cna >= 2.2.2
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-ggplot2 

@@ -1,9 +1,9 @@
 %global packname  restriktor
-%global packver   0.2-15
+%global packver   0.2-500
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.15
+Version:          0.2.500
 Release:          1%{?dist}
 Summary:          Restricted Statistical Estimation and Inference for LinearModels
 

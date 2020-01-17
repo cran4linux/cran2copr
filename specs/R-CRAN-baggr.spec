@@ -1,9 +1,9 @@
 %global packname  baggr
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Bayesian Aggregate Treatment Effects
 
@@ -24,20 +24,24 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.17
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-forestplot 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 1.5.0
 Requires:         R-CRAN-Rcpp >= 0.12.17
 Requires:         R-methods 
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-forestplot 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-CRAN-testthat 
 
 %description
 Running and comparing meta-analyses of data with hierarchical Bayesian
@@ -54,6 +58,7 @@ plotting and pooling measures specific to meta-analysis.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -69,5 +74,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/models
+%doc %{rlibdir}/%{packname}/tests
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

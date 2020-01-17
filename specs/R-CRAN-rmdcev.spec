@@ -1,9 +1,9 @@
 %global packname  rmdcev
-%global packver   0.9.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Multiple Discrete-Continuous Extreme Value (MDCEV) Model
 
@@ -13,8 +13,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    make
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-rstan >= 2.18.2
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-Formula 
 Requires:         R-CRAN-rstan >= 2.18.2
 Requires:         R-CRAN-rstantools >= 1.5.1
 Requires:         R-CRAN-dplyr >= 0.7.8
@@ -48,6 +49,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-Formula 
 
 %description
 Estimates different multiple discrete-continuous extreme value (MDCEV)
@@ -89,5 +91,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/stan
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

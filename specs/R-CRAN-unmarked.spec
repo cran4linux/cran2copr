@@ -1,9 +1,9 @@
 %global packname  unmarked
-%global packver   0.12-3
+%global packver   0.13-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.3
+Version:          0.13.1
 Release:          1%{?dist}
 Summary:          Models for Data from Unmarked Animals
 
@@ -26,6 +26,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-Matrix 
+BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.8.0
 Requires:         R-methods 
@@ -38,6 +39,7 @@ Requires:         R-utils
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-raster 
 Requires:         R-Matrix 
+Requires:         R-MASS 
 
 %description
 Fits hierarchical models of animal abundance and occurrence to data
@@ -56,6 +58,7 @@ modeled as functions of covariates.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

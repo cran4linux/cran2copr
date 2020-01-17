@@ -1,9 +1,9 @@
 %global packname  lbfgsb3c
-%global packver   2018-2.13-1
+%global packver   2019-11.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2018.2.13.1
+Version:          2019.11.26
 Release:          1%{?dist}
 Summary:          Limited Memory BFGS Minimizer with Bounds on Parameters withoptim() 'C' Interface
 
@@ -23,13 +23,14 @@ Requires:         R-CRAN-numDeriv
 Requires:         R-methods 
 
 %description
-Interfacing to Nocedal et al. L-BFGS-B.3.0 (2011
-<doi:10.1145/2049662.2049669>) limited memory BFGS minimizer with bounds
-on parameters. This is a fork of 'lbfgsb3'.  This registers a 'R'
-compatible 'C' interface to L-BFGS-B.3.0 that uses the same function types
-and optimization as the optim() function (see writing 'R' extensions and
-source for details).  Ths package also adds more stopping criterion as
-well as allows adjusting more tolerances.
+Interfacing to Nocedal et al. L-BFGS-B.3.0 (See
+<http://users.iems.northwestern.edu/~nocedal/lbfgsb.html>) limited memory
+BFGS minimizer with bounds on parameters. This is a fork of 'lbfgsb3'.
+This registers a 'R' compatible 'C' interface to L-BFGS-B.3.0 that uses
+the same function types and optimization as the optim() function (see
+writing 'R' extensions and source for details).  This package also adds
+more stopping criteria as well as allowing the adjustment of more
+tolerances.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +42,7 @@ well as allows adjusting more tolerances.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -53,6 +55,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/drlbfgsb3.R
 %{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/lbfgsb140731.f

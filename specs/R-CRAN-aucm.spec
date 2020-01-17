@@ -1,9 +1,9 @@
 %global packname  aucm
-%global packver   2018.1-24
+%global packver   2019.12-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2018.1.24
+Version:          2019.12.1
 Release:          1%{?dist}
 Summary:          AUC Maximization
 
@@ -31,6 +31,7 @@ combinations that maximizes the Area Under the AUC Curve (AUC).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

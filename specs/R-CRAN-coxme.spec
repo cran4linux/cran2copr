@@ -1,9 +1,9 @@
 %global packname  coxme
-%global packver   2.2-14
+%global packver   2.2-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.14
+Version:          2.2.16
 Release:          1%{?dist}
 Summary:          Mixed Effects Cox Models
 
@@ -26,12 +26,12 @@ Requires:         R-methods
 Requires:         R-nlme 
 
 %description
-This package fits Cox proportional hazards models containing both fixed
-and random effects.  The random effects can have a general form, of which
-familial interactions (a "kinship" matrix) is a particular special case.
-Note that the simplest case of a mixed effects Cox model, i.e. a single
-random per-group intercept, is also called a "frailty" model.  The
-approach is based on Rippatti and Palgren, Biometrics 2002.
+Fit Cox proportional hazards models containing both fixed and random
+effects.  The random effects can have a general form, of which familial
+interactions (a "kinship" matrix) is a particular special case. Note that
+the simplest case of a mixed effects Cox model, i.e. a single random
+per-group intercept, is also called a "frailty" model.  The approach is
+based on Ripatti and Palmgren, Biometrics 2002.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +43,7 @@ approach is based on Rippatti and Palgren, Biometrics 2002.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

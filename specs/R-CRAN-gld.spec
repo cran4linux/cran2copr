@@ -1,9 +1,9 @@
 %global packname  gld
-%global packver   2.6
+%global packver   2.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          2.6.2
 Release:          1%{?dist}
 Summary:          Estimation and Use of the Generalised (Tukey) LambdaDistribution
 
@@ -27,13 +27,14 @@ Requires:         R-CRAN-lmom
 The generalised lambda distribution, or Tukey lambda distribution,
 provides a wide variety of shapes with one functional form. This package
 provides random numbers, quantiles, probabilities, densities and density
-quantiles for four different types of the distribution, the FKML, RS, GPD
-and FM5 - see documentation for details. It provides the density function,
-distribution function, and Quantile-Quantile plots. It implements a
-variety of estimation methods for the distribution, including diagnostic
-plots. Estimation methods include the starship (all 4 types), method of
-L-Moments for the GPD and FKML types, and a number of methods for only the
-FKML parameterisation. These include maximum likelihood, maximum product
+quantiles for four different types of the distribution, the FKML (Freimer
+et al 1988), RS (Ramberg and Schmeiser 1974), GPD (van Staden and Loots
+2009) and FM5 - see documentation for details. It provides the density
+function, distribution function, and Quantile-Quantile plots. It
+implements a variety of estimation methods for the distribution, including
+diagnostic plots. Estimation methods include the starship (all 4 types),
+method of L-Moments for the GPD and FKML types, and a number of methods
+for only the FKML type. These include maximum likelihood, maximum product
 of spacings, Titterington's method, Moments, Trimmed L-Moments and
 Distributional Least Absolutes.
 
@@ -47,6 +48,7 @@ Distributional Least Absolutes.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

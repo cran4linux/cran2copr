@@ -1,9 +1,9 @@
 %global packname  RJafroc
-%global packver   1.2.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.1
 Release:          1%{?dist}
 Summary:          Analyzing Diagnostic Observer Performance Studies
 
@@ -40,45 +40,62 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Tools for quantitative assessment of medical imaging systems, radiologists
-or computer aided detection ('CAD') algorithms. Implements methods
-described in the book: 'Chakraborty' (2017) <ISBN:978-1482214840>. Data
-collection paradigms include receiver operating characteristic ('ROC') and
-a location specific extension, namely free-response 'ROC' ('FROC'). 'ROC'
-data consists of a single rating per image, where the rating is the
-perceived confidence level the image is of a diseased patient. 'FROC' data
-consists of a variable number (including zero) of mark-rating pairs per
-image, where a mark is the location of a clinically relevant suspicious
-region and the rating is the corresponding confidence level that it is a
-true lesion. The name 'RJafroc' is derived from it being an enhanced R
-version of original Windows 'JAFROC' <http://www.devchakraborty.com>.
-Implemented are a number of figures of merit quantifying performance,
-functions for visualizing operating characteristics and three ROC ratings
-data curve-fitting algorithms: the 'binormal' model ('BM'), the
-contaminated 'binormal' model ('CBM') and the 'radiological' search model
-('RSM') 'Chakraborty' (2006) <{doi:10.1088/0031-9155/51/14/012}> . Also
-implemented is maximum likelihood fitting of paired ROC data, utilizing
-the correlated 'CBM' model ('CORCBM') model. Unlike the 'BM', which
-predicts 'improper' ROC curves, 'CBM', 'CORCBM' and the 'RSM' predict
-proper ROC curves that do not cross the chance diagonal. 'RSM' fitting
-yields measures of search and lesion-classification performances, in
-addition to the usual case-classification performance measured by the area
-under the 'ROC' curve. Search performance is the ability to find lesions
-while avoiding finding non-lesions. Lesion-classification performance is
-the ability to discriminate between found lesions and non-lesions. A
-number of significance testing algorithms are implement. For fully-crossed
-factorial study designs, termed multiple-reader multiple-case,
-significance testing of reader-averaged figure-of-merit differences
-between 'modalities' is implemented using either 'pseudovalue'-based or
-figure of merit-based methods. Single treatment analysis allows comparison
-of performance of a group of radiologists to a specified value, or
-comparison of 'CAD' performance to a group of radiologists interpreting
-the same cases. Sample size estimation tools are provided for 'ROC' and
-'FROC' studies that allow estimation of relevant variances from a pilot
-study, in order to predict required numbers of readers and cases in a
-pivotal study. Utility and data file manipulation functions allow data to
-be read in any of the currently used input formats, including Excel, and
-the results of the analysis can be viewed in text or Excel output files.
+Implements software for assessing medical imaging systems, radiologists or
+computer aided detection algorithms. Models of observer performance are
+implemented, including the binormal model (BM), the contaminated binormal
+model (CBM), the correlated contaminated binormal model (CORCBM), and the
+radiological search model (RSM). The software and applications are
+described in a book - Chakraborty DP: Observer Performance Methods for
+Diagnostic Imaging - Foundations, Modeling, and Applications with R-Based
+Examples. Taylor-Francis LLC; 2017 - and its vignettes
+<https://dpc10ster.github.io/RJafroc/>. Observer performance data
+collection paradigms are the receiver operating characteristic (ROC) and
+its location specific extensions, primarily free-response ROC (FROC) and
+the location ROC (LROC). ROC data consists of single ratings per images. A
+rating is the perceived confidence level that the image is that of a
+diseased patient. FROC data consists of a variable number (including zero)
+of mark-rating pairs per image, where a mark is the location of a
+clinically reportable suspicious region and the rating is the
+corresponding confidence level that it is a real lesion. LROC data
+consists of a rating and a forced localization of the most suspicious
+region on every image. RJafroc supersedes the Windows version of JAFROC
+software V4.2.1, <http://www.devchakraborty.com>:. Package functions are
+organized as follows. Data file related function names are preceded by Df,
+curve fitting functions by Fit, included data sets by dataset, plotting
+functions by Plot, significance testing functions by St, sample size
+related functions by Ss, data simulation functions by Simulate and utility
+functions by Util. Implemented are figures of merit (FOMs) for quantifying
+performance, functions for visualizing empirical operating
+characteristics: e.g., ROC, FROC, alternative FROC (AFROC) and weighted
+AFROC (wAFROC) curves. Four maximum likelihood curve-fitting algorithms
+are implemented: the binormal model (BM), the contaminated binormal model
+(CBM), the correlated contaminated binormal model (CORCBM) and the
+radiological search model (RSM). Unlike the binormal model, CBM, CORCBM
+and RSM predict "proper" ROC curves that do not cross the chance diagonal.
+RSM fitting additionally yields measures of search and
+lesion-classification performances. Search performance is the ability to
+find lesions while avoiding finding non-lesions. Lesion-classification
+performance is the ability to correctly classify found lesions from found
+non-lesions. For fully crossed study designs significance testing of
+reader-averaged FOM differences between modalities is implemented via both
+Dorfman-Berbaum-Metz and the Obuchowski-Rockette methods, including
+Hillis' extensions. Also implemented are single treatment analyses, which
+allow comparison of performance of a group of radiologists to a specified
+value, or comparison to CAD to a group of radiologists interpreting the
+same cases. Crossed-modality analysis is implemented wherein there are two
+crossed treatment factors and the desire is to determined performance in
+each treatment factor averaged over all levels of the other factor. Sample
+size estimation tools are provided for ROC and FROC studies; these use
+estimates of the relevant variances from a pilot study to predict required
+numbers of readers and cases in a pivotal study to achieve a desired
+power. Utility and data file manipulation functions allow data to be read
+in any of the currently used input formats, including Excel, and the
+results of the analysis can be viewed in text or Excel output files. The
+methods are illustrated with several included datasets from the author's
+international collaborations. This version corrects a few bugs noticed by
+users and extends the Excel file input format for greater flexibility in
+handling non-crossed datasets and the sample size routines have been
+rewritten for ease of use.
 
 %prep
 %setup -q -c -n %{packname}
@@ -105,7 +122,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/ANALYZED
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/MRMCRuns
 %{rlibdir}/%{packname}/INDEX

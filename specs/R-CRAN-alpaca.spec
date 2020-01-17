@@ -1,9 +1,9 @@
 %global packname  alpaca
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Fit GLM's with High-Dimensional k-Way Fixed Effects
 
@@ -36,9 +36,10 @@ proposed by Stammann (2018) <arXiv:1707.01815> and is restricted to glm's
 that are based on maximum likelihood estimation and non-linear. It also
 offers an efficient algorithm to recover estimates of the fixed effects in
 a post-estimation routine and includes robust and multi-way clustered
-standard errors. Further the package provides an analytical
-bias-correction for binary choice models (logit and probit) derived by
-Fernandez-Val and Weidner (2016) <doi:10.1016/j.jeconom.2015.12.014>.
+standard errors. Further the package provides analytical bias corrections
+for binary choice models (logit and probit) derived by Fernandez-Val and
+Weidner (2016) <doi:10.1016/j.jeconom.2015.12.014> and Hinz, Stammann, and
+Wanner (2019).
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +51,7 @@ Fernandez-Val and Weidner (2016) <doi:10.1016/j.jeconom.2015.12.014>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

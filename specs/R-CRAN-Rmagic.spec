@@ -1,9 +1,9 @@
 %global packname  Rmagic
-%global packver   1.4.0
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.3
 Release:          1%{?dist}
 Summary:          MAGIC - Markov Affinity-Based Graph Imputation of Cells
 

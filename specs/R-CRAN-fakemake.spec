@@ -1,9 +1,9 @@
 %global packname  fakemake
-%global packver   1.4.1
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.6.0
 Release:          1%{?dist}
 Summary:          Mock the Unix Make Utility
 

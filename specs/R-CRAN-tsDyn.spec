@@ -1,9 +1,9 @@
 %global packname  tsDyn
-%global packver   0.9-48.1
+%global packver   10-1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.48.1
+Version:          10.1.1
 Release:          1%{?dist}
 Summary:          Nonlinear Time Series Models with Regime Switching
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-mgcv 
 BuildRequires:    R-nnet 
@@ -61,6 +61,7 @@ as for TVECM (Hansen and Seo 2002 and Seo 2006).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -75,7 +76,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/ChangeLog
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/tsDyn-design.Stex
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  eurostat
-%global packver   3.3.55
+%global packver   3.4.20002
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.55
+Version:          3.4.20002
 Release:          1%{?dist}
 Summary:          Tools for Eurostat Open Data
 
@@ -19,6 +19,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -35,6 +36,7 @@ Requires:         R-methods
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -63,6 +65,7 @@ utilities.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

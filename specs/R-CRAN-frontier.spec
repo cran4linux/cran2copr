@@ -1,9 +1,9 @@
 %global packname  frontier
-%global packver   1.1-2
+%global packver   1.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.6
 Release:          1%{?dist}
 Summary:          Stochastic Frontier Analysis
 
@@ -32,9 +32,10 @@ Requires:         R-CRAN-moments >= 0.11
 %description
 Maximum Likelihood Estimation of Stochastic Frontier Production and Cost
 Functions. Two specifications are available: the error components
-specification with time-varying efficiencies (Battese and Coelli, 1992)
-and a model specification in which the firm effects are directly
-influenced by a number of variables (Battese and Coelli, 1995).
+specification with time-varying efficiencies (Battese and Coelli, 1992,
+<doi:10.1007/BF00158774>) and a model specification in which the firm
+effects are directly influenced by a number of variables (Battese and
+Coelli, 1995, <doi:10.1007/BF01205442>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +47,7 @@ influenced by a number of variables (Battese and Coelli, 1995).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

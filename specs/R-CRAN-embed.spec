@@ -1,9 +1,9 @@
 %global packname  embed
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          Extra Recipes for Encoding Categorical Predictors
 
@@ -15,8 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 0.8.3
-BuildRequires:    R-CRAN-recipes >= 0.1.4
+BuildRequires:    R-CRAN-recipes >= 0.1.8
 BuildRequires:    R-CRAN-rstanarm 
 BuildRequires:    R-CRAN-keras 
 BuildRequires:    R-stats 
@@ -25,13 +24,13 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-tensorflow 
 BuildRequires:    R-CRAN-uwot 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-tidyr >= 0.8.3
-Requires:         R-CRAN-recipes >= 0.1.4
+Requires:         R-CRAN-recipes >= 0.1.8
 Requires:         R-CRAN-rstanarm 
 Requires:         R-CRAN-keras 
 Requires:         R-stats 
@@ -40,6 +39,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-generics 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-tensorflow 

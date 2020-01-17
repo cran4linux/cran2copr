@@ -1,9 +1,9 @@
 %global packname  ctmm
-%global packver   0.5.7
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.5.8
 Release:          1%{?dist}
 Summary:          Continuous-Time Movement Modeling
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-fasttime 
 BuildRequires:    R-CRAN-Gmedian 
@@ -35,6 +36,7 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-fasttime 
 Requires:         R-CRAN-Gmedian 
@@ -68,8 +70,9 @@ Calabrese (2017) <doi:10.1111/2041-210X.12673>, Péron et al (2017)
 <doi:10.1002/ecm.1260>, Fleming et al (2017)
 <doi:10.1016/j.ecoinf.2017.04.008>, Fleming et al (2018)
 <doi:10.1002/eap.1704>, Winner & Noonan et al (2018)
-<doi:10.1111/2041-210X.13027>, and Fleming et al (2019)
-<doi:10.1111/2041-210X.13270>.
+<doi:10.1111/2041-210X.13027>, Fleming et al (2019)
+<doi:10.1111/2041-210X.13270>, and Noonan & Fleming et al (2019)
+<doi:10.1186/s40462-019-0177-1>.
 
 %prep
 %setup -q -c -n %{packname}

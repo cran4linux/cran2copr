@@ -1,13 +1,13 @@
 %global packname  HTLR
-%global packver   0.4-1
+%global packver   0.4-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}
 Summary:          Bayesian Logistic Regression with Heavy-Tailed Priors
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -30,7 +30,8 @@ Efficient Bayesian multinomial logistic regression based on heavy-tailed
 hyper-parameters is sampled with restricted Gibbs sampling for leveraging
 the high-dimensionality and Hamiltonian Monte Carlo for handling the
 high-correlation among coefficients. A detailed description of the method:
-Li and Yao (2018), JSCS, 88:14, 2827-2851, <arXiv:1405.3319>.
+Li and Yao (2018), Journal of Statistical Computation and Simulation,
+88:14, 2827-2851, <arXiv:1405.3319>.
 
 %prep
 %setup -q -c -n %{packname}

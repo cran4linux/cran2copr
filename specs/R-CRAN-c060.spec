@@ -1,9 +1,9 @@
 %global packname  c060
-%global packver   0.2-4
+%global packver   0.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Extended Inference for Lasso and Elastic-Net Regularized Cox andGeneralized Linear Models
 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-penalizedSVM
 Requires:         R-lattice 
 
 %description
-c060 provides additional functions to perform stability selection, model
-validation and parameter tuning for glmnet models
+The c060 package provides additional functions to perform stability
+selection, model validation and parameter tuning for glmnet models.
 
 %prep
 %setup -q -c -n %{packname}

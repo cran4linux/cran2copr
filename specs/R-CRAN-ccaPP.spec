@@ -1,9 +1,9 @@
 %global packname  ccaPP
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          (Robust) Canonical Correlation Analysis via Projection Pursuit
 
@@ -27,7 +27,7 @@ Requires:         R-CRAN-robustbase
 %description
 Canonical correlation analysis and maximum correlation via projection
 pursuit, as well as fast implementations of correlation estimators, with a
-focus on robust and non-parametric methods.
+focus on robust and nonparametric methods.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +39,7 @@ focus on robust and non-parametric methods.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

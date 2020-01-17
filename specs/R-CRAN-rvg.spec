@@ -1,9 +1,9 @@
 %global packname  rvg
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          R Graphics Devices for Vector Graphics Output
 
@@ -15,15 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildRequires:    R-CRAN-xml2 >= 1.0.0
-BuildRequires:    R-CRAN-officer >= 0.3.5
+BuildRequires:    R-CRAN-officer >= 0.3.6
+BuildRequires:    R-CRAN-gdtools >= 0.2.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-gdtools >= 0.1.6
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-xml2 >= 1.0.0
-Requires:         R-CRAN-officer >= 0.3.5
+Requires:         R-CRAN-officer >= 0.3.6
+Requires:         R-CRAN-gdtools >= 0.2.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-gdtools >= 0.1.6
 Requires:         R-grDevices 
 Requires:         R-CRAN-rlang 
 
@@ -42,6 +42,7 @@ into 'Microsoft PowerPoint' presentations and 'Microsoft Excel' workbooks.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -54,6 +55,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/templates
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

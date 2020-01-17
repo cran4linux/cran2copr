@@ -1,9 +1,9 @@
 %global packname  reproducer
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Reproduce Statistical Analyses and Meta-Analyses
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-metafor >= 1.9.2
 BuildRequires:    R-CRAN-xtable >= 1.7.4
 BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.3.1
@@ -41,7 +40,6 @@ Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-metafor >= 1.9.2
 Requires:         R-CRAN-xtable >= 1.7.4
 Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.3.1
@@ -54,7 +52,7 @@ Requires:         R-CRAN-GetoptLong >= 0.1.7
 
 %description
 Includes data analysis functions (e.g., to calculate effect sizes and 95%
-Confidence Intervals (CI) on Standardised Effect Sizes (d) for ABBA
+Confidence Intervals (CI) on Standardised Effect Sizes (d) for AB/BA
 cross-over repeated-measures experimental designs), data presentation
 functions (e.g., density curve overlaid on histogram), and the data sets
 analyzed in different research papers in software engineering (e.g.,

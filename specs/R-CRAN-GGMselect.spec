@@ -1,9 +1,9 @@
 %global packname  GGMselect
-%global packver   0.1-12.2
+%global packver   0.1-12.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12.2
+Version:          0.1.12.4
 Release:          1%{?dist}
 Summary:          Gaussian Graphs Models Selection
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-lars 
 BuildRequires:    R-CRAN-gtools 
@@ -24,8 +24,10 @@ Requires:         R-CRAN-gtools
 Requires:         R-stats 
 
 %description
-Graph estimation in Gaussian Graphical Models. The main functions return
-the adjacency matrix of an undirected graph estimated from a data matrix.
+Graph estimation in Gaussian Graphical Models, following the method
+developed by C. Giraud, S. Huet and N. Verzelen (2012)
+<doi:10.1515/1544-6115.1625>. The main functions return the adjacency
+matrix of an undirected graph estimated from a data matrix.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +39,7 @@ the adjacency matrix of an undirected graph estimated from a data matrix.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,11 +1,11 @@
 %global packname  DSAIDE
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}
-Summary:          Dynamical Systems Approach to Infectious Disease Epidemiology
+Summary:          Dynamical Systems Approach to Infectious Disease Epidemiology(Ecology/Evolution)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -41,10 +41,10 @@ Requires:         R-CRAN-nloptr
 Requires:         R-CRAN-plotly 
 
 %description
-A collection of 'shiny' apps that allow for the simulation and exploration
-of various infectious disease transmission dynamics scenarios. The purpose
-of the package is to help individuals learn about infectious disease
-epidemiology from a dynamical systems perspective. All apps include
+Exploration of simulation models (apps) of various infectious disease
+transmission dynamics scenarios. The purpose of the package is to help
+individuals learn about infectious disease epidemiology
+(ecology/evolution) from a dynamical systems perspective. All apps include
 explanations of the underlying models and instructions on what to do with
 the models.
 
@@ -58,6 +58,7 @@ the models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

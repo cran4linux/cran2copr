@@ -1,9 +1,9 @@
 %global packname  ritis
-%global packver   0.7.6
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          Integrated Taxonomic Information System Client
 
@@ -18,12 +18,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.9.6
 BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-tibble >= 1.3.4
-BuildRequires:    R-CRAN-solrium >= 1.0.2
+BuildRequires:    R-CRAN-solrium >= 1.1.0
 BuildRequires:    R-CRAN-crul >= 0.4.0
 Requires:         R-CRAN-data.table >= 1.9.6
 Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-tibble >= 1.3.4
-Requires:         R-CRAN-solrium >= 1.0.2
+Requires:         R-CRAN-solrium >= 1.1.0
 Requires:         R-CRAN-crul >= 0.4.0
 
 %description
@@ -58,5 +58,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX

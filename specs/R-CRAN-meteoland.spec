@@ -1,9 +1,9 @@
 %global packname  meteoland
-%global packver   0.8.1
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.3
 Release:          1%{?dist}
 Summary:          Landscape Meteorology Tools
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-ncdf4.helpers 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
@@ -28,7 +27,6 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-ncdf4.helpers 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
@@ -47,6 +45,7 @@ Caceres et al. (2018) <doi:10.1016/j.envsoft.2018.08.003>].
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -58,7 +57,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

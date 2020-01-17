@@ -1,9 +1,9 @@
 %global packname  odbc
-%global packver   1.1.6
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Connect to ODBC Compatible Databases (using the DBI Interface)
 
@@ -17,19 +17,21 @@ BuildRequires:    unixODBC-devel
 Requires:         unixODBC
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-blob >= 1.1.0
+BuildRequires:    R-CRAN-blob >= 1.2.0
 BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.11
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-blob >= 1.1.0
+Requires:         R-CRAN-blob >= 1.2.0
 Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.11
-Requires:         R-methods 
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-hms 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
 A DBI-compatible interface to ODBC databases.
@@ -44,6 +46,7 @@ A DBI-compatible interface to ODBC databases.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

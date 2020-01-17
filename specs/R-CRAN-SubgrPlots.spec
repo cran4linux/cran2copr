@@ -1,9 +1,9 @@
 %global packname  SubgrPlots
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Graphical Displays for Subgroup Analysis in Clinical Trials
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-circlize
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-diagram 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-geoR 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridBase 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-circlize
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-diagram 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-geoR 
 Requires:         R-grid 
 Requires:         R-CRAN-gridBase 
@@ -91,5 +93,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/paper
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

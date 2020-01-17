@@ -1,9 +1,9 @@
 %global packname  BAMMtools
-%global packver   2.1.6
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.7
 Release:          1%{?dist}
 Summary:          Analysis and Visualization of Macroevolutionary Dynamics onPhylogenetic Trees
 
@@ -43,6 +43,7 @@ diversification models using Bayes factors, and more.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  MSEtool
-%global packver   1.3.0
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.3
 Release:          1%{?dist}
 Summary:          Management Strategy Evaluation Toolkit
 
@@ -19,6 +19,7 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
@@ -36,6 +37,7 @@ Requires:         R-MASS
 Requires:         R-CRAN-TMB 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gplots 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -82,5 +84,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/rmarkdown_templates
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

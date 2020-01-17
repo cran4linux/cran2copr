@@ -1,9 +1,9 @@
 %global packname  nlrx
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Setup, Run and Analyze 'NetLogo' Model Simulations from 'R' via'XML'
 
@@ -34,8 +34,10 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-EasyABC 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-sensitivity 
@@ -54,8 +56,10 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-tidyr 
 Requires:         R-methods 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-EasyABC 
 
 %description
 Setup, run and analyze 'NetLogo' (<https://ccl.northwestern.edu/netlogo/>)
@@ -68,9 +72,9 @@ Experiments are submitted from 'R' to 'NetLogo' via 'XML' files that are
 dynamically written, based on specifications defined by the user. By
 nesting model calls in future environments, large simulation design with
 many runs can be executed in parallel. This also enables simulating
-'NetLogo' experiments on remote HPC machines. In order to use this
-package, 'Java' and 'NetLogo' (>= 5.3.1) need to be available on the
-executing system.
+'NetLogo' experiments on remote high performance computing machines. In
+order to use this package, 'Java' and 'NetLogo' (>= 5.3.1) need to be
+available on the executing system.
 
 %prep
 %setup -q -c -n %{packname}

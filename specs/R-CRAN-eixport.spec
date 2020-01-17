@@ -1,9 +1,9 @@
 %global packname  eixport
-%global packver   0.3.6
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Export Emissions to Atmospheric Models
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-ncdf4 
@@ -21,12 +21,20 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cptcity 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-silicate 
+BuildRequires:    R-CRAN-sfheaders 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-methods 
 Requires:         R-CRAN-cptcity 
+Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-silicate 
+Requires:         R-CRAN-sfheaders 
 
 %description
 Emissions are the mass of pollutants released into the atmosphere. Air
@@ -50,6 +58,7 @@ documentations and examples. More details in Ibarra-Espinosa et al (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

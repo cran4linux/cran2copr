@@ -1,9 +1,9 @@
 %global packname  DoseFinding
-%global packver   0.9-16
+%global packver   0.9-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.16
+Version:          0.9.17
 Release:          1%{?dist}
 Summary:          Planning and Analyzing Dose Finding Experiments
 
@@ -25,7 +25,7 @@ dose-finding experiments (with focus on pharmaceutical Phase II clinical
 trials). It provides functions for: multiple contrast tests, fitting
 non-linear dose-response models (using Bayesian and non-Bayesian
 estimation), calculating optimal designs and an implementation of the
-MCPMod methodology.
+MCPMod methodology (Pinheiro et al. (2014) <doi:10.1002/sim.6052>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +37,7 @@ MCPMod methodology.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

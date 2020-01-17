@@ -1,11 +1,11 @@
 %global packname  economiccomplexity
-%global packver   0.2.3
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3
 Release:          1%{?dist}
-Summary:          Methods Used in the Economic Complexity Literature
+Summary:          Create Bipartite Networks Such as Countries and their ExportedProducts
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,14 +31,12 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-rlang 
 
 %description
-A wrapper of different indices and networks commonly used in Economic
-Complexity to explore bipartite relations such as countries and their
-exported products. These methods are also useful for different kind of
-relations such as countries and their spoken languages. The functions
-within this package correspond to code implementations of the equations
-described in Hausmann, et al. (2005) <doi:10.3386/w11905>, Hausmann, et
-al. (2014) <doi:10.7551/mitpress/9647.001.0001>, and Mariani, et al.
-(2015) <doi:10.1140/epjb/e2015-60298-7>.
+A wrapper of different computation methods to create bipartite networks
+such as countries and their exported products, and different kind of
+relations such as countries and their spoken languages. This package
+implements the equations described in Mariani, et al. (2015)
+<doi:10.1140/epjb/e2015-60298-7> and Hausmann, et al. (2014)
+<doi:10.7551/mitpress/9647.001.0001>.
 
 %prep
 %setup -q -c -n %{packname}

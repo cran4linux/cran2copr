@@ -1,9 +1,9 @@
 %global packname  photobiology
-%global packver   0.9.29
+%global packver   0.9.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.29
+Version:          0.9.30
 Release:          1%{?dist}
 Summary:          Photobiological Calculations
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-zoo >= 1.8.5
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-polynom >= 1.4.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-splus2R >= 1.2.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-rlang >= 0.3.4
@@ -29,6 +30,7 @@ Requires:         R-CRAN-zoo >= 1.8.5
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-polynom >= 1.4.0
+Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-splus2R >= 1.2.2
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-rlang >= 0.3.4
@@ -55,6 +57,7 @@ suite, Aphalo P. J. (2015) <doi:10.19232/uv4pb.2015.1.14>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

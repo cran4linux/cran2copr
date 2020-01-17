@@ -1,13 +1,13 @@
 %global packname  MatchThem
-%global packver   0.8.1
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.1
 Release:          1%{?dist}
-Summary:          Matching Multiply Imputed Datasets
+Summary:          Matching and Weighting Multiply Imputed Datasets
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,30 +15,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MatchIt 
+BuildRequires:    R-CRAN-WeightIt 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-WeightIt 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-survey 
 Requires:         R-CRAN-MatchIt 
+Requires:         R-CRAN-WeightIt 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-dplyr 
+Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-mice 
-Requires:         R-CRAN-WeightIt 
 Requires:         R-stats 
+Requires:         R-CRAN-survey 
 
 %description
-Provides the necessary tools for the pre-processing technique of matching
-in multiply imputed datasets, to improve the robustness and transparency
-of deriving causal inferences from studying these datasets. This package
-includes functions to perform propensity score matching within or across
-the imputed datasets as well as to estimate weights (including inverse
-propensity score weights) of observations, to analyze each matched or
-weighted datasets using parametric or non-parametric statistical models,
-and to combine the obtained results from these models according to Rubin’s
-rules. Please see the package repository
-<https://github.com/FarhadPishgar/MatchThem> for details.
+Provides the necessary tools for the pre-processing techniques of matching
+and weighting multiply imputed datasets to control for effects of
+confounders and to reduce the degree of dependence on certain modeling
+assumptions in studying the causal associations between an exposure and an
+outcome. This package includes functions to perform matching within and
+across the multiply imputed datasets using several matching methods, to
+estimate weights of units in the imputed datasets using several weighting
+methods, to calculate the causal effect estimate in each matched or
+weighted dataset using parametric or non-parametric statistical models,
+and to pool the obtained estimates from these models according to Rubin's
+rules (please see <https://github.com/FarhadPishgar/MatchThem> for
+details).
 
 %prep
 %setup -q -c -n %{packname}
@@ -64,4 +72,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

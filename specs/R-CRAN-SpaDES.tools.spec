@@ -1,9 +1,9 @@
 %global packname  SpaDES.tools
-%global packver   0.3.2
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Additional Tools for Developing Spatially Explicit DiscreteEvent Simulation (SpaDES) Models
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-raster >= 2.5.8
 BuildRequires:    R-CRAN-ff >= 2.2.13
 BuildRequires:    R-CRAN-checkmate >= 1.8.2
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-fpCompare >= 0.2.1
 BuildRequires:    R-CRAN-reproducible >= 0.2.0
 BuildRequires:    R-CRAN-ffbase >= 0.12.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
@@ -44,6 +45,7 @@ Requires:         R-CRAN-fpCompare >= 0.2.1
 Requires:         R-CRAN-reproducible >= 0.2.0
 Requires:         R-CRAN-ffbase >= 0.12.3
 Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-backports 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-parallel 
@@ -68,6 +70,7 @@ spatial agents, GIS operations, random map generation, and others. See
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

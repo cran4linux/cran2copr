@@ -1,9 +1,9 @@
 %global packname  DTSg
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          A Class for Working with Time Series Based on 'data.table' and'R6' with Largely Optional Reference Semantics
 
@@ -15,17 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertive.base 
-BuildRequires:    R-CRAN-assertive.numbers 
-BuildRequires:    R-CRAN-assertive.sets 
-BuildRequires:    R-CRAN-assertive.types 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-assertive.base 
-Requires:         R-CRAN-assertive.numbers 
-Requires:         R-CRAN-assertive.sets 
-Requires:         R-CRAN-assertive.types 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 

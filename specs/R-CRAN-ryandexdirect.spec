@@ -1,9 +1,9 @@
 %global packname  ryandexdirect
-%global packver   3.2.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}
 Summary:          Load Data From 'Yandex Direct'
 

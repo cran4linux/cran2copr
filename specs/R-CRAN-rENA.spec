@@ -1,9 +1,9 @@
 %global packname  rENA
-%global packver   0.2.0.0
+%global packver   0.2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0.0
+Version:          0.2.0.1
 Release:          1%{?dist}
 Summary:          Epistemic Network Analysis
 
@@ -23,11 +23,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppParallel 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-R6 
@@ -37,7 +35,6 @@ Requires:         R-stats
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
-Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-magrittr 
 
@@ -83,5 +80,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/rmd
+%doc %{rlibdir}/%{packname}/scripts
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

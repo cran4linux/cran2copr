@@ -1,15 +1,16 @@
 %global packname  XML
-%global packver   3.98-1.20
+%global packver   3.99-0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.98.1.20
+Version:          3.99.0.1
 Release:          1%{?dist}
 Summary:          Tools for Parsing and Generating XML Within R and S-Plus
 
 License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    libxml2-devel >= 2.6.3
 Requires:         libxml2
@@ -32,8 +33,10 @@ access to an 'XPath' "interpreter".
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -49,6 +52,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/COPYRIGHTS
 %doc %{rlibdir}/%{packname}/exampleData
 %doc %{rlibdir}/%{packname}/examples
+%doc %{rlibdir}/%{packname}/FAQ.html
 %doc %{rlibdir}/%{packname}/scripts
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

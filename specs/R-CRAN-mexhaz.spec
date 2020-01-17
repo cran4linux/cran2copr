@@ -1,9 +1,9 @@
 %global packname  mexhaz
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}
 Summary:          Mixed Effect Excess Hazard Models
 
@@ -19,11 +19,13 @@ BuildRequires:    R-CRAN-statmod
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-lamW 
 Requires:         R-survival 
 Requires:         R-CRAN-statmod 
 Requires:         R-MASS 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-splines 
+Requires:         R-CRAN-lamW 
 
 %description
 Fit flexible (excess) hazard regression models with the possibility of
@@ -40,6 +42,7 @@ effect at the cluster level (corresponding to a shared frailty).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

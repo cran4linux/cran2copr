@@ -1,9 +1,9 @@
 %global packname  timeROC
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}
 Summary:          Time-Dependent ROC Curve and AUC for Censored Survival Data
 
@@ -28,6 +28,8 @@ rival markers measured on the same subjects can be computed, using the
 iid-representation of the AUC estimator. Plot functions for time-dependent
 ROC curves and AUC curves are provided. Time-dependent Positive Predictive
 Values (PPV) and Negative Predictive Values (NPV) can also be computed.
+See Blanche et al. (2013) <doi:10.1002/sim.5958> and references therein
+for the details of the methods implemented in the package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +41,7 @@ Values (PPV) and Negative Predictive Values (NPV) can also be computed.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

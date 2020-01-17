@@ -1,9 +1,9 @@
 %global packname  doBy
-%global packver   4.6-2
+%global packver   4.6-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.2
+Version:          4.6.3
 Release:          1%{?dist}
 Summary:          Groupwise Statistics, LSmeans, Linear Contrasts, Utilities
 
@@ -15,18 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pbkrtest >= 0.4.6
 BuildRequires:    R-methods 
 BuildRequires:    R-MASS 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-broom 
+Requires:         R-CRAN-pbkrtest >= 0.4.6
 Requires:         R-methods 
 Requires:         R-MASS 
 Requires:         R-Matrix 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-broom 
 
 %description
 Contains: 1) Facilities for working with grouped data: 'do' something to
@@ -43,6 +51,7 @@ general linear contrasts. 3) Miscellaneous other utilities.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

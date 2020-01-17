@@ -1,9 +1,9 @@
 %global packname  mlr3
-%global packver   0.1.3
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Machine Learning in R - Next Generation
 
@@ -17,26 +17,26 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-lgr >= 0.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.1.3
+BuildRequires:    R-CRAN-mlr3misc >= 0.1.6
+BuildRequires:    R-CRAN-mlr3measures >= 0.1.1
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-mlbench 
 BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-lgr >= 0.3.0
-Requires:         R-CRAN-mlr3misc >= 0.1.3
+Requires:         R-CRAN-mlr3misc >= 0.1.6
+Requires:         R-CRAN-mlr3measures >= 0.1.1
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-mlbench 
 Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-uuid 
 
 %description
 Efficient, object-oriented programming on the building blocks of machine
@@ -56,6 +56,7 @@ provide additional functionality.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -68,6 +69,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/references.bib
 %doc %{rlibdir}/%{packname}/testthat
 %{rlibdir}/%{packname}/INDEX

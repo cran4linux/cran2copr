@@ -1,9 +1,9 @@
 %global packname  sjmisc
-%global packver   2.8.2
+%global packver   2.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.2
+Version:          2.8.3
 Release:          1%{?dist}
 Summary:          Data and Variable Transformation Functions
 
@@ -17,7 +17,7 @@ Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sjlabelled >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
-BuildRequires:    R-CRAN-insight >= 0.5.0
+BuildRequires:    R-CRAN-insight >= 0.6.0
 BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
@@ -27,7 +27,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-sjlabelled >= 1.1.1
 Requires:         R-CRAN-dplyr >= 0.8.0
-Requires:         R-CRAN-insight >= 0.5.0
+Requires:         R-CRAN-insight >= 0.6.0
 Requires:         R-CRAN-tidyselect >= 0.2.5
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
@@ -53,6 +53,7 @@ also support labelled data, and all integrate seamlessly into a
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

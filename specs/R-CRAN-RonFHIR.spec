@@ -1,9 +1,9 @@
 %global packname  RonFHIR
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Read and Search Interface to the 'HL7 FHIR' REST API
 
@@ -27,10 +27,11 @@ Requires:         R-utils
 Requires:         R-CRAN-stringr 
 
 %description
-R on FHIR is an easy to use wrapper around the 'HL7 FHIR' REST API (STU
-3). It provides tools to easily read and search resources on a FHIR server
-and brings the results into the R environment. R on FHIR is based on the
-FhirClient of the official 'HL7 FHIR .NET API', also made by Firely.
+R on FHIR is an easy to use wrapper around the 'HL7 FHIR' REST API (STU 3
+and R4). It provides tools to easily read and search resources on a FHIR
+server and brings the results into the R environment. R on FHIR is based
+on the FhirClient of the official 'HL7 FHIR .NET API', also made by
+Firely.
 
 %prep
 %setup -q -c -n %{packname}

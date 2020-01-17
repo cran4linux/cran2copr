@@ -1,9 +1,9 @@
 %global packname  TestDimorph
-%global packver   0.2.0
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.9
 Release:          1%{?dist}
 Summary:          Analysis Of The Interpopulation Difference In Degree of SexualDimorphism Using Summary Statistics
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rowr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-reshape2 
@@ -31,9 +30,16 @@ BuildRequires:    R-CRAN-mda
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotROC 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-multcompView 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-randomForest 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rowr 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-reshape2 
@@ -47,6 +53,14 @@ Requires:         R-CRAN-mda
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotROC 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-multcompView 
+Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-randomForest 
 
 %description
 Provides two approaches of comparison; the univariate and the multivariate
@@ -68,6 +82,7 @@ Greene, D. L. (1989) <doi:10.1002/ajpa.1330790113> and Konigsberg, L. W.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  litteR
-%global packver   0.6.5
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.7.0
 Release:          1%{?dist}
 Summary:          Litter Analysis
 

@@ -1,9 +1,9 @@
 %global packname  revtools
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Tools to Support Evidence Synthesis
 
@@ -17,8 +17,9 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-modeltools 
-BuildRequires:    R-CRAN-NLP 
+BuildRequires:    R-CRAN-ngram 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-SnowballC 
@@ -28,8 +29,9 @@ BuildRequires:    R-CRAN-topicmodels
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-modeltools 
-Requires:         R-CRAN-NLP 
+Requires:         R-CRAN-ngram 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-slam 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-SnowballC 

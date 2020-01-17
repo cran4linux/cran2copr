@@ -1,9 +1,9 @@
 %global packname  classyfireR
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          R Interface to the ClassyFire RESTful API
 
@@ -21,18 +21,22 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
+Requires:         R-methods 
 
 %description
 Access to the ClassyFire RESTful API <http://classyfire.wishartlab.com>.
@@ -49,6 +53,7 @@ classification.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

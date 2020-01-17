@@ -1,9 +1,9 @@
 %global packname  TimeSeries.OBeu
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}
 Summary:          Time Series Analysis 'OpenBudgets.eu'
 
@@ -15,14 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-locfit 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-trend 
 BuildRequires:    R-CRAN-tseries 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-locfit 
 Requires:         R-CRAN-jsonlite 

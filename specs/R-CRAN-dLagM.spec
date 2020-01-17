@@ -1,9 +1,9 @@
 %global packname  dLagM
-%global packver   1.0.18
+%global packver   1.0.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.18
+Version:          1.0.21
 Release:          1%{?dist}
 Summary:          Time Series Regression Models with Distributed Lag Models
 

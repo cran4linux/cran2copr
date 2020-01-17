@@ -1,9 +1,9 @@
 %global packname  FindIt
-%global packver   1.1.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Finding Heterogeneous Treatment Effects
 
@@ -12,14 +12,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-arm 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-lars 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glinternet 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-sandwich 
@@ -27,12 +27,12 @@ BuildRequires:    R-CRAN-lmtest
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-limSolve 
 Requires:         R-CRAN-arm 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-lars 
 Requires:         R-Matrix 
 Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glinternet 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-sandwich 
@@ -40,6 +40,7 @@ Requires:         R-CRAN-lmtest
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-CRAN-limSolve 
 
 %description
 The heterogeneous treatment effect estimation procedure proposed by Imai
@@ -55,8 +56,9 @@ parameters, thereby making the variable selection suitable for the
 exploration of causal heterogeneity. The package also contains a class of
 functions, CausalANOVA, which estimates the average marginal interaction
 effects (AMIEs) by a regularized ANOVA as proposed by Egami and Imai
-(2016+). It contains a variety of regularization techniques to facilitate
-analysis of large factorial experiments.
+(2019)<DOI:10.1080/01621459.2018.1476246>. It contains a variety of
+regularization techniques to facilitate analysis of large factorial
+experiments.
 
 %prep
 %setup -q -c -n %{packname}
@@ -82,4 +84,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

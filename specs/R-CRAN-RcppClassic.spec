@@ -1,9 +1,9 @@
 %global packname  RcppClassic
-%global packver   0.9.11
+%global packver   0.9.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.11
+Version:          0.9.12
 Release:          1%{?dist}
 Summary:          Deprecated 'classic' 'Rcpp' 'API'
 
@@ -34,6 +34,7 @@ facilitates the integration of R and C++. New projects should use the new
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -48,7 +49,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/unitTests
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
 %doc %{rlibdir}/%{packname}/lib

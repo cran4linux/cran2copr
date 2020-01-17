@@ -1,9 +1,9 @@
 %global packname  MLGL
-%global packver   0.5
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Multi-Layer Group-Lasso
 
@@ -20,11 +20,13 @@ BuildRequires:    R-MASS
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-parallelDist 
 Requires:         R-CRAN-gglasso 
 Requires:         R-MASS 
 Requires:         R-Matrix 
 Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-parallelDist 
 
 %description
 It implements a new procedure of variable selection in the context of
@@ -42,6 +44,7 @@ dimensional data (Grimonprez et al. (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

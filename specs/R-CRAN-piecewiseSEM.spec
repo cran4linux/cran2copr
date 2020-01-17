@@ -1,9 +1,9 @@
 %global packname  piecewiseSEM
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Piecewise Structural Equation Modeling
 
@@ -16,17 +16,21 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-MASS 
-BuildRequires:    R-nlme 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pbkrtest 
+BuildRequires:    R-nlme 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lme4 
 Requires:         R-MASS 
-Requires:         R-nlme 
 Requires:         R-methods 
-Requires:         R-CRAN-pbkrtest 
+Requires:         R-nlme 
 
 %description
 Implements piecewise structural equation modeling from a single list of
@@ -44,6 +48,7 @@ indirect effects. See <http://jslefche.github.io/piecewiseSEM/> for more.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

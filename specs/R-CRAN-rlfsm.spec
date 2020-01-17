@@ -1,9 +1,9 @@
 %global packname  rlfsm
-%global packver   0.3.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Simulations and Statistical Inference for Linear FractionalStable Motions
 

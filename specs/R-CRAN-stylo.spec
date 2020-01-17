@@ -1,9 +1,9 @@
 %global packname  stylo
-%global packver   0.6.9
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          0.7.1
 Release:          1%{?dist}
 Summary:          Stylometric Multivariate Analyses
 
@@ -37,7 +37,7 @@ Supervised and unsupervised multivariate methods, supplemented by GUI and
 some visualizations, to perform various analyses in the field of
 computational stylistics, authorship attribution, etc. For further
 reference, see Eder et al. (2016),
-<https://journal.r-project.org/archive/2016/RJ-2016-007/index.html> You
+<https://journal.r-project.org/archive/2016/RJ-2016-007/index.html>. You
 are also encouraged to visit the Computational Stylistics Group's website
 <https://computationalstylistics.github.io/>, where a reasonable amount of
 information about the package and related projects are provided.
@@ -52,6 +52,7 @@ information about the package and related projects are provided.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

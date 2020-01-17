@@ -1,9 +1,9 @@
 %global packname  RRphylo
-%global packver   2.0.3
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.4.0
 Release:          1%{?dist}
 Summary:          Phylogenetic Ridge Regression Methods for Comparative Studies
 
@@ -12,9 +12,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-emmeans >= 1.4.3
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-geiger 
@@ -32,17 +33,17 @@ BuildRequires:    R-CRAN-R.utils
 BuildRequires:    R-CRAN-binr 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-penalized 
 BuildRequires:    R-CRAN-smatr 
-BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-outliers 
-BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-picante 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-ddpcr 
+BuildRequires:    R-CRAN-geomorph 
+Requires:         R-CRAN-emmeans >= 1.4.3
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-geiger 
@@ -60,24 +61,24 @@ Requires:         R-CRAN-R.utils
 Requires:         R-CRAN-binr 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-nlme 
-Requires:         R-CRAN-penalized 
 Requires:         R-CRAN-smatr 
-Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-outliers 
-Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-picante 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-plotrix 
 Requires:         R-cluster 
 Requires:         R-CRAN-tseries 
+Requires:         R-CRAN-ddpcr 
+Requires:         R-CRAN-geomorph 
 
 %description
-Functions for phylogenetic analysis (Castiglione et al, 2017
+Functions for phylogenetic analysis (Castiglione et al, 2018
 <doi:10.1111/2041-210X.12954>). The functions perform the estimation of
 phenotypic evolutionary rates, identification of phenotypic evolutionary
 rate shifts, quantification of direction and size of evolutionary change
-in multivariate traits, and the computation of ontogenetic shape vectors.
+in multivariate traits, the computation of ontogenetic shape vectors and
+test for morphological convergence.
 
 %prep
 %setup -q -c -n %{packname}
@@ -89,6 +90,7 @@ in multivariate traits, and the computation of ontogenetic shape vectors.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -101,4 +103,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

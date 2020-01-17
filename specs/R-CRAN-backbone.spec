@@ -1,9 +1,9 @@
 %global packname  backbone
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Extracts the Backbone from Weighted Graphs
 
@@ -16,11 +16,15 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-Matrix 
-BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-poibin 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-Matrix 
-Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-poibin 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Provides methods for extracting from a weighted graph a binary or signed

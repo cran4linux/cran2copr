@@ -1,9 +1,9 @@
 %global packname  turboEM
-%global packver   2018.1
+%global packver   2020.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2018.1
+Version:          2020.1
 Release:          1%{?dist}
 Summary:          A Suite of Convergence Acceleration Schemes for EM, MM and OtherFixed-Point Algorithms
 
@@ -44,6 +44,7 @@ with vignette("turboEM").
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  EBPRS
-%global packver   1.2.2
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Derive Polygenic Risk Score Based on Emprical Bayes Theory
 
@@ -28,7 +28,9 @@ This R-package provides the calculation of polygenic risk scores from the
 given training summary statistics and testing data. We can use EB-PRS to
 extract main information, estimate Empirical Bayes parameters, derive
 polygenic risk scores for each individual in testing data, and evaluate
-the PRS according to AUC and predictive r2.
+the PRS according to AUC and predictive r2. See Song et al. (2019)
+<doi:10.1371/journal.pcbi.1007565> for a detailed presentation of the
+method.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  easyalluvial
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Generate Alluvial Plots with a Single Line of Code
 

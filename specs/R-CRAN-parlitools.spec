@@ -1,9 +1,9 @@
 %global packname  parlitools
-%global packver   0.3.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Tools for Analysing UK Politics
 

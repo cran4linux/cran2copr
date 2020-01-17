@@ -1,9 +1,9 @@
 %global packname  customLayout
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Arrange Elements on the R's Drawing Area or Inside thePowerPoint's Slide
 
@@ -15,22 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-flextable >= 0.5.6
+BuildRequires:    R-CRAN-officer >= 0.3.6
+BuildRequires:    R-CRAN-rvg >= 0.2.2
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-rvg 
+Requires:         R-CRAN-flextable >= 0.5.6
+Requires:         R-CRAN-officer >= 0.3.6
+Requires:         R-CRAN-rvg >= 0.2.2
 Requires:         R-CRAN-gridExtra 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-rvg 
 
 %description
 Create complicated drawing areas for multiple elements by combining much
@@ -49,6 +49,7 @@ supports arranging elements inside 'PowerPoint' slides created using the
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

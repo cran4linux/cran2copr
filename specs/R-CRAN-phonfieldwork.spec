@@ -1,9 +1,9 @@
 %global packname  phonfieldwork
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}
 Summary:          Linguistic Phonetic Fieldwork Tools
 
@@ -18,34 +18,31 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-phonTools 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-phonTools 
 Requires:         R-grDevices 
-Requires:         R-CRAN-DT 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-CRAN-rmarkdown 
 
 %description
-There are a lot of different typical tasks that should be solved during
-phonetic research and experiments, such as creation of presentation that
-will contain all stimuli, rename and concatenate multiple sound files
-recorded during phonetic session, automatically annotate 'Praat' TextGrids
+There are a lot of different typical tasks that have to be solved during
+phonetic research and experiments. This includes creating a presentation
+that will contain all stimuli, renaming and concatenating multiple sound
+files recorded during a session, automatic annotation in 'Praat' TextGrids
 (this is one of the sound annotation standards provided by 'Praat'
-software, see Paul Boersma, David Weenink 2018
-<http://www.fon.hum.uva.nl/praat/>), create an html that includes
-annotation and spectrogram tables, convert multiple formats ('Praat'
-TextGrid, 'EXMARaLDA' and 'ELAN') into each other. All those tasks could
-be solved by mixture of different tools (some programs in any programming
-language for automatic renaming, some Praat scripts for the file
-concatenation and renaming, etc). This package provides functionality that
-will make it easier to solve those tasks independently of any of tools.
-You could also compare the functionality with other packages: 'rPraat'
-<https://CRAN.R-project.org/package=rPraat>, 'textgRid'
+software, see Boersma & Weenink 2018 <http://www.fon.hum.uva.nl/praat/>),
+creating an html table with annotations and spectrograms, and converting
+multiple formats ('Praat' TextGrid, 'EXMARaLDA' and 'ELAN'). All of these
+tasks can be solved by a mixture of different tools (any programming
+language has programs for automatic renaming, and Praat contains scripts
+for concatenating and renaming files, etc.). `phonfieldwork` provides a
+functionality that will make it easier to solve those tasks independently
+of any additional tools. You can also compare the functionality with other
+packages: 'rPraat' <https://CRAN.R-project.org/package=rPraat>, 'textgRid'
 <https://CRAN.R-project.org/package=textgRid>.
 
 %prep
@@ -58,6 +55,7 @@ You could also compare the functionality with other packages: 'rPraat'
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

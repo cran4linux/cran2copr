@@ -1,9 +1,9 @@
 %global packname  rosetta
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Parallel Use of Statistical Packages in Teaching
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-psych >= 1.8.4
 BuildRequires:    R-CRAN-pwr >= 1.2.2
 BuildRequires:    R-CRAN-lme4 >= 1.1.19
 BuildRequires:    R-CRAN-ggrepel >= 0.8
+BuildRequires:    R-CRAN-lavaan >= 0.6.5
 BuildRequires:    R-CRAN-pander >= 0.6.3
 BuildRequires:    R-CRAN-rio >= 0.5.10
 BuildRequires:    R-CRAN-ufs >= 0.3.0
@@ -37,6 +38,7 @@ Requires:         R-CRAN-psych >= 1.8.4
 Requires:         R-CRAN-pwr >= 1.2.2
 Requires:         R-CRAN-lme4 >= 1.1.19
 Requires:         R-CRAN-ggrepel >= 0.8
+Requires:         R-CRAN-lavaan >= 0.6.5
 Requires:         R-CRAN-pander >= 0.6.3
 Requires:         R-CRAN-rio >= 0.5.10
 Requires:         R-CRAN-ufs >= 0.3.0
@@ -70,6 +72,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

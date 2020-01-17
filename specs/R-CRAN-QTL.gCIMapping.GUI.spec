@@ -1,9 +1,9 @@
 %global packname  QTL.gCIMapping.GUI
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}
 Summary:          QTL Genome-Wide Composite Interval Mapping with Graphical UserInterface
 
@@ -12,42 +12,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.17
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-qtl 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-parcor 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-QTL.gCIMapping 
 Requires:         R-CRAN-Rcpp >= 0.12.17
 Requires:         R-CRAN-shiny 
 Requires:         R-MASS 
 Requires:         R-CRAN-qtl 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-methods 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-parcor 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-QTL.gCIMapping 
 
 %description
 Conduct multiple quantitative trait loci (QTL) mapping under the framework
-of random-QTL-effect mixed linear model. First, each position on the
-genome is detected in order to construct a negative logarithm P-value
-curve against genome position. Then, all the peaks on each effect
-(additive or dominant) curve are viewed as potential QTL, all the effects
-of the potential QTL are included in a multi-QTL model, their effects are
-estimated by empirical Bayes in doubled haploid or by adaptive lasso in
-F2, and true QTL are identified by likelihood radio test. Wang S-B, Wen
-Y-J, Ren W-L, Ni Y-L, Zhang J, Feng J-Y, Zhang Y-M (2016)
-<doi:10.1038/srep29951>.
+of random-QTL-effect linear mixed model. First, each position on the
+genome is detected in order to obtain a negative logarithm P-value curve
+against genome position. Then, all the peaks on each effect (additive or
+dominant) curve are viewed as potential QTL, all the effects of the
+potential QTL are included in a multi-QTL model, their effects are
+estimated by empirical Bayes in doubled haploid population or by adaptive
+lasso in F2 population, and true QTL are identified by likelihood radio
+test. See Wen et al. (2018) <doi:10.1093/bib/bby058>.
 
 %prep
 %setup -q -c -n %{packname}

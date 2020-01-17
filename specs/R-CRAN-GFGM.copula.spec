@@ -1,9 +1,9 @@
 %global packname  GFGM.copula
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Generalized Farlie-Gumbel-Morgenstern Copula
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-joint.Cox
 %description
 Compute bivariate dependence measures and perform bivariate competing
 risks analysis under the generalized Farlie-Gumbel-Morgenstern (FGM)
-copula. See Shih and Emura (2016) <doi:10.1007/s00362-016-0865-5> and Shih
-and Emura (2018) <doi:10.1007/s00180-018-0804-0> for details.
+copula. See Shih and Emura (2018) <doi:10.1007/s00180-018-0804-0> and Shih
+and Emura (2019) <doi:10.1007/s00362-016-0865-5> for details.
 
 %prep
 %setup -q -c -n %{packname}

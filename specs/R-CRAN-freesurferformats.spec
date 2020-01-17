@@ -1,9 +1,9 @@
 %global packname  freesurferformats
-%global packver   0.1.3
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          Read and Write 'FreeSurfer' Neuroimaging File Formats
 
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pkgfilecache >= 0.1.1
+Requires:         R-CRAN-pkgfilecache >= 0.1.1
 
 %description
 Provides functions to read and write data from neuroimaging files in

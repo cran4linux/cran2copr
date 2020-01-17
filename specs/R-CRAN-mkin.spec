@@ -1,9 +1,9 @@
 %global packname  mkin
-%global packver   0.9.49.5
+%global packver   0.9.49.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.49.5
+Version:          0.9.49.8
 Release:          1%{?dist}
 Summary:          Kinetic Evaluation of Chemical Degradation Data
 
@@ -22,8 +22,8 @@ BuildRequires:    R-CRAN-deSolve
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-inline 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-lmtest 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-methods 
@@ -31,8 +31,8 @@ Requires:         R-CRAN-deSolve
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-inline 
 Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-lmtest 
 
 %description
 Calculation routines based on the FOCUS Kinetics Report (2006, 2014).
@@ -54,6 +54,7 @@ fitness for a particular purpose.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -68,4 +69,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/testdata
 %{rlibdir}/%{packname}/INDEX

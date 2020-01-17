@@ -1,9 +1,9 @@
 %global packname  HH
-%global packver   3.1-37
+%global packver   3.1-39
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.37
+Version:          3.1.39
 Release:          1%{?dist}
 Summary:          Statistical Analysis and Data Display: Heiberger and Holland
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gridExtra >= 2.0.0
+BuildRequires:    R-CRAN-gridExtra >= 2.0
 BuildRequires:    R-CRAN-Rmpfr >= 0.6.0
 BuildRequires:    R-CRAN-shiny >= 0.13.1
 BuildRequires:    R-lattice 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-gridExtra >= 2.0.0
+Requires:         R-CRAN-gridExtra >= 2.0
 Requires:         R-CRAN-Rmpfr >= 0.6.0
 Requires:         R-CRAN-shiny >= 0.13.1
 Requires:         R-lattice 
@@ -78,6 +78,7 @@ directory of the package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

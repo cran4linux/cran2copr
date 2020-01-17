@@ -1,13 +1,13 @@
 %global packname  corporaexplorer
-%global packver   0.6.3
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          A 'Shiny' App for Exploration of Text Collections
 
-License:          GPL-3
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -64,11 +64,12 @@ Requires:         R-CRAN-zoo
 
 %description
 Facilitates dynamic exploration of text collections through an intuitive
-graphical user interface. The package contains 1) a helper function to
-convert a data frame to a 'corporaexplorerobject', 2) a 'Shiny' app for
-fast and flexible exploration of a 'corporaexplorerobject', and 3) a
-'Shiny' app for simple retrieval/extraction of documents from a
-'corporaexplorerobject' in a reading-friendly format.
+graphical user interface and the power of regular expressions. The package
+contains 1) a helper function to convert a data frame to a
+'corporaexplorerobject', 2) a 'Shiny' app for fast and flexible
+exploration of a 'corporaexplorerobject', and 3) a 'Shiny' app for simple
+retrieval/extraction of documents from a 'corporaexplorerobject' in a
+reading-friendly format.
 
 %prep
 %setup -q -c -n %{packname}
@@ -91,6 +92,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R

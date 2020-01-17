@@ -1,9 +1,9 @@
 %global packname  blink
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Record Linkage for Empirically Motivated Priors
 
@@ -33,7 +33,8 @@ for any distance function defined by the user. In addition, the precision
 and recall are in the package to allow one to compare to any other
 comparable method such as logistic regression, Bayesian additive
 regression trees (BART), or random forests. The experiments are
-reproducible and illustrated using a simple vignette.
+reproducible and illustrated using a simple vignette. LICENSE: GPL-3 +
+file license.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,5 +59,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  RCPmod
-%global packver   2.186
+%global packver   2.190
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.186
+Version:          2.190
 Release:          1%{?dist}
 Summary:          Regions of Common Profiles Modelling with Mixtures-of-Experts
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-glmnet >= 2.0.13
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-fishMod 
 BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-glmnet >= 2.0.13
+Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-fishMod 
 Requires:         R-MASS 
-Requires:         R-CRAN-gtools 
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -46,6 +46,7 @@ methods, such as diagnostics.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

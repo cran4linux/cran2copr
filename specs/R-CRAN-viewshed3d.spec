@@ -1,44 +1,44 @@
 %global packname  viewshed3d
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}
-Summary:          Compute Viewshed in 3D Terrestrial Laser Scanner Scenes ofEcosystems
+Summary:          Compute Viewshed in 3D Point Clouds of Ecosystems
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-tcltk >= 3.4.4
-BuildRequires:    R-utils >= 3.4.4
-BuildRequires:    R-CRAN-foreach >= 1.4.4
-BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
-BuildRequires:    R-CRAN-data.table >= 1.12.0
-BuildRequires:    R-CRAN-doParallel >= 1.0.14
-BuildRequires:    R-CRAN-iterators >= 1.0.10
-BuildRequires:    R-CRAN-rgl >= 0.99.16
-BuildRequires:    R-CRAN-VoxR >= 0.5.1
-BuildRequires:    R-CRAN-viridis >= 0.5.1
-Requires:         R-tcltk >= 3.4.4
-Requires:         R-utils >= 3.4.4
-Requires:         R-CRAN-foreach >= 1.4.4
-Requires:         R-CRAN-tcltk2 >= 1.2.11
-Requires:         R-CRAN-data.table >= 1.12.0
-Requires:         R-CRAN-doParallel >= 1.0.14
-Requires:         R-CRAN-iterators >= 1.0.10
-Requires:         R-CRAN-rgl >= 0.99.16
-Requires:         R-CRAN-VoxR >= 0.5.1
-Requires:         R-CRAN-viridis >= 0.5.1
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-lidR 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-TreeLS 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-nabor 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-lidR 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-TreeLS 
+Requires:         R-utils 
+Requires:         R-CRAN-nabor 
+Requires:         R-CRAN-sp 
 
 %description
 A set of tools to compute viewshed in 3D from Terrestrial Laser Scanner
-data and prepare the data prior to visibility calculation.
+data and prepare the data prior to visibility estimation.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +50,7 @@ data and prepare the data prior to visibility calculation.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -58,8 +59,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

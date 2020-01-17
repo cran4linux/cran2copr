@@ -1,9 +1,9 @@
 %global packname  bbmle
-%global packver   1.0.20
+%global packver   1.0.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.20
+Version:          1.0.22
 Release:          1%{?dist}
 Summary:          Tools for General Maximum Likelihood Estimation
 
@@ -21,16 +21,21 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-lattice 
 BuildRequires:    R-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-bdsmatrix 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-stats4 
 Requires:         R-stats 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-lattice 
 Requires:         R-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-bdsmatrix 
+Requires:         R-Matrix 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Methods and functions for fitting maximum likelihood models in R. This
-package modifies and extends the 'mle' classes in the 'stats4' package.
+Methods and functions for fitting maximum likelihood models in R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +47,7 @@ package modifies and extends the 'mle' classes in the 'stats4' package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

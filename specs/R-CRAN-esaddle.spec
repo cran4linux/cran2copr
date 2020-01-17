@@ -1,11 +1,11 @@
 %global packname  esaddle
-%global packver   0.0.3
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.6
 Release:          1%{?dist}
-Summary:          Extended Empirical Saddlepoint Density Approximation
+Summary:          Extended Empirical Saddlepoint Density Approximations
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,7 +30,8 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-mvnfast 
 
 %description
-Tools for fitting the Extended Empirical Saddlepoint (EES) density.
+Tools for fitting the Extended Empirical Saddlepoint (EES) density of
+Fasiolo et al. (2018) <doi:10.1214/18-EJS1433>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +43,7 @@ Tools for fitting the Extended Empirical Saddlepoint (EES) density.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

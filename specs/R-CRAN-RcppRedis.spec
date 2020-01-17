@@ -1,9 +1,9 @@
 %global packname  RcppRedis
-%global packver   0.1.9
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.10
 Release:          1%{?dist}
 Summary:          'Rcpp' Bindings for 'Redis' using the 'hiredis' Library
 
@@ -55,6 +55,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/hiredis.COPYING
 %doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/tests
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

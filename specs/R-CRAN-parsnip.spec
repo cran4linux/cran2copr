@@ -1,9 +1,9 @@
 %global packname  parsnip
-%global packver   0.0.3.1
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.1
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          A Common API to Modeling and Analysis Functions
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-globals 
+BuildRequires:    R-CRAN-prettyunits 
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-dplyr >= 0.8.0.1
 Requires:         R-CRAN-rlang >= 0.3.1
@@ -39,6 +40,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-globals 
+Requires:         R-CRAN-prettyunits 
 
 %description
 A common interface is provided to allow users to specify a model without
@@ -64,7 +66,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md

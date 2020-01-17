@@ -1,9 +1,9 @@
 %global packname  SEERaBomb
-%global packver   2019.1
+%global packver   2019.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2019.1
+Version:          2019.2
 Release:          1%{?dist}
 Summary:          SEER and Atomic Bomb Survivor Data Analysis Tools
 
@@ -74,6 +74,7 @@ cancer risks. Methods are described in <doi:10.1038/leu.2015.258>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

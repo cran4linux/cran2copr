@@ -1,9 +1,9 @@
 %global packname  datarobot
-%global packver   2.14.2
+%global packver   2.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.2
+Version:          2.16.0
 Release:          1%{?dist}
 Summary:          'DataRobot' Predictive Modeling API
 
@@ -15,15 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 2.7
 BuildRequires:    R-CRAN-yaml >= 2.1.13
 BuildRequires:    R-CRAN-httr >= 1.2.0
-BuildRequires:    R-CRAN-curl >= 1.1
 BuildRequires:    R-CRAN-jsonlite >= 1.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-curl >= 2.7
 Requires:         R-CRAN-yaml >= 2.1.13
 Requires:         R-CRAN-httr >= 1.2.0
-Requires:         R-CRAN-curl >= 1.1
 Requires:         R-CRAN-jsonlite >= 1.0
 Requires:         R-methods 
 Requires:         R-stats 
@@ -42,6 +42,7 @@ For working with the 'DataRobot' predictive modeling platform's API
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

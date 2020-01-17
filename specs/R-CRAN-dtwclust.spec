@@ -1,9 +1,9 @@
 %global packname  dtwclust
-%global packver   5.5.5
+%global packver   5.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.5
+Version:          5.5.6
 Release:          1%{?dist}
 Summary:          Time Series Clustering Along with Optimizations for the DynamicTime Warping Distance
 

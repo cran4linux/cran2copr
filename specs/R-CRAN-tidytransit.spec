@@ -1,9 +1,9 @@
 %global packname  tidytransit
-%global packver   0.6
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Read, Validate, Analyze, and Map Files in the General TransitFeed Specification
 
@@ -21,12 +21,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-lubridate 
@@ -40,12 +36,8 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-here 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-lubridate 

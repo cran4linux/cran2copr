@@ -1,9 +1,9 @@
 %global packname  rrpack
-%global packver   0.1-10
+%global packver   0.1-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.11
 Release:          1%{?dist}
 Summary:          Reduced-Rank Regression
 
@@ -27,11 +27,13 @@ Requires:         R-CRAN-lassoshooting
 Requires:         R-MASS 
 
 %description
-Multivariate regression methodologies including reduced-rank regression
-(RRR) proposed by Chen et al. (2013) <doi:10.1093/biomet/ast036>,
-reduced-rank ridge regression (RRS) proposed by Mukherjee and Zhu (2011)
-<doi:10.1002/sam.10138>, robust reduced-rank regression (R4) proposed by
-She and Chen (2017) <doi:10.1093/biomet/asx032>,
+Multivariate regression methodologies including classical reduced-rank
+regression (RRR) studied by Anderson (1951) <doi:10.1214/aoms/1177729580>
+and Reinsel and Velu (1998) <doi:10.1007/978-1-4757-2853-8>, reduced-rank
+regression via adaptive nuclear norm penalization proposed by Chen et al.
+(2013) <doi:10.1093/biomet/ast036> and Mukherjee et al. (2015)
+<doi:10.1093/biomet/asx080>, robust reduced-rank regression (R4) proposed
+by She and Chen (2017) <doi:10.1093/biomet/asx032>,
 generalized/mixed-response reduced-rank regression (mRRR) proposed by Luo
 et al. (2018) <doi:10.1016/j.jmva.2018.04.011>, row-sparse reduced-rank
 regression (SRRR) proposed by Chen and Huang (2012)

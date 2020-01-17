@@ -1,9 +1,9 @@
 %global packname  aqp
-%global packver   1.17
+%global packver   1.18.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17
+Version:          1.18.1
 Release:          1%{?dist}
 Summary:          Algorithms for Quantitative Pedology
 
@@ -26,7 +26,6 @@ BuildRequires:    R-grid
 BuildRequires:    R-lattice 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-plotrix 
@@ -44,7 +43,6 @@ Requires:         R-grid
 Requires:         R-lattice 
 Requires:         R-cluster 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-plotrix 
@@ -82,6 +80,7 @@ bridging the gap between pedometric theory and practice.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -94,7 +93,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/_pkgdown.yml
 %doc %{rlibdir}/%{packname}/CITATION
+%{rlibdir}/%{packname}/example-data
 %{rlibdir}/%{packname}/INDEX

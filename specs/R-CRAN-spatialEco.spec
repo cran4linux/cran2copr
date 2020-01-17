@@ -1,9 +1,9 @@
 %global packname  spatialEco
-%global packver   1.2-1
+%global packver   1.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Spatial Analysis and Modelling Utilities
 
@@ -12,9 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-SpatialPack >= 0.3
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fasterize 
@@ -24,7 +23,6 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-SDMTools 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-rgeos 
@@ -35,6 +33,7 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-velox 
 Requires:         R-CRAN-SpatialPack >= 0.3
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fasterize 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-spatstat 
 Requires:         R-cluster 
 Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-SDMTools 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-rgeos 
@@ -55,6 +53,7 @@ Requires:         R-MASS
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-maptools 
 Requires:         R-methods 
+Requires:         R-CRAN-velox 
 
 %description
 Utilities to support spatial data manipulation, query, sampling and
@@ -75,6 +74,7 @@ optimization, statistical exploratory tools and raster-based metrics.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -90,3 +90,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

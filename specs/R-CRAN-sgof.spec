@@ -1,9 +1,9 @@
 %global packname  sgof
-%global packver   2.3
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.3.2
 Release:          1%{?dist}
 Summary:          Multiple Hypothesis Testing
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.5
-Requires:         R-core >= 3.2.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-poibin 
@@ -22,7 +22,11 @@ Requires:         R-CRAN-poibin
 
 %description
 Seven different methods for multiple testing problems. The SGoF-type
-methods and the BH and BY false discovery rate controlling procedures.
+methods (see for example, Carvajal Rodríguez et al., 2009
+<doi:10.1186/1471-2105-10-209>; de Uña Álvarez, 2012
+<doi:10.1515/1544-6115.1812>; Castro Conde et al., 2015
+<doi:10.1177/0962280215597580>) and the BH and BY false discovery rate
+controlling procedures.
 
 %prep
 %setup -q -c -n %{packname}

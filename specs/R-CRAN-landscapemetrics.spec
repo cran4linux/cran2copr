@@ -1,9 +1,9 @@
 %global packname  landscapemetrics
-%global packver   1.2.2
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.4.1
 Release:          1%{?dist}
 Summary:          Landscape Metrics for Categorical Map Patterns
 

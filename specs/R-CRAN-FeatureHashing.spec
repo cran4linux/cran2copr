@@ -1,9 +1,9 @@
 %global packname  FeatureHashing
-%global packver   0.9.1.3
+%global packver   0.9.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1.3
+Version:          0.9.1.4
 Release:          1%{?dist}
 Summary:          Creates a Model Matrix via Feature Hashing with a FormulaInterface
 
@@ -14,12 +14,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-BH >= 1.54.0.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-digest >= 0.6.8
 BuildRequires:    R-CRAN-Rcpp >= 0.11
 BuildRequires:    R-methods 
 BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-digest >= 0.6.8
 Requires:         R-CRAN-Rcpp >= 0.11
@@ -47,6 +47,7 @@ information.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

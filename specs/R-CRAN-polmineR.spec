@@ -1,9 +1,9 @@
 %global packname  polmineR
-%global packver   0.7.11
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.11
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          Toolkit for Corpus Analysis
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.12.2
 BuildRequires:    R-CRAN-RcppCWB >= 0.2.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-tm 
@@ -29,11 +29,12 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-RcppCWB >= 0.2.2
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-slam 
 Requires:         R-Matrix 
 Requires:         R-CRAN-tm 
@@ -44,6 +45,7 @@ Requires:         R-utils
 Requires:         R-CRAN-jsonlite 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-knitr 
 
 %description
@@ -86,10 +88,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/docker
 %{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/graffle
-%doc %{rlibdir}/%{packname}/init
-%doc %{rlibdir}/%{packname}/Rscript
-%doc %{rlibdir}/%{packname}/sh
+%doc %{rlibdir}/%{packname}/fulltext
 %doc %{rlibdir}/%{packname}/shiny
 %doc %{rlibdir}/%{packname}/sticker
 %doc %{rlibdir}/%{packname}/templates

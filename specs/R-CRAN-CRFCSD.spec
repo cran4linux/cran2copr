@@ -1,9 +1,9 @@
 %global packname  CRFCSD
-%global packver   2.0
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.1
 Release:          1%{?dist}
 Summary:          Mixture Cure Generalized Odds Ratio Frailty Models for ClusteredCurrent Status Data
 

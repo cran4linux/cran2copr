@@ -1,9 +1,9 @@
 %global packname  dataMaid
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          A Suite of Checks for Identification of Potential Errors in aData Frame as Part of the Data Screening Process
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown >= 1.10
 BuildRequires:    R-CRAN-robustbase >= 0.93.2
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
@@ -25,6 +26,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-whoami 
+Requires:         R-CRAN-rmarkdown >= 1.10
 Requires:         R-CRAN-robustbase >= 0.93.2
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
@@ -53,6 +55,7 @@ errors in a dataset.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

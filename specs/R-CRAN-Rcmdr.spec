@@ -1,9 +1,9 @@
 %global packname  Rcmdr
-%global packver   2.6-0
+%global packver   2.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.6.1
 Release:          1%{?dist}
 Summary:          R Commander
 
@@ -29,7 +29,6 @@ BuildRequires:    R-splines
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-formatR 
 Requires:         R-CRAN-effects >= 4.0.3
 Requires:         R-CRAN-car >= 3.0.1
 Requires:         R-CRAN-RcmdrMisc >= 2.5.0
@@ -44,7 +43,6 @@ Requires:         R-splines
 Requires:         R-tcltk 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-formatR 
 
 %description
 A platform-independent basic-statistics GUI (graphical user interface) for
@@ -60,6 +58,7 @@ R, based on the tcltk package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

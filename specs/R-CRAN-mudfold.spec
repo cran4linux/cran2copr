@@ -1,9 +1,9 @@
 %global packname  mudfold
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}
 Summary:          Multiple UniDimensional unFOLDing
 
@@ -15,20 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.3
 Requires:         R-core >= 3.3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-mgcv 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-gtools 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-graphics 
 Requires:         R-boot 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-glmnet 
+Requires:         R-mgcv 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-dplyr 
+Requires:         R-graphics 
 
 %description
 Nonparametric unfolding item response theory (IRT) model for dichotomous

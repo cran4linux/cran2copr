@@ -1,13 +1,13 @@
 %global packname  TSstudio
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Functions for Time Series Analysis and Forecasting
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-future >= 1.10.0
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
 BuildRequires:    R-CRAN-future.apply >= 1.0.1
 BuildRequires:    R-CRAN-scales >= 1.0.0
+BuildRequires:    R-CRAN-tsibble >= 0.8.2
 BuildRequires:    R-CRAN-tidyr >= 0.8.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.5
 BuildRequires:    R-CRAN-bsts >= 0.7.1
@@ -45,6 +46,7 @@ Requires:         R-CRAN-future >= 1.10.0
 Requires:         R-CRAN-RColorBrewer >= 1.1.2
 Requires:         R-CRAN-future.apply >= 1.0.1
 Requires:         R-CRAN-scales >= 1.0.0
+Requires:         R-CRAN-tsibble >= 0.8.2
 Requires:         R-CRAN-tidyr >= 0.8.1
 Requires:         R-CRAN-dplyr >= 0.7.5
 Requires:         R-CRAN-bsts >= 0.7.1
@@ -79,6 +81,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R

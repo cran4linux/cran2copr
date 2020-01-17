@@ -1,9 +1,9 @@
 %global packname  utile.tools
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Summarize Data for Publication
 
@@ -29,12 +29,10 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-stringr 
 
 %description
-A variety of tools for preparing and summarizing data for publication
-purposes. Function verbs include 'tabulate' for creating usable tabulated
-data from models, 'paste' for generating human-readable statistics from a
-variety of summarizable data types, 'calc' for reliably calculating
-differences between data points, and 'test' for conducting simple
-statistical tests which return human-readable results.
+A set of tools for preparing and summarizing data for publication
+purposes. Includes functions for tabulating models, means to produce
+human-readable summary statistics from raw data, tools for calculating
+durations, and simplistic hypothesis testing tools.
 
 %prep
 %setup -q -c -n %{packname}

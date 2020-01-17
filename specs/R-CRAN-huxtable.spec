@@ -1,9 +1,9 @@
 %global packname  huxtable
-%global packver   4.7.0
+%global packver   4.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7.0
+Version:          4.7.1
 Release:          1%{?dist}
 Summary:          Easily Create and Style Tables for LaTeX, HTML and Other Formats
 
@@ -54,6 +54,7 @@ one-liners to print data to a new document.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

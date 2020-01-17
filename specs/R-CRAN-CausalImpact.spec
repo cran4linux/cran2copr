@@ -1,9 +1,9 @@
 %global packname  CausalImpact
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}
 Summary:          Inferring Causal Effects using Bayesian Structural Time-SeriesModels
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bsts >= 0.7.0
+BuildRequires:    R-CRAN-bsts >= 0.9.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-Boom 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-bsts >= 0.7.0
+Requires:         R-CRAN-bsts >= 0.9.0
 Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-Boom 
 Requires:         R-CRAN-dplyr 

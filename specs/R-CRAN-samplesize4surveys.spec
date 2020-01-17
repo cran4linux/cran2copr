@@ -1,9 +1,9 @@
 %global packname  samplesize4surveys
-%global packver   3.7.5.1
+%global packver   4.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.5.1
+Version:          4.1.1
 Release:          1%{?dist}
 Summary:          Sample Size Calculations for Complex Surveys
 
@@ -17,8 +17,12 @@ Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-TeachingSampling 
 BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-TeachingSampling 
 Requires:         R-CRAN-timeDate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
 Computes the required sample size for estimation of totals, means and

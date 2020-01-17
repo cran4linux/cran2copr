@@ -1,9 +1,9 @@
 %global packname  tvR
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Total Variation Regularization
 
@@ -17,10 +17,12 @@ Requires:         R-core >= 2.14.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-Matrix 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-utils 
 
 %description
 Provides tools for denoising noisy signal and images via Total Variation
@@ -51,7 +53,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

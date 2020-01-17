@@ -1,9 +1,9 @@
 %global packname  xmeta
-%global packver   1.1-4
+%global packver   1.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}
 Summary:          A Toolbox for Multivariate Meta-Analysis
 
@@ -32,7 +32,7 @@ Requires:         R-stats
 A toolbox for meta-analysis. This package includes a collection of
 functions for (1) implementing robust multivariate meta-analysis of
 continuous or binary outcomes; and (2) a bivariate Egger's test for
-detecting publication bias.
+detecting small study effects.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +44,7 @@ detecting publication bias.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

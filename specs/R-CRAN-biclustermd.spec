@@ -1,9 +1,9 @@
 %global packname  biclustermd
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Biclustering with Missing Data
 
@@ -41,8 +41,8 @@ solution space of biclustering is in infeasible to completely search with
 current computational mechanisms, this package uses a greedy heuristic.
 The algorithm featured in this package is, to the best our knowledge, the
 first biclustering algorithm to work on data with missing values. Li, J.,
-Reisner, J., Pham, H., Olafsson, S., and Vardeman, S. (2019) Biclustering
-for Missing Data. Information Sciences, Submitted.
+Reisner, J., Pham, H., Olafsson, S., and Vardeman, S. (2020) Biclustering
+with Missing Data. Information Sciences, 510, 304–316.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +54,7 @@ for Missing Data. Information Sciences, Submitted.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

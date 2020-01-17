@@ -1,9 +1,9 @@
 %global packname  inlmisc
-%global packver   0.4.8
+%global packver   0.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.8
+Version:          0.4.9
 Release:          1%{?dist}
 Summary:          Miscellaneous Functions for the USGS INL Project Office
 
@@ -79,6 +79,7 @@ at the United States Geological Survey (USGS) Idaho National Laboratory
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -95,7 +96,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/misc
-%doc %{rlibdir}/%{packname}/raw
 %doc %{rlibdir}/%{packname}/rmarkdown
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

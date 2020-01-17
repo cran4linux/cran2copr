@@ -1,9 +1,9 @@
 %global packname  lori
-%global packver   2.1.3
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.2.0
 Release:          1%{?dist}
 Summary:          Imputation of Count Data using Side Information
 
@@ -17,12 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-FactoMineR 
 BuildRequires:    R-CRAN-rARPACK 
 BuildRequires:    R-CRAN-svd 
 Requires:         R-stats 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-FactoMineR 
 Requires:         R-CRAN-rARPACK 
 Requires:         R-CRAN-svd 
 
@@ -44,6 +42,7 @@ package also contains a multiple imputation procedure.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

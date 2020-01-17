@@ -1,9 +1,9 @@
 %global packname  asremlPlus
-%global packver   4.1-26
+%global packver   4.1-36
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.26
+Version:          4.1.36
 Release:          1%{?dist}
 Summary:          Augments 'ASReml-R' in Fitting Mixed Models and PackagesGenerally in Exploring Prediction Differences
 
@@ -75,6 +75,7 @@ The package 'asremPlus' can also be installed from
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

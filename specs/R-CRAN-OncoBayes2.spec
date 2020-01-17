@@ -1,9 +1,9 @@
 %global packname  OncoBayes2
-%global packver   0.4-4
+%global packver   0.5-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.8
 Release:          1%{?dist}
 Summary:          Bayesian Logistic Regression for Oncology Dose-Escalation Trials
 
@@ -17,32 +17,32 @@ Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstantools >= 2.0.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-rstantools >= 1.4.0
 BuildRequires:    R-CRAN-bayesplot >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.1
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-RBesT 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 1.4.0
+Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-bayesplot >= 1.4.0
-Requires:         R-CRAN-dplyr >= 0.7.1
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.0
+Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-RBesT 
 
@@ -83,5 +83,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/NEWS
 %doc %{rlibdir}/%{packname}/sbc
+%doc %{rlibdir}/%{packname}/stan
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

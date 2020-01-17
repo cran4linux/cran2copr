@@ -1,9 +1,9 @@
 %global packname  AROC
-%global packver   1.0
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Covariate-Adjusted Receiver Operating Characteristic CurveInference
 
@@ -24,6 +24,8 @@ BuildRequires:    R-Matrix
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-nor1mix 
+BuildRequires:    R-CRAN-spatstat 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -33,6 +35,8 @@ Requires:         R-Matrix
 Requires:         R-CRAN-Hmisc 
 Requires:         R-MASS 
 Requires:         R-CRAN-moments 
+Requires:         R-CRAN-nor1mix 
+Requires:         R-CRAN-spatstat 
 
 %description
 Estimates the covariate-adjusted Receiver Operating Characteristic (AROC)
@@ -49,6 +53,7 @@ Carvalho, V., and Rodriguez-Alvarez, M. X. (2018) <arXiv:1806.00473>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

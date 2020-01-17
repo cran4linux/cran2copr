@@ -1,9 +1,9 @@
 %global packname  AzureContainers
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Interface to 'Container Instances', 'Docker Registry' and'Kubernetes' in 'Azure'
 
@@ -16,17 +16,19 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-AzureRMR >= 2.0.0
+BuildRequires:    R-CRAN-AzureGraph >= 1.1.0
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-AzureGraph 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-processx 
 Requires:         R-CRAN-AzureRMR >= 2.0.0
+Requires:         R-CRAN-AzureGraph >= 1.1.0
 Requires:         R-utils 
-Requires:         R-CRAN-AzureGraph 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-processx 
 
 %description
 An interface to container functionality in Microsoft's 'Azure' cloud:
@@ -34,8 +36,8 @@ An interface to container functionality in Microsoft's 'Azure' cloud:
 Container Instance' (ACI), 'Azure Container Registry' (ACR) and 'Azure
 Kubernetes Service' (AKS) resources, push and pull images, and deploy
 services. On the client side, lightweight shells to the 'docker',
-'kubectl' and 'helm' commandline tools are provided. Part of the 'AzureR'
-family of packages.
+'docker-compose', 'kubectl' and 'helm' commandline tools are provided.
+Part of the 'AzureR' family of packages.
 
 %prep
 %setup -q -c -n %{packname}

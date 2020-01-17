@@ -1,9 +1,9 @@
 %global packname  Haplin
-%global packver   7.1.0
+%global packver   7.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.1.0
+Version:          7.2.2
 Release:          1%{?dist}
 Summary:          Analyzing Case-Parent Triad and/or Case-Control Data with SNPHaplotypes
 
@@ -12,23 +12,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-tools 
 BuildRequires:    R-mgcv 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-ff 
 BuildRequires:    R-CRAN-ffbase 
-BuildRequires:    R-CRAN-SuppDists 
-BuildRequires:    R-CRAN-snow 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
 Requires:         R-tools 
 Requires:         R-mgcv 
 Requires:         R-MASS 
 Requires:         R-CRAN-ff 
 Requires:         R-CRAN-ffbase 
-Requires:         R-CRAN-SuppDists 
-Requires:         R-CRAN-snow 
+Requires:         R-CRAN-rlang 
+Requires:         R-methods 
 
 %description
 Performs genetic association analyses of case-parent triad (trio) data
@@ -57,6 +56,7 @@ effects. The models were originally described in Gjessing, HK and Lie, RT
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -72,3 +72,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

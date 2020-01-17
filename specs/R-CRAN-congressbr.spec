@@ -1,9 +1,9 @@
 %global packname  congressbr
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Downloads, Unpacks and Tidies Legislative Data from theBrazilian Federal Senate and Chamber of Deputies
 
@@ -48,7 +48,7 @@ Requires:         R-CRAN-progress >= 0.0.1
 Downloads and tidies data from the Brazilian Federal Senate and Chamber of
 Deputies Application Programming Interfaces available at <http://
 legis.senado.gov.br/dadosabertos/> and
-<http://www.camara.leg.br/SitCamaraWS/> respectively.
+<https://dadosabertos.camara.leg.br/> respectively.
 
 %prep
 %setup -q -c -n %{packname}
@@ -60,6 +60,7 @@ legis.senado.gov.br/dadosabertos/> and
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

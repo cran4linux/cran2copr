@@ -1,13 +1,13 @@
 %global packname  sharpeRratio
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Moment-Free Estimation of Sharpe Ratios
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,7 +21,7 @@ Requires:         R-CRAN-ghyp
 
 %description
 An efficient moment-free estimator of the Sharpe ratio, or signal-to-noise
-ratio, for heavy-tailed data (see <https://arxiv.org/abs/1505.01333>).
+ratio, for heavy-tailed data (see <arXiv:1505.01333>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +45,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

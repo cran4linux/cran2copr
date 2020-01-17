@@ -1,9 +1,9 @@
 %global packname  detzrcr
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Compare Detrital Zircon Suites
 
@@ -21,12 +21,14 @@ BuildRequires:    R-MASS
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-shiny 
 Requires:         R-MASS 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-CRAN-DT 
 
 %description
 Compare detrital zircon suites by uploading univariate, U-Pb age, or
@@ -45,6 +47,7 @@ community.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

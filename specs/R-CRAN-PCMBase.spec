@@ -1,9 +1,9 @@
 %global packname  PCMBase
-%global packver   1.2.10
+%global packver   1.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.10
+Version:          1.2.11
 Release:          1%{?dist}
 Summary:          Simulation and Likelihood Calculation of PhylogeneticComparative Models
 

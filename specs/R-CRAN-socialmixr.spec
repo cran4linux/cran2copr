@@ -1,9 +1,9 @@
 %global packname  socialmixr
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Social Mixing Matrices for Infectious Disease Modelling
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-wpp2015
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-wpp2015
 Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-lubridate 
 
 %description
 Provides methods for sampling contact matrices from diary data for use in

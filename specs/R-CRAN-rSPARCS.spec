@@ -1,9 +1,9 @@
 %global packname  rSPARCS
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}
 Summary:          Statistical Package for Analysis Related Cleaning Support
 

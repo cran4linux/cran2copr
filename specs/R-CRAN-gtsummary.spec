@@ -1,9 +1,9 @@
 %global packname  gtsummary
-%global packver   1.2.1
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.4
 Release:          1%{?dist}
 Summary:          Presentation-Ready Data Summary and Analytic Result Tables
 
@@ -16,32 +16,36 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.0.1
+BuildRequires:    R-CRAN-usethis >= 1.5.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-tidyr >= 0.8.2
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.8
 BuildRequires:    R-CRAN-broom >= 0.5.1
 BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 BuildRequires:    R-CRAN-broom.mixed >= 0.2.3
+BuildRequires:    R-CRAN-lifecycle >= 0.1.0
 BuildRequires:    R-survival 
 Requires:         R-CRAN-tibble >= 2.0.1
+Requires:         R-CRAN-usethis >= 1.5.1
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-tidyr >= 0.8.2
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.8
 Requires:         R-CRAN-broom >= 0.5.1
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-tidyselect >= 0.2.5
 Requires:         R-CRAN-broom.mixed >= 0.2.3
+Requires:         R-CRAN-lifecycle >= 0.1.0
 Requires:         R-survival 
 
 %description

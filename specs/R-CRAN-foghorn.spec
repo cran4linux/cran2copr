@@ -1,9 +1,9 @@
 %global packname  foghorn
-%global packver   1.1.0
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.4
 Release:          1%{?dist}
 Summary:          Summarize CRAN Check Results in the Terminal
 
@@ -33,7 +33,8 @@ Requires:         R-CRAN-xml2 >= 1.0.0
 Requires:         R-CRAN-rvest >= 0.3.2
 
 %description
-The CRAN check results in your R terminal.
+The CRAN check results and where your package stands in the CRAN
+submission queue in your R terminal.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +46,7 @@ The CRAN check results in your R terminal.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

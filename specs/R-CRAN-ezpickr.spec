@@ -1,9 +1,9 @@
 %global packname  ezpickr
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Easy Data Import Using GUI File Picker and SeamlessCommunication Between an Excel and R
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-readxl 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-mboxr
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readxl 

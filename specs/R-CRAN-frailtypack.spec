@@ -1,9 +1,9 @@
 %global packname  frailtypack
-%global packver   3.0.3.2
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3.2
+Version:          3.1.0
 Release:          1%{?dist}
 Summary:          General Frailty Models: Shared, Joint and Nested Frailty Modelswith Prediction; Evaluation of Failure-Time Surrogate Endpoints
 
@@ -21,6 +21,13 @@ BuildRequires:    R-CRAN-survC1
 BuildRequires:    R-CRAN-doBy 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyBS 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-rhandsontable 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-survival 
 Requires:         R-boot 
 Requires:         R-MASS 
@@ -28,6 +35,13 @@ Requires:         R-CRAN-survC1
 Requires:         R-CRAN-doBy 
 Requires:         R-CRAN-statmod 
 Requires:         R-nlme 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyBS 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-rhandsontable 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-jsonlite 
 
 %description
 The following several classes of frailty models using a penalized
@@ -52,14 +66,17 @@ terminal event. 8) Joint models for longitudinal data and a terminal
 event. 9) Trivariate joint models for longitudinal data, recurrent events
 and a terminal event. 10) Joint frailty models for the validation of
 surrogate endpoints in multiple randomized clinical trials with
-failure-time endpoints Prediction values are available (for a terminal
-event or for a new recurrent event). Left-truncated (not for Joint model),
-right-censored data, interval-censored data (only for Cox proportional
-hazard and shared frailty model) and strata are allowed. In each model,
-the random effects have the gamma or normal distribution. Now, you can
-also consider time-varying covariates effects in Cox, shared and joint
-frailty models (1-5). The package includes concordance measures for Cox
-proportional hazards models and for shared frailty models.
+failure-time endpoints 11) Two-part joint model for longitudinal
+semicontinuous data and a terminal event. Prediction values are available
+(for a terminal event or for a new recurrent event). Left-truncated (not
+for Joint model), right-censored data, interval-censored data (only for
+Cox proportional hazard and shared frailty model) and strata are allowed.
+In each model, the random effects have the gamma or normal distribution.
+Now, you can also consider time-varying covariates effects in Cox, shared
+and joint frailty models (1-5). The package includes concordance measures
+for Cox proportional hazards models and for shared frailty models.
+Moreover, the package can be used with its shiny application, in a local
+mode or by following the link below.
 
 %prep
 %setup -q -c -n %{packname}
@@ -71,6 +88,7 @@ proportional hazards models and for shared frailty models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -87,5 +105,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/shiny_frailtypack
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

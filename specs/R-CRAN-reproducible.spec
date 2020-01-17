@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  reproducible
-%global packver   0.2.10
+%global packver   0.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.2.11
 Release:          1%{?dist}
 Summary:          A Set of Tools that Enhance Reproducibility Beyond PackageManagement
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
+BuildArch:        noarch
 BuildRequires:    R-CRAN-archivist >= 2.1.2
 BuildRequires:    R-CRAN-RCurl >= 1.95.4.8
 BuildRequires:    R-CRAN-data.table >= 1.10.4
@@ -97,6 +98,7 @@ features are still under active development.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  RHRV
-%global packver   4.2.4
+%global packver   4.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.4
+Version:          4.2.5
 Release:          1%{?dist}
 Summary:          Heart Rate Variability Analysis of ECG Data
 
@@ -29,7 +29,8 @@ Requires:         R-CRAN-tkrplot >= 0.0.18
 Allows users to import data files containing heartbeat positions in the
 most broadly used formats, to remove outliers or points with unacceptable
 physiological values present in the time series, to plot HRV data, and to
-perform time domain, frequency domain and nonlinear HRV analysis.
+perform time domain, frequency domain and nonlinear HRV analysis. See
+Garcia et al. (2017) <DOI:10.1007/978-3-319-65355-6>.
 
 %prep
 %setup -q -c -n %{packname}

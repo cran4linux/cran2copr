@@ -1,9 +1,9 @@
 %global packname  vistime
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Pretty Timeline Creation
 
@@ -17,16 +17,18 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.0.0
 BuildRequires:    R-CRAN-RColorBrewer >= 0.2.2
+BuildRequires:    R-CRAN-assertive >= 0.1.4
 Requires:         R-CRAN-plotly >= 4.0.0
 Requires:         R-CRAN-RColorBrewer >= 0.2.2
+Requires:         R-CRAN-assertive >= 0.1.4
 
 %description
 Create interactive timelines or Gantt charts that are usable in the
 'RStudio' viewer pane, in 'R Markdown' documents and in 'Shiny' apps.
 Hover the mouse pointer over a point or task to show details or drag a
 rectangle to zoom in. Timelines and their components can afterwards be
-manipulated using 'plotly_build()', which transforms the plot into a
-mutable list.
+manipulated using plotly_build(), which transforms the plot into a mutable
+list.
 
 %prep
 %setup -q -c -n %{packname}

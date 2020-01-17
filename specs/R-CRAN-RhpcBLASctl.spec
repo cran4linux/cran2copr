@@ -1,9 +1,9 @@
 %global packname  RhpcBLASctl
-%global packver   0.18-205
+%global packver   0.20-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18.205
+Version:          0.20.17
 Release:          1%{?dist}
 Summary:          Control the Number of Threads on 'BLAS'
 

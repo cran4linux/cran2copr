@@ -1,9 +1,9 @@
 %global packname  boxr
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          Interface for the 'Box.com API'
 
@@ -24,8 +24,11 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-httr >= 1.1.0
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-assertthat 
@@ -35,8 +38,11 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-mime 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-fs 
 Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
 An R interface for the remote file hosting service 'Box'
@@ -56,6 +62,7 @@ box_push()).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -70,4 +77,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/secret
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  BNPmix
-%global packver   0.2.3
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Bayesian Nonparametric Mixture Models
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-Rcpp >= 0.12.13
 
 %description
 Functions to perform Bayesian nonparametric univariate and multivariate
@@ -38,6 +39,7 @@ dependent Dirichlet process mixtures for partially exchangeable data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

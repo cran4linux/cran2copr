@@ -1,9 +1,9 @@
 %global packname  RSpectra
-%global packver   0.15-0
+%global packver   0.16-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          0.16.0
 Release:          1%{?dist}
 Summary:          Solvers for Large-Scale Eigenvalue and SVD Problems
 

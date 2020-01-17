@@ -1,9 +1,9 @@
 %global packname  imagefluency
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Image Statistics Based on Processing Fluency
 
@@ -18,13 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-readbitmap 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-OpenImageR 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-readbitmap 
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-OpenImageR 
 

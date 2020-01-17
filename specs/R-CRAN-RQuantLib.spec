@@ -1,9 +1,9 @@
 %global packname  RQuantLib
-%global packver   0.4.10
+%global packver   0.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.4.11
 Release:          1%{?dist}
 Summary:          R Interface to the 'QuantLib' Library
 
@@ -65,6 +65,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.Rd
 %license %{rlibdir}/%{packname}/QuantLib_LICENSE.TXT
 %doc %{rlibdir}/%{packname}/shiny
-%doc %{rlibdir}/%{packname}/unitTests
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

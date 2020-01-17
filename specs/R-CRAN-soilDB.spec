@@ -1,9 +1,9 @@
 %global packname  soilDB
-%global packver   2.3.5
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          2.4.1
 Release:          1%{?dist}
 Summary:          Soil Database Interface
 
@@ -21,24 +21,24 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-lattice 
 Requires:         R-CRAN-aqp 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-curl 
+Requires:         R-lattice 
 
 %description
 A collection of functions for reading data from USDA-NCSS soil databases.
@@ -53,6 +53,7 @@ A collection of functions for reading data from USDA-NCSS soil databases.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -64,6 +65,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

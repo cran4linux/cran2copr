@@ -1,9 +1,9 @@
 %global packname  archiDART
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}
 Summary:          Plant Root System Architecture Analysis Using DART and RSMLFiles
 
@@ -18,17 +18,25 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-TDA 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
+Requires:         R-CRAN-gtools 
 Requires:         R-grDevices 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-TDA 
+Requires:         R-methods 
 
 %description
 Analysis of complex plant root system architectures (RSA) using the output
@@ -54,6 +62,7 @@ of plant root architectural traits", Plant and Soil,
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  runner
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Running Operations for Vectors
 
@@ -18,11 +18,10 @@ BuildRequires:    R-CRAN-Rcpp
 Requires:         R-CRAN-Rcpp 
 
 %description
-Calculates running functions (a.k.a. windowed, rolling, cumulative) with
-varying window size and missing handling options. Package brings also
-running streak and running which, what extends beyond range of functions
-already implemented in R packages. Calculating on windows depending on
-date also available.
+Calculates running functions with varying window size and missing handling
+options. Package brings also running streak and running which, what
+extends beyond range of functions already implemented in R packages.
+Calculating on windows depending on date also available.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,5 +47,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  rcompanion
-%global packver   2.3.7
+%global packver   2.3.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.7
+Version:          2.3.21
 Release:          1%{?dist}
 Summary:          Functions to Support Extension Education Program Evaluation
 
@@ -52,6 +52,7 @@ Biological Statistics". Vignettes are available at
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  leaflet
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}
 Summary:          Create Interactive Web Maps with the JavaScript 'Leaflet'Library
 
@@ -11,9 +11,11 @@ License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
+
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-leaflet.providers >= 1.8.0
 BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-viridis >= 0.5.1
 BuildRequires:    R-CRAN-base64enc 
@@ -28,6 +30,7 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-leaflet.providers >= 1.8.0
 Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-viridis >= 0.5.1
 Requires:         R-CRAN-base64enc 
@@ -56,8 +59,10 @@ documents.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

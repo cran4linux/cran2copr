@@ -1,9 +1,9 @@
 %global packname  SYNCSA
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}
 Summary:          Analysis of Functional and Phylogenetic Patterns inMetacommunities
 
@@ -36,8 +36,8 @@ Requires:         R-parallel
 Analysis of metacommunities based on functional traits and phylogeny of
 the community components. The functions that are offered here implement
 for the R environment methods that have been available in the SYNCSA
-application written in C++ (by Valerio Pillar, available at <http://
-ecoqua.ecologia.ufrgs.br/ecoqua/SYNCSA.html>).
+application written in C++ (by Valerio Pillar, available at
+<http://ecoqua.ecologia.ufrgs.br/SYNCSA.html>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +49,7 @@ ecoqua.ecologia.ufrgs.br/ecoqua/SYNCSA.html>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

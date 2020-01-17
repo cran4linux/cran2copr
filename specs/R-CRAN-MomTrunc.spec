@@ -1,9 +1,9 @@
 %global packname  MomTrunc
-%global packver   4.59
+%global packver   5.57
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.59
+Version:          5.57
 Release:          1%{?dist}
 Summary:          Moments of Folded and Doubly Truncated MultivariateDistributions
 
@@ -14,19 +14,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-tlrmvnmvt 
+BuildRequires:    R-CRAN-hypergeo 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-tlrmvnmvt 
+Requires:         R-CRAN-hypergeo 
+Requires:         R-CRAN-tmvtnorm 
 
 %description
-It computes the raw moments for the truncated and folded multivariate
-normal, Skew-normal (SN), Extended skew normal (ESN) and Student's
-t-distribution. It also offers specific functions to compute the mean and
-variance-covariance matrix as well as the cumulative distribution function
-(cdf) for the folded normal, SN, ESN, and folded t-distribution. Density
-and random deviates are offered for the ESN (SN as particular case)
-distribution. Most algorithms are extensions based on Kan, R., & Robotti,
-C. (2017) <doi:10.1080/10618600.2017.1322092>.
+It computes arbitrary products moments (mean vector and
+variance-covariance matrix), for some double truncated (and folded)
+multivariate distributions. These distributions belong to the family of
+selection elliptical distributions, which includes well known skewed
+distributions as the unified skew-t distribution (SUT) and its particular
+cases as the extended skew-t (EST), skew-t (ST) and the symmetric
+student-t (T) distribution. Analogous normal cases unified skew-normal
+(SUN), extended skew-normal (ESN), skew-normal (SN), and symmetric normal
+(N) are also included. Density, probabilities and random deviates are also
+offered for these members. References used for this package:
+Arellano-Valle, R. B. & Genton, M. G. (2005). On fundamental skew
+distributions. Journal of Multivariate Analysis, 96, 93-116. Galarza C.E.,
+Matos L.A., Dey D.K. & Lachos V.H. (2019) On Moments of Folded and
+Truncated Multivariate Extended Skew-Normal Distributions. Technical
+report. ID 19-14. University of Connecticut.
+<https://stat.uconn.edu/tech-reports-2019/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,3 +67,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  sparsebn
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Learning Sparse Bayesian Networks from High-Dimensional Data
 

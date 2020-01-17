@@ -1,9 +1,9 @@
 %global packname  tram
-%global packver   0.3-0
+%global packver   0.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Transformation Models
 
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-mlt >= 1.0.5
+BuildRequires:    R-CRAN-mlt >= 1.1.1
 BuildRequires:    R-CRAN-basefun >= 1.0.5
 BuildRequires:    R-CRAN-variables >= 1.0.2
 BuildRequires:    R-CRAN-Formula 
@@ -25,7 +25,7 @@ BuildRequires:    R-survival
 BuildRequires:    R-graphics 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-mlt >= 1.0.5
+Requires:         R-CRAN-mlt >= 1.1.1
 Requires:         R-CRAN-basefun >= 1.0.5
 Requires:         R-CRAN-variables >= 1.0.2
 Requires:         R-CRAN-Formula 
@@ -45,7 +45,8 @@ variables, normal and non-normal (Box-Cox type) linear models, and
 continuous outcome logistic regression (Lohse et al., 2017,
 <DOI:10.12688/f1000research.12934.1>). The underlying theory is described
 in Hothorn et al. (2018) <DOI:10.1111/sjos.12291>. An extension to
-transformation models for clustered data is provided.
+transformation models for clustered data is provided (Hothorn, 2019,
+<arxiv:1910.09219>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -66,6 +67,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

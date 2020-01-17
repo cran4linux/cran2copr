@@ -1,9 +1,9 @@
 %global packname  rapiclient
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Dynamic OpenAPI/Swagger Client
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-yaml 
 
 %description
 Access services specified in OpenAPI (formerly Swagger) format. It is not

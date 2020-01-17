@@ -1,9 +1,9 @@
 %global packname  idiogramFISH
-%global packver   1.7.1
+%global packver   1.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.12.1
 Release:          1%{?dist}
 Summary:          Idiograms with Marks and Karyotype Indices
 
@@ -16,32 +16,21 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-prettydoc 
-BuildRequires:    R-CRAN-badger 
-BuildRequires:    R-CRAN-rvcheck 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-prettydoc 
-Requires:         R-CRAN-badger 
-Requires:         R-CRAN-rvcheck 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Plot idiograms of several karyotypes having a set of dataframes for
-chromosome data and optionally mark data. Includes also a function to plot
-holocentrics and its marks supporting micrometers and Mb. Marks can have
-square or dot form, its legend (label) can be drawn inline or to the right
-of karyotypes. It is possible to calculate chromosome indices by Levan et
-al. (1964) <doi:10.1111/j.1601-5223.1964.tb01953.x> , karyotype indices of
-Watanabe et al. (1999) <doi:10.1007/PL00013869> and Romero-Zarco (1986)
-<doi:10.2307/1221906> and classify chromosomes by morphology Guerra (1986)
-and Levan et al. (1964).
+Plot idiograms of several karyotypes having a set of data.frames for
+chromosome data and optionally mark data. Supports micrometers and Mb.
+Marks can have square or dot form, its legend (label) can be drawn inline
+or to the right of karyotypes. It is possible to calculate chromosome
+indices by Levan et al. (1964) <doi:10.1111/j.1601-5223.1964.tb01953.x>,
+karyotype indices of Watanabe et al. (1999) <doi:10.1007/PL00013869> and
+Romero-Zarco (1986) <doi:10.2307/1221906> and classify chromosomes by
+morphology Guerra (1986) and Levan et al. (1964).
 
 %prep
 %setup -q -c -n %{packname}

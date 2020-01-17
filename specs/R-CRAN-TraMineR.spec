@@ -1,9 +1,9 @@
 %global packname  TraMineR
-%global packver   2.0-12
+%global packver   2.0-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.12
+Version:          2.0.14
 Release:          1%{?dist}
 Summary:          Trajectory Miner: a Toolbox for Exploring and RenderingSequences
 
@@ -56,6 +56,7 @@ ones among them. A user's guide can be found on the TraMineR web page.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,11 +1,11 @@
 %global packname  baRcodeR
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
-Summary:          Labelling, Tracking, and Collecting Data from Biological Samples
+Summary:          Label Creation for Tracking and Collecting Data from BiologicalSamples
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,11 +31,11 @@ Requires:         R-grid
 Requires:         R-CRAN-rstudioapi 
 
 %description
-Tools to generate unique identifiers and printable barcoded labels for
-sample management. The creation of unique ID codes and printable PDF files
-can be initiated by standard commands, user prompts, or through a GUI
-addin for R Studio. Both single-level and hierarchical labels can be
-created in the command line interactively or non-interactively.
+Tools to generate unique identifier codes and printable barcoded labels
+for the management of biological samples. The creation of unique ID codes
+and printable PDF files can be initiated by standard commands, user
+prompts, or through a GUI addin for R Studio. Biologically informative
+codes can be included for hierarchically structured sampling designs.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +47,7 @@ created in the command line interactively or non-interactively.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -61,4 +62,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/rstudio
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

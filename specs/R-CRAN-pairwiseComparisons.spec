@@ -1,9 +1,9 @@
 %global packname  pairwiseComparisons
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Multiple Pairwise Comparison Tests
 
@@ -17,30 +17,26 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-crayon >= 1.3.4
+BuildRequires:    R-CRAN-jmv >= 1.0.8
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-WRS2 >= 1.0.0
-BuildRequires:    R-CRAN-jmv >= 0.9.6.1
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-rlang >= 0.4.2
 BuildRequires:    R-CRAN-forcats >= 0.4.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-purrr >= 0.3.2
-BuildRequires:    R-CRAN-groupedstats >= 0.0.9
-BuildRequires:    R-CRAN-broomExtra >= 0.0.5
+BuildRequires:    R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-broomExtra >= 0.0.6
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-crayon >= 1.3.4
+Requires:         R-CRAN-jmv >= 1.0.8
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-WRS2 >= 1.0.0
-Requires:         R-CRAN-jmv >= 0.9.6.1
 Requires:         R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-CRAN-forcats >= 0.4.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-purrr >= 0.3.2
-Requires:         R-CRAN-groupedstats >= 0.0.9
-Requires:         R-CRAN-broomExtra >= 0.0.5
+Requires:         R-CRAN-purrr >= 0.3.3
+Requires:         R-CRAN-broomExtra >= 0.0.6
 Requires:         R-stats 
 Requires:         R-utils 
 

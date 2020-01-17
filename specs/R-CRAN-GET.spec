@@ -1,9 +1,9 @@
 %global packname  GET
-%global packver   0.1-3
+%global packver   0.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Global Envelopes
 
@@ -15,8 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caTools 
-BuildRequires:    R-CRAN-fda.usc 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -29,8 +27,6 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-caTools 
-Requires:         R-CRAN-fda.usc 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -54,8 +50,9 @@ correspondence of distribution functions), for central regions of
 functional or multivariate data (e.g. outlier detection, functional
 boxplot) and for global confidence and prediction bands (e.g. confidence
 band in polynomial regression, Bayesian posterior prediction). See
-Myllymäki et al. (2017) <doi: 10.1111/rssb.12172>, Mrkvička et al. (2017)
-<doi: 10.1007/s11222-016-9683-9>, Mrkvička et al. (2016) <doi:
+Myllymäki and Mrkvička (2019) <arXiv:1911.06583>, Myllymäki et al. (2017)
+<doi: 10.1111/rssb.12172>, Mrkvička et al. (2017) <doi:
+10.1007/s11222-016-9683-9>, Mrkvička et al. (2016) <doi:
 10.1016/j.spasta.2016.04.005>, Mrkvička et al. (2018) <arXiv:1612.03608>,
 Mrkvička et al. (2019) <arXiv:1906.09004>, Mrkvička et al. (2019)
 <arXiv:1902.04926>.

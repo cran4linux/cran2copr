@@ -1,9 +1,9 @@
 %global packname  LabourMarketAreas
-%global packver   3.2.2
+%global packver   3.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.2.3
 Release:          1%{?dist}
 Summary:          Identification, Tuning, Visualisation and Analysis of LabourMarket Areas
 
@@ -12,19 +12,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.01
-Requires:         R-core >= 3.01
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-spdep 
@@ -46,6 +46,7 @@ the new functional geography.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

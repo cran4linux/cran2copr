@@ -1,9 +1,9 @@
 %global packname  hyperSpec
-%global packver   0.99-20180627
+%global packver   0.99-20200115
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.20180627
+Version:          0.99.20200115
 Release:          1%{?dist}
 Summary:          Work with Hyperspectral Data, i.e. Spectra + Meta Information(Spatial, Time, Concentration, ...)
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
 BuildRequires:    R-lattice 
@@ -24,6 +24,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-lattice 
 Requires:         R-grid 
@@ -33,6 +34,7 @@ Requires:         R-utils
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-dplyr 
 
 %description
 Comfortable ways to work with hyperspectral data sets. I.e. spatially or
@@ -53,6 +55,7 @@ discrete wavelengths is suitable.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

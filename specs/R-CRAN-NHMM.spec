@@ -1,9 +1,9 @@
 %global packname  NHMM
-%global packver   3.9
+%global packver   3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9
+Version:          3.10
 Release:          1%{?dist}
 Summary:          Bayesian Non-Homogeneous Markov and Mixture Models for MultipleTime Series
 

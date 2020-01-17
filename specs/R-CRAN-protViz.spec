@@ -1,9 +1,9 @@
 %global packname  protViz
-%global packver   0.4.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Visualizing and Analyzing Mass Spectrometry Related Data inProteomics
 
@@ -12,20 +12,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-Rcpp >= 0.12.8
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.8
+Requires:         R-CRAN-Rcpp >= 1.0
 Requires:         R-methods 
 
 %description
 Helps with quality checks, visualizations and analysis of mass
 spectrometry data, coming from proteomics experiments. The package is
-developed, tested and used at the Functional Genomics Center Zurich. We
-use this package mainly for prototyping, teaching, and having fun with
-proteomics data. But it can also be used to do data analysis for small
-scale data sets.
+developed, tested and used at the Functional Genomics Center Zurich
+<https://fgcz.ch>. We use this package mainly for prototyping, teaching,
+and having fun with proteomics data. But it can also be used to do data
+analysis for small scale data sets.
 
 %prep
 %setup -q -c -n %{packname}

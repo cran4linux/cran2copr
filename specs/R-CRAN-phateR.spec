@@ -1,9 +1,9 @@
 %global packname  phateR
-%global packver   0.4.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          PHATE - Potential of Heat-Diffusion for Affinity-BasedTransition Embedding
 
@@ -35,8 +35,8 @@ framework for learning and visualizing the manifold inherent to biological
 systems in which smooth transitions mark the progressions of cells from
 one state to another. To see how PHATE can be applied to single-cell
 RNA-seq datasets from hematopoietic stem cells, human embryonic stem
-cells, and bone marrow samples, check out our preprint on bioRxiv at
-<http://biorxiv.org/content/early/2017/03/24/120378>.
+cells, and bone marrow samples, check out our publication in Nature
+Biotechnology at <doi:10.1038/s41587-019-0336-3>.
 
 %prep
 %setup -q -c -n %{packname}

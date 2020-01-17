@@ -1,9 +1,9 @@
 %global packname  vitae
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Curriculum Vitae for R Markdown
 
@@ -15,19 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown >= 1.18
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-RefManageR 
+Requires:         R-CRAN-rmarkdown >= 1.18
 Requires:         R-CRAN-bookdown 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-xfun 
 Requires:         R-CRAN-RefManageR 
 
 %description

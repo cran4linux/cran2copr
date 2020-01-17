@@ -1,9 +1,9 @@
 %global packname  tribe
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}
 Summary:          Play with the Tribe of Attributes
 
@@ -12,21 +12,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bazar 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
-Requires:         R-CRAN-bazar 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-utils 
 
 %description
 Functions to make manipulation of object attributes easier. It also

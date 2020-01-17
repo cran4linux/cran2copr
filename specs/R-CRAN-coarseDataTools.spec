@@ -1,9 +1,9 @@
 %global packname  coarseDataTools
-%global packver   0.6-4
+%global packver   0.6-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}
 Summary:          Analysis of Coarsely Observed Data
 
@@ -46,6 +46,7 @@ disease.  Sample data files are included in the package. See Reich et al.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

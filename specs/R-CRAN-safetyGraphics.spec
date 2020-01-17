@@ -1,9 +1,9 @@
 %global packname  safetyGraphics
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Create Interactive Graphics Related to Clinical Trial Safety
 
@@ -31,6 +31,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-shinybusy 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-purrr 
@@ -47,6 +48,7 @@ Requires:         R-utils
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-shinybusy 
 
 %description
 A framework for evaluation of clinical trial safety. Users can
@@ -80,6 +82,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/safetyGraphics_app
 %doc %{rlibdir}/%{packname}/safetyGraphicsHex

@@ -1,9 +1,9 @@
 %global packname  fssemR
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Fused Sparse Structural Equation Models to Jointly Infer GeneRegulatory Network
 
@@ -52,6 +52,7 @@ structural equation models proposed by Xin Zhou and Xiaodong Cai (2018
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

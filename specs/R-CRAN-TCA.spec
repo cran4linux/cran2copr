@@ -1,9 +1,9 @@
 %global packname  TCA
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Tensor Composition Analysis
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-rsvd 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-glmnet 
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-futile.logger 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-rsvd 
 Requires:         R-stats 
 Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-glmnet 
 
 %description
 Tensor Composition Analysis (TCA) allows the deconvolution of
@@ -69,6 +71,7 @@ For more details see Rahmani et al. (2018) <DOI:10.1101/437368>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -79,6 +82,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

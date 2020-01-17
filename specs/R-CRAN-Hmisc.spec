@@ -1,9 +1,9 @@
 %global packname  Hmisc
-%global packver   4.2-0
+%global packver   4.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.3.0
 Release:          1%{?dist}
 Summary:          Harrell Miscellaneous
 
@@ -70,6 +70,7 @@ R objects to LaTeX and html code, and recoding variables.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

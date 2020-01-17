@@ -1,9 +1,9 @@
 %global packname  caret
-%global packver   6.0-84
+%global packver   6.0-85
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.84
+Version:          6.0.85
 Release:          1%{?dist}
 Summary:          Classification and Regression Training
 
@@ -28,6 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-stats4 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-pROC 
 Requires:         R-CRAN-withr >= 2.0.0
 Requires:         R-CRAN-ModelMetrics >= 1.1.0
 Requires:         R-lattice >= 0.20
@@ -42,6 +43,7 @@ Requires:         R-stats
 Requires:         R-stats4 
 Requires:         R-utils 
 Requires:         R-grDevices 
+Requires:         R-CRAN-pROC 
 
 %description
 Misc functions for training and plotting classification and regression
@@ -57,6 +59,7 @@ models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

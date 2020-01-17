@@ -1,13 +1,13 @@
 %global packname  georob
-%global packver   0.3-10
+%global packver   0.3-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.3.11
 Release:          1%{?dist}
 Summary:          Robust Geostatistical Analysis of Spatial Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 2) | LGPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,9 +19,11 @@ BuildRequires:    R-CRAN-RandomFields >= 3.3.6
 BuildRequires:    R-CRAN-robustbase >= 0.90.2
 BuildRequires:    R-CRAN-sp >= 0.9.60
 BuildRequires:    R-CRAN-constrainedKriging >= 0.2.1
+BuildRequires:    R-graphics 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-snowfall 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-lmtest 
@@ -33,9 +35,11 @@ Requires:         R-CRAN-RandomFields >= 3.3.6
 Requires:         R-CRAN-robustbase >= 0.90.2
 Requires:         R-CRAN-sp >= 0.9.60
 Requires:         R-CRAN-constrainedKriging >= 0.2.1
+Requires:         R-graphics 
 Requires:         R-parallel 
 Requires:         R-CRAN-snowfall 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-lmtest 

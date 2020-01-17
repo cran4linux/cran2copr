@@ -1,9 +1,9 @@
 %global packname  dbmss
-%global packver   2.7-0
+%global packver   2.7-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          2.7.1
 Release:          1%{?dist}
 Summary:          Distance-Based Measures of Spatial Structures
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-cubature
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-spatstat.utils >= 1.3.1
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-CRAN-spatstat 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-cubature
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-tibble 
 
 %description
 Simple computation of spatial statistic functions of distance to
@@ -51,6 +53,7 @@ Relies on 'spatstat' for some core calculation.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

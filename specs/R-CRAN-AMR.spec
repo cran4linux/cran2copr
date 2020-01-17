@@ -1,9 +1,9 @@
 %global packname  AMR
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Antimicrobial Resistance Analysis
 
@@ -17,23 +17,23 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.9.0
 BuildRequires:    R-CRAN-crayon >= 1.3.0
-BuildRequires:    R-CRAN-clean >= 1.1.0
 BuildRequires:    R-CRAN-knitr >= 1.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-tidyr >= 0.7.0
 BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-cleaner 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-microbenchmark 
 BuildRequires:    R-CRAN-pillar 
 Requires:         R-CRAN-data.table >= 1.9.0
 Requires:         R-CRAN-crayon >= 1.3.0
-Requires:         R-CRAN-clean >= 1.1.0
 Requires:         R-CRAN-knitr >= 1.0
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-tidyr >= 0.7.0
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-CRAN-backports 
+Requires:         R-CRAN-cleaner 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-microbenchmark 
 Requires:         R-CRAN-pillar 

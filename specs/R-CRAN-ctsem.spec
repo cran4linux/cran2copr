@@ -1,9 +1,9 @@
 %global packname  ctsem
-%global packver   3.0.4
+%global packver   3.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.0.9
 Release:          1%{?dist}
 Summary:          Continuous Time Structural Equation Modelling
 
@@ -40,6 +40,8 @@ BuildRequires:    R-CRAN-mize
 BuildRequires:    R-CRAN-pkgbuild 
 BuildRequires:    R-CRAN-cOde 
 BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-quantreg 
 Requires:         R-CRAN-OpenMx >= 2.9.0
 Requires:         R-CRAN-rstan >= 2.19.0
 Requires:         R-CRAN-rstantools >= 1.5.0
@@ -62,6 +64,8 @@ Requires:         R-CRAN-mize
 Requires:         R-CRAN-pkgbuild 
 Requires:         R-CRAN-cOde 
 Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-quantreg 
 
 %description
 Hierarchical continuous time state space modelling, for linear and
@@ -71,8 +75,7 @@ stochastic differential equation (SDE), measurement models are typically
 multivariate normal factor models. Using the original ctsem formulation
 based on OpenMx, described in the JSS paper "Continuous Time Structural
 Equation Modeling with R Package ctsem", with updated version as CRAN
-vignette
-<https://cran.r-project.org/web/packages/ctsem/vignettes/ctsem.pdf> ,
+vignette <https://cran.r-project.org/package=ctsem/vignettes/ctsem.pdf> ,
 linear mixed effects SDE's estimated via maximum likelihood and
 optimization are possible. Using the Stan based formulation, described in
 <https://github.com/cdriveraus/ctsem/raw/master/vignettes/hierarchicalmanual.pdf>

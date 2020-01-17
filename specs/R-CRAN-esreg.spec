@@ -1,9 +1,9 @@
 %global packname  esreg
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Joint Quantile and Expected Shortfall Regression
 
@@ -27,7 +27,7 @@ Requires:         R-CRAN-Formula
 %description
 Simultaneous modeling of the quantile and the expected shortfall of a
 response variable given a set of covariates, see Dimitriadis and Bayer
-(2017) <arXiv:1704.02213>.
+(2019) <doi:10.1214/19-EJS1560>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +39,7 @@ response variable given a set of covariates, see Dimitriadis and Bayer
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

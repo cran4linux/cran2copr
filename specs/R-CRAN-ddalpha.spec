@@ -1,9 +1,9 @@
 %global packname  ddalpha
-%global packver   1.3.9
+%global packver   1.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          1.3.11
 Release:          1%{?dist}
 Summary:          Depth-Based Classification and Calculation of Data Depth
 
@@ -44,7 +44,8 @@ training data sample is transformed by a statistical depth function to a
 compact low-dimensional space, where the final classification is done. It
 also offers an extension to functional data and routines for calculating
 certain notions of statistical depth functions. 50 multivariate and 5
-functional classification problems are included.
+functional classification problems are included. (Pokotylo, Mozharovskyi
+and Dyckerhoff, 2019 <doi:10.18637/jss.v091.i05>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,6 +57,7 @@ functional classification problems are included.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  emdi
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}
 Summary:          Estimating and Mapping Disaggregated Indicators
 
@@ -58,7 +58,10 @@ estimation and the model-based approach Empirical Best Prediction (see
 <doi:10.1002/cjs.10051>), as well as their precision estimates. The
 assessment of the used model is supported by a summary and diagnostic
 plots. For a suitable presentation of estimates, map plots can be easily
-created. Furthermore, results can easily be exported to excel.
+created. Furthermore, results can easily be exported to excel. For a
+detailed description of the package and the methods used see "The {R}
+Package {emdi} for Estimating and Mapping Regionally Disaggregated
+Indicators" by Kreutzmann et al. (2019) <doi:10.18637/jss.v091.i07>.
 
 %prep
 %setup -q -c -n %{packname}

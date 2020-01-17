@@ -1,9 +1,9 @@
 %global packname  geojsonio
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          Convert Data from and to 'GeoJSON' or 'TopoJSON'
 
@@ -17,7 +17,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rgdal >= 1.1.1
 BuildRequires:    R-CRAN-httr >= 1.1.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.21
+BuildRequires:    R-CRAN-jsonlite >= 0.9
 BuildRequires:    R-CRAN-sf >= 0.6
 BuildRequires:    R-CRAN-readr >= 0.2.2
 BuildRequires:    R-CRAN-geojson >= 0.2.0
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-V8
 BuildRequires:    R-CRAN-jqr 
 Requires:         R-CRAN-rgdal >= 1.1.1
 Requires:         R-CRAN-httr >= 1.1.0
-Requires:         R-CRAN-jsonlite >= 0.9.21
+Requires:         R-CRAN-jsonlite >= 0.9
 Requires:         R-CRAN-sf >= 0.6
 Requires:         R-CRAN-readr >= 0.2.2
 Requires:         R-CRAN-geojson >= 0.2.0
@@ -59,6 +59,7 @@ aims to be a high level client to simplify conversions of data from and to
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

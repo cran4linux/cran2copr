@@ -1,9 +1,9 @@
 %global packname  AzureStor
-%global packver   2.1.1
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          3.1.0
 Release:          1%{?dist}
 Summary:          Storage Management in 'Azure'
 
@@ -15,22 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-AzureRMR >= 2.3.0
 BuildRequires:    R-utils 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-AzureRMR 
+Requires:         R-CRAN-AzureRMR >= 2.3.0
 Requires:         R-utils 
-Requires:         R-parallel 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-AzureRMR 
 
 %description
 Manage storage in Microsoft's 'Azure' cloud:
@@ -53,6 +51,7 @@ of packages.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

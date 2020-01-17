@@ -1,9 +1,9 @@
 %global packname  Rcan
-%global packver   1.3.72
+%global packver   1.3.80
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.72
+Version:          1.3.80
 Release:          1%{?dist}
 Summary:          Cancer Registry Data Analysis and Visualisation
 
@@ -35,9 +35,10 @@ Requires:         R-utils
 %description
 Tools for basic and advance cancer statistics and graphics. Groups
 individual data, merges registry data and population data, calculates
-age-specific rate, age-standardized rate, estimated annual percentage rate
-with standards error. Creates graphics across variable and time, such as
-age-specific trends, bar chart and period-cohort trends.
+age-specific rate, age-standardized rate, cumulative risk, estimated
+annual percentage rate with standards error. Creates graphics across
+variable and time, such as age-specific trends, bar chart and
+period-cohort trends.
 
 %prep
 %setup -q -c -n %{packname}

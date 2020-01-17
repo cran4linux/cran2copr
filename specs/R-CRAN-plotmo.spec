@@ -1,9 +1,9 @@
 %global packname  plotmo
-%global packver   3.5.5
+%global packver   3.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.5
+Version:          3.5.6
 Release:          1%{?dist}
 Summary:          Plot a Model's Residuals, Response, and Partial Dependence Plots
 
@@ -37,6 +37,7 @@ information on the model.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

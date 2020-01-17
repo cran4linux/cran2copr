@@ -1,9 +1,9 @@
 %global packname  pm4py
-%global packver   1.0.1
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.7
 Release:          1%{?dist}
 Summary:          Interface to the 'PM4py' Process Mining Library
 

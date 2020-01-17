@@ -1,13 +1,13 @@
 %global packname  beautier
-%global packver   2.2.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.2
 Release:          1%{?dist}
 Summary:          'BEAUti' from R
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,12 +16,16 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-assertive 
 BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-testit 
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-assertive 
 Requires:         R-CRAN-geiger 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-seqinr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-testit 
@@ -55,7 +59,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION

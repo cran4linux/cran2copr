@@ -1,9 +1,9 @@
 %global packname  sismonr
-%global packver   1.1.4
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Simulation of in Silico Multi-Omic Networks
 
@@ -71,7 +71,11 @@ of the genes in the in silico system for the different in silico
 individuals. A tutorial explaining how to use the package is available at
 <https://oliviaab.github.io/sismonr/>. Manuscript in preparation; see also
 Angelin-Bonnet O., Biggs P.J. and Vignes M. (2018)
-<doi:10.1109/BIBM.2018.8621131>.
+<doi:10.1109/BIBM.2018.8621131>. Note that sismonr relies on Julia code
+called internally by the functions. No knowledge of Julia is required in
+order to use sismonr, but Julia must be installed on the computer
+(instructions can be found in the tutorial, the GitHub page or the
+vignette of the package).
 
 %prep
 %setup -q -c -n %{packname}
@@ -83,6 +87,7 @@ Angelin-Bonnet O., Biggs P.J. and Vignes M. (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  hagis
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}
 Summary:          Analysis of Plant Pathogen Pathotype Complexities, Distributionsand Diversity
 
@@ -45,6 +45,7 @@ for Herrmann, Löwer, Schachtel's (1999)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  clusterSim
-%global packver   0.47-4
+%global packver   0.48-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.47.4
+Version:          0.48.3
 Release:          1%{?dist}
 Summary:          Searching for Optimal Clustering Procedure for a Data Set
 
@@ -67,6 +67,7 @@ T. (2001) <doi:10.1111/1467-9868.00293>, BRECKENRIDGE, J.N. (2000)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -80,7 +81,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/csv
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/pdf
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

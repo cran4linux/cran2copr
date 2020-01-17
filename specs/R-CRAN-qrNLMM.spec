@@ -1,9 +1,9 @@
 %global packname  qrNLMM
-%global packver   1.4
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          2.0
 Release:          1%{?dist}
 Summary:          Quantile Regression for Nonlinear Mixed-Effects Models
 
@@ -15,16 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ghyp 
+BuildRequires:    R-CRAN-lqr 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-ald 
-Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ghyp 
+Requires:         R-CRAN-lqr 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-psych 
 Requires:         R-tcltk 
@@ -48,6 +46,7 @@ the algorithm convergence and fitting results.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

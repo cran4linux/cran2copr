@@ -1,9 +1,9 @@
 %global packname  signs
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Insert Proper Minus Signs
 
@@ -22,8 +22,10 @@ Requires:         R-CRAN-scales
 
 %description
 Provides convenience functions to replace hyphen-minuses (ASCII 45) with
-proper minus signs (Unicode character 2212). The minus sign is wider and
-slightly nicer for display than the hyphen-minus we use for computation.
+proper minus signs (Unicode character 2212). The true minus matches the
+plus symbol in width, line thickness, and height above the baseline. It
+was designed for mathematics, looks better in presentation, and is
+understood properly by screen readers.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +49,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

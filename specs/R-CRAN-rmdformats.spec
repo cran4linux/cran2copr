@@ -1,9 +1,9 @@
 %global packname  rmdformats
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}
 Summary:          HTML Output Formats and Templates for 'rmarkdown' Documents
 
@@ -19,12 +19,10 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-questionr 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-bookdown 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-questionr 
 
 %description
 HTML formats and templates for 'rmarkdown' documents, with some extra

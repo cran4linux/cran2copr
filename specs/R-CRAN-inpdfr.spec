@@ -1,9 +1,9 @@
 %global packname  inpdfr
-%global packver   0.1.8
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.11
 Release:          1%{?dist}
 Summary:          Analyse Text Documents Using Ecological Tools
 
@@ -13,8 +13,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         xpdf
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-parallel >= 3.1.3
 BuildRequires:    R-CRAN-wordcloud >= 2.5

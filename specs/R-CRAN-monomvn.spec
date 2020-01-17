@@ -1,11 +1,11 @@
 %global packname  monomvn
-%global packver   1.9-10
+%global packver   1.9-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.10
+Version:          1.9.13
 Release:          1%{?dist}
-Summary:          Estimation for Multivariate Normal and Student-t Data withMonotone Missingness
+Summary:          Estimation for MVN and Student-t Data with Monotone Missingness
 
 License:          LGPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,10 +26,11 @@ Requires:         R-CRAN-quadprog
 Requires:         R-CRAN-mvtnorm 
 
 %description
-Estimation of multivariate normal and student-t data of arbitrary
-dimension where the pattern of missing data is monotone. Through the use
-of parsimonious/shrinkage regressions (plsr, pcr, lasso, ridge, etc.),
-where standard regressions fail, the package can handle a nearly arbitrary
+Estimation of multivariate normal (MVN) and student-t data of arbitrary
+dimension where the pattern of missing data is monotone. See Pantaleo and
+Gramacy (2010) <doi:10.1214/10-BA602>. Through the use of
+parsimonious/shrinkage regressions (plsr, pcr, lasso, ridge, etc.), where
+standard regressions fail, the package can handle a nearly arbitrary
 amount of missing data. The current version supports maximum likelihood
 inference and a full Bayesian approach employing scale-mixtures for Gibbs
 sampling. Monotone data augmentation extends this Bayesian approach to
@@ -49,6 +50,7 @@ Geweke) is also provided.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

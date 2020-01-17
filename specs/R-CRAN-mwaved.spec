@@ -1,9 +1,9 @@
 %global packname  mwaved
-%global packver   1.1.6
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.7
 Release:          1%{?dist}
 Summary:          Multichannel Wavelet Deconvolution with Additive Long MemoryNoise
 
@@ -26,7 +26,8 @@ Requires:         R-grid
 %description
 Computes the Wavelet deconvolution estimate of a common signal present in
 multiple channels that have possible different levels of blur and long
-memory additive error.
+memory additive error, see Kulik, Sapatinas and Wishart (2015),
+<doi:10.1016/j.acha.2014.04.004>.
 
 %prep
 %setup -q -c -n %{packname}

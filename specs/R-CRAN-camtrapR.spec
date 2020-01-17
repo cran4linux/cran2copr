@@ -1,10 +1,10 @@
 %global packname  camtrapR
-%global packver   1.1
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
-Release:          2%{?dist}
+Version:          1.2.3
+Release:          1%{?dist}
 Summary:          Camera Trap Data Management and Preparation of Occupancy andSpatial Capture-Recapture Analyses
 
 License:          GPL (>= 2)
@@ -17,19 +17,15 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-overlap 
 BuildRequires:    R-CRAN-secr 
-BuildRequires:    R-CRAN-taxize 
-BuildRequires:    R-CRAN-ritis 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-methods 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-overlap 
 Requires:         R-CRAN-secr 
-Requires:         R-CRAN-taxize 
-Requires:         R-CRAN-ritis 
+Requires:         R-CRAN-data.table 
 
 %description
 Management of and data extraction from camera trap photographs in wildlife
@@ -51,6 +47,7 @@ visualise species activity data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  RoughSets
-%global packver   1.3-0
+%global packver   1.3-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.7
 Release:          1%{?dist}
 Summary:          Data Analysis Using Rough Set and Fuzzy Rough Set Theories
 
@@ -42,6 +42,7 @@ expressed with fuzzy sets (as proposed by Zadeh, in 1965) and RST.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

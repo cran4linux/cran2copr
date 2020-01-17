@@ -1,11 +1,11 @@
 %global packname  SparseMSE
-%global packver   1.2.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.1
 Release:          1%{?dist}
-Summary:          Multiple Systems Estimation for Sparse Capture Data
+Summary:          'Multiple Systems Estimation for Sparse Capture Data'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,15 +16,20 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-Rcapture 
 Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-Rcapture 
 
 %description
 Implements the routines and algorithms developed and analysed in "Multiple
-systems estimation for Sparse Capture Data: Inferential Challenges when
+Systems Estimation for Sparse Capture Data: Inferential Challenges when
 there are Non-Overlapping Lists" Chan, L, Silverman, B. W., Vincent, K
 (2019) <arXiv:1902.05156>. This package explicitly handles situations
 where there are pairs of lists which have no observed individuals in
-common.
+common.  It deals correctly with parameters whose estimated values can be
+considered as being negative infinity.  It also addresses other possible
+issues of non-existence and non-identifiability of maximum likelihood
+estimates.
 
 %prep
 %setup -q -c -n %{packname}

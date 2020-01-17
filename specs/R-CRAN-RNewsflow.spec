@@ -1,13 +1,13 @@
 %global packname  RNewsflow
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Tools for Comparing Text Messages Across Time and Media
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,7 +18,6 @@ BuildRequires:    R-Matrix >= 1.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-wordcloud 
@@ -31,7 +30,6 @@ Requires:         R-Matrix >= 1.2
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-tm 
-Requires:         R-CRAN-slam 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-wordcloud 
@@ -64,8 +62,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

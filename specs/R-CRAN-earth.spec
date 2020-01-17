@@ -1,9 +1,9 @@
 %global packname  earth
-%global packver   5.1.1
+%global packver   5.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.1
+Version:          5.1.2
 Release:          1%{?dist}
 Summary:          Multivariate Adaptive Regression Splines
 
@@ -37,6 +37,7 @@ used in the name of the package.)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

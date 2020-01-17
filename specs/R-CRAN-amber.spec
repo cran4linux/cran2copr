@@ -1,11 +1,11 @@
 %global packname  amber
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
-Summary:          Automated Model Benchmarking Package for the Canadian LandSurface Scheme
+Summary:          Automated Model Benchmarking for the Canadian Land SurfaceScheme
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,14 +18,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-scico 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spatial.tools 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridis 
@@ -33,14 +34,15 @@ BuildRequires:    R-CRAN-xtable
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-parallel 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-scico 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spatial.tools 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-viridis 
@@ -64,6 +66,7 @@ skill score system that was originally developed by Collier et. al.,
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

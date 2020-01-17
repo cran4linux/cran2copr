@@ -1,9 +1,9 @@
 %global packname  MachineShop
-%global packver   1.6.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Machine Learning Models and Tools
 
@@ -12,10 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-recipes >= 0.1.4
+BuildRequires:    R-CRAN-dials >= 0.0.4
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,6 +32,7 @@ BuildRequires:    R-survival
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-recipes >= 0.1.4
+Requires:         R-CRAN-dials >= 0.0.4
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 

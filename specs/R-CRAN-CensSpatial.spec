@@ -1,9 +1,9 @@
 %global packname  CensSpatial
-%global packver   1.3
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          2.1
 Release:          1%{?dist}
 Summary:          Censored Spatial Models
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-tlrmvnmvt 
 Requires:         R-CRAN-geoR 
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -39,14 +40,15 @@ Requires:         R-CRAN-numDeriv
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-moments 
 Requires:         R-lattice 
+Requires:         R-CRAN-tlrmvnmvt 
 
 %description
-Fits linear regression models for censored spatial data. Provides
+It fits linear regression models for censored spatial data. It provides
 different estimation methods as the SAEM (Stochastic Approximation of
 Expectation Maximization) algorithm and seminaive that uses Kriging
 prediction to estimate the response at censored locations and predict new
-values at unknown locations. Also offers graphical tools for assessing the
-fitted model.
+values at unknown locations. It also offers graphical tools for assessing
+the fitted model.
 
 %prep
 %setup -q -c -n %{packname}

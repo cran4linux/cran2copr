@@ -1,9 +1,9 @@
 %global packname  codebook
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}
 Summary:          Automatic Codebooks from Metadata Encoded in Dataset Attributes
 
@@ -16,9 +16,10 @@ BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-CRAN-skimr >= 2.0.0
 BuildRequires:    R-CRAN-haven >= 2.0.0
-BuildRequires:    R-CRAN-skimr >= 1.0.2
 BuildRequires:    R-CRAN-rstudioapi >= 0.5
+BuildRequires:    R-CRAN-forcats >= 0.4.0
 BuildRequires:    R-CRAN-shiny >= 0.13
 BuildRequires:    R-CRAN-miniUI >= 0.1.1
 BuildRequires:    R-stats 
@@ -33,6 +34,7 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-jsonlite 
@@ -47,9 +49,10 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-userfriendlyscience 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
+Requires:         R-CRAN-skimr >= 2.0.0
 Requires:         R-CRAN-haven >= 2.0.0
-Requires:         R-CRAN-skimr >= 1.0.2
 Requires:         R-CRAN-rstudioapi >= 0.5
+Requires:         R-CRAN-forcats >= 0.4.0
 Requires:         R-CRAN-shiny >= 0.13
 Requires:         R-CRAN-miniUI >= 0.1.1
 Requires:         R-stats 
@@ -64,6 +67,7 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-pander 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-jsonlite 

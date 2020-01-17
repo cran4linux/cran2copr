@@ -1,9 +1,9 @@
 %global packname  comat
-%global packver   0.7.0
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.2
 Release:          1%{?dist}
 Summary:          Creates Co-Occurrence Matrices of Spatial Data
 
@@ -51,6 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/include
+%{rlibdir}/%{packname}/testdata
 %doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

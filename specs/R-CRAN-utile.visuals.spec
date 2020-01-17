@@ -1,9 +1,9 @@
 %global packname  utile.visuals
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Create Visuals for Publication
 
@@ -27,10 +27,9 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-dplyr 
 
 %description
-A small set of functions for making visuals for publication in 'ggplot2'.
-Key functions include geom_stepconfint() for drawing a step confidence
-interval on a Kaplan-Meier curve and theme_white()/theme_black() which are
-minimalist 'ggplot2' themes with transparent backgrounds.
+A small set of functions for making visuals for publication in ggplot2.
+Includes minimalist themes with transparent backgrounds and a suite of
+tools for building Kaplan-Meier curves with risk tables.
 
 %prep
 %setup -q -c -n %{packname}

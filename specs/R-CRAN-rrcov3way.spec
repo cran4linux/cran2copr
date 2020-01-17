@@ -1,9 +1,9 @@
 %global packname  rrcov3way
-%global packver   0.1-10
+%global packver   0.1-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.18
 Release:          1%{?dist}
 Summary:          Robust Methods for Multiway Data Analysis, Applicable also forCompositional Data
 
@@ -15,19 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ThreeWay 
 BuildRequires:    R-CRAN-rrcov 
 BuildRequires:    R-CRAN-robustbase 
-Requires:         R-CRAN-ThreeWay 
+BuildRequires:    R-CRAN-nnls 
 Requires:         R-CRAN-rrcov 
 Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-nnls 
 
 %description
 Provides methods for multiway data analysis by means of Parafac and Tucker
 3 models. Robust versions (Engelen and Hubert (2011)
 <doi:10.1016/j.aca.2011.04.043>) and versions for compositional data are
 also provided (Gallo (2015) <doi:10.1080/03610926.2013.798664>, Di Palma
-et al. (in press)).
+et al. (2018) <doi:10.1080/02664763.2017.1381669>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  gdalUtils
-%global packver   2.0.1.14
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1.14
+Version:          2.0.3
 Release:          1%{?dist}
 Summary:          Wrappers for the Geospatial Data Abstraction Library (GDAL)Utilities
 
@@ -40,6 +40,7 @@ Wrappers for the Geospatial Data Abstraction Library (GDAL) Utilities.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

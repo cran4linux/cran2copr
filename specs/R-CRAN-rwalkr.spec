@@ -1,9 +1,9 @@
 %global packname  rwalkr
-%global packver   0.4.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          API to Melbourne Pedestrian Data
 
@@ -15,12 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.3
 Requires:         R-core >= 3.1.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-hms 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Provides API to Melbourne pedestrian data in tidy data form.

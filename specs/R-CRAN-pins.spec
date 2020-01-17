@@ -1,9 +1,9 @@
 %global packname  pins
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Pin, Discover and Share Resources
 
@@ -16,18 +16,22 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mime 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-withr 

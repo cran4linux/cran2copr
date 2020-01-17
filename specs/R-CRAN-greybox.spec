@@ -1,9 +1,9 @@
 %global packname  greybox
-%global packver   0.5.5
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.7
 Release:          1%{?dist}
 Summary:          Toolbox for Model Building and Forecasting
 
@@ -21,6 +21,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-lamW 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-forecast 
 Requires:         R-stats 
@@ -29,6 +30,7 @@ Requires:         R-utils
 Requires:         R-CRAN-lamW 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-statmod 
 
 %description
 Implements functions and instruments for regression model building and its
@@ -51,6 +53,7 @@ forecasts from these models and visualising them.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

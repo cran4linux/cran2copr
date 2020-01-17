@@ -1,9 +1,9 @@
 %global packname  spate
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}
 Summary:          Spatio-Temporal Modeling of Large Data Using a Spectral SPDEApproach
 

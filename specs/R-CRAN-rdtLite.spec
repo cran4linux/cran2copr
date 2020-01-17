@@ -1,9 +1,9 @@
 %global packname  rdtLite
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Provenance Collector
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-provViz >= 1.0.6
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-ggplot2 
@@ -23,12 +24,14 @@ BuildRequires:    R-CRAN-gtools
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-provSummarizeR 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-sessioninfo 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-provViz >= 1.0.6
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-ggplot2 
@@ -37,6 +40,7 @@ Requires:         R-CRAN-gtools
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-knitr 
 Requires:         R-methods 
+Requires:         R-CRAN-provSummarizeR 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-sessioninfo 
 Requires:         R-CRAN-stringi 

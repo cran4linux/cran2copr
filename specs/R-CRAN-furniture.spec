@@ -1,9 +1,9 @@
 %global packname  furniture
-%global packver   1.9.0
+%global packver   1.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.9.5
 Release:          1%{?dist}
 Summary:          Furniture for Quantitative Scientists
 
@@ -15,22 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-crayon 
 
 %description
 Contains four main functions (i.e., four pieces of furniture): table1()
@@ -51,6 +47,7 @@ Other data summary and cleaning tools are also available.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

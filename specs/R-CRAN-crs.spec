@@ -1,9 +1,9 @@
 %global packname  crs
-%global packver   0.15-31
+%global packver   0.15-31.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.31
+Version:          0.15.31.1
 Release:          1%{?dist}
 Summary:          Categorical Regression Splines
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-boot 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-np 
@@ -44,6 +44,7 @@ Research Computing Network (SHARCNET, <https://www.sharcnet.ca>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

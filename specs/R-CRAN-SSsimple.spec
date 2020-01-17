@@ -1,11 +1,11 @@
 %global packname  SSsimple
-%global packver   0.6.4
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.6
 Release:          1%{?dist}
-Summary:          State space models
+Summary:          State Space Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,10 +16,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-methods 
 
 %description
-Simulate, solve state space models
+Simulate, solve state space models.
 
 %prep
 %setup -q -c -n %{packname}

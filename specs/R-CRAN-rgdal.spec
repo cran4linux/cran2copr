@@ -1,9 +1,9 @@
 %global packname  rgdal
-%global packver   1.4-6
+%global packver   1.4-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.4.8
 Release:          1%{?dist}
 Summary:          Bindings for the 'Geospatial' Data Abstraction Library
 
@@ -54,6 +54,7 @@ Windows and Mac Intel OS X binaries (including 'GDAL', 'PROJ.4' and
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  entropart
-%global packver   1.6-1
+%global packver   1.6-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.3
 Release:          1%{?dist}
 Summary:          Entropy Partitioning to Measure Diversity
 
@@ -26,6 +26,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-SPECIES 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegan 
@@ -39,6 +40,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-parallel 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-SPECIES 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-vegan 
@@ -60,6 +62,7 @@ Estimation-bias corrections are available.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

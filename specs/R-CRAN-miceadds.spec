@@ -1,9 +1,9 @@
 %global packname  miceadds
-%global packver   3.5-14
+%global packver   3.7-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.14
+Version:          3.7.6
 Release:          1%{?dist}
 Summary:          Some Additional Multiple Imputation Functions, Especially for'mice'
 

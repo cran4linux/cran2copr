@@ -1,9 +1,9 @@
 %global packname  EMMAgeo
-%global packver   0.9.6
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}
 Summary:          End-Member Modelling of Grain-Size Data
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-limSolve 
@@ -28,7 +28,7 @@ Requires:         R-CRAN-matrixStats
 
 %description
 End-member modelling analysis of grain-size data is an approach to unmix a
-data set's underyling distributions and their contribution to the data
+data set's underlying distributions and their contribution to the data
 set. EMMAgeo provides deterministic and robust protocols for that purpose.
 
 %prep

@@ -1,9 +1,9 @@
 %global packname  separationplot
-%global packver   1.1
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.3
 Release:          1%{?dist}
 Summary:          Separation Plots
 
@@ -15,9 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-MASS 
+BuildRequires:    R-foreign 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-MASS 
+Requires:         R-foreign 
 
 %description
-Functions to generate separation plots for evaluation of model fit.
+Visual representations of model fit or predictive success in the form of
+"separation plots."  See Greenhill, Brian, Michael D. Ward, and Audrey
+Sacks. "The separation plot: A new visual method for evaluating the fit of
+binary models." American Journal of Political Science 55.4 (2011):
+991-1002.
 
 %prep
 %setup -q -c -n %{packname}
@@ -29,6 +41,7 @@ Functions to generate separation plots for evaluation of model fit.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

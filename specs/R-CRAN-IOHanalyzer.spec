@@ -1,9 +1,9 @@
 %global packname  IOHanalyzer
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Data Analysis Part of 'IOHprofiler'
 
@@ -32,6 +32,10 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-bsplus 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-PlayerRatings 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -50,6 +54,10 @@ Requires:         R-CRAN-shinyjs
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-bsplus 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-PlayerRatings 
 
 %description
 The data analysis module for the Iterative Optimization Heuristics
@@ -70,6 +78,7 @@ Optimisers) data format for benchmarking.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  foreSIGHT
-%global packver   0.9.8
+%global packver   0.9.81
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          0.9.81
 Release:          1%{?dist}
 Summary:          Systems Insights from Generation of Hydroclimatic Timeseries
 

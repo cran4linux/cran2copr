@@ -1,9 +1,9 @@
 %global packname  ncodeR
-%global packver   0.2.0.0
+%global packver   0.2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0.0
+Version:          0.2.0.1
 Release:          1%{?dist}
 Summary:          Techniques for Automated Classifiers
 
@@ -55,7 +55,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/_pkgdown.yml
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/docker
 %doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX

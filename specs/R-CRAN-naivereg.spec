@@ -1,9 +1,9 @@
 %global packname  naivereg
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Nonparametric Additive Instrumental Variable Estimator: A GroupShrinkage Estimation Perspective
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-grpreg
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-gmm 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ncvreg 
 Requires:         R-CRAN-grpreg 
 Requires:         R-splines 
 Requires:         R-CRAN-gmm 
 Requires:         R-stats 
+Requires:         R-CRAN-ncvreg 
 
 %description
 In empirical studies, instrumental variable (IV) regression is the

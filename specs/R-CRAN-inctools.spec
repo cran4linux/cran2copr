@@ -1,9 +1,9 @@
 %global packname  inctools
-%global packver   1.0.14
+%global packver   1.0.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.14
+Version:          1.0.15
 Release:          1%{?dist}
 Summary:          Incidence Estimation Tools
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-binom 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-magrittr 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-binom 
 
 %description
 Tools for estimating incidence from biomarker data in cross- sectional
@@ -62,6 +64,7 @@ extends the method of Kassanjee et al. (2012)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

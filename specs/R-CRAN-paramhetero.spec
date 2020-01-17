@@ -1,9 +1,9 @@
 %global packname  paramhetero
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Numeric and Visual Comparisons of Heterogeneity in ParametricModels
 
@@ -18,9 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-survey 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-stats 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-survey 
 
 %description
 Performs statistical tests to compare coefficients and residual variance

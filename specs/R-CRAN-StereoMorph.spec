@@ -1,9 +1,9 @@
 %global packname  StereoMorph
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}
 Summary:          Stereo Camera Calibration and Reconstruction
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.11.0
 Requires:         R-core >= 2.11.0
 BuildRequires:    R-CRAN-bezier >= 1.1
-BuildRequires:    R-CRAN-svgViewR >= 1.0.1
+BuildRequires:    R-CRAN-svgViewR >= 1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.9.9
 BuildRequires:    R-CRAN-shiny >= 0.13.0
 BuildRequires:    R-grDevices 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-tiff
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-MASS 
 Requires:         R-CRAN-bezier >= 1.1
-Requires:         R-CRAN-svgViewR >= 1.0.1
+Requires:         R-CRAN-svgViewR >= 1.0
 Requires:         R-CRAN-Rcpp >= 0.9.9
 Requires:         R-CRAN-shiny >= 0.13.0
 Requires:         R-grDevices 
@@ -57,6 +57,7 @@ setup.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

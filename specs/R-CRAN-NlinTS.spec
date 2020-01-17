@@ -1,11 +1,11 @@
 %global packname  NlinTS
-%global packver   1.3.7
+%global packver   1.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.3.8
 Release:          1%{?dist}
-Summary:          Non Linear Time Series Analysis
+Summary:          Models for Non Linear Causality Detection in Time Series
 
 License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,7 +24,7 @@ Requires:         R-CRAN-timeSeries
 Requires:         R-CRAN-Rdpack 
 
 %description
-Models for non-linear time series analysis and causality detection.  The
+Models for non-linear time series analysis and causality detection. The
 main functionalities of this package consist of an implementation of the
 classical causality test (C.W.J.Granger 1980)
 <doi:10.1016/0165-1889(80)90069-X>, and a non-linear version of it based

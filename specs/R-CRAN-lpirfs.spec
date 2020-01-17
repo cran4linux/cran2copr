@@ -1,9 +1,9 @@
 %global packname  lpirfs
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          Local Projections Impulse Response Functions
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-foreach >= 1.4.3
 BuildRequires:    R-CRAN-doParallel >= 1.0.11
 BuildRequires:    R-CRAN-lmtest >= 0.9.36
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
-BuildRequires:    R-CRAN-ggpubr >= 0.2.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.17
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-sandwich >= 2.5.0
@@ -33,7 +32,6 @@ Requires:         R-CRAN-foreach >= 1.4.3
 Requires:         R-CRAN-doParallel >= 1.0.11
 Requires:         R-CRAN-lmtest >= 0.9.36
 Requires:         R-CRAN-dplyr >= 0.7.4
-Requires:         R-CRAN-ggpubr >= 0.2.3
 Requires:         R-CRAN-Rcpp >= 0.12.17
 
 %description

@@ -1,9 +1,9 @@
 %global packname  plotdap
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          Easily Visualize Data from 'ERDDAP' Servers via the 'rerddap'Package
 
@@ -17,6 +17,7 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
 BuildRequires:    R-CRAN-rerddap >= 0.6.0
+BuildRequires:    R-CRAN-cmocean 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-lazyeval 
@@ -28,8 +29,10 @@ BuildRequires:    R-CRAN-rgeos
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
 Requires:         R-CRAN-rerddap >= 0.6.0
+Requires:         R-CRAN-cmocean 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-lazyeval 
@@ -41,6 +44,7 @@ Requires:         R-CRAN-rgeos
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-viridis 
 
 %description
 Easily visualize and animate 'tabledap' and 'griddap' objects obtained via
@@ -59,6 +63,7 @@ can be animated through time using the 'gganmiate' package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  fmri
-%global packver   1.9
+%global packver   1.9.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          1.9.2.1
 Release:          1%{?dist}
 Summary:          Analysis of fMRI Experiments
 
@@ -14,13 +14,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-awsMethods >= 1.0.1
+BuildRequires:    R-CRAN-awsMethods >= 1.1.1
 BuildRequires:    R-nlme 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-aws 
-Requires:         R-CRAN-awsMethods >= 1.0.1
+Requires:         R-CRAN-awsMethods >= 1.1.1
 Requires:         R-nlme 
 Requires:         R-parallel 
 Requires:         R-CRAN-metafor 
@@ -43,6 +43,7 @@ et al. (2006) <DOI:10.1016/j.neuroimage.2006.06.029>, Polzehl et al.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

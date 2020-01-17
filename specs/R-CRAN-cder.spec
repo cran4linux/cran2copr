@@ -1,9 +1,9 @@
 %global packname  cder
-%global packver   0.2-0
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Interface to the California Data Exchange Center
 
@@ -15,23 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 3.3
-BuildRequires:    R-CRAN-tibble >= 2.0
+BuildRequires:    R-CRAN-curl >= 4.3
+BuildRequires:    R-CRAN-tibble >= 2.1
 BuildRequires:    R-CRAN-lubridate >= 1.7
+BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-glue >= 1.3
-BuildRequires:    R-CRAN-stringr >= 1.3
 BuildRequires:    R-CRAN-readr >= 1.3
-BuildRequires:    R-CRAN-dplyr >= 0.7
-BuildRequires:    R-CRAN-rlang >= 0.3
+BuildRequires:    R-CRAN-dplyr >= 0.8
+BuildRequires:    R-CRAN-rlang >= 0.4
 BuildRequires:    R-utils 
-Requires:         R-CRAN-curl >= 3.3
-Requires:         R-CRAN-tibble >= 2.0
+Requires:         R-CRAN-curl >= 4.3
+Requires:         R-CRAN-tibble >= 2.1
 Requires:         R-CRAN-lubridate >= 1.7
+Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-glue >= 1.3
-Requires:         R-CRAN-stringr >= 1.3
 Requires:         R-CRAN-readr >= 1.3
-Requires:         R-CRAN-dplyr >= 0.7
-Requires:         R-CRAN-rlang >= 0.3
+Requires:         R-CRAN-dplyr >= 0.8
+Requires:         R-CRAN-rlang >= 0.4
 Requires:         R-utils 
 
 %description
@@ -52,6 +52,7 @@ download service for accessing historical records.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -62,6 +63,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

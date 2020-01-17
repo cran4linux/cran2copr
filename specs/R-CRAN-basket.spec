@@ -1,9 +1,9 @@
 %global packname  basket
-%global packver   0.9.2
+%global packver   0.9.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.10
 Release:          1%{?dist}
 Summary:          Basket Trial Analysis
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-GenSA 
 BuildRequires:    R-CRAN-foreach 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-itertools 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-CRAN-GenSA 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-itertools 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
 Implementation of multisource exchangeability models for Bayesian analyses
@@ -73,6 +75,7 @@ and Hobbs, B.P. (2017) <doi:10.1093/biostatistics/kxx031>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

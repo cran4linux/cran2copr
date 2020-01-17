@@ -1,9 +1,9 @@
 %global packname  wrapr
-%global packver   1.9.3
+%global packver   1.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.3
+Version:          1.9.4
 Release:          1%{?dist}
 Summary:          Wrap R Tools for Debugging and Parametric Programming
 
@@ -17,11 +17,9 @@ Requires:         R-core >= 3.2.1
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-graphics 
 Requires:         R-stats 
 
 %description

@@ -1,9 +1,9 @@
 %global packname  spant
-%global packver   0.15.0
+%global packver   0.19.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          0.19.0
 Release:          1%{?dist}
 Summary:          MR Spectroscopy Analysis Tools
 
@@ -30,9 +30,18 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-smoother 
 BuildRequires:    R-CRAN-svd 
-BuildRequires:    R-CRAN-tkrplot 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ptw 
+BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-mmand 
+BuildRequires:    R-CRAN-RNifti 
+BuildRequires:    R-CRAN-RNiftyReg 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-oro.dicom 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-plyr 
@@ -49,9 +58,18 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-smoother 
 Requires:         R-CRAN-svd 
-Requires:         R-CRAN-tkrplot 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ptw 
+Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-mmand 
+Requires:         R-CRAN-RNifti 
+Requires:         R-CRAN-RNiftyReg 
+Requires:         R-CRAN-fields 
+Requires:         R-MASS 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-oro.dicom 
 Requires:         R-CRAN-tibble 
 
 %description

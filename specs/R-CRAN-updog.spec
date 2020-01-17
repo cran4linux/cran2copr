@@ -1,9 +1,9 @@
 %global packname  updog
-%global packver   1.1.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.3
 Release:          1%{?dist}
 Summary:          Flexible Genotyping for Polyploids
 
@@ -44,7 +44,8 @@ correlation with the true genotypes, oracle_cor(). These latter two
 functions are useful for read depth calculations. Run
 browseVignettes(package = "updog") in R for example usage. See Gerard et
 al. (2018) <doi:10.1534/genetics.118.301468> and Gerard and Ferrao (2019)
-<doi:10.1101/751784> for details on the implemented methods.
+<doi:10.1093/bioinformatics/btz852> for details on the implemented
+methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  DramaAnalysis
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}
 Summary:          Analysis of Dramatic Texts
 
@@ -38,7 +38,7 @@ Requires:         R-utils
 
 %description
 Analysis of preprocessed dramatic texts, with respect to literary
-research. The package provides functions to analyse and visualise
+research. The package provides functions to analyze and visualize
 information about characters, stage directions, the dramatic structure and
 the text itself. The dramatic texts are expected to be in CSV format,
 which can be installed from within the package, sample texts are provided.
@@ -55,6 +55,7 @@ The package and the reasoning behind it are described in Reiter et al.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

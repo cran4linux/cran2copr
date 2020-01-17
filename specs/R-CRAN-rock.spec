@@ -1,9 +1,9 @@
 %global packname  rock
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Reproducible Open Coding Kit
 
@@ -41,8 +41,8 @@ towards qualitative research methods. Although it is a general-purpose
 toolkit, three specific applications have been implemented, specifically
 an interface to the 'rENA' package that implements Epistemic Network
 Analysis ('ENA'), means to process notes from Cognitive Interviews
-('CIs'), and means to work with a decentralized construct taxonomy
-('DCT').
+('CIs'), and means to work with decentralized construct taxonomies
+('DCTs').
 
 %prep
 %setup -q -c -n %{packname}
@@ -66,6 +66,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/css
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

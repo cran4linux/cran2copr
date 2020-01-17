@@ -1,9 +1,9 @@
 %global packname  GBJ
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}
 Summary:          Generalized Berk-Jones Test for Set-Based Inference in GeneticAssociation Studies
 
@@ -34,8 +34,8 @@ implemented in this package, and we additionally provide an omnibus test
 (OMNI) which integrates information from each of the tests. The GBJ has
 been shown to outperform other tests in genetic association studies when
 signals are correlated and moderately sparse. Please see the vignette for
-a quickstart guide or Sun and Lin (2017) <arXiv:1710.02469> for more
-details.
+a quickstart guide or the paper at <doi:10.1080/01621459.2019.1660170> for
+full details.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +47,7 @@ details.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

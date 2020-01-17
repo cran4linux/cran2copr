@@ -1,9 +1,9 @@
 %global packname  rdpower
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}
 Summary:          Power Calculations for RD Designs
 
@@ -24,8 +24,8 @@ design for causal inference and policy evaluation. The 'rdpower' package
 provides tools to perform power and sample size calculations in RD
 designs: rdpower() calculates the power of an RD design and rdsampsi()
 calculates the required sample size to achieve a desired power. See
-Cattaneo, Titiunik and Vazquez-Bare (2018)
-<https://sites.google.com/site/rdpackages/rdpower/Cattaneo-Titiunik-VazquezBare_2018_Stata.pdf>
+Cattaneo, Titiunik and Vazquez-Bare (2019)
+<https://sites.google.com/site/rdpackages/rdpower/Cattaneo-Titiunik-VazquezBare_2019_Stata.pdf>
 for further methodological details.
 
 %prep

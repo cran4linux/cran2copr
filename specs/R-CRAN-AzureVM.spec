@@ -1,9 +1,9 @@
 %global packname  AzureVM
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Virtual Machines in 'Azure'
 
@@ -15,14 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AzureRMR >= 2.1.2
+BuildRequires:    R-CRAN-AzureRMR >= 2.3.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-AzureRMR >= 2.1.2
+Requires:         R-CRAN-AzureRMR >= 2.3.0
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-parallel 
 
 %description
 Functionality for working with virtual machines (VMs) in Microsoft's
@@ -46,6 +44,7 @@ of the 'AzureR' family of packages.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

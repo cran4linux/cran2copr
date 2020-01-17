@@ -1,9 +1,9 @@
 %global packname  adiv
-%global packver   1.2
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Analysis of Diversity
 
@@ -19,24 +19,28 @@ BuildRequires:    R-CRAN-ade4
 BuildRequires:    R-CRAN-adegraphics 
 BuildRequires:    R-CRAN-adephylo 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-phylobase 
 BuildRequires:    R-cluster 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-phylobase 
+BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-FactoMineR 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-adegraphics 
 Requires:         R-CRAN-adephylo 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-phylobase 
 Requires:         R-cluster 
 Requires:         R-methods 
+Requires:         R-CRAN-phylobase 
+Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-FactoMineR 
 
 %description
-Includes functions, data sets and examples for the calculation of various
-indices of biodiversity including species, functional and phylogenetic
-diversity. Part of the indices are expressed in terms of equivalent
-numbers of species. It also provides ways to partition biodiversity across
+Functions, data sets and examples for the calculation of various indices
+of biodiversity including species, functional and phylogenetic diversity.
+Part of the indices are expressed in terms of equivalent numbers of
+species. The package also provides ways to partition biodiversity across
 spatial or temporal scales (alpha, beta, gamma diversities). In addition
 to the quantification of biodiversity, ordination approaches are available
 which rely on diversity indices and allow the detailed identification of
@@ -52,6 +56,7 @@ species, functional or phylogenetic differences between communities.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

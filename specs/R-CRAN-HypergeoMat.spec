@@ -1,9 +1,9 @@
 %global packname  HypergeoMat
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}
 Summary:          Hypergeometric Function of a Matrix Argument
 
@@ -15,11 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-arrangements 
 BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-gsl 
 
 %description

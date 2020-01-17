@@ -1,9 +1,9 @@
 %global packname  rabi
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Generate Codes to Uniquely and Robustly Identify Individuals forAnimal Behavior Studies
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-numbers 
 Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringdist 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-methods 
 
 %description
 Facilitates the design and generation of optimal color (or symbol) codes
@@ -45,6 +47,7 @@ Thus, animal subjects are not confused and no ambiguity is introduced.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -57,6 +60,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/gui-example
 %{rlibdir}/%{packname}/INDEX

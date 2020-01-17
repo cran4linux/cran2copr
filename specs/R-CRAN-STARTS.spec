@@ -1,9 +1,9 @@
 %global packname  STARTS
-%global packver   1.1-6
+%global packver   1.2-35
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.2.35
 Release:          1%{?dist}
 Summary:          Functions for the STARTS Model
 

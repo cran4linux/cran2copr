@@ -1,9 +1,9 @@
 %global packname  SGPdata
-%global packver   21.0-0.0
+%global packver   23.0-0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          21.0.0.0
+Version:          23.0.0.0
 Release:          1%{?dist}
 Summary:          Exemplar Data Sets for Student Growth Percentiles (SGP) Analyses
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.9.6
 BuildRequires:    R-CRAN-crayon 

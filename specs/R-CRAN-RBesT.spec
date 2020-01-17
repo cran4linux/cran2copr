@@ -1,9 +1,9 @@
 %global packname  RBesT
-%global packver   1.5-3
+%global packver   1.5-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}
 Summary:          R Bayesian Evidence Synthesis Tools
 
@@ -17,9 +17,9 @@ Requires:         pandoc
 Requires:         pandoc-citeproc
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-rstan >= 2.19.2
+BuildRequires:    R-CRAN-StanHeaders >= 2.19.0
+BuildRequires:    R-CRAN-BH >= 1.69.0
 BuildRequires:    R-CRAN-bayesplot >= 1.4.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstan >= 2.19.2
 Requires:         R-CRAN-bayesplot >= 1.4.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
@@ -80,5 +80,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/NEWS
 %doc %{rlibdir}/%{packname}/sbc
+%doc %{rlibdir}/%{packname}/stan
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

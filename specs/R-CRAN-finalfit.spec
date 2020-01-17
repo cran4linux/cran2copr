@@ -1,9 +1,9 @@
 %global packname  finalfit
-%global packver   0.9.5
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.7
 Release:          1%{?dist}
 Summary:          Quickly Create Elegant Regression Results Tables and Plots whenModelling
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
@@ -31,14 +32,13 @@ BuildRequires:    R-CRAN-pillar
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-boot 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
@@ -55,14 +55,12 @@ Requires:         R-CRAN-pillar
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-survival 
 Requires:         R-CRAN-survminer 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 
 %description
 Generate regression results tables and plots in final format for
@@ -79,6 +77,7 @@ publication. Explore models and export directly to PDF and 'Word' using
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

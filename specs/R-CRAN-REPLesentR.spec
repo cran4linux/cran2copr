@@ -1,9 +1,9 @@
 %global packname  REPLesentR
-%global packver   0.3.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Presentations in the REPL
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr >= 1.21
 BuildRequires:    R-CRAN-modules 
 BuildRequires:    R-CRAN-dat 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-knitr >= 1.21
 Requires:         R-CRAN-modules 
 Requires:         R-CRAN-dat 
 Requires:         R-tools 
-Requires:         R-CRAN-knitr 
 
 %description
 Create presentations and display them inside the R 'REPL' (Read-Eval-Print

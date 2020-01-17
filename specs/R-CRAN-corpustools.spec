@@ -1,9 +1,9 @@
 %global packname  corpustools
-%global packver   0.3.3
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Managing, Querying and Analyzing Tokenized Text
 
@@ -15,27 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-wordcloud >= 2.5
+BuildRequires:    R-CRAN-RNewsflow >= 1.2.1
 BuildRequires:    R-Matrix >= 1.2
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-udpipe 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-tokenbrowser 
 Requires:         R-CRAN-wordcloud >= 2.5
+Requires:         R-CRAN-RNewsflow >= 1.2.1
 Requires:         R-Matrix >= 1.2
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-memoise 
 Requires:         R-methods 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-SnowballC 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-udpipe 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-tokenbrowser 
 
 %description
 Provides text analysis in R, focusing on the use of a tokenized text
@@ -69,6 +71,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

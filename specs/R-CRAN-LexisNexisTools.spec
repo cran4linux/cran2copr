@@ -1,9 +1,9 @@
 %global packname  LexisNexisTools
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Working with Files from 'LexisNexis'
 
@@ -21,7 +21,7 @@ BuildRequires:    R-stats >= 3.3.0
 BuildRequires:    R-utils >= 3.3.0
 BuildRequires:    R-CRAN-tibble >= 1.4.0
 BuildRequires:    R-CRAN-pbapply >= 1.3.4
-BuildRequires:    R-CRAN-data.table >= 1.10.4.3
+BuildRequires:    R-CRAN-data.table >= 1.10.0
 BuildRequires:    R-CRAN-stringi >= 1.1.7
 BuildRequires:    R-CRAN-quanteda >= 1.1.0
 BuildRequires:    R-CRAN-stringdist >= 0.9.4.0
@@ -31,7 +31,7 @@ Requires:         R-stats >= 3.3.0
 Requires:         R-utils >= 3.3.0
 Requires:         R-CRAN-tibble >= 1.4.0
 Requires:         R-CRAN-pbapply >= 1.3.4
-Requires:         R-CRAN-data.table >= 1.10.4.3
+Requires:         R-CRAN-data.table >= 1.10.0
 Requires:         R-CRAN-stringi >= 1.1.7
 Requires:         R-CRAN-quanteda >= 1.1.0
 Requires:         R-CRAN-stringdist >= 0.9.4.0
@@ -55,6 +55,7 @@ for further processing.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

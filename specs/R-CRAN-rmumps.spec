@@ -1,9 +1,9 @@
 %global packname  rmumps
-%global packver   5.2.1-5
+%global packver   5.2.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.1.5
+Version:          5.2.1.7
 Release:          1%{?dist}
 Summary:          Wrapper for MUMPS Library
 

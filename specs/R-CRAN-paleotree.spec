@@ -1,9 +1,9 @@
 %global packname  paleotree
-%global packver   3.3.0
+%global packver   3.3.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.3.25
 Release:          1%{?dist}
 Summary:          Paleontological and Phylogenetic Analyses of Evolution
 
@@ -41,25 +41,24 @@ Requires:         R-utils
 %description
 Provides tools for transforming, a posteriori time-scaling, and modifying
 phylogenies containing extinct (i.e. fossil) lineages. In particular, most
-users are interested in the functions timePaleoPhy(), bin_timePaleoPhy(),
-cal3TimePaleoPhy() and bin_cal3TimePaleoPhy(), which date cladograms of
-fossil taxa using stratigraphic data. This package also contains a large
-number of likelihood functions for estimating sampling and diversification
-rates from different types of data available from the fossil record (e.g.
-range data, occurrence data, etc). paleotree users can also simulate
+users are interested in the functions timePaleoPhy, bin_timePaleoPhy,
+cal3TimePaleoPhy and bin_cal3TimePaleoPhy, which date cladograms of fossil
+taxa using stratigraphic data. This package also contains a large number
+of likelihood functions for estimating sampling and diversification rates
+from different types of data available from the fossil record (e.g. range
+data, occurrence data, etc). paleotree users can also simulate
 diversification and sampling in the fossil record using the function
-simFossilRecord(), which is a detailed simulator for branching
+simFossilRecord, which is a detailed simulator for branching
 birth-death-sampling processes composed of discrete taxonomic units
 arranged in ancestor-descendant relationships. Users can use
-simFossilRecord() to simulate diversification in incompletely sampled
-fossil records, under various models of morphological differentiation
-(i.e. the various patterns by which morphotaxa originate from one
-another), and with time-dependent, longevity-dependent and/or
-diversity-dependent rates of diversification, extinction and sampling.
-Additional functions allow users to translate simulated
-ancestor-descendant data from simFossilRecord() into standard time-scaled
-phylogenies or unscaled cladograms that reflect the relationships among
-taxon units.
+simFossilRecord to simulate diversification in incompletely sampled fossil
+records, under various models of morphological differentiation (i.e. the
+various patterns by which morphotaxa originate from one another), and with
+time-dependent, longevity-dependent and/or diversity-dependent rates of
+diversification, extinction and sampling. Additional functions allow users
+to translate simulated ancestor-descendant data from simFossilRecord into
+standard time-scaled phylogenies or unscaled cladograms that reflect the
+relationships among taxon units.
 
 %prep
 %setup -q -c -n %{packname}
@@ -85,4 +84,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

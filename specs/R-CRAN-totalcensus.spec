@@ -1,9 +1,9 @@
 %global packname  totalcensus
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}
 Summary:          Extract Decennial Census and American Community Survey Data
 

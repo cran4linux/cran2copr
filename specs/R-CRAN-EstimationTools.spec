@@ -1,9 +1,9 @@
 %global packname  EstimationTools
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Maximum Likelihood Estimation for Probability Functions fromData Sets
 
@@ -15,22 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-BBmisc 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-DEoptim 
 Requires:         R-boot 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-BBmisc 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
 A routine for parameter estimation for any probability density or mass
@@ -52,6 +50,7 @@ Gilbert (2011) <http://CRAN.R-project.org/package=numDeriv> or the option
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -64,5 +63,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
+%doc %{rlibdir}/%{packname}/refs.bib
 %{rlibdir}/%{packname}/INDEX

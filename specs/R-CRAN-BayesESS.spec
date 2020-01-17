@@ -1,9 +1,9 @@
 %global packname  BayesESS
-%global packver   0.1.12
+%global packver   0.1.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.1.19
 Release:          1%{?dist}
 Summary:          Determining Effective Sample Size
 
@@ -33,9 +33,8 @@ Requires:         R-MASS
 
 %description
 Determines effective sample size of a parametric prior distribution in
-Bayesian models. To learn more about Bayesian effective sample size, see:
-Morita, S., Thall, P. F., & Muller, P. (2008)
-<https://www.jstor.org/stable/25502095>.
+Bayesian models. For a web-based Shiny application related to this
+package, see <https://implement.shinyapps.io/bayesess/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +46,7 @@ Morita, S., Thall, P. F., & Muller, P. (2008)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

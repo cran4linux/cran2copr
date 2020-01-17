@@ -1,9 +1,9 @@
 %global packname  car
-%global packver   3.0-3
+%global packver   3.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.0.6
 Release:          1%{?dist}
 Summary:          Companion to Applied Regression
 
@@ -48,7 +48,7 @@ Requires:         R-nlme
 
 %description
 Functions to Accompany J. Fox and S. Weisberg, An R Companion to Applied
-Regression, Third Edition, Sage, in press.
+Regression, Third Edition, Sage, 2019.
 
 %prep
 %setup -q -c -n %{packname}
@@ -60,6 +60,7 @@ Regression, Third Edition, Sage, in press.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

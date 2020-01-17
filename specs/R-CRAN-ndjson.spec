@@ -1,9 +1,9 @@
 %global packname  ndjson
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          Wicked-Fast Streaming 'JSON' ('ndjson') Reader
 
@@ -18,12 +18,10 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dtplyr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dtplyr 
+Requires:         R-CRAN-tibble 
 
 %description
 Streaming 'JSON' ('ndjson') has one 'JSON' record per-line and many modern
@@ -60,5 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/extdata
+%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  UniprotR
-%global packver   1.0.3
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Retrieving Information of Proteins from Uniprot
 
@@ -20,23 +20,35 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-alakazam 
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-alakazam 
 
 %description
 Connect to Uniprot <https://www.uniprot.org/> to retrieve information

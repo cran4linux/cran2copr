@@ -1,9 +1,9 @@
 %global packname  IRISMustangMetrics
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Statistics and Metrics for Seismic Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-signal
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-IRISSeismic >= 1.3.0
 Requires:         R-CRAN-seismicRoll >= 1.1.2
 Requires:         R-CRAN-dplyr >= 0.4.3
@@ -33,6 +34,7 @@ Requires:         R-CRAN-signal
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-XML 
 Requires:         R-stats 
+Requires:         R-CRAN-pracma 
 
 %description
 Classes and functions for metrics calculation as part of the 'IRIS DMC
@@ -51,6 +53,7 @@ seismometers.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  aaSEA
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Amino Acid Substitution Effect Analyser
 
@@ -18,8 +18,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.7.1
 BuildRequires:    R-CRAN-Hmisc >= 4.1.1
 BuildRequires:    R-CRAN-seqinr >= 3.4.5
+BuildRequires:    R-CRAN-Bios2cor >= 2.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-Bios2cor >= 1.2
 BuildRequires:    R-CRAN-shiny >= 1.0.5
 BuildRequires:    R-CRAN-shinydashboard >= 0.7.0
 BuildRequires:    R-CRAN-DT >= 0.4
@@ -27,8 +27,8 @@ BuildRequires:    R-CRAN-networkD3 >= 0.4
 Requires:         R-CRAN-plotly >= 4.7.1
 Requires:         R-CRAN-Hmisc >= 4.1.1
 Requires:         R-CRAN-seqinr >= 3.4.5
+Requires:         R-CRAN-Bios2cor >= 2.0
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-Bios2cor >= 1.2
 Requires:         R-CRAN-shiny >= 1.0.5
 Requires:         R-CRAN-shinydashboard >= 0.7.0
 Requires:         R-CRAN-DT >= 0.4
@@ -53,6 +53,7 @@ alignment are as described in : Pelé et al., (2017)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

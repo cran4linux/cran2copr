@@ -1,9 +1,9 @@
 %global packname  sjlabelled
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}
 Summary:          Labelled Data Utility Functions
 
@@ -16,21 +16,13 @@ BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-haven >= 1.1.2
-BuildRequires:    R-CRAN-insight >= 0.4.1
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-insight >= 0.7.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-haven >= 1.1.2
-Requires:         R-CRAN-insight >= 0.4.1
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-insight >= 0.7.0
 Requires:         R-stats 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-tools 
 Requires:         R-utils 
 
@@ -52,6 +44,7 @@ deal with multiple declared missing values.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

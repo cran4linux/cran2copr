@@ -1,9 +1,9 @@
 %global packname  coxrt
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}
 Summary:          Cox Proportional Hazards Regression for Right-Truncated Data
 
@@ -26,6 +26,7 @@ Requires:         R-CRAN-BB
 Requires:         R-CRAN-inline 
 Requires:         R-CRAN-gss 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Fits Cox regression based on retrospectively ascertained times-to-event.
@@ -41,6 +42,7 @@ The method uses Inverse-Probability-Weighting estimating equations.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

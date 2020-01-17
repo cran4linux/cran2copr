@@ -1,9 +1,9 @@
 %global packname  SADISA
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Species Abundance Distributions with Independent-SpeciesAssumption
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DDD >= 4.1
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-DDD 
+Requires:         R-CRAN-DDD >= 4.1
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-DDD 
 
 %description
 Computes the probability of a set of species abundances of a single or
@@ -40,6 +40,7 @@ for community structure data. Methods in Ecology & Evolution 8: 1506-1519
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

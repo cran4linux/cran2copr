@@ -1,9 +1,9 @@
 %global packname  live
-%global packver   1.5.10
+%global packver   1.5.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.10
+Version:          1.5.13
 Release:          1%{?dist}
 Summary:          Local Interpretable (Model-Agnostic) Visual Explanations
 
@@ -44,7 +44,7 @@ achieved through local approximations that are either based on additive
 regression like model or CART like model that allows for higher
 interactions. The methodology is based on Tulio Ribeiro, Singh, Guestrin
 (2016) <doi:10.1145/2939672.2939778>. More details can be found in
-Staniak, Biecek (2018) <arXiv:1804.01955>.
+Staniak, Biecek (2018) <doi:10.32614/RJ-2018-072>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,6 +56,7 @@ Staniak, Biecek (2018) <arXiv:1804.01955>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

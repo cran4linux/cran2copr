@@ -1,9 +1,9 @@
 %global packname  sentometrics
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          An Integrated Framework for Textual Sentiment Time SeriesAggregation and Prediction
 
@@ -16,8 +16,8 @@ BuildRequires:    make
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
@@ -30,8 +30,8 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.13
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-caret 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
@@ -46,7 +46,7 @@ Requires:         R-utils
 %description
 Optimized prediction based on textual sentiment, accounting for the
 intrinsic challenge that sentiment can be computed and pooled across texts
-and time in various ways. See Ardia et al. (2018)
+and time in various ways. See Ardia et al. (2019)
 <doi:10.2139/ssrn.3067734>.
 
 %prep
@@ -59,6 +59,7 @@ and time in various ways. See Ardia et al. (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -74,6 +75,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/shiny
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

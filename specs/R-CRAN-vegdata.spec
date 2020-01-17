@@ -1,9 +1,9 @@
 %global packname  vegdata
-%global packver   0.9.5
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.7
 Release:          1%{?dist}
 Summary:          Access Vegetation Databases and Treat Taxonomy
 
@@ -16,11 +16,13 @@ BuildRequires:    R-devel >= 2.0.0
 Requires:         R-core >= 2.0.0
 BuildArch:        noarch
 BuildRequires:    R-foreign 
-BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-foreign 
-Requires:         R-CRAN-XML 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-plyr 
 
 %description
 Handling of vegetation data from different sources ( Turboveg
@@ -39,6 +41,7 @@ list "GermanSL", <http://germansl.infinitenature.org>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

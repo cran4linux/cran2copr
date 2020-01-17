@@ -1,9 +1,9 @@
 %global packname  MetaStan
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Bayesian Meta-Analysis via 'Stan'
 
@@ -32,7 +32,7 @@ Performs Bayesian meta-analysis and model-based meta-analysis using
 'Stan'. Includes binomial-normal hierarchical models and option to use
 weakly informative priors for the heterogeneity parameter and the
 treatment effect parameter which are described in Guenhan, Roever, and
-Friede (2018) <arXiv:1809.04407>.
+Friede (2019) <doi:10.1002/jrsm.1370>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +44,7 @@ Friede (2018) <arXiv:1809.04407>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

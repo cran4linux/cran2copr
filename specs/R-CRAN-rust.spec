@@ -1,9 +1,9 @@
 %global packname  rust
-%global packver   1.3.6
+%global packver   1.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.3.8
 Release:          1%{?dist}
 Summary:          Ratio-of-Uniforms Simulation with Transformation
 
@@ -16,14 +16,10 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-spatstat 
 Requires:         R-stats 
 
 %description

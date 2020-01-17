@@ -1,9 +1,9 @@
 %global packname  bdpar
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Big Data Preprocessing Architecture
 
@@ -54,6 +54,7 @@ most relevant information (tokens, dates, ... ) from some textual sources
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -69,10 +70,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/configurations
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/testFiles
-%doc %{rlibdir}/%{packname}/testFiles_ExtractorSms
-%doc %{rlibdir}/%{packname}/testFiles_InstanceFactory
-%doc %{rlibdir}/%{packname}/testFiles_pipeline_execute_eml
-%doc %{rlibdir}/%{packname}/testFiles_pipeline_execute_tsms
-%doc %{rlibdir}/%{packname}/testResources
+%doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/INDEX

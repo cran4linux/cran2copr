@@ -1,9 +1,9 @@
 %global packname  rvkstat
-%global packver   2.6.2
+%global packver   2.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.2
+Version:          2.6.3
 Release:          1%{?dist}
 Summary:          Interface to API 'vk.com'
 

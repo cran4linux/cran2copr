@@ -1,9 +1,9 @@
 %global packname  piecepackr
-%global packver   1.0.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Board Game Graphics
 
@@ -20,6 +20,8 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-grImport2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
@@ -28,6 +30,8 @@ Requires:         R-grid
 Requires:         R-CRAN-grImport2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 

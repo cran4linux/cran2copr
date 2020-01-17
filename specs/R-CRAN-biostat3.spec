@@ -1,9 +1,9 @@
 %global packname  biostat3
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Utility Functions, Datasets and Extended Examples for SurvivalAnalysis
 
@@ -30,7 +30,7 @@ Requires:         R-stats
 
 %description
 Utility functions, datasets and extended examples for survival analysis.
-This includes a range of other packages, some simple wrappers for
+This extends a range of other packages, some simple wrappers for
 time-to-event analyses, datasets, and extensive examples in HTML with R
 scripts. The package also supports the course Biostatistics III entitled
 "Survival analysis for epidemiologists in R".
@@ -45,6 +45,7 @@ scripts. The package also supports the course Biostatistics III entitled
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  FLSSS
-%global packver   8.5.5
+%global packver   8.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.5.5
+Version:          8.5.6
 Release:          1%{?dist}
 Summary:          Mining Rigs for Specialized Subset Sum, Multi-Subset Sum,Multidimensional Subset Sum, Multidimensional Knapsack,Generalized Assignment Problems
 
@@ -56,6 +56,7 @@ optimization problems of interest.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
