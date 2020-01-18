@@ -1,0 +1,25 @@
+name: Scheduled sync
+on:
+  schedule:
+  - cron: '37 23 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v1
+      with:
+        r-version: 3.6.2
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Sync with CRAN
+      run: |
+        python -m pip install --upgrade pip
+        pip install copr-cli
+        echo "$TOKEN" > $HOME/.config/copr
+        Rscript copr-sync.r
+      env:
+        TOKEN: ${{ secrets.COPR_TOKEN }}
