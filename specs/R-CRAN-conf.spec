@@ -1,9 +1,9 @@
 %global packname  conf
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}
 Summary:          Visualization and Analysis of Statistical Measures of Confidence
 
@@ -19,14 +19,14 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-STAR 
-BuildRequires:    R-CRAN-SDMTools 
 BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-STAR 
-Requires:         R-CRAN-SDMTools 
 Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-pracma 
 
 %description
 Enables: (1) plotting two-dimensional confidence regions, (2) coverage
@@ -63,6 +63,7 @@ of constituent confidence intervals with binomTestEnsemble().
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  Factoshiny
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}
 Summary:          Perform Factorial Analysis from 'FactoMineR' with a ShinyApplication
 

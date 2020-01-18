@@ -1,9 +1,9 @@
 %global packname  CensMFM
-%global packver   1.5
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          2.0
 Release:          1%{?dist}
 Summary:          Finite Mixture of Multivariate Censored/Missing Data
 
@@ -16,15 +16,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MomTrunc 
-BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tlrmvnmvt 
 Requires:         R-CRAN-MomTrunc 
-Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tlrmvnmvt 
 
 %description
 It fits finite mixture models for censored or/and missing data using

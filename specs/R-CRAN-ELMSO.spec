@@ -1,9 +1,9 @@
 %global packname  ELMSO
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Implementation of the Efficient Large-Scale Online DisplayAdvertising Algorithm
 
@@ -21,9 +21,9 @@ An implementation of the algorithm described in "Efficient Large- Scale
 Internet Media Selection Optimization for Online Display Advertising" by
 Paulson, Luo, and James (Journal of Marketing Research 2018; see URL below
 for journal text/citation and
-<http://www-bcf.usc.edu/~gareth/research/ELMSO.pdf> for a full-text
-version of the paper). The algorithm here is designed to allocate budget
-across a set of online advertising opportunities using a
+<http://faculty.marshall.usc.edu/gareth-james/Research/ELMSO.pdf> for a
+full-text version of the paper). The algorithm here is designed to
+allocate budget across a set of online advertising opportunities using a
 coordinate-descent approach, but it can be used in any resource-allocation
 problem with a matrix of visitation (in the case of the paper, website
 page- views) and channels (in the paper, websites). The package contains
@@ -41,6 +41,7 @@ fixed at each channel.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

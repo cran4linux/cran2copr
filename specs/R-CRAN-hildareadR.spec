@@ -1,25 +1,29 @@
-%global packname  MigClim
-%global packver   1.6.1
+%global packname  hildareadR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Implementing Dispersal into Species Distribution Models
+Summary:          Extract Variables from HILDA
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-raster 
-Requires:         R-CRAN-raster 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-haven >= 2.1.1
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-haven >= 2.1.1
+Requires:         R-CRAN-dplyr >= 0.8.3
 
 %description
-Functions for implementing species dispersal into projections of species
-distribution models (e.g. under climate change scenarios).
+Makes it easy to extract and combine variables from the HILDA (Household,
+Income and Labour Dynamics in Australia) survey maintained by the
+Melbourne Institute <https://melbourneinstitute.unimelb.edu.au/hilda>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,10 +44,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

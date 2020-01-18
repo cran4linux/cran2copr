@@ -1,9 +1,9 @@
 %global packname  pglm
-%global packver   0.2-1
+%global packver   0.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Panel Generalized Linear Models
 
@@ -18,14 +18,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-plm 
 BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-Formula 
 Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-plm 
 Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-Formula 
 
 %description
 Estimation of panel models for glm-like models: this includes binomial
 models (logit and probit) count models (poisson and negbin) and ordered
-models (logit and probit).
+models (logit and probit), as described in Baltagi (2013) Econometric
+Analysis of Panel Data, ISBN-13:978-1-118-67232-7, Hsiao (2014) Analysis
+of Panel Data <doi:10.1017/CBO9781139839327> and Croissant and Millo
+(2018), Panel Data Econometrics with R, ISBN:978-1-118-94918-4.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  rlc
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Create Interactive Linked Charts with Minimal Code
 
@@ -16,21 +16,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jrc >= 0.2.0
-BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-hwriter 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-jrc >= 0.2.0
-Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-hwriter 
 Requires:         R-CRAN-plyr 
-Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-R6 
 
 %description
 An easy-to-use tool to employ interactivity in every-day exploratory
@@ -60,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/http_root
 %{rlibdir}/%{packname}/INDEX

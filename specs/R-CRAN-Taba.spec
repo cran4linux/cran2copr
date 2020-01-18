@@ -1,35 +1,34 @@
-%global packname  bayestestR
-%global packver   0.5.0
+%global packname  Taba
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Understand and Describe Bayesian Models and PosteriorDistributions
+Summary:          Taba Linear and Taba Rank Correlations
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.8.0
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.8.0
-Requires:         R-methods 
+Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides utilities to describe posterior distributions and Bayesian
-models. It includes point-estimates such as Maximum A Posteriori (MAP),
-measures of dispersion (Highest Density Interval - HDI; Kruschke, 2015
-<doi:10.1016/C2012-0-00477-2>) and indices used for null-hypothesis
-testing (such as ROPE percentage, pd and Bayes factors).
+Calculates the robust Taba linear and Taba rank (monotonic) correlations.
+Test statistics as well as one sided or two sided p-values are provided
+for Taba and Taba rank correlations. Multiple correlations and p-values
+can be calculated simultaneously across multiple variables. In addition,
+users will have the option to use the partial, semipartial, and
+generalized partial correlations; where the partial and semipartial
+correlations use linear, logistic, or Poisson regression to modify the
+specified variable.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,8 +51,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
