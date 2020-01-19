@@ -13,9 +13,8 @@ n <- length(unlist(blist))
 for (pkgs in blist) {
   message("Building ", length(pkgs), " packages of ", n, " remaining...")
 
-  pkgs <- paste0(getOption("copr.prefix"), pkgs)
-
-  ids <- sapply(pkgs, build_pkg)
+  pkgs <- paste0(getOption("copr.subdir"), "/", getOption("copr.prefix"), pkgs, ".spec")
+  ids <- sapply(pkgs, build_spec)
 
   message("Waiting for ", length(pkgs), " packages of ", n, " remaining...")
 
