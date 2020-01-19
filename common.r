@@ -31,7 +31,7 @@ list_pkgs <- function() {
 }
 
 watch_builds <- function(ids) {
-  if (!getOption("copr.watch", TRUE)) return(TRUE)
+  if (!getOption("copr.watch", TRUE)) return(FALSE)
   if (!length(ids)) return(logical(0))
 
   out <- try(copr_call("watch-build", paste(ids, collapse=" ")), silent=TRUE)
