@@ -8,6 +8,7 @@ URL.RES <- paste("https://copr-be.cloud.fedoraproject.org/results",
 
 html <- xml2::read_html(paste(URL.COPR, "monitor", "detailed", sep="/"))
 df <- rvest::html_table(html, fill=TRUE)[[1]]
+chroots <- gsub(" ", "-", tolower(paste(colnames(df)[-1], df[1, -1])))
 df <- df[3:nrow(df),]
 
 subset_failed <- function(x, chroots=seq_len(ncol(df)-1)) {
