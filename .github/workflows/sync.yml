@@ -1,12 +1,12 @@
 name: Scheduled sync
 on:
   schedule:
-  - cron: '45 23 * * *'
+  - cron: '3 0 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Setup R
       uses: r-lib/actions/setup-r@v1
       with:
@@ -15,11 +15,18 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
-    - name: Sync with CRAN
+    - name: Configuration
       run: |
+        git config --local user.name "Github Action"
+        git config --local user.email "enchufa2@users.noreply.github.com"
+        echo "$TOKEN" > $HOME/.config/copr
         python -m pip install --upgrade pip
         pip install copr-cli
-        echo "$TOKEN" > $HOME/.config/copr
-        Rscript copr-sync.r
       env:
         TOKEN: ${{ secrets.COPR_TOKEN }}
+    - name: Sync with CRAN
+      run: |
+        Rscript copr-sync.r
+        git add specs
+        git commit -m "sync"
+        git push
