@@ -1,7 +1,7 @@
 name: Scheduled sync
 on:
   schedule:
-  - cron: '3 0 * * *'
+  - cron: '15 0 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
