@@ -87,16 +87,16 @@ with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
   if (!reverse) {
     avail <- pkgs %in% cran[,"Package"]
     if (any(!avail))
-      warning("ignoring ", length(pkgs[!avail]), " packages: ",
-              paste(pkgs[!avail], collapse=", "),
-              " because they are not on CRAN", call.=FALSE)
+      warning("ignoring ", length(pkgs[!avail]), " packages ",
+              "(reason: not on CRAN): ",
+              paste(pkgs[!avail], collapse=", "), call.=FALSE)
     pkgs <- pkgs[avail]
 
     avail <- !pkgs %in% excl
     if (any(!avail))
-      warning("ignoring ", length(pkgs[!avail]), " packages: ",
-              paste(pkgs[!avail], collapse=", "),
-              " because they are exclusions", call.=FALSE)
+      warning("ignoring ", length(pkgs[!avail]), " packages ",
+              "(reason: exclusions): ",
+              paste(pkgs[!avail], collapse=", "), call.=FALSE)
     pkgs <- pkgs[avail]
   }
 
@@ -104,17 +104,17 @@ with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
 
   avail <- sapply(deps, function(i) all(setdiff(i, base) %in% cran[,"Package"]))
   if (any(!avail))
-    warning("ignoring ", length(names(avail)[!avail]), " packages: ",
-            paste(names(avail)[!avail], collapse=", "),
-            " because one or more dependencies are not on CRAN", call.=FALSE)
+    warning("ignoring ", length(names(avail)[!avail]), " packages ",
+            "(reason: dependencies not on CRAN): ",
+            paste(names(avail)[!avail], collapse=", "), call.=FALSE)
   deps <- deps[avail]
 
   if (!reverse) {
     avail <- sapply(deps, function(i) all(!setdiff(i, base) %in% excl))
     if (any(!avail))
-      warning("ignoring ", length(names(avail)[!avail]), " packages: ",
-              paste(names(avail)[!avail], collapse=", "),
-              " because one or more dependencies are exclusions", call.=FALSE)
+      warning("ignoring ", length(names(avail)[!avail]), " packages ",
+              "(reason: dependencies are exclusions): ",
+              paste(names(avail)[!avail], collapse=", "), call.=FALSE)
     deps <- deps[avail]
   }
 
