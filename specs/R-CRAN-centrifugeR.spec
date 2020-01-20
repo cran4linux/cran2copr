@@ -1,34 +1,35 @@
-%global packname  rel
-%global packver   1.4.0
+%global packname  centrifugeR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.3
 Release:          1%{?dist}
-Summary:          Reliability Coefficients
+Summary:          Balancing Centrifuge Rotors
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-pracma >= 2.2.9
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-Requires:         R-graphics 
+Requires:         R-CRAN-pracma >= 2.2.9
 Requires:         R-grDevices 
-Requires:         R-stats 
+Requires:         R-graphics 
 Requires:         R-utils 
 
 %description
-Derives point estimates with confidence intervals for Bennett et als S,
-Cohen's kappa, Conger's kappa, Fleiss' kappa, Gwet's AC, intraclass
-correlation coefficients, Krippendorff's alpha, Scott's pi, the standard
-error of measurement, and weighted kappa.
+Find the numbers of tubes that can be loaded in centrifuge rotors and give
+the instructions on how to balance these tubes in cases of equal or
+unequal masses. The methods of the package are constructed based on Sivek
+(2010) <doi:10.1515/integ.2010.031> and Peil and Hauryliuk (2010)
+<arXiv:1004.3671>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +52,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

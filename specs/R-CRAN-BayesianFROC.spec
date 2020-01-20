@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  BayesianFROC
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          FROC Analysis by Bayesian Approaches
 
@@ -57,21 +57,22 @@ Requires:         R-CRAN-shinydashboard
 Requires:         R-CRAN-shinythemes 
 
 %description
-Execute BayesianFROC::fit_GUI_Shiny() for a graphical user interface. The
-free-response receiver operating characteristic (FROC) method developed by
-Chakraborty is a generalization of receiver operating characteristic
-analysis, but Chakraborty used a non-Bayesian approach. This package aims
-to reconstruct Chakraborty's technique using a Bayesian approach and to
-verify that our models fit practical datasets. We also develop
-hierarchical Bayesian models for comparing modalities with new methods.
-The ultimate aim of FROC analysis is to compare observer performances,
-which means comparing characteristics, such as area under the curve (AUC)
-or figure of merit (FOM). In this package, we only use the notion of AUC
-for modality comparison, where by "modality", we mean imaging methods such
-as Magnetic Resonance Imaging (MRI), Computed Tomography (CT), Positron
-Emission Tomography (PET), ..., etc. So there is a problem that which
-imaging method is better to detect lesions from shadows in radiographs. To
-solve modality comparison issues, this package provides new methods using
+Execute BayesianFROC::fit_GUI_Shiny() (or fit_GUI_Shiny_MRMC()) for a
+graphical user interface via Shiny. The free-response receiver operating
+characteristic (FROC) method developed by Chakraborty is a generalization
+of receiver operating characteristic analysis, but Chakraborty used a
+non-Bayesian approach. This package aims to reconstruct Chakraborty's
+technique using a Bayesian approach and to verify that our models fit
+practical datasets. We also develop hierarchical Bayesian models for
+comparing modalities with new methods. The ultimate aim of FROC analysis
+is to compare observer performances, which means comparing
+characteristics, such as area under the curve (AUC) or figure of merit
+(FOM). In this package, we only use the notion of AUC for modality
+comparison, where by "modality", we mean imaging methods such as Magnetic
+Resonance Imaging (MRI), Computed Tomography (CT), Positron Emission
+Tomography (PET), ..., etc. So there is a problem that which imaging
+method is better to detect lesions from shadows in radiographs. To solve
+modality comparison issues, this package provides new methods using
 hierarchical Bayesian models proposed by the author of this package. Using
 this package, one can obtain at least one conclusion that which imaging
 methods are better for finding lesions in radiographs with the case of
@@ -136,7 +137,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/image
 %doc %{rlibdir}/%{packname}/myapp
 %doc %{rlibdir}/%{packname}/myappp
 %{rlibdir}/%{packname}/INDEX

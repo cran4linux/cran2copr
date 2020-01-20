@@ -1,9 +1,9 @@
 %global packname  adehabitatLT
-%global packver   0.3.24
+%global packver   0.3.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.24
+Version:          0.3.25
 Release:          1%{?dist}
 Summary:          Analysis of Animal Movements
 
@@ -46,6 +46,7 @@ A collection of tools for the analysis of animal movements.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

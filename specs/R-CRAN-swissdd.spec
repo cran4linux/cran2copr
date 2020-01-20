@@ -1,9 +1,9 @@
 %global packname  swissdd
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Get Swiss Federal and Cantonal Vote Results from Opendata.swiss
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
@@ -37,7 +37,10 @@ votes
 and cantonal votes
 <https://opendata.swiss/api/3/action/package_show?id=echtzeitdaten-am-abstimmungstag-zu-kantonalen-abstimmungsvorlagen>.
 It brings the results of Swiss popular votes, aggregated at the
-geographical level of choice, into R.
+geographical level of choice, into R. Additionally, it allows to retrieve
+data from the Swissvotes-Database, one of the most comprehensive data
+platforms on Swiss referendums and initiatives
+<https://swissvotes.ch/page/dataset/swissvotes_dataset.csv>.
 
 %prep
 %setup -q -c -n %{packname}

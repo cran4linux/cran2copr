@@ -1,38 +1,34 @@
-%global packname  ballr
-%global packver   0.2.6
+%global packname  MethComp
+%global packver   1.30.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.30.0
 Release:          1%{?dist}
-Summary:          Access to Current and Historical Basketball Data
+Summary:          Analysis of Agreement in Method Comparison Studies
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-rjags 
+Requires:         R-CRAN-coda 
+Requires:         R-nlme 
+Requires:         R-CRAN-rjags 
 
 %description
-Provides simple functions for accessing data/tables on
-<http://www.basketball-reference.com>.
+Methods (standard and advanced) for analysis of agreement between
+measurement methods. These cover Bland-Altman plots, Deming regression,
+Lin's Total deviation index, and difference-on-average regression. See
+Carstensen B. (2010) "Comparing Clinical Measurement Methods: A Practical
+Guide (Statistics in Practice)" <doi:10.1002/9780470683019> for more
+information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,8 +49,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

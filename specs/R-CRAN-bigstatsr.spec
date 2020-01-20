@@ -1,9 +1,9 @@
 %global packname  bigstatsr
-%global packver   1.0.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.2
 Release:          1%{?dist}
 Summary:          Statistical Tools for Filebacked Big Matrices
 
@@ -14,9 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.0
+BuildRequires:    R-CRAN-bigparallelr >= 0.2.3
 BuildRequires:    R-CRAN-bigreadr >= 0.2
-BuildRequires:    R-CRAN-bigparallelr >= 0.1.2
+BuildRequires:    R-CRAN-rmio >= 0.1.3
 BuildRequires:    R-CRAN-bigassertr >= 0.1.1
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-foreach 
@@ -28,10 +29,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-rmio 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-ggplot2 >= 3.0
+Requires:         R-CRAN-bigparallelr >= 0.2.3
 Requires:         R-CRAN-bigreadr >= 0.2
-Requires:         R-CRAN-bigparallelr >= 0.1.2
 Requires:         R-CRAN-bigassertr >= 0.1.1
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-foreach 
@@ -76,6 +76,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/include
+%{rlibdir}/%{packname}/testdata
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
