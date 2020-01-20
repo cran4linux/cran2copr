@@ -1,9 +1,9 @@
 %global packname  vip
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Variable Importance Plots
 
@@ -18,8 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 0.9.0
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ModelMetrics 
-BuildRequires:    R-CRAN-pdp 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
@@ -27,8 +25,6 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-ggplot2 >= 0.9.0
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ModelMetrics 
-Requires:         R-CRAN-pdp 
 Requires:         R-CRAN-plyr 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
@@ -39,12 +35,13 @@ A general framework for constructing variable importance plots from
 various types of machine learning models in R. Aside from some standard
 model- specific variable importance measures, this package also provides
 model- agnostic approaches that can be applied to any supervised learning
-algorithm. These include an efficient permutation-based variable
-importance measure as well as novel approaches based on partial dependence
-plots (PDPs) and individual conditional expectation (ICE) curves which are
-described in Greenwell et al. (2018) <arXiv:1805.04755>. An experimental
-method for quantifying the relative strength of interaction effects is
-also included (see the previous reference for details).
+algorithm. These include 1) an efficient permutation-based variable
+importance measure, 2) variable importance based on Shapley values
+(Strumbelj and Kononenko, 2014) <doi:10.1007/s10115-013-0679-x>, and 3)
+the variance-based approach described in Greenwell et al. (2018)
+<arXiv:1805.04755>. A variance-based method for quantifying the relative
+strength of interaction effects is also included (see the previous
+reference for details).
 
 %prep
 %setup -q -c -n %{packname}
@@ -69,4 +66,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX

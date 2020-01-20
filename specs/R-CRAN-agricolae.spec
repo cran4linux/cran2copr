@@ -1,9 +1,9 @@
 %global packname  agricolae
-%global packver   1.3-1
+%global packver   1.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}
 Summary:          Statistical Procedures for Agricultural Research
 
@@ -19,14 +19,12 @@ BuildRequires:    R-CRAN-klaR
 BuildRequires:    R-MASS 
 BuildRequires:    R-nlme 
 BuildRequires:    R-cluster 
-BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-AlgDesign 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-klaR 
 Requires:         R-MASS 
 Requires:         R-nlme 
 Requires:         R-cluster 
-Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-AlgDesign 
 Requires:         R-graphics 
 
@@ -53,6 +51,7 @@ comparison, biodiversity indexes and consensus cluster.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

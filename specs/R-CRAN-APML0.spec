@@ -1,9 +1,9 @@
 %global packname  APML0
-%global packver   0.9
+%global packver   0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.10
 Release:          1%{?dist}
 Summary:          Augmented and Penalized Minimization Method L0
 
@@ -25,13 +25,14 @@ Fit linear, logistic and Cox models regularized with L0, lasso (L1),
 elastic-net (L1 and L2), or net (L1 and Laplacian) penalty, and their
 adaptive forms, such as adaptive lasso / elastic-net and net adjusting for
 signs of linked coefficients. It solves L0 penalty problem by
-simultaneously selecting regularization parameters and the number of
-non-zero coefficients. This augmented and penalized minimization method
-provides an approximation solution to the L0 penalty problem, but runs as
-fast as L1 regularization problem. The package uses one-step coordinate
-descent algorithm and runs extremely fast by taking into account the
-sparsity structure of coefficients. It could deal with very high
-dimensional data and has superior selection performance.
+simultaneously selecting regularization parameters and performing
+hard-thresholding or selecting number of non-zeros. This augmented and
+penalized minimization method provides an approximation solution to the L0
+penalty problem, but runs as fast as L1 regularization problem. The
+package uses one-step coordinate descent algorithm and runs extremely fast
+by taking into account the sparsity structure of coefficients. It could
+deal with very high dimensional data and has superior selection
+performance.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +44,7 @@ dimensional data and has superior selection performance.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

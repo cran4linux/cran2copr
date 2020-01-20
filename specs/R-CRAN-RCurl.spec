@@ -1,13 +1,13 @@
 %global packname  RCurl
-%global packver   1.95-4.13
+%global packver   1.98-1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.95.4.13
+Version:          1.98.1.1
 Release:          1%{?dist}
 Summary:          General Network (HTTP/FTP/...) Client Interface for R
 
-License:          BSD_2_clause + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

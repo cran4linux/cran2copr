@@ -1,11 +1,11 @@
-%global packname  xts
-%global packver   0.12-0
+%global packname  optpart
+%global packver   3.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          3.0.3
 Release:          1%{?dist}
-Summary:          eXtensible Time Series
+Summary:          Optimal Partitioning of Similarity Relations
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,16 +14,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-zoo >= 1.7.12
-BuildRequires:    R-methods 
-Requires:         R-CRAN-zoo >= 1.7.12
-Requires:         R-methods 
+BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-labdsv 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-plotrix 
+Requires:         R-cluster 
+Requires:         R-CRAN-labdsv 
+Requires:         R-MASS 
+Requires:         R-CRAN-plotrix 
 
 %description
-Provide for uniform handling of R's different time-based data classes by
-extending zoo, maximizing native format information preservation and
-allowing for user level customization and extension, while simplifying
-cross-class interoperability.
+Contains a set of algorithms for creating partitions and coverings of
+objects largely based on operations on (dis)similarity relations (or
+matrices). There are several iterative re-assignment algorithms optimizing
+different goodness-of-clustering criteria.  In addition, there are
+covering algorithms 'clique' which derives maximal cliques, and 'maxpact'
+which creates a covering of maximally compact sets. Graphical analyses and
+conversion routines are also included.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,12 +54,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/api_example
-%doc %{rlibdir}/%{packname}/benchmarks
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/unitTests
+%doc %{rlibdir}/%{packname}/ChangeLog
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,11 +1,11 @@
 %global packname  gamlss.add
-%global packver   5.0-1
+%global packver   5.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.1
+Version:          5.1.5
 Release:          1%{?dist}
-Summary:          Extra Additive Terms for GAMLSS Models
+Summary:          Extra Additive Terms for Generalized Additive Models forLocation Scale and Shape
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -50,6 +50,7 @@ networks and decision trees.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

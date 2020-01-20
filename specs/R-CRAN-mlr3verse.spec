@@ -1,11 +1,11 @@
 %global packname  mlr3verse
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Easily Install and Load the 'mlr3' package family
+Summary:          Easily Install and Load the 'mlr3' Package Family
 
 License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-mlr3filters
 BuildRequires:    R-CRAN-mlr3learners 
 BuildRequires:    R-CRAN-mlr3pipelines 
 BuildRequires:    R-CRAN-mlr3tuning 
+BuildRequires:    R-CRAN-mlr3viz 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-mlr3misc 
 Requires:         R-CRAN-mlr3 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-mlr3filters
 Requires:         R-CRAN-mlr3learners 
 Requires:         R-CRAN-mlr3pipelines 
 Requires:         R-CRAN-mlr3tuning 
+Requires:         R-CRAN-mlr3viz 
 Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-mlr3misc 
 

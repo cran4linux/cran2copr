@@ -1,9 +1,9 @@
 %global packname  asciiSetupReader
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Reads Fixed-Width ASCII Data Files (.txt or .dat) that HaveAccompanying Setup Files (.sps or .sas)
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-miniUI >= 0.1.1
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-rstudioapi >= 0.5
@@ -29,6 +30,7 @@ Requires:         R-CRAN-miniUI >= 0.1.1
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-zoo 
 

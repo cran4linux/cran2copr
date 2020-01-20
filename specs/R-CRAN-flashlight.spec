@@ -1,9 +1,9 @@
 %global packname  flashlight
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Shed Light on Black Box Machine Learning Models
 
@@ -34,15 +34,14 @@ Requires:         R-CRAN-ggpubr
 
 %description
 Shed light on black box machine learning models by the help of model
-performance, permutation variable importance (Fisher et al. (2018)
-<arxiv:1801.01489>), ICE profiles, partial dependence (Friedman J. H.
-(2001) <doi:10.1214/aos/1013203451>), accumulated local effects (Apley D.
-W. (2016) <arXiv:1612.08468>), further effects plots, interaction
-strength, and variable contribution breakdown (approximate SHAP) for
-single observations (Gosiewska and Biecek (2019) <arxiv:1903.11420>). All
-tools are implemented to work with case weights and allow for stratified
-analysis. Furthermore, multiple flashlights can be combined and analyzed
-together.
+performance, variable importance, ICE profiles, partial dependence
+(Friedman J. H. (2001) <doi:10.1214/aos/1013203451>), accumulated local
+effects (Apley D. W. (2016) <arXiv:1612.08468>), further effects plots,
+scatter plots, interaction strength, and variable contribution breakdown
+(approximate SHAP) for single observations (Gosiewska and Biecek (2019)
+<arxiv:1903.11420>). All tools are implemented to work with case weights
+and allow for stratified analysis. Furthermore, multiple flashlights can
+be combined and analyzed together.
 
 %prep
 %setup -q -c -n %{packname}

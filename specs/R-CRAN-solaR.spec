@@ -1,9 +1,9 @@
 %global packname  solaR
-%global packver   0.44
+%global packver   0.45
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.44
+Version:          0.45
 Release:          1%{?dist}
 Summary:          Radiation and Photovoltaic Systems
 
