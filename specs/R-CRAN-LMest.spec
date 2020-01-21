@@ -1,9 +1,9 @@
 %global packname  LMest
-%global packver   2.5.1
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.6.0
 Release:          1%{?dist}
 Summary:          Generalized Latent Markov Models
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-mmm 
 BuildRequires:    R-CRAN-mix 
 BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-Formula >= 1.2.3
 Requires:         R-MASS 
 Requires:         R-CRAN-MultiLCIRT 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-mmm 
 Requires:         R-CRAN-mix 
 Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
 Latent Markov models for longitudinal continuous and categorical data. See
@@ -45,6 +47,7 @@ Bartolucci, Pandolfi, Pennoni (2017)<doi:10.18637/jss.v081.i04>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

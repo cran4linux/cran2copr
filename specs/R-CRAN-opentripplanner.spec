@@ -1,9 +1,9 @@
 %global packname  opentripplanner
-%global packver   0.2.0.3
+%global packver   0.2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0.3
+Version:          0.2.0.4
 Release:          1%{?dist}
 Summary:          Setup and connect to 'OpenTripPlanner'
 
@@ -37,8 +37,7 @@ Setup and connect to 'OpenTripPlanner' (OTP)
 <http://www.opentripplanner.org/>. OTP is an open source platform for
 multi-modal and multi-agency journey planning written in 'Java'. The
 package allows you to manage a local version or connect to remote OTP
-server e.g. <https://api.digitransit.fi:443/routing/v1/routers/hsl>. This
-package has been peer-reviewed by rOpenSci (v. 0.2.0.0).
+server. This package has been peer-reviewed by rOpenSci (v. 0.2.0.0).
 
 %prep
 %setup -q -c -n %{packname}
@@ -61,6 +60,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

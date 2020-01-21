@@ -1,9 +1,9 @@
 %global packname  cpsurvsim
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Simulating Survival Data from Change-Point Hazard Distributions
 
@@ -12,17 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr >= 1.8.0
-BuildRequires:    R-CRAN-knitr >= 1.21
+BuildRequires:    R-CRAN-Hmisc >= 4.3.0
+BuildRequires:    R-CRAN-plyr >= 1.8.5
+BuildRequires:    R-CRAN-knitr >= 1.27
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-plyr >= 1.8.0
-Requires:         R-CRAN-knitr >= 1.21
+Requires:         R-CRAN-Hmisc >= 4.3.0
+Requires:         R-CRAN-plyr >= 1.8.5
+Requires:         R-CRAN-knitr >= 1.27
 Requires:         R-stats 
-Requires:         R-CRAN-Hmisc 
 
 %description
 Simulates time-to-event data with type I right censoring using two
@@ -43,6 +43,7 @@ draws on the work of Rainer Walke (2010),
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

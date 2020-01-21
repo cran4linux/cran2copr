@@ -1,11 +1,11 @@
-%global packname  sfheaders
-%global packver   0.1.0
+%global packname  Disequilibrium
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Converts Between R Objects and Simple Feature Objects
+Summary:          Disequilibrium Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,13 +14,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-optimr 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-optimr 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Converts between R and Simple Feature 'sf' objects, without depending on
-the Simple Feature library. Conversion functions are available at both the
-R level, and through 'Rcpp'.
+Estimate, summarize, and perform predictions with the market in
+disequilibrium model, as found in Gourieroux, C. (2000)
+<doi:10.1017/CBO9780511805608> and Maddala, G. (1983)
+<doi:10.1017/CBO9780511810176>. The parameters are estimated with maximum
+likelihood.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,8 +50,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

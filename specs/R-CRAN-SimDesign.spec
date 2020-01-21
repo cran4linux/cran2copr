@@ -1,9 +1,9 @@
 %global packname  SimDesign
-%global packver   1.14
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Structure for Organizing Monte Carlo Simulation Designs
 
@@ -20,12 +20,14 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-pbapply >= 1.3.0
 Requires:         R-CRAN-foreach 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 
 %description

@@ -1,9 +1,9 @@
 %global packname  eplusr
-%global packver   0.10.4
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.4
+Version:          0.11.0
 Release:          1%{?dist}
 Summary:          A Toolkit for Using Whole Building Simulation Program'EnergyPlus'
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-later 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringi 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-later 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-stringi 

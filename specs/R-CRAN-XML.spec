@@ -1,13 +1,13 @@
 %global packname  XML
-%global packver   3.99-0.2
+%global packver   3.99-0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.99.0.2
+Version:          3.99.0.3
 Release:          1%{?dist}
 Summary:          Tools for Parsing and Generating XML Within R and S-Plus
 
-License:          BSD_2_clause + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

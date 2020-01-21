@@ -1,9 +1,9 @@
 %global packname  rPAex
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Automatic Detection of Experimental Unit in PrecisionAgriculture
 
@@ -51,7 +51,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/Examples
+%doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/external
+%doc %{rlibdir}/%{packname}/NEWS.Rd
+%doc %{rlibdir}/%{packname}/script
 %{rlibdir}/%{packname}/INDEX

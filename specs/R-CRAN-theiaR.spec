@@ -1,9 +1,9 @@
 %global packname  theiaR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Download and Manage Data from Theia
 
@@ -21,14 +21,12 @@ BuildRequires:    R-CRAN-raster >= 2.6
 BuildRequires:    R-CRAN-R6 >= 2.3
 BuildRequires:    R-CRAN-httr >= 1.3
 BuildRequires:    R-CRAN-askpass >= 1.1
-BuildRequires:    R-CRAN-tiff >= 0.1
 Requires:         R-CRAN-XML >= 3.86
 Requires:         R-tools >= 3.5
 Requires:         R-CRAN-raster >= 2.6
 Requires:         R-CRAN-R6 >= 2.3
 Requires:         R-CRAN-httr >= 1.3
 Requires:         R-CRAN-askpass >= 1.1
-Requires:         R-CRAN-tiff >= 0.1
 
 %description
 Provides a simple interface to search available data provided by Theia
@@ -61,5 +59,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/templates
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
