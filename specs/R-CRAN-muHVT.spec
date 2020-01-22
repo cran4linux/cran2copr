@@ -1,9 +1,9 @@
 %global packname  muHVT
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Constructing Hierarchical Voronoi Tessellations and OverlayHeatmap for Data Analysis
 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-rgeos
 Requires:         R-CRAN-ggplot2 
 
 %description
-Constructing hierarchical Voronoi tessellations for a given data set and
+Constructing hierarchical voronoi tessellations for a given data set and
 overlay heatmap for variables at various levels of the tessellations for
 in-depth data analysis. See
 <https://en.wikipedia.org/wiki/Voronoi_diagram> for more information.

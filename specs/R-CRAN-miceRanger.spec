@@ -1,9 +1,9 @@
 %global packname  miceRanger
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Multiple Imputation by Chained Equations with Random Forests
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-ggpubr 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-data.table
 Requires:         R-stats 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-ggpubr 

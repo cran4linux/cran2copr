@@ -1,9 +1,9 @@
 %global packname  IDPmisc
-%global packver   1.1.19
+%global packver   1.1.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.19
+Version:          1.1.20
 Release:          1%{?dist}
 Summary:          'Utilities of Institute of Data Analyses and Process Design(www.zhaw.ch/idp)'
 
@@ -42,6 +42,7 @@ in spectra, converting humidity measures.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

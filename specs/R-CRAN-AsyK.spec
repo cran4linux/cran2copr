@@ -1,9 +1,9 @@
 %global packname  AsyK
-%global packver   1.3.2
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.5.3
 Release:          1%{?dist}
 Summary:          Kernel Density Estimation and Selection of Optimum Bandwidth
 
@@ -35,9 +35,11 @@ Requires:         R-CRAN-ICV
 Requires:         R-CRAN-OSCV 
 
 %description
-Density estimation by using symmetrical kernels and to calculate mean
-square error. See Scaillet (2004) <doi:10.1080/10485250310001624819> and
-Khan and Akbar (2019).
+A collection of functions related to density estimation by using Chen's
+(2000) idea. Mean Squared Errors (MSE) are calculated for estimated
+curves. For this purpose, R functions allow the distribution to be Gamma,
+Exponential or Weibull. For details see Chen (2000), Scaillet (2004)
+<doi:10.1080/10485250310001624819> and Khan and Akbar.
 
 %prep
 %setup -q -c -n %{packname}

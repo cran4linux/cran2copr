@@ -1,9 +1,9 @@
 %global packname  cdata
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}
 Summary:          Fluid Data Transformations
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wrapr >= 1.9.3
-BuildRequires:    R-CRAN-rquery >= 1.4.0
-BuildRequires:    R-CRAN-rqdatatable >= 1.2.4
+BuildRequires:    R-CRAN-wrapr >= 1.9.5
+BuildRequires:    R-CRAN-rquery >= 1.4.2
+BuildRequires:    R-CRAN-rqdatatable >= 1.2.5
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-wrapr >= 1.9.3
-Requires:         R-CRAN-rquery >= 1.4.0
-Requires:         R-CRAN-rqdatatable >= 1.2.4
+Requires:         R-CRAN-wrapr >= 1.9.5
+Requires:         R-CRAN-rquery >= 1.4.2
+Requires:         R-CRAN-rqdatatable >= 1.2.5
 Requires:         R-methods 
 Requires:         R-stats 
 

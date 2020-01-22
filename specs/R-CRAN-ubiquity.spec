@@ -1,9 +1,9 @@
 %global packname  ubiquity
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          PKPD, PBPK, and Systems Pharmacology Modeling Tools
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-officer >= 0.3.5
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-gridExtra 
@@ -35,12 +34,12 @@ BuildRequires:    R-CRAN-rmarkdown
 BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-officer >= 0.3.5
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-gridExtra 
@@ -56,6 +55,7 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-shiny 
 
 %description
@@ -66,8 +66,8 @@ equation-based models, pooled parameter estimation, individual/population
 based simulations, rule-based simulations for clinical trial design and
 modeling assays, deployment with a customizable 'Shiny' app, and
 non-compartmental analysis. System-specific analysis templates can be
-generated and each element includes integrated reporting with
-'PowerPoint'.
+generated and each element includes integrated reporting with 'PowerPoint'
+and 'Word'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  rtfbs
-%global packver   0.3.9
+%global packver   0.3.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.15
 Release:          1%{?dist}
 Summary:          Transcription Factor Binding Site Identification Tool
 

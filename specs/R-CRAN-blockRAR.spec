@@ -1,9 +1,9 @@
 %global packname  blockRAR
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Block Design for Response-Adaptive Randomization
 
@@ -19,13 +19,13 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ldbounds 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-bayesDP 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-arm 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ldbounds 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-bayesDP 
+Requires:         R-methods 
 Requires:         R-CRAN-arm 
 
 %description
@@ -43,6 +43,7 @@ Chappell (2019) <arXiv:1904.07758>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

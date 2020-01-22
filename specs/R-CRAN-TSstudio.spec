@@ -1,9 +1,9 @@
 %global packname  TSstudio
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Functions for Time Series Analysis and Forecasting
 
@@ -30,10 +30,9 @@ BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-tsibble >= 0.8.2
 BuildRequires:    R-CRAN-tidyr >= 0.8.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.5
-BuildRequires:    R-CRAN-bsts >= 0.7.1
 BuildRequires:    R-CRAN-viridis >= 0.5.1
 BuildRequires:    R-CRAN-purrr >= 0.2.5
-BuildRequires:    R-CRAN-xts >= 0.10.1
+BuildRequires:    R-CRAN-xts >= 0.12.0
 Requires:         R-CRAN-forecast >= 8.2
 Requires:         R-CRAN-plotly >= 4.7.1
 Requires:         R-CRAN-forecastHybrid >= 2.0.10
@@ -49,10 +48,9 @@ Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-tsibble >= 0.8.2
 Requires:         R-CRAN-tidyr >= 0.8.1
 Requires:         R-CRAN-dplyr >= 0.7.5
-Requires:         R-CRAN-bsts >= 0.7.1
 Requires:         R-CRAN-viridis >= 0.5.1
 Requires:         R-CRAN-purrr >= 0.2.5
-Requires:         R-CRAN-xts >= 0.10.1
+Requires:         R-CRAN-xts >= 0.12.0
 
 %description
 Provides a set of tools for descriptive and predictive analysis of time

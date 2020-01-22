@@ -1,9 +1,9 @@
 %global packname  sjstats
-%global packver   0.17.7
+%global packver   0.17.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.7
+Version:          0.17.8
 Release:          1%{?dist}
 Summary:          Collection of Convenient Functions for Common StatisticalComputations
 
@@ -18,12 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sjmisc >= 2.8.2
 BuildRequires:    R-CRAN-sjlabelled >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-insight >= 0.6.0
+BuildRequires:    R-CRAN-insight >= 0.8.0
 BuildRequires:    R-CRAN-bayestestR >= 0.4.0
+BuildRequires:    R-CRAN-parameters >= 0.4.0
 BuildRequires:    R-CRAN-performance >= 0.4.0
-BuildRequires:    R-CRAN-parameters >= 0.2.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-magrittr 
@@ -36,12 +37,13 @@ BuildRequires:    R-CRAN-tidyr
 Requires:         R-CRAN-sjmisc >= 2.8.2
 Requires:         R-CRAN-sjlabelled >= 1.1.1
 Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-insight >= 0.6.0
+Requires:         R-CRAN-insight >= 0.8.0
 Requires:         R-CRAN-bayestestR >= 0.4.0
+Requires:         R-CRAN-parameters >= 0.4.0
 Requires:         R-CRAN-performance >= 0.4.0
-Requires:         R-CRAN-parameters >= 0.2.0
 Requires:         R-utils 
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-magrittr 

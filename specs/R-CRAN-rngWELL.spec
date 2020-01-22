@@ -1,9 +1,9 @@
 %global packname  rngWELL
-%global packver   0.10-5
+%global packver   0.10-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.5
+Version:          0.10.6
 Release:          1%{?dist}
 Summary:          Toolbox for WELL Random Number Generators
 

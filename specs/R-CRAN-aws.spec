@@ -1,9 +1,9 @@
 %global packname  aws
-%global packver   2.3-0
+%global packver   2.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}
 Summary:          Adaptive Weights Smoothing
 
@@ -29,7 +29,9 @@ Approach to adaptive smoothing as described in "J. Polzehl and V. Spokoiny
 (2004) <DOI:10.20347/WIAS.PREPRINT.998>" and "J. Polzehl, K. Papafitsoros,
 K. Tabelow (2018) <DOI:10.20347/WIAS.PREPRINT.2520>", the Intersecting
 Confidence Intervals (ICI), variational approaches and a non-local means
-filter.
+filter. Usage of the package is also described in Polzehl and Tabelow
+(2019), Magnetic Resonance Brain Imaging, Appendix A, Springer, Use R!
+Series. <doi:10.1007/978-3-030-29184-6_6>.
 
 %prep
 %setup -q -c -n %{packname}

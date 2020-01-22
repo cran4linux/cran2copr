@@ -1,9 +1,9 @@
 %global packname  latentnet
-%global packver   2.9.0
+%global packver   2.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          2.10.1
 Release:          1%{?dist}
 Summary:          Latent Position and Cluster Models for Statistical Networks
 
@@ -14,8 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.8.0
 Requires:         R-core >= 2.8.0
+BuildRequires:    R-CRAN-statnet.common >= 4.1.0
 BuildRequires:    R-CRAN-ergm >= 3.9.0
-BuildRequires:    R-CRAN-statnet.common >= 3.1.0
 BuildRequires:    R-CRAN-coda >= 0.17.1
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-sna 
@@ -23,8 +23,8 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-tools 
 BuildRequires:    R-MASS 
+Requires:         R-CRAN-statnet.common >= 4.1.0
 Requires:         R-CRAN-ergm >= 3.9.0
-Requires:         R-CRAN-statnet.common >= 3.1.0
 Requires:         R-CRAN-coda >= 0.17.1
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-sna 
@@ -47,6 +47,7 @@ networks.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  lidR
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}
 Summary:          Airborne LiDAR Data Manipulation and Visualization for ForestryApplications
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-gdalUtils
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-RCSF 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rgdal 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-gdalUtils
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-imager 
 Requires:         R-CRAN-RCSF 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rgdal 

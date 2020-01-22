@@ -1,11 +1,11 @@
 %global packname  intccr
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}
-Summary:          Semiparametric Competing Risks Regression under Left Truncationand Interval Censoring with Missing Cause of Failure
+Summary:          Semiparametric Competing Risks Regression under IntervalCensoring
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,9 +33,8 @@ Requires:         R-utils
 %description
 Semiparametric regression models on the cumulative incidence function for
 interval-censored competing risks data as described in Bakoyannis, Yu, &
-Yiannoutsos (2017) <doi:10.1002/sim.7350>, left-truncated and
-interval-censored competing risks data, and interval-censored compering
-risks data and missing cause of failure. We provide the proportional
+Yiannoutsos (2017) <doi:10.1002/sim.7350>. In addition, missing event
+types or left truncation are considered. We provide the proportional
 subdistribution hazards model (Fine-Gray model), the proportional odds
 model, and other models that belong to the class of semiparametric
 generalized odds rate transformation models.

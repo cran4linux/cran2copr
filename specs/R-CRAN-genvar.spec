@@ -1,9 +1,9 @@
 %global packname  genvar
-%global packver   0.0.1.4
+%global packver   0.0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.4
+Version:          0.0.2.0
 Release:          1%{?dist}
 Summary:          An Imperative Library for Data Manipulation
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-readstata13
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-plm 
 BuildRequires:    R-CRAN-clubSandwich 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-Formula 
 Requires:         R-foreign 
 Requires:         R-CRAN-readstata13 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-plm 
 Requires:         R-CRAN-clubSandwich 
+Requires:         R-CRAN-rlang 
 
 %description
 Implements tools for manipulating data sets and performing regressions in
