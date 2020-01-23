@@ -1,9 +1,9 @@
 %global packname  pamm
-%global packver   0.9
+%global packver   1.121
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.121
 Release:          1%{?dist}
 Summary:          Power Analysis for Random Effects in Mixed Models
 
@@ -16,12 +16,10 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lmerTest 
-BuildRequires:    R-CRAN-gmodels 
 BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-lme4 
 Requires:         R-CRAN-lmerTest 
-Requires:         R-CRAN-gmodels 
 Requires:         R-lattice 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-lme4 
@@ -29,7 +27,7 @@ Requires:         R-CRAN-lme4
 %description
 Simulation functions to assess or explore the power of a dataset to
 estimates significant random effects (intercept or slope) in a mixed
-model. The functions are based on the "lme4" package.
+model. The functions are based on the "lme4" and "lmerTest" packages.
 
 %prep
 %setup -q -c -n %{packname}

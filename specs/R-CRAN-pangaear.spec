@@ -1,9 +1,9 @@
 %global packname  pangaear
-%global packver   0.8.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Client for the 'Pangaea' Database
 
@@ -45,6 +45,7 @@ including functions for searching for data, fetching 'datasets' by
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -59,5 +60,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX

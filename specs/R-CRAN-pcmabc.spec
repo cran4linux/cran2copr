@@ -1,9 +1,9 @@
 %global packname  pcmabc
-%global packver   1.0.4
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Approximate Bayesian Computations for Phylogenetic ComparativeMethods
 
@@ -16,8 +16,6 @@ BuildRequires:    R-devel >= 2.9.1
 Requires:         R-core >= 2.9.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape >= 3.0
-BuildRequires:    R-CRAN-distory 
-BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvSLOUCH 
@@ -27,8 +25,6 @@ BuildRequires:    R-CRAN-TreeSim
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yuima 
 Requires:         R-CRAN-ape >= 3.0
-Requires:         R-CRAN-distory 
-Requires:         R-CRAN-geiger 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-mvSLOUCH 
@@ -43,7 +39,13 @@ Fits by ABC, the parameters of a stochastic process modelling the
 phylogeny and evolution of a suite of traits following the tree. The user
 may define an arbitrary Markov process for the trait and phylogeny.
 Importantly, trait-dependent speciation models are handled and fitted to
-data. See K. Bartoszek, P. Lio' (2019) <10.5506/APhysPolBSupp.12.25>.
+data. See K. Bartoszek, P. Lio' (2019) <10.5506/APhysPolBSupp.12.25>. The
+suggested geiger package can be obtained from CRAN's archive
+<https://cran.r-project.org/src/contrib/Archive/geiger/>, suggested to
+take latest version. Otherwise its required code is present in the pcmabc
+package. The suggested distory package can be obtained from CRAN's archive
+<https://cran.r-project.org/src/contrib/Archive/distory/>, suggested to
+take latest version. Both distory and geiger are orphaned at the moment.
 
 %prep
 %setup -q -c -n %{packname}

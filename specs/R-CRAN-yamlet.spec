@@ -1,9 +1,9 @@
 %global packname  yamlet
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Versatile Curation of Table Metadata
 
@@ -15,16 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.8.1
+BuildRequires:    R-CRAN-csv >= 0.5.4
 BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-csv 
 BuildRequires:    R-CRAN-encode 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr >= 0.8.1
+Requires:         R-CRAN-csv >= 0.5.4
 Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-csv 
 Requires:         R-CRAN-encode 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rlang 
 
 %description
 The 'yamlet' package implements a file-based mechanism for documenting

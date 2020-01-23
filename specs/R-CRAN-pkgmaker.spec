@@ -1,15 +1,16 @@
 %global packname  pkgmaker
-%global packver   0.27
+%global packver   0.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27
+Version:          0.31
 Release:          1%{?dist}
 Summary:          Development Utilities for R Packages
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-assertthat 
 Requires:         R-CRAN-bibtex >= 0.4
 Requires:         R-methods 
 Requires:         R-stats 
@@ -44,6 +46,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-assertthat 
 
 %description
 Provides some low-level utilities to use for package development. It
@@ -61,8 +64,10 @@ changes in the interface(s) are more than likely to happen.
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

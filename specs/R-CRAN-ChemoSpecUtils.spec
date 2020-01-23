@@ -1,9 +1,9 @@
 %global packname  ChemoSpecUtils
-%global packver   0.3.60
+%global packver   0.4.38
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.60
+Version:          0.4.38
 Release:          1%{?dist}
 Summary:          Functions Supporting Packages ChemoSpec and ChemoSpec2D
 
@@ -41,6 +41,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md

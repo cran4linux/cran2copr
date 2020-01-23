@@ -1,9 +1,9 @@
 %global packname  bupaR
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}
 Summary:          Business Process Analysis in R
 
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-eventdataR >= 0.2.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -37,6 +39,8 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
 
 %description
 Comprehensive Business Process Analysis toolkit. Creates S3-class for
@@ -55,6 +59,7 @@ packages 'edeaR','processmapR', 'eventdataR' and 'processmonitR'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

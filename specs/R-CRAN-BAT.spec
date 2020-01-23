@@ -1,9 +1,9 @@
 %global packname  BAT
-%global packver   1.6.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Biodiversity Assessment Tools
 
@@ -37,7 +37,8 @@ Includes algorithms to assess alpha and beta diversity in all their
 dimensions (taxon, phylogenetic and functional diversity), whether
 communities are completely sampled or not. It allows performing a number
 of analyses based on either species identities or phylogenetic/functional
-trees depicting species relationships.
+trees or functional kernel n-dimensional hypervolumes depicting species
+relationships.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +50,7 @@ trees depicting species relationships.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

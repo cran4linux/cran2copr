@@ -1,9 +1,9 @@
 %global packname  DAMOCLES
-%global packver   1.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.2
 Release:          1%{?dist}
 Summary:          Dynamic Assembly Model of Colonization, Local Extinction andSpeciation
 
@@ -15,20 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-CRAN-DDD >= 3.0
 BuildRequires:    R-CRAN-caper 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-picante 
-Requires:         R-CRAN-geiger 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-DAISIE 
+Requires:         R-CRAN-DDD >= 3.0
 Requires:         R-CRAN-caper 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-picante 
+Requires:         R-Matrix 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-DAISIE 
 
 %description
 Simulates and computes (maximum) likelihood of a dynamical model of

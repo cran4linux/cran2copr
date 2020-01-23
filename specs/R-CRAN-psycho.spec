@@ -1,9 +1,9 @@
 %global packname  psycho
-%global packver   0.4.91
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.91
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Efficient and Publishing-Oriented Workflow for PsychologicalScience
 
@@ -15,58 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-loo >= 2.0.0
-BuildRequires:    R-CRAN-emmeans >= 1.2.2
-BuildRequires:    R-CRAN-BayesFactor >= 0.9.1
-BuildRequires:    R-CRAN-blavaan >= 0.3.4
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-CRAN-nFactors 
-BuildRequires:    R-CRAN-ppcor 
-BuildRequires:    R-CRAN-ggcorrplot 
-BuildRequires:    R-CRAN-rstanarm 
-BuildRequires:    R-CRAN-rstantools 
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-lmerTest 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-CRAN-loo >= 2.0.0
-Requires:         R-CRAN-emmeans >= 1.2.2
-Requires:         R-CRAN-BayesFactor >= 0.9.1
-Requires:         R-CRAN-blavaan >= 0.3.4
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-parameters 
+BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-effectsize 
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-scales 
+Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-psych 
-Requires:         R-MASS 
-Requires:         R-CRAN-qgraph 
-Requires:         R-CRAN-nFactors 
-Requires:         R-CRAN-ppcor 
-Requires:         R-CRAN-ggcorrplot 
-Requires:         R-CRAN-rstanarm 
-Requires:         R-CRAN-rstantools 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-lmerTest 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-parameters 
+Requires:         R-CRAN-performance 
+Requires:         R-CRAN-effectsize 
 
 %description
 The main goal of the psycho package is to provide tools for psychologists,
@@ -86,6 +60,7 @@ conformity.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,11 +1,11 @@
 %global packname  ForestFit
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}
-Summary:          Statistical Modelling with Applications in Forestry
+Summary:          Statistical Modelling for Plant Size Distributions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -42,7 +42,7 @@ fitted to grouped data using three methods including approximated maximum
 likelihood, expectation maximization, and maximum likelihood. V)
 Estimating the parameters of the gamma, log-normal, and Weibull mixture
 models fitted to the grouped data through the EM algorithm, VI) Estimating
-parameters of the non-linear growth curve fitted to the height-diameter
+parameters of the nonlinear height curve fitted to the height-diameter
 observation, and VII) estimating parameters, computing probability density
 function, cumulative distribution function, and generating realizations
 from gamma shape mixture model introduced by Venturini et al. (2008)

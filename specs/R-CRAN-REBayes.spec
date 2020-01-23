@@ -1,9 +1,9 @@
 %global packname  REBayes
-%global packver   1.8
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          2.2
 Release:          1%{?dist}
 Summary:          Empirical Bayes Estimation and Inference
 
