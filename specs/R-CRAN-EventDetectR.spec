@@ -1,9 +1,9 @@
 %global packname  EventDetectR
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Event Detection Framework
 
@@ -19,15 +19,17 @@ BuildRequires:    R-CRAN-imputeTS
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-neuralnet 
 Requires:         R-CRAN-imputeTS 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-neuralnet 
 
 %description
-Detect / classify events in time-series data. Combines multiple well-known
-R packages like 'forecast' to deliver an easily configurable tool for
-event detection.
+Detect events in time-series data. Combines multiple well-known R packages
+like 'forecast' and 'neuralnet' to deliver an easily configurable tool for
+multivariate event detection.
 
 %prep
 %setup -q -c -n %{packname}

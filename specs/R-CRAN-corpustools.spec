@@ -1,9 +1,9 @@
 %global packname  corpustools
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}
 Summary:          Managing, Querying and Analyzing Tokenized Text
 
@@ -12,31 +12,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-wordcloud >= 2.5
+BuildRequires:    R-CRAN-quanteda >= 1.5.1
 BuildRequires:    R-CRAN-RNewsflow >= 1.2.1
 BuildRequires:    R-Matrix >= 1.2
 BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-CRAN-udpipe >= 0.8.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-udpipe 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-tokenbrowser 
+BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-wordcloud >= 2.5
+Requires:         R-CRAN-quanteda >= 1.5.1
 Requires:         R-CRAN-RNewsflow >= 1.2.1
 Requires:         R-Matrix >= 1.2
 Requires:         R-CRAN-data.table >= 1.10.4
+Requires:         R-CRAN-udpipe >= 0.8.3
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
 Requires:         R-CRAN-SnowballC 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-udpipe 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-tokenbrowser 
 
 %description

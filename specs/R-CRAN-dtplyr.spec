@@ -1,9 +1,9 @@
 %global packname  dtplyr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Data Table Back-End for 'dplyr'
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.9.6
+BuildRequires:    R-CRAN-data.table >= 1.12.4
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table >= 1.9.6
+Requires:         R-CRAN-data.table >= 1.12.4
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-rlang 

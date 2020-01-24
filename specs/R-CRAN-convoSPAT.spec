@@ -1,9 +1,9 @@
 %global packname  convoSPAT
-%global packver   1.2.4
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.6
 Release:          1%{?dist}
 Summary:          Convolution-Based Nonstationary Spatial Modeling
 
@@ -19,7 +19,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-geoR 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-StatMatch 
@@ -27,7 +26,6 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-geoR 
 Requires:         R-MASS 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-StatMatch 

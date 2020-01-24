@@ -1,11 +1,11 @@
-%global packname  altair
-%global packver   4.0.1
+%global packname  netstat
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Interface to 'Altair'
+Summary:          Retrieve Network Statistics Including Available TCP Ports
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,27 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.9
-BuildRequires:    R-CRAN-vegawidget >= 0.3.1
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-repr 
-Requires:         R-CRAN-reticulate >= 1.9
-Requires:         R-CRAN-vegawidget >= 0.3.1
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
-Requires:         R-CRAN-repr 
 
 %description
-Interface to 'Altair' <https://altair-viz.github.io>, which itself is a
-'Python' interface to 'Vega-Lite' <https://vega.github.io/vega-lite>. This
-package uses the 'Reticulate' framework
-<https://rstudio.github.io/reticulate> to manage the interface between R
-and 'Python'.
+R interface for the 'netstat' command line utility used to retrieve and
+parse commonly used network statistics, including available and in-use
+transmission control protocol (TCP) ports. Primers offering technical
+background information on the 'netstat' command line utility are available
+in the "Linux System Administrator's Manual" by Michael Kerrisk (2014)
+<http://man7.org/linux/man-pages/man8/netstat.8.html>, and on the
+Microsoft website (2017)
+<https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/netstat>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,6 +50,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

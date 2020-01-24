@@ -1,35 +1,30 @@
-%global packname  ggfocus
+%global packname  rarms
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Scales that Focus Specific Levels in your ggplot()
+Summary:          Access Data from the USDA ARMS Data API
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-jsonlite >= 1.6
 
 %description
-A 'ggplot2' extension that provides tools for automatically creating
-scales to focus on subgroups of the data plotted without losing other
-information.
+Interface to easily access data via the United States Department of
+Agriculture (USDA)'s Agricultural Resource Management Survey (ARMS) Data
+API <https://www.ers.usda.gov/developer/data-apis/arms-data-api/>. The
+downloaded data can be saved for later off-line use. Also provide relevant
+information and metadata for each of the input variables needed for
+sending the data inquery.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,7 +47,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

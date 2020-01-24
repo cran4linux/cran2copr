@@ -1,39 +1,37 @@
-%global packname  STMotif
-%global packver   2.0.0
+%global packname  bamp
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.8
 Release:          1%{?dist}
-Summary:          Discovery of Motifs in Spatial-Time Series
+Summary:          Bayesian Age-Period-Cohort Modeling and Prediction
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-graphics 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-abind 
+Requires:         R-CRAN-coda 
+Requires:         R-graphics 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-scales 
-Requires:         R-grDevices 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-abind 
 
 %description
-Allow to identify motifs in spatial-time series. A motif is a previously
-unknown subsequence of a (spatial) time series with relevant number of
-occurrences. For this purpose, the Combined Series Approach (CSA) is used.
+Bayesian Age-Period-Cohort Modeling and Prediction using efficient Markov
+Chain Monte Carlo Methods. This is the R version of the previous BAMP
+software as described in Volker Schmid and Leonhard Held (2007)
+<DOI:10.18637/jss.v021.i08> Bayesian Age-Period-Cohort Modeling and
+Prediction - BAMP, Journal of Statistical Software 21:8. This package
+includes checks of convergence using Gelman's R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,5 +57,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

@@ -1,11 +1,11 @@
 %global packname  ghyp
-%global packver   1.5.7
+%global packver   1.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.5.8
 Release:          1%{?dist}
-Summary:          A Package on Generalized Hyperbolic Distribution and Its SpecialCases
+Summary:          Generalized Hyperbolic Distribution and Its Special Cases
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,12 +18,12 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-gplots 
+Requires:         R-MASS 
 
 %description
 Detailed functionality for working with the univariate and multivariate
@@ -34,7 +34,9 @@ procedures, an AIC-based model selection routine, and functions for the
 computation of density, quantile, probability, random variates, expected
 shortfall and some portfolio optimization and plotting routines as well as
 the likelihood ratio test. In addition, it contains the Generalized
-Inverse Gaussian distribution.
+Inverse Gaussian distribution. See Chapter 3 of A. J. McNeil, R. Frey, and
+P. Embrechts. Quantitative risk management: Concepts, techniques and
+tools. Princeton University Press, Princeton (2005).
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +48,7 @@ Inverse Gaussian distribution.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

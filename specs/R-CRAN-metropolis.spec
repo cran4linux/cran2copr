@@ -1,13 +1,13 @@
-%global packname  STMotif
-%global packver   2.0.0
+%global packname  metropolis
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.5
 Release:          1%{?dist}
-Summary:          Discovery of Motifs in Spatial-Time Series
+Summary:          The Metropolis Algorithm
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-coda 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-scales 
-Requires:         R-grDevices 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shiny 
 
 %description
-Allow to identify motifs in spatial-time series. A motif is a previously
-unknown subsequence of a (spatial) time series with relevant number of
-occurrences. For this purpose, the Combined Series Approach (CSA) is used.
+Learning and using the Metropolis algorithm for Bayesian fitting of a
+generalized linear model. The package vignette includes examples of
+hand-coding a logistic model using several variants of the Metropolis
+algorithm. The package also contains R functions for simulating posterior
+distributions of Bayesian generalized linear model parameters using
+guided, adaptive, guided-adaptive and random walk Metropolis algorithms.
+The random walk Metropolis algorithm was originally described in
+Metropolis et al (1953) <doi:10.1063/1.1699114>.
 
 %prep
 %setup -q -c -n %{packname}

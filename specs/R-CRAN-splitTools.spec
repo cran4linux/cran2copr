@@ -1,35 +1,30 @@
-%global packname  ggfocus
-%global packver   1.0.0
+%global packname  splitTools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Scales that Focus Specific Levels in your ggplot()
+Summary:          Tools for Data Splitting
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RColorBrewer 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-A 'ggplot2' extension that provides tools for automatically creating
-scales to focus on subgroups of the data plotted without losing other
-information.
+Fast, lightweight toolkit for data splitting. Data sets can be partitioned
+into disjoint groups (e.g. into training, validation, and test) or into
+(repeated) k-folds for subsequent cross-validation. Besides basic splits,
+the package supports stratified as well as grouped splitting. See e.g.
+Hastie et al. (2001) <doi:10.1007/978-0-387-84858-7> for the basic
+background on data partitioning and cross-validation.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,5 +49,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

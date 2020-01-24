@@ -1,9 +1,9 @@
 %global packname  mnreadR
-%global packver   2.1.3
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.1.4
 Release:          1%{?dist}
 Summary:          MNREAD Parameters Estimation and Curve Plotting
 
@@ -36,7 +36,7 @@ automatically the four MNREAD parameters: Maximum Reading Speed, Critical
 Print Size, Reading Acuity and Reading Accessibility Index. Parameters can
 be estimated either with the standard method or with a nonlinear
 mixed-effects (NLME) modeling. See Calabrese et al. 2018 for more details
-<doi.org/10.1167/18.1.8>.
+<doi:10.1167/18.1.8>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +48,7 @@ mixed-effects (NLME) modeling. See Calabrese et al. 2018 for more details
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

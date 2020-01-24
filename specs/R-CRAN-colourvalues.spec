@@ -1,9 +1,9 @@
 %global packname  colourvalues
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Assigns Colours to Values
 
@@ -23,10 +23,9 @@ Requires:         R-CRAN-Rcpp
 %description
 Maps one of the viridis colour palettes, or a user-specified palette to
 values. Viridis colour maps are created by Stéfan van der Walt and
-Nathaniel Smith. They were set as the default palette for the 'Python'
-'Matplotlib' library, introduced at SciPy 2015 conference
-<http://scipy2015.scipy.org/ehome/index.php?eventid=115969&>. Other
-palettes available in this library have been derived from 'RColorBrewer'
+Nathaniel Smith, and were set as the default palette for the 'Python'
+'Matplotlib' library <https://matplotlib.org/>. Other palettes available
+in this library have been derived from 'RColorBrewer'
 <https://CRAN.R-project.org/package=RColorBrewer> and 'colorspace'
 <https://CRAN.R-project.org/package=colorspace> packages.
 

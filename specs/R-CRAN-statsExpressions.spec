@@ -1,9 +1,9 @@
 %global packname  statsExpressions
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Expressions with Statistical Details
 
@@ -18,32 +18,40 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ez >= 4.4.0
 BuildRequires:    R-CRAN-rcompanion >= 2.3.21
 BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-psych >= 1.8.12
+BuildRequires:    R-CRAN-metafor >= 2.1.0
+BuildRequires:    R-CRAN-psych >= 1.9.12.31
 BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-boot >= 1.3.22
+BuildRequires:    R-boot >= 1.3.24
+BuildRequires:    R-CRAN-broomExtra >= 1.0.1
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-WRS2 >= 1.0.0
 BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-metaplus >= 0.7.11
+BuildRequires:    R-CRAN-metaBMA >= 0.6.2
 BuildRequires:    R-CRAN-rlang >= 0.4.2
 BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-CRAN-groupedstats >= 0.1.0
-BuildRequires:    R-CRAN-broomExtra >= 0.0.6
+BuildRequires:    R-CRAN-groupedstats >= 0.1.1
+BuildRequires:    R-CRAN-zeallot >= 0.1.0
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ez >= 4.4.0
 Requires:         R-CRAN-rcompanion >= 2.3.21
 Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-psych >= 1.8.12
+Requires:         R-CRAN-metafor >= 2.1.0
+Requires:         R-CRAN-psych >= 1.9.12.31
 Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-boot >= 1.3.22
+Requires:         R-boot >= 1.3.24
+Requires:         R-CRAN-broomExtra >= 1.0.1
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-WRS2 >= 1.0.0
 Requires:         R-CRAN-BayesFactor >= 0.9.12.4.2
 Requires:         R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-metaplus >= 0.7.11
+Requires:         R-CRAN-metaBMA >= 0.6.2
 Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-groupedstats >= 0.1.0
-Requires:         R-CRAN-broomExtra >= 0.0.6
+Requires:         R-CRAN-groupedstats >= 0.1.1
+Requires:         R-CRAN-zeallot >= 0.1.0
 Requires:         R-stats 
 
 %description
@@ -51,7 +59,7 @@ Statistical processing backend for 'ggstatsplot', this package creates
 expressions with details from statistical tests. Currently, it supports
 only the most common types of statistical tests: parametric,
 nonparametric, robust, and bayesian versions of t-test/anova, correlation
-analyses, contingency table analysis.
+analyses, contingency table analysis, and meta-analysis.
 
 %prep
 %setup -q -c -n %{packname}

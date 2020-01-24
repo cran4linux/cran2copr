@@ -1,9 +1,9 @@
 %global packname  primerTree
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          Visually Assessing the Specificity and Informativeness of PrimerPairs
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-RCurl 
 Requires:         R-CRAN-directlabels 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-ggplot2 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-RCurl 
 
 %description
 Identifies potential target sequences for a given set of primers and
@@ -56,6 +58,7 @@ predicted amplification products.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
