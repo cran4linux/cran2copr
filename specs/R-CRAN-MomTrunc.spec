@@ -1,9 +1,9 @@
 %global packname  MomTrunc
-%global packver   5.63
+%global packver   5.69
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.63
+Version:          5.69
 Release:          1%{?dist}
 Summary:          Moments of Folded and Doubly Truncated MultivariateDistributions
 
@@ -12,19 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-mvtnorm >= 1.0.11
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-tlrmvnmvt 
 BuildRequires:    R-CRAN-hypergeo 
-BuildRequires:    R-CRAN-tmvtnorm 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm >= 1.0.11
+Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-tlrmvnmvt 
 Requires:         R-CRAN-hypergeo 
-Requires:         R-CRAN-tmvtnorm 
 
 %description
 It computes arbitrary products moments (mean vector and

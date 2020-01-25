@@ -1,9 +1,9 @@
 %global packname  robustrao
-%global packver   1.0-4
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          An Extended Rao-Stirling Diversity Index to Handle Missing Data
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-quadprog >= 1.5.5
 BuildRequires:    R-CRAN-foreach >= 1.4.3

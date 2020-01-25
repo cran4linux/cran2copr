@@ -1,9 +1,9 @@
 %global packname  RATest
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          Randomization Tests
 
@@ -41,10 +41,9 @@ using a permutation test based on the Cramer-von Miss test statistic.
 Graphical inspection of the empirical CDF and histograms for the variables
 of interest is also supported in the package. Third, it provides the
 practitioner with an effortless implementation of a permutation test based
-on the martingale decomposition of the empirical process for the
-goodness-of-fit testing problem with an estimated nuisance parameter. An
-application of this testing problem is the one of testing for
-heterogeneous treatment effects in a randomized control trial.
+on the martingale decomposition of the empirical process for testing for
+heterogeneous treatment effects in the presence of an estimated nuisance
+parameter.
 
 %prep
 %setup -q -c -n %{packname}

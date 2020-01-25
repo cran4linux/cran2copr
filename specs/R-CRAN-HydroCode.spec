@@ -1,9 +1,9 @@
 %global packname  HydroCode
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Hydrological Codes
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-sp 
 Requires:         R-parallel 
+Requires:         R-CRAN-sp 
 
 %description
 Pfafstetter Hydrological Codes as cited in Verdin and Verdin (1999) <doi:
@@ -46,5 +48,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/slowTests
 %{rlibdir}/%{packname}/INDEX

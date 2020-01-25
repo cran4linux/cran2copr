@@ -1,9 +1,9 @@
 %global packname  callr
-%global packver   3.4.0
+%global packver   3.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.4.1
 Release:          1%{?dist}
 Summary:          Call R from R
 
@@ -51,9 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/_pkgdown.yml
 %doc %{rlibdir}/%{packname}/client.R
 %doc %{rlibdir}/%{packname}/developer-notes.md
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

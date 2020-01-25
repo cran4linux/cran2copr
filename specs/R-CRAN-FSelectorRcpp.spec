@@ -1,9 +1,9 @@
 %global packname  FSelectorRcpp
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          'Rcpp' Implementation of 'FSelector' Entropy-Based FeatureSelection Algorithms with a Sparse Matrix Support
 
@@ -32,7 +32,7 @@ for Classification Learning. In 13'th International Joint Conference on
 Uncertainly in Artificial Intelligence (IJCAI93), pages 1022-1029,
 Chambery, France, 1993.)
 <https://www.ijcai.org/Proceedings/93-2/Papers/022.pdf> with a sparse
-matrix support. It is also equipped with a parallel backend.
+matrix support.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +44,7 @@ matrix support. It is also equipped with a parallel backend.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

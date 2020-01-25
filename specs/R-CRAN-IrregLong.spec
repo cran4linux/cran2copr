@@ -1,9 +1,9 @@
 %global packname  IrregLong
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Analysis of Longitudinal Data with Irregular Observation Times
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-frailtypack 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-survival 
 Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-frailtypack 
+Requires:         R-CRAN-data.table 
 
 %description
 Analysis of longitudinal data for which the times of observation are
@@ -40,6 +42,7 @@ Scharfstein DO, Rosenheck RA (2004)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  Rmpfr
-%global packver   0.7-2
+%global packver   0.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8.1
 Release:          1%{?dist}
 Summary:          R MPFR - Multiple Precision Floating-Point Reliable
 
@@ -44,6 +44,7 @@ Precision Floating-Point Reliable) Library which itself is based on the
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

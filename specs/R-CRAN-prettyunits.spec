@@ -1,9 +1,9 @@
 %global packname  prettyunits
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Pretty, Human Readable Formatting of Quantities
 
@@ -17,9 +17,9 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Pretty, human readable formatting of quantities. Time intervals: 1337000
--> 15d 11h 23m 20s. Vague time intervals: 2674000 -> about a month ago.
-Bytes: 1337 -> 1.34 kB.
+Pretty, human readable formatting of quantities. Time intervals: '1337000'
+-> '15d 11h 23m 20s'. Vague time intervals: '2674000' -> 'about a month
+ago'. Bytes: '1337' -> '1.34 kB'.
 
 %prep
 %setup -q -c -n %{packname}

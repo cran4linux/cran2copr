@@ -1,32 +1,27 @@
-%global packname  BayesMed
-%global packver   1.0.1
+%global packname  BioProbability
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Default Bayesian Hypothesis Tests for Correlation, PartialCorrelation, and Mediation
+Summary:          Probability in Biostatistics
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.1
-Requires:         R-core >= 2.12.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-CRAN-QRM 
-BuildRequires:    R-CRAN-polspline 
-BuildRequires:    R-CRAN-MCMCpack 
-Requires:         R-CRAN-R2jags 
-Requires:         R-CRAN-QRM 
-Requires:         R-CRAN-polspline 
-Requires:         R-CRAN-MCMCpack 
 
 %description
-Default Bayesian hypothesis tests for correlation, partial correlation,
-and mediation
+Several tools for analyzing diagnostic tests and 2x2 contingency tables
+are provided. In particular, positive and negative predictive values for a
+diagnostic tests can be calculated from prevalence, sensitivity and
+specificity values. For contingency tables, relative risk and odds ratio
+measures are estimated. Furthermore, confidence intervals are provided.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +33,7 @@ and mediation
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -46,7 +42,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

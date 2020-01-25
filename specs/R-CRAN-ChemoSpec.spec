@@ -1,9 +1,9 @@
 %global packname  ChemoSpec
-%global packver   5.1.48
+%global packver   5.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.48
+Version:          5.2.12
 Release:          1%{?dist}
 Summary:          Exploratory Chemometrics for Spectroscopy
 
@@ -15,11 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readJDX >= 0.4
 BuildRequires:    R-CRAN-ChemoSpecUtils >= 0.3
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
+Requires:         R-CRAN-readJDX >= 0.4
 Requires:         R-CRAN-ChemoSpecUtils >= 0.3
 Requires:         R-CRAN-plyr 
 Requires:         R-stats 

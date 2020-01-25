@@ -1,9 +1,9 @@
 %global packname  cobs
-%global packver   1.3-3
+%global packver   1.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}
 Summary:          Constrained B-Splines (Sparse Matrix Based)
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.1
-Requires:         R-core >= 2.15.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-quantreg >= 4.65
 BuildRequires:    R-CRAN-SparseM >= 1.6
 BuildRequires:    R-grDevices 
@@ -43,6 +43,7 @@ Programming and Sparse Matrices.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

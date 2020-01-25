@@ -1,9 +1,9 @@
 %global packname  aqp
-%global packver   1.18.1
+%global packver   1.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.18.1
+Version:          1.19
 Release:          1%{?dist}
 Summary:          Algorithms for Quantitative Pedology
 

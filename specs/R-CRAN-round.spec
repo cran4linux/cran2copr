@@ -1,26 +1,29 @@
-%global packname  microcontax
-%global packver   1.0
+%global packname  round
+%global packver   0.12-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.12.1
 Release:          1%{?dist}
-Summary:          The ConTax Data Package
+Summary:          Rounding to Decimal Digits
 
-License:          GPL-2
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-microseq 
-Requires:         R-CRAN-microseq 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-The consensus taxonomy for prokaryotes is a set of data-sets for best
-possible taxonomic classification based on 16S rRNA sequence data.
+Decimal rounding is non-trivial in binary arithmetic.  ISO standard round
+to even is more rare than typically assumed as most decimal fractions are
+not exactly representable in binary.  Our roundX() versions explore
+differences between current and potential future versions of round() in R.
+Further, provides (some partly related) C99 math lib functions not in base
+R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,8 +44,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

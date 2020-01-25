@@ -1,11 +1,11 @@
 %global packname  nipals
-%global packver   0.5
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.7
 Release:          1%{?dist}
-Summary:          Principal Components Analysis using NIPALS with Gram-SchmidtOrthogonalization
+Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA,with Gram-Schmidt Orthogonalization
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,9 +18,9 @@ BuildArch:        noarch
 
 %description
 Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares with Gram-Schmidt orthogonalization of the scores
-and loadings. Optimized for speed. See Andrecut (2009)
-<doi:10.1089/cmb.2008.0221>.
+Partial Least Squares or weighted Expectation Maximization PCA with
+Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
+speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +32,7 @@ and loadings. Optimized for speed. See Andrecut (2009)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

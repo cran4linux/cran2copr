@@ -1,13 +1,13 @@
-%global packname  charlatan
-%global packver   0.4.0
+%global packname  GADGET
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Make Fake Data
+Summary:          Gaussian Process Approximations for Designing Experiments
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.2.0
-BuildRequires:    R-CRAN-tibble >= 1.2
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-R6 >= 2.2.0
-Requires:         R-CRAN-tibble >= 1.2
-Requires:         R-CRAN-whisker 
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-DiceOptim 
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-DiceKriging 
+Requires:         R-CRAN-DiceOptim 
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-pbapply 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Make fake data, supporting addresses, person names, dates, times, colors,
-coordinates, currencies, digital object identifiers ('DOIs'), jobs, phone
-numbers, 'DNA' sequences, doubles and integers from distributions and
-within a range.
+Computes near-optimal Bayesian experimental designs with Gaussian
+processes optimization following the algorithm presented by B. Weaver, et
+al. (2016) <doi:10.1214/15-BA945> for either physical or sequential
+computer experiments.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,13 +55,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/ignore
+%doc %{rlibdir}/%{packname}/COPYRIGHTS
 %{rlibdir}/%{packname}/INDEX

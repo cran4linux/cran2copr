@@ -1,9 +1,9 @@
 %global packname  lpSolve
-%global packver   5.6.13.3
+%global packver   5.6.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.6.13.3
+Version:          5.6.15
 Release:          1%{?dist}
 Summary:          Interface to 'Lp_solve' v. 5.5 to Solve Linear/Integer Programs
 
@@ -32,6 +32,7 @@ This version calls lp_solve version 5.5.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

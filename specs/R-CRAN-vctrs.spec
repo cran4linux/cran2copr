@@ -1,9 +1,9 @@
 %global packname  vctrs
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Vector Helpers
 
@@ -14,24 +14,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-rlang >= 0.4.2
 BuildRequires:    R-CRAN-ellipsis >= 0.2.0
-BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-CRAN-ellipsis >= 0.2.0
-Requires:         R-CRAN-backports 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-zeallot 
 
 %description
 Defines new notions of prototype and size that are used to provide tools
 for consistent and well-founded type-coercion and size-recycling, and are
 in turn connected to ideas of type- and size-stability useful for
-analyzing function interfaces.
+analysing function interfaces.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,6 +53,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

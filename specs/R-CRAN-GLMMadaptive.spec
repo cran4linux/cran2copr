@@ -1,9 +1,9 @@
 %global packname  GLMMadaptive
-%global packver   0.6-5
+%global packver   0.6-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.8
 Release:          1%{?dist}
 Summary:          Generalized Linear Mixed Models using Adaptive GaussianQuadrature
 
@@ -40,6 +40,7 @@ Bates (1995) <doi:10.1080/10618600.1995.10474663>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

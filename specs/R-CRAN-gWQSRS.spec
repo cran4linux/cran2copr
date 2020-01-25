@@ -1,9 +1,9 @@
 %global packname  gWQSRS
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Generalized Weighted Quantile Sum Regression Random Subset
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-aods3 
 Requires:         R-CRAN-gWQS >= 2.0.0
 Requires:         R-CRAN-Rsolnp 
 Requires:         R-CRAN-ggplot2 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-future
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-aods3 
 
 %description
 Fits Weighted Quantile Sum Random Subset (WQSRS) regressions for

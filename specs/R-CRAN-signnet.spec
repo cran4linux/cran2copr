@@ -1,32 +1,34 @@
-%global packname  bayesDP
-%global packver   1.3.2
+%global packname  signnet
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.5.0
 Release:          1%{?dist}
-Summary:          Tools for the Bayesian Discount Prior Function
+Summary:          Methods to Analyse Signed Networks
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-survival 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-survival 
-Requires:         R-methods 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-Matrix 
 
 %description
-Functions for data augmentation using the Bayesian discount prior function
-for 1 arm and 2 arm clinical trials.
+Methods for the analysis of signed networks. This includes several
+measures for structural balance as introduced by Cartwright and Harary
+(1956) <doi:10.1037/h0046049>, blockmodeling algorithms from Doreian
+(2008) <doi:10.1016/j.socnet.2008.03.005>, various centrality indices, and
+projections of signed two-mode networks introduced by Schoch (2020)
+<doi:10.1080/0022250X.2019.1711376>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +40,7 @@ for 1 arm and 2 arm clinical trials.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -46,10 +49,13 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

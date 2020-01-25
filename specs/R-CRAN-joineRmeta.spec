@@ -1,9 +1,9 @@
 %global packname  joineRmeta
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Joint Modelling for Meta-Analytic (Multi-Study) Data
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-joineR
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-meta 
 BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-nlme 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
 BuildRequires:    R-Matrix 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-joineR
 Requires:         R-MASS 
 Requires:         R-CRAN-meta 
 Requires:         R-CRAN-msm 
-Requires:         R-nlme 
 Requires:         R-CRAN-statmod 
 Requires:         R-stats 
 Requires:         R-Matrix 
