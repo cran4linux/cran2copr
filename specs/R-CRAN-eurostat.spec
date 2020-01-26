@@ -1,9 +1,9 @@
 %global packname  eurostat
-%global packver   3.4.20002
+%global packver   3.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.20002
+Version:          3.5.2
 Release:          1%{?dist}
 Summary:          Tools for Eurostat Open Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-RefManageR 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-RefManageR 

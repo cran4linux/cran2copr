@@ -1,9 +1,9 @@
 %global packname  rayshader
-%global packver   0.13.2
+%global packver   0.13.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.2
+Version:          0.13.7
 Release:          1%{?dist}
 Summary:          Create Maps and Visualize Data in 2D and 3D
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
@@ -40,7 +39,6 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-imager 
 Requires:         R-grDevices 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 

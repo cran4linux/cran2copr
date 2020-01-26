@@ -1,9 +1,9 @@
 %global packname  IsingSampler
-%global packver   0.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Sampling Methods and Distribution Functions for the Ising Model
 
@@ -18,10 +18,12 @@ BuildRequires:    R-CRAN-Rcpp >= 0.10.4
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-nnet 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-Rcpp >= 0.10.4
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-nnet 
+Requires:         R-CRAN-dplyr 
 
 %description
 Sample states from the Ising model and compute the probability of states.
@@ -39,6 +41,7 @@ to ~10 nodes.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
