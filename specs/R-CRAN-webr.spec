@@ -1,9 +1,9 @@
 %global packname  webr
-%global packver   0.1.0
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Data and Functions for Web-Based Analysis
 
@@ -17,10 +17,44 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-moonBook 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sjlabelled 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rrtable 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ztable 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-vcd 
 Requires:         R-CRAN-moonBook 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sjlabelled 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rrtable 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-psych 
+Requires:         R-grid 
+Requires:         R-CRAN-ztable 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-vcd 
 
 %description
 Several analysis-related functions for the book entitled "Web-based
@@ -52,5 +86,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/pptxList
+%doc %{rlibdir}/%{packname}/PieDonut
 %{rlibdir}/%{packname}/INDEX

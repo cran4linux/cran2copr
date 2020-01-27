@@ -1,26 +1,27 @@
-%global packname  rsed
-%global packver   0.1.2
+%global packname  caracas
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Stream Editing
+Summary:          Computer Algebra
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Smisc 
-Requires:         R-CRAN-Smisc 
+BuildRequires:    R-CRAN-reticulate >= 1.14
+Requires:         R-CRAN-reticulate >= 1.14
 
 %description
-Tools for stream editing: manipulating text files with insertions,
-replacements, deletions, substitutions, and commenting.
+Computer algebra via the 'SymPy' library (<https://www.sympy.org/>). This
+makes it possible to solve equations symbolically, find symbolic
+integrals, symbolic sums and other important quantities.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,10 +43,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

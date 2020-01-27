@@ -1,9 +1,9 @@
 %global packname  fastshap
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}
 Summary:          Fast Approximate Shapley Values
 
@@ -15,22 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-tibble 
 
 %description
-Computes fast approximate Shapley values for any supervised learning
-model. Shapley values help to explain the predictions from any black box
-model using ideas from game theory; see Strumbel and Kononenko (2014)
-<doi:10.1007/s10115-013-0679-x> for details.
+Computes fast (relative to other implementations) approximate Shapley
+values for any supervised learning model. Shapley values help to explain
+the predictions from any black box model using ideas from game theory; see
+Strumbel and Kononenko (2014) <doi:10.1007/s10115-013-0679-x> for details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  RecordTest
+%global packname  ddi
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Inference Tools Based on Record Statistics
+Summary:          The Data Defect Index for Samples that May not be IID
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-Smisc 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-Smisc 
 
 %description
-Statistical tools based on probabilistic properties of the occurrence of
-records in a sequence X_t of independent and identically distributed
-random variables. More details on the objective of the library can be
-found with help(RecordTest-package).
+Implements Meng's data defect index (ddi), which represents the degree of
+sample bias relative to an iid sample. The data defect correlation (ddc)
+represents the correlation between the outcome of interest and the
+selection into the sample; when the sample selection is independent across
+the population, the ddc is zero. Details are in Meng (2018)
+<doi:10.1214/18-AOAS1161SF>, "Statistical Paradises and Paradoxes in Big
+Data (I): Law of Large Populations, Big Data Paradox, and the 2016 US
+Presidential Election." Survey estimates from the Cooperative
+Congressional Election Study (CCES) is included to replicate the article's
+results.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,5 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

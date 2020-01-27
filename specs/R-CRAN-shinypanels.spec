@@ -1,31 +1,34 @@
-%global packname  leaftime
-%global packver   0.2.0
+%global packname  shinypanels
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.5.0
 Release:          1%{?dist}
-Summary:          'Leaflet-timeline' Plugin for Leaflet
+Summary:          Shiny Layout with Collapsible Panels
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-leaflet >= 2.0.0
-BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-leaflet >= 2.0.0
-Requires:         R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
 
 %description
-Use the 'leaflet-timeline' plugin with a leaflet widget to add an
-interactive slider with play, pause, and step buttons to explore temporal
-geographic spatial data changes.
+Create 'Shiny Apps' with collapsible vertical panels. This package
+provides a new visual arrangement for elements on top of 'Shiny'. Use the
+expand and collapse capabilities to leverage web applications with many
+elements to focus the user attention on the panel of interest.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,7 +52,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/assets
 %doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/www
 %{rlibdir}/%{packname}/INDEX

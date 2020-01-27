@@ -1,9 +1,9 @@
 %global packname  stplanr
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Sustainable Transport Planning
 
@@ -15,17 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    make
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-openxlsx >= 4.1.0
 BuildRequires:    R-CRAN-curl >= 3.2
 BuildRequires:    R-CRAN-raster >= 2.6.7
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-geosphere >= 1.5.7
 BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-sp >= 1.3.1
 BuildRequires:    R-CRAN-httr >= 1.3.1
 BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-igraph >= 1.2.2
-BuildRequires:    R-CRAN-readr >= 1.1.1
 BuildRequires:    R-CRAN-maptools >= 0.9.3
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.100.5.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
@@ -37,17 +34,14 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-lwgeom >= 0.1.4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx >= 4.1.0
 Requires:         R-CRAN-curl >= 3.2
 Requires:         R-CRAN-raster >= 2.6.7
-Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-geosphere >= 1.5.7
 Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-sp >= 1.3.1
 Requires:         R-CRAN-httr >= 1.3.1
 Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-igraph >= 1.2.2
-Requires:         R-CRAN-readr >= 1.1.1
 Requires:         R-CRAN-maptools >= 0.9.3
 Requires:         R-CRAN-dplyr >= 0.7.6
 Requires:         R-CRAN-sf >= 0.6.3

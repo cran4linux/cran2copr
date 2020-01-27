@@ -1,9 +1,9 @@
 %global packname  english
-%global packver   1.2-4
+%global packver   1.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}
 Summary:          Translate Integers into English
 
@@ -18,7 +18,8 @@ BuildArch:        noarch
 
 %description
 Allow numbers to be presented in an English language version, one, two,
-three, ...  Ordinals are also available, first, second, third, ...
+three, ...  Ordinals are also available, first, second, third, ... and
+indefinite article choice, "a" or "an".
 
 %prep
 %setup -q -c -n %{packname}

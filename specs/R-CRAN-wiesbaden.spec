@@ -1,9 +1,9 @@
 %global packname  wiesbaden
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Access Databases from the Federal Statistical Office of Germany
 

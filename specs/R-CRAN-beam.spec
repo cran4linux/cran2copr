@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  beam
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Fast Bayesian Inference in Large Gaussian Graphical Models
 
@@ -23,6 +23,10 @@ BuildRequires:    R-Matrix
 BuildRequires:    R-CRAN-fdrtool 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-grDevices 
@@ -31,11 +35,12 @@ Requires:         R-Matrix
 Requires:         R-CRAN-fdrtool 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-assertthat 
 
 %description
 Fast Bayesian inference of marginal and conditional independence
-structures between variables from high-dimensional data (Leday and
-Richardson (2018) <arXiv:1803.08155>).
+structures from high-dimensional data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +52,7 @@ Richardson (2018) <arXiv:1803.08155>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -58,5 +64,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

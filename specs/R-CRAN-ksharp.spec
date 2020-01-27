@@ -1,36 +1,31 @@
-%global packname  Smisc
-%global packver   0.3.9.1
+%global packname  ksharp
+%global packver   0.1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9.1
+Version:          0.1.0.1
 Release:          1%{?dist}
-Summary:          Sego Miscellaneous
+Summary:          Cluster Sharpening
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-parallel 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-methods 
-Requires:         R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-stats 
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-A collection of functions for statistical computing and data manipulation
-in R. Includes routines for data ingestion, operating on dataframes and
-matrices, conversion to and from lists, converting factors, filename
-manipulation, programming utilities, parallelization, plotting,
-statistical and mathematical operations, and time series.
+Clustering typically assigns data points into discrete groups, but the
+clusters can sometimes be indistinct. Cluster sharpening adjusts an
+existing clustering to create contrast between groups. This package
+provides a general interface for cluster sharpening along with several
+implementations based on different excision criteria.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +37,7 @@ statistical and mathematical operations, and time series.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -54,9 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
