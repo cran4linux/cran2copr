@@ -1,9 +1,9 @@
 %global packname  ctsem
-%global packver   3.0.9
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.9
+Version:          3.1.0
 Release:          1%{?dist}
 Summary:          Continuous Time Structural Equation Modelling
 

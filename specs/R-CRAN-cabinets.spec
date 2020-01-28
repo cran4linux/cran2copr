@@ -1,9 +1,9 @@
 %global packname  cabinets
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Project Specific Workspace Organization Templates
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-git2r 
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-glue 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-utils 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-git2r 
 
 %description
 Creates project specific directory and file templates that are written to
@@ -68,5 +70,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  processR
-%global packver   0.1.0
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Implementation of the 'PROCESS' Macro
 
@@ -15,15 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
+BuildRequires:    R-CRAN-predict3d >= 0.1.3.3
+BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-diagram 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-ggiraphExtra 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jtools 
-BuildRequires:    R-CRAN-mycor 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-purrr 
@@ -31,22 +29,18 @@ BuildRequires:    R-CRAN-rrtable
 BuildRequires:    R-CRAN-semTools 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-modelr 
-BuildRequires:    R-CRAN-prediction 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-TH.data 
-BuildRequires:    R-CRAN-shinyWidgets 
-Requires:         R-CRAN-lavaan >= 0.6.3
+BuildRequires:    R-CRAN-interactions 
+BuildRequires:    R-CRAN-ztable 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-ggplot2 >= 3.1.1
+Requires:         R-CRAN-predict3d >= 0.1.3.3
+Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-diagram 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-ggiraphExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jtools 
-Requires:         R-CRAN-mycor 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-purrr 
@@ -54,13 +48,11 @@ Requires:         R-CRAN-rrtable
 Requires:         R-CRAN-semTools 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-modelr 
-Requires:         R-CRAN-prediction 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-TH.data 
-Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-interactions 
+Requires:         R-CRAN-ztable 
+Requires:         R-CRAN-rmarkdown 
 
 %description
 Perform moderation, mediation, moderated mediation and moderated
@@ -94,4 +86,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/figures
 %doc %{rlibdir}/%{packname}/showModels
+%doc %{rlibdir}/%{packname}/test
 %{rlibdir}/%{packname}/INDEX

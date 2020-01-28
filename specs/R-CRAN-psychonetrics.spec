@@ -1,9 +1,9 @@
 %global packname  psychonetrics
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Structural Equation Modeling and Confirmatory Network Analysis
 
@@ -62,8 +62,8 @@ Requires:         R-CRAN-IsingSampler
 %description
 Multi-group (dynamical) structural equation models in combination with
 confirmatory network models from cross-sectional, time-series and panel
-data. Allows for confirmatory testing and fit as well as exploratory model
-search.
+data <doi:10.31234/osf.io/8ha93>. Allows for confirmatory testing and fit
+as well as exploratory model search.
 
 %prep
 %setup -q -c -n %{packname}

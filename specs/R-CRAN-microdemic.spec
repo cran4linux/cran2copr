@@ -1,9 +1,9 @@
 %global packname  microdemic
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          'Microsoft Academic' API Client
 
@@ -17,10 +17,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-crul >= 0.5.2
+BuildRequires:    R-CRAN-httpcode >= 0.2.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-crul >= 0.5.2
+Requires:         R-CRAN-httpcode >= 0.2.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-tibble 
 
@@ -41,6 +43,7 @@ similarity, and interpret natural language query string.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

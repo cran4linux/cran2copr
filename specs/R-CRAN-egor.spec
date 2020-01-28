@@ -1,9 +1,9 @@
 %global packname  egor
-%global packver   0.19.10
+%global packver   0.20.01
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.10
+Version:          0.20.01
 Release:          1%{?dist}
 Summary:          Import and Analyse Ego-Centered Network Data
 
@@ -72,6 +72,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/examples

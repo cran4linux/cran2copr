@@ -1,9 +1,9 @@
 %global packname  doRNG
-%global packver   1.7.1
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.8.2
 Release:          1%{?dist}
 Summary:          Generic Reproducible Parallel Backend for 'foreach' Loops
 
@@ -15,14 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rngtools >= 1.3
-BuildRequires:    R-CRAN-pkgmaker >= 0.20
+BuildRequires:    R-CRAN-rngtools >= 1.5
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-iterators 
-Requires:         R-CRAN-rngtools >= 1.3
-Requires:         R-CRAN-pkgmaker >= 0.20
+Requires:         R-CRAN-rngtools >= 1.5
 Requires:         R-CRAN-foreach 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -47,6 +45,7 @@ environment and associated foreach backend.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

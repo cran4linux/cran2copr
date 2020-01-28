@@ -1,9 +1,9 @@
 %global packname  esquisse
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Explore and Visualize Your Data Interactively
 
@@ -23,8 +23,6 @@ BuildRequires:    R-CRAN-miniUI
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-hrbrthemes 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-grDevices 
@@ -36,8 +34,6 @@ Requires:         R-CRAN-miniUI
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-hrbrthemes 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringi 
 Requires:         R-grDevices 

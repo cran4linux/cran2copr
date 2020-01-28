@@ -1,9 +1,9 @@
 %global packname  modelbased
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Estimation of Model-Based Predictions, Contrasts and Means
 
@@ -18,13 +18,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-insight >= 0.7.1
 BuildRequires:    R-CRAN-bayestestR >= 0.4.0
 BuildRequires:    R-CRAN-parameters >= 0.3.0
-BuildRequires:    R-CRAN-effectsize >= 0.0.1
 BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-insight >= 0.7.1
 Requires:         R-CRAN-bayestestR >= 0.4.0
 Requires:         R-CRAN-parameters >= 0.3.0
-Requires:         R-CRAN-effectsize >= 0.0.1
 Requires:         R-CRAN-emmeans 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Implements a general interface for model-based estimations for a wide

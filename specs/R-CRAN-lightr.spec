@@ -1,9 +1,9 @@
 %global packname  lightr
-%global packver   0.1
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          1.0
 Release:          1%{?dist}
 Summary:          Read Spectrometric Data and Metadata
 
@@ -16,9 +16,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 >= 1.0.0
-BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-progressr 
 Requires:         R-CRAN-xml2 >= 1.0.0
-Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-progressr 
 
 %description
 Parse various reflectance/transmittance/absorbance spectra file formats to
@@ -49,6 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/lightr.bib
 %{rlibdir}/%{packname}/testdata
