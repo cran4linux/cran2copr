@@ -1,9 +1,9 @@
 %global packname  updog
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Flexible Genotyping for Polyploids
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-assertthat 
@@ -30,18 +31,19 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-reshape2 
 
 %description
 Implements empirical Bayes approaches to genotype polyploids from next
 generation sequencing data while accounting for allelic bias,
-overdispersion, and sequencing error. The main function is flexdog(),
-which allows the specification of many different genotype distributions.
-An experimental function that takes into account varying levels of
-relatedness is implemented in mupdog(). Also provided are functions to
-simulate genotypes, rgeno(), and read-counts, rflexdog(), as well as
-functions to calculate oracle genotyping error rates, oracle_mis(), and
-correlation with the true genotypes, oracle_cor(). These latter two
-functions are useful for read depth calculations. Run
+overdispersion, and sequencing error. The main functions are flexdog() and
+multidog(), which allow the specification of many different genotype
+distributions. An experimental function that takes into account varying
+levels of relatedness is implemented in mupdog(). Also provided are
+functions to simulate genotypes, rgeno(), and read-counts, rflexdog(), as
+well as functions to calculate oracle genotyping error rates,
+oracle_mis(), and correlation with the true genotypes, oracle_cor(). These
+latter two functions are useful for read depth calculations. Run
 browseVignettes(package = "updog") in R for example usage. See Gerard et
 al. (2018) <doi:10.1534/genetics.118.301468> and Gerard and Ferrao (2019)
 <doi:10.1093/bioinformatics/btz852> for details on the implemented

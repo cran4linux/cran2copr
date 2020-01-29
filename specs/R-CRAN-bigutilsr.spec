@@ -1,9 +1,9 @@
 %global packname  bigutilsr
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Utility Functions for Large-scale Data
 
@@ -14,18 +14,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-bigparallelr >= 0.1.2
+BuildRequires:    R-CRAN-bigparallelr >= 0.2.3
+BuildRequires:    R-CRAN-bigassertr >= 0.1.1
 BuildRequires:    R-CRAN-nabor 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-robust 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-bigparallelr >= 0.1.2
+Requires:         R-CRAN-bigparallelr >= 0.2.3
+Requires:         R-CRAN-bigassertr >= 0.1.1
 Requires:         R-CRAN-nabor 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-robust 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-stats 
 

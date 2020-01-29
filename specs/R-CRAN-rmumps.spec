@@ -1,9 +1,9 @@
 %global packname  rmumps
-%global packver   5.2.1-7
+%global packver   5.2.1-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.1.7
+Version:          5.2.1.10
 Release:          1%{?dist}
 Summary:          Wrapper for MUMPS Library
 
@@ -21,14 +21,14 @@ Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 
 %description
-Some basic features of MUMPS (Multifrontal Massively Parallel sparse
+Some basic features of 'MUMPS' (Multifrontal Massively Parallel sparse
 direct Solver) are wrapped in a class whose methods can be used for
 sequentially solving a sparse linear system (symmetric or not) with one or
 many right hand sides (dense or sparse). There is a possibility to do
 separately symbolic analysis, LU (or LDL^t) factorization and system
-solving. Third part ordering libraries are included and can be used: PORD,
-METIS, SCOTCH. MUMPS method was first described in Amestoy et al. (2001)
-<doi:10.1137/S0895479899358194> and Amestoy et al. (2006)
+solving. Third part ordering libraries are included and can be used:
+'PORD', 'METIS', 'SCOTCH'. 'MUMPS' method was first described in Amestoy
+et al. (2001) <doi:10.1137/S0895479899358194> and Amestoy et al. (2006)
 <doi:10.1016/j.parco.2005.07.004>.
 
 %prep

@@ -1,9 +1,9 @@
 %global packname  ocedata
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Oceanographic Data Sets for 'oce' Package
 
@@ -21,9 +21,8 @@ Requires:         R-methods
 Requires:         R-CRAN-testthat 
 
 %description
-Several important and Oceanographic data sets are provided. These are
-particularly useful to the 'oce' package, but can also be helpful in a
-general context.
+Several Oceanographic data sets are provided for use by the 'oce' package
+and for other purposes.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,5 +47,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
+%{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  nomogramFormula
-%global packver   1.1.0.0
+%global packver   1.2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.0
+Version:          1.2.0.0
 Release:          1%{?dist}
 Summary:          Calculate Total Points and Probabilities for Nomogram
 
@@ -16,7 +16,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-do 
+BuildRequires:    R-CRAN-Hmisc 
 Requires:         R-CRAN-rms 
+Requires:         R-CRAN-do 
+Requires:         R-CRAN-Hmisc 
 
 %description
 A nomogram, which can be carried out in 'rms' package, provides a
@@ -27,7 +31,9 @@ all subjects. This package provides formula_rd() and formula_lp()
 functions to fit the formula of total points with raw data and linear
 predictors respectively by polynomial regression. Function points_cal()
 will help you calculate the total points. prob_cal() can be used to
-calculate the probabilities after lrm(), cph() or psm() regression.
+calculate the probabilities after lrm(), cph() or psm() regression. For
+more complex condition, interaction or restricted cubic spine,
+TotalPoints.rms() can be used.
 
 %prep
 %setup -q -c -n %{packname}

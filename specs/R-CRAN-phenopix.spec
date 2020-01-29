@@ -1,9 +1,9 @@
 %global packname  phenopix
-%global packver   2.3.1
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.4
 Release:          1%{?dist}
 Summary:          Process Digital Images of a Vegetation Cover
 
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr >= 1.0.0
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-SDMTools 
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-bcp 
 BuildRequires:    R-CRAN-strucchange 
@@ -32,7 +31,6 @@ BuildRequires:    R-CRAN-sp
 Requires:         R-CRAN-stringr >= 1.0.0
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-SDMTools 
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-bcp 
 Requires:         R-CRAN-strucchange 

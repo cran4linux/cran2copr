@@ -1,11 +1,11 @@
 %global packname  bikm1
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Coclustering Adjusted Rand Index and Bikm1 Procedure forContingency and Binary Data-Sets
+Summary:          Co-Clustering Adjusted Rand Index and Bikm1 Procedure forContingency and Binary Data-Sets
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -39,8 +39,8 @@ Requires:         R-CRAN-reshape2
 Requires:         R-grid 
 
 %description
-Coclustering of the rows and columns of a contingency or binary matrix, or
-double binary matrices and model selection for the number of row and
+Co-clustering of the rows and columns of a contingency or binary matrix,
+or double binary matrices and model selection for the number of row and
 column clusters. Three models are considered: the Poisson latent block
 model for contingency matrix, the binary latent block model for binary
 matrix and a new model we develop: the multiple latent block model for
@@ -48,8 +48,8 @@ double binary matrices. A new procedure named bikm1 is implemented to
 investigate more efficiently the grid of numbers of clusters. Then, the
 studied model selection criteria are the integrated completed likelihood
 (ICL) and the Bayesian integrated likelihood (BIC). Finally, the
-coclustering adjusted Rand index (CARI) to measure agreement between
-coclustering partitions is implemented. Robert Valerie and Vasseur Yann
+co-clustering adjusted Rand index (CARI) to measure agreement between
+co-clustering partitions is implemented. Robert Valerie and Vasseur Yann
 (2017) <arXiv:1705.06760>.
 
 %prep
@@ -73,5 +73,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

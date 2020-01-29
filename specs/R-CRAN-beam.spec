@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  beam
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Fast Bayesian Inference in Large Gaussian Graphical Models
 

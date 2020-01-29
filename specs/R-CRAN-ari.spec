@@ -1,9 +1,9 @@
 %global packname  ari
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Automated R Instructor
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-text2speech >= 0.2.4
+BuildRequires:    R-CRAN-text2speech >= 0.2.8
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-webshot 
 BuildRequires:    R-CRAN-purrr 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-hms 
-Requires:         R-CRAN-text2speech >= 0.2.4
+Requires:         R-CRAN-text2speech >= 0.2.8
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-webshot 
 Requires:         R-CRAN-purrr 

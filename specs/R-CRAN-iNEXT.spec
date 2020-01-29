@@ -1,36 +1,35 @@
-%global packname  metamedian
-%global packver   0.1.5
+%global packname  iNEXT
+%global packver   2.0.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          2.0.20
 Release:          1%{?dist}
-Summary:          Meta-Analysis of Medians
+Summary:          Interpolation and Extrapolation for Species Diversity
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-estmeansd 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-estmeansd 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-metafor 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 
 %description
-Implements several methods to meta-analyze studies that report the sample
-median of the outcome. When the primary studies are one-group studies, the
-methods of McGrath et al. (2019) <doi:10.1002/sim.8013> can be applied to
-estimate the pooled median. In the two-group context, the methods of
-McGrath et al. (2020) <doi:10.1002/bimj.201900036> can be applied to
-estimate the pooled raw difference of medians across groups.
+Provides simple functions to compute and plot two types (sample-size- and
+coverage-based) rarefaction and extrapolation of species diversity (Hill
+numbers) for individual-based (abundance) data or sampling-unit- based
+(incidence) data. (Hsieh, Ma and Chao 2014) <doi:
+10.1111/2041-210X.12613>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,8 +50,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

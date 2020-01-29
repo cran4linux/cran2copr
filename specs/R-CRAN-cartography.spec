@@ -1,9 +1,9 @@
 %global packname  cartography
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Thematic Cartography
 
@@ -23,23 +23,27 @@ Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-sp >= 1.2.4
 BuildRequires:    R-CRAN-sf >= 0.6.4
 BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rosm 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-slippymath 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-sp >= 1.2.4
 Requires:         R-CRAN-sf >= 0.6.4
 Requires:         R-CRAN-classInt 
-Requires:         R-stats 
+Requires:         R-CRAN-curl 
 Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-rosm 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-slippymath 
+Requires:         R-stats 
 
 %description
 Create and integrate maps in your R workflow. This package helps to design
@@ -78,5 +82,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/gpkg
 %doc %{rlibdir}/%{packname}/shape
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

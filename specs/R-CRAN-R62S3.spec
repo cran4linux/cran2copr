@@ -1,9 +1,9 @@
 %global packname  R62S3
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Automatic Method Generation from R6
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-methods 
+Requires:         R-CRAN-data.table 
 
 %description
 After defining an R6 class, R62S3 is used to automatically generate
@@ -35,6 +35,7 @@ R6 objects.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

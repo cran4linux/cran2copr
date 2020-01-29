@@ -1,28 +1,32 @@
-%global packname  rowr
-%global packver   1.1.3
+%global packname  BayesMed
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Row-Based Functions for R Objects
+Summary:          Default Bayesian Hypothesis Tests for Correlation, PartialCorrelation, and Mediation
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 2.12.1
+Requires:         R-core >= 2.12.1
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-QRM 
+BuildRequires:    R-CRAN-polspline 
+BuildRequires:    R-CRAN-MCMCpack 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-QRM 
+Requires:         R-CRAN-polspline 
+Requires:         R-CRAN-MCMCpack 
 
 %description
-Provides utilities which interact with all R objects as if they were
-arranged in rows.  It allows more consistent and predictable output to
-common functions, and generalizes a number of utility functions to to be
-failsafe with any number and type of input objects.
+Default Bayesian hypothesis tests for correlation, partial correlation,
+and mediation
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +47,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

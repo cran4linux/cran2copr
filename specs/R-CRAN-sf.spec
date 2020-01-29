@@ -1,10 +1,10 @@
 %global packname  sf
-%global packver   0.8-0
+%global packver   0.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
-Release:          2%{?dist}
+Version:          0.8.1
+Release:          1%{?dist}
 Summary:          Simple Features for R
 
 License:          GPL-2 | MIT + file LICENSE
@@ -63,6 +63,7 @@ transformations.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,25 +1,23 @@
-%global packname  bigassertr
-%global packver   0.1.2
+%global packname  soobench
+%global packver   1.9.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.9.12
 Release:          1%{?dist}
-Summary:          Assertion and Message Functions
+Summary:          Single Objective Optimization Benchmark Functions
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 
 %description
-Enhanced message functions (cat() / message() / warning() / error()) using
-wrappers around sprintf(). Also, multiple assertion functions (e.g. to
-check class, length, values, files, arguments, etc.).
+Collection of different single objective test functions useful for
+benchmarks and algorithm development.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +39,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

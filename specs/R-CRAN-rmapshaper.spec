@@ -1,9 +1,9 @@
 %global packname  rmapshaper
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}
 Summary:          Client for 'mapshaper' for 'Geospatial' Operations
 
@@ -33,12 +33,12 @@ Requires:         R-CRAN-geojsonlint >= 0.2.0
 Requires:         R-methods 
 
 %description
-Edit and simplify 'geojson', 'Spatial', and 'sf' objects. This is wrapper
+Edit and simplify 'geojson', 'Spatial', and 'sf' objects.  This is wrapper
 around the 'mapshaper' 'JavaScript' library by Matthew Bloch
 <https://github.com/mbloch/mapshaper/> to perform topologically-aware
 polygon simplification, as well as other operations such as clipping,
 erasing, dissolving, and converting 'multi-part' to 'single-part'
-geometries. It relies on the 'geojsonio' package for working with
+geometries.  It relies on the 'geojsonio' package for working with
 'geojson' objects, the 'sf' package for working with 'sf' objects, and the
 'sp' and 'rgdal' packages for working with 'Spatial' objects.
 
