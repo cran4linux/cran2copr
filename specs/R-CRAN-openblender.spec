@@ -1,9 +1,9 @@
 %global packname  openblender
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          Request <https://openblender.io> API Services
 
@@ -17,10 +17,8 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-xml2 >= 1.2.2
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-xml2 >= 1.2.2
 
 %description
 Interface to make HTTP requests to 'OpenBlender' API services. Go to

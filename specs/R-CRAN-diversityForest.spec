@@ -1,9 +1,9 @@
 %global packname  diversityForest
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Diversity Forests
 
@@ -30,10 +30,10 @@ details on further functionalities of the code that are not presented in
 the help pages of 'diversityForest' are found in the help pages of
 'ranger' (version 0.11.0). The code in the example sections of the
 'diversityForest' manual can be used as a template for all basic
-application scenarios with respect to classification using univariate,
-binary splitting. Some function arguments adopted from the 'ranger'
-package are not be useable with diversity forests (for the current package
-version).
+application scenarios with respect to classification, regression and
+survival prediction using univariate, binary splitting. Some function
+arguments adopted from the 'ranger' package are not be useable with
+diversity forests (for the current package version).
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,8 +56,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

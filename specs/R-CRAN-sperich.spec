@@ -1,9 +1,9 @@
 %global packname  sperich
-%global packver   1.5-7
+%global packver   1.5-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.5.8
 Release:          1%{?dist}
 Summary:          Auxiliary Functions to Estimate Centers of Biodiversity
 
@@ -12,12 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13
-Requires:         R-core >= 2.13
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-SDMTools 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
@@ -26,7 +25,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-SDMTools 
 Requires:         R-CRAN-foreach 
 Requires:         R-methods 
 Requires:         R-grDevices 

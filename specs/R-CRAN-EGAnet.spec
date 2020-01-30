@@ -1,9 +1,9 @@
 %global packname  EGAnet
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Exploratory Graph Analysis - A Framework for Estimating theNumber of Dimensions in Multivariate Data Using NetworkPsychometrics
 
@@ -15,62 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly >= 4.7.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-psychTools >= 1.9.12
-BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-psych >= 1.8.10
-BuildRequires:    R-CRAN-corpcor >= 1.6.9
-BuildRequires:    R-CRAN-foreach >= 1.4.3
 BuildRequires:    R-CRAN-qgraph >= 1.4.1
 BuildRequires:    R-Matrix >= 1.2
 BuildRequires:    R-CRAN-glasso >= 1.10
 BuildRequires:    R-CRAN-NetworkToolbox >= 1.1.2
-BuildRequires:    R-CRAN-mvtnorm >= 1.0.8
-BuildRequires:    R-CRAN-matrixcalc >= 1.0.3
-BuildRequires:    R-CRAN-doParallel >= 1.0.10
 BuildRequires:    R-CRAN-iterators >= 1.0.10
 BuildRequires:    R-CRAN-semPlot >= 1.0.1
 BuildRequires:    R-CRAN-igraph >= 1.0.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.8
 BuildRequires:    R-CRAN-lavaan >= 0.5.22
-BuildRequires:    R-CRAN-ggpubr >= 0.2
-BuildRequires:    R-CRAN-tidyselect <= 0.2.5
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-OpenMx 
-BuildRequires:    R-CRAN-wTO 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-fdrtool 
-BuildRequires:    R-CRAN-fitdistrplus 
-Requires:         R-CRAN-plotly >= 4.7.1
-Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-psychTools >= 1.9.12
-Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-psych >= 1.8.10
-Requires:         R-CRAN-corpcor >= 1.6.9
-Requires:         R-CRAN-foreach >= 1.4.3
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-qgraph >= 1.4.1
 Requires:         R-Matrix >= 1.2
 Requires:         R-CRAN-glasso >= 1.10
 Requires:         R-CRAN-NetworkToolbox >= 1.1.2
-Requires:         R-CRAN-mvtnorm >= 1.0.8
-Requires:         R-CRAN-matrixcalc >= 1.0.3
-Requires:         R-CRAN-doParallel >= 1.0.10
 Requires:         R-CRAN-iterators >= 1.0.10
 Requires:         R-CRAN-semPlot >= 1.0.1
 Requires:         R-CRAN-igraph >= 1.0.1
 Requires:         R-CRAN-dplyr >= 0.7.8
 Requires:         R-CRAN-lavaan >= 0.5.22
-Requires:         R-CRAN-ggpubr >= 0.2
-Requires:         R-CRAN-tidyselect <= 0.2.5
 Requires:         R-stats 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-OpenMx 
-Requires:         R-CRAN-wTO 
-Requires:         R-MASS 
-Requires:         R-CRAN-fdrtool 
-Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-plotly 
 
 %description
 An implementation of the Exploratory Graph Analysis (EGA) framework for

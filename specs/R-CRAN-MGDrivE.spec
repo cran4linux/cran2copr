@@ -1,9 +1,9 @@
 %global packname  MGDrivE
-%global packver   1.1.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.5.0
 Release:          1%{?dist}
 Summary:          Mosquito Gene Drive Explorer
 
@@ -21,7 +21,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Rcpp 
@@ -29,7 +28,6 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-data.table 
 
 %description
 Provides a model designed to be a reliable testbed where various gene
@@ -53,6 +51,7 @@ homing dynamics in Marshall et al. (2017)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

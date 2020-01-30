@@ -1,9 +1,9 @@
 %global packname  rbhl
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Interface to the 'Biodiversity' 'Heritage' Library
 
@@ -15,21 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-tibble >= 1.2
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-CRAN-xml2 >= 1.0.0
-BuildRequires:    R-CRAN-crul >= 0.3.4
-Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-tibble >= 1.2
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-CRAN-xml2 >= 1.0.0
-Requires:         R-CRAN-crul >= 0.3.4
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tibble 
 
 %description
 Interface to 'Biodiversity' 'Heritage' Library ('BHL')
-(<http://www.biodiversitylibrary.org/>) 'API'
-(<http://www.biodiversitylibrary.org/api2/docs/docs.html>). 'BHL' is a
+(<https://www.biodiversitylibrary.org/>) API
+(<https://www.biodiversitylibrary.org/docs/api3.html>). 'BHL' is a
 repository of 'digitized' literature on 'biodiversity' studies, including
 'floras', research papers, and more.
 
@@ -59,5 +59,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  readwritesqlite
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Enhanced Reading and Writing for 'SQLite' Databases
 
@@ -12,33 +12,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hms >= 0.5.0
-BuildRequires:    R-CRAN-err 
-BuildRequires:    R-CRAN-checkr 
-BuildRequires:    R-CRAN-dttr2 
+BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-hms >= 0.5.0
-Requires:         R-CRAN-err 
-Requires:         R-CRAN-checkr 
-Requires:         R-CRAN-dttr2 
+Requires:         R-CRAN-chk 
+Requires:         R-CRAN-hms 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-units 
 
 %description
 Reads and writes data frames to 'SQLite' databases while preserving time
 zones (for POSIXct columns), projections (for 'sfc' columns), units (for
 'units' columns), levels (for factors and ordered factors) and classes for
-logical, Date and 'hms' columns. It also logs changes to tables and
+logical, Date and 'hms' columns.  It also logs changes to tables and
 provides more informative error messages.
 
 %prep

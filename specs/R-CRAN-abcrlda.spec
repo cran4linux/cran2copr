@@ -1,9 +1,9 @@
 %global packname  abcrlda
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Asymptotically Bias-Corrected Regularized Linear DiscriminantAnalysis
 
@@ -51,6 +51,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/abcrlda_1.0.1.pdf
+%doc %{rlibdir}/%{packname}/abcrlda_1.0.2.pdf
 %doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/INDEX

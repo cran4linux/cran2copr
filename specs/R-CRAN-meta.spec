@@ -1,9 +1,9 @@
 %global packname  meta
-%global packver   4.9-9
+%global packver   4.10-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.9
+Version:          4.10.0
 Release:          1%{?dist}
 Summary:          General Package for Meta-Analysis
 

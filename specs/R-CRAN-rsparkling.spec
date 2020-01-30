@@ -1,9 +1,9 @@
 %global packname  rsparkling
-%global packver   0.2.18
+%global packver   0.2.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.18
+Version:          0.2.19
 Release:          1%{?dist}
 Summary:          R Interface for H2O Sparkling Water
 
@@ -51,5 +51,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/examples
-%{rlibdir}/%{packname}/INDEX

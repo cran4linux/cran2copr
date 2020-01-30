@@ -1,9 +1,9 @@
 %global packname  VeryLargeIntegers
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}
 Summary:          Store and Operate with Arbitrarily Large Integers
 
@@ -18,7 +18,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.9
 Requires:         R-CRAN-Rcpp >= 0.12.9
 
 %description
-Multi-precission library that allows to store and operate with arbitrarily
+Multi-precision library that allows to store and operate with arbitrarily
 big integers without loss of precision. It includes a large list of tools
 to work with them, like: - Arithmetic and logic operators -
 Modular-arithmetic operators - Computer Number Theory utilities -

@@ -1,9 +1,9 @@
 %global packname  airGR
-%global packver   1.4.3.52
+%global packver   1.4.3.60
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3.52
+Version:          1.4.3.60
 Release:          1%{?dist}
 Summary:          Suite of GR Hydrological Models for Precipitation-RunoffModelling
 

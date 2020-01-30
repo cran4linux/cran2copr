@@ -1,9 +1,9 @@
 %global packname  rqdatatable
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}
 Summary:          'rquery' for 'data.table'
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wrapr >= 1.9.3
-BuildRequires:    R-CRAN-rquery >= 1.4.1
+BuildRequires:    R-CRAN-wrapr >= 1.9.6
+BuildRequires:    R-CRAN-rquery >= 1.4.2
 BuildRequires:    R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-wrapr >= 1.9.3
-Requires:         R-CRAN-rquery >= 1.4.1
+Requires:         R-CRAN-wrapr >= 1.9.6
+Requires:         R-CRAN-rquery >= 1.4.2
 Requires:         R-CRAN-data.table >= 1.12.2
 
 %description

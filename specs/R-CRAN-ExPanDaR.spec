@@ -1,9 +1,9 @@
 %global packname  ExPanDaR
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Explore Your Data Interactively
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-shinycssloaders
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-shinycssloaders
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-zip 
+Requires:         R-CRAN-rlang 
 
 %description
 Provides a shiny-based front end (the 'ExPanD' app) and a set of functions

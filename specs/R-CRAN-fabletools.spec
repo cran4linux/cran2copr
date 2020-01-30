@@ -1,9 +1,9 @@
 %global packname  fabletools
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Core Tools for Packages in the 'fable' Framework
 
@@ -26,6 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-tibble >= 1.4.1
 Requires:         R-CRAN-tidyr >= 0.8.3
@@ -37,6 +38,7 @@ Requires:         R-stats
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-R6 
 Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 Provides tools, helpers and data structures for developing models and time
@@ -53,6 +55,7 @@ consistent and tidy interface for time series modelling and analysis.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

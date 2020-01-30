@@ -1,9 +1,9 @@
 %global packname  genridge
-%global packver   0.6-6
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.6.7
 Release:          1%{?dist}
 Summary:          Generalized Ridge Trace Plots for Ridge Regression
 
@@ -37,6 +37,7 @@ transformed space of the PCA/SVD of the predictors.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

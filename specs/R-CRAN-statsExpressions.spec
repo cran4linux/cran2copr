@@ -1,9 +1,9 @@
 %global packname  statsExpressions
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Expressions with Statistical Details
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-metafor >= 2.1.0
 BuildRequires:    R-CRAN-psych >= 1.9.12.31
 BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-boot >= 1.3.24
 BuildRequires:    R-CRAN-broomExtra >= 1.0.1
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-WRS2 >= 1.0.0
@@ -31,8 +30,9 @@ BuildRequires:    R-CRAN-metaplus >= 0.7.11
 BuildRequires:    R-CRAN-metaBMA >= 0.6.2
 BuildRequires:    R-CRAN-rlang >= 0.4.2
 BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-CRAN-groupedstats >= 0.1.1
+BuildRequires:    R-CRAN-sjstats >= 0.17.7
 BuildRequires:    R-CRAN-zeallot >= 0.1.0
+BuildRequires:    R-boot 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ez >= 4.4.0
 Requires:         R-CRAN-rcompanion >= 2.3.21
@@ -40,7 +40,6 @@ Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-metafor >= 2.1.0
 Requires:         R-CRAN-psych >= 1.9.12.31
 Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-boot >= 1.3.24
 Requires:         R-CRAN-broomExtra >= 1.0.1
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-WRS2 >= 1.0.0
@@ -50,8 +49,9 @@ Requires:         R-CRAN-metaplus >= 0.7.11
 Requires:         R-CRAN-metaBMA >= 0.6.2
 Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-groupedstats >= 0.1.1
+Requires:         R-CRAN-sjstats >= 0.17.7
 Requires:         R-CRAN-zeallot >= 0.1.0
+Requires:         R-boot 
 Requires:         R-stats 
 
 %description

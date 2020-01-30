@@ -1,9 +1,9 @@
 %global packname  RankingProject
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          The Ranking Project: Visualizations for Comparing Populations
 
@@ -20,7 +20,10 @@ BuildArch:        noarch
 Functions to generate plots and tables for comparing independently-
 sampled populations. Companion package to "A Primer on Visualizations for
 Comparing Populations, Including the Issue of Overlapping Confidence
-Intervals" by Wright, Klein, and Wieczorek (2017, in press).
+Intervals" by Wright, Klein, and Wieczorek (2019)
+<DOI:10.1080/00031305.2017.1392359> and "A Joint Confidence Region for an
+Overall Ranking of Populations" by Klein, Wright, and Wieczorek (2020, in
+press).
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +48,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

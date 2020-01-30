@@ -1,9 +1,9 @@
 %global packname  rrtable
-%global packver   0.1.0
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Reproducible Research with a Table of R Codes
 
@@ -18,7 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
 BuildRequires:    R-CRAN-readr >= 1.1.1
 BuildRequires:    R-CRAN-flextable >= 0.4.4
-BuildRequires:    R-CRAN-officer >= 0.3.0
+BuildRequires:    R-CRAN-officer >= 0.3.5
 BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-moonBook >= 0.1.8
 BuildRequires:    R-CRAN-ztable >= 0.1.8
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-editData
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-readr >= 1.1.1
 Requires:         R-CRAN-flextable >= 0.4.4
-Requires:         R-CRAN-officer >= 0.3.0
+Requires:         R-CRAN-officer >= 0.3.5
 Requires:         R-CRAN-purrr >= 0.2.4
 Requires:         R-CRAN-moonBook >= 0.1.8
 Requires:         R-CRAN-ztable >= 0.1.8
@@ -46,7 +46,7 @@ Requires:         R-CRAN-editData
 
 %description
 Makes documents containing plots and tables from a table of R codes. Can
-make "HTML", "pdf('LaTex')", "docx('MS Word')" and "pptx('MS powerpoint')"
+make "HTML", "pdf('LaTex')", "docx('MS Word')" and "pptx('MS Powerpoint')"
 documents with or without R code. In the package, modularized 'shiny' app
 codes are provided. These modules are intended for reuse across
 applications.
@@ -76,5 +76,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/doc_examples
 %doc %{rlibdir}/%{packname}/pptxList
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  rmetasim
-%global packver   3.1.7
+%global packver   3.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.7
+Version:          3.1.13
 Release:          1%{?dist}
 Summary:          An Individual-Based Population Genetic Simulation Environment
 
@@ -43,6 +43,7 @@ code in the most recent version.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
