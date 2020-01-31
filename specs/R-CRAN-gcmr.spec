@@ -1,9 +1,9 @@
 %global packname  gcmr
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Gaussian Copula Marginal Regression
 
@@ -21,7 +21,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-betareg 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-geoR 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-nlme 
 BuildRequires:    R-CRAN-sandwich 
@@ -33,7 +32,6 @@ Requires:         R-utils
 Requires:         R-CRAN-betareg 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-geoR 
 Requires:         R-CRAN-lmtest 
 Requires:         R-nlme 
 Requires:         R-CRAN-sandwich 
@@ -67,5 +65,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/COPYRIGHTS
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

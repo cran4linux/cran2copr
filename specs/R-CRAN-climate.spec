@@ -1,9 +1,9 @@
 %global packname  climate
-%global packver   0.3.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Interface to Download Meteorological (and Hydrological) Datasets
 
@@ -17,10 +17,8 @@ Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-imgw 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-XML 
-Requires:         R-CRAN-imgw 
 
 %description
 Automatize downloading of meteorological and hydrological data from

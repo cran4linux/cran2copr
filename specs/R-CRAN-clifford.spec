@@ -1,11 +1,11 @@
-%global packname  vote
-%global packver   1.2-0
+%global packname  clifford
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Election Vote Counting
+Summary:          Arbitrary Dimensional Clifford Algebras
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,16 +14,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-formattable 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-formattable 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.5
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.5
 
 %description
-Counting election votes and determining election results by different
-methods, including the single transferable vote (ranked choice), approval,
-score and plurality methods.
+A suite of routines for Clifford algebras, using the 'Map' class of the
+Standard Template Library.  Canonical reference: Hestenes (1987, ISBN
+90-277-1673-0, "Clifford algebra to geometric calculus").  Special cases
+including Lorentz transforms, quaternion multiplication, and Grassman
+algebra, are discussed. Conformal geometric algebra theory is implemented.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,8 +44,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/conformal_algebra.R
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/linear_algebra.Rmd
+%doc %{rlibdir}/%{packname}/lorentz_clifford.Rmd
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

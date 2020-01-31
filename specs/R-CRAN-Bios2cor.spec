@@ -1,9 +1,9 @@
 %global packname  Bios2cor
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}
 Summary:          From Biological Sequences and Simulations to CorrelationAnalysis
 

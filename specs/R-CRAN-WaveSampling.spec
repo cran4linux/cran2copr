@@ -1,9 +1,9 @@
 %global packname  WaveSampling
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Weakly Associated Vectors (WAVE) Sampling
 
@@ -28,7 +28,8 @@ often needed that the sample is well spread over space. A new method to
 draw a sample from a population with spatial coordinates is proposed. This
 method is called wave (Weakly Associated Vectors) sampling. It uses the
 less correlated vector to a spatial weights matrix to update the inclusion
-probabilities vector into a sample.
+probabilities vector into a sample. For more details see Raphaël Jauslin
+and Yves Tillé (2019) <arXiv:1910.13152>.
 
 %prep
 %setup -q -c -n %{packname}

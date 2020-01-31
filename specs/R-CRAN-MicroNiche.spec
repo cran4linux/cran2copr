@@ -1,11 +1,11 @@
-%global packname  regplot
-%global packver   1.0
+%global packname  MicroNiche
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Enhanced Regression Nomogram Plot
+Summary:          Microbial Niche Measurements
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,26 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vioplot 
-BuildRequires:    R-CRAN-sm 
-BuildRequires:    R-CRAN-beanplot 
-BuildRequires:    R-survival 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-vioplot 
-Requires:         R-CRAN-sm 
-Requires:         R-CRAN-beanplot 
-Requires:         R-survival 
-Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
-Requires:         R-CRAN-lme4 
 
 %description
-A function to plot a regression nomogram of regression objects. Covariate
-distributions are superimposed on nomogram scales and the plot can be
-animated to allow on-the-fly changes to distribution representation and to
-enable outcome calculation.
+Measures niche breadth and overlap of microbial taxa from large matrices.
+Niche breadth measurements include Levins' niche breadth (Bn) index,
+Hurlbert's Bn and Feinsinger's proportional similarity (PS) index.
+(Feinsinger, P., Spears, E.E., Poole, R.W. (1981) <doi:10.2307/1936664>).
+Niche overlap measurements include Levin's Overlap (Ludwig, J.A. and
+Reynolds, J.F. (1988, ISBN:0471832359)) and a Jaccard similarity index of
+Feinsinger's PS values between taxa pairs, as Proportional Overlap.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +50,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

@@ -1,9 +1,9 @@
 %global packname  iemisc
-%global packver   0.9.7
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.8
 Release:          1%{?dist}
 Summary:          Irucka Embry's Miscellaneous Functions
 
@@ -17,13 +17,11 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.10.2
 BuildRequires:    R-CRAN-gsubfn >= 0.7
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-iemiscdata 
 BuildRequires:    R-CRAN-import 
 BuildRequires:    R-CRAN-fpCompare 
-BuildRequires:    R-CRAN-listless 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-CHNOSZ 
 BuildRequires:    R-CRAN-IAPWS95 
@@ -31,15 +29,14 @@ BuildRequires:    R-CRAN-testit
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-data.table >= 1.10.2
 Requires:         R-CRAN-gsubfn >= 0.7
-Requires:         R-stats 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-iemiscdata 
 Requires:         R-CRAN-import 
 Requires:         R-CRAN-fpCompare 
-Requires:         R-CRAN-listless 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-CHNOSZ 
 Requires:         R-CRAN-IAPWS95 
@@ -47,6 +44,7 @@ Requires:         R-CRAN-testit
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
+Requires:         R-stats 
 
 %description
 A collection of Irucka Embry's miscellaneous functions (Engineering

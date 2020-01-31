@@ -1,9 +1,9 @@
 %global packname  gfoRmula
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Parametric G-Formula
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-ggpubr
 BuildRequires:    R-grDevices 
 BuildRequires:    R-nnet 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-survival 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-ggpubr
 Requires:         R-grDevices 
 Requires:         R-nnet 
 Requires:         R-parallel 
+Requires:         R-CRAN-progress 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-survival 

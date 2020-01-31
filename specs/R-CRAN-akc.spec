@@ -1,9 +1,9 @@
 %global packname  akc
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}
 Summary:          Automatic Knowledge Classification
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.12.6
 BuildRequires:    R-CRAN-tidygraph >= 1.1.2
 BuildRequires:    R-CRAN-ggraph >= 1.0.2
+BuildRequires:    R-CRAN-ggwordcloud >= 0.5.0
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-magrittr
 Requires:         R-CRAN-data.table >= 1.12.6
 Requires:         R-CRAN-tidygraph >= 1.1.2
 Requires:         R-CRAN-ggraph >= 1.0.2
+Requires:         R-CRAN-ggwordcloud >= 0.5.0
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
