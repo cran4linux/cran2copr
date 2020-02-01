@@ -356,6 +356,10 @@ pkg_exceptions <- function(tpl, pkg, path) {
   install <- grep("%install", tpl)
   tpl[install] <- paste0(tpl[install], "\n", switch(
     pkg,
+    aws=,biglars=,bsamGP=,deldir=,deSolve=,DRAFT=,DynamicGP=,EDR=,eha=,frontier=,
+    igraph=,lbfgsb3=,lbfgsb3c=,lsei=,mclust=,mda=,n1qn1=,npsp=,robeth=,robustbase=,
+    rootSolve=,sequoia=,subplex=,VGAM=
+      "test $(gcc -dumpversion) -ge 10 && export PKG_FFLAGS=-fallow-argument-mismatch",
     rPython = "export RPYTHON_PYTHON_VERSION=3",
     Rmpi = "%{_openmpi_load}"
   ))
