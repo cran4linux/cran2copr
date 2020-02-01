@@ -1,9 +1,9 @@
 %global packname  rgbif
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Interface to the Global 'Biodiversity' Information Facility API
 
@@ -80,5 +80,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/singlemaplayout.html
-%doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX

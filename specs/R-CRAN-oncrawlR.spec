@@ -1,9 +1,9 @@
 %global packname  oncrawlR
-%global packver   0.1.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Machine Learning for S.E.O
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-rlist >= 0.4.6
 BuildRequires:    R-CRAN-htmltools >= 0.3.5
 BuildRequires:    R-CRAN-DALEX >= 0.3
 BuildRequires:    R-CRAN-rlang >= 0.3
+BuildRequires:    R-CRAN-rjson >= 0.2.20
 BuildRequires:    R-CRAN-formattable >= 0.2
 BuildRequires:    R-CRAN-sparkline >= 0.2
 Requires:         R-CRAN-caret >= 6.0
@@ -53,6 +54,7 @@ Requires:         R-CRAN-rlist >= 0.4.6
 Requires:         R-CRAN-htmltools >= 0.3.5
 Requires:         R-CRAN-DALEX >= 0.3
 Requires:         R-CRAN-rlang >= 0.3
+Requires:         R-CRAN-rjson >= 0.2.20
 Requires:         R-CRAN-formattable >= 0.2
 Requires:         R-CRAN-sparkline >= 0.2
 

@@ -1,9 +1,9 @@
 %global packname  secrdesign
-%global packver   2.5.7
+%global packver   2.5.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.7
+Version:          2.5.10
 Release:          1%{?dist}
 Summary:          Sampling Design for Spatially Explicit Capture-Recapture
 

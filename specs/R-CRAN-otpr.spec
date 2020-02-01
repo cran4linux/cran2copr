@@ -1,9 +1,9 @@
 %global packname  otpr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          An R Wrapper for the 'OpenTripPlanner' REST API
 
@@ -17,10 +17,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-geojsonsf 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-geojsonsf 
 
@@ -39,6 +41,7 @@ the response is parsed and useful R objects are returned.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

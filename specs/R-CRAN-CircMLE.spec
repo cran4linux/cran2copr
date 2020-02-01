@@ -1,9 +1,9 @@
 %global packname  CircMLE
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Maximum Likelihood Analysis of Circular Data
 
@@ -25,7 +25,9 @@ A series of wrapper functions to implement the 10 maximum likelihood
 models of animal orientation described by Schnute and Groot (1992)
 <DOI:10.1016/S0003-3472(05)80068-5>. The functions also include the
 ability to use different optimizer methods and calculate various model
-selection metrics (i.e., AIC, AICc, BIC).
+selection metrics (i.e., AIC, AICc, BIC).  The ability to perform variants
+of the Hermans-Rasson test and Pycke test is also included as described in
+Landler et al. (2019) <DOI:10.1186/s12898-019-0246-8>.
 
 %prep
 %setup -q -c -n %{packname}

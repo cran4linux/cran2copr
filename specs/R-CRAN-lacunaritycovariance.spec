@@ -1,9 +1,9 @@
 %global packname  lacunaritycovariance
-%global packver   1.0-8
+%global packver   1.0-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.13
 Release:          1%{?dist}
 Summary:          Gliding Box Lacunarity and Other Metrics for 2D Random ClosedSets
 
@@ -23,10 +23,10 @@ Requires:         R-CRAN-RcppRoll
 %description
 Functions for estimating the gliding box lacunarity (GBL), covariance, and
 pair-correlation of a random closed set (RACS) in 2D from a binary
-coverage map (e.g. presence-absence land cover maps). Contains a number of
-newly-developed covariance-based estimators of GBL (Hingee et al., 2019)
-<doi:10.1007/s13253-019-00351-9> and balanced estimators, proposed by
-Picka (2000) <http://www.jstor.org/stable/1428408>, for covariance,
+coverage map (e.g. presence-absence land cover maps).  Contains a number
+of newly-developed covariance-based estimators of GBL (Hingee et al.,
+2019) <doi:10.1007/s13253-019-00351-9> and balanced estimators, proposed
+by Picka (2000) <http://www.jstor.org/stable/1428408>, for covariance,
 centred covariance, and pair-correlation.  Also contains methods for
 estimating contagion-like properties of RACS and simulating 2D Boolean
 models.  Binary coverage maps are usually represented as raster images
@@ -47,6 +47,7 @@ during the author's PhD studies.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

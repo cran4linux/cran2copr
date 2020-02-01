@@ -1,9 +1,9 @@
 %global packname  bigchess
-%global packver   1.5.2
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.7.0
 Release:          1%{?dist}
 Summary:          Read, Manipulate, Explore Chess PGN Files and R API to UCI ChessEngines
 
@@ -18,11 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ff 
 BuildRequires:    R-CRAN-ffbase 
 BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-subprocess 
+BuildRequires:    R-CRAN-processx 
 Requires:         R-CRAN-ff 
 Requires:         R-CRAN-ffbase 
 Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-subprocess 
+Requires:         R-CRAN-processx 
 
 %description
 Provides functions for reading *.PGN files with more than one game,
@@ -42,6 +42,7 @@ UCI-protocol based chess engines.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

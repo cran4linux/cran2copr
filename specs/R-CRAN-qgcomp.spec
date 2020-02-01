@@ -1,9 +1,9 @@
 %global packname  qgcomp
-%global packver   2.0.0
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.2
 Release:          1%{?dist}
 Summary:          Quantile G-Computation
 
@@ -43,7 +43,7 @@ approach estimates a regression line corresponding to the expected change
 in the outcome (on the link basis) given a simultaneous increase in the
 quantile-based category for all exposures. Works with continuous, binary,
 and right-censored time-to-event outcomes.  Reference: Alexander P. Keil,
-Jessie P. Buckley, Katie M. OBrien, Kelly K. Ferguson, Shanshan Zhao
+Jessie P. Buckley, Katie M. OBrien, Kelly K. Ferguson, Shanshan Zhao, and
 Alexandra J. White (2019) A quantile-based g-computation approach to
 addressing the effects of exposure mixtures; <arXiv:1902.04200> [stat.ME].
 

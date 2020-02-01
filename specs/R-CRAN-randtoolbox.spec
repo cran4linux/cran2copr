@@ -1,9 +1,9 @@
 %global packname  randtoolbox
-%global packver   1.30.0
+%global packver   1.30.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.30.0
+Version:          1.30.1
 Release:          1%{?dist}
 Summary:          Toolbox for Pseudo and Quasi Random Number Generation and RandomGenerator Tests
 
@@ -39,6 +39,7 @@ Diethelm and Barbara Wuertz.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

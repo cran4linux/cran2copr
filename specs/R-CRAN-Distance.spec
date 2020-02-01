@@ -1,9 +1,9 @@
 %global packname  Distance
-%global packver   0.9.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Distance Sampling Detection Function and Abundance Estimation
 
@@ -15,8 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mrds >= 2.2.0
-Requires:         R-CRAN-mrds >= 2.2.0
+BuildRequires:    R-CRAN-mrds >= 2.2.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-mrds >= 2.2.1
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
 A simple way of fitting detection functions to distance sampling data for

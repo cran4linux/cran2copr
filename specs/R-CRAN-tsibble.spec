@@ -1,9 +1,9 @@
 %global packname  tsibble
-%global packver   0.8.5
+%global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.6
 Release:          1%{?dist}
 Summary:          Tidy Temporal Data Frames and Tools
 
@@ -37,8 +37,8 @@ Requires:         R-CRAN-tidyselect
 %description
 Provides a 'tbl_ts' class (the 'tsibble') for temporal data in an data-
 and model-oriented format. The 'tsibble' provides tools to easily
-manipulate and analyse temporal data, such as filling in time gaps,
-aggregating over calendar periods, and etc.
+manipulate and analyse temporal data, such as filling in time gaps and
+aggregating over calendar periods.
 
 %prep
 %setup -q -c -n %{packname}

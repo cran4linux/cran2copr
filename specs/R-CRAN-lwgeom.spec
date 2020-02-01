@@ -1,10 +1,10 @@
 %global packname  lwgeom
-%global packver   0.1-7
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
-Release:          3%{?dist}
+Version:          0.2.1
+Release:          1%{?dist}
 Summary:          Bindings to Selected 'liblwgeom' Functions for Simple Features
 
 License:          GPL-2
@@ -27,7 +27,7 @@ Requires:         R-CRAN-units
 
 %description
 Access to selected functions found in 'liblwgeom'
-<https://github.com/postgis/postgis/tree/svn-trunk/liblwgeom>, the
+<https://github.com/postgis/postgis/tree/master/liblwgeom>, the
 light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
 
 %prep
@@ -40,6 +40,7 @@ light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
