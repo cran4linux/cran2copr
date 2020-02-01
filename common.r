@@ -377,7 +377,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
   tpl
 }
 
-create_spec <- function(pkg, tarfile, cran=available.packages()) {
+create_spec <- function(pkg, cran=available.packages()) {
+  tarfile <- download.packages(pkg, tempdir(), cran, quiet=TRUE)[,2]
   untar(tarfile, exdir=tempdir())
   path <- file.path(tempdir(), pkg)
   tpl <- readLines(getOption("copr.tpl"))
