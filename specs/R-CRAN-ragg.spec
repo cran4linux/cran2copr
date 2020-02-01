@@ -15,8 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    make
 BuildRequires:    freetype-devel
 BuildRequires:    libpng-devel
+BuildRequires:    libtiff-devel
 Requires:         freetype
 Requires:         libpng
+Requires:         libtiff
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-systemfonts 
