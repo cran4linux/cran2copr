@@ -358,8 +358,9 @@ pkg_exceptions <- function(tpl, pkg, path) {
     pkg,
     aws=,biglars=,bsamGP=,deldir=,deSolve=,DRAFT=,DynamicGP=,EDR=,eha=,frontier=,
     igraph=,lbfgsb3=,lbfgsb3c=,lsei=,mclust=,mda=,n1qn1=,npsp=,robeth=,robustbase=,
-    rootSolve=,sequoia=,subplex=,VGAM=
-      "test $(gcc -dumpversion) -ge 10 && export PKG_FFLAGS=-fallow-argument-mismatch",
+    rootSolve=,sequoia=,subplex=,VGAM=paste(
+      "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
+      "echo \"FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch\" > ~/.R/Makevars"),
     rPython = "export RPYTHON_PYTHON_VERSION=3",
     Rmpi = "%{_openmpi_load}"
   ))
