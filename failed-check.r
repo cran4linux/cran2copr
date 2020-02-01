@@ -1,15 +1,18 @@
 source("config.r")
 source("common.r")
+options(stringsAsFactors=FALSE)
 
 URL.COPR <- paste("https://copr.fedorainfracloud.org/coprs",
                   copr_call("whoami"), getOption("copr.repo"), sep="/")
-URL.RES <- paste("https://copr-be.cloud.fedoraproject.org/results",
+URL.BACK <- paste("https://copr-be.cloud.fedoraproject.org/results",
                  copr_call("whoami"), getOption("copr.repo"), sep="/")
 
-html <- xml2::read_html(paste(URL.COPR, "monitor", "detailed", sep="/"))
-df <- rvest::html_table(html, fill=TRUE)[[1]]
-chroots <- gsub(" ", "-", tolower(paste(colnames(df)[-1], df[1, -1])))
-df <- df[3:nrow(df),]
+df <- XML::readHTMLTable(readLines(URL.BACK))[[1]]
+chroots <- sort(sub("/$", "", subset(df, grepl("^fedora", Name))$Name))
+
+df <- XML::readHTMLTable(readLines(paste(URL.COPR, "monitor", "detailed", sep="/")))[[1]]
+colnames(df) <- c("Package", chroots)
+df <- na.omit(df)
 
 subset_failed <- function(x, chroots=seq_len(ncol(df)-1)) {
   x.chrt <- x[, 2:ncol(x), drop=FALSE]
@@ -26,13 +29,15 @@ fails <- sapply(strsplit(df.3[,4], " "), "[", 1)
 pkg_list <- character(0)
 for (i in seq_along(fails)) {
   message("Package ", i, "/", length(fails))
-  URL <- paste0(URL.RES, "/fedora-rawhide-x86_64/0", fails[i], "-", df.3[i, 1])
+  URL <- paste0(URL.BACK, "/fedora-rawhide-x86_64/0", fails[i], "-", df.3[i, 1])
   res <- httr::GET(URL)
   if (res$status_code == 200) {
     res <- httr::GET(paste0(URL, "/builder-live.log.gz"))
     content <- strsplit(httr::content(res), "\n")[[1]]
-    pkgs <- grep("No matching package to install", content, value=TRUE)
-    pkg_list <- c(pkg_list, sapply(strsplit(pkgs, "'"), "[", 2))
+    #pkgs <- grep("No matching package to install", content, value=TRUE)
+    #pkg_list <- c(pkg_list, sapply(strsplit(pkgs, "'"), "[", 2))
+    if (any(grepl("Error: Rank mismatch", content)))
+      pkg_list <- c(pkg_list, df.3[i, 1])
   }
 }
 pkgs <- sapply(strsplit(unlist(pkg_list), " "), "[", 1)

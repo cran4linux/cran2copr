@@ -1,14 +1,19 @@
 source("config.r")
 source("common.r")
+options(stringsAsFactors=FALSE)
 options(copr.bflags="")
 
 URL.COPR <- paste("https://copr.fedorainfracloud.org/coprs",
                   copr_call("whoami"), getOption("copr.repo"), sep="/")
+URL.BACK <- paste("https://copr-be.cloud.fedoraproject.org/results",
+                  copr_call("whoami"), getOption("copr.repo"), sep="/")
 
-html <- xml2::read_html(paste(URL.COPR, "monitor", "detailed", sep="/"))
-df <- rvest::html_table(html, fill=TRUE)[[1]]
-chroots <- gsub(" ", "-", tolower(paste(colnames(df)[-1], df[1, -1])))
-df <- df[3:nrow(df),]
+df <- XML::readHTMLTable(readLines(URL.BACK))[[1]]
+chroots <- sort(sub("/$", "", subset(df, grepl("^fedora", Name))$Name))
+
+df <- XML::readHTMLTable(readLines(paste(URL.COPR, "monitor", "detailed", sep="/")))[[1]]
+colnames(df) <- c("Package", chroots)
+df <- na.omit(df)
 
 subset_failed <- function(x, chroots=seq_len(ncol(df)-1)) {
   x.chrt <- x[, 2:ncol(x), drop=FALSE]
