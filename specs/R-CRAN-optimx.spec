@@ -1,9 +1,9 @@
 %global packname  optimx
-%global packver   2018-7.10
+%global packver   2020-1.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2018.7.10
+Version:          2020.1.31
 Release:          1%{?dist}
 Summary:          Expanded Replacement and Extension of the 'optim' Function
 
@@ -25,7 +25,8 @@ methods handle smooth, possibly box constrained functions of several or
 many parameters. Note that function 'optimr()' was prepared to simplify
 the incorporation of minimization codes going forward. Also implements
 some utility codes and some extra solvers, including safeguarded Newton
-methods. Many methods previously separate are now included here.
+methods. Many methods previously separate are now included here. This is
+the version for CRAN.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +38,7 @@ methods. Many methods previously separate are now included here.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

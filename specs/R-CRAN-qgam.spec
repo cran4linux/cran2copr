@@ -1,9 +1,9 @@
 %global packname  qgam
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}
 Summary:          Smooth Additive Quantile Regression Models
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-mgcv >= 1.8.28
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-plyr 

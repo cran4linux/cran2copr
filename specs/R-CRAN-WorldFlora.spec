@@ -1,9 +1,9 @@
 %global packname  WorldFlora
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}
 Summary:          Standardize Plant Names According to World Flora OnlineTaxonomic Backbone
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description

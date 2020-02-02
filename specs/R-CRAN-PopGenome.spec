@@ -1,27 +1,33 @@
-%global packname  bigalgebra
-%global packver   0.8.4.2
+%global packname  PopGenome
+%global packver   2.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4.2
+Version:          2.7.5
 Release:          1%{?dist}
-Summary:          BLAS Routines for Native R Matrices and 'big.matrix' Objects
+Summary:          An Efficient Swiss Army Knife for Population Genomic Analyses
 
-License:          LGPL-3 | Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-bigmemory >= 4.0.0
+BuildRequires:    zlib-devel
+Requires:         zlib
+BuildRequires:    R-devel >= 2.14.2
+Requires:         R-core >= 2.14.2
+BuildRequires:    R-CRAN-ff 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-bigmemory >= 4.0.0
+Requires:         R-CRAN-ff 
 Requires:         R-methods 
 
 %description
-Provides arithmetic functions for R matrix and 'big.matrix' objects.
+Provides efficient tools for population genomics data analysis, able to
+process individual loci, large sets of loci, or whole genomes. PopGenome
+<DOI:10.1093/molbev/msu136> not only implements a wide range of population
+genetics statistics, but also facilitates the easy implementation of new
+algorithms by other researchers. PopGenome is optimized for speed via the
+seamless integration of C code.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,10 +48,13 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/COPYRIGHTS
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

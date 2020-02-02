@@ -1,9 +1,9 @@
 %global packname  rnrfa
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          UK National River Flow Archive Data from R
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-sp 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-lubridate
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-sp 

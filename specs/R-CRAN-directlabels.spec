@@ -1,9 +1,9 @@
 %global packname  directlabels
-%global packver   2018.05.22.1
+%global packver   2020.1.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2018.05.22.1
+Version:          2020.1.31
 Release:          1%{?dist}
 Summary:          Direct Labels for Multicolor Plots
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-quadprog 

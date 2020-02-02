@@ -1,9 +1,9 @@
 %global packname  rquery
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}
 Summary:          Relational Query Generator for Data Manipulation at Scale
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wrapr >= 1.9.3
+BuildRequires:    R-CRAN-wrapr >= 1.9.6
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-wrapr >= 1.9.3
+Requires:         R-CRAN-wrapr >= 1.9.6
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-methods 

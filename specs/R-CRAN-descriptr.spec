@@ -1,9 +1,9 @@
 %global packname  descriptr
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Generate Descriptive Statistics
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-gridExtra 
@@ -33,7 +32,6 @@ BuildRequires:    R-CRAN-vistributions
 BuildRequires:    R-CRAN-xplorerr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-CRAN-gridExtra 
@@ -63,6 +61,7 @@ tables.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

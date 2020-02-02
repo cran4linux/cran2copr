@@ -1,13 +1,13 @@
 %global packname  SampleSize4ClinicalTrials
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Sample Size Calculation for the Comparison of Means orProportions in Phase III Clinical Trials
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -22,8 +22,7 @@ different research goals, including (1) Testing for equality, (2)
 Superiority trial, (3) Non-inferiority trial, and (4) Equivalence trial.
 This package aims to help researchers to calculate sample size when
 comparing means or proportions in Phase III clinical trials with different
-research goals. The ssc function can calculate the sample size with
-pre-specified type I error rate, statistical power and effect size.
+research goals.
 
 %prep
 %setup -q -c -n %{packname}

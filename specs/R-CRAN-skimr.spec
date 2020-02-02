@@ -1,9 +1,9 @@
 %global packname  skimr
-%global packver   2.0.2
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1
 Release:          1%{?dist}
 Summary:          Compact and Flexible Summaries of Data
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-repr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-knitr >= 1.2
@@ -41,6 +42,7 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-repr 
 Requires:         R-stats 
+Requires:         R-CRAN-withr 
 
 %description
 A simple to use summary function that can be used with pipes and displays

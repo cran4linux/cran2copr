@@ -1,9 +1,9 @@
 %global packname  babette
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}
 Summary:          Control 'BEAST2'
 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-testit
 Requires:         R-CRAN-xml2 
 
 %description
-'BEAST2' (<http://www.beast2.org>) is a widely used Bayesian phylogenetic
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
 tool, that uses DNA/RNA/protein data and many model priors to create a
 posterior of jointly estimated phylogenies and parameters. 'BEAST2' is
 commonly accompanied by 'BEAUti 2', 'Tracer' and 'DensiTree'. 'babette'

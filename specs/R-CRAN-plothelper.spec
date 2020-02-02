@@ -1,9 +1,9 @@
 %global packname  plothelper
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          New Plots Based on 'ggplot2' and Functions to Create RegularShapes
 
@@ -31,16 +31,17 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-scales 
 
 %description
-An extension to 'ggplot2' with miscellaneous functions. It contains two
-groups of functions: Functions in the first group draw 'ggplot2' - based
-plots: gg_shading_bar() draws barplot with shading colors in each bar.
+An extension to 'ggplot2' and 'magick'. It contains three groups of
+functions: Functions in the first group draw 'ggplot2' - based plots:
+geom_shading_bar() draws barplot with shading colors in each bar.
 geom_rect_cm(), geom_circle_cm() and geom_ellipse_cm() draw rectangles,
 circles and ellipses with centimeter as their unit. Thus their sizes do
 not change when the coordinate system or the aspect ratio changes.
 annotation_transparent_text() draws labels with transparent texts.
 annotation_shading_polygon() draws irregular polygons with shading colors.
 Functions in the second group generate coordinates for regular shapes and
-make linear transformations.
+make linear transformations. Functions in the third group are 'magick' -
+based functions facilitating image processing.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  drake
-%global packver   7.9.0
+%global packver   7.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.9.0
+Version:          7.10.0
 Release:          1%{?dist}
 Summary:          A Pipeline Toolkit for Reproducible Computation at Scale
 
