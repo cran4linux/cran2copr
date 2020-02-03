@@ -1,9 +1,9 @@
 %global packname  confreq
-%global packver   1.5.4-3
+%global packver   1.5.4-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4.3
+Version:          1.5.4.6
 Release:          1%{?dist}
 Summary:          Configural Frequencies Analysis Using Log-Linear Modeling
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 2.10.1
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-gmp 
+Requires:         R-methods 
 
 %description
 Offers several functions for Configural Frequencies Analysis (CFA), which
@@ -38,6 +40,7 @@ Psychologie und Psychotherapie, 19(2), 99–115.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -51,4 +54,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

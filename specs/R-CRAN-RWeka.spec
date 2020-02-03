@@ -1,9 +1,9 @@
 %global packname  RWeka
-%global packver   0.4-41
+%global packver   0.4-42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.41
+Version:          0.4.42
 Release:          1%{?dist}
 Summary:          R/Weka Interface
 

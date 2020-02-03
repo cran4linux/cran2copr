@@ -1,9 +1,9 @@
 %global packname  DataVisualizations
-%global packver   1.1.9
+%global packver   1.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.1.10
 Release:          1%{?dist}
 Summary:          Visualizations of High-Dimensional Data
 
@@ -28,9 +28,9 @@ scientist's point of view. The flagship idea of 'DataVisualizations' is
 the mirrored density plot (MD-plot) for either classified or
 non-classified multivariate data presented in Thrun et al. (2019)
 <arXiv:1908.06081>. The MD-plot outperforms the box-and-whisker diagram
-(box plot) and bean plot. Furthermore, a collection of various
-visualization methods for univariate data is provided. In the case of
-exploratory data analysis, 'DataVisualizations' makes it possible to
+(box plot), violin plot and bean plot. Furthermore, a collection of
+various visualization methods for univariate data is provided. In the case
+of exploratory data analysis, 'DataVisualizations' makes it possible to
 inspect the distribution of each feature of a dataset visually through a
 combination of four methods. One of these methods is the Pareto density
 estimation (PDE) of the probability density function (pdf). Additionally,

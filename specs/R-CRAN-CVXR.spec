@@ -1,9 +1,9 @@
 %global packname  CVXR
-%global packver   0.99-7
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.7
+Version:          1.0
 Release:          1%{?dist}
 Summary:          Disciplined Convex Optimization
 
@@ -23,8 +23,8 @@ BuildRequires:    R-Matrix
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-CRAN-Rmpfr 
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-scs >= 1.3
 Requires:         R-CRAN-ECOSolveR >= 0.5.3
@@ -35,8 +35,8 @@ Requires:         R-Matrix
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-gmp 
 Requires:         R-CRAN-Rmpfr 
-Requires:         R-CRAN-R.utils 
 Requires:         R-stats 
+Requires:         R-CRAN-osqp 
 
 %description
 An object-oriented modeling language for disciplined convex programming
@@ -73,6 +73,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/python
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

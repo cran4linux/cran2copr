@@ -1,9 +1,9 @@
 %global packname  regrrr
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Toolkit for Compiling, (Post-Hoc) Testing, and PlottingRegression Results
 
@@ -24,10 +24,9 @@ BuildRequires:    R-CRAN-usdm
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lspline 
 Requires:         R-stats 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
@@ -37,10 +36,9 @@ Requires:         R-CRAN-usdm
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lspline 
 
 %description
 Compiling regression results into a publishable format, conducting

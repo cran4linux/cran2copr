@@ -1,9 +1,9 @@
 %global packname  basicMCMCplots
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Trace Plots, Density Plots and Chain Comparisons for MCMCSamples
 
@@ -17,12 +17,12 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 
 %description
-Provides a function for examining posterior MCMC samples from a single
-chain using trace plots and density plots, and from multiple chains by
-comparing posterior medians and credible intervals from each chain.  These
-plotting functions have a variety of options, such as figure sizes,
-legends, parameters to plot, and saving plots to file. Functions interface
-with the NIMBLE software package, see de Valpine, Turek, Paciorek,
+Provides methods for examining posterior MCMC samples from a single chain
+using trace plots and density plots, and from multiple chains by comparing
+posterior medians and credible intervals from each chain.  These plotting
+functions have a variety of options, such as figure sizes, legends,
+parameters to plot, and saving plots to file. Functions interface with the
+NIMBLE software package, see de Valpine, Turek, Paciorek,
 Anderson-Bergman, Temple Lang and Bodik (2017)
 <doi:10.1080/10618600.2016.1172487>.
 

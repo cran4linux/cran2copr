@@ -1,9 +1,9 @@
 %global packname  munsellinterpol
-%global packver   2.5-1
+%global packver   2.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.6.1
 Release:          1%{?dist}
 Summary:          Interpolate Munsell Renotation Data from Hue/Chroma to CIE/RGB
 

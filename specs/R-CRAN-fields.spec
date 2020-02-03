@@ -1,9 +1,9 @@
 %global packname  fields
-%global packver   10.0
+%global packver   10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.0
+Version:          10.2
 Release:          1%{?dist}
 Summary:          Tools for Spatial Data
 

@@ -1,9 +1,9 @@
 %global packname  qtl
-%global packver   1.44-9
+%global packver   1.45-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.44.9
+Version:          1.45.11
 Release:          1%{?dist}
 Summary:          Tools for Analyzing QTL Experiments
 
@@ -27,7 +27,8 @@ Requires:         R-grDevices
 
 %description
 Analysis of experimental crosses to identify genes (called quantitative
-trait loci, QTLs) contributing to variation in quantitative traits.
+trait loci, QTLs) contributing to variation in quantitative traits. Broman
+et al. (2003) <doi:10.1093/bioinformatics/btg112>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +40,7 @@ trait loci, QTLs) contributing to variation in quantitative traits.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -60,6 +62,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE.txt
 %doc %{rlibdir}/%{packname}/MQM-TODO.txt
 %{rlibdir}/%{packname}/sampledata
-%doc %{rlibdir}/%{packname}/TODO.txt
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
