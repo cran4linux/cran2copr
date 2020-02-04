@@ -1,9 +1,9 @@
 %global packname  RMySQL
-%global packver   0.10.18
+%global packver   0.10.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.18
+Version:          0.10.19
 Release:          1%{?dist}
 Summary:          Database Interface and 'MySQL' Driver for R
 

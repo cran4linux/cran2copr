@@ -1,9 +1,9 @@
 %global packname  plsVarSel
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}
 Summary:          Variable Selection in Partial Least Squares
 
@@ -25,6 +25,8 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MSQC 
+BuildRequires:    R-CRAN-praznik 
 Requires:         R-CRAN-pls 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -35,6 +37,8 @@ Requires:         R-MASS
 Requires:         R-CRAN-progress 
 Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-CRAN-MSQC 
+Requires:         R-CRAN-praznik 
 
 %description
 Interfaces and methods for variable selection in Partial Least Squares.
@@ -51,6 +55,7 @@ Both regression and classification is supported.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

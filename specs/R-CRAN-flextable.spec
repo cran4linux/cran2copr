@@ -1,9 +1,9 @@
 %global packname  flextable
-%global packver   0.5.6
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}
 Summary:          Functions for Tabular Reporting
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-officer >= 0.2.0
+BuildRequires:    R-CRAN-officer >= 0.3.6
 BuildRequires:    R-CRAN-gdtools >= 0.1.6
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-base64enc 
-Requires:         R-CRAN-officer >= 0.2.0
+Requires:         R-CRAN-officer >= 0.3.6
 Requires:         R-CRAN-gdtools >= 0.1.6
 Requires:         R-stats 
 Requires:         R-utils 

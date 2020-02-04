@@ -1,9 +1,9 @@
 %global packname  EDR
-%global packver   0.6-6
+%global packver   0.6-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.6.7
 Release:          1%{?dist}
 Summary:          Estimation of the Effective Dimension Reduction ('EDR') Space
 

@@ -1,9 +1,9 @@
 %global packname  pim
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Fit Probabilistic Index Models
 
@@ -15,23 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
 BuildRequires:    R-methods 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-BB 
-Requires:         R-utils 
 Requires:         R-methods 
+Requires:         R-utils 
 Requires:         R-stats4 
 Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-BB 
 
 %description
-Fit a probabilistic index model as described in Thas et al
+Fit a probabilistic index model as described in Thas et al, 2012:
 <doi:10.1111/j.1467-9868.2011.01020.x>. The interface to the modeling
 function has changed in this new version. The old version is still
-available at R-Forge. You can install the old package using
-install.packages('pimold', repos = 'http://R-Forge.R-project.org').
+available at R-Forge.
 
 %prep
 %setup -q -c -n %{packname}

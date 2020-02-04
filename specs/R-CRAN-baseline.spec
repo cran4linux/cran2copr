@@ -1,9 +1,9 @@
 %global packname  baseline
-%global packver   1.2-2
+%global packver   1.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}
 Summary:          Baseline Correction of Spectra
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-SparseM
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-limSolve 
 Requires:         R-graphics 
 Requires:         R-CRAN-SparseM 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-CRAN-limSolve 
 
 %description
 Collection of baseline correction algorithms, along with a framework and a

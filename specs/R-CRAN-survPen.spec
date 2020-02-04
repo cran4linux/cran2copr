@@ -1,9 +1,9 @@
 %global packname  survPen
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Multidimensional Penalized Splines for Survival and Net SurvivalModels
 
@@ -14,9 +14,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-CRAN-statmod 
 Requires:         R-stats 
 
@@ -72,3 +74,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  bbmle
-%global packver   1.0.22
+%global packver   1.0.23.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          1.0.23.1
 Release:          1%{?dist}
 Summary:          Tools for General Maximum Likelihood Estimation
 

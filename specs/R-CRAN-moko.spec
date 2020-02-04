@@ -1,9 +1,9 @@
 %global packname  moko
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Multi-Objective Kriging Optimization
 
@@ -32,7 +32,11 @@ Requires:         R-CRAN-emoa >= 0.5.0
 
 %description
 Multi-Objective optimization based on the Kriging metamodel. Important
-functions: mkm, VMPF, MEGO and HEGO.
+functions: mkm() (builder for the multiobjective models), MVPF()
+(sequential minimizator using variance reduction), MEGO() (generalization
+of ParEgo) and HEGO() (minimizator using the expected hypervolume
+improvement). References are Passos and Luersen (2018)
+<doi:10.1590/1679-78254324>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +48,7 @@ functions: mkm, VMPF, MEGO and HEGO.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

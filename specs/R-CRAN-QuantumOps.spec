@@ -1,9 +1,9 @@
 %global packname  QuantumOps
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}
 Summary:          Performs Common Linear Algebra Operations Used in QuantumComputing and Implements Quantum Algorithms
 
@@ -29,7 +29,8 @@ applications, such as Steane error correction
 algorithm (Shor 1999), Grover's algorithm (1996), Quantum Approximation
 Optimization Algorithm (QAOA) (Farhi, Goldstone, and Gutmann 2014)
 <arXiv:1411.4028>, and a variational quantum classifier (Schuld 2018)
-<arXiv:1804.00633>.
+<arXiv:1804.00633>. Can be used with the gridsynth algorithm
+<arXiv:1212.6253> to perform decomposition into the Clifford+T set.
 
 %prep
 %setup -q -c -n %{packname}

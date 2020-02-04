@@ -1,9 +1,9 @@
 %global packname  ghyp
-%global packver   1.5.8
+%global packver   1.5.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          1.5.9
 Release:          1%{?dist}
 Summary:          Generalized Hyperbolic Distribution and Its Special Cases
 

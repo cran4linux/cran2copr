@@ -1,9 +1,9 @@
 %global packname  telefit
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}
 Summary:          Estimation and Prediction for Remote Effects Spatial ProcessModels
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.4
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-itertools 
@@ -33,12 +32,10 @@ BuildRequires:    R-CRAN-gtable
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-SDMTools 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-itertools 
@@ -52,7 +49,6 @@ Requires:         R-CRAN-gtable
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-SDMTools 
 
 %description
 Implementation of the remote effects spatial process (RESP) model for

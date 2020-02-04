@@ -1,9 +1,9 @@
 %global packname  hexbin
-%global packver   1.28.0
+%global packver   1.28.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28.0
+Version:          1.28.1
 Release:          1%{?dist}
 Summary:          Hexagonal Binning Routines
 

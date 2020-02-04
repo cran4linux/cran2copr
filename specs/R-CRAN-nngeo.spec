@@ -1,9 +1,9 @@
 %global packname  nngeo
-%global packver   0.3.0
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          k-Nearest Neighbor Join for Spatial Data
 
@@ -17,30 +17,23 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-sf >= 0.6
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-lwgeom 
 Requires:         R-CRAN-sf >= 0.6
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-units 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sp 
 Requires:         R-methods 
-Requires:         R-CRAN-lwgeom 
 Requires:         R-CRAN-stars 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-lwgeom 
 
 %description
 K-nearest neighbor search for projected and non-projected 'sf' spatial
 layers. Nearest neighbor search uses (1) C code from 'GeographicLib' for
 lon-lat point layers, (2) function nn2() from package 'RANN' for projected
 point layers, or (3) function st_distance() from package 'sf' for line or
-polygon layers.
+polygon layers. The package also includes several other utility functions
+for spatial analysis.
 
 %prep
 %setup -q -c -n %{packname}

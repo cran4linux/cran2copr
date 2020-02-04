@@ -1,9 +1,9 @@
 %global packname  adehabitatHR
-%global packver   0.4.16
+%global packver   0.4.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.16
+Version:          0.4.18
 Release:          1%{?dist}
 Summary:          Home Range Estimation
 
@@ -46,6 +46,7 @@ A collection of tools for the estimation of animals home range.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  DGLMExtPois
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Double Generalized Linear Models Extending Poisson Regression
 
@@ -16,11 +16,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nloptr >= 1.2.1
-BuildRequires:    R-CRAN-compoisson 
 BuildRequires:    R-CRAN-COMPoissonReg 
 BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-nloptr >= 1.2.1
-Requires:         R-CRAN-compoisson 
 Requires:         R-CRAN-COMPoissonReg 
 Requires:         R-CRAN-progress 
 

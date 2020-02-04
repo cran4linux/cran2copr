@@ -1,9 +1,9 @@
 %global packname  AdaptGauss
-%global packver   1.5.4
+%global packver   1.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.6
 Release:          1%{?dist}
 Summary:          Gaussian Mixture Models (GMM)
 
@@ -18,13 +18,11 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-DataVisualizations 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-pracma 
 Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-DataVisualizations 
 
 %description

@@ -1,9 +1,9 @@
 %global packname  ProjectionBasedClustering
-%global packver   1.0.7
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Projection Based Clustering
 
@@ -24,6 +24,11 @@ BuildRequires:    R-CRAN-geometry
 BuildRequires:    R-CRAN-GeneralizedUmatrix 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyBS 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
@@ -34,24 +39,29 @@ Requires:         R-CRAN-geometry
 Requires:         R-CRAN-GeneralizedUmatrix 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyBS 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-magrittr 
+Requires:         R-grDevices 
 
 %description
 A clustering approach applicable to every projection method is proposed
-here [Thrun/Ultsch,2017] <DOI:10.13140/RG.2.2.13124.53124>. The
-two-dimensional scatter plot of any projection method can construct a
-topographic map which displays unapparent data structures by using
-distance and density information of the data. The generalized U*-matrix
-renders this visualization in the form of a topographic map, which can be
-used to automatically define the clusters of high-dimensional data. The
-whole system is based on the book "Projection-Based Clustering through
-Self-Organization and Swarm Intelligence" <DOI:10.1007/978-3-658-20540-9>.
-Selecting the correct projection method will result in a visualization in
-which mountains surround each cluster. The number of clusters can be
-determined by counting valleys on the topographic map. Most projection
-methods are wrappers for already available methods in R. By contrast, the
-neighbor retrieval visualizer (NeRV) is based on C++ source code of the
-'dredviz' software package, and the Curvilinear Component Analysis (CCA)
-is translated from 'MATLAB' ('SOM Toolbox' 2.0) to R.
+here. The two-dimensional scatter plot of any projection method can
+construct a topographic map which displays unapparent data structures by
+using distance and density information of the data. The generalized
+U*-matrix renders this visualization in the form of a topographic map,
+which can be used to automatically define the clusters of high-dimensional
+data. The whole system is the generalization of on an idea from the book
+"Projection-Based Clustering through Self-Organization and Swarm
+Intelligence" <DOI:10.1007/978-3-658-20540-9>. Selecting the correct
+projection method will result in a visualization in which mountains
+surround each cluster. The number of clusters can be determined by
+counting valleys on the topographic map. Most projection methods are
+wrappers for already available methods in R. By contrast, the neighbor
+retrieval visualizer (NeRV) is based on C++ source code of the 'dredviz'
+software package, and the Curvilinear Component Analysis (CCA) is
+translated from 'MATLAB' ('SOM Toolbox' 2.0) to R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -63,6 +73,7 @@ is translated from 'MATLAB' ('SOM Toolbox' 2.0) to R.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

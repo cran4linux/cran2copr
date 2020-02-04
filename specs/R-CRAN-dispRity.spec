@@ -1,9 +1,9 @@
 %global packname  dispRity
-%global packver   1.3.3
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.5
 Release:          1%{?dist}
 Summary:          Measuring Disparity
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ade4 
@@ -25,7 +25,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-paleotree 
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-phyclust 
 BuildRequires:    R-utils 
@@ -41,7 +40,6 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-paleotree 
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-phyclust 
 Requires:         R-utils 

@@ -1,9 +1,9 @@
 %global packname  ImpactEffectsize
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Calculation and Visualization of the Impact Effect Size Measure
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AdaptGauss 
+BuildRequires:    R-CRAN-DataVisualizations 
 BuildRequires:    R-CRAN-RcppAlgos 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-matrixStats 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-parallelDist
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-AdaptGauss 
+Requires:         R-CRAN-DataVisualizations 
 Requires:         R-CRAN-RcppAlgos 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-matrixStats 

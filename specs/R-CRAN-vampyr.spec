@@ -1,9 +1,9 @@
 %global packname  vampyr
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}
 Summary:          Factor Analysis Controlling the Effects of Response Bias
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-moments
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-fungible 
+BuildRequires:    R-CRAN-semPlot 
 Requires:         R-stats 
 Requires:         R-CRAN-optimbase 
 Requires:         R-CRAN-psych 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-moments
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-fungible 
+Requires:         R-CRAN-semPlot 
 
 %description
 Vampirize the response biases from a dataset! Performs factor analysis

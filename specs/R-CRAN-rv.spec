@@ -1,9 +1,9 @@
 %global packname  rv
-%global packver   2.3.3
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.4
 Release:          1%{?dist}
 Summary:          Simulation-Based Random Variable Objects
 
