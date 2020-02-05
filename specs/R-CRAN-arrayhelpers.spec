@@ -1,9 +1,9 @@
 %global packname  arrayhelpers
-%global packver   1.0-20160527
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.20160527
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Convenience Functions for Arrays
 
@@ -35,6 +35,7 @@ Some convenient functions to work with arrays.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

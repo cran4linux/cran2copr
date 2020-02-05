@@ -1,9 +1,9 @@
 %global packname  rbin
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Tools for Binning Data
 
@@ -19,11 +19,9 @@ BuildRequires:    R-CRAN-DescTools
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
@@ -35,11 +33,9 @@ Requires:         R-CRAN-DescTools
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
 Requires:         R-graphics 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 

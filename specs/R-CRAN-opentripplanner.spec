@@ -1,9 +1,9 @@
 %global packname  opentripplanner
-%global packver   0.2.0.4
+%global packver   0.2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0.4
+Version:          0.2.0.7
 Release:          1%{?dist}
 Summary:          Setup and connect to 'OpenTripPlanner'
 

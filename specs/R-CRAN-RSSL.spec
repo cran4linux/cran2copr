@@ -1,9 +1,9 @@
 %global packname  RSSL
-%global packver   0.8
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Implementations of Semi-Supervised Learning Approaches forClassification
 

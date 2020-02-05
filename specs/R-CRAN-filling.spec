@@ -1,9 +1,9 @@
 %global packname  filling
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Matrix Completion, Imputation, and Inpainting Methods
 
@@ -14,22 +14,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-CVXR >= 1.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-ROptSpace 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-nabor 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-CVXR >= 1.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-ROptSpace 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-nabor 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
@@ -52,6 +52,7 @@ Inpainting. See Davenport and Romberg (2016)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -63,6 +64,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX

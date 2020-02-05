@@ -1,9 +1,9 @@
 %global packname  mime
-%global packver   0.8
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9
 Release:          1%{?dist}
 Summary:          Map Filenames to MIME Types
 

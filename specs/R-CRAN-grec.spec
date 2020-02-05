@@ -1,25 +1,30 @@
-%global packname  r2pmml
-%global packver   0.23.0
+%global packname  grec
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.0
+Version:          1.3.2
 Release:          1%{?dist}
-Summary:          Convert R Models to PMML
+Summary:          Gradient-Based Recognition of Spatial Patterns in EnvironmentalData
 
-License:          AGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-imagine >= 1.5.2
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-imagine >= 1.5.2
+Requires:         R-CRAN-raster 
+Requires:         R-utils 
 
 %description
-R wrapper for the JPMML-R library <https://github.com/jpmml/jpmml-r>,
-which converts R models to Predictive Model Markup Language (PMML).
+Provides algorithms for detection of spatial patterns from oceanographic
+data using image processing methods based on Gradient Recognition.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,7 +45,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

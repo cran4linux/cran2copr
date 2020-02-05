@@ -1,9 +1,9 @@
 %global packname  RCSF
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Airborne LiDAR Filtering Method Based on Cloth Simulation
 
@@ -22,7 +22,8 @@ Cloth Simulation Filter (CSF) is an airborne LiDAR (Light Detection and
 Ranging) ground points filtering algorithm which is based on cloth
 simulation. It tries to simulate the interactions between the cloth nodes
 and the corresponding LiDAR points, the locations of the cloth nodes can
-be determined to generate an approximation of the ground surface.
+be determined to generate an approximation of the ground surface
+<https://www.mdpi.com/2072-4292/8/6/501/htm>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +35,7 @@ be determined to generate an approximation of the ground surface.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -45,6 +47,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

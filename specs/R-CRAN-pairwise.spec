@@ -1,9 +1,9 @@
 %global packname  pairwise
-%global packver   0.4.4-5.1
+%global packver   0.4.4-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4.5.1
+Version:          0.4.4.7
 Release:          1%{?dist}
 Summary:          Rasch Model Parameters by Pairwise Algorithm
 
@@ -52,5 +52,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

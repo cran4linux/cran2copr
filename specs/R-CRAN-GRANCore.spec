@@ -1,13 +1,13 @@
-%global packname  variosig
-%global packver   0.3
+%global packname  GRANCore
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.2.7
 Release:          1%{?dist}
-Summary:          Testing Spatial Dependence Using Empirical Variogram
+Summary:          Classes and Methods for 'GRANBase'
 
-License:          GPL (>= 3)
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gstat 
-BuildRequires:    R-CRAN-geoR 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-gstat 
-Requires:         R-CRAN-geoR 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-testthat 
+BuildRequires:    R-CRAN-switchr >= 0.9.28
+BuildRequires:    R-methods 
+Requires:         R-CRAN-switchr >= 0.9.28
+Requires:         R-methods 
 
 %description
-Applying Monte Carlo permutation to generate pointwise variogram envelope
-and checking for spatial dependence at different scales using permutation
-test. Empirical Brown's method and Fisher's method are used to compute
-overall p-value for hypothesis test.
+Provides the classes and methods for GRANRepository objects that are used
+within the 'GRAN' build framework for R packages. This is primarily used
+by the 'GRANBase' package and repositories that are created by it.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +47,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/INDEX

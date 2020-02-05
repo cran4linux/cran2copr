@@ -1,9 +1,9 @@
 %global packname  qqplotr
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}
 Summary:          Quantile-Quantile Plot Extensions for 'ggplot2'
 
@@ -17,18 +17,14 @@ Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-MASS 
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-dplyr 
-Requires:         R-MASS 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-knitr 
+Requires:         R-MASS 
 
 %description
 Extensions of 'ggplot2' Q-Q plot functionalities.
@@ -43,6 +39,7 @@ Extensions of 'ggplot2' Q-Q plot functionalities.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -59,5 +56,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/image
 %doc %{rlibdir}/%{packname}/shiny
 %{rlibdir}/%{packname}/INDEX

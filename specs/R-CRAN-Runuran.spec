@@ -1,9 +1,9 @@
 %global packname  Runuran
-%global packver   0.27
+%global packver   0.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27
+Version:          0.28
 Release:          1%{?dist}
 Summary:          R Interface to the 'UNU.RAN' Random Variate Generators
 

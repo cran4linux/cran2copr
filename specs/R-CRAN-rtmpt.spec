@@ -1,9 +1,9 @@
 %global packname  rtmpt
-%global packver   0.1-17
+%global packver   0.1-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.17
+Version:          0.1.18
 Release:          1%{?dist}
 Summary:          Fitting RT-MPT Models
 
@@ -16,8 +16,8 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
@@ -25,8 +25,8 @@ BuildRequires:    R-CRAN-truncnorm
 BuildRequires:    R-utils 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-loo 
+Requires:         R-CRAN-matrixcalc 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 

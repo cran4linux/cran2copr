@@ -1,9 +1,9 @@
 %global packname  surveydata
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          Tools to Work with Survey Data
 
@@ -15,8 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr >= 0.5
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
@@ -26,8 +24,6 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-stringr >= 0.5
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
