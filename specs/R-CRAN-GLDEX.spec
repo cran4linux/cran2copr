@@ -1,9 +1,9 @@
 %global packname  GLDEX
-%global packver   2.0.0.6
+%global packver   2.0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0.6
+Version:          2.0.0.7
 Release:          1%{?dist}
 Summary:          Fitting Single and Mixture of Generalised Lambda Distributions(RS and FMKL) using Various Methods
 
@@ -44,6 +44,7 @@ the data with the fitted distribution.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

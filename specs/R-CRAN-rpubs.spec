@@ -1,27 +1,28 @@
-%global packname  hierNet
-%global packver   1.9
+%global packname  rpubs
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          0.2.2
 Release:          1%{?dist}
-Summary:          A Lasso for Hierarchical Interactions
+Summary:          Extract Code Block from Rpubs Article
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xml2 >= 1.2.2
+BuildRequires:    R-CRAN-rvest >= 0.3.5
+Requires:         R-CRAN-xml2 >= 1.2.2
+Requires:         R-CRAN-rvest >= 0.3.5
 
 %description
-Fits sparse interaction models for continuous and binary responses subject
-to the strong (or weak) hierarchy restriction that an interaction between
-two variables only be included if both (or at least one of) the variables
-is included as a main effect.  For more details, see Bien, J., Taylor, J.,
-Tibshirani, R., (2013) "A Lasso for Hierarchical Interactions." Annals of
-Statistics. 41(3). 1111-1141.
+Extract code only or with the output from an Rpubs <https://rpubs.com/>
+article and write the code-block to R script file.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,4 +47,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

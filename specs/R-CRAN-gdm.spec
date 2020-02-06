@@ -1,9 +1,9 @@
 %global packname  gdm
-%global packver   1.3.11
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.11
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Generalized Dissimilarity Modeling
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 0.10.4
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-foreach 
@@ -28,9 +29,10 @@ Requires:         R-CRAN-doParallel
 Requires:         R-parallel 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-vegan 
+Requires:         R-methods 
 
 %description
-A toolkit with functions to fit, plot, and summarize Generalized
+A toolkit with functions to fit, plot, summarize, and apply Generalized
 Dissimilarity Models.
 
 %prep

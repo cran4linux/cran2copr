@@ -1,9 +1,9 @@
 %global packname  manymodelr
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Build and Tune Several Models
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caret >= 6.0.81
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-tibble >= 2.0.1
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-e1071 >= 1.7.0.1
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-dplyr >= 0.7.8
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-Metrics >= 0.1.4
 Requires:         R-CRAN-caret >= 6.0.81
+Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-tibble >= 2.0.1
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-e1071 >= 1.7.0.1
@@ -41,7 +43,7 @@ machine learning applications. It provides the ability to build, tune and
 obtain predictions of several models in one function. The models are built
 using 'caret' functions with easier to read syntax. Kuhn(2014)
 <arXiv:1405.6974v14>. Kuhn(2008) <doi10.18637/jss.v028.i05>.
-Chambers,J.M.(1992) <doi:10.1371/journal.pone.0053143>. Wilkinson,G.N. and
+Chambers,J.M.(1992) <doi:10.1007/978-3-642-50096-1_48>. Wilkinson,G.N. and
 Rogers, C. E. (1973) <doi:10.2307/2346786>.
 
 %prep

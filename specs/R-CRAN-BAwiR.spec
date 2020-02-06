@@ -1,9 +1,9 @@
 %global packname  BAwiR
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Analysis of Basketball Data
 
@@ -63,7 +63,8 @@ robots.txt files, when available. Tools for visualization include a
 population pyramid, 2D plots, circular plots of players' percentiles,
 plots of players' monthly/yearly stats, team heatmaps, team shooting
 plots, team four factors plots, cross-tables with the results of regular
-season games and maps of nationalities.
+season games and maps of nationalities. Please see Vinue (2020)
+<doi:10.1089/big.2018.0124>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -75,6 +76,7 @@ season games and maps of nationalities.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

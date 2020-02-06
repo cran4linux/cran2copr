@@ -1,9 +1,9 @@
 %global packname  rticles
-%global packver   0.13
+%global packver   0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13
+Version:          0.14
 Release:          1%{?dist}
 Summary:          Article Formats for R Markdown
 
@@ -16,17 +16,17 @@ BuildRequires:    make
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tinytex >= 0.19
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-tinytex 
 BuildRequires:    R-CRAN-xfun 
+Requires:         R-CRAN-tinytex >= 0.19
 Requires:         R-utils 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-tinytex 
 Requires:         R-CRAN-xfun 
 
 %description

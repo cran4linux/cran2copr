@@ -1,9 +1,9 @@
 %global packname  tolerance
-%global packver   1.3.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Statistical Tolerance Intervals and Regions
 
@@ -12,11 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-stats4 
+Requires:         R-MASS 
 Requires:         R-CRAN-rgl 
 Requires:         R-stats4 
 
@@ -45,6 +47,7 @@ available for most of these settings.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

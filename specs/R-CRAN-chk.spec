@@ -1,9 +1,9 @@
 %global packname  chk
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Check User-Supplied Function Arguments
 
@@ -19,12 +19,10 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-tools 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-tools 
-Requires:         R-utils 
 
 %description
 For developers to check user-supplied function arguments.  It is designed

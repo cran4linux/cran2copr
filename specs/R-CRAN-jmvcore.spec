@@ -1,9 +1,9 @@
 %global packname  jmvcore
-%global packver   1.0.8
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.2.5
 Release:          1%{?dist}
 Summary:          Dependencies for the 'jamovi' Framework
 

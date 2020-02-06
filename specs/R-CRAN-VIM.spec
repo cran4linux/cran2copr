@@ -1,9 +1,9 @@
 %global packname  VIM
-%global packver   4.8.0
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.8.0
+Version:          5.1.0
 Release:          1%{?dist}
 Summary:          Visualization and Imputation of Missing Values
 
@@ -12,13 +12,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-data.table >= 1.9.4
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sp 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-colorspace
 Requires:         R-grid 
 Requires:         R-CRAN-car 
 Requires:         R-grDevices 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
 Requires:         R-CRAN-sp 
@@ -59,9 +61,11 @@ missing values, the corresponding methods may help to identify the
 mechanism generating the missing values and allows to explore the data
 including missing values. In addition, the quality of imputation can be
 visually explored using various univariate, bivariate, multiple and
-multivariate plot methods. A graphical user interface available in the
-separate package VIMGUI allows an easy handling of the implemented plot
-methods.
+multivariate plot methods (<doi:10.1007/s11634-011-0102-y>). A graphical
+user interface available in the separate package VIMGUI allows an easy
+handling of the implemented plot methods. Fast imputation methods such as
+k-nearest neighbor imputation (<doi:10.18637/jss.v074.i07>) and imputation
+using robust methods are provided (<doi:10.1016/j.csda.2011.04.012>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -73,6 +77,7 @@ methods.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

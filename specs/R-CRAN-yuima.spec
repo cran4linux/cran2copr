@@ -1,9 +1,9 @@
 %global packname  yuima
-%global packver   1.8.1
+%global packver   1.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          1.9.6
 Release:          1%{?dist}
 Summary:          The YUIMA Project Package for SDEs
 
@@ -23,6 +23,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-glassoFast 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-boot >= 1.3.2
 Requires:         R-CRAN-Rcpp >= 0.12.1
@@ -33,6 +34,7 @@ Requires:         R-utils
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-glassoFast 
 
 %description
 Simulation and Inference for SDEs and Other Stochastic Processes.

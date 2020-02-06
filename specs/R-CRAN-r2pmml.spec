@@ -1,27 +1,25 @@
-%global packname  hierNet
-%global packver   1.9
+%global packname  r2pmml
+%global packver   0.24.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          0.24.0
 Release:          1%{?dist}
-Summary:          A Lasso for Hierarchical Interactions
+Summary:          Convert R Models to PMML
 
-License:          GPL-2
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Requires:         java
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 
 %description
-Fits sparse interaction models for continuous and binary responses subject
-to the strong (or weak) hierarchy restriction that an interaction between
-two variables only be included if both (or at least one of) the variables
-is included as a main effect.  For more details, see Bien, J., Taylor, J.,
-Tibshirani, R., (2013) "A Lasso for Hierarchical Interactions." Annals of
-Statistics. 41(3). 1111-1141.
+R wrapper for the JPMML-R library <https://github.com/jpmml/jpmml-r>,
+which converts R models to Predictive Model Markup Language (PMML).
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,4 +44,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

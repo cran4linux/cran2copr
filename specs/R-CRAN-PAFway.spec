@@ -1,9 +1,9 @@
 %global packname  PAFway
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Pairwise Association of Functional Annotations
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-network 
@@ -25,7 +24,6 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-network 

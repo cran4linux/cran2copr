@@ -1,9 +1,9 @@
 %global packname  pksensi
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}
 Summary:          Global Sensitivity Analysis in Physiologically Based KineticModeling
 
@@ -64,4 +64,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/models
 %{rlibdir}/%{packname}/INDEX

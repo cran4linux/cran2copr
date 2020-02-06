@@ -1,11 +1,11 @@
-%global packname  rsf
-%global packver   0.2.1
+%global packname  pewdata
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}
-Summary:          Report of Statistical Findings in 'bookdown'
+Summary:          Reproducible Retrieval of Pew Research Center Datasets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-RSelenium 
+BuildRequires:    R-foreign 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-ymlthis 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-RSelenium 
+Requires:         R-foreign 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-ymlthis 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rio 
+Requires:         R-CRAN-stringr 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-A report of statistical findings (RSF) project template is generated using
-a 'bookdown' format. 'YAML' fields can be further customized. Additional
-helper functions provide extra features to the RSF.
+Reproducible, programmatic retrieval of survey datasets from the Pew
+Research Center.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,6 +60,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/rstudio
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

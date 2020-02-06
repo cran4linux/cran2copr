@@ -1,9 +1,9 @@
 %global packname  DT
-%global packver   0.11
+%global packver   0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.12
 Release:          1%{?dist}
 Summary:          A Wrapper of the JavaScript Library 'DataTables'
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets >= 1.3
-BuildRequires:    R-CRAN-jsonlite >= 0.9
+BuildRequires:    R-CRAN-jsonlite >= 0.9.16
 BuildRequires:    R-CRAN-htmltools >= 0.3.6
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-CRAN-promises 
 Requires:         R-CRAN-htmlwidgets >= 1.3
-Requires:         R-CRAN-jsonlite >= 0.9
+Requires:         R-CRAN-jsonlite >= 0.9.16
 Requires:         R-CRAN-htmltools >= 0.3.6
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-crosstalk 

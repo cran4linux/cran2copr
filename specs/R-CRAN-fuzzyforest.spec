@@ -1,9 +1,9 @@
 %global packname  fuzzyforest
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}
 Summary:          Fuzzy Forests
 
@@ -17,14 +17,12 @@ Requires:         R-core >= 3.2.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
