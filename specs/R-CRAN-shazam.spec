@@ -1,9 +1,9 @@
 %global packname  shazam
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Immunoglobulin Somatic Hypermutation Analysis
 
@@ -35,7 +35,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-SDMTools 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-stats 
@@ -61,7 +60,6 @@ Requires:         R-methods
 Requires:         R-parallel 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-SDMTools 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-seqinr 
 Requires:         R-stats 

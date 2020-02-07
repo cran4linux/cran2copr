@@ -1,9 +1,9 @@
 %global packname  umx
-%global packver   3.0.5
+%global packver   3.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.5
+Version:          3.0.6
 Release:          1%{?dist}
 Summary:          Structural Equation and Twin Modeling in R
 
@@ -27,11 +27,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-polycor 
 BuildRequires:    R-CRAN-R2HTML 
 BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-sfsmisc 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-OpenMx >= 2.11.5
@@ -46,11 +44,9 @@ Requires:         R-methods
 Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-nlme 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-polycor 
 Requires:         R-CRAN-R2HTML 
 Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-sfsmisc 
 Requires:         R-utils 
 Requires:         R-CRAN-xtable 
 

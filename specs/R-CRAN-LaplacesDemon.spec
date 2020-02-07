@@ -1,9 +1,9 @@
 %global packname  LaplacesDemon
-%global packver   16.1.1
+%global packver   16.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          16.1.1
+Version:          16.1.4
 Release:          1%{?dist}
 Summary:          Complete Environment for Bayesian Inference
 
@@ -41,6 +41,7 @@ describes the history of the package development process.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

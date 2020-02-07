@@ -1,9 +1,9 @@
 %global packname  HRM
-%global packver   1.0.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          High-Dimensional Repeated Measures
 
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-pseudorank >= 0.3.7
+BuildRequires:    R-CRAN-pseudorank >= 0.3.8
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-matrixcalc 
@@ -26,7 +26,7 @@ BuildRequires:    R-tcltk
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-doBy 
 BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-pseudorank >= 0.3.7
+Requires:         R-CRAN-pseudorank >= 0.3.8
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-MASS 
 Requires:         R-CRAN-matrixcalc 
@@ -42,10 +42,11 @@ Requires:         R-CRAN-mvtnorm
 %description
 Methods for testing main and interaction effects in possibly
 high-dimensional parametric or nonparametric repeated measures in
-factorial designs. The observations of the subjects are assumed to be
-multivariate normal if using the parametric test. The nonparametric
-version tests with regard to nonparametric relative effects (based on
-pseudo-ranks). It is possible to use up to 2 whole- and 3 subplot factors.
+factorial designs for univariate or multivariate data. The observations of
+the subjects are assumed to be multivariate normal if using the parametric
+test. The nonparametric version tests with regard to nonparametric
+relative effects (based on pseudo-ranks). It is possible to use up to 2
+whole- and 3 subplot factors.
 
 %prep
 %setup -q -c -n %{packname}

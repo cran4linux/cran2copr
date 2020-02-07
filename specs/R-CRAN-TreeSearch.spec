@@ -1,9 +1,9 @@
 %global packname  TreeSearch
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Phylogenetic Tree Search Using Custom Optimality Criteria
 
@@ -12,32 +12,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape >= 5.0
 BuildRequires:    R-CRAN-phangorn >= 2.2.1
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-R.cache 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-TreeTools 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-phangorn >= 2.2.1
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-R.cache 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
+Requires:         R-CRAN-TreeTools 
 
 %description
 Searches for phylogenetic trees that are optimal using a user-defined
-criterion. Implements Profile Parsimony (Faith and Trueman, 2001)
-<doi:10.1080/10635150118627>, and Successive Approximations (Farris, 1969)
-<doi:10.2307/2412182>. Handles inapplicable data using the algorithm of
-Brazeau, Guillerme and Smith (2019) <doi:10.1093/sysbio/syy083>.
+criterion. Handles inapplicable data using the algorithm of Brazeau,
+Guillerme and Smith (2019) <doi:10.1093/sysbio/syy083>. Implements Profile
+Parsimony (Faith and Trueman, 2001) <doi:10.1080/10635150118627>, and
+Successive Approximations (Farris, 1969) <doi:10.2307/2412182>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -66,7 +61,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/apa-old-doi-prefix.csl
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/preamble.tex
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %doc %{rlibdir}/%{packname}/tests
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

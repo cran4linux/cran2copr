@@ -1,9 +1,9 @@
 %global packname  azuremlsdk
-%global packver   0.5.7
+%global packver   0.6.85
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.6.85
 Release:          1%{?dist}
 Summary:          Interface to the 'Azure Machine Learning' 'SDK'
 
@@ -21,12 +21,18 @@ BuildRequires:    R-CRAN-rstudioapi >= 0.7
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-servr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
 Requires:         R-CRAN-plyr >= 1.8
 Requires:         R-CRAN-reticulate >= 1.12
 Requires:         R-CRAN-rstudioapi >= 0.7
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-servr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
 
 %description
 Interface to the 'Azure Machine Learning' Software Development Kit
@@ -59,4 +65,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/widget
 %{rlibdir}/%{packname}/INDEX

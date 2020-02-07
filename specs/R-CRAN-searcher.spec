@@ -1,9 +1,9 @@
 %global packname  searcher
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          Query Search Interfaces
 
@@ -18,9 +18,9 @@ BuildArch:        noarch
 
 %description
 Provides a search interface to look up terms on 'Google', 'Bing',
-'DuckDuckGo', 'Startpage', 'StackOverflow', 'RStudio Community', 'GitHub',
-and 'BitBucket'. Upon searching, a browser window will open with the
-aforementioned search results.
+'DuckDuckGo', 'Startpage', 'Twitter', 'StackOverflow', 'RStudio
+Community', 'GitHub', and 'BitBucket'. Upon searching, a browser window
+will open with the aforementioned search results.
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +32,7 @@ aforementioned search results.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

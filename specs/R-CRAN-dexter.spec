@@ -1,9 +1,9 @@
 %global packname  dexter
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Data Management and Analysis of Tests
 
@@ -30,7 +30,6 @@ Requires:         R-MASS >= 7.3
 Requires:         R-CRAN-RSQLite >= 2.1
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-DBI >= 1.0.0
-Requires:         R-CRAN-RcppArmadillo >= 0.9.3
 Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-rlang >= 0.4.0

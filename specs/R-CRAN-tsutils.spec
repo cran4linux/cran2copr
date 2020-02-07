@@ -1,9 +1,9 @@
 %global packname  tsutils
-%global packver   0.9.0
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.2
 Release:          1%{?dist}
 Summary:          Time Series Exploration, Modelling and Forecasting
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-MAPA 
+BuildRequires:    R-CRAN-plotrix 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-MAPA 
+Requires:         R-CRAN-plotrix 
 
 %description
 Includes: (i) tests and visualisations that can help the modeller explore

@@ -1,9 +1,9 @@
 %global packname  coveffectsplot
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          Produce Forest Plots to Visualize Covariate Effects
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-egg 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggstance 
+BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-egg 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggstance 
+Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 

@@ -1,9 +1,9 @@
 %global packname  GeneNet
-%global packver   1.2.13
+%global packver   1.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.13
+Version:          1.2.14
 Release:          1%{?dist}
 Summary:          Modeling and Inferring Gene Networks
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corpcor >= 1.6.8
+BuildRequires:    R-CRAN-corpcor >= 1.6.9
 BuildRequires:    R-CRAN-fdrtool >= 1.2.15
 BuildRequires:    R-CRAN-longitudinal >= 1.1.12
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-corpcor >= 1.6.8
+Requires:         R-CRAN-corpcor >= 1.6.9
 Requires:         R-CRAN-fdrtool >= 1.2.15
 Requires:         R-CRAN-longitudinal >= 1.1.12
 Requires:         R-stats 
@@ -43,6 +43,7 @@ putative directions).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

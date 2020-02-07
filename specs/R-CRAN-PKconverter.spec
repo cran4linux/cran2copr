@@ -1,9 +1,9 @@
 %global packname  PKconverter
-%global packver   1.3
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.5
 Release:          1%{?dist}
 Summary:          The Parameter Converter of the Pharmacokinetic Models
 
@@ -34,9 +34,8 @@ parameters after fitting the specific pharmacokinetic model. This package
 is developed to help this converting work. For more detailed explanation
 of pharmacokinetic parameters, see "Gabrielsson and Weiner" (2007),
 "ISBN-10: 9197651001"; "Benet and Zia-Amirhosseini" (1995) <DOI:
-10.1177/019262339502300203>; "Mould and Upton" (2012)
-<doi:10.1038/psp.2012.4>; "Mould and Upton" (2013)
-<doi:10.1038/psp.2013.14>.
+10.1177/019262339502300203>; "Mould and Upton" (2012) <DOI:
+10.1038/psp.2012.4>; "Mould and Upton" (2013) <DOI: 10.1038/psp.2013.14>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +47,7 @@ of pharmacokinetic parameters, see "Gabrielsson and Weiner" (2007),
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

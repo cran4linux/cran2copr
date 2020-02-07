@@ -1,9 +1,9 @@
 %global packname  Rvcg
-%global packver   0.18
+%global packver   0.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18
+Version:          0.19
 Release:          1%{?dist}
 Summary:          Manipulations of Triangular Meshes Based on the 'VCGLIB' API
 
@@ -49,6 +49,7 @@ to work with the header files included by 'RcppEigen'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  RandomFields
-%global packver   3.3.7
+%global packver   3.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.7
+Version:          3.3.8
 Release:          1%{?dist}
 Summary:          Simulation and Analysis of Random Fields
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RandomFieldsUtils >= 0.5.1
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-graphics 

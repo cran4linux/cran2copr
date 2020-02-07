@@ -1,9 +1,9 @@
 %global packname  emba
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Ensemble Boolean Model Biomarker Analysis
 
@@ -16,23 +16,25 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Ckmeans.1d.dp >= 4.2.2
-BuildRequires:    R-CRAN-visNetwork >= 2.0.7
-BuildRequires:    R-CRAN-rje >= 1.9
+BuildRequires:    R-CRAN-visNetwork >= 2.0.9
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-igraph >= 1.2.4
-BuildRequires:    R-CRAN-usefun >= 0.4.1
+BuildRequires:    R-CRAN-rje >= 1.10
+BuildRequires:    R-CRAN-usefun >= 0.4.3
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-Ckmeans.1d.dp >= 4.2.2
-Requires:         R-CRAN-visNetwork >= 2.0.7
-Requires:         R-CRAN-rje >= 1.9
+Requires:         R-CRAN-visNetwork >= 2.0.9
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-igraph >= 1.2.4
-Requires:         R-CRAN-usefun >= 0.4.1
+Requires:         R-CRAN-rje >= 1.10
+Requires:         R-CRAN-usefun >= 0.4.3
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-CRAN-purrr 
 
 %description
 Analysis and visualization of an ensemble of boolean models for biomarker

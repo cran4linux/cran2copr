@@ -1,9 +1,9 @@
 %global packname  validatetools
-%global packver   0.4.7
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Checking and Simplifying Validation Rule Sets
 

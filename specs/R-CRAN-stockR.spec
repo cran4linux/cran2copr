@@ -1,9 +1,9 @@
 %global packname  stockR
-%global packver   1.0.68
+%global packver   1.0.73
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.68
+Version:          1.0.73
 Release:          1%{?dist}
 Summary:          Identifying Stocks in Genetic Data
 
@@ -17,9 +17,13 @@ Requires:         R-core >= 2.10
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-gtools 
 Requires:         R-parallel 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-methods 
 
 %description
 Provides a mixture model for clustering individuals (or sampling groups)
@@ -28,9 +32,9 @@ individuals that are sure to come from the same stock (e.g. breeding
 adults or larvae). The mixture (log-)likelihood is maximised using the
 EM-algorithm after find good starting values via a K-means clustering of
 the genetic data. Details can be found in Foster, Feutry, Grewe, Berry,
-Hui, Davies (in press) Reliably Discriminating Stock Structure with
-Genetic Markers: Mixture Models with Robust and Fast Computation.
-Molecular Ecology Resources.
+Hui, Davies (2019) Reliably Discriminating Stock Structure with Genetic
+Markers: Mixture Models with Robust and Fast Computation. Molecular
+Ecology Resources.
 
 %prep
 %setup -q -c -n %{packname}

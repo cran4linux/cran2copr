@@ -1,9 +1,9 @@
 %global packname  NPflow
-%global packver   0.13.1
+%global packver   0.13.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.13.3
 Release:          1%{?dist}
 Summary:          Bayesian Nonparametrics for Automatic Gating of Flow-CytometryData
 
@@ -21,7 +21,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-fastcluster 
-BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-pheatmap 
 BuildRequires:    R-CRAN-reshape2 
@@ -33,7 +32,6 @@ Requires:         R-stats
 Requires:         R-grDevices 
 Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-fastcluster 
-Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-pheatmap 
 Requires:         R-CRAN-reshape2 
@@ -41,7 +39,8 @@ Requires:         R-CRAN-reshape2
 %description
 Dirichlet process mixture of multivariate normal, skew normal or skew
 t-distributions modeling oriented towards flow-cytometry data
-preprocessing applications.
+preprocessing applications. Method is detailed in: Hejblum, Alkhassimn,
+Gottardo, Caron & Thiebaut (2019) <doi: 10.1214/18-AOAS1209>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,6 +52,7 @@ preprocessing applications.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

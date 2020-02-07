@@ -1,9 +1,9 @@
 %global packname  sjstats
-%global packver   0.17.8
+%global packver   0.17.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.8
+Version:          0.17.9
 Release:          1%{?dist}
 Summary:          Collection of Convenient Functions for Common StatisticalComputations
 
