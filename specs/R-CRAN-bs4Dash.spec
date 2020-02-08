@@ -28,6 +28,7 @@ dashboard template built on top of 'Bootstrap 4'
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

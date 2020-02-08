@@ -37,6 +37,7 @@ conversion of data format for WEB service input and other purpose.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

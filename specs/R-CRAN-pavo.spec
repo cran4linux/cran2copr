@@ -1,9 +1,9 @@
 %global packname  pavo
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}
 Summary:          Perceptual Analysis, Visualization and Organization of SpectralColour Data
 
@@ -15,18 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lightr >= 1.0
 BuildRequires:    R-CRAN-geometry >= 0.4.0
 BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-pbmcapply 
 BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-viridisLite 
+Requires:         R-CRAN-lightr >= 1.0
 Requires:         R-CRAN-geometry >= 0.4.0
 Requires:         R-cluster 
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-magick 
-Requires:         R-CRAN-pbmcapply 
 Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-viridisLite 
 
@@ -37,6 +41,7 @@ spectral data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
