@@ -1,32 +1,33 @@
-%global packname  BayesMed
-%global packver   1.0.1
+%global packname  add2ggplot
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.3.0
 Release:          1%{?dist}
-Summary:          Default Bayesian Hypothesis Tests for Correlation, PartialCorrelation, and Mediation
+Summary:          Add to 'ggplot2'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.1
-Requires:         R-core >= 2.12.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-CRAN-QRM 
-BuildRequires:    R-CRAN-polspline 
-BuildRequires:    R-CRAN-MCMCpack 
-Requires:         R-CRAN-R2jags 
-Requires:         R-CRAN-QRM 
-Requires:         R-CRAN-polspline 
-Requires:         R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-zeallot 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-zeallot 
 
 %description
-Default Bayesian hypothesis tests for correlation, partial correlation,
-and mediation
+Create 'ggplot2' themes and color palettes.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,8 +48,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  spatstat.utils
-%global packver   1.15-0
+%global packver   1.17-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.0
+Version:          1.17.0
 Release:          1%{?dist}
 Summary:          Utility Functions for 'spatstat'
 

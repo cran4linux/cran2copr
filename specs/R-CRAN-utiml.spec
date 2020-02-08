@@ -1,9 +1,9 @@
 %global packname  utiml
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Utilities for Multi-Label Learning
 
@@ -20,11 +20,13 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-mldr >= 0.4.0
 Requires:         R-parallel 
 Requires:         R-CRAN-ROCR 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-methods 
 
 %description
 Multi-label learning strategies and others procedures to support multi-

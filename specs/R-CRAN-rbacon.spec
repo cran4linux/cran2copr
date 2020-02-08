@@ -1,9 +1,9 @@
 %global packname  rbacon
-%global packver   2.3.9.1
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.9.1
+Version:          2.4.0
 Release:          1%{?dist}
 Summary:          Age-Depth Modelling using Bayesian Statistics
 
@@ -28,8 +28,8 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Bacon is an approach to age-depth modelling that uses Bayesian statistics
-to reconstruct accumulation histories for deposits, through combining
+An approach to age-depth modelling that uses Bayesian statistics to
+reconstruct accumulation histories for deposits, through combining
 radiocarbon and other dates with prior information. See Blaauw & Christen
 (2011) <doi:10.1214/11-BA618>.
 
@@ -43,6 +43,7 @@ radiocarbon and other dates with prior information. See Blaauw & Christen
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

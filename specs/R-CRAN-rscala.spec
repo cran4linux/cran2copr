@@ -1,9 +1,9 @@
 %global packname  rscala
-%global packver   3.2.16
+%global packver   3.2.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.16
+Version:          3.2.17
 Release:          1%{?dist}
 Summary:          Bridge Between 'R' and 'Scala' with Callbacks
 
@@ -39,6 +39,7 @@ mv sbt* %{packname}/inst/dependencies/sbt
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

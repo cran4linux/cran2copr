@@ -1,9 +1,9 @@
 %global packname  sommer
-%global packver   4.0.8
+%global packver   4.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.8
+Version:          4.0.9
 Release:          1%{?dist}
 Summary:          Solving Mixed Model Equations in R
 

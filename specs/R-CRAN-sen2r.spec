@@ -1,9 +1,9 @@
 %global packname  sen2r
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}
 Summary:          Find, Download and Process Sentinel-2 Data
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-data.table 
@@ -39,7 +38,6 @@ BuildRequires:    R-CRAN-units
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-httr 
 Requires:         R-methods 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
 Requires:         R-CRAN-data.table 

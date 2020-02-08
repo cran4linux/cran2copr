@@ -1,9 +1,9 @@
 %global packname  oppr
-%global packver   0.0.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Optimal Project Prioritization
 
@@ -60,7 +60,8 @@ solutions can be obtained using exact algorithms, heuristic algorithms, or
 random processes. In particular, it is recommended to install the 'Gurobi'
 optimizer (available from <https://www.gurobi.com>) because it can
 identify optimal solutions very quickly. Finally, methods are provided for
-comparing different prioritizations and evaluating their benefits.
+comparing different prioritizations and evaluating their benefits. For
+more information, see Hanson et al. (2019) <doi:10.1111/2041-210X.13264>.
 
 %prep
 %setup -q -c -n %{packname}

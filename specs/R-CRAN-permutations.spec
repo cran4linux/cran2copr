@@ -1,9 +1,9 @@
 %global packname  permutations
-%global packver   1.0-5
+%global packver   1.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}
 Summary:          The Symmetric Group: Permutations of a Finite Set
 
@@ -57,9 +57,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/full_dodecahedron_group.py
 %doc %{rlibdir}/%{packname}/guide.R
 %doc %{rlibdir}/%{packname}/megaminx_net_guides.svg
+%doc %{rlibdir}/%{packname}/megaminx.py
 %doc %{rlibdir}/%{packname}/megaminx.R
 %doc %{rlibdir}/%{packname}/net_coords.txt
 %doc %{rlibdir}/%{packname}/order_of_ops.Rmd
 %doc %{rlibdir}/%{packname}/read.me
 %doc %{rlibdir}/%{packname}/representation.Rmd
+%doc %{rlibdir}/%{packname}/starminx_III.py
+%doc %{rlibdir}/%{packname}/starminx.py
 %{rlibdir}/%{packname}/INDEX

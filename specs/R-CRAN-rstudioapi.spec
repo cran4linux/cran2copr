@@ -1,9 +1,9 @@
 %global packname  rstudioapi
-%global packver   0.10
+%global packver   0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10
+Version:          0.11
 Release:          1%{?dist}
 Summary:          Safely Access the RStudio API
 
@@ -45,4 +45,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/resources
 %{rlibdir}/%{packname}/INDEX

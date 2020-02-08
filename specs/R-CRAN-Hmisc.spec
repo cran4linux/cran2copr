@@ -1,9 +1,9 @@
 %global packname  Hmisc
-%global packver   4.3-0
+%global packver   4.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.0
+Version:          4.3.1
 Release:          1%{?dist}
 Summary:          Harrell Miscellaneous
 
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-survival >= 2.40.1
+BuildRequires:    R-survival >= 3.1.6
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-htmlTable >= 1.11.0
 BuildRequires:    R-lattice 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-base64enc 
-Requires:         R-survival >= 2.40.1
+Requires:         R-survival >= 3.1.6
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-htmlTable >= 1.11.0
 Requires:         R-lattice 

@@ -1,32 +1,36 @@
-%global packname  lodi
-%global packver   0.9.2
+%global packname  DFA.CANCOR
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.6
 Release:          1%{?dist}
-Summary:          Limit of Detection Imputation for Single-Pollutant Models
+Summary:          Linear Discriminant Function and Canonical Correlation Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.3.0
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MVN 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rlang >= 0.3.0
+Requires:         R-MASS 
+Requires:         R-CRAN-MVN 
+Requires:         R-graphics 
+Requires:         R-utils 
 Requires:         R-stats 
 
 %description
-Impute observed values below the limit of detection (LOD) via censored
-likelihood multiple imputation (CLMI) in single-pollutant models,
-developed by Boss et al (2019) <doi:10.1097/EDE.0000000000001052>. CLMI
-handles exposure detection limits that may change throughout the course of
-exposure assessment. 'lodi' provides functions for imputing and pooling
-for this method.
+Produces SPSS- and SAS-like output for linear discriminant function
+analysis and canonical correlation analysis. The methods are described in
+Manly & Alberto (2017, ISBN:9781498728966), Tabachnik & Fidell (2013,
+ISBN-10:0-205-89081-4), and Venables & Ripley (2002, ISBN:0-387-95457-0).
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,7 +54,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

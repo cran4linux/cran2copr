@@ -1,9 +1,9 @@
 %global packname  corporaexplorer
-%global packver   0.8.0
+%global packver   0.8.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1.1
 Release:          1%{?dist}
 Summary:          A 'Shiny' App for Exploration of Text Collections
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
@@ -37,10 +35,8 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
@@ -52,7 +48,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
@@ -60,7 +55,6 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-zoo 
 
 %description
 Facilitates dynamic exploration of text collections through an intuitive
@@ -69,7 +63,9 @@ contains 1) a helper function to convert a data frame to a
 'corporaexplorerobject', 2) a 'Shiny' app for fast and flexible
 exploration of a 'corporaexplorerobject', and 3) a 'Shiny' app for simple
 retrieval/extraction of documents from a 'corporaexplorerobject' in a
-reading-friendly format.
+reading-friendly format. The package also includes demo apps with which
+one can explore Jane Austen's novels and the State of the Union Addresses
+(data from the 'janeaustenr' and 'sotu' packages respectively).
 
 %prep
 %setup -q -c -n %{packname}
