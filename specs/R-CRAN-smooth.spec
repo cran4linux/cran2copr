@@ -1,9 +1,9 @@
 %global packname  smooth
-%global packver   2.5.4
+%global packver   2.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.4
+Version:          2.5.5
 Release:          1%{?dist}
 Summary:          Forecasting Using State Space Models
 
@@ -49,6 +49,7 @@ framework (Svetunkov & Boylan, 2017, <doi: 10.13140/RG.2.2.35897.06242>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

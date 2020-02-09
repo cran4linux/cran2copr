@@ -1,28 +1,30 @@
-%global packname  covglasso
-%global packver   1.0.1
+%global packname  jmotif
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}
-Summary:          Sparse Covariance Matrix Estimation
+Summary:          Time Series Analysis Toolkit Based on Symbolic AggregateDiscretization, i.e. SAX
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.1
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0
+Requires:         R-CRAN-Rcpp >= 0.11.1
+Requires:         R-stats 
 
 %description
-Direct sparse covariance matrix estimation via the covariance graphical
-lasso by Bien, Tibshirani (2011) <doi:10.1093/biomet/asr054> using the
-fast coordinate descent algorithm of Wang (2014)
-<doi:10.1007/s11222-013-9385-5>.
+Implements time series z-normalization, SAX, HOT-SAX, VSM, SAX-VSM,
+RePair, and RRA algorithms facilitating time series motif (i.e., recurrent
+pattern), discord (i.e., anomaly), and characteristic pattern discovery
+along with interpretable time series classification.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,9 +46,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

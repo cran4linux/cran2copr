@@ -1,9 +1,9 @@
 %global packname  riskRegression
-%global packver   2019.11.03
+%global packver   2020.02.05
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2019.11.03
+Version:          2020.02.05
 Release:          1%{?dist}
 Summary:          Risk Regression Models and Prediction Scores for SurvivalAnalysis with Competing Risks
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-ranger
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-Publish 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-rms >= 5.1.3
 Requires:         R-CRAN-ggplot2 >= 3.1.0
@@ -49,6 +50,7 @@ Requires:         R-CRAN-ranger
 Requires:         R-parallel 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-lattice 
+Requires:         R-CRAN-Publish 
 
 %description
 Implementation of the following methods for event history analysis. Risk
@@ -69,6 +71,7 @@ compares the performance across splits.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  CORElearn
-%global packver   1.53.1
+%global packver   1.54.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.53.1
+Version:          1.54.2
 Release:          1%{?dist}
 Summary:          Classification, Regression and Feature Evaluation
 
@@ -18,10 +18,14 @@ BuildRequires:    R-cluster
 BuildRequires:    R-rpart 
 BuildRequires:    R-stats 
 BuildRequires:    R-nnet 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-rpart.plot 
 Requires:         R-cluster 
 Requires:         R-rpart 
 Requires:         R-stats 
 Requires:         R-nnet 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-rpart.plot 
 
 %description
 A suite of machine learning algorithms written in C++ with the R interface
@@ -43,6 +47,7 @@ via OpenMP. The top-level documentation is reachable through ?CORElearn.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +55,7 @@ via OpenMP. The top-level documentation is reachable through ?CORElearn.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  repo
-%global packver   2.1.4
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.1.5
 Release:          1%{?dist}
 Summary:          A Data-Centered Data Flow Manager
 
@@ -24,11 +24,13 @@ Requires:         R-tools
 A data manager meant to avoid manual storage/retrieval of data to/from the
 file system. It builds one (or more) centralized repository where R
 objects are stored with rich annotations, including corresponding code
-chunks, and easily searched and retrieved.
+chunks, and easily searched and retrieved. See Napolitano (2017)
+<doi:10.1037/a0028240> for further information.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  chorrrds
-%global packver   0.1.9.2
+%global packver   0.1.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9.2
+Version:          0.1.9.3
 Release:          1%{?dist}
 Summary:          Music Chords Extraction
 
@@ -12,22 +12,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-forcats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-forcats 
 
 %description
@@ -38,6 +38,7 @@ cleaning the extracted data and feature extraction.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  EML
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Read and Write Ecological Metadata Language Files
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-emld >= 0.0.0.9900
+BuildRequires:    R-CRAN-emld >= 0.4.0
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-digest 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-uuid
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-emld >= 0.0.0.9900
+Requires:         R-CRAN-emld >= 0.4.0
 Requires:         R-CRAN-xml2 
 Requires:         R-methods 
 Requires:         R-CRAN-digest 
@@ -45,6 +45,7 @@ described in Jones et al. (2006),
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

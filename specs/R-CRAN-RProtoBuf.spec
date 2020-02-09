@@ -1,9 +1,9 @@
 %global packname  RProtoBuf
-%global packver   0.4.14
+%global packver   0.4.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.14
+Version:          0.4.15
 Release:          1%{?dist}
 Summary:          R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
 
@@ -41,6 +41,7 @@ paper (2016, <doi:10.18637/jss.v071.i02>. Either version 2 or 3 of the
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -69,6 +70,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/proto
 %doc %{rlibdir}/%{packname}/python
 %doc %{rlibdir}/%{packname}/THANKS
-%doc %{rlibdir}/%{packname}/unitTests
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

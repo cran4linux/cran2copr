@@ -1,9 +1,9 @@
 %global packname  rayrender
-%global packver   0.4.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Build and Raytrace 3D Scenes
 
@@ -44,6 +44,7 @@ Tracing in One Weekend" book series. Peter Shirley (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

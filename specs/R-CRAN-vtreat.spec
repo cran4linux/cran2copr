@@ -1,9 +1,9 @@
 %global packname  vtreat
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}
 Summary:          A Statistically Sound 'data.frame' Processor/Conditioner
 
@@ -12,13 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wrapr >= 1.9.3
+BuildRequires:    R-CRAN-wrapr >= 1.9.6
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-wrapr >= 1.9.3
+Requires:         R-CRAN-wrapr >= 1.9.6
 Requires:         R-stats 
 Requires:         R-CRAN-digest 
 
@@ -35,6 +35,7 @@ Modeling", Zumel, Mount, 2016, <DOI:10.5281/zenodo.1173313>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

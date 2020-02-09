@@ -1,9 +1,9 @@
 %global packname  SharpeR
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Statistical Significance of the Sharpe Ratio
 
@@ -29,11 +29,13 @@ Provides density, distribution, quantile and random generation of the
 Sharpe ratio distribution based on normal returns, as well as the optimal
 Sharpe ratio over multiple assets. Computes confidence intervals on the
 Sharpe and provides a test of equality of Sharpe ratios based on the Delta
-method.
+method. The statistical foundations of the Sharpe can be found in the
+author's Short Sharpe Course <doi:10.2139/ssrn.3036276>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +52,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

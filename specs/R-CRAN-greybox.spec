@@ -1,9 +1,9 @@
 %global packname  greybox
-%global packver   0.5.7
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.5.8
 Release:          1%{?dist}
 Summary:          Toolbox for Model Building and Forecasting
 
@@ -46,6 +46,7 @@ forecasts from these models and visualising them.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

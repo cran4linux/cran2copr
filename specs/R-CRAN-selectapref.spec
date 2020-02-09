@@ -1,9 +1,9 @@
 %global packname  selectapref
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Analysis of Field and Laboratory Foraging
 
@@ -20,13 +20,14 @@ BuildArch:        noarch
 Provides indices such as Manly's alpha, foraging ratio, and Ivlev's
 selectivity to allow for analysis of dietary selectivity and preference.
 Can accommodate multiple experimental designs such as constant prey number
-of prey depletion.Please contact the package maintainer with any
+of prey depletion. Please contact the package maintainer with any
 publications making use of this package in an effort to maintain a
 repository of dietary selections studies.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
