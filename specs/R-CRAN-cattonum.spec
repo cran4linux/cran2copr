@@ -1,9 +1,9 @@
 %global packname  cattonum
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}
 Summary:          Encode Categorical Features
 
@@ -14,29 +14,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-tidyselect >= 0.2.5
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.8
+BuildRequires:    R-CRAN-rlang >= 0.4.2
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-tidyselect >= 0.2.5
+Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.7.8
+Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 
 %description
-Functions for dummy encoding, frequency encoding, label encoding,
-leave-one-out encoding, mean encoding, median encoding, and one-hot
-encoding.
+Functions for aggregate encoding, dummy encoding, frequency encoding,
+label encoding, leave-one-out encoding, mean encoding, median encoding,
+and one-hot encoding.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

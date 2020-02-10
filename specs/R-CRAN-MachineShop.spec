@@ -1,9 +1,9 @@
 %global packname  MachineShop
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Machine Learning Models and Tools
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-party 
 BuildRequires:    R-CRAN-polspline 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-magrittr 
+Requires:         R-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-party 
 Requires:         R-CRAN-polspline 
@@ -67,6 +69,7 @@ performance curves.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

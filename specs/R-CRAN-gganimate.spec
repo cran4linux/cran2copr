@@ -1,9 +1,9 @@
 %global packname  gganimate
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          A Grammar of Animated Graphics
 
@@ -48,6 +48,7 @@ specifying transitions and animations in a flexible and extensible way.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

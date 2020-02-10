@@ -1,9 +1,9 @@
 %global packname  SimRVPedigree
-%global packver   0.3.0
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.4
 Release:          1%{?dist}
 Summary:          Simulate Pedigrees Ascertained for a Rare Disease
 
@@ -16,9 +16,11 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-stats >= 3.4.0
+BuildRequires:    R-methods >= 3.4.0
 BuildRequires:    R-CRAN-kinship2 >= 1.6.4
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 Requires:         R-stats >= 3.4.0
+Requires:         R-methods >= 3.4.0
 Requires:         R-CRAN-kinship2 >= 1.6.4
 Requires:         R-CRAN-dplyr >= 0.7.4
 
@@ -31,6 +33,7 @@ Samantha J Jones, Angela Brooks-Wilson, and Jinko Graham (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +41,7 @@ Samantha J Jones, Angela Brooks-Wilson, and Jinko Graham (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

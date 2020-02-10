@@ -1,9 +1,9 @@
 %global packname  soobench
-%global packver   1.9.12
+%global packver   1.9.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.12
+Version:          1.9.18
 Release:          1%{?dist}
 Summary:          Single Objective Optimization Benchmark Functions
 
@@ -22,6 +22,7 @@ benchmarks and algorithm development.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,11 +1,11 @@
-%global packname  tidyLPA
-%global packver   1.0.5
+%global packname  unheadr
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Easily Carry Out Latent Profile Analysis (LPA) Using Open-Sourceor Commercial Software
+Summary:          Handle Data with Messy Header Rows and Broken Values
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,32 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mix 
-BuildRequires:    R-CRAN-MplusAutomation 
+BuildRequires:    R-CRAN-dplyr >= 0.7.5
+BuildRequires:    R-CRAN-rlang >= 0.2.1
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyxl 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gtable 
-Requires:         R-grid 
-Requires:         R-CRAN-mclust 
-Requires:         R-methods 
-Requires:         R-CRAN-mix 
-Requires:         R-CRAN-MplusAutomation 
+Requires:         R-CRAN-dplyr >= 0.7.5
+Requires:         R-CRAN-rlang >= 0.2.1
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyxl 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tibble 
 
 %description
-An interface to the 'mclust' package to easily carry out latent profile
-analysis ("LPA"). Provides functionality to estimate commonly-specified
-models. Follows a tidy approach, in that output is in the form of a data
-frame that can subsequently be computed on. Also has functions to
-interface to the commercial 'MPlus' software via the 'MplusAutomation'
-package.
+Verb-like functions to work with messy data, often derived from
+spreadsheets or parsed PDF tables. Includes functions for unwrapping
+values broken up across rows, relocating embedded grouping values, and to
+annotate meaningful formatting in spreadsheet files.
 
 %prep
 %setup -q -c -n %{packname}
@@ -70,4 +68,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

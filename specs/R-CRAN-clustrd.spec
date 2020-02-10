@@ -1,9 +1,9 @@
 %global packname  clustrd
-%global packver   1.3.6-2
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6.2
+Version:          1.3.7
 Release:          1%{?dist}
 Summary:          Methods for Joint Dimension Reduction and Clustering
 
@@ -63,6 +63,7 @@ data with K-means.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

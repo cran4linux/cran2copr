@@ -1,9 +1,9 @@
 %global packname  SHAPforxgboost
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}
 Summary:          SHAP Plots for 'XGBoost'
 
@@ -43,6 +43,7 @@ refer to 'slundberg/shap' for the original implementation of SHAP in
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

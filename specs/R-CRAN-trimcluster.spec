@@ -1,29 +1,24 @@
-%global packname  pedometrics
-%global packver   0.7.0
+%global packname  trimcluster
+%global packver   0.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.5
 Release:          1%{?dist}
-Summary:          Miscellaneous Pedometric Tools
+Summary:          Cluster Analysis with Trimming
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-lattice 
-BuildRequires:    R-CRAN-latticeExtra 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-lattice 
-Requires:         R-CRAN-latticeExtra 
+BuildRequires:    R-devel >= 1.9.0
+Requires:         R-core >= 1.9.0
+BuildArch:        noarch
 
 %description
-An R implementation of some useful tools employed in the field of
-pedometrics.
+Trimmed k-means clustering. The method is described in Cuesta-Albertos et
+al. (1997) <doi:10.1214/aos/1031833664>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,9 +42,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

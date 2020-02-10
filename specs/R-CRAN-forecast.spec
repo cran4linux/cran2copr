@@ -1,9 +1,9 @@
 %global packname  forecast
-%global packver   8.10
+%global packver   8.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.10
+Version:          8.11
 Release:          1%{?dist}
 Summary:          Forecasting Functions for Time Series and Linear Models
 
@@ -52,6 +52,7 @@ automatic ARIMA modelling.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

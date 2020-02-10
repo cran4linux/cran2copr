@@ -1,42 +1,45 @@
-%global packname  parameters
-%global packver   0.5.0
+%global packname  spatialfusion
+%global packver   0.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.1
 Release:          1%{?dist}
-Summary:          Processing of Model Parameters
+Summary:          Multivariate Analysis of Spatial Data Using a Unifying SpatialFusion Framework
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.8.1
-BuildRequires:    R-CRAN-bayestestR >= 0.5.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.8.1
-Requires:         R-CRAN-bayestestR >= 0.5.0
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-SDraw 
+BuildRequires:    R-CRAN-fields 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-SDraw 
+Requires:         R-CRAN-fields 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see support list of insight; Lüdecke, Waggoner & Makowski (2019)
-<doi:10.21105/joss.01412>), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Multivariate modelling of geostatistical (point), lattice (areal) and
+point pattern data in a unifying spatial fusion framework. Details are
+given in Wang and Furrer (2019) <arXiv:1906.00364>. Model inference is
+done using either 'Stan' <https://mc-stan.org/> or 'INLA'
+<http://www.r-inla.org>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -63,7 +66,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/chunks
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

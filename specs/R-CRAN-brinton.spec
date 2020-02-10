@@ -1,9 +1,9 @@
 %global packname  brinton
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          A Graphical EDA Tool
 
@@ -18,29 +18,29 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-sm 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-qpdf 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-hexbin 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-grid 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-pander 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tibble 
-Requires:         R-grDevices 
 Requires:         R-CRAN-sm 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-forcats 
 Requires:         R-stats 
-Requires:         R-CRAN-qpdf 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-hexbin 
 
 %description
 An automated graphical exploratory data analysis (EDA) tool that
@@ -56,6 +56,7 @@ graphic, meaning that the user can adjust its properties as needed.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

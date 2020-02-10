@@ -1,9 +1,9 @@
 %global packname  RcppArmadillo
-%global packver   0.9.800.4.0
+%global packver   0.9.850.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.800.4.0
+Version:          0.9.850.1.0
 Release:          1%{?dist}
 Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear AlgebraLibrary
 
@@ -42,6 +42,7 @@ at least version 4.6.* is required.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

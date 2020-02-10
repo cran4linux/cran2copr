@@ -1,9 +1,9 @@
 %global packname  prcr
-%global packver   0.1.5
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Person-Centered Analysis
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-irr
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-class 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
@@ -31,6 +33,8 @@ Requires:         R-CRAN-irr
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-purrr 
 Requires:         R-class 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-magrittr 
 
 %description
 Provides an easy-to-use yet adaptable set of tools to conduct
@@ -43,6 +47,7 @@ for the subsequent k-means clustering procedure.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -59,6 +64,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE

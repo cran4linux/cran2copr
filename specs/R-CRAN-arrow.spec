@@ -1,9 +1,9 @@
 %global packname  arrow
-%global packver   0.15.1.1
+%global packver   0.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.1.1
+Version:          0.16.0
 Release:          1%{?dist}
 Summary:          Integration to 'Apache' 'Arrow'
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-bit64 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 'Apache' 'Arrow' <https://arrow.apache.org/> is a cross-language
@@ -43,6 +45,7 @@ package provides an interface to the 'Arrow C++' library.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -63,6 +66,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/build_arrow_static.sh
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/NOTICE.txt
 %doc %{rlibdir}/%{packname}/v0.7.1.parquet

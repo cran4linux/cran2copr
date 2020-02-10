@@ -1,9 +1,9 @@
 %global packname  gazepath
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}
 Summary:          Parse Eye-Tracking Data into Fixations
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SDMTools 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-SDMTools 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-scales 
@@ -38,6 +38,7 @@ quality.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -45,6 +46,7 @@ quality.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

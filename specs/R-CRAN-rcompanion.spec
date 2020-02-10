@@ -1,9 +1,9 @@
 %global packname  rcompanion
-%global packver   2.3.21
+%global packver   2.3.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.21
+Version:          2.3.25
 Release:          1%{?dist}
 Summary:          Functions to Support Extension Education Program Evaluation
 
@@ -45,6 +45,7 @@ Biological Statistics". Vignettes are available at
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

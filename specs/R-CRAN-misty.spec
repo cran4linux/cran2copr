@@ -1,30 +1,30 @@
-%global packname  jmotif
-%global packver   1.1.0
+%global packname  misty
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.2.1
 Release:          1%{?dist}
-Summary:          Time Series Analysis Toolkit Based on Symbolic AggregateDiscretization, i.e. SAX
+Summary:          Miscellaneous Functions 'T. Yanagida'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.1
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.1
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-haven 
+Requires:         R-CRAN-haven 
 
 %description
-Implements time series z-normalization, SAX, HOT-SAX, VSM, SAX-VSM,
-RePair, and RRA algorithms facilitating time series motif (i.e., recurrent
-pattern), discord (i.e., anomaly), and characteristic pattern discovery
-along with interpretable time series classification.
+Miscellaneous functions for data management, descriptive statistics, and
+statistical analysis e.g., reading and writing a SPSS file, frequency
+table, cross tabulation, multilevel and missing data descriptive
+statistics, various effect size measures, scale and group scores,
+centering at the grand mean or within cluster, or coefficient alpha and
+item statistics.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,10 +46,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
