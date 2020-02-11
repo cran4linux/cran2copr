@@ -1,9 +1,9 @@
 %global packname  mixAK
-%global packver   5.1
+%global packver   5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1
+Version:          5.2
 Release:          1%{?dist}
 Summary:          Multivariate Normal Mixture Models and Mixtures of GeneralizedLinear Mixed Models Including Model Based Clustering
 
@@ -43,6 +43,7 @@ of multivariate generalized linear mixed models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

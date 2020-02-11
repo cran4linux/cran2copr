@@ -1,9 +1,9 @@
 %global packname  summarytools
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}
 Summary:          Tools to Quickly and Neatly Summarize Data
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grDevices 
@@ -26,12 +27,12 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-CRAN-rapportools 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-stats 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
@@ -43,7 +44,6 @@ Requires:         R-methods
 Requires:         R-CRAN-pander 
 Requires:         R-CRAN-pryr 
 Requires:         R-CRAN-rapportools 
-Requires:         R-CRAN-RCurl 
 Requires:         R-stats 
 Requires:         R-tcltk 
 Requires:         R-CRAN-tibble 
@@ -52,13 +52,14 @@ Requires:         R-utils
 
 %description
 Data frame summaries, cross-tabulations, weight-enabled frequency tables
-and common univariate statistics in concise tables available in a variety
-of formats (plain ASCII, Markdown and HTML). A good point-of-entry for
-exploring data, both for experienced and new R users.
+and common descriptive (univariate) statistics in concise tables available
+in a variety of formats (plain ASCII, Markdown and HTML). A good
+point-of-entry for exploring data, both for experienced and new R users.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

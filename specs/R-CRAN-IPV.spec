@@ -1,38 +1,32 @@
-%global packname  geoR
-%global packver   1.8-1
+%global packname  IPV
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Analysis of Geostatistical Data
+Summary:          Item Pool Visualization
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-CRAN-RandomFields 
-BuildRequires:    R-graphics 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-MASS 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-splancs 
-Requires:         R-CRAN-RandomFields 
-Requires:         R-graphics 
 
 %description
-Geostatistical analysis including variogram-based, likelihood-based and
-Bayesian methods. Software companion for Diggle and Ribeiro (2007)
-<doi:10.1007/978-0-387-48536-2>.
+Generate plots based on the Item Pool Visualization concept for latent
+constructs. Item Pool Visualizations are used to display the conceptual
+structure of a set of items (self-report or psychometric). Dantlgraber,
+Stieger, & Reips (2019) <doi:10.1177/2059799119884283>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,5 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  ChainLadder
-%global packver   0.2.10
+%global packver   0.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.2.11
 Release:          1%{?dist}
 Summary:          Statistical Methods and Models for Claims Reserving in GeneralInsurance
 
@@ -51,6 +51,7 @@ II.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

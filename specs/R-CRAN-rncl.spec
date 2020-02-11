@@ -1,9 +1,9 @@
 %global packname  rncl
-%global packver   0.8.3
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.8.4
 Release:          1%{?dist}
 Summary:          An Interface to the Nexus Class Library
 
@@ -31,6 +31,7 @@ with 'read_newick_phylo()' and 'read_nexus_phylo()'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

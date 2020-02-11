@@ -1,9 +1,9 @@
 %global packname  scrubr
-%global packver   0.1.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Clean Biological Occurrence Records
 
@@ -21,14 +21,28 @@ BuildRequires:    R-utils
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-qlcMatrix 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-hoardr 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-Matrix 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-qlcMatrix 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-hoardr 
+Requires:         R-CRAN-curl 
 
 %description
 Clean biological occurrence records. Includes functionality for cleaning
@@ -39,6 +53,7 @@ are held, and more.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,5 +79,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/ignore
-%doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  ReIns
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}
 Summary:          Functions from "Reinsurance: Actuarial and Statistical Aspects"
 
@@ -39,6 +39,7 @@ Functions from the book "Reinsurance: Actuarial and Statistical Aspects"
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

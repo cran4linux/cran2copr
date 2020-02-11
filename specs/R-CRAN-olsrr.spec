@@ -1,9 +1,9 @@
 %global packname  olsrr
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}
 Summary:          Tools for Building OLS Regression Models
 
@@ -14,50 +14,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-recipes >= 0.1.4
 BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gh 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-goftest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-recipes >= 0.1.4
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-car 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gh 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-goftest 
 Requires:         R-graphics 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Tools designed to make it easier for users, particularly
@@ -69,6 +45,7 @@ influence, model fit assessment and variable selection procedures.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -76,6 +53,7 @@ influence, model fit assessment and variable selection procedures.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -90,7 +68,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/application
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,30 +1,34 @@
-%global packname  norm2
-%global packver   2.0.2
+%global packname  mlr3data
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Analysis of Incomplete Multivariate Data under a Normal Model
+Summary:          Collection of Machine Learning Data Sets for 'mlr3'
 
-License:          GPL-3
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildArch:        noarch
 
 %description
-Functions for parameter estimation, Bayesian posterior simulation and
-multiple imputation from incomplete multivariate data under a normal
-model.
+A small collection of interesting and educational machine learning data
+sets which are used as examples in the 'mlr3' book
+(<https://mlr3book.mlr-org.com>), the use case gallery
+(<https://mlr3gallery.mlr-org.com>), or in other examples.  All data sets
+are properly preprocessed and ready to be analyzed by most machine
+learning algorithms. Currently contains the following data sets: (1)
+housing prices in Kings County, and (2) Titanic passenger survival data.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,8 +48,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,31 +1,35 @@
-%global packname  arulesSequences
-%global packver   0.2-23
+%global packname  tidytable
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.23
+Version:          0.3.0
 Release:          1%{?dist}
-Summary:          Mining Frequent Sequences
+Summary:          Tidy Interface to 'data.table'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
-BuildRequires:    R-CRAN-arules >= 1.5.1
-BuildRequires:    R-methods 
-Requires:         R-CRAN-arules >= 1.5.1
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Add-on for arules to handle and mine frequent sequences. Provides
-interfaces to the C++ implementation of cSPADE by Mohammed J. Zaki.
+Tidy interface to 'data.table'. 'rlang' compatible, which allows the user
+to build custom functions much like they would in the tidyverse.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,12 +46,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%doc %{rlibdir}/%{packname}/misc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
-%doc %{rlibdir}/%{packname}/bin

@@ -1,9 +1,9 @@
 %global packname  lbfgsb3c
-%global packver   2019-11.26
+%global packver   2020-2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2019.11.26
+Version:          2020.2.3
 Release:          1%{?dist}
 Summary:          Limited Memory BFGS Minimizer with Bounds on Parameters withoptim() 'C' Interface
 
@@ -35,6 +35,7 @@ tolerances.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

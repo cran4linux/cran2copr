@@ -1,9 +1,9 @@
 %global packname  Ecdat
-%global packver   0.3-4
+%global packver   0.3-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.7
 Release:          1%{?dist}
 Summary:          Data Sets for Econometrics
 
@@ -24,6 +24,7 @@ Data sets for econometrics, including political science.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
