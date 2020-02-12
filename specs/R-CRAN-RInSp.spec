@@ -1,9 +1,9 @@
 %global packname  RInSp
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}
 Summary:          R Individual Specialization (RInSp)
 
@@ -20,13 +20,14 @@ Functions to calculate several ecological indices of individual and
 population niche width (Araujo's E, clustering and pairwise similarity
 among individuals, IS, Petraitis' W, and Roughgarden's WIC/TNW) to assess
 individual specialization based on data of resource use. Resource use can
-be quantified by counts of categories, measures of mass/lenght or
+be quantified by counts of categories, measures of mass or length, or
 proportions. Monte Carlo resampling procedures are available for
 hypothesis testing against multinomial null models.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

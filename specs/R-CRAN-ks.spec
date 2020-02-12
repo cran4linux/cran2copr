@@ -1,9 +1,9 @@
 %global packname  ks
-%global packver   1.11.6
+%global packver   1.11.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.6
+Version:          1.11.7
 Release:          1%{?dist}
 Summary:          Kernel Smoothing
 
@@ -40,6 +40,7 @@ hypothesis tests. Chacon & Duong (2018) <doi:10.1201/9780429485572>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

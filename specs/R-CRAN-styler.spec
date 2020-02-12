@@ -1,9 +1,9 @@
 %global packname  styler
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Non-Invasive Pretty Printing of R Code
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-rprojroot >= 1.1
 BuildRequires:    R-CRAN-magrittr >= 1.0
 BuildRequires:    R-CRAN-withr >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.2.3
+BuildRequires:    R-CRAN-R.cache >= 0.14.0
 BuildRequires:    R-CRAN-rlang >= 0.1.1
 BuildRequires:    R-CRAN-xfun >= 0.1
 BuildRequires:    R-tools 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-rprojroot >= 1.1
 Requires:         R-CRAN-magrittr >= 1.0
 Requires:         R-CRAN-withr >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.2.3
+Requires:         R-CRAN-R.cache >= 0.14.0
 Requires:         R-CRAN-rlang >= 0.1.1
 Requires:         R-CRAN-xfun >= 0.1
 Requires:         R-tools 
@@ -44,6 +46,7 @@ Pretty-prints R code without changing the user's formatting intent.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

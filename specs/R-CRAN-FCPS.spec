@@ -1,26 +1,30 @@
-%global packname  mvtmeta
-%global packver   1.1
+%global packname  FCPS
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Multivariate Meta-Analysis
+Summary:          Fundamental Clustering Problems Suite
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gtools 
-Requires:         R-CRAN-gtools 
+BuildRequires:    R-CRAN-mclust 
+Requires:         R-CRAN-mclust 
 
 %description
-Functions to run fixed effects or random effects multivariate
-meta-analysis.
+Many conventional Clustering Algorithms are provided in this package with
+consistent input and output, which enables the user to tryout algorithms
+swiftly. Moreover, the fundamental clustering problems suite (FCPS) offers
+a variety of clustering challenges any algorithm should handle when facing
+real world data. The datasets were introduced in Ultsch, A.: "Clustering
+with SOM: U*C", In Workshop on Self-Organizing Maps, 2005.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,7 +46,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

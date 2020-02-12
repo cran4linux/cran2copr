@@ -1,9 +1,9 @@
 %global packname  OncoBayes2
-%global packver   0.5-8
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.8
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Bayesian Logistic Regression for Oncology Dose-Escalation Trials
 
@@ -59,6 +59,7 @@ details on the methodology.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

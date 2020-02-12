@@ -1,9 +1,9 @@
 %global packname  rstanarm
-%global packver   2.19.2
+%global packver   2.19.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.19.2
+Version:          2.19.3
 Release:          1%{?dist}
 Summary:          Bayesian Applied Regression Modeling via Stan
 
@@ -13,7 +13,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    make
-Requires:         pandoc >= 1.12.3
+Requires:         pandoc
 Requires:         pandoc-citeproc
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
@@ -25,14 +25,15 @@ BuildRequires:    R-CRAN-rstan >= 2.19.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.19.0
 BuildRequires:    R-CRAN-loo >= 2.1.0
 BuildRequires:    R-CRAN-rstantools >= 2.0.0
+BuildRequires:    R-CRAN-BH >= 1.72.0.2
 BuildRequires:    R-CRAN-bayesplot >= 1.7.0
-BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-Matrix >= 1.2.13
 BuildRequires:    R-CRAN-lme4 >= 1.1.8
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-utils 
 Requires:         R-nlme >= 3.1.124
 Requires:         R-survival >= 2.40.1
@@ -47,6 +48,7 @@ Requires:         R-CRAN-lme4 >= 1.1.8
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-utils 
 
 %description
@@ -58,6 +60,7 @@ and data.frame plus some additional arguments for priors.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -65,6 +68,7 @@ and data.frame plus some additional arguments for priors.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

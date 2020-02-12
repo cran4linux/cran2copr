@@ -1,9 +1,9 @@
 %global packname  PGRdup
-%global packver   0.2.3.4
+%global packver   0.2.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3.4
+Version:          0.2.3.5
 Release:          1%{?dist}
 Summary:          Discover Probable Duplicates in Plant Genetic ResourcesCollections
 
@@ -47,6 +47,7 @@ information by fuzzy, phonetic and semantic matching of keywords.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

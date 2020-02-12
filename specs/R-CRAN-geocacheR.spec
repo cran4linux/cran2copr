@@ -1,11 +1,11 @@
-%global packname  mvtmeta
-%global packver   1.1
+%global packname  geocacheR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Multivariate Meta-Analysis
+Summary:          Tools for Geocaching
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,12 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gtools 
-Requires:         R-CRAN-gtools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-threewords 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-threewords 
 
 %description
-Functions to run fixed effects or random effects multivariate
-meta-analysis.
+Tools for solving common geocaching puzzle types, and other
+Geocaching-related tasks.
 
 %prep
 %setup -q -c -n %{packname}

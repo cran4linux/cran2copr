@@ -1,9 +1,9 @@
 %global packname  spgwr
-%global packver   0.6-32
+%global packver   0.6-33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.32
+Version:          0.6.33
 Release:          1%{?dist}
 Summary:          Geographically Weighted Regression
 
@@ -30,6 +30,7 @@ based on work by Chris Brunsdon, Martin Charlton and Stewart Fotheringham.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

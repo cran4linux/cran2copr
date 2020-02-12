@@ -1,9 +1,9 @@
 %global packname  Rlabkey
-%global packver   2.3.3
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.4
 Release:          1%{?dist}
 Summary:          Data Exchange Between R and 'LabKey' Server
 
@@ -31,6 +31,7 @@ on a 'LabKey' Server, provided they have appropriate permissions to do so.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

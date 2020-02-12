@@ -1,9 +1,9 @@
 %global packname  robCompositions
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}
 Summary:          Compositional Data Analysis
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-data.table 
@@ -80,6 +80,7 @@ high and low-level plot functions for the ternary diagram.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

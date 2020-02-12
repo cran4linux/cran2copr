@@ -1,9 +1,9 @@
 %global packname  pairwiseComparisons
-%global packver   0.2.0
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Multiple Pairwise Comparison Tests
 
@@ -17,7 +17,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-jmv >= 1.0.8
-BuildRequires:    R-CRAN-broomExtra >= 1.0.1
+BuildRequires:    R-CRAN-ipmisc >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-WRS2 >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
@@ -28,7 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-jmv >= 1.0.8
-Requires:         R-CRAN-broomExtra >= 1.0.1
+Requires:         R-CRAN-ipmisc >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-WRS2 >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.3
@@ -49,6 +49,7 @@ test).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

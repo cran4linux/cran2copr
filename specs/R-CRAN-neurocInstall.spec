@@ -1,39 +1,35 @@
-%global packname  rray
-%global packver   0.1.0
+%global packname  neurocInstall
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.12.0
 Release:          1%{?dist}
-Summary:          Simple Arrays
+Summary:          'Neuroconductor' Installer
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.2.0
-BuildRequires:    R-CRAN-xtensor >= 0.11.1.0
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-devtools >= 1.12.0.9000
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.2.0
-Requires:         R-CRAN-glue 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-devtools >= 1.12.0.9000
 Requires:         R-utils 
+Requires:         R-methods 
 
 %description
-Provides a toolkit for manipulating arrays in a consistent, powerful, and
-intuitive manner through the use of broadcasting and a new array class,
-the 'rray'.
+Installs 'Neuroconductor' packages from the release repository
+<https://neuroconductor.org/releases/> or from 'GitHub'.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -54,8 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  bayesanova
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}
 Summary:          Bayesian ANOVA
 
@@ -25,6 +25,7 @@ mixtures, see Kelter (2019) <arXiv:1906.07524>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

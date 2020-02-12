@@ -1,9 +1,9 @@
 %global packname  spData
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Datasets for Spatial Analysis
 
@@ -15,6 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-raster 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-raster 
 
 %description
 Diverse spatial datasets for demonstrating, benchmarking and teaching
@@ -29,6 +33,7 @@ designed to illustrate point pattern analysis techniques.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +41,7 @@ designed to illustrate point pattern analysis techniques.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

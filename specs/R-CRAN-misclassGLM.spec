@@ -1,9 +1,9 @@
 %global packname  misclassGLM
-%global packver   0.2.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Computation of Generalized Linear Models with MisclassifiedCovariates Using Side Information
 
@@ -37,11 +37,12 @@ into account. The models require side information from a secondary data
 set on the misclassification process, i.e. some sort of misclassification
 probabilities conditional on some common covariates. A detailed
 description of the algorithm can be found in Dlugosz, Mammen and Wilke
-(2015) url{http://www.zew.de/PU70410}.
+(2015) <http://www.zew.de/PU70410>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

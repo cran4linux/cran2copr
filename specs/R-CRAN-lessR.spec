@@ -1,9 +1,9 @@
 %global packname  lessR
-%global packver   3.9.0
+%global packver   3.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          3.9.2
 Release:          1%{?dist}
 Summary:          Less Code, More Results
 
@@ -31,9 +31,9 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-triangle 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-wesanderson 
-BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -50,15 +50,15 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-triangle 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-wesanderson 
-Requires:         R-CRAN-rmarkdown 
 
 %description
 Each function accomplishes the work of several or more standard R
 functions. For example, two function calls, Read() and CountAll(), read
 the data and generate summary statistics for all variables in the data
-frame, plus histograms and bar charts as appropriate.  Other functions
+frame, plus histograms and bar charts as appropriate. Other functions
 provide for descriptive statistics, a comprehensive regression analysis,
 analysis of variance and t-test, plotting including the introduced here
 Violin/Box/Scatter plot for a numerical variable, bar chart, histogram,
@@ -73,6 +73,7 @@ output.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

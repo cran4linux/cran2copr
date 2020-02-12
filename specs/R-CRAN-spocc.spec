@@ -1,9 +1,9 @@
 %global packname  spocc
-%global packver   1.0.2
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.8
 Release:          1%{?dist}
 Summary:          Interface to Species Occurrence Data Sources
 
@@ -55,6 +55,7 @@ data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

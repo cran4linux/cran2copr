@@ -1,9 +1,9 @@
 %global packname  geotopbricks
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}
 Summary:          An R Plug-in for the Distributed Hydrological Model GEOtop
 
@@ -39,6 +39,7 @@ model are available in Endrizzi et al, 2014
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  eurostat
-%global packver   3.5.2
+%global packver   3.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.2
+Version:          3.6.1
 Release:          1%{?dist}
 Summary:          Tools for Eurostat Open Data
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-methods 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-classInt 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Tools to download data from the Eurostat database
@@ -60,6 +62,7 @@ utilities.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

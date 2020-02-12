@@ -1,13 +1,13 @@
-%global packname  DiPs
-%global packver   0.6.0
+%global packname  PlaneGeometry
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Directional Penalties for Optimal Matching in ObservationalStudies
+Summary:          Plane Geometry
 
-License:          MIT+file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,24 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-liqueueR 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-liqueueR 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-mvnfast 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-uniformly 
+BuildRequires:    R-CRAN-sdpt3r 
+Requires:         R-CRAN-R6 
 Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-uniformly 
+Requires:         R-CRAN-sdpt3r 
 
 %description
-Improves the balance of optimal matching with near-fine balance by giving
-penalties on the unbalanced covariates with the unbalanced directions.
-Many directional penalties can also be viewed as Lagrange multipliers,
-pushing a matched sample in the direction of satisfying a linear
-constraint that would not be satisfied without penalization. Yu, R., and
-Rosenbaum, P. R. (2019). <doi:10.1111/biom.13098>.
+An extensive set of plane geometry routines. Provides R6 classes
+representing triangles, circles, circular arcs, ellipses, elliptical arcs
+and lines, and their plot methods. Also provides R6 classes representing
+transformations: rotations, reflections, homotheties, scalings, general
+affine transformations, inversions, Möbius transformations.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,9 +57,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,25 +1,37 @@
-%global packname  dBlockmodeling
-%global packver   0.2.0
+%global packname  bayesSurv
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          3.3
 Release:          1%{?dist}
-Summary:          Deterministic Blockmodeling of Signed, One-Mode and Two-ModeNetworks
+Summary:          Bayesian Survival Regression with Flexible Error and RandomEffects Distributions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-smoothSurv 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-survival 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-smoothSurv 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-It contains functions to apply blockmodeling of signed (positive and
-negative weights are assigned to the links), one-mode and valued one-mode
-and two-mode (two sets of nodes are considered, e.g. employees and
-organizations) networks (Brusco et al. (2019) <doi:10.1111/bmsp.12192>).
+Contains Bayesian implementations of Mixed-Effects Accelerated Failure
+Time (MEAFT) models for censored data. Those can be not only
+right-censored but also interval-censored, doubly-interval-censored or
+misclassified interval-censored.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,5 +57,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

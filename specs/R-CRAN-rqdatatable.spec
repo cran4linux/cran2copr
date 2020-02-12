@@ -1,9 +1,9 @@
 %global packname  rqdatatable
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}
 Summary:          'rquery' for 'data.table'
 
@@ -16,10 +16,10 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-wrapr >= 1.9.6
-BuildRequires:    R-CRAN-rquery >= 1.4.2
+BuildRequires:    R-CRAN-rquery >= 1.4.3
 BuildRequires:    R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-wrapr >= 1.9.6
-Requires:         R-CRAN-rquery >= 1.4.2
+Requires:         R-CRAN-rquery >= 1.4.3
 Requires:         R-CRAN-data.table >= 1.12.2
 
 %description
@@ -30,6 +30,7 @@ manipulation tools.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

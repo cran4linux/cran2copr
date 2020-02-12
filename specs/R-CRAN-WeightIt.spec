@@ -1,9 +1,9 @@
 %global packname  WeightIt
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Weighting for Covariate Balance in Observational Studies
 
@@ -16,7 +16,11 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-backports 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-backports 
 
 %description
 Generates weights to form equivalent groups in observational studies with
@@ -36,6 +40,7 @@ checking of covariate balance by interfacing directly with 'cobalt'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

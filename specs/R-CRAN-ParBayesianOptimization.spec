@@ -1,9 +1,9 @@
 %global packname  ParBayesianOptimization
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Parallel Bayesian Optimization of Hyperparameters
 
@@ -21,18 +21,20 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 Requires:         R-CRAN-data.table >= 1.11.8
 Requires:         R-CRAN-GauPro 
 Requires:         R-stats 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-lhs 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 
 %description
 Fast, flexible framework for implementing Bayesian optimization of model
@@ -44,6 +46,7 @@ process to fully utilize the computing resources available to the user.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

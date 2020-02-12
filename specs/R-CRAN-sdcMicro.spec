@@ -1,9 +1,9 @@
 %global packname  sdcMicro
-%global packver   5.5.0
+%global packver   5.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.0
+Version:          5.5.1
 Release:          1%{?dist}
 Summary:          Statistical Disclosure Control Methods for Anonymization of Dataand Risk Estimation
 
@@ -77,6 +77,7 @@ that allows to use various methods of this package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

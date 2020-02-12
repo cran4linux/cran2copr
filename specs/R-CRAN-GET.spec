@@ -1,9 +1,9 @@
 %global packname  GET
-%global packver   0.1-4
+%global packver   0.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Global Envelopes
 
@@ -41,12 +41,16 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Implementation of global envelopes with intrinsic graphical interpretation
-which can be used for graphical Monte Carlo and permutation tests where
-the test statistic is a multivariate vector or function (e.g.
-goodness-of-fit testing for point patterns and random sets, functional
-analysis of variance, functional general linear model, n-sample test of
-correspondence of distribution functions), for central regions of
+Implementation of global envelopes for a set of general d-dimensional
+vectors T in various applications. A 100(1-alpha)% global envelope is a
+band bounded by two vectors such that the probability that T falls outside
+this envelope in any of the d points is equal to alpha. Global means that
+the probability is controlled simultaneously for all the d elements of the
+vectors. The global envelopes can be used for graphical Monte Carlo and
+permutation tests where the test statistic is a multivariate vector or
+function (e.g. goodness-of-fit testing for point patterns and random sets,
+functional analysis of variance, functional general linear model, n-sample
+test of correspondence of distribution functions), for central regions of
 functional or multivariate data (e.g. outlier detection, functional
 boxplot) and for global confidence and prediction bands (e.g. confidence
 band in polynomial regression, Bayesian posterior prediction). See
@@ -60,6 +64,7 @@ Mrkvička et al. (2019) <arXiv:1906.09004>, Mrkvička et al. (2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
