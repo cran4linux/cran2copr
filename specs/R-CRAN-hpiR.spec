@@ -1,9 +1,9 @@
 %global packname  hpiR
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          House Price Indexes
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-robustbase
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-rlang 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-robustbase
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-caret 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-MASS 
 Requires:         R-CRAN-rlang 
@@ -53,8 +51,9 @@ Compute house price indexes and series using a variety of different
 methods and models common through the real estate literature.  Evaluate
 index 'goodness' based on accuracy, volatility and revision statistics.
 Background on basic model construction for repeat sales models can be
-found at: Case and Quigley (1991) <https://www.jstor.org/stable/2109686>
-and for hedonic pricing models at: Bourassa et al (2006)
+found at: Case and Quigley (1991)
+<https://ideas.repec.org/a/tpr/restat/v73y1991i1p50-58.html> and for
+hedonic pricing models at: Bourassa et al (2006)
 <doi:10.1016/j.jhe.2006.03.001>. The package author's working paper on the
 random forest approach to house price indexes can be found at:
 <http://www.github.com/andykrause/hpi_research>.
@@ -62,6 +61,7 @@ random forest approach to house price indexes can be found at:
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

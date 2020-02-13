@@ -1,9 +1,9 @@
 %global packname  manymodelr
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          Build and Tune Several Models
 
@@ -42,13 +42,14 @@ one go.The goal is to provide a number of convenience functions useful in
 machine learning applications. It provides the ability to build, tune and
 obtain predictions of several models in one function. The models are built
 using 'caret' functions with easier to read syntax. Kuhn(2014)
-<arXiv:1405.6974v14>. Kuhn(2008) <doi10.18637/jss.v028.i05>.
+<arXiv:1405.6974>. Kuhn(2008) <doi10.18637/jss.v028.i05>.
 Chambers,J.M.(1992) <doi:10.1007/978-3-642-50096-1_48>. Wilkinson,G.N. and
 Rogers, C. E. (1973) <doi:10.2307/2346786>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

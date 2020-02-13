@@ -1,9 +1,9 @@
 %global packname  DDPNA
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Disease-Related Differential Proteins and Co-Expression NetworkAnalysis
 
@@ -52,6 +52,7 @@ graph extraction and hub analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

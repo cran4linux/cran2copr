@@ -1,31 +1,31 @@
-%global packname  digest
-%global packver   0.6.24
+%global packname  RcppSimdJson
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.24
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Create Compact Hash Digests of R Objects
+Summary:          'Rcpp' Bindings for the 'simdjson' Header-Only Library for'JSON' Parsing
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implementation of a function 'digest()' for the creation of hash digests
-of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
-'xxhash', 'murmurhash' and 'spookyhash' algorithms) permitting easy
-comparison of R language objects, as well as functions such as'hmac()' to
-create hash-based message authentication code. Please note that this
-package is not meant to be deployed for cryptographic purposes for which
-more comprehensive (and widely tested) libraries such as 'OpenSSL' should
-be used.
+The 'JSON' format is ubiquitous for data interchange, and the 'simdjson'
+library written by Daniel Lemire (and many contributors) provides a
+high-performance parser for these files which by relying on parallel
+'SIMD' instruction manages to parse these files as faster than disk speed.
+See the <arXiv:1902.08318> paper for more details about 'simdjson'.  This
+package is at present only a very thin and incomplete wrapper and does not
+aim to replace the existing and excellent 'JSON' packages for R. But it
+does already validate orders of magnitude faster.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,9 +51,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/GPL-2
 %{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/jsonexamples
 %doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

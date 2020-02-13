@@ -1,9 +1,9 @@
 %global packname  bayestestR
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}
 Summary:          Understand and Describe Bayesian Models and PosteriorDistributions
 
@@ -34,6 +34,7 @@ testing (such as ROPE percentage, pd and Bayes factors).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

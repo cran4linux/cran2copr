@@ -1,9 +1,9 @@
 %global packname  periscope
-%global packver   0.4.7
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.4.8
 Release:          1%{?dist}
 Summary:          Enterprise Streamlined 'Shiny' Application Framework
 
@@ -18,7 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx >= 3.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-lubridate >= 1.6
-BuildRequires:    R-CRAN-shiny >= 1.0
+BuildRequires:    R-CRAN-shiny >= 1.1
 BuildRequires:    R-CRAN-logging >= 0.7.103
 BuildRequires:    R-CRAN-shinyBS >= 0.61
 BuildRequires:    R-CRAN-shinydashboard >= 0.5
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-DT >= 0.2
 Requires:         R-CRAN-openxlsx >= 3.0
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-lubridate >= 1.6
-Requires:         R-CRAN-shiny >= 1.0
+Requires:         R-CRAN-shiny >= 1.1
 Requires:         R-CRAN-logging >= 0.7.103
 Requires:         R-CRAN-shinyBS >= 0.61
 Requires:         R-CRAN-shinydashboard >= 0.5
@@ -44,6 +44,7 @@ developer.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

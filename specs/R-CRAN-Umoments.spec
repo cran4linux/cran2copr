@@ -1,9 +1,9 @@
 %global packname  Umoments
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Unbiased Central Moment Estimates
 
@@ -22,13 +22,16 @@ Requires:         R-utils
 
 %description
 Calculates one-sample unbiased central moment estimates and two-sample
-pooled estimates up to 6th order, including unbiased estimates of powers
-and products of central moments. Provides the machinery for obtaining
-unbiased central moment estimators beyond 6th order.
+pooled estimates up to 6th order, including estimates of powers and
+products of central moments. Provides the machinery for obtaining unbiased
+central moment estimators beyond 6th order by generating expressions for
+expectations of raw sample moments and their powers and products.
+Gerlovina and Hubbard (2019) <doi:10.1080/25742558.2019.1701917>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

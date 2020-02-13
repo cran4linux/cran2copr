@@ -1,27 +1,38 @@
-%global packname  sharpeRratio
-%global packver   1.3
+%global packname  fplot
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.2.1
 Release:          1%{?dist}
-Summary:          Moment-Free Estimation of Sharpe Ratios
+Summary:          Automatic Distribution Graphs Using Formulas
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-ghyp 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-ghyp 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-Rcpp 
 
 %description
-An efficient moment-free estimator of the Sharpe ratio, or signal-to-noise
-ratio, for heavy-tailed data (see <arXiv:1505.01333>).
+Easy way to plot regular/weighted/conditional distributions by using
+formulas. The core of the package concerns distribution plots which are
+automatic: the many options are tailored to the data at hand to offer the
+nicest and most meaningful graphs possible -- with no/minimum user input.
+Further provide functions to plot conditional trends and boxplots.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,7 +57,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

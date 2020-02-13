@@ -1,11 +1,11 @@
 %global packname  AMORE
-%global packver   0.2-15
+%global packver   0.2-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.15
+Version:          0.2.16
 Release:          1%{?dist}
-Summary:          A MORE flexible neural network package
+Summary:          Artificial Neural Network Training and Simulating
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,14 +16,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-This package was born to release the TAO robust neural network algorithm
-to the R users. It has grown and I think it can be of interest for the
-users wanting to implement their own training algorithms as well as for
-those others whose needs lye only in the "user space".
+Commands for training a simulating an artificial neural network.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -31,6 +29,7 @@ those others whose needs lye only in the "user space".
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

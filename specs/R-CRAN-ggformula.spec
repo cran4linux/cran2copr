@@ -1,9 +1,9 @@
 %global packname  ggformula
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}
 Summary:          Formula Interface to the Grammar of Graphics
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-grid 
 Requires:         R-CRAN-ggplot2 >= 3.0
 Requires:         R-CRAN-ggstance >= 0.3.1
@@ -32,6 +33,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggforce 
 Requires:         R-grid 
 
 %description
@@ -40,6 +42,7 @@ Provides a formula interface to 'ggplot2' graphics.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -47,6 +50,7 @@ Provides a formula interface to 'ggplot2' graphics.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

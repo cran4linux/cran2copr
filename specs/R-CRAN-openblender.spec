@@ -1,9 +1,9 @@
 %global packname  openblender
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}
 Summary:          Request <https://openblender.io> API Services
 
@@ -12,12 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.3.3
+Requires:         R-core >= 3.3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-httr >= 1.4.1
 
 %description
@@ -27,6 +27,7 @@ Interface to make HTTP requests to 'OpenBlender' API services. Go to
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

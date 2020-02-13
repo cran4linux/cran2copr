@@ -1,9 +1,9 @@
 %global packname  taxize
-%global packver   0.9.91
+%global packver   0.9.92
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.91
+Version:          0.9.92
 Release:          1%{?dist}
 Summary:          Taxonomic Information from Around the Web
 
@@ -30,9 +30,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-zoo 
@@ -56,9 +53,6 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-zoo 
@@ -78,6 +72,7 @@ versa, and more.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -104,5 +99,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/ignore
-%doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  Umatrix
-%global packver   3.1
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.3
 Release:          1%{?dist}
 Summary:          Visualization of Structures in High-Dimensional Data
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-deldir
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-pdist 
 BuildRequires:    R-CRAN-AdaptGauss 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-shiny 
@@ -44,6 +45,7 @@ Requires:         R-CRAN-deldir
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-pdist 
 Requires:         R-CRAN-AdaptGauss 
+Requires:         R-CRAN-pracma 
 
 %description
 By gaining the property of emergence through self-organization, the
@@ -58,6 +60,7 @@ available through graphical user interfaces implemented in 'shiny'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  plotly
-%global packver   4.9.1
+%global packver   4.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.1
+Version:          4.9.2
 Release:          1%{?dist}
 Summary:          Create Interactive Web Graphics via 'plotly.js'
 
@@ -68,6 +68,7 @@ the grammar of graphics.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

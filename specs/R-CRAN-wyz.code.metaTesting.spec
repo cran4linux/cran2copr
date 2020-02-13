@@ -1,9 +1,9 @@
 %global packname  wyz.code.metaTesting
-%global packver   1.1.4
+%global packver   1.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.11
 Release:          1%{?dist}
 Summary:          Wizardry Code Meta Testing
 
@@ -12,12 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-data.table >= 1.11.8
-BuildRequires:    R-CRAN-wyz.code.offensiveProgramming >= 1.1.12
+BuildRequires:    R-CRAN-wyz.code.offensiveProgramming >= 1.1.17
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-crayon 
@@ -25,7 +25,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-data.table >= 1.11.8
-Requires:         R-CRAN-wyz.code.offensiveProgramming >= 1.1.12
+Requires:         R-CRAN-wyz.code.offensiveProgramming >= 1.1.17
 Requires:         R-methods 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-crayon 
@@ -47,6 +47,7 @@ package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -67,4 +68,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/unit-testing
 %{rlibdir}/%{packname}/INDEX

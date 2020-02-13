@@ -1,9 +1,9 @@
 %global packname  SubTite
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}
 Summary:          Subgroup Specific Optimal Dose Assignment
 
@@ -22,10 +22,12 @@ Requires:         R-CRAN-Rcpp >= 0.12.18
 Chooses subgroup specific optimal doses in a phase I dose finding clinical
 trial allowing for subgroup combination and simulates clinical trials
 under the subgroup specific time to event continual reassessment method.
+Chapple, A.G., Thall, P.F. (2018) <doi:10.1002/pst.1891>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
