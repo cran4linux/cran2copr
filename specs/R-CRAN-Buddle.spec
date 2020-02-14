@@ -1,11 +1,11 @@
 %global packname  Buddle
-%global packver   2.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.0.1
 Release:          1%{?dist}
-Summary:          A Deep Learning for Statistical Classification and RegressionAnalysis
+Summary:          A Deep Learning for Statistical Classification and RegressionAnalysis with Random Effects
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,13 +17,11 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.17
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.17
 Requires:         R-CRAN-plyr 
 Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-graphics 
 
 %description
@@ -55,6 +53,7 @@ or regresses given data, and make a final prediction for the data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

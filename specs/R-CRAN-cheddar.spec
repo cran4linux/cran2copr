@@ -1,13 +1,13 @@
-%global packname  ncvreg
-%global packver   3.11.2
+%global packname  cheddar
+%global packver   0.1-636
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.2
+Version:          0.1.636
 Release:          1%{?dist}
-Summary:          Regularization Paths for SCAD and MCP Penalized RegressionModels
+Summary:          Analysis and Visualisation of Ecological Communities
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,12 +16,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Fits regularization paths for linear regression, GLM, and Cox regression
-models using lasso or nonconvex penalties, in particular the minimax
-concave penalty (MCP) and smoothly clipped absolute deviation (SCAD)
-penalty, with options for additional L2 penalties (the "elastic net"
-idea). Utilities for carrying out cross-validation as well as post-fitting
-visualization, summarization, inference, and prediction are also provided.
+Provides a flexible, extendable representation of an ecological community
+and a range of functions for analysis and visualisation, focusing on food
+web, body mass and numerical abundance data. Allows inter-web comparisons
+such as examining changes in community structure over environmental,
+temporal or spatial gradients.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,12 +44,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/testing-functions.R
-%doc %{rlibdir}/%{packname}/tests
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

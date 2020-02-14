@@ -1,27 +1,31 @@
-%global packname  ncvreg
-%global packver   3.11.2
+%global packname  cghseg
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.2
+Version:          1.0.5
 Release:          1%{?dist}
-Summary:          Regularization Paths for SCAD and MCP Penalized RegressionModels
+Summary:          Segmentation Methods for Array CGH Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+Requires:         R-methods 
+Requires:         R-parallel 
 
 %description
-Fits regularization paths for linear regression, GLM, and Cox regression
-models using lasso or nonconvex penalties, in particular the minimax
-concave penalty (MCP) and smoothly clipped absolute deviation (SCAD)
-penalty, with options for additional L2 penalties (the "elastic net"
-idea). Utilities for carrying out cross-validation as well as post-fitting
-visualization, summarization, inference, and prediction are also provided.
+Dedicated to the analysis of CGH (Comparative Genomic Hybridization) array
+profiles using segmentation models. 'cghseg' package is intended to detect
+breakpoints from CGH profiles. It can handle both single and multiple
+profiles analysis, to perform segmentation, normalization and calling.
+Methods for joint segmentation are described in : Picard and al. (2011),
+<doi:10.1093/biostatistics/kxq076>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,14 +47,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/testing-functions.R
-%doc %{rlibdir}/%{packname}/tests
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

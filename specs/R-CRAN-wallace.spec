@@ -1,9 +1,9 @@
 %global packname  wallace
-%global packver   1.0.6
+%global packver   1.0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.6.2
 Release:          1%{?dist}
 Summary:          A Modular Platform for Reproducible Modeling of Species Nichesand Distributions
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-rgdal
 BuildRequires:    R-CRAN-leaflet.extras 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-leaflet >= 2.0.2
 Requires:         R-CRAN-shiny >= 1.1.0
@@ -54,6 +55,7 @@ Requires:         R-CRAN-rgdal
 Requires:         R-CRAN-leaflet.extras 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-zip 
 
 %description
@@ -66,6 +68,7 @@ map, thus bundling complex workflows into a single, streamlined interface.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -73,6 +76,7 @@ map, thus bundling complex workflows into a single, streamlined interface.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

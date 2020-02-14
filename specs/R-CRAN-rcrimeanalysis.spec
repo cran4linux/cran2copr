@@ -1,9 +1,9 @@
 %global packname  rcrimeanalysis
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          An Implementation of Crime Analysis Methods
 
@@ -16,30 +16,32 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggmap 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-leafsync 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-KernSmooth 
+BuildRequires:    R-CRAN-pals 
+BuildRequires:    R-CRAN-prophet 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggmap 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-leafsync 
 Requires:         R-CRAN-lubridate 
 Requires:         R-KernSmooth 
+Requires:         R-CRAN-pals 
+Requires:         R-CRAN-prophet 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 

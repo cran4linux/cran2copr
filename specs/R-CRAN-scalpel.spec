@@ -1,27 +1,37 @@
-%global packname  ncvreg
-%global packver   3.11.2
+%global packname  scalpel
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.2
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Regularization Paths for SCAD and MCP Penalized RegressionModels
+Summary:          Processes Calcium Imaging Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-R.matlab 
+BuildRequires:    R-CRAN-protoclust 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-gam 
+Requires:         R-Matrix 
+Requires:         R-CRAN-R.matlab 
+Requires:         R-CRAN-protoclust 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-gam 
 
 %description
-Fits regularization paths for linear regression, GLM, and Cox regression
-models using lasso or nonconvex penalties, in particular the minimax
-concave penalty (MCP) and smoothly clipped absolute deviation (SCAD)
-penalty, with options for additional L2 penalties (the "elastic net"
-idea). Utilities for carrying out cross-validation as well as post-fitting
-visualization, summarization, inference, and prediction are also provided.
+Identifies the locations of neurons, and estimates their calcium
+concentrations over time using the SCALPEL method proposed in Petersen,
+Ashley; Simon, Noah; Witten, Daniela. SCALPEL: Extracting neurons from
+calcium imaging data. Ann. Appl. Stat. 12 (2018), no. 4, 2430--2456.
+doi:10.1214/18-AOAS1159.
+<https://projecteuclid.org/euclid.aoas/1542078051>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,14 +53,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/testing-functions.R
-%doc %{rlibdir}/%{packname}/tests
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

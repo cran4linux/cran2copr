@@ -1,9 +1,9 @@
 %global packname  StratigrapheR
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}
 Summary:          Integrated Stratigraphy
 
@@ -57,6 +57,7 @@ with OSXStereonet: Computers & Geosciences, v. 51, no. 0, p. 193 - 205,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

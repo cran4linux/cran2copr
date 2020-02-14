@@ -1,9 +1,9 @@
 %global packname  geodiv
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Methods for Calculating Gradient Surface Metrics
 
@@ -15,12 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-spatial >= 7.3.11
-BuildRequires:    R-parallel >= 3.6.0
+BuildRequires:    R-parallel >= 3.5.0
 BuildRequires:    R-CRAN-raster >= 2.8.4
 BuildRequires:    R-CRAN-pracma >= 2.2.2
 BuildRequires:    R-CRAN-zoo >= 1.8.5
 BuildRequires:    R-CRAN-e1071 >= 1.7.0
-BuildRequires:    R-CRAN-spatstat >= 1.57.1
 BuildRequires:    R-CRAN-tibble >= 1.4.2
 BuildRequires:    R-CRAN-rgdal >= 1.4
 BuildRequires:    R-CRAN-sp >= 1.3.1
@@ -31,12 +30,11 @@ BuildRequires:    R-CRAN-rgeos >= 0.4.3
 BuildRequires:    R-CRAN-phonTools >= 0.2.2.1
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-spatial >= 7.3.11
-Requires:         R-parallel >= 3.6.0
+Requires:         R-parallel >= 3.5.0
 Requires:         R-CRAN-raster >= 2.8.4
 Requires:         R-CRAN-pracma >= 2.2.2
 Requires:         R-CRAN-zoo >= 1.8.5
 Requires:         R-CRAN-e1071 >= 1.7.0
-Requires:         R-CRAN-spatstat >= 1.57.1
 Requires:         R-CRAN-tibble >= 1.4.2
 Requires:         R-CRAN-rgdal >= 1.4
 Requires:         R-CRAN-sp >= 1.3.1
@@ -53,6 +51,7 @@ of landscape features.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -73,6 +72,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  ggdag
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Analyze and Create Elegant Directed Acyclic Graphs
 
@@ -20,12 +20,10 @@ BuildRequires:    R-CRAN-ggraph >= 2.0.0
 BuildRequires:    R-CRAN-dagitty 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
@@ -35,12 +33,10 @@ Requires:         R-CRAN-ggraph >= 2.0.0
 Requires:         R-CRAN-dagitty 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
@@ -57,6 +53,7 @@ adjustment sets and node relationships.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

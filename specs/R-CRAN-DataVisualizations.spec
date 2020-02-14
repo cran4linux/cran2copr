@@ -1,9 +1,9 @@
 %global packname  DataVisualizations
-%global packver   1.1.10
+%global packver   1.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.10
+Version:          1.1.11
 Release:          1%{?dist}
 Summary:          Visualizations of High-Dimensional Data
 
@@ -52,6 +52,7 @@ Self-Organization and Swarm Intelligence" (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

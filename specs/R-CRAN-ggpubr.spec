@@ -1,9 +1,9 @@
 %global packname  ggpubr
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          'ggplot2' Based Publication Ready Plots
 
@@ -62,6 +62,7 @@ provides some easy-to-use functions for creating and customizing
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

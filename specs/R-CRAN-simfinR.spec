@@ -1,9 +1,9 @@
 %global packname  simfinR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Import Financial Data from the 'SimFin' Project
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-crayon 
 
 %description
 Uses the 'SimFin' (SIMmplifying FINnance) api at
@@ -39,6 +41,7 @@ quarters (Q1, Q2, Q3, Q4) and years (FY).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,5 +60,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

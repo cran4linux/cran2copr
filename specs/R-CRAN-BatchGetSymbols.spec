@@ -1,9 +1,9 @@
 %global packname  BatchGetSymbols
-%global packver   2.5.4
+%global packver   2.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.4
+Version:          2.5.5
 Release:          1%{?dist}
 Summary:          Downloads and Organizes Financial Data for Multiple Tickers
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-crayon 
 
 %description
 Makes it easy to download a large number of trade data from Yahoo Finance
@@ -51,6 +53,7 @@ Makes it easy to download a large number of trade data from Yahoo Finance
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

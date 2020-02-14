@@ -1,9 +1,9 @@
 %global packname  text2speech
-%global packver   0.2.9
+%global packver   0.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.2.10
 Release:          1%{?dist}
 Summary:          Text to Speech
 
@@ -39,11 +39,13 @@ Requires:         R-utils
 %description
 Unifies different text to speech engines, such as Google, Microsoft, and
 Amazon.  Text synthesis can be done in any engine with a simple switch of
-an argument denoting the service requested.
+an argument denoting the service requested.  The 'aws.polly' package has
+been orphaned and can be found from the CRAN archives.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

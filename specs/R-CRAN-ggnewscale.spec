@@ -1,11 +1,11 @@
 %global packname  ggnewscale
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}
-Summary:          Multiple Fill and Color Scales in 'ggplot2'
+Summary:          Multiple Fill and Colour Scales in 'ggplot2'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-stringi 
 
 %description
-Use multiple fill and color scales in 'ggplot2'.
+Use multiple fill and colour scales in 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

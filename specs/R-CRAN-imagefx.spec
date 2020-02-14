@@ -1,9 +1,9 @@
 %global packname  imagefx
-%global packver   0.3.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Extract Features from Images
 
@@ -31,6 +31,7 @@ processing, analyzing, filtering, and plotting.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
