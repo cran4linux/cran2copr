@@ -1,9 +1,9 @@
 %global packname  memisc
-%global packver   0.99.21
+%global packver   0.99.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.21
+Version:          0.99.22
 Release:          1%{?dist}
 Summary:          Management of Survey Data and Presentation of Analysis Results
 
@@ -42,6 +42,7 @@ regression model estimates, which can be exported to 'LaTeX' and HTML.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

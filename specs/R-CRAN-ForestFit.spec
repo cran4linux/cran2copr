@@ -1,9 +1,9 @@
 %global packname  ForestFit
-%global packver   0.4.7
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.5.7
 Release:          1%{?dist}
 Summary:          Statistical Modelling for Plant Size Distributions
 
@@ -51,6 +51,7 @@ from gamma shape mixture model introduced by Venturini et al. (2008)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

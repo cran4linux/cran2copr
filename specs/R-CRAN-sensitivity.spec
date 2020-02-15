@@ -1,9 +1,9 @@
 %global packname  sensitivity
-%global packver   1.17.0
+%global packver   1.17.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17.0
+Version:          1.17.1
 Release:          1%{?dist}
 Summary:          Global Sensitivity Analysis of Model Outputs
 
@@ -23,13 +23,14 @@ Requires:         R-CRAN-ggplot2
 
 %description
 A collection of functions for factor screening, global sensitivity
-analysis and reliability sensitivity analysis. Most of the functions have
-to be applied on model with scalar output, but several functions support
+analysis and robustness analysis. Most of the functions have to be applied
+on model with scalar output, but several functions support
 multi-dimensional outputs.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

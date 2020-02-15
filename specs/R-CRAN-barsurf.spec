@@ -1,11 +1,11 @@
 %global packname  barsurf
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}
-Summary:          Bar, Surface and Related Plots
+Summary:          Heatmap-Related Plots and Smooth Multiband Color Interpolation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,25 +16,26 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-kubik 
 BuildRequires:    R-CRAN-colorspace 
 Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+Requires:         R-CRAN-kubik 
 Requires:         R-CRAN-colorspace 
 
 %description
-Produces heat maps, contour plots, bar plots (in 3D) and surface plots
-(also, in 3D). Is designed for plotting functions of two variables,
-however, can plot relatively arbitrary matrices. Uses HCL color space,
-extensively. Also, supports triangular plots and nested matrices.
+Supports combined contour-heat plots and 3D bar/surface plots, for
+plotting scalar fields, either discretely-spaced or continuously-spaced.
+Also, supports matrix visualization (per se), isosurfaces (for scalar
+fields over three variables), triangular plots and vector fields. All
+plots use static vector graphics (suitable for Sweave documents), but high
+resolution heatmaps can produce smooth raster-like visual effects.
+Contains a flexible system for smooth multiband color interpolation in
+RGB, HSV and HCL color spaces.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,6 +43,7 @@ extensively. Also, supports triangular plots and nested matrices.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

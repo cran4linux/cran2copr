@@ -1,9 +1,9 @@
 %global packname  pedquant
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Public Economic Data and Quantitative Analysis
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-webdriver 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-readxl 
@@ -37,7 +36,6 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-webdriver 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-readxl 
@@ -54,6 +52,7 @@ NBS, FRED, Yahoo Finance, 163 Finance and etc.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -61,6 +60,7 @@ NBS, FRED, Yahoo Finance, 163 Finance and etc.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

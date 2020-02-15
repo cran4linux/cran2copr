@@ -1,9 +1,9 @@
 %global packname  BuyseTest
-%global packver   1.8.3
+%global packver   1.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.3
+Version:          1.8.4
 Release:          1%{?dist}
 Summary:          Generalized Pairwise Comparisons
 
@@ -57,6 +57,7 @@ to deal with missing values.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -77,12 +78,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/article
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/doc-software
-%doc %{rlibdir}/%{packname}/doc-theory
-%doc %{rlibdir}/%{packname}/docToAdd.docx
-%doc %{rlibdir}/%{packname}/todo.org
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

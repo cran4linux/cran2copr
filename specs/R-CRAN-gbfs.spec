@@ -1,11 +1,11 @@
 %global packname  gbfs
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}
-Summary:          Interface with General Bikeshare Feed Specification Files
+Summary:          Interface with Live Bikeshare Data
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,13 +33,14 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-curl 
 
 %description
-Supplies a set of functions to interface with General Bikeshare Feed
-Specification .json feeds in R, allowing users to save and accumulate tidy
-.rds datasets for specified cities/bikeshare programs.
+Supplies a set of functions to interface with bikeshare data following the
+General Bikeshare Feed Specification, allowing users to query and
+accumulate tidy datasets for specified cities/bikeshare programs.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

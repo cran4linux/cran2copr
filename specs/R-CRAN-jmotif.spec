@@ -1,31 +1,30 @@
-%global packname  cghseg
-%global packver   1.0.5
+%global packname  jmotif
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.1
 Release:          1%{?dist}
-Summary:          Segmentation Methods for Array CGH Analysis
+Summary:          Time Series Analysis Toolkit Based on Symbolic AggregateDiscretization, i.e. SAX
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.1
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.1
+Requires:         R-stats 
 
 %description
-Dedicated to the analysis of CGH (Comparative Genomic Hybridization) array
-profiles using segmentation models. 'cghseg' package is intended to detect
-breakpoints from CGH profiles. It can handle both single and multiple
-profiles analysis, to perform segmentation, normalization and calling.
-Methods for joint segmentation are described in : Picard and al. (2011),
-<doi:10.1093/biostatistics/kxq076>.
+Implements time series z-normalization, SAX, HOT-SAX, VSM, SAX-VSM,
+RePair, and RRA algorithms facilitating time series motif (i.e., recurrent
+pattern), discord (i.e., anomaly), and characteristic pattern discovery
+along with interpretable time series classification.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,8 +46,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

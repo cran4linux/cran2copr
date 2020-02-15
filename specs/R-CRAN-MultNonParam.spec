@@ -1,9 +1,9 @@
 %global packname  MultNonParam
-%global packver   1.3.0
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.2
 Release:          1%{?dist}
 Summary:          Multivariate Nonparametric Methods
 
@@ -27,6 +27,7 @@ and two- stage testing involving Mann-Whitney-Wilcoxon statistics.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,10 +50,13 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/lastinput
 %doc %{rlibdir}/%{packname}/Makefile
+%doc %{rlibdir}/%{packname}/NOTE
 %doc %{rlibdir}/%{packname}/test.csv
 %doc %{rlibdir}/%{packname}/testaov.f90
 %doc %{rlibdir}/%{packname}/testconcord.f90
 %doc %{rlibdir}/%{packname}/testperm.f90
+%doc %{rlibdir}/%{packname}/testperms.f90
 %doc %{rlibdir}/%{packname}/testprobest.f90
+%doc %{rlibdir}/%{packname}/testtskmsurv.f90
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  psychmeta
-%global packver   2.3.4
+%global packver   2.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.3.5
 Release:          1%{?dist}
 Summary:          Psychometric Meta-Analysis Toolkit
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
@@ -27,16 +28,15 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-nor1mix 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 Requires:         R-methods 
@@ -49,12 +49,10 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-nor1mix 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-cli 
@@ -73,6 +71,7 @@ range variation, and more. Bugs can be reported to
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

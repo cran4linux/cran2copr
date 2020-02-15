@@ -1,28 +1,29 @@
-%global packname  Pareto
-%global packver   1.1.3
+%global packname  humanleague
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.1.2
 Release:          1%{?dist}
-Summary:          The Pareto and the Piecewise Pareto Distribution
+Summary:          Synthetic Population Generator
 
-License:          GPL (>= 2)
+License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.8
+Requires:         R-CRAN-Rcpp >= 0.12.8
 
 %description
-Utilities for the Pareto and piecewise Pareto distribution that are useful
-for reinsurance pricing. In particular, the package provides a non-trivial
-algorithm that can be used to match the expected losses of a tower of
-reinsurance layers with a layer-independent collective risk model. The
-theoretical background of the matching algorithm and most other methods
-are described in Ulrich Riegel (2018) <doi:10.1007/s13385-018-0177-3>.
+Generates high-entropy integer synthetic populations from marginal and
+(optionally) seed data using quasirandom sampling, in arbitrary
+dimensionality (Smith, Lovelace and Birkin (2017)
+<doi:10.18564/jasss.3550>). The package also provides an implementation of
+the Iterative Proportional Fitting (IPF) algorithm (Zaloznik (2011)
+<doi:10.13140/2.1.2480.9923>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,10 +45,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENCE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

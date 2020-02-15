@@ -1,9 +1,9 @@
 %global packname  wyz.code.rdoc
-%global packver   1.1.7
+%global packver   1.1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.15
 Release:          1%{?dist}
 Summary:          Wizardry Code Offensive Programming R Documentation
 
@@ -12,19 +12,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.0
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-data.table >= 1.11.8
-BuildRequires:    R-CRAN-wyz.code.offensiveProgramming >= 1.1.12
+BuildRequires:    R-CRAN-wyz.code.offensiveProgramming >= 1.1.17
+BuildRequires:    R-CRAN-digest >= 0.6.23
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-R6 >= 2.4.0
 Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-data.table >= 1.11.8
-Requires:         R-CRAN-wyz.code.offensiveProgramming >= 1.1.12
+Requires:         R-CRAN-wyz.code.offensiveProgramming >= 1.1.17
+Requires:         R-CRAN-digest >= 0.6.23
 Requires:         R-methods 
 Requires:         R-CRAN-tidyr 
 
@@ -47,6 +53,7 @@ package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -54,6 +61,7 @@ package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -62,9 +70,13 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/man-generated
+%doc %{rlibdir}/%{packname}/man-regenerated
+%doc %{rlibdir}/%{packname}/man-samples
 %doc %{rlibdir}/%{packname}/unit-testing
 %{rlibdir}/%{packname}/INDEX
