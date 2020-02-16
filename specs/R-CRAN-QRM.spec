@@ -1,36 +1,42 @@
-%global packname  blockmodeling
-%global packver   0.3.6
+%global packname  QRM
+%global packver   0.4-31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.4.31
 Release:          1%{?dist}
-Summary:          Generalized and Classical Blockmodeling of Valued Networks
+Summary:          Provides R-Language Code to Examine Quantitative Risk ManagementConcepts
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.1
+BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-Matrix 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-timeSeries 
+BuildRequires:    R-mgcv 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-timeDate 
+Requires:         R-CRAN-Rcpp >= 0.11.1
+Requires:         R-CRAN-gsl 
 Requires:         R-Matrix 
-Requires:         R-parallel 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-timeSeries 
+Requires:         R-mgcv 
+Requires:         R-methods 
+Requires:         R-CRAN-timeDate 
 
 %description
-This is primarily meant as an implementation of generalized blockmodeling
-for valued networks. In addition, measures of similarity or dissimilarity
-based on structural equivalence and regular equivalence (REGE algorithms)
-can be computed and partitioned matrices can be plotted: Žiberna
-(2007)<doi:10.1016/j.socnet.2006.04.002>, Žiberna
-(2008)<doi:10.1080/00222500701790207>, Žiberna
-(2014)<doi:10.1016/j.socnet.2014.04.002>.
+Provides functions/methods to accompany the book Quantitative Risk
+Management: Concepts, Techniques and Tools by Alexander J. McNeil,
+Ruediger Frey, and Paul Embrechts.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,9 +59,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

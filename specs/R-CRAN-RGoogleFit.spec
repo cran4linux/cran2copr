@@ -1,9 +1,9 @@
 %global packname  RGoogleFit
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          R Interface to Google Fit API
 
@@ -33,6 +33,7 @@ Provides interface to Google Fit REST API v1 (see
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

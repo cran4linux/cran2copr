@@ -1,9 +1,9 @@
 %global packname  sisal
-%global packver   0.46
+%global packver   0.48
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.46
+Version:          0.48
 Release:          1%{?dist}
 Summary:          Sequential Input Selection Algorithm
 
@@ -54,6 +54,7 @@ instead of ordinary least squares.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -75,5 +76,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/toyDataSrc
 %{rlibdir}/%{packname}/INDEX

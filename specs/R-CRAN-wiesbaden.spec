@@ -1,9 +1,9 @@
 %global packname  wiesbaden
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Access Databases from the Federal Statistical Office of Germany
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.1
 Requires:         R-core >= 3.3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-jsonlite >= 1.6.0
 BuildRequires:    R-CRAN-stringi >= 1.4.0
 BuildRequires:    R-CRAN-httr >= 1.2.1
 BuildRequires:    R-CRAN-stringr >= 1.1.0
 BuildRequires:    R-CRAN-keyring >= 1.1.0
 BuildRequires:    R-CRAN-xml2 >= 1.0.0
 BuildRequires:    R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-jsonlite >= 1.6.0
 Requires:         R-CRAN-stringi >= 1.4.0
 Requires:         R-CRAN-httr >= 1.2.1
 Requires:         R-CRAN-stringr >= 1.1.0
@@ -37,6 +37,7 @@ Statistical Office of Germany (DESTATIS) using their SOAP XML web service.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

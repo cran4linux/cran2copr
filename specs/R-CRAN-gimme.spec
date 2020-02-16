@@ -1,9 +1,9 @@
 %global packname  gimme
-%global packver   0.6-1
+%global packver   0.7-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.1
 Release:          1%{?dist}
 Summary:          Group Iterative Multiple Model Estimation
 
@@ -21,12 +21,18 @@ BuildRequires:    R-CRAN-MIIVsem >= 0.5.4
 BuildRequires:    R-CRAN-lavaan >= 0.5.19
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-imputeTS >= 3.0
 Requires:         R-CRAN-igraph >= 1.0.0
 Requires:         R-CRAN-MIIVsem >= 0.5.4
 Requires:         R-CRAN-lavaan >= 0.5.19
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-nloptr 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
 Automated identification and estimation of group- and individual-level
@@ -36,6 +42,7 @@ framework.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

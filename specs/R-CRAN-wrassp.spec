@@ -1,9 +1,9 @@
 %global packname  wrassp
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}
 Summary:          Interface to the 'ASSP' Library
 
@@ -14,6 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
+BuildRequires:    R-CRAN-tibble >= 2.1.0
+Requires:         R-CRAN-tibble >= 2.1.0
 
 %description
 A wrapper around Michel Scheffers's 'libassp'
@@ -30,6 +32,7 @@ manner.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -37,6 +40,7 @@ manner.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

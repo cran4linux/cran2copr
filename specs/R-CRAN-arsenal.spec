@@ -1,9 +1,9 @@
 %global packname  arsenal
-%global packver   3.3.0
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.4.0
 Release:          1%{?dist}
 Summary:          An Arsenal of 'R' Functions for Large-Scale StatisticalSummaries
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-stats >= 3.2.0
 BuildRequires:    R-utils >= 3.2.0
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-stats >= 3.2.0
 Requires:         R-utils >= 3.2.0
+Requires:         R-CRAN-knitr 
 
 %description
 An Arsenal of 'R' functions for large-scale statistical summaries, which
@@ -36,6 +38,7 @@ data.frames; and write2(), a function to output tables to a document.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +46,7 @@ data.frames; and write2(), a function to output tables to a document.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

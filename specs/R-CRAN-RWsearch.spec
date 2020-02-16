@@ -1,9 +1,9 @@
 %global packname  RWsearch
-%global packver   4.6.2
+%global packver   4.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.2
+Version:          4.7.0
 Release:          1%{?dist}
 Summary:          Lazy Search in R Packages, Task Views, CRAN, the Web. All-in-OneDownload
 
@@ -40,6 +40,7 @@ is available throughout the package and eases the use of many functions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

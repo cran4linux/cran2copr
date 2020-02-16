@@ -1,9 +1,9 @@
 %global packname  sirt
-%global packver   3.7-40
+%global packver   3.8-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.40
+Version:          3.8.11
 Release:          1%{?dist}
 Summary:          Supplementary Item Response Theory Models
 
@@ -50,6 +50,7 @@ Sommer & Wilhelm, 2016, <doi:10.1080/00273171.2016.1142856>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

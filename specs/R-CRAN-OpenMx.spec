@@ -1,9 +1,9 @@
 %global packname  OpenMx
-%global packver   2.16.0
+%global packver   2.17.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.16.0
+Version:          2.17.2
 Release:          1%{?dist}
 Summary:          Extended Structural Equation Modelling
 
@@ -47,6 +47,7 @@ Pritikin, Zahery, Brick, Kirkpatrick, Estabrook, Bates, Maes, & Boker
 %prep
 %setup -q -c -n %{packname}
 find %{packname}/inst -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
