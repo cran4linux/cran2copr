@@ -51,6 +51,7 @@ ISBN:978-0849381294) and Rossmo (1995) <http://summit.sfu.ca/item/6820>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

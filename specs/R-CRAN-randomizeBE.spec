@@ -31,6 +31,7 @@ the sequences of commonly used designs in BE studies.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

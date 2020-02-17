@@ -49,6 +49,7 @@ of Statistics <https://www.abs.gov.au/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

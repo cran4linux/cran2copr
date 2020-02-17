@@ -1,9 +1,9 @@
 %global packname  noctua
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}
 Summary:          Connect to 'AWS Athena' using R 'AWS SDK' 'paws' ('DBI'Interface)
 
@@ -15,15 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.12.4
 BuildRequires:    R-CRAN-DBI >= 0.7
 BuildRequires:    R-CRAN-paws >= 0.1.5
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table >= 1.12.4
 Requires:         R-CRAN-DBI >= 0.7
 Requires:         R-CRAN-paws >= 0.1.5
-Requires:         R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -38,6 +38,7 @@ a driver.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

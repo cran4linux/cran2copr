@@ -29,6 +29,7 @@ Gordon, Sara J. Cooper (2017) <doi:10.1101/179168>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

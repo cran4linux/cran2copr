@@ -28,6 +28,7 @@ Huet, S. and Taupin, M.-L. (2019) <arXiv:1905.13695>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -36,6 +36,7 @@ model fitting. For more information on MCMC samples see Brooks et al.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

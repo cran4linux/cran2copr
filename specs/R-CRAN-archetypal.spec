@@ -47,6 +47,7 @@ DS, Shmoys, DB (1985) <doi:10.1287/moor.10.2.180>. Eddy, WF (1977)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

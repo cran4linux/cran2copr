@@ -26,6 +26,7 @@ is O(1). The stack may contain arbitrary objects.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

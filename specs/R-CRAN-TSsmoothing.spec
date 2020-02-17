@@ -35,6 +35,7 @@ and Ramirez-Ramirez, L.L. (2017) <DOI:10.1080/03610926.2015.1133826>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

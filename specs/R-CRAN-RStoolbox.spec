@@ -54,6 +54,7 @@ unsupervised and supervised classification or fractional cover analyses.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

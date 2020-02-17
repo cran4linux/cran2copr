@@ -39,6 +39,7 @@ returned for all sites in the NRCS' Air and Water Data Base (AWDB)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

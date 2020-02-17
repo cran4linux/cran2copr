@@ -23,6 +23,7 @@ methodology of Zumbach (2007) <doi:10.2139/ssrn.1420185>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

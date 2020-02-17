@@ -45,6 +45,7 @@ editable text broken down by section headers. Can be used with a local
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

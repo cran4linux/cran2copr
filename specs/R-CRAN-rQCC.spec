@@ -28,6 +28,7 @@ government (No. NRF-2017R1A2B4004169).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

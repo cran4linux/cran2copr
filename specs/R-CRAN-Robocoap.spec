@@ -31,6 +31,7 @@ along with utilities to aid in the generation of Gephi dynamic networks.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

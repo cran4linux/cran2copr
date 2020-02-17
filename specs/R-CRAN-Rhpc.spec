@@ -26,6 +26,7 @@ R. And this package supports long vector, can deal with slightly big data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

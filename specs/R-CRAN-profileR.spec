@@ -36,6 +36,7 @@ group, and a within-person factor model to derive score profiles.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

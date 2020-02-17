@@ -36,6 +36,7 @@ mixed-integer programming. The full documentation and tutorials are at
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

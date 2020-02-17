@@ -1,9 +1,9 @@
 %global packname  pcts
-%global packver   0.14-3
+%global packver   0.14-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.3
+Version:          0.14.4
 Release:          1%{?dist}
 Summary:          Periodically Correlated and Periodically Integrated Time Series
 
@@ -53,6 +53,7 @@ Boshnakov (1996) <doi:10.1111/j.1467-9892.1996.tb00281.x>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

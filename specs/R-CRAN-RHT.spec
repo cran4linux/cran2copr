@@ -25,6 +25,7 @@ proportion of the data are missing and/or correlations may be present.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

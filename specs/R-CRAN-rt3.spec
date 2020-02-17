@@ -22,6 +22,7 @@ Play the classic game of tic-tac-toe (naughts and crosses).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -49,6 +49,7 @@ measures and our mcca package in Li, Gao and D'Agostino (2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

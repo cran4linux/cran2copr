@@ -29,6 +29,7 @@ from Carvalho, Masini and Medeiros (2016) <DOI:10.2139/ssrn.2823687>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +37,7 @@ from Carvalho, Masini and Medeiros (2016) <DOI:10.2139/ssrn.2823687>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

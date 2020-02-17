@@ -38,6 +38,7 @@ denoising, robust and variational, as described in Charte et al. (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

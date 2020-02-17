@@ -27,6 +27,7 @@ modal dialog boxes, with no need to observe each help button separately.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

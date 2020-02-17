@@ -31,6 +31,7 @@ see <https://github.com/rosdyana/ROpenDota> for more information.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

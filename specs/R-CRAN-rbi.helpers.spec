@@ -37,6 +37,7 @@ converting between times in 'LibBi' results and R time/dates.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

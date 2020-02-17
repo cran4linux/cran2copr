@@ -31,6 +31,7 @@ Density Estimation" by Y. Wang, A. Canale, D. Dunson (2016)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

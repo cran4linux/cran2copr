@@ -33,6 +33,7 @@ local density estimators by W. Gao, et al. (2017)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

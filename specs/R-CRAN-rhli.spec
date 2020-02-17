@@ -32,6 +32,7 @@ building customized graphical user interfaces.
 %prep
 %setup -q -c -n %{packname}
 rm -f %{packname}/src/Makevars*
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

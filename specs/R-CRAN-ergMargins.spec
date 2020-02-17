@@ -47,6 +47,7 @@ Breen (2012) <doi:10.1177/0081175012444861>. Duxbury, Scott W (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

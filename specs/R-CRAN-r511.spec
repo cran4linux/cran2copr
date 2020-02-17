@@ -37,6 +37,7 @@ Commission at the following url: <https://511.org/developers/list/apis/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

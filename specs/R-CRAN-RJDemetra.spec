@@ -40,6 +40,7 @@ X-12ARIMA/X-13ARIMA-SEATS.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

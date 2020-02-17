@@ -36,6 +36,7 @@ Fasiolo et al. (2018) <doi:10.1214/18-EJS1433>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

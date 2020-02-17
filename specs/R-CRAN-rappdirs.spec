@@ -25,6 +25,7 @@ should use to save data, caches and logs. A port of Python's 'Appdirs'
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

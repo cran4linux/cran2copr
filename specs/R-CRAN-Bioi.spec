@@ -34,6 +34,7 @@ while connected component analyses are limited to 3 or fewer dimensions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

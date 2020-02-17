@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 0.9
+BuildRequires:    R-CRAN-jsonlite >= 0.9.12
 BuildRequires:    R-CRAN-htmltools >= 0.2.6
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite >= 0.9
+Requires:         R-CRAN-jsonlite >= 0.9.12
 Requires:         R-CRAN-htmltools >= 0.2.6
 Requires:         R-CRAN-shiny 
 
@@ -32,6 +32,7 @@ those uses who rely on features specific to Bootstrap 2.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

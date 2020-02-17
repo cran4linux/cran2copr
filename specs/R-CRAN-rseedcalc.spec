@@ -26,6 +26,7 @@ group testing model with maximum likelihood estimation of the parameters.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

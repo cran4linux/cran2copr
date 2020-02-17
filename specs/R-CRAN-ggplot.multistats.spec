@@ -34,6 +34,7 @@ per bin. Those statistics can be mapped to multiple bin aesthetics.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

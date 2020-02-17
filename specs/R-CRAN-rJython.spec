@@ -27,6 +27,7 @@ R interface to Python via Jython allowing R to call python code.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

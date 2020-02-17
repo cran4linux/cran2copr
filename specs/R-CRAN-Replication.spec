@@ -42,6 +42,7 @@ Zondervan-Zwijnenburg (2019) <doi:10.31234/osf.io/uvh5s>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

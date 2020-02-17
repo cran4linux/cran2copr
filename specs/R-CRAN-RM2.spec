@@ -1,35 +1,31 @@
-%global packname  pcrcoal
-%global packver   1.2.0
+%global packname  RM2
+%global packver   0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.0
 Release:          1%{?dist}
-Summary:          Implementing the Coalescent Approach to PCR Simulation Developedby Weiss and Von Haeseler (NAR, 1997)
+Summary:          Revenue Management and Pricing Package
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.11.1
-Requires:         R-core >= 2.11.1
+BuildRequires:    R-devel >= 2.7.1
+Requires:         R-core >= 2.7.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape >= 2.3
-BuildRequires:    R-methods >= 2.11.1
-BuildRequires:    R-CRAN-ggplot2 >= 0.8.8
-BuildRequires:    R-CRAN-phylosim >= 0.12
-Requires:         R-CRAN-ape >= 2.3
-Requires:         R-methods >= 2.11.1
-Requires:         R-CRAN-ggplot2 >= 0.8.8
-Requires:         R-CRAN-phylosim >= 0.12
+BuildRequires:    R-CRAN-msm 
+Requires:         R-CRAN-msm 
 
 %description
-Implementing the Coalescent Approach to PCR Simulation.
+RM2 is a simple package that implements functions used in revenue
+management and pricing environments.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

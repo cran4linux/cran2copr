@@ -38,6 +38,7 @@ terms. Note that 'Ensmallen' requires a compiler that supports 'C++11' and
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -34,6 +34,7 @@ SVM and MRMR (for feature selection) with bootstrapping procedure.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

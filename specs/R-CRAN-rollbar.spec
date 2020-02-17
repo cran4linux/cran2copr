@@ -25,6 +25,7 @@ Reports errors and messages to Rollbar, the error tracking platform
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

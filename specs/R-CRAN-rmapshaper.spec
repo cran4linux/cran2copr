@@ -45,6 +45,7 @@ geometries.  It relies on the 'geojsonio' package for working with
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

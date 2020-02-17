@@ -28,6 +28,7 @@ in Jung et al. (2017) <arXiv:1702.04690> based on Rosenbaum and Rubin
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

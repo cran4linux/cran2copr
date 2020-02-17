@@ -26,6 +26,7 @@ Zhang and Qunhua Li (2016). Robust bent line regression, submitted."
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

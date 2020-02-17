@@ -30,6 +30,7 @@ will require an 'Elexon' key, which are freely available by registering at
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

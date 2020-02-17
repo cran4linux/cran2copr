@@ -23,6 +23,7 @@ An R interface to the SYMPHONY solver for mixed-integer linear programs.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

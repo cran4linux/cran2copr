@@ -23,6 +23,7 @@ for memory mapped file IO <https://github.com/mandreyel/mio>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

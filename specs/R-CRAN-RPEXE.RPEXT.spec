@@ -34,6 +34,7 @@ et al. 2014. This program can run in R version 3.2.2 and above.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

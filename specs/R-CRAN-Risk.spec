@@ -37,6 +37,7 @@ kappa due to Kaplan and Knowles (2004), Wang (1998)'s
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

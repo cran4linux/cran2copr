@@ -29,6 +29,7 @@ be used to provide information of the object and as simple manual
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

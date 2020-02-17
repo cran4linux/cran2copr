@@ -41,6 +41,7 @@ details see T. Hastie et al (2009, ISBN: 978-0-387-84857-0).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

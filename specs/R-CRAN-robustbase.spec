@@ -35,6 +35,7 @@ Statistics, Theory and Methods" by 'Maronna, Martin and Yohai'; Wiley
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -31,6 +31,7 @@ Windows port of 'mmap' which is released under the MIT license.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

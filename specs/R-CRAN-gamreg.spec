@@ -31,6 +31,7 @@ Robust regression via gamma-divergence with L1, elastic net and ridge.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

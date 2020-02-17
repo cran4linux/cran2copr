@@ -56,6 +56,7 @@ to output from other statistical packages, thereby facilitating
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

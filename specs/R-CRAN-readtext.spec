@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 0.9
+BuildRequires:    R-CRAN-jsonlite >= 0.9.10
 BuildRequires:    R-CRAN-antiword 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-striprtf
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite >= 0.9
+Requires:         R-CRAN-jsonlite >= 0.9.10
 Requires:         R-CRAN-antiword 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
@@ -52,6 +52,7 @@ with additional meta-data, such including '.csv', '.tab', '.json', '.xml',
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

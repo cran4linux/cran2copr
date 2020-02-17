@@ -1,9 +1,9 @@
 %global packname  inlabru
-%global packver   2.1.12
+%global packver   2.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.12
+Version:          2.1.13
 Release:          1%{?dist}
 Summary:          Spatial Inference using Integrated Nested Laplace Approximation
 
@@ -43,6 +43,7 @@ Buckland, Havard Rue, Tim Gerrodette (2017), <arXiv:1604.06013>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +51,7 @@ Buckland, Havard Rue, Tim Gerrodette (2017), <arXiv:1604.06013>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

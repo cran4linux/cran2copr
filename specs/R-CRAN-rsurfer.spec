@@ -32,6 +32,7 @@ installation of and data generated from 'Freesurfer' version 5.3.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

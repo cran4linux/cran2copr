@@ -1,9 +1,9 @@
 %global packname  ledger
-%global packver   2.0.4
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.6
 Release:          1%{?dist}
 Summary:          Utilities for Importing Data from Plain Text Accounting Files
 
@@ -41,6 +41,7 @@ Utilities for querying plain text accounting files from 'Ledger',
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

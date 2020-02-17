@@ -41,6 +41,7 @@ Set of tools for reading, processing and visualizing small set of LiDAR
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

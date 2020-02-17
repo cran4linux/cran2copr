@@ -38,6 +38,7 @@ the package makes it easy to check if bots (spiders, crawler, scrapers,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

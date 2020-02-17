@@ -34,6 +34,7 @@ available at <http://mpc.zib.de/index.php/MPC/article/viewFile/56/28>. The
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

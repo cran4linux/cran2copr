@@ -29,6 +29,7 @@ Hudson (2017) <doi: 10.1177/0146621617707511>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

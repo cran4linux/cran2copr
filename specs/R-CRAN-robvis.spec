@@ -38,6 +38,7 @@ Whiting et al (2011) <doi:10.7326/0003-4819-155-8-201110180-00009>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

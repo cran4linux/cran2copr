@@ -33,6 +33,7 @@ affiliated, endorsed, or approved by 'Bloomberg' or any of its affiliates.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -28,6 +28,7 @@ Using a database, LaTeX and R easily build attractive resumes.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

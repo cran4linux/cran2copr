@@ -32,6 +32,7 @@ validation, Bootstrap-refitted cross validation, Ensemble method.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

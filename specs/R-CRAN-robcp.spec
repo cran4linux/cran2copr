@@ -27,6 +27,7 @@ CUSUM tests proposed in Duerre and Fried (2019) <arXiv:1905.06201>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

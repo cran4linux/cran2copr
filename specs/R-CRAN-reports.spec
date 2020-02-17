@@ -28,6 +28,7 @@ functions for copying text from articles for inclusion as a citation.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

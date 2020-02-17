@@ -25,6 +25,7 @@ Amaral, 2005, doi:10.1038/nature03288).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

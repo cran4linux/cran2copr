@@ -43,6 +43,7 @@ analysis of outcomes in block-randomized experiments.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

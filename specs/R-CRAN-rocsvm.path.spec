@@ -32,6 +32,7 @@ AI workshop(ROCAI-2004) : Hernàndez-Orallo, José, et al. (2004)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

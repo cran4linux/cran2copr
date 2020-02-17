@@ -30,6 +30,7 @@ Sciandra, Tomasello and Calvo (2013) <doi:10.1007/s10651-012-0232-1> and
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

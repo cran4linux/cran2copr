@@ -26,6 +26,7 @@ methods. They are especially suited for continuous optimization.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

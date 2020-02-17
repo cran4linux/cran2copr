@@ -28,6 +28,7 @@ described by Breiman (2001), <DOI:10.1023/A:1010933404324>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -34,6 +34,7 @@ currently focusing on the SDMX XML standard format (SDMX-ML).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

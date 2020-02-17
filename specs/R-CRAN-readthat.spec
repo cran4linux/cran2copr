@@ -27,6 +27,7 @@ line-by-line) the contents of files or web pages.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

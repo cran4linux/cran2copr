@@ -41,6 +41,7 @@ vectors and changing the console prompt to reflect time.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

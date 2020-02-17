@@ -34,6 +34,7 @@ utilities for parsing the 'HMMER' output into tidy data frames.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

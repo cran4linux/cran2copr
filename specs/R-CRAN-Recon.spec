@@ -29,6 +29,7 @@ Profit Maximization, Cournot's Duopoly, Solow (1956,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

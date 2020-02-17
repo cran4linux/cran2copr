@@ -25,6 +25,7 @@ Robust pairwise correlations based on estimates of scale, particularly on
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

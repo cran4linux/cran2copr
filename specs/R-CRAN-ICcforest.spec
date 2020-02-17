@@ -41,6 +41,7 @@ parameters and evaluate the model fit. See Yao et al. (2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

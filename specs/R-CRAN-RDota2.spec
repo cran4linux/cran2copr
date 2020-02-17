@@ -28,6 +28,7 @@ can find out more about Dota2 at <http://store.steampowered.com/app/570/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

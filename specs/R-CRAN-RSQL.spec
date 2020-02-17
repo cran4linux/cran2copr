@@ -32,6 +32,7 @@ Allows the user to generate and execute select, insert, update and delete
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

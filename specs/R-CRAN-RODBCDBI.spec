@@ -29,6 +29,7 @@ This allows R to connect to any DBMS that has a ODBC driver.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

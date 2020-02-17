@@ -47,6 +47,7 @@ use data made available via the API is for non-commercial use and
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
