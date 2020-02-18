@@ -1,13 +1,13 @@
 %global packname  imager
-%global packver   0.41.2
+%global packver   0.42.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.41.2
+Version:          0.42.1
 Release:          1%{?dist}
 Summary:          Image Processing Library Based on 'CImg'
 
-License:          LGPL
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -27,10 +27,8 @@ BuildRequires:    R-CRAN-jpeg
 BuildRequires:    R-CRAN-readbitmap 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Cairo 
 BuildRequires:    R-CRAN-downloader 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-Rcpp >= 0.11.5
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
@@ -40,10 +38,8 @@ Requires:         R-CRAN-jpeg
 Requires:         R-CRAN-readbitmap 
 Requires:         R-grDevices 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Cairo 
 Requires:         R-CRAN-downloader 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-plyr 
 
 %description
 Fast image processing for images in up to 4 dimensions (two spatial
@@ -56,6 +52,7 @@ modern C++ library for image processing.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -63,6 +60,7 @@ modern C++ library for image processing.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

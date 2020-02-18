@@ -1,9 +1,9 @@
 %global packname  CompareCausalNetworks
-%global packver   0.2.4
+%global packver   0.2.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.6.2
 Release:          1%{?dist}
 Summary:          Interface to Diverse Estimation Methods of Causal Networks
 
@@ -28,16 +28,19 @@ Requires:         R-CRAN-data.table
 Unified interface for the estimation of causal networks, including the
 methods 'backShift' (from package 'backShift'), 'bivariateANM' (bivariate
 additive noise model), 'bivariateCAM' (bivariate causal additive model),
-'CAM' (causal additive model) (from package 'CAM'), 'hiddenICP' (invariant
-causal prediction with hidden variables), 'ICP' (invariant causal
-prediction) (from package 'InvariantCausalPrediction'), 'GES' (greedy
-equivalence search), 'GIES' (greedy interventional equivalence search),
-'LINGAM', 'PC' (PC Algorithm), 'FCI' (fast causal inference), 'RFCI'
-(really fast causal inference) (all from package 'pcalg') and regression.
+'CAM' (causal additive model) (from package 'CAM'; the package is
+temporarily unavailable on the CRAN repository; formerly available
+versions can be obtained from the archive), 'hiddenICP' (invariant causal
+prediction with hidden variables), 'ICP' (invariant causal prediction)
+(from package 'InvariantCausalPrediction'), 'GES' (greedy equivalence
+search), 'GIES' (greedy interventional equivalence search), 'LINGAM', 'PC'
+(PC Algorithm), 'FCI' (fast causal inference), 'RFCI' (really fast causal
+inference) (all from package 'pcalg') and regression.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -45,6 +48,7 @@ equivalence search), 'GIES' (greedy interventional equivalence search),
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

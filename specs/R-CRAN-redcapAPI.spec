@@ -1,9 +1,9 @@
 %global packname  redcapAPI
-%global packver   2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3
 Release:          1%{?dist}
 Summary:          Interface to 'REDCap'
 
@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-DBI 
@@ -47,6 +48,7 @@ data dictionary.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

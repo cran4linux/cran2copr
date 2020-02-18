@@ -1,9 +1,9 @@
 %global packname  MomTrunc
-%global packver   5.69
+%global packver   5.71
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.69
+Version:          5.71
 Release:          1%{?dist}
 Summary:          Moments of Folded and Doubly Truncated MultivariateDistributions
 
@@ -45,6 +45,7 @@ report. ID 19-14. University of Connecticut.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  devtools
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}
 Summary:          Tools to Make Developing R Packages Easier
 
@@ -17,8 +17,8 @@ Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-roxygen2 >= 6.1.1
 BuildRequires:    R-CRAN-covr >= 3.2.0
+BuildRequires:    R-CRAN-remotes >= 2.1.1
 BuildRequires:    R-CRAN-testthat >= 2.1.1
-BuildRequires:    R-CRAN-remotes >= 2.1.0
 BuildRequires:    R-CRAN-usethis >= 1.5.0
 BuildRequires:    R-CRAN-rcmdcheck >= 1.3.3
 BuildRequires:    R-CRAN-sessioninfo >= 1.1.1
@@ -45,8 +45,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-roxygen2 >= 6.1.1
 Requires:         R-CRAN-covr >= 3.2.0
+Requires:         R-CRAN-remotes >= 2.1.1
 Requires:         R-CRAN-testthat >= 2.1.1
-Requires:         R-CRAN-remotes >= 2.1.0
 Requires:         R-CRAN-usethis >= 1.5.0
 Requires:         R-CRAN-rcmdcheck >= 1.3.3
 Requires:         R-CRAN-sessioninfo >= 1.1.1
@@ -78,6 +78,7 @@ Collection of package development tools.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -85,6 +86,7 @@ Collection of package development tools.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  AMR
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Antimicrobial Resistance Analysis
 
@@ -48,6 +48,7 @@ Laboratory Standards Institute (2014) <isbn: 1-56238-899-1>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -70,7 +71,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/mo_history
 %doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX

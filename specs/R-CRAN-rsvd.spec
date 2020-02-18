@@ -1,9 +1,9 @@
 %global packname  rsvd
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}
 Summary:          Randomized Singular Value Decomposition
 
@@ -31,12 +31,12 @@ as the randomized singular value decomposition (rsvd), randomized
 principal component analysis (rpca), randomized robust principal component
 analysis (rrpca), randomized interpolative decomposition (rid), and the
 randomized CUR decomposition (rcur). In addition several plot functions
-are provided. The methods are discussed in detail by Erichson et al.
-(2016) <arXiv:1608.02148>.
+are provided.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,6 +44,7 @@ are provided. The methods are discussed in detail by Erichson et al.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

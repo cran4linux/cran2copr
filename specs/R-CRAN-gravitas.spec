@@ -1,9 +1,9 @@
 %global packname  gravitas
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Explore Probability Distributions for Bivariate TemporalGranularities
 
@@ -50,15 +50,17 @@ Requires:         R-utils
 
 %description
 Provides tools for systematically exploring large quantities of temporal
-data across different temporal granularities (deconstructions of time) by
-visualizing probability distributions. 'gravitas' computes circular,
-aperiodic, single-order-up or multiple-order-up granularities and advises
-on which combinations of granularities to explore and through which
-distribution plots.
+data across nonlinear temporal granularities (deconstructions of time) by
+visualizing probability distributions. Nonlinear time granularities can be
+circular, quasi-circular or aperiodic. 'gravitas' computes nonlinear
+single-order-up or multiple-order-up granularities, check the feasibility
+of creating plots for any two nonlinear granularities and recommend
+probability distributions plots for exploring periodicity in the data.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -78,6 +80,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/shiny-examples

@@ -1,28 +1,38 @@
-%global packname  poisFErobust
-%global packver   2.0.0
+%global packname  discourseGT
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Poisson Fixed Effects Robust
+Summary:          Analyze Group Patterns using Graph Theory in EducationalSettings
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-glmmML >= 1.0
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-glmmML >= 1.0
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Computation of robust standard errors of Poisson fixed effects models,
-following Wooldridge (1999).
+Analyzes group patterns using discourse analysis data with graph theory
+mathematics. Takes the order of which individuals talk and converts it to
+a network edge and weight list. Returns the density, centrality,
+centralization, and subgroup information for each group. Based on the
+analytical framework laid out in Chai et al. (2019)
+<doi:10.1187/cbe.18-11-0222>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +58,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

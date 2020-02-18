@@ -1,9 +1,9 @@
 %global packname  spant
-%global packver   0.19.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          MR Spectroscopy Analysis Tools
 
@@ -42,6 +42,9 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-oro.dicom 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-lsei 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-plyr 
@@ -70,6 +73,9 @@ Requires:         R-MASS
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-oro.dicom 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-lsei 
 Requires:         R-CRAN-tibble 
 
 %description
@@ -79,6 +85,7 @@ Spectroscopy data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

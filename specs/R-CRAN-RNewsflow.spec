@@ -1,9 +1,9 @@
 %global packname  RNewsflow
-%global packver   1.2.1
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.3
 Release:          1%{?dist}
 Summary:          Tools for Comparing Text Messages Across Time and Media
 
@@ -15,25 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-Matrix >= 1.2
+BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-wordcloud 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-quanteda 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-Matrix >= 1.2
+Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-tm 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-wordcloud 
-Requires:         R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-CRAN-quanteda 
 
@@ -44,6 +44,7 @@ tracing the flow of messages over time and across media.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

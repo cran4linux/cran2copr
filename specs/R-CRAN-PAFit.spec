@@ -1,9 +1,9 @@
 %global packname  PAFit
-%global packver   1.0.1.7
+%global packver   1.0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1.7
+Version:          1.0.1.8
 Release:          1%{?dist}
 Summary:          Generative Mechanism Estimation in Temporal Complex Networks
 
@@ -49,11 +49,13 @@ Requires:         R-methods
 Statistical methods for estimating preferential attachment and node
 fitness generative mechanisms in temporal complex networks are provided.
 Thong Pham et al. (2015) <doi:10.1371/journal.pone.0137796>. Thong Pham et
-al. (2016) <doi:10.1038/srep32558>.
+al. (2016) <doi:10.1038/srep32558>. Thong Pham et al. (2020)
+<doi:10.18637/jss.v092.i03>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

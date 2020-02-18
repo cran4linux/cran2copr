@@ -1,9 +1,9 @@
 %global packname  rerddapXtracto
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}
 Summary:          Extracts Environmental Data from 'ERDDAP' Web Services
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-rerddap >= 0.6.0
 Requires:         R-CRAN-plotdap >= 0.0.5
 Requires:         R-CRAN-abind 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Contains three functions that access environmental data from any 'ERDDAP'
@@ -57,6 +59,7 @@ creation of maps of the data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

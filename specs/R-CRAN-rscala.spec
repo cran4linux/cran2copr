@@ -1,9 +1,9 @@
 %global packname  rscala
-%global packver   3.2.17
+%global packver   3.2.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.17
+Version:          3.2.18
 Release:          1%{?dist}
 Summary:          Bridge Between 'R' and 'Scala' with Callbacks
 
@@ -25,13 +25,15 @@ Requires:         R-utils
 'Scala' <http://www.scala-lang.org/> is embedded in 'R' and callbacks from
 'Scala' to 'R' are available. Support is provided to write 'R' packages
 that access 'Scala'. After installation, please run
-'rscala::scalaConfig()'.
+'rscala::scalaConfig()'.  The vignette provides an update of the original
+paper <doi:10.18637/jss.v092.i04>.
 
 %prep
 %setup -q -c -n %{packname} -a 1 -a 2
 mkdir %{packname}/inst/dependencies
 mv scala* %{packname}/inst/dependencies/scala
 mv sbt* %{packname}/inst/dependencies/sbt
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

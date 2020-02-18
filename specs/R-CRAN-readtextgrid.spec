@@ -1,11 +1,11 @@
-%global packname  fastpos
-%global packver   0.3.0
+%global packname  readtextgrid
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Finds the Critical Sequential Point of Stability for a PearsonCorrelation
+Summary:          Read in a 'Praat' 'TextGrid' File
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,19 +14,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-plyr 
-Requires:         R-MASS 
 
 %description
-Finds the critical sample size ("critical point of stability") for a
-correlation to stabilize in Schoenbrodt and Perugini's definition of
-sequential stability (see <doi:10.1016/j.jrp.2013.05.009>).
+'Praat' is a widely used tool for manipulating, annotating and analyzing
+speech and acoustic data. It stores annotation data in a format called a
+'TextGrid'. This package provides a way to read these files into R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +61,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/Mary_John_bell.TextGrid
+%doc %{rlibdir}/%{packname}/parsing-tests.R
+%{rlibdir}/%{packname}/speaker-data
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  chronosphere
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Earth System History Variables
 
@@ -37,7 +37,7 @@ Paleobiology Database <https://www.paleobiodb.org/> and the PaleoReefs
 Database <https://www.paleo-reefs.pal.uni-erlangen.de/>. Environmental
 data stored on a remote server can be downloaded and imported directly to
 the R environment. Query functions to the GPlates
-<https://www.gplates.org/> desktop application or the GPlates Web Service
+<http://www.gplates.org/> desktop application or the GPlates Web Service
 <https://gws.gplates.org/> allow users to reconstruct coordinates, static
 plates, and Spatial objects. A wrapper class 'RasterArray' is implemented
 around the 'RasterLayer' class, allowing the organization of spatially
@@ -49,6 +49,7 @@ Extinctions).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

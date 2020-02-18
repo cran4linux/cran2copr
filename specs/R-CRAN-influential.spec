@@ -1,37 +1,32 @@
-%global packname  icosa
-%global packver   0.10.0
+%global packname  influential
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Global Triangular and Penta-Hexagonal Grids Based on TessellatedIcosahedra
+Summary:          Identification of the Most Influential Nodes (Hubs)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-igraph 
-Requires:         R-methods 
-Requires:         R-stats 
 
 %description
-Employs triangular tessellation to refine icosahedra defined in 3d space.
-The procedures can be set to provide a grid with a custom resolution. Both
-the primary triangular and their inverted penta- hexagonal grids are
-available for implementation. Additional functions are provided to
-position points (latitude-longitude data) on the grids, to allow 2D and 3D
-plotting, use raster data and shapefiles.
+Contains functions for reconstruction of networks from adjacency matrices
+and data frames, analysis of the topology of the network and calculation
+of centrality measures, and identification of the most influential nodes
+(network hubs). Also, some functions have been provided for the assessment
+of dependence and correlation of two network centrality measures as well
+as the conditional probability of deviation from their corresponding means
+in opposite direction. Fred Viole and David Nawrocki (2013,
+ISBN:1490523995).
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,7 +53,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

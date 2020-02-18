@@ -1,9 +1,9 @@
 %global packname  sitar
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}
 Summary:          Super Imposition by Translation and Rotation Growth CurveAnalysis
 
@@ -16,22 +16,18 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-nlme 
-BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-nlme 
-Requires:         R-splines 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rsample 
 Requires:         R-stats 
@@ -49,6 +45,7 @@ method by Cole et al (2010) <doi:10.1093/ije/dyq115>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

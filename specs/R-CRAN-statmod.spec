@@ -1,9 +1,9 @@
 %global packname  statmod
-%global packver   1.4.33
+%global packver   1.4.34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.33
+Version:          1.4.34
 Release:          1%{?dist}
 Summary:          Statistical Modeling
 
@@ -31,6 +31,7 @@ a secure convergence algorithm.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

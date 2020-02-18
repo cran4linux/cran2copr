@@ -1,13 +1,13 @@
-%global packname  BayesLCA
-%global packver   1.8
+%global packname  PHInfiniteEstimates
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Bayesian Latent Class Analysis
+Summary:          Tools for Inference in the Presence of a Monotone Likelihood
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-MCMCpack 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-fields 
-Requires:         R-nlme 
-Requires:         R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-mlogit 
+BuildRequires:    R-CRAN-coxphf 
+BuildRequires:    R-CRAN-NADA 
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-survival 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-mlogit 
+Requires:         R-CRAN-coxphf 
+Requires:         R-CRAN-NADA 
 
 %description
-Bayesian Latent Class Analysis using several different methods.
+Proportional hazards estimation in the presence of a partially monotone
+likelihood has difficulties, in that finite estimators do not exist.
+These difficulties are related to those arising from logistic and
+multinomial regression.  References for methods are given in the separate
+function documents.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,5 +59,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX

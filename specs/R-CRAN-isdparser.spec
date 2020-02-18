@@ -1,9 +1,9 @@
 %global packname  isdparser
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Parse 'NOAA' Integrated Surface Data Files
 
@@ -17,8 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 1.2
 BuildRequires:    R-CRAN-data.table >= 1.10.0
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-tibble >= 1.2
 Requires:         R-CRAN-data.table >= 1.10.0
+Requires:         R-CRAN-lubridate 
 
 %description
 Tools for parsing 'NOAA' Integrated Surface Data ('ISD') files, described
@@ -32,6 +34,7 @@ tools for parsing entire files, or individual lines of data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -39,6 +42,7 @@ tools for parsing entire files, or individual lines of data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

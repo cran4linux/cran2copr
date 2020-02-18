@@ -1,9 +1,9 @@
 %global packname  geex
-%global packver   1.0.11
+%global packver   1.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.0.12
 Release:          1%{?dist}
 Summary:          An API for M-Estimation
 
@@ -30,12 +30,15 @@ Requires:         R-CRAN-lme4 >= 1.1.12
 Provides a general, flexible framework for estimating parameters and
 empirical sandwich variance estimator from a set of unbiased estimating
 equations (i.e., M-estimation in the vein of Stefanski & Boos (2002)
-<doi:10.1198/000313002753631330>). Also provides an API to compute
+<doi:10.1198/000313002753631330>). All examples from Stefanski & Boos
+(2002) are published in the corresponding Journal of Statistical Software
+paper <doi:10.18637/jss.v092.i02>. Also provides an API to compute
 finite-sample variance corrections.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +46,7 @@ finite-sample variance corrections.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -57,7 +61,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/create_sample_data.R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/logos
+%doc %{rlibdir}/%{packname}/v92i02.pdf
 %{rlibdir}/%{packname}/INDEX

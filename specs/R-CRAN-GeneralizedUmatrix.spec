@@ -1,9 +1,9 @@
 %global packname  GeneralizedUmatrix
-%global packver   1.1.6
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.8
 Release:          1%{?dist}
 Summary:          Credible Visualization for Two-Dimensional Projections of Data
 
@@ -36,6 +36,7 @@ Intelligence" (2018) <DOI:10.1007/978-3-658-20540-9>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

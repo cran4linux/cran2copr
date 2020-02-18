@@ -1,32 +1,36 @@
-%global packname  fastpos
-%global packver   0.3.0
+%global packname  neo2R
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          2.0.0
 Release:          1%{?dist}
-Summary:          Finds the Critical Sequential Point of Stability for a PearsonCorrelation
+Summary:          Neo4j to R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-plyr 
-Requires:         R-MASS 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RCurl 
+Requires:         R-utils 
 
 %description
-Finds the critical sample size ("critical point of stability") for a
-correlation to stabilize in Schoenbrodt and Perugini's definition of
-sequential stability (see <doi:10.1016/j.jrp.2013.05.009>).
+The aim of the neo2R is to provide simple and low level connectors for
+querying neo4j graph databases (<https://neo4j.com/>). The objects
+returned by the query functions are either lists or data.frames with very
+few post-processing. It allows fast processing of queries returning many
+records. And it let the user handle post-processing according to the data
+model and his needs.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,8 +54,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

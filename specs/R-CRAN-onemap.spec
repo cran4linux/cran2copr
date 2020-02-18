@@ -1,9 +1,9 @@
 %global packname  onemap
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}
 Summary:          Construction of Genetic Maps in Experimental Crosses: Full-Sib,RILs, F2 and Backcrosses
 

@@ -1,11 +1,11 @@
-%global packname  wavelets
-%global packver   0.3-0.2
+%global packname  scpm
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0.2
+Version:          2.0.0
 Release:          1%{?dist}
-Summary:          Functions for Computing Wavelet Filters, Wavelet Transforms andMultiresolution Analyses
+Summary:          An R Package for Spatial Smoothing
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,15 +14,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildRequires:    R-stats 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-RandomFields 
+BuildRequires:    R-CRAN-interp 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-MASS 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-Matrix 
+Requires:         R-CRAN-RandomFields 
+Requires:         R-CRAN-interp 
 Requires:         R-methods 
+Requires:         R-CRAN-rgl 
+Requires:         R-lattice 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-MASS 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Contains functions for computing and plotting discrete wavelet transforms
-(DWT) and maximal overlap discrete wavelet transforms (MODWT), as well as
-their inverses. Additionally, it contains functionality for computing and
-plotting wavelet transform filters that are used in the above
-decompositions as well as multiresolution analyses.
+Group of functions for spatial smoothing using cubic splines and variogram
+maximum likelihood estimation. Also allow the inclusion of linear
+parametric terms and change-points for segmented smoothing splines models.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,5 +66,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/COPYRIGHTS
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

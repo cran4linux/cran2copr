@@ -1,9 +1,9 @@
 %global packname  httk
-%global packver   1.10.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          High-Throughput Toxicokinetics
 
@@ -24,6 +24,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-data.table 
@@ -34,6 +36,8 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-utils 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-methods 
 
 %description
 Functions and data tables for simulation and statistical analysis of
@@ -57,6 +61,7 @@ dosimetry (also known as "RTK") (Wetmore et al., 2015
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,6 +69,7 @@ dosimetry (also known as "RTK") (Wetmore et al., 2015
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -77,6 +83,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
