@@ -1,9 +1,9 @@
 %global packname  rdwd
-%global packver   1.2.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.1
 Release:          1%{?dist}
 Summary:          Select and Download Climate Data from 'DWD' (German WeatherService)
 
@@ -31,6 +31,7 @@ sets with 'dataDWD()' and 'readDWD()'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -53,4 +54,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

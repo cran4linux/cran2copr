@@ -1,9 +1,9 @@
 %global packname  statgenSTA
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}
 Summary:          Single Trial Analysis (STA) of Field Trials
 
@@ -24,9 +24,7 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-mapproj 
 BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-qtl 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-ggplot2 >= 3.0
@@ -38,9 +36,7 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-mapproj 
 Requires:         R-CRAN-maps 
-Requires:         R-methods 
 Requires:         R-CRAN-qtl 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-xtable 
 
@@ -56,6 +52,7 @@ obtained upon purchase from 'VSN' international
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

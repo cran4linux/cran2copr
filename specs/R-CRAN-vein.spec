@@ -1,9 +1,9 @@
 %global packname  vein
-%global packver   0.8.5
+%global packver   0.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.7
 Release:          1%{?dist}
 Summary:          Vehicular Emissions Inventories
 
@@ -15,21 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-units 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-eixport 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-units 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-units 
 Requires:         R-methods 
-Requires:         R-CRAN-eixport 
 
 %description
 Elaboration of vehicular emissions inventories, consisting in four stages,
@@ -44,6 +40,7 @@ inventory to create a structure of directories and template scripts.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

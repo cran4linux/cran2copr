@@ -1,32 +1,34 @@
-%global packname  parglm
-%global packver   0.1.4
+%global packname  donut
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Parallel GLM
+Summary:          Nearest Neighbour Search with Variables on a Torus
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-Matrix 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+Requires:         R-graphics 
 
 %description
-Provides a parallel estimation method for generalized linear models
-without compiling with a multithreaded LAPACK or BLAS.
+Finds the k nearest neighbours in a dataset of specified points, adding
+the option to wrap certain variables on a torus.  The user chooses the
+algorithm to use to find the nearest neighbours. Two such algorithms,
+provided by the packages 'RANN' <https://cran.r-project.org/package=RANN>,
+and 'nabor' <https://cran.r-project.org/package=nabor>, are suggested.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,4 +51,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

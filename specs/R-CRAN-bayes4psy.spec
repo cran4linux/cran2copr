@@ -1,9 +1,9 @@
 %global packname  bayes4psy
-%global packver   1.2.0
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          User Friendly Bayesian Data Analysis for Psychology
 
@@ -51,11 +51,14 @@ Requires:         R-utils
 Contains several Bayesian models for data analysis of psychological tests.
 A user friendly interface for these models should enable students and
 researchers to perform professional level Bayesian data analysis without
-advanced knowledge in programming and Bayesian statistics.
+advanced knowledge in programming and Bayesian statistics. This package is
+based on the Stan platform (Carpenter et el. 2017
+<doi:10.18637/jss.v076.i01>).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

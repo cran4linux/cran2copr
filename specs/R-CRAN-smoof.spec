@@ -1,9 +1,9 @@
 %global packname  smoof
-%global packver   1.6.0.1
+%global packver   1.6.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0.1
+Version:          1.6.0.2
 Release:          1%{?dist}
 Summary:          Single and Multi-Objective Optimization Test Functions
 
@@ -45,6 +45,7 @@ convenient functions to generate, plot and work with objective functions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

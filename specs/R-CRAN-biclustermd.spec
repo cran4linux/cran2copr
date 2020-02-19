@@ -1,9 +1,9 @@
 %global packname  biclustermd
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Biclustering with Missing Data
 
@@ -23,7 +23,8 @@ BuildRequires:    R-CRAN-doParallel >= 1.0.14
 BuildRequires:    R-CRAN-nycflights13 >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
-BuildRequires:    R-CRAN-clues >= 0.5.9
+BuildRequires:    R-CRAN-phyclust >= 0.1.24
+BuildRequires:    R-CRAN-clusteval >= 0.1
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-biclust >= 2.0.1
 Requires:         R-CRAN-magrittr >= 1.5
@@ -32,7 +33,8 @@ Requires:         R-CRAN-doParallel >= 1.0.14
 Requires:         R-CRAN-nycflights13 >= 1.0.0
 Requires:         R-CRAN-tidyr >= 0.8.1
 Requires:         R-CRAN-dplyr >= 0.7.6
-Requires:         R-CRAN-clues >= 0.5.9
+Requires:         R-CRAN-phyclust >= 0.1.24
+Requires:         R-CRAN-clusteval >= 0.1
 
 %description
 Biclustering is a statistical learning technique that simultaneously
@@ -47,6 +49,7 @@ with Missing Data. Information Sciences, 510, 304–316.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

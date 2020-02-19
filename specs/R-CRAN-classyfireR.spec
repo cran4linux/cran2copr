@@ -1,9 +1,9 @@
 %global packname  classyfireR
-%global packver   0.3.0
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          R Interface to the ClassyFire RESTful API
 
@@ -46,6 +46,7 @@ classification.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

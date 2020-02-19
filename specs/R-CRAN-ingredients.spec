@@ -1,13 +1,13 @@
 %global packname  ingredients
-%global packver   0.5.0
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0
 Release:          1%{?dist}
 Summary:          Effects and Importances of Model Ingredients
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,17 +18,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DALEX 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-gridExtra 
 Requires:         R-CRAN-DALEX 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-gridExtra 
 
 %description
 Collection of tools for assessment of feature importance and feature
 effects. Key functions are: feature_importance() for assessment of global
 level feature importance, ceteris_paribus() for calculation of the what-if
-plots, partial_dependency() for partial dependency plots,
-conditional_dependency() for conditional dependency plots,
-accumulated_dependency() for accumulated local effects plots,
+plots, partial_dependence() for partial dependence plots,
+conditional_dependence() for conditional dependence plots,
+accumulated_dependence() for accumulated local effects plots,
 aggregate_profiles() and cluster_profiles() for aggregation of ceteris
 paribus profiles, generic print() and plot() for better usability of
 selected explainers, generic plotD3() for interactive, D3 based
@@ -39,6 +41,7 @@ The package 'ingredients' is a part of the 'DrWhy.AI' universe (Biecek
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

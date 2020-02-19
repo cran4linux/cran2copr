@@ -1,9 +1,9 @@
 %global packname  openVA
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}
 Summary:          Automated Method for Verbal Autopsy
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-Tariff >= 1.0.1
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-InterVA4 >= 1.7.3
 Requires:         R-CRAN-InSilicoVA >= 1.1.3
 Requires:         R-CRAN-InterVA5 >= 1.0.1
@@ -29,16 +30,28 @@ Requires:         R-CRAN-Tariff >= 1.0.1
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
+Requires:         R-methods 
 
 %description
 Implements multiple existing open-source algorithms for coding cause of
-death from verbal autopsies. It also provides tools for data manipulation
-tasks commonly used in Verbal Autopsy analysis and implements easy
-graphical visualization of individual and population level statistics.
+death from verbal autopsies. The methods implemented include 'InterVA4' by
+Byass et al (2012) <doi:10.3402/gha.v5i0.19281>, 'InterVA5' by Byass at al
+(2019) <doi:10.1186/s12916-019-1333-6>, 'InSilicoVA' by McCormick et al
+(2016) <doi:10.1080/01621459.2016.1152191>, 'NBC' by Miasnikof et al
+(2015) <doi:10.1186/s12916-015-0521-2>, and a replication of 'Tariff'
+method by James et al (2011) <doi:10.1186/1478-7954-9-31> and Serina, et
+al. (2015) <doi:10.1186/s12916-015-0527-9>. It also provides tools for
+data manipulation tasks commonly used in Verbal Autopsy analysis and
+implements easy graphical visualization of individual and population level
+statistics. Note that this package was not developed by authors affiliated
+with the Institute for Health Metrics and Evaluation and thus
+unintentional discrepancies may exist in the implementation of the
+'Tariff' method.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

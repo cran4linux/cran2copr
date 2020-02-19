@@ -1,9 +1,9 @@
 %global packname  ggroups
-%global packver   1.3.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Pedigree and Genetic Groups
 

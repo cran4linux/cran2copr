@@ -1,9 +1,9 @@
 %global packname  rquery
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}
 Summary:          Relational Query Generator for Data Manipulation at Scale
 
@@ -39,6 +39,7 @@ modeling step, plus explicit query reasoning and checking.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
