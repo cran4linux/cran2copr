@@ -1,9 +1,9 @@
 %global packname  mcompanion
-%global packver   0.5-2
+%global packver   0.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}
 Summary:          Objects and Methods for Multi-Companion Matrices
 
@@ -37,6 +37,7 @@ Iqelan (2009) <doi:10.1111/j.1467-9892.2009.00617.x>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

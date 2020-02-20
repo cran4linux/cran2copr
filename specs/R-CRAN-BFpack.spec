@@ -1,9 +1,9 @@
 %global packname  BFpack
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Flexible Bayes Factor Testing of Scientific Expectations
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-bain 
 BuildRequires:    R-stats 
 BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-pracma 
@@ -25,7 +24,6 @@ BuildRequires:    R-CRAN-lme4
 Requires:         R-CRAN-bain 
 Requires:         R-stats 
 Requires:         R-MASS 
-Requires:         R-CRAN-MCMCpack 
 Requires:         R-Matrix 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-pracma 
@@ -55,6 +53,7 @@ Hoijtink, (2018) <DOI:10.1111/bmsp.12110>, Hoijtink, Gu, and Mulder,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

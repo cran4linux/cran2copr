@@ -1,9 +1,9 @@
 %global packname  dbarts
-%global packver   0.9-13
+%global packver   0.9-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.13
+Version:          0.9.16
 Release:          1%{?dist}
 Summary:          Discrete Bayesian Additive Regression Trees Sampler
 
@@ -27,12 +27,13 @@ Requires:         R-parallel
 Fits Bayesian additive regression trees (BART; Chipman, George, and
 McCulloch (2010) <doi:10.1214/09-AOAS285>) while allowing the updating of
 predictors or response so that BART can be incorporated as a conditional
-model in a Gibbs/MH sampler. Also serves as a drop-in replacement for
-package 'BayesTree'.
+model in a Gibbs/Metropolis-Hastings sampler. Also serves as a drop-in
+replacement for package 'BayesTree'.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

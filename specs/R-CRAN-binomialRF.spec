@@ -1,9 +1,9 @@
 %global packname  binomialRF
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}
 Summary:          Binomial Random Forest Feature Selection
 
@@ -20,18 +20,12 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-correlbinom 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-data.table 
 Requires:         R-stats 
 Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-correlbinom 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rmpfr 
 Requires:         R-methods 
 
 %description
@@ -46,6 +40,7 @@ random chance.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

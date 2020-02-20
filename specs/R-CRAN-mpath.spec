@@ -1,9 +1,9 @@
 %global packname  mpath
-%global packver   0.3-21
+%global packver   0.3-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.21
+Version:          0.3.22
 Release:          1%{?dist}
 Summary:          Regularized Linear Models
 
@@ -43,6 +43,7 @@ Wang et al. (2016) <doi:10.1177/0962280214530608>, Wang (2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

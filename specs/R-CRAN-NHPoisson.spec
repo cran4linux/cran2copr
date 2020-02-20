@@ -1,9 +1,9 @@
 %global packname  NHPoisson
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}
 Summary:          Modelling and Validation of Non Homogeneous Poisson Processes
 
@@ -16,12 +16,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
 BuildRequires:    R-stats4 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-car 
 Requires:         R-methods 
-Requires:         R-parallel 
 Requires:         R-stats4 
+Requires:         R-parallel 
 Requires:         R-CRAN-car 
 
 %description
@@ -31,6 +31,7 @@ non homogeneous Poisson processes in time.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -51,5 +52,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

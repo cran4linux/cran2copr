@@ -1,9 +1,9 @@
 %global packname  aws
-%global packver   2.4-0
+%global packver   2.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.4.1
 Release:          1%{?dist}
 Summary:          Adaptive Weights Smoothing
 
@@ -36,6 +36,7 @@ Series. <doi:10.1007/978-3-030-29184-6_6>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/scripts
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

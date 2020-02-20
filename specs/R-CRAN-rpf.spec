@@ -1,9 +1,9 @@
 %global packname  rpf
-%global packver   0.62
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.62
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Response Probability Functions
 
@@ -14,13 +14,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-lifecycle 
 
 %description
 The purpose of this package is to factor out logic and math common to Item
@@ -32,6 +36,7 @@ R_RegisterCCallable().
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -39,6 +44,7 @@ R_RegisterCCallable().
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  bamlss
-%global packver   1.1-1
+%global packver   1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}
 Summary:          Bayesian Additive Models for Location, Scale, and Shape (andBeyond)
 
@@ -25,6 +25,7 @@ BuildRequires:    R-Matrix
 BuildRequires:    R-survival 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-raster 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-colorspace 
 Requires:         R-mgcv 
@@ -36,6 +37,7 @@ Requires:         R-Matrix
 Requires:         R-survival 
 Requires:         R-methods 
 Requires:         R-parallel 
+Requires:         R-CRAN-raster 
 
 %description
 Infrastructure for estimating probabilistic distributional regression
@@ -50,6 +52,7 @@ Simon, Zeileis (2019) <arXiv:1909.11784>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

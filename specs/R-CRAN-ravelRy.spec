@@ -1,43 +1,44 @@
-%global packname  geomnet
-%global packver   0.2.0
+%global packname  ravelRy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Network Visualization in the 'ggplot2' Framework
+Summary:          An Interface to the 'Ravelry' API
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-BuildRequires:    R-CRAN-sna 
-BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-CRAN-sna 
-Requires:         R-CRAN-network 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-plotly 
 
 %description
-Network visualization in the 'ggplot2' framework. Network functionality is
-provided in a single 'ggplot2' layer by calling the geom 'net'. Layouts
-are calculated using the 'sna' package, example networks are included.
+Provides access to the 'Ravelry' API
+<https://www.ravelry.com/groups/ravelry-api>. An R wrapper for pulling
+data from 'Ravelry.com', an organizational tool for crocheters, knitters,
+spinners, and weavers. You can retrieve pattern, yarn, author, and shop
+information by search or by a given id.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -45,6 +46,7 @@ are calculated using the 'sna' package, example networks are included.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -53,11 +55,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/compare-all.rda
-%doc %{rlibdir}/%{packname}/runtimes-protein.rda
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

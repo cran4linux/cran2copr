@@ -1,9 +1,9 @@
 %global packname  pedgene
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}
 Summary:          Gene-Level Statistics for Pedigree Data
 
@@ -12,27 +12,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kinship2 >= 1.6.0
 BuildRequires:    R-stats 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-CompQuadForm 
 BuildRequires:    R-CRAN-survey 
-Requires:         R-CRAN-kinship2 >= 1.6.0
+BuildRequires:    R-CRAN-kinship2 
 Requires:         R-stats 
 Requires:         R-Matrix 
 Requires:         R-CRAN-CompQuadForm 
 Requires:         R-CRAN-survey 
+Requires:         R-CRAN-kinship2 
 
 %description
 Gene-level association tests with disease status for pedigree data: kernel
-and burden association statistics (2013, <doi: 10.1002/gepi.21727>).
+and burden association statistics.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

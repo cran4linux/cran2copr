@@ -1,9 +1,9 @@
 %global packname  OCNet
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Optimal Channel Networks
 
@@ -36,13 +36,15 @@ Generate and analyze Optimal Channel Networks (OCNs): oriented spanning
 trees reproducing all scaling features characteristic of real, natural
 river networks. As such, they can be used in a variety of numerical
 experiments in the fields of hydrology, ecology and epidemiology. See
-Rinaldo et al. (2014) <doi:10.1073/pnas.1322700111> for an overview on the
-OCN concept; Furrer and Sain (2010) <doi:10.18637/jss.v036.i10> for the
-construct used.
+Carraro et al. (2020) <doi:10.1101/2020.02.17.948851> for a presentation
+of the package; Rinaldo et al. (2014) <doi:10.1073/pnas.1322700111> for a
+theoretical overview on the OCN concept; Furrer and Sain (2010)
+<doi:10.18637/jss.v036.i10> for the construct used.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -62,7 +64,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

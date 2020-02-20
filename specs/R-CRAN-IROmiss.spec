@@ -1,9 +1,9 @@
 %global packname  IROmiss
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Imputation Regularized Optimization Algorithm
 
@@ -35,6 +35,7 @@ Liang, F., Jia, B., Xue, J., Li, Q. and Luo, Y. (2018) at
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

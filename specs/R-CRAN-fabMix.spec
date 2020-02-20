@@ -1,9 +1,9 @@
 %global packname  fabMix
-%global packver   4.6
+%global packver   5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6
+Version:          5.0
 Release:          1%{?dist}
 Summary:          Overfitting Bayesian Mixtures of Factor Analyzers withParsimonious Covariance and Unknown Number of Components
 
@@ -64,6 +64,7 @@ Iliopoulos (2010) <https://www.jstor.org/stable/25703571>, Papastamoulis
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  WVPlots
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}
 Summary:          Common Plots for Analysis
 
@@ -16,10 +16,10 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-BuildRequires:    R-CRAN-wrapr >= 1.9.4
-BuildRequires:    R-CRAN-rquery >= 1.4.1
-BuildRequires:    R-CRAN-rqdatatable >= 1.2.5
-BuildRequires:    R-CRAN-cdata >= 1.1.4
+BuildRequires:    R-CRAN-wrapr >= 1.9.6
+BuildRequires:    R-CRAN-rquery >= 1.4.4
+BuildRequires:    R-CRAN-rqdatatable >= 1.2.7
+BuildRequires:    R-CRAN-cdata >= 1.1.6
 BuildRequires:    R-CRAN-sigr >= 1.0.6
 BuildRequires:    R-utils 
 BuildRequires:    R-grid 
@@ -28,10 +28,10 @@ BuildRequires:    R-graphics
 BuildRequires:    R-mgcv 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-CRAN-wrapr >= 1.9.4
-Requires:         R-CRAN-rquery >= 1.4.1
-Requires:         R-CRAN-rqdatatable >= 1.2.5
-Requires:         R-CRAN-cdata >= 1.1.4
+Requires:         R-CRAN-wrapr >= 1.9.6
+Requires:         R-CRAN-rquery >= 1.4.4
+Requires:         R-CRAN-rqdatatable >= 1.2.7
+Requires:         R-CRAN-cdata >= 1.1.6
 Requires:         R-CRAN-sigr >= 1.0.6
 Requires:         R-utils 
 Requires:         R-grid 
@@ -51,6 +51,7 @@ distribution.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,13 +1,13 @@
 %global packname  grec
-%global packver   1.3.2
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.1
 Release:          1%{?dist}
 Summary:          Gradient-Based Recognition of Spatial Patterns in EnvironmentalData
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -29,6 +29,7 @@ data using image processing methods based on Gradient Recognition.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

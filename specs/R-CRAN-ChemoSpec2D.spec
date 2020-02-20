@@ -1,9 +1,9 @@
 %global packname  ChemoSpec2D
-%global packver   0.3.166
+%global packver   0.4.147
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.166
+Version:          0.4.147
 Release:          1%{?dist}
 Summary:          Exploratory Chemometrics for 2D Spectroscopy
 
@@ -18,9 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ChemoSpecUtils >= 0.3
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-readJDX 
 Requires:         R-CRAN-ChemoSpecUtils >= 0.3
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-readJDX 
 
 %description
 A collection of functions for exploratory chemometrics of 2D spectroscopic
@@ -40,6 +44,7 @@ user friendly.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -47,6 +52,7 @@ user friendly.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

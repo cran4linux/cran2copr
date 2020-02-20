@@ -1,9 +1,9 @@
 %global packname  BCHM
-%global packver   0.96
+%global packver   0.99
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.96
+Version:          0.99
 Release:          1%{?dist}
 Summary:          Clinical Trial Calculation Based on BCHM Design
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-rjags
 BuildRequires:    R-stats 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-clValid 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-plyr 
@@ -27,7 +26,6 @@ Requires:         R-CRAN-rjags
 Requires:         R-stats 
 Requires:         R-cluster 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-clValid 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-plyr 
@@ -46,6 +44,7 @@ similarities between subgroups. To use this package, 'JAGS' software and
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

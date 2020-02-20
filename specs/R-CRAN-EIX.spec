@@ -1,9 +1,9 @@
 %global packname  EIX
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Explain Interactions in 'XGBoost'
 
@@ -45,7 +45,7 @@ Structure mining from 'XGBoost' and 'LightGBM' models. Key functionalities
 of this package cover: visualisation of tree-based ensembles models,
 identification of interactions, measuring of variable importance,
 measuring of interaction importance, explanation of single prediction with
-break down plots (based on 'xgboostExplainer' and 'breakDown' packages).
+break down plots (based on 'xgboostExplainer' and 'iBreakDown' packages).
 To download the 'LightGBM' use the following link:
 <https://github.com/Microsoft/LightGBM>. 'EIX' is a part of the 'DrWhy.AI'
 universe.
@@ -53,6 +53,7 @@ universe.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
