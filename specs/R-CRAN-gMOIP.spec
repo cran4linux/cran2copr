@@ -1,11 +1,11 @@
 %global packname  gMOIP
-%global packver   1.3.0
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.3
 Release:          1%{?dist}
-Summary:          '2D and 3D plots of linear mathematical programming models'
+Summary:          Tools for 2D and 3D Plots of Single and Multi-ObjectiveLinear/Integer Programming Models
 
 License:          GPL (>= 3.3.2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,22 +20,39 @@ BuildRequires:    R-CRAN-geometry
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-MASS 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rgl 
 Requires:         R-MASS 
+Requires:         R-Matrix 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Make 2D and 3D plots of the polytope of a LP, ILP or MILP problem,
-including integer points and iso profit curve. Can also make a plot of the
-bi-objective criterion space.
+Make 2D and 3D plots of linear programming (LP), integer linear
+programming (ILP), or mixed integer linear programming (MILP) models with
+up to three objectives. Plots of both the solution and criterion space are
+possible. For instance the non-dominated (Pareto) set for bi-objective
+LP/ILP/MILP programming models (see vignettes for an overview).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +60,7 @@ bi-objective criterion space.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

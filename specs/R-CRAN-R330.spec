@@ -30,6 +30,7 @@ This is a collection of useful functions and data for Stats 330
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

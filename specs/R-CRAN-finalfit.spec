@@ -1,9 +1,9 @@
 %global packname  finalfit
-%global packver   0.9.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Quickly Create Elegant Regression Results Tables and Plots whenModelling
 
@@ -24,20 +24,16 @@ BuildRequires:    R-CRAN-GGally
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-survival 
-BuildRequires:    R-CRAN-survminer 
-BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-boot 
 Requires:         R-CRAN-broom 
@@ -47,20 +43,16 @@ Requires:         R-CRAN-GGally
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-survival 
-Requires:         R-CRAN-survminer 
-Requires:         R-CRAN-tibble 
 
 %description
 Generate regression results tables and plots in final format for
@@ -70,6 +62,7 @@ publication. Explore models and export directly to PDF and 'Word' using
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

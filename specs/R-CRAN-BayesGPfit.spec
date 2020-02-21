@@ -1,31 +1,33 @@
-%global packname  glcm
-%global packver   1.6.4
+%global packname  BayesGPfit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Calculate Textures from Grey-Level Co-Occurrence Matrices(GLCMs)
+Summary:          Fast Bayesian Gaussian Process Regression Fitting
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-lattice 
+BuildRequires:    R-stats 
+Requires:         R-lattice 
+Requires:         R-stats 
 
 %description
-Enables calculation of image textures (Haralick 1973)
-<doi:10.1109/TSMC.1973.4309314> from grey-level co-occurrence matrices
-(GLCMs). Supports processing images that cannot fit in memory.
+Bayesian inferences on nonparametric regression via Gaussian Processes
+with a modified exponential square kernel using a basis expansion
+approach.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -33,6 +35,7 @@ Enables calculation of image textures (Haralick 1973)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -41,10 +44,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

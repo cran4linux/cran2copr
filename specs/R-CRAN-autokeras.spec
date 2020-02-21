@@ -1,34 +1,36 @@
-%global packname  geobr
-%global packver   1.2
+%global packname  autokeras
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Loads Shapefiles of Official Spatial Data Sets of Brazil
+Summary:          R Interface to 'AutoKeras'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-sf 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-keras 
+Requires:         R-methods 
+Requires:         R-CRAN-reticulate 
+Requires:         R-stats 
 
 %description
-Easy access to official spatial data sets of Brazil as 'sf' objects in R.
-The package includes a wide range of geospatial data available at various
-geographic scales and for various years with harmonized attributes,
-projection and topology.
+R Interface to 'AutoKeras' <https://autokeras.com/>. 'AutoKeras' is an
+open source software library for Automated Machine Learning (AutoML). The
+ultimate goal of AutoML is to provide easily accessible deep learning
+tools to domain experts with limited data science or machine learning
+background. 'AutoKeras' provides functions to automatically search for
+architecture and hyperparameters of deep learning models.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,10 +52,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

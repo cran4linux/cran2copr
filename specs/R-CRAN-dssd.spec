@@ -1,9 +1,9 @@
 %global packname  dssd
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Distance Sampling Survey Design
 
@@ -18,12 +18,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-lwgeom 
 Requires:         R-methods 
 
 %description
@@ -40,6 +38,7 @@ about estimating animal/plant abundance with distance sampling at
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,45 +1,53 @@
-%global packname  dbparser
-%global packver   1.1.0
+%global packname  shinyypr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          'DrugBank' Database XML Parser
+Summary:          Run Ypr Shiny App
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-ypr 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-odbc 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-RMariaDB 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-bsplus 
+BuildRequires:    R-CRAN-waiter 
+Requires:         R-stats 
+Requires:         R-CRAN-chk 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-ypr 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-odbc 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-RMariaDB 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-bsplus 
+Requires:         R-CRAN-waiter 
 
 %description
-This tool is for parsing the 'DrugBank' XML database
-<http://drugbank.ca/>. The parsed data are then returned in a proper 'R'
-dataframe with the ability to save them in a given database.
+A user interface to the 'ypr' R package. 'Ypr' implements
+equilibrium-based yield per recruit methods for estimating the optimal
+yield for a fish population.
 
 %prep
 %setup -q -c -n %{packname}
@@ -66,7 +74,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/app
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX

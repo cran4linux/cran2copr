@@ -1,9 +1,9 @@
 %global packname  ecoengine
-%global packver   1.11.0
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.0
+Version:          1.12.0
 Release:          1%{?dist}
 Summary:          Programmatic Interface to the Web Service Methods Provided by UCBerkeley's Natural History Data
 
@@ -16,23 +16,25 @@ BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr >= 0.3
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-whisker 
 Requires:         R-CRAN-httr >= 0.3
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-whisker 
 
 %description
 The ecoengine ('ecoengine'; <https://ecoengine.berkeley.edu/>). provides
@@ -42,6 +44,7 @@ University of California, Berkeley's Natural History Museums.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,6 +52,7 @@ University of California, Berkeley's Natural History Museums.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

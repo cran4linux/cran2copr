@@ -1,9 +1,9 @@
 %global packname  mpath
-%global packver   0.3-22
+%global packver   0.3-23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.22
+Version:          0.3.23
 Release:          1%{?dist}
 Summary:          Regularized Linear Models
 
@@ -16,14 +16,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-methods 
 BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-bst 
 Requires:         R-methods 
 Requires:         R-MASS 
-Requires:         R-CRAN-pscl 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
@@ -60,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS

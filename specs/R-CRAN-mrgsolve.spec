@@ -1,9 +1,9 @@
 %global packname  mrgsolve
-%global packver   0.10.0
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.10.1
 Release:          1%{?dist}
 Summary:          Simulate from ODE-Based Models
 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-rlang >= 0.3.4
 BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-dplyr >= 0.8.1
@@ -31,6 +33,8 @@ Requires:         R-CRAN-rlang >= 0.3.4
 Requires:         R-CRAN-tidyselect >= 0.2.5
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-glue 
 
 %description
 Fast simulation from ordinary differential equation (ODE) based models

@@ -1,9 +1,9 @@
 %global packname  NeuralSens
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Sensitivity Analysis of Neural Networks
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-fastDummies
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-NeuralNetTools 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-fastDummies
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-scales 
 
 %description
 Analysis functions to quantify inputs importance in neural network models.
@@ -45,6 +47,7 @@ in each training data point.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

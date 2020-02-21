@@ -1,9 +1,9 @@
 %global packname  antaresEditObject
-%global packver   0.1.7
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.9
 Release:          1%{?dist}
 Summary:          Edit an 'Antares' Simulation
 
@@ -36,6 +36,7 @@ power system generator, more information available here :
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +44,7 @@ power system generator, more information available here :
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -56,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/newStudy
 %doc %{rlibdir}/%{packname}/template-antares
 %{rlibdir}/%{packname}/INDEX

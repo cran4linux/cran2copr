@@ -1,32 +1,37 @@
-%global packname  rareGE
-%global packver   0.1
+%global packname  L1mstate
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Testing Gene-Environment Interaction for Rare Genetic Variants
+Summary:          L1-Regularized Multi-State Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-Matrix >= 1.2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-MASS 
-BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-mstate 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-Matrix >= 1.2.10
+Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-MASS 
-Requires:         R-nlme 
-Requires:         R-CRAN-survey 
+Requires:         R-CRAN-mstate 
+Requires:         R-CRAN-colorspace 
 
 %description
-Tests gene-environment interaction for rare genetic variants using
-Sequence Kernel Association Test (SKAT) type gene-based tests. Includes
-two tests for the interaction term only, and one joint test for genetic
-main effects and gene-environment interaction.
+Fitting the regularization path of the L1-regularized multi-state models
+since they can exploit sparsity structure of input. Different tuning
+regularization parameter methods are provided. The cumulative hazard rate
+estimation and the transition probability predictions can be made from the
+fitted models.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,8 +53,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

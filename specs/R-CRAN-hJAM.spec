@@ -1,34 +1,37 @@
-%global packname  geobr
-%global packver   1.2
+%global packname  hJAM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Loads Shapefiles of Official Spatial Data Sets of Brazil
+Summary:          Hierarchical Joint Analysis of Marginal Summary Statistics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-sf 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-reshape2 
 
 %description
-Easy access to official spatial data sets of Brazil as 'sf' objects in R.
-The package includes a wide range of geospatial data available at various
-geographic scales and for various years with harmonized attributes,
-projection and topology.
+Provides functions to implement a hierarchical approach which is designed
+to perform joint analysis of summary statistics using the framework of
+Mendelian Randomization or transcriptome analysis. Reference: Lai Jiang,
+Shujing Xu, Nicholas Mancuso, Paul J. Newcombe, David V. Conti (2020). "A
+Hierarchical Approach Using Marginal Summary Statistics for Multiple
+Intermediates in a Mendelian Randomization or Transcriptome Analysis."
+<bioRxiv><doi:10.1101/2020.02.03.924241>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,39 @@
-%global packname  link2GI
-%global packver   0.4.1
+%global packname  mvrsquared
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.0.3
 Release:          1%{?dist}
-Summary:          Linking Geographic Information Systems, Remote Sensing and OtherCommand Line Tools
+Summary:          Compute the Coefficient of Determination for Vector or MatrixOutcomes
 
-License:          GPL (>= 3) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    make
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-roxygen2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-roxygen2 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
 
 %description
-Functions to simplify the linking of open source GIS and remote sensing
-related command line interfaces.
+Compute the coefficient of determination for outcomes in n-dimensions. May
+be useful for multidimensional predictions (such as a multinomial model)
+or calculating goodness of fit from latent variable models such as
+probabilistic topic models like latent Dirichlet allocation or
+deterministic topic models like latent semantic analysis. Based on Jones
+(2019) <arXiv:1911.11061>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -52,12 +50,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

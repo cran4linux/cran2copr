@@ -1,9 +1,9 @@
 %global packname  marelac
-%global packver   2.1.9
+%global packver   2.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.9
+Version:          2.1.10
 Release:          1%{?dist}
 Summary:          Tools for Aquatic Sciences
 
@@ -36,6 +36,7 @@ a Gibbs function.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +44,7 @@ a Gibbs function.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  xwf
-%global packver   0.2-2
+%global packver   0.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Extrema-Weighted Feature Extraction
 
@@ -22,12 +22,13 @@ Requires:         R-mgcv
 Extrema-weighted feature extraction for varying length functional data.
 Functional data analysis method that performs dimensionality reduction
 based on predefined features and allows for quantile weighting. Method
-implemented as presented in Van den Boom et al. (2018)
+implemented as presented in van den Boom et al. (2018)
 <doi:10.1093/bioinformatics/bty120>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

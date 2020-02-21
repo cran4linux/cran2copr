@@ -1,9 +1,9 @@
 %global packname  meta
-%global packver   4.10-0
+%global packver   4.11-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.10.0
+Version:          4.11.0
 Release:          1%{?dist}
 Summary:          General Package for Meta-Analysis
 
@@ -39,6 +39,7 @@ produce forest plot summarising several (subgroup) meta-analyses.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

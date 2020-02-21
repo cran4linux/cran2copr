@@ -1,33 +1,37 @@
-%global packname  belg
-%global packver   1.0.1
+%global packname  stlnpp
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.3.5
 Release:          1%{?dist}
-Summary:          Boltzmann Entropy of a Landscape Gradient
+Summary:          Spatio-Temporal Analysis of Point Patterns on Linear Networks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-spatstat >= 1.61.0
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-spatstat >= 1.61.0
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Calculates the Boltzmann entropy of a landscape gradient. This package
-uses the analytical method created by Gao, P., Zhang, H. and Li, Z., 2018
-(<doi:10.1111/tgis.12315>) and by Gao, P. and Li, Z., 2019
-(<doi:10.1007/s10980-019-00854-3>). It also extend the original ideas by
-allowing calculations on data with missing values.
+Statistical analysis of spatio-temporal point processes on linear
+networks. This packages provides tools to visualise and analyse
+spatio-temporal point patterns on linear networks using first- and
+second-order summary statistics.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,11 +50,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

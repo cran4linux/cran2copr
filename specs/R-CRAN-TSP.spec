@@ -1,9 +1,9 @@
 %global packname  TSP
-%global packver   1.1-8
+%global packver   1.1-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.1.9
 Release:          1%{?dist}
 Summary:          Traveling Salesperson Problem (TSP)
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-utils 
@@ -36,6 +36,7 @@ separately.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

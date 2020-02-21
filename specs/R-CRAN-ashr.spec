@@ -1,9 +1,9 @@
 %global packname  ashr
-%global packver   2.2-40
+%global packver   2.2-47
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.40
+Version:          2.2.47
 Release:          1%{?dist}
 Summary:          Methods for Adaptive Shrinkage, using Empirical Bayes
 
@@ -18,26 +18,20 @@ BuildRequires:    R-CRAN-Rcpp >= 0.10.5
 BuildRequires:    R-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-mixsqp 
 BuildRequires:    R-CRAN-SQUAREM 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-pscl 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-etrunct 
+BuildRequires:    R-CRAN-invgamma 
 Requires:         R-CRAN-Rcpp >= 0.10.5
 Requires:         R-Matrix 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-mixsqp 
 Requires:         R-CRAN-SQUAREM 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-pscl 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-etrunct 
+Requires:         R-CRAN-invgamma 
 
 %description
 The R package 'ashr' implements an Empirical Bayes approach for
@@ -49,13 +43,14 @@ standard errors---are available, just as 'qvalue' can be applied to
 previously computed p-values. Two main interfaces are provided: ash(),
 which is more user-friendly; and ash.workhorse(), which has more options
 and is geared toward advanced users. The ash() and ash.workhorse() also
-provides a flexible modeling interface that can accomodate a variety of
+provides a flexible modeling interface that can accommodate a variety of
 likelihoods (e.g., normal, Poisson) and mixture priors (e.g., uniform,
 normal).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

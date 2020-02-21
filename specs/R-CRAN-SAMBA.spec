@@ -1,11 +1,11 @@
-%global packname  rareGE
-%global packver   0.1
+%global packname  SAMBA
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.9.0
 Release:          1%{?dist}
-Summary:          Testing Gene-Environment Interaction for Rare Genetic Variants
+Summary:          Selection and Misclassification Bias Adjustment for LogisticRegression Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,18 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-MASS 
-BuildRequires:    R-nlme 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-survey 
-Requires:         R-MASS 
-Requires:         R-nlme 
+Requires:         R-stats 
+Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-survey 
 
 %description
-Tests gene-environment interaction for rare genetic variants using
-Sequence Kernel Association Test (SKAT) type gene-based tests. Includes
-two tests for the interaction term only, and one joint test for genetic
-main effects and gene-environment interaction.
+Health research using data from electronic health records (EHR) has gained
+popularity, but misclassification of EHR-derived disease status and lack
+of representativeness of the study sample can result in substantial bias
+in effect estimates and can impact power and type I error for association
+tests. Here, the assumed target of inference is the relationship between
+binary disease status and predictors modeled using a logistic regression
+model. 'SAMBA' implements several methods for obtaining bias-corrected
+point estimates along with valid standard errors as proposed in Beesley
+and Mukherjee (2020) <doi:10.1101/2019.12.26.19015859>, currently under
+review.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,5 +57,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

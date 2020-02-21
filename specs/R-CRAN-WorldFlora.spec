@@ -1,9 +1,9 @@
 %global packname  WorldFlora
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Standardize Plant Names According to World Flora OnlineTaxonomic Backbone
 
@@ -29,6 +29,7 @@ become static since 2013.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

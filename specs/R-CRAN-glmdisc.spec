@@ -1,9 +1,9 @@
 %global packname  glmdisc
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}
 Summary:          Discretization and Grouping for Logistic Regression
 
@@ -46,6 +46,7 @@ K. (1970) <doi:10.1093/biomet/57.1.97>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

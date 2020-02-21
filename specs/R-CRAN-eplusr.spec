@@ -1,9 +1,9 @@
 %global packname  eplusr
-%global packver   0.11.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.12.0
 Release:          1%{?dist}
 Summary:          A Toolkit for Using Whole Building Simulation Program'EnergyPlus'
 
@@ -19,24 +19,24 @@ BuildRequires:    R-CRAN-processx >= 3.2.0
 BuildRequires:    R-CRAN-callr >= 2.0.4
 BuildRequires:    R-CRAN-data.table >= 1.9.8
 BuildRequires:    R-CRAN-progress >= 1.2.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-processx >= 3.2.0
 Requires:         R-CRAN-callr >= 2.0.4
 Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-progress >= 1.2.0
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-units 
 
@@ -49,6 +49,7 @@ to do parametric simulations and analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

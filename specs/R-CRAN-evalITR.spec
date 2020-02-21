@@ -1,13 +1,13 @@
-%global packname  geobr
-%global packver   1.2
+%global packname  evalITR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Loads Shapefiles of Official Spatial Data Sets of Brazil
+Summary:          Evaluating Individualized Treatment Rules
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-sf 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Easy access to official spatial data sets of Brazil as 'sf' objects in R.
-The package includes a wide range of geospatial data available at various
-geographic scales and for various years with harmonized attributes,
-projection and topology.
+A collection of statistical methods for evaluating individualized
+treatment rules under randomized data. The provided metrics include PAV
+(Population Average Value), PAPE (Population Average Prescription Effect),
+and AUPEC (Area Under Prescription Effect Curve). It also provides the
+tools to analyze individualized treatment rules under budget constraints.
+Imai and Li (2019) <arXiv:1905.05389>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,10 +46,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

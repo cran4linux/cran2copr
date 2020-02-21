@@ -1,13 +1,13 @@
 %global packname  modelStudio
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}
-Summary:          Interactive Studio with Explanations for ML Predictive Models
+Summary:          Interactive Studio for Explanatory Model Analysis
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,28 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-iBreakDown >= 0.9.9
-BuildRequires:    R-CRAN-ingredients >= 0.5
+BuildRequires:    R-CRAN-iBreakDown >= 1.0
+BuildRequires:    R-CRAN-ingredients >= 1.0
 BuildRequires:    R-CRAN-r2d3 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-iBreakDown >= 0.9.9
-Requires:         R-CRAN-ingredients >= 0.5
+Requires:         R-CRAN-iBreakDown >= 1.0
+Requires:         R-CRAN-ingredients >= 1.0
 Requires:         R-CRAN-r2d3 
 Requires:         R-CRAN-jsonlite 
 
 %description
-Automate explanation of machine learning predictive models. This package
-generates advanced interactive and animated model explanations in the form
-of a serverless HTML site. It combines 'R' with 'D3.js' to produce plots
-and descriptions for various local and global explanations. Tools for
-model exploration unite with tools for EDA (Exploratory Data Analysis) to
-give a broad overview of the model behaviour. 'modelStudio' is a fast and
-condensed way to get all the answers without much effort. Break down your
-model and look into its ingredients with only a few lines of code.
+Automate the explanatory analysis of machine learning predictive models.
+This package generates advanced interactive and animated model
+explanations in the form of a serverless HTML site with only one line of
+code. The main function computes various (instance and dataset level)
+model explanations and produces an interactive, customisable dashboard
+made with 'D3.js'. It consists of multiple panels for plots with their
+short descriptions. Easily save and share the dashboard with others. Tools
+for model exploration unite with tools for EDA (Exploratory Data Analysis)
+to give a broad overview of the model behavior.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

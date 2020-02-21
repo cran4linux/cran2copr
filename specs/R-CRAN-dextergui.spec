@@ -1,9 +1,9 @@
 %global packname  dextergui
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          A Graphical User Interface for Dexter
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-shiny >= 1.3.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.3
 BuildRequires:    R-CRAN-readxl >= 1.1
-BuildRequires:    R-CRAN-dexter >= 1.0.0
+BuildRequires:    R-CRAN-dexter >= 1.0.2
 BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-shinyjs >= 1.0
 BuildRequires:    R-CRAN-writexl >= 1.0
@@ -51,7 +51,7 @@ Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-shiny >= 1.3.0
 Requires:         R-CRAN-htmlwidgets >= 1.3
 Requires:         R-CRAN-readxl >= 1.1
-Requires:         R-CRAN-dexter >= 1.0.0
+Requires:         R-CRAN-dexter >= 1.0.2
 Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-shinyjs >= 1.0
 Requires:         R-CRAN-writexl >= 1.0
@@ -79,6 +79,7 @@ management for educational and psychological tests.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

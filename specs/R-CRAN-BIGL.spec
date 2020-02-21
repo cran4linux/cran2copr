@@ -1,9 +1,9 @@
 %global packname  BIGL
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}
 Summary:          Biochemically Intuitive Generalized Loewe Model
 
@@ -51,6 +51,7 @@ Rytis Bagdziunas, Olivier Thas, Maxim Nazarov, Heather Turner, Bie Verbist
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

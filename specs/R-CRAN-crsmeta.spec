@@ -1,24 +1,32 @@
-%global packname  rangemodelR
-%global packver   1.0.4
+%global packname  crsmeta
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.7
 Release:          1%{?dist}
-Summary:          Mid-Domain Effect and Species Richness
+Summary:          Extract Coordinate System Metadata
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Generates expected values of species richness, with continuous or
-scattered ranges, for data across one or two dimensions.
+Obtain coordinate system metadata from various data formats. There are
+functions to extract a 'CRS' (coordinate reference system,
+<https://en.wikipedia.org/wiki/Spatial_reference_system>) in 'EPSG'
+(European Petroleum Survey Group, <http://www.epsg.org/>), 'PROJ4'
+<https://proj.org/>, or 'WKT2' (Well-Known Text 2,
+<http://docs.opengeospatial.org/is/12-063r5/12-063r5.html>) forms. This is
+purely for getting simple metadata from in-memory formats, please use
+other tools for out of memory data sources.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,4 +52,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

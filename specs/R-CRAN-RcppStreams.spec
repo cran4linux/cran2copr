@@ -27,6 +27,7 @@ convenient framework for stream processing. This package connects
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

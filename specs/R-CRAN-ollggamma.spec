@@ -1,31 +1,30 @@
-%global packname  SpatialAcc
-%global packver   0.1-3
+%global packname  ollggamma
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Spatial Accessibility Measures
+Summary:          Odd Log-Logistic Generalized Gamma Probability Distribution
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 
 %description
-Provides a set of spatial accessibility measures from a set of locations
-(demand) to another set of locations (supply). It aims, among others, to
-support research on spatial accessibility to health care facilities.
-Includes the locations and some characteristics of major public hospitals
-in Greece.
+Density, distribution function, quantile function and random generation
+for the Odd Log-Logistic Generalized Gamma proposed in Prataviera, F. et
+al (2017) <doi:10.1080/00949655.2016.1238088>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,8 +41,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

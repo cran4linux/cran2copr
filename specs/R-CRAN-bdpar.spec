@@ -1,9 +1,9 @@
 %global packname  bdpar
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Big Data Preprocessing Architecture
 
@@ -16,22 +16,18 @@ Requires:         python2
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ini 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pipeR 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-svMisc 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ini 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pipeR 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-svMisc 
 Requires:         R-tools 
 Requires:         R-utils 
 
@@ -47,6 +43,7 @@ most relevant information (tokens, dates, ... ) from some textual sources
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -63,12 +60,13 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %doc %{rlibdir}/%{packname}/exec
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/configurations
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
+%doc %{rlibdir}/%{packname}/example
+%doc %{rlibdir}/%{packname}/resources
 %{rlibdir}/%{packname}/INDEX
