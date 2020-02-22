@@ -1,27 +1,36 @@
-%global packname  Rcsdp
-%global packver   0.1.56
+%global packname  Kurt
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.56
+Version:          1.0
 Release:          1%{?dist}
-Summary:          R Interface to the CSDP Semidefinite Programming Library
+Summary:          Performs Kurtosis-Based Statistical Analyses
 
-License:          CPL-1.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-polynom >= 1.4.0
+BuildRequires:    R-CRAN-labstatR >= 1.0.9
+BuildRequires:    R-CRAN-matrixcalc >= 1.0.3
+BuildRequires:    R-CRAN-expm >= 0.999.4
+Requires:         R-CRAN-polynom >= 1.4.0
+Requires:         R-CRAN-labstatR >= 1.0.9
+Requires:         R-CRAN-matrixcalc >= 1.0.3
+Requires:         R-CRAN-expm >= 0.999.4
 
 %description
-R interface to the CSDP semidefinite programming library. Installs version
-6.1.1 of CSDP from the COIN-OR website if required. An existing
-installation of CSDP may be used by passing the proper configure arguments
-to the installation command. See the INSTALL file for further details.
+Computes measures of multivariate kurtosis, matrices of fourth-order
+moments and cumulants, kurtosis-based projection pursuit. Franceschini, C.
+and Loperfido, N. (2018, ISBN:978-3-319-73905-2). "An Algorithm for
+Finding Projections with Extreme Kurtosis". Loperfido, N.
+(2017,ISSN:0024-3795). "A New Kurtosis Matrix, with Statistical
+Applications".
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,8 +54,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/INSTALL
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

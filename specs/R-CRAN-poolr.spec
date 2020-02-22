@@ -1,40 +1,39 @@
-%global packname  GofKmt
-%global packver   2.1.1
+%global packname  poolr
+%global packver   0.8-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.8.2
 Release:          1%{?dist}
-Summary:          Khmaladze Martingale Transformation Goodness-of-Fit Test
+Summary:          Methods for Pooling P-Values from (Dependent) Tests
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-ggplot2 
+BuildArch:        noarch
+BuildRequires:    R-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-ggplot2 
+Requires:         R-Matrix 
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-Rsolnp 
 
 %description
-Consider a goodness-of-fit(GOF) problem of testing whether a random sample
-comes from one sample location-scale model where location and scale
-parameters are unknown. It is well known that Khmaladze martingale
-transformation method - which was proposed by Khmaladze (1981)
-<DOI:10.1137/1126027> - provides asymptotic distribution free test for the
-GOF problem. This package contains one function: KhmaladzeTrans(). In this
-version, KhmaladzeTrans() provides test statistic and critical value of
-GOF test for normal, Cauchy, logistic, Gamma, and Weibull distributions.
+Functions for pooling/combining the results (i.e., p-values) from
+(dependent) hypothesis tests. Included are Fisher's method, Stouffer's
+method, the inverse chi-square method, the Bonferroni method, Tippett's
+method, and the binomial test. Each method can be adjusted based on an
+estimate of the effective number of tests or using empirically derived
+null distribution using pseudo replicates. For Fisher's, Stouffer's, and
+the inverse chi-square method, direct generalizations based on
+multivariate theory are also available (leading to Brown's method,
+Strube's method, and the generalized inverse chi-square method).
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,6 +58,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

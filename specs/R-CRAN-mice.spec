@@ -1,9 +1,9 @@
 %global packname  mice
-%global packver   3.7.0
+%global packver   3.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.0
+Version:          3.8.0
 Release:          1%{?dist}
 Summary:          Multivariate Imputation by Chained Equations
 
@@ -14,39 +14,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
-BuildRequires:    R-methods 
-BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-mitml 
-BuildRequires:    R-nnet 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-rpart 
-BuildRequires:    R-splines 
+BuildRequires:    R-lattice 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-lattice 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-MASS 
-Requires:         R-CRAN-mitml 
-Requires:         R-nnet 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-rpart 
-Requires:         R-splines 
+Requires:         R-lattice 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-survival 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
@@ -65,6 +48,7 @@ imputations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

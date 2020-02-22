@@ -1,9 +1,9 @@
 %global packname  oce
-%global packver   1.1-1
+%global packver   1.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Analysis of Oceanographic Data
 
@@ -14,15 +14,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.15
 Requires:         R-core >= 2.15
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-gsw 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-gsw 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-utils 
+Requires:         R-CRAN-gsw 
 Requires:         R-methods 
 Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-gsw 
+Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
 
 %description
@@ -39,6 +39,7 @@ Kelley's book Oceanographic Analysis with R, published in 2018 by
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,6 +47,7 @@ Kelley's book Oceanographic Analysis with R, published in 2018 by
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

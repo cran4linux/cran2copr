@@ -1,9 +1,9 @@
 %global packname  rddapp
-%global packver   1.1.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Regression Discontinuity Design Application
 
@@ -17,14 +17,18 @@ Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R.utils >= 2.6.0
 BuildRequires:    R-CRAN-sandwich >= 2.3.4
+BuildRequires:    R-CRAN-sp >= 1.3.1
 BuildRequires:    R-CRAN-AER >= 1.2.5
 BuildRequires:    R-CRAN-Formula >= 1.2.1
+BuildRequires:    R-CRAN-plot3D >= 1.1
 BuildRequires:    R-CRAN-lmtest >= 0.9.35
 BuildRequires:    R-CRAN-shiny >= 0.14
 Requires:         R-CRAN-R.utils >= 2.6.0
 Requires:         R-CRAN-sandwich >= 2.3.4
+Requires:         R-CRAN-sp >= 1.3.1
 Requires:         R-CRAN-AER >= 1.2.5
 Requires:         R-CRAN-Formula >= 1.2.1
+Requires:         R-CRAN-plot3D >= 1.1
 Requires:         R-CRAN-lmtest >= 0.9.35
 Requires:         R-CRAN-shiny >= 0.14
 
@@ -40,6 +44,7 @@ Campbell, D. T. (1960) <doi:10.1037/h0044319> and Lee, D. S., Lemieux, T.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

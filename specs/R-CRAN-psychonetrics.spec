@@ -1,9 +1,9 @@
 %global packname  psychonetrics
-%global packver   0.5.1
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6
 Release:          1%{?dist}
 Summary:          Structural Equation Modeling and Confirmatory Network Analysis
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp >= 0.11.3
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-numDeriv 
@@ -36,8 +35,9 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pbv 
 BuildRequires:    R-CRAN-IsingSampler 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-crayon 
 Requires:         R-methods 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-numDeriv 
@@ -58,6 +58,8 @@ Requires:         R-parallel
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pbv 
 Requires:         R-CRAN-IsingSampler 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
 
 %description
 Multi-group (dynamical) structural equation models in combination with
@@ -68,6 +70,7 @@ as well as exploratory model search.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

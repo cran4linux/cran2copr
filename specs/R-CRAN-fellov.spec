@@ -1,29 +1,23 @@
-%global packname  nimbleEcology
-%global packver   0.2.0
+%global packname  fellov
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1
 Release:          1%{?dist}
-Summary:          Distributions for Ecological Models in 'nimble'
+Summary:          Feasible Ellipse Overlap
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble 
-Requires:         R-CRAN-nimble 
 
 %description
-Common ecological distributions for 'nimble' models in the form of
-nimbleFunction objects. Includes Cormack-Jolly-Seber, occupancy, dynamic
-occupancy, hidden Markov, and dynamic hidden Markov models. (Jolly (1965)
-<doi:10.2307/2333826>, Seber (1965) <10.2307/2333827>, Turek et al. (2016)
-<doi:10.1007/s10651-016-0353-z>).
+A small package for determining if n-dimensional ellipses overlap.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,5 +42,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

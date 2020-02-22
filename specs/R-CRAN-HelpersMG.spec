@@ -1,9 +1,9 @@
 %global packname  HelpersMG
-%global packver   3.9
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9
+Version:          4.0
 Release:          1%{?dist}
 Summary:          Tools for Environmental Analyses, Ecotoxicology and Various RFunctions
 
@@ -33,6 +33,7 @@ content, read the contents of all files from a folder at one time.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  doBy
-%global packver   4.6-4.1
+%global packver   4.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.4.1
+Version:          4.6.5
 Release:          1%{?dist}
 Summary:          Groupwise Statistics, LSmeans, Linear Contrasts, Utilities
 
@@ -12,10 +12,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pbkrtest >= 0.4.6
+BuildRequires:    R-CRAN-pbkrtest >= 0.4.8.1
 BuildRequires:    R-methods 
 BuildRequires:    R-MASS 
 BuildRequires:    R-Matrix 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-broom 
-Requires:         R-CRAN-pbkrtest >= 0.4.6
+Requires:         R-CRAN-pbkrtest >= 0.4.8.1
 Requires:         R-methods 
 Requires:         R-MASS 
 Requires:         R-Matrix 
@@ -44,6 +44,7 @@ general linear contrasts. 3) Miscellaneous other utilities.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

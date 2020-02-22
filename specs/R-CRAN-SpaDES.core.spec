@@ -1,9 +1,9 @@
 %global packname  SpaDES.core
-%global packver   0.2.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Core Utilities for Developing and Running Spatially ExplicitDiscrete Event Models
 
@@ -18,22 +18,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-raster >= 2.5.8
 BuildRequires:    R-CRAN-R.utils >= 2.5.0
 BuildRequires:    R-CRAN-lubridate >= 1.3.3
-BuildRequires:    R-CRAN-httr >= 1.2.1
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-stringi >= 1.1.3
 BuildRequires:    R-CRAN-igraph >= 1.0.1
-BuildRequires:    R-CRAN-DiagrammeR >= 0.8.2
+BuildRequires:    R-CRAN-reproducible >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.5.0
-BuildRequires:    R-CRAN-reproducible >= 0.2.11
 BuildRequires:    R-CRAN-fpCompare >= 0.2.1
 BuildRequires:    R-CRAN-quickPlot >= 0.1.4
 BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-codetools 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-fastdigest 
-BuildRequires:    R-CRAN-future 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-tools 
@@ -42,22 +39,19 @@ BuildRequires:    R-CRAN-whisker
 Requires:         R-CRAN-raster >= 2.5.8
 Requires:         R-CRAN-R.utils >= 2.5.0
 Requires:         R-CRAN-lubridate >= 1.3.3
-Requires:         R-CRAN-httr >= 1.2.1
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-stringi >= 1.1.3
 Requires:         R-CRAN-igraph >= 1.0.1
-Requires:         R-CRAN-DiagrammeR >= 0.8.2
+Requires:         R-CRAN-reproducible >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.5.0
-Requires:         R-CRAN-reproducible >= 0.2.11
 Requires:         R-CRAN-fpCompare >= 0.2.1
 Requires:         R-CRAN-quickPlot >= 0.1.4
 Requires:         R-CRAN-backports 
-Requires:         R-codetools 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-fastdigest 
-Requires:         R-CRAN-future 
 Requires:         R-methods 
 Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-tcltk 
 Requires:         R-tools 
@@ -77,6 +71,7 @@ visualizing and understanding the DES project.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

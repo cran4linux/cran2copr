@@ -1,9 +1,9 @@
 %global packname  slouch
-%global packver   2.1.2
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.4
 Release:          1%{?dist}
 Summary:          Stochastic Linear Ornstein-Uhlenbeck Comparative Hypotheses
 
@@ -17,11 +17,13 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-base 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-memoise 
 Requires:         R-base 
 Requires:         R-stats 
+Requires:         R-CRAN-crayon 
 Requires:         R-parallel 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-memoise 
@@ -32,12 +34,13 @@ univariate among-species Ornstein-Uhlenbeck models of phenotypic trait
 evolution, where the trait evolves towards a primary optimum. The optimum
 can be modelled as a single parameter, as multiple discrete regimes on the
 phylogenetic tree, and/or with continuous covariates. See also Hansen
-(1997) doi:10.2307/2411186, Butler & King (2004) doi:10.1086/426002,
-Hansen et al. (2008) doi:10.1111/j.1558-5646.2008.00412.x.
+(1997) <doi:10.2307/2411186>, Butler & King (2004) <doi:10.1086/426002>,
+Hansen et al. (2008) <doi:10.1111/j.1558-5646.2008.00412.x>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

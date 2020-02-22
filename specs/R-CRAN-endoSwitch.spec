@@ -1,29 +1,33 @@
-%global packname  nimbleEcology
-%global packver   0.2.0
+%global packname  endoSwitch
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Distributions for Ecological Models in 'nimble'
+Summary:          Endogenous Switching Regression Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble 
-Requires:         R-CRAN-nimble 
+BuildRequires:    R-stats >= 3.6.1
+BuildRequires:    R-CRAN-msm >= 1.6.7
+BuildRequires:    R-CRAN-maxLik >= 1.3.6
+BuildRequires:    R-CRAN-data.table >= 1.12.2
+Requires:         R-stats >= 3.6.1
+Requires:         R-CRAN-msm >= 1.6.7
+Requires:         R-CRAN-maxLik >= 1.3.6
+Requires:         R-CRAN-data.table >= 1.12.2
 
 %description
-Common ecological distributions for 'nimble' models in the form of
-nimbleFunction objects. Includes Cormack-Jolly-Seber, occupancy, dynamic
-occupancy, hidden Markov, and dynamic hidden Markov models. (Jolly (1965)
-<doi:10.2307/2333826>, Seber (1965) <10.2307/2333827>, Turek et al. (2016)
-<doi:10.1007/s10651-016-0353-z>).
+Maximum likelihood estimation of endogenous switching regression models
+from Heckman (1979) <doi:10.2307/1912352> and estimation of treatment
+effects.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,8 +49,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

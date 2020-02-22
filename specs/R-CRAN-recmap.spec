@@ -1,9 +1,9 @@
 %global packname  recmap
-%global packver   1.0.5
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.7
 Release:          1%{?dist}
 Summary:          Compute the Rectangular Statistical Cartogram
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-GA >= 3.1
 BuildRequires:    R-CRAN-sp >= 1.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0
@@ -35,6 +35,7 @@ vignette included in this package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

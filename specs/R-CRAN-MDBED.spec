@@ -1,35 +1,47 @@
-%global packname  ROptSpace
-%global packver   0.2.2
+%global packname  MDBED
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Matrix Reconstruction from a Few Entries
+Summary:          Moran-Downton Bivariate Exponential Distribution
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-orthopolynom 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-lattice 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-orthopolynom 
+Requires:         R-CRAN-foreach 
+Requires:         R-lattice 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-psych 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Matrix reconstruction, also known as matrix completion, is the task of
-inferring missing entries of a partially observed matrix. This package
-provides a method called OptSpace, which was proposed by Keshavan, R.H.,
-Oh, S., and Montanari, A. (2009) <doi:10.1109/ISIT.2009.5205567> for a
-case under low-rank assumption.
+Provides 3D plots of the Moran-Downton bivariate exponential distribution
+(MDBED), generates bivariate random values, and also provides values of
+the joint and conditional PDFs and CDFs. Nagao M, Kadoya M (1971)
+<http://hdl.handle.net/2433/124795>. Balakrishna N, Lai CD (2009)
+<doi:10.1007/b101765>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,4 +68,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

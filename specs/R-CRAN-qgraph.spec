@@ -1,9 +1,9 @@
 %global packname  qgraph
-%global packver   1.6.4
+%global packver   1.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.5
 Release:          1%{?dist}
 Summary:          Graph Plotting Methods, Psychometric Data Visualization andGraphical Model Estimation
 
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-glasso
 BuildRequires:    R-CRAN-huge 
 BuildRequires:    R-CRAN-fdrtool 
 BuildRequires:    R-CRAN-d3Network 
-BuildRequires:    R-CRAN-ggm 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-BDgraph 
 BuildRequires:    R-parallel 
@@ -61,7 +60,6 @@ Requires:         R-CRAN-glasso
 Requires:         R-CRAN-huge 
 Requires:         R-CRAN-fdrtool 
 Requires:         R-CRAN-d3Network 
-Requires:         R-CRAN-ggm 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-BDgraph 
 Requires:         R-parallel 
@@ -78,6 +76,7 @@ model computation. See Epskamp et al. (2012) <doi:10.18637/jss.v048.i04>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

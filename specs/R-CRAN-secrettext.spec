@@ -1,13 +1,13 @@
-%global packname  varycoef
-%global packver   0.2.10
+%global packname  secrettext
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Modeling Spatially Varying Coefficients
+Summary:          Encrypt Text Using a Shifting Substitution Cipher
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,23 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimParallel >= 0.8.1
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-RandomFields 
-Requires:         R-CRAN-optimParallel >= 0.8.1
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-RandomFields 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements a maximum likelihood estimation (MLE) method for estimation and
-prediction in spatially varying coefficient (SVC) models (Dambon et al.
-(2020) <arXiv:2001.08089>). Covariance tapering (Furrer et al. (2006)
-<doi:10.1198/106186006X132178>) can be applied such that the method scales
-to large data.
+Encrypt text using a simple shifting substitution cipher with setcode(),
+providing two numeric keys used to define the encryption algorithm. The
+resulting text can be decoded using decode() function and the two numeric
+keys specified during encryption.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,8 +55,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

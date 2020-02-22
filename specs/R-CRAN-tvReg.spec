@@ -1,37 +1,42 @@
-%global packname  sugrrants
-%global packver   0.2.5
+%global packname  tvReg
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.5.0
 Release:          1%{?dist}
-Summary:          Supporting Graphs for Analysing Time Series
+Summary:          Time-Varying Coefficient Linear Regression for Single andMulti-Equations
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.1
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
-BuildRequires:    R-CRAN-rlang >= 0.2.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-Requires:         R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-CRAN-lubridate >= 1.7.1
-Requires:         R-CRAN-dplyr >= 0.8.0
-Requires:         R-CRAN-rlang >= 0.2.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
+BuildRequires:    R-stats >= 2.14.0
+BuildRequires:    R-CRAN-systemfit >= 1.1.20
+BuildRequires:    R-Matrix 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-vars 
+BuildRequires:    R-CRAN-bvarsv 
+Requires:         R-stats >= 2.14.0
+Requires:         R-CRAN-systemfit >= 1.1.20
+Requires:         R-Matrix 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-CRAN-plm 
+Requires:         R-MASS 
+Requires:         R-CRAN-vars 
+Requires:         R-CRAN-bvarsv 
 
 %description
-Provides 'ggplot2' graphics for analysing time series data. It aims to fit
-into the 'tidyverse' and grammar of graphics framework for handling
-temporal data.
+Fitting time-varying coefficient models both for single and multi-equation
+regressions, using kernel smoothing techniques.
 
 %prep
 %setup -q -c -n %{packname}

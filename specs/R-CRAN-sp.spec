@@ -1,9 +1,9 @@
 %global packname  sp
-%global packver   1.3-2
+%global packver   1.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Classes and Methods for Spatial Data
 
@@ -39,6 +39,7 @@ etc.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

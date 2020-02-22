@@ -1,9 +1,9 @@
 %global packname  haplotypes
-%global packver   1.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Manipulating DNA Sequences and Estimating Unambiguous HaplotypeNetwork with Statistical Parsimony
 
@@ -39,7 +39,7 @@ Provides S4 classes and methods for reading and manipulating aligned DNA
 sequences, supporting an indel coding methods (only simple indel coding
 method is available in the current version), showing base substitutions
 and indels, calculating absolute pairwise distances between DNA sequences,
-and collapses identical DNA sequences into haplotypes or infering
+and collapses identical DNA sequences into haplotypes or inferring
 haplotypes using user provided absolute pairwise character difference
 matrix.  This package also includes S4 classes and methods for estimating
 genealogical relationships among haplotypes using statistical parsimony
@@ -48,6 +48,7 @@ and plotting parsimony networks.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,6 +56,7 @@ and plotting parsimony networks.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
