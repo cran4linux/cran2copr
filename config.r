@@ -6,7 +6,7 @@ options(
   copr.prefix    = "R-CRAN-",
   copr.tpl       = "specfile.tpl",
   copr.bflags    = "--background",
-  copr.chroots   = c("fedora-30-x86_64", "fedora-31-x86_64"),
+  copr.chroots   = NULL,
   copr.watch     = FALSE,
   repos          = "https://cloud.r-project.org",
   error          = NULL,
