@@ -1,9 +1,9 @@
 %global packname  nlpred
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Estimators of Non-Linear Cross-Validated Risks Optimized forSmall Samples
 
@@ -39,13 +39,15 @@ Requires:         R-CRAN-assertthat
 %description
 Methods for obtaining improved estimates of non-linear cross-validated
 risks are obtained using targeted minimum loss-based estimation,
-estimating equations, and one-step estimation. Cross-validated area under
-the receiver operating characteristics curve (LeDell, Petersen, van der
-Laan (2015), <doi:10.1214/15-EJS1035>) and other metrics are included.
+estimating equations, and one-step estimation (Benkeser, Petersen, van der
+Laan (2019), <doi:10.1080/01621459.2019.1668794>). Cross-validated area
+under the receiver operating characteristics curve (LeDell, Petersen, van
+der Laan (2015), <doi:10.1214/15-EJS1035>) and other metrics are included.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

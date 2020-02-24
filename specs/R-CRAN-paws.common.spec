@@ -1,9 +1,9 @@
 %global packname  paws.common
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}
 Summary:          Paws Low-Level Amazon Web Services API
 
@@ -43,6 +43,7 @@ Service (S3).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

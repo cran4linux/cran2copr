@@ -1,9 +1,9 @@
 %global packname  hindex
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Simulating the Development of h-Index Values
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-foreach 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
 
 %description
 H-index and h-alpha are a bibliometric indicators. This package provides
@@ -32,6 +34,7 @@ more detail in Bornmann et al. (2019) <arXiv:1905.11052>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -39,6 +42,7 @@ more detail in Bornmann et al. (2019) <arXiv:1905.11052>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

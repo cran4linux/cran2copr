@@ -1,9 +1,9 @@
 %global packname  SNSequate
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}
 Summary:          Standard and Nonstandard Statistical Models and Methods for TestEquating
 
@@ -48,6 +48,7 @@ standard error of equating differences between two equating functions
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  spatstat
-%global packver   1.63-0
+%global packver   1.63-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.63.0
+Version:          1.63.2
 Release:          1%{?dist}
 Summary:          Spatial Point Pattern Analysis, Model-Fitting, Simulation, Tests
 
@@ -14,9 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-spatstat.data >= 1.4.0
+BuildRequires:    R-CRAN-spatstat.data >= 1.4.2
 BuildRequires:    R-CRAN-goftest >= 1.2.2
-BuildRequires:    R-CRAN-spatstat.utils >= 1.15.0
+BuildRequires:    R-CRAN-spatstat.utils >= 1.17.0
 BuildRequires:    R-CRAN-polyclip >= 1.10.0
 BuildRequires:    R-CRAN-deldir >= 0.0.21
 BuildRequires:    R-stats 
@@ -30,9 +30,9 @@ BuildRequires:    R-mgcv
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.data >= 1.4.0
+Requires:         R-CRAN-spatstat.data >= 1.4.2
 Requires:         R-CRAN-goftest >= 1.2.2
-Requires:         R-CRAN-spatstat.utils >= 1.15.0
+Requires:         R-CRAN-spatstat.utils >= 1.17.0
 Requires:         R-CRAN-polyclip >= 1.10.0
 Requires:         R-CRAN-deldir >= 0.0.21
 Requires:         R-stats 
@@ -89,6 +89,7 @@ added variable plots.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

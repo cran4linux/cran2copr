@@ -1,9 +1,9 @@
 %global packname  dscore
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          D-Score for Child Development
 
@@ -40,6 +40,7 @@ calculate DAZ using 'dutch' and 'gcdg' age-conditional references.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

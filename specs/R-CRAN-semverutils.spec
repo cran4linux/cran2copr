@@ -1,33 +1,29 @@
-%global packname  slider
-%global packver   0.1.1
+%global packname  semverutils
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Sliding Window Functions
+Summary:          Semantic Version Utilities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-rlang >= 0.4.1
-BuildRequires:    R-CRAN-vctrs >= 0.2.2
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-rlang >= 0.4.1
-Requires:         R-CRAN-vctrs >= 0.2.2
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-warp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-foreach 
 
 %description
-Provides type-stable rolling window functions over any R data type.
-Cumulative and expanding windows are also supported. For more advanced
-usage, an index can be used as a secondary vector that defines how sliding
-windows are to be created.
+Semantic Versions allow for standardized management versions. This package
+implements semantic versioning handling in R. using R6 to create a mutable
+object that can handle deciphering and checking versions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +50,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

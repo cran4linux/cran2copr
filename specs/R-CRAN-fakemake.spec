@@ -1,9 +1,9 @@
 %global packname  fakemake
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}
 Summary:          Mock the Unix Make Utility
 
@@ -15,18 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MakefileR 
 BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-MakefileR 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-MakefileR 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-callr 
-Requires:         R-CRAN-withr 
-Requires:         R-utils 
-Requires:         R-CRAN-igraph 
 Requires:         R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-MakefileR 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 Use R as a minimal build system. This might come in handy if you are
@@ -36,6 +36,7 @@ you can (use a proper build system).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

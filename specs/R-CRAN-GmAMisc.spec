@@ -1,9 +1,9 @@
 %global packname  GmAMisc
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Gianmarco Alberti Miscellaneous
 
@@ -27,8 +27,6 @@ BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-cluster >= 2.0.7.1
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-spatstat >= 1.56.0
-BuildRequires:    R-CRAN-shape >= 1.4.4
-BuildRequires:    R-CRAN-rworldmap >= 1.3.6
 BuildRequires:    R-CRAN-rgdal >= 1.3.3
 BuildRequires:    R-CRAN-sp >= 1.3.1
 BuildRequires:    R-CRAN-coin >= 1.2.2
@@ -58,8 +56,6 @@ Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-cluster >= 2.0.7.1
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-spatstat >= 1.56.0
-Requires:         R-CRAN-shape >= 1.4.4
-Requires:         R-CRAN-rworldmap >= 1.3.6
 Requires:         R-CRAN-rgdal >= 1.3.3
 Requires:         R-CRAN-sp >= 1.3.1
 Requires:         R-CRAN-coin >= 1.2.2
@@ -92,6 +88,7 @@ analysis, landform classification, clustering of spatial features.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -111,5 +108,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

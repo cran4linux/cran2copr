@@ -1,9 +1,9 @@
 %global packname  mlr3
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          Machine Learning in R - Next Generation
 
@@ -17,25 +17,25 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-lgr >= 0.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.1.6
+BuildRequires:    R-CRAN-mlr3misc >= 0.1.8
 BuildRequires:    R-CRAN-mlr3measures >= 0.1.1
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-mlbench 
 BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-lgr >= 0.3.0
-Requires:         R-CRAN-mlr3misc >= 0.1.6
+Requires:         R-CRAN-mlr3misc >= 0.1.8
 Requires:         R-CRAN-mlr3measures >= 0.1.1
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-mlbench 
 Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-uuid 
 
 %description
@@ -49,6 +49,7 @@ provide additional functionality.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

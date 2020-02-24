@@ -1,9 +1,9 @@
 %global packname  digest
-%global packver   0.6.24
+%global packver   0.6.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.24
+Version:          0.6.25
 Release:          1%{?dist}
 Summary:          Create Compact Hash Digests of R Objects
 

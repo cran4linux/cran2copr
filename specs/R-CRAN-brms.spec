@@ -1,9 +1,9 @@
 %global packname  brms
-%global packver   2.11.1
+%global packver   2.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.1
+Version:          2.12.0
 Release:          1%{?dist}
 Summary:          Bayesian Regression Models using 'Stan'
 
@@ -82,6 +82,7 @@ Carpenter et al. (2017) <doi:10.18637/jss.v076.i01>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  gdpc
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Generalized Dynamic Principal Components
 
@@ -33,10 +33,16 @@ Requires:         R-CRAN-foreach
 %description
 Functions to compute the Generalized Dynamic Principal Components
 introduced in Peña and Yohai (2016) <DOI:10.1080/01621459.2015.1072542>.
+The implementation includes an automatic procedure proposed in Peña,
+Smucler and Yohai (2020) <DOI:10.18637/jss.v092.c02> for the
+identification of both the number of lags to be used in the generalized
+dynamic principal components as well as the number of components required
+for a given reconstruction accuracy.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,6 +50,7 @@ introduced in Peña and Yohai (2016) <DOI:10.1080/01621459.2015.1072542>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -57,5 +64,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

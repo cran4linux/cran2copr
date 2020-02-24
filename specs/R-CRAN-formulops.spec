@@ -1,27 +1,24 @@
-%global packname  multigroup
-%global packver   0.4.5
+%global packname  formulops
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}
-Summary:          Multigroup Data Analysis
+Summary:          Mathematical Operations on R Formula
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-MASS 
-Requires:         R-MASS 
 
 %description
-Multivariate analysis methods including principal component analysis,
-partial least square regression, and multiblock analysis to describe,
-summarize, and visualize data with a group structure.
+Perform mathematical operations on R formula (add, subtract, multiply,
+etc.) and substitute parts of formula.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,7 +40,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

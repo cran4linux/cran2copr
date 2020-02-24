@@ -1,9 +1,9 @@
 %global packname  BNSP
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}
 Summary:          Bayesian Non- And Semi-Parametric Model Fitting
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-Formula
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-mgcv 
 BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-label.switching 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plot3D 
@@ -36,16 +37,18 @@ Requires:         R-CRAN-Formula
 Requires:         R-CRAN-plyr 
 Requires:         R-mgcv 
 Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-label.switching 
 
 %description
-MCMC algorithms & processing functions for non- and semi-parametric
-models: 1. Dirichlet process mixtures & 2. spike-slab for multivariate
-(and univariate) regression, with nonparametric models for the means, the
-variances and the correlation matrix.
+MCMC algorithms & processing functions for: 1. multivariate (and
+univariate) regression, with nonparametric models for the means, the
+variances and the correlation matrix, with variable selection, and 2.
+Dirichlet process mixtures.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

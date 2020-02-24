@@ -1,29 +1,35 @@
-%global packname  summariser
-%global packver   2.0.0
+%global packname  blockCV
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.1
 Release:          1%{?dist}
-Summary:          Easy Calculation and Visualisation of Confidence Intervals
+Summary:          Spatial and Environmental Blocking for K-Fold Cross-Validation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-raster >= 2.5.8
+BuildRequires:    R-CRAN-sf >= 0.8.0
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-raster >= 2.5.8
+Requires:         R-CRAN-sf >= 0.8.0
+Requires:         R-CRAN-progress 
 
 %description
-Functions to speed up the exploratory analysis of simple datasets using
-'dplyr'. Functions are provided to do the common tasks of calculating
-confidence intervals.
+Creating spatially or environmentally separated folds for cross-validation
+to provide a robust error estimation in spatially structured environments;
+Investigating and visualising the effective range of spatial
+autocorrelation in continuous raster covariates to find an initial
+realistic distance band to separate training and testing datasets
+spatially described in Valavi, R. et al. (2019)
+<doi:10.1111/2041-210X.13107>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,5 +55,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

@@ -1,33 +1,24 @@
-%global packname  slider
-%global packver   0.1.1
+%global packname  runes
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Sliding Window Functions
+Summary:          Convert Strings to Elder Futhark Runes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-rlang >= 0.4.1
-BuildRequires:    R-CRAN-vctrs >= 0.2.2
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-rlang >= 0.4.1
-Requires:         R-CRAN-vctrs >= 0.2.2
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-warp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Provides type-stable rolling window functions over any R data type.
-Cumulative and expanding windows are also supported. For more advanced
-usage, an index can be used as a secondary vector that defines how sliding
-windows are to be created.
+Convert a string of text characters to Elder Futhark Runes
+<https://en.wikipedia.org/wiki/Elder_Futhark>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +45,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

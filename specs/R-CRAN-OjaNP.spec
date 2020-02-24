@@ -1,9 +1,9 @@
 %global packname  OjaNP
-%global packver   0.9-13
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.13
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Multivariate Methods Based on the Oja Median and RelatedConcepts
 
@@ -22,7 +22,8 @@ Requires:         R-CRAN-ICSNP
 
 %description
 Functions to calculate the Oja median, Oja signs and ranks and methods
-based upon them.
+based upon them. For details, see the the corresponding publication in the
+Journal of Statistical Software <doi:10.18637/jss.v092.i08>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,5 +51,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/ChangeLog
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

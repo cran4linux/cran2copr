@@ -1,9 +1,9 @@
 %global packname  rfPermute
-%global packver   2.1.7
+%global packver   2.1.81
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.1.81
 Release:          1%{?dist}
 Summary:          Estimate Permutation p-Values for Random Forest ImportanceMetrics
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscMisc >= 1.1
+BuildRequires:    R-CRAN-swfscMisc >= 1.3
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-dplyr 
@@ -24,15 +24,13 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-swfscMisc >= 1.1
+Requires:         R-CRAN-swfscMisc >= 1.3
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-dplyr 
@@ -41,8 +39,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
@@ -59,6 +55,7 @@ summary and visualization functions for 'randomForest' results.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

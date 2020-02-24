@@ -1,9 +1,9 @@
 %global packname  datarobot
-%global packver   2.16.0
+%global packver   2.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.16.0
+Version:          2.17.0
 Release:          1%{?dist}
 Summary:          'DataRobot' Predictive Modeling API
 
@@ -35,6 +35,7 @@ For working with the 'DataRobot' predictive modeling platform's API
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

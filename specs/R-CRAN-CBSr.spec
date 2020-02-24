@@ -1,33 +1,30 @@
-%global packname  slider
-%global packver   0.1.1
+%global packname  CBSr
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.3
 Release:          1%{?dist}
-Summary:          Sliding Window Functions
+Summary:          Fits Cubic Bezier Spline Functions to Intertemporal and RiskyChoice Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-rlang >= 0.4.1
-BuildRequires:    R-CRAN-vctrs >= 0.2.2
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-rlang >= 0.4.1
-Requires:         R-CRAN-vctrs >= 0.2.2
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-warp 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rJava >= 0.9.11
+BuildRequires:    R-CRAN-NlcOptim >= 0.6
+Requires:         R-CRAN-rJava >= 0.9.11
+Requires:         R-CRAN-NlcOptim >= 0.6
 
 %description
-Provides type-stable rolling window functions over any R data type.
-Cumulative and expanding windows are also supported. For more advanced
-usage, an index can be used as a secondary vector that defines how sliding
-windows are to be created.
+Uses monotonically constrained Cubic Bezier Splines (CBS) to approximate
+latent utility functions in intertemporal choice and risky choice data.
+PsyArXiv preprint: Lee, Glaze, Bradlow, Kable, (2019)
+<doi:10.31234/osf.io/2ugwr>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,11 +46,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/java
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  secr
-%global packver   4.1.0
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          4.2.0
 Release:          1%{?dist}
 Summary:          Spatially Explicit Capture-Recapture
 
@@ -60,6 +60,7 @@ Tools are included for data manipulation and model selection.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

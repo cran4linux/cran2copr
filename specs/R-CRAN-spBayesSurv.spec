@@ -1,9 +1,9 @@
 %global packname  spBayesSurv
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}
 Summary:          Bayesian Modeling and Analysis of Spatially Correlated SurvivalData
 
@@ -41,11 +41,12 @@ dependence is modeled via frailties under PH, AFT, PO, AH and GAFT, and
 via copulas under LDDPM and PH. Model choice is carried out via the
 logarithm of the pseudo marginal likelihood (LPML), the deviance
 information criterion (DIC), and the Watanabe-Akaike information criterion
-(WAIC).
+(WAIC). See Zhou, Hanson and Zhang (2020) <doi:10.18637/jss.v092.i09>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -67,7 +68,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/otherdata
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
