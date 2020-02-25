@@ -1,9 +1,9 @@
 %global packname  ivtools
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Instrumental Variables
 
@@ -39,6 +39,7 @@ Vansteelandt S., Bowden J., Babanezhad M., Goetghebeur E. (2011)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,6 +47,7 @@ Vansteelandt S., Bowden J., Babanezhad M., Goetghebeur E. (2011)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -58,5 +60,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

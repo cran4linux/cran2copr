@@ -1,9 +1,9 @@
 %global packname  scrobbler
-%global packver   0.2.12
+%global packver   0.2.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          0.2.15
 Release:          1%{?dist}
 Summary:          Download 'Scrobbles' from 'Last.fm'
 
@@ -15,10 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-anytime 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-anytime 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 
@@ -34,6 +32,7 @@ analyse your listening history in R.
 %prep
 %setup -q -c -n %{packname}
 find %{packname}/inst -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -52,6 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata

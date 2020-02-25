@@ -1,9 +1,9 @@
 %global packname  StepReg
-%global packver   1.3.4
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Stepwise Regression Analysis
 
@@ -14,8 +14,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-statmod >= 1.4.33
+BuildRequires:    R-CRAN-ResourceSelection >= 0.3.5
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-statmod >= 1.4.33
+Requires:         R-CRAN-ResourceSelection >= 0.3.5
 Requires:         R-CRAN-Rcpp >= 0.12.13
 
 %description
@@ -26,9 +30,12 @@ selection fit a separate least squares regression for each possible
 combination of all predictors. Both the above two procedures in this
 package can use weighted data to get best regression model in univariate
 regression and multivariate regression analysis(Alsubaihi, A. A., (2002)
-<doi:10.18637/jss.v007.i12>). Besides, continuous variables nested within
-class effect is also considered in both two procedures. A widely used
-selection criteria are available which includes Akaike information
+<doi:10.18637/jss.v007.i12>). And continuous variables nested within class
+effect is also considered in both two procedures. Also stepwise logistic
+regression in this package can performed with binary dependent
+variable(Agresti, A. (1984) <doi:10.1002/9780470594001> and Agresti, A.
+(2014) <doi:10.1007/978-3-642-04898-2_161>). A widely used selection
+criteria are available which includes Akaike information
 criterion(Darlington, R. B. (1968) <doi:10.1037/h0025471>, Judge, G. G.
 (1985) <doi:10.2307/1391738>), corrected Akaike information
 criterion(Hurvich, C. M., and Tsai, C. (1989)
@@ -52,6 +59,7 @@ can be detected with checking tolerance value.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

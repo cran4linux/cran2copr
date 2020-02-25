@@ -1,9 +1,9 @@
 %global packname  qualtRics
-%global packver   3.1.1
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.2
 Release:          1%{?dist}
 Summary:          Download 'Qualtrics' Survey Data
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-sjlabelled 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-sjlabelled 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
@@ -49,6 +47,7 @@ by 'Qualtrics'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -56,6 +55,7 @@ by 'Qualtrics'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -67,6 +67,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata

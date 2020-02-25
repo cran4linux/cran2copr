@@ -1,11 +1,11 @@
 %global packname  nomclust
-%global packver   1.1.1106
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1106
+Version:          2.1.3
 Release:          1%{?dist}
-Summary:          Hierarchical Nominal Clustering Package
+Summary:          Hierarchical Cluster Analysis of Nominal Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-cluster 
-BuildRequires:    R-CRAN-dummies 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-methods 
 Requires:         R-cluster 
-Requires:         R-CRAN-dummies 
+Requires:         R-CRAN-plyr 
+Requires:         R-methods 
 
 %description
-Package for hierarchical clustering of objects characterized by nominal
-variables.
+Similarity measures for hierarchical clustering of objects characterized
+by nominal (categorical) variables. Evaluation criteria for nominal data
+clustering.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

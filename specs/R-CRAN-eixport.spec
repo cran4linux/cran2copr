@@ -1,9 +1,9 @@
 %global packname  eixport
-%global packver   0.4.0
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.4
 Release:          1%{?dist}
 Summary:          Export Emissions to Atmospheric Models
 
@@ -51,6 +51,7 @@ documentations and examples. More details in Ibarra-Espinosa et al (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

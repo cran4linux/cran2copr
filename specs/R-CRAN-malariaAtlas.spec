@@ -1,9 +1,9 @@
 %global packname  malariaAtlas
-%global packver   0.0.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          An R Interface to Open-Access Malaria Data, Hosted by the'Malaria Atlas Project'
 
@@ -51,12 +51,13 @@ Requires:         R-CRAN-rlang
 %description
 A suite of tools to allow you to download all publicly available parasite
 rate survey points, mosquito occurrence points and raster surfaces from
-the 'Malaria Atlas Project' <https://map.ox.ac.uk/> servers as well as
+the 'Malaria Atlas Project' <https://malariaatlas.org/> servers as well as
 utility functions for plotting the downloaded data.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

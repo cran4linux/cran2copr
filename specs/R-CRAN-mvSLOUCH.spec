@@ -1,9 +1,9 @@
 %global packname  mvSLOUCH
-%global packver   2.3
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.4
 Release:          1%{?dist}
 Summary:          Multivariate Stochastic Linear Ornstein-Uhlenbeck Models forPhylogenetic Comparative Hypotheses
 
@@ -49,6 +49,7 @@ significantly speeds up the likelihood calculations) can be obtained from
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  dobin
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Dimension Reduction for Outlier Detection
 
@@ -16,9 +16,9 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-RANN 
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-RANN 
 
 %description
 A dimension reduction technique for outlier detection. DOBIN: a Distance
@@ -31,6 +31,7 @@ the fore-front using fewer basis vectors (Kandanaarachchi, Hyndman 2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

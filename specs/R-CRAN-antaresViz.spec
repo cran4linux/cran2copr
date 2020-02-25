@@ -1,9 +1,9 @@
 %global packname  antaresViz
-%global packver   0.15.0
+%global packver   0.15.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          0.15.1
 Release:          1%{?dist}
 Summary:          Antares Visualizations
 
@@ -70,12 +70,12 @@ developed by RTE to simulate and study electric power systems (more
 information about Antares here:
 <https://github.com/AntaresSimulatorTeam/Antares_Simulator>). This package
 provides functions that create interactive charts to help Antares users
-visually explore the results of their simulations. You can see the results
-of several ANTARES studies here : <http://bpnumerique.rte-france.com/>.
+visually explore the results of their simulations.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -83,6 +83,7 @@ of several ANTARES studies here : <http://bpnumerique.rte-france.com/>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

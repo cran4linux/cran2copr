@@ -1,9 +1,9 @@
 %global packname  ParBayesianOptimization
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Parallel Bayesian Optimization of Hyperparameters
 
@@ -16,7 +16,7 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.11.8
-BuildRequires:    R-CRAN-GauPro 
+BuildRequires:    R-CRAN-DiceKriging 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-dbscan 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 Requires:         R-CRAN-data.table >= 1.11.8
-Requires:         R-CRAN-GauPro 
+Requires:         R-CRAN-DiceKriging 
 Requires:         R-stats 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-dbscan 

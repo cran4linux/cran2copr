@@ -1,9 +1,9 @@
 %global packname  languageserver
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Language Server Protocol
 
@@ -15,33 +15,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-callr >= 3.0.0
+BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-lintr >= 2.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-fs >= 1.3.1
+BuildRequires:    R-CRAN-readr >= 1.3.1
+BuildRequires:    R-CRAN-xml2 >= 1.2.2
+BuildRequires:    R-CRAN-desc >= 1.2.0
 BuildRequires:    R-CRAN-styler >= 1.2.0
-BuildRequires:    R-CRAN-collections >= 0.2.0
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-repr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-repr >= 1.1.0
+BuildRequires:    R-CRAN-xmlparsedata >= 1.0.3
+BuildRequires:    R-CRAN-collections >= 0.2.3
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xmlparsedata 
 Requires:         R-CRAN-callr >= 3.0.0
+Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-lintr >= 2.0.0
+Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-fs >= 1.3.1
+Requires:         R-CRAN-readr >= 1.3.1
+Requires:         R-CRAN-xml2 >= 1.2.2
+Requires:         R-CRAN-desc >= 1.2.0
 Requires:         R-CRAN-styler >= 1.2.0
-Requires:         R-CRAN-collections >= 0.2.0
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-repr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-repr >= 1.1.0
+Requires:         R-CRAN-xmlparsedata >= 1.0.3
+Requires:         R-CRAN-collections >= 0.2.3
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xmlparsedata 
 
 %description
 An implementation of the Language Server Protocol for R. The Language
@@ -52,6 +54,7 @@ auto completion. See
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

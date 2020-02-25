@@ -1,11 +1,11 @@
 %global packname  civis
-%global packver   2.1.0
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.2
 Release:          1%{?dist}
-Summary:          R Client for the 'Civis data science API'
+Summary:          R Client for the 'Civis Platform API'
 
 License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,12 +31,14 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-A convenient interface for making requests directly to the 'Civis data
-science API' <https://www.civisanalytics.com/platform/>.
+A convenient interface for making requests directly to the 'Civis Platform
+API' <https://www.civisanalytics.com/platform/>. Full documentation
+available 'here' <https://civisanalytics.github.io/civis-r/>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,6 +46,7 @@ science API' <https://www.civisanalytics.com/platform/>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

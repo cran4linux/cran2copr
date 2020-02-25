@@ -1,9 +1,9 @@
 %global packname  CUSUMdesign
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}
 Summary:          Compute Decision Interval and Average Run Length for CUSUMCharts
 
@@ -17,7 +17,9 @@ Requires:         R-core
 
 %description
 Computation of decision intervals (H) and average run lengths (ARL) for
-CUSUM charts.
+CUSUM charts. Details of the method are seen in Hawkins and Olwell (2012):
+Cumulative sum charts and charting for quality improvement, Springer
+Science & Business Media.
 
 %prep
 %setup -q -c -n %{packname}

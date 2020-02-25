@@ -1,11 +1,11 @@
 %global packname  PoissonBinomial
-%global packver   1.0.2
+%global packver   1.0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.2.1
 Release:          1%{?dist}
-Summary:          Exact and Approximate Implementations of the Poisson BinomialDistribution
+Summary:          Efficient Exact and Approximate Implementations of the PoissonBinomial Distribution
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

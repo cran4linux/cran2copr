@@ -1,11 +1,11 @@
 %global packname  tnet
-%global packver   3.0.14.1
+%global packver   3.0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.14.1
+Version:          3.0.16
 Release:          1%{?dist}
-Summary:          Software for Analysis of Weighted, Two-Mode, and LongitudinalNetworks
+Summary:          Weighted, Two-Mode, and Longitudinal Networks Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,11 +21,16 @@ Requires:         R-CRAN-igraph
 Requires:         R-survival 
 
 %description
-R package for analyzing weighted, two-mode, and longitudinal networks.
+Binary ties limit the richness of network analyses as relations are
+unique. The two-mode structure contains a number of features lost when
+projection it to a one-mode network. Longitudinal datasets allow for an
+understanding of the causal relationship among ties, which is not the case
+in cross-sectional datasets as ties are dependent upon each other.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
