@@ -1,13 +1,13 @@
-%global packname  funprog
-%global packver   0.2.0
+%global packname  downloadthis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Functional Programming
+Summary:          Implement Download Buttons in 'rmarkdown'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,13 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-bsplus 
+BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-bsplus 
+Requires:         R-CRAN-mime 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-High-order functions for data manipulation : sort or group data, given one
-or more auxiliary functions. Functions are inspired by other pure
-functional programming languages ('Haskell' mainly). The package also
-provides built-in function operators for creating compact anonymous
-functions, as well as the possibility to use the 'purrr' package syntax.
+Implement download buttons in HTML output from 'rmarkdown' without the
+need for 'runtime:shiny'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,7 +59,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

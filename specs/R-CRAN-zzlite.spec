@@ -1,25 +1,31 @@
-%global packname  MigClim
-%global packver   1.6.2
+%global packname  zzlite
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Implementing Dispersal into Species Distribution Models
+Summary:          Lite Wrapper for the 'Zamzar File Conversion' API
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-raster 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Functions for implementing species dispersal into projections of species
-distribution models (e.g. under climate change scenarios).
+A minor collection of HTTP wrappers for the 'Zamzar File Conversion' API.
+The wrappers makes it easy to utilize the API and thus convert between
+more than 100 different file formats (ranging from audio files, images,
+movie formats, etc., etc.) through an R session. For specifics regarding
+the API, please see <https://developers.zamzar.com/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,10 +47,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

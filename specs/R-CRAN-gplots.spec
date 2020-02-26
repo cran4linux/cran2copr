@@ -1,9 +1,9 @@
 %global packname  gplots
-%global packver   3.0.1.2
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1.2
+Version:          3.0.3
 Release:          1%{?dist}
 Summary:          Various R Programming Tools for Plotting Data
 
@@ -46,6 +46,7 @@ points in an x-y plot so they don't overlap ('space').
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -66,6 +67,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/ChangeLog
 %doc %{rlibdir}/%{packname}/doc

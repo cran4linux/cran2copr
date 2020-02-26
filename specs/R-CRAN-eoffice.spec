@@ -1,9 +1,9 @@
 %global packname  eoffice
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}
 Summary:          Export or Graph and Tables to 'Microsoft' Office and ImportFigures and Tables
 
@@ -21,12 +21,10 @@ BuildRequires:    R-CRAN-flextable
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplotify 
 BuildRequires:    R-CRAN-R.devices 
 BuildRequires:    R-CRAN-devEMF 
 BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-plotly 
@@ -36,12 +34,10 @@ Requires:         R-CRAN-flextable
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplotify 
 Requires:         R-CRAN-R.devices 
 Requires:         R-CRAN-devEMF 
 Requires:         R-CRAN-magick 
-Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-plotly 
@@ -57,6 +53,7 @@ function to extract colors from all types of figures and pdf files.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

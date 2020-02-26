@@ -1,9 +1,9 @@
 %global packname  taxa
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Taxonomic Classes
 
@@ -46,11 +46,15 @@ Requires:         R-CRAN-taxize
 Provides taxonomic classes for groupings of taxonomic names without data,
 and those with data. Methods provided are "taxonomically aware", in that
 they know about ordering of ranks, and methods that filter based on
-taxonomy also filter associated data.
+taxonomy also filter associated data. This package is described in the
+publication: "Taxa: An R package implementing data standards and methods
+for taxonomic data", Zachary S.L. Foster, Scott Chamberlain, Niklaus J.
+Grünwald (2018) <doi:10.12688/f1000research.14013.2>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

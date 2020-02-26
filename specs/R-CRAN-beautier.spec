@@ -1,9 +1,9 @@
 %global packname  beautier
-%global packver   2.3.2
+%global packver   2.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          2.3.5
 Release:          1%{?dist}
 Summary:          'BEAUti' from R
 
@@ -17,21 +17,21 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-assertive 
-BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-testit 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-assertive 
-Requires:         R-CRAN-geiger 
+Requires:         R-CRAN-pryr 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-seqinr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-testit 
 
 %description
-'BEAST2' (<http://www.beast2.org>) is a widely used Bayesian phylogenetic
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
 tool, that uses DNA/RNA/protein data and many model priors to create a
 posterior of jointly estimated phylogenies and parameters. 'BEAUti 2'
 (which is part of 'BEAST2') is a GUI tool that allows users to specify the
@@ -42,6 +42,7 @@ user input, but using R function calls instead.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

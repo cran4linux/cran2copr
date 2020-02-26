@@ -1,9 +1,9 @@
 %global packname  DClusterm
-%global packver   1.0-0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Model-Based Detection of Disease Clusters
 
@@ -22,10 +22,6 @@ BuildRequires:    R-CRAN-DCluster
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-pscl 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-latticeExtra 
 Requires:         R-parallel 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spacetime 
@@ -33,10 +29,6 @@ Requires:         R-CRAN-DCluster
 Requires:         R-methods 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-pscl 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-latticeExtra 
 
 %description
 Model-based methods for the detection of disease clusters using GLMs,
@@ -47,6 +39,7 @@ et al.' (2018) <doi:10.1007/978-3-030-01584-8_1>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

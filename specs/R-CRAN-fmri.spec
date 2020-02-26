@@ -1,9 +1,9 @@
 %global packname  fmri
-%global packver   1.9.2.1
+%global packver   1.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.2.1
+Version:          1.9.3
 Release:          1%{?dist}
 Summary:          Analysis of fMRI Experiments
 
@@ -12,30 +12,38 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-awsMethods >= 1.1.1
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-aws >= 2.4
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-nlme 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-aws 
-Requires:         R-CRAN-awsMethods >= 1.1.1
+Requires:         R-CRAN-aws >= 2.4
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-nlme 
 Requires:         R-parallel 
 Requires:         R-CRAN-metafor 
 Requires:         R-methods 
-Requires:         R-CRAN-aws 
 
 %description
-Contains R-functions to perform an fMRI analysis as described in Tabelow
-et al. (2006) <DOI:10.1016/j.neuroimage.2006.06.029>, Polzehl et al.
-(2010) <DOI:10.1016/j.neuroimage.2010.04.241>, Tabelow and Polzehl (2011)
+Contains R-functions to perform an fMRI analysis as described in Polzehl
+and Tabelow (2019) <DOI:10.1007/978-3-030-29184-6>, Tabelow et al. (2006)
+<DOI:10.1016/j.neuroimage.2006.06.029>, Polzehl et al. (2010)
+<DOI:10.1016/j.neuroimage.2010.04.241>, Tabelow and Polzehl (2011)
 <DOI:10.18637/jss.v044.i11>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

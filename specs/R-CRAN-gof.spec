@@ -1,30 +1,33 @@
-%global packname  Copula.Markov
-%global packver   2.8
+%global packname  gof
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Copula-Based Estimation and Statistical Process Control forSerially Correlated Time Series
+Summary:          Model Diagnostics Based on Cumulative Residuals
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildRequires:    R-CRAN-lava >= 1.6.3
+BuildRequires:    R-CRAN-mets >= 1.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-lava >= 1.6.3
+Requires:         R-CRAN-mets >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-methods 
 
 %description
-Estimation and statistical process control are performed under
-copula-based time-series models. Available are statistical methods in Long
-and Emura (2014 JCSA), Emura et al. (2017 Commun Stat-Simul)
-<DOI:10.1080/03610918.2015.1073303>, Huang and Emura (2019 Commun
-Stat-Simul) <DOI:10.1080/03610918.2019.1602647>, Lin et al. (2019 Comm
-Stat-Simul) <DOI:10.1080/03610918.2019.1652318>, Sun et al. (2020 to
-appear in JSS Series in Statistics, Springer), and Huang, Chen and Emura
-(2019-, in revision).
+Implementation of model-checking techniques for generalized linear models
+and linear structural equation models based on cumulative residuals (Lin,
+Wei & Ying (2002) <doi:10.1111/j.0006-341x.2002.00001.x>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,5 +52,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

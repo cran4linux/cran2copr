@@ -1,9 +1,9 @@
 %global packname  ShortForm
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}
 Summary:          Automatic Short Form Creation
 
@@ -44,6 +44,7 @@ search.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  piggyback
-%global packver   0.0.10
+%global packver   0.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10
+Version:          0.0.11
 Release:          1%{?dist}
 Summary:          Managing Larger Data on a GitHub Repository
 
@@ -54,6 +54,7 @@ required to download data from public repositories.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -61,6 +62,7 @@ required to download data from public repositories.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

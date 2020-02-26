@@ -1,9 +1,9 @@
 %global packname  tinytex
-%global packver   0.19
+%global packver   0.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19
+Version:          0.20
 Release:          1%{?dist}
 Summary:          Helper Functions to Install and Maintain 'TeX Live', and Compile'LaTeX' Documents
 
@@ -28,6 +28,7 @@ missing 'LaTeX' packages automatically.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

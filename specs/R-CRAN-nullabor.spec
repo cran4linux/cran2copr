@@ -1,9 +1,9 @@
 %global packname  nullabor
-%global packver   0.3.5
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.9
 Release:          1%{?dist}
 Summary:          Tools for Graphical Inference
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-fpc 
@@ -28,8 +27,8 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-viridis 
 Requires:         R-MASS 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-fpc 
@@ -41,6 +40,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-viridis 
 
 %description
 Tools for visual inference. Generate null data sets and null plots using
@@ -50,6 +50,7 @@ examine the distributions of metrics.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -72,5 +73,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

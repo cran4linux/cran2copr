@@ -1,9 +1,9 @@
 %global packname  Compositional
-%global packver   3.6
+%global packver   3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6
+Version:          3.7
 Release:          1%{?dist}
 Summary:          Compositional Data Analysis
 
@@ -64,13 +64,16 @@ Lobachevskii Journal of Mathematics, 39(3): 398--412.
 <doi:10.1134/S1995080218030198>. h) Alenazi A. (2019). Regression for
 compositional data with compositional data as predictor variables with or
 without zero values. Journal of Data Science, 17(1): 219--238.
-<doi:10.6339/JDS.201901_17(1).0010>. Tsagris M. and Stewart C. (2019). A
-folded model for compositional data analysis. <arXiv:1802.07330>. Furher,
-we include functions for percentages (or proportions).
+<doi:10.6339/JDS.201901_17(1).0010>. i) Tsagris M. and Stewart C. (2019).
+A folded model for compositional data analysis. <arXiv:1802.07330>. j)
+Tsagris M., Alenazi A. and Stewart C. (2020). The alpha-k-NN regression
+for compositional data. <arXiv:2002.05137>. We further include functions
+for percentages (or proportions).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
