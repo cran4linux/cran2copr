@@ -1,9 +1,9 @@
 %global packname  asbio
-%global packver   1.6-1
+%global packver   1.6-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.3
 Release:          1%{?dist}
 Summary:          A Collection of Statistical Tools for Biologists
 
@@ -24,12 +24,14 @@ BuildRequires:    R-CRAN-plotrix
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-tkrplot 
 BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-gWidgets 
+BuildRequires:    R-CRAN-gWidgetstcltk 
 Requires:         R-tcltk 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-pixmap 
@@ -37,12 +39,14 @@ Requires:         R-CRAN-plotrix
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-deSolve 
 Requires:         R-lattice 
+Requires:         R-CRAN-tkrplot 
 Requires:         R-CRAN-multcompView 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-gWidgets 
+Requires:         R-CRAN-gWidgetstcltk 
 
 %description
 Contains functions from: Aho, K. (2014) Foundational and Applied
@@ -52,6 +56,7 @@ FL, ISBN: 978-1-4398-7338-0.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

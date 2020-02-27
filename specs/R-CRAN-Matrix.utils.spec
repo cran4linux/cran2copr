@@ -1,23 +1,32 @@
-%global packname  uuid
-%global packver   0.1-4
+%global packname  Matrix.utils
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.9.8
 Release:          1%{?dist}
-Summary:          Tools for Generating and Handling of UUIDs
+Summary:          Data.frame-Like Operations on Sparse and Dense Matrix Objects
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildArch:        noarch
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-grr 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-Matrix 
+Requires:         R-CRAN-grr 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Tools for generating and handling of UUIDs (Universally Unique
-Identifiers).
+Implements data manipulation methods such as cast, aggregate, and
+merge/join for Matrix and matrix-like objects.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,10 +49,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYING
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

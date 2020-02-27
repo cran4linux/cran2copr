@@ -1,9 +1,9 @@
 %global packname  denoiseR
-%global packver   1.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Regularized Low Rank Matrix Estimation
 
@@ -27,11 +27,12 @@ Requires:         R-stats
 %description
 Estimate a low rank matrix from noisy data using singular values
 thresholding and shrinking functions. Impute missing values with matrix
-completion.
+completion. The method is described in <arXiv:1602.01206>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -39,6 +40,7 @@ completion.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

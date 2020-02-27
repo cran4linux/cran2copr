@@ -1,33 +1,37 @@
-%global packname  exactextractr
-%global packver   0.2.0
+%global packname  SBmedian
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Fast Extraction from Raster Datasets using Polygons
+Summary:          Scalable Bayes with Median of Subset Posteriors
 
-License:          Apache License (== 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    geos-devel >= 3.5.0
-Requires:         geos
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-expm 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides a replacement for the 'extract' function from the 'raster'
-package that is suitable for extracting raster values using 'sf' polygons.
+Median-of-means is a generic yet powerful framework for scalable and
+robust estimation. A framework for Bayesian analysis is called
+M-posterior, which estimates a median of subset posterior measures. For
+general exposition to the topic, see the paper by Minsker (2015)
+<doi:10.3150/14-BEJ645>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,5 +57,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

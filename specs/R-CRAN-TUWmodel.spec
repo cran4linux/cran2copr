@@ -1,9 +1,9 @@
 %global packname  TUWmodel
-%global packver   1.0-2
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Lumped/Semi-Distributed Hydrological Model for EducationPurposes
 
@@ -20,16 +20,18 @@ Requires:         R-stats
 %description
 The model, developed at the Vienna University of Technology, is a lumped
 conceptual rainfall-runoff model, following the structure of the HBV
-model. The model can also be run in a semi-distributed fashion. The model
-runs on a daily or shorter time step and consists of a snow routine, a
-soil moisture routine and a flow routing routine. See Parajka, J., R.
-Merz, G. Bloeschl (2007) <DOI:10.1002/hyp.6253> Uncertainty and multiple
-objective calibration in regional water balance modelling: case study in
-320 Austrian catchments, Hydrological Processes, 21, 435-446.
+model. The model can also be run in a semi-distributed fashion and with
+dual representation of soil layer. The model runs on a daily or shorter
+time step and consists of a snow routine, a soil moisture routine and a
+flow routing routine. See Parajka, J., R. Merz, G. Bloeschl (2007)
+<DOI:10.1002/hyp.6253> Uncertainty and multiple objective calibration in
+regional water balance modelling: case study in 320 Austrian catchments,
+Hydrological Processes, 21, 435-446.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

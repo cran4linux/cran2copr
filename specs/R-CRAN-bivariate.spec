@@ -1,9 +1,9 @@
 %global packname  bivariate
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Bivariate Probability Distributions
 
@@ -15,30 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-intoo 
 BuildRequires:    R-CRAN-barsurf 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-KernSmooth 
-Requires:         R-graphics 
-Requires:         R-stats 
 Requires:         R-CRAN-intoo 
 Requires:         R-CRAN-barsurf 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-KernSmooth 
 
 %description
-Contains convenience functions for constructing, plotting and evaluating
-bivariate probability distributions, including their probability mass
-functions, probability density functions and cumulative distribution
-functions. Supports uniform (discrete and continuous), binomial, Poisson,
-categorical, normal, bimodal and Dirichlet (trivariate) distributions, and
-kernel smoothing and empirical cumulative distribution functions.
+Convenience functions for constructing, plotting and evaluating bivariate
+probability distributions, including their probability mass/density
+functions and cumulative distribution functions. Supports uniform
+(discrete and continuous), binomial, Poisson, categorical, normal, bimodal
+and Dirichlet (trivariate) distributions, and kernel smoothing and
+empirical cumulative distribution functions.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,6 +43,7 @@ kernel smoothing and empirical cumulative distribution functions.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

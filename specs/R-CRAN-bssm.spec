@@ -1,9 +1,9 @@
 %global packname  bssm
-%global packver   0.1.10
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.11
 Release:          1%{?dist}
 Summary:          Bayesian Inference of Non-Linear and Non-Gaussian State SpaceModels
 
@@ -39,6 +39,7 @@ discretised diffusion models are supported.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

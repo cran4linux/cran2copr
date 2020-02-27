@@ -1,9 +1,9 @@
 %global packname  heuristicsmineR
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Discovery of Process Models with the Heuristics Miner
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
 BuildRequires:    R-CRAN-processmapR >= 0.3.1
+BuildRequires:    R-CRAN-bupaR 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-petrinetR 
-BuildRequires:    R-CRAN-bupaR 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-petrinetR 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,13 +31,13 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
 Requires:         R-CRAN-processmapR >= 0.3.1
+Requires:         R-CRAN-bupaR 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-petrinetR 
-Requires:         R-CRAN-bupaR 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-petrinetR 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
@@ -56,6 +56,7 @@ occurrence frequency or processing and waiting time of process activities.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

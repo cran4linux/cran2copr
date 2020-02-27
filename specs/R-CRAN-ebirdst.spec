@@ -1,9 +1,9 @@
 %global packname  ebirdst
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Access and Analyze eBird Status and Trends Data
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gbm >= 2.1.5
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-data.table 
@@ -28,17 +28,17 @@ BuildRequires:    R-mgcv
 BuildRequires:    R-CRAN-PresenceAbsence 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rgdal 
-Requires:         R-CRAN-gbm >= 2.1.5
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-data.table 
@@ -51,27 +51,28 @@ Requires:         R-mgcv
 Requires:         R-CRAN-PresenceAbsence 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rgdal 
 
 %description
 Tools to download, map, plot and analyze eBird Status and Trends data
 (<https://ebird.org/science/status-and-trends>). eBird
 (<https://ebird.org>) is a global database of bird observations collected
-by citizen scientists. eBird Status and Trends uses these data to analyse
+by citizen scientists. eBird Status and Trends uses these data to analyze
 continental bird abundances, range boundaries, habitats, and trends.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  locStra
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}
 Summary:          Fast Implementation of (Local) Population Stratification Methods
 
@@ -33,6 +33,7 @@ of a matrix is included, and a function to compute sliding windows.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

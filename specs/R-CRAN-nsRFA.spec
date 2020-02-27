@@ -1,9 +1,9 @@
 %global packname  nsRFA
-%global packver   0.7-14
+%global packver   0.7-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.14
+Version:          0.7.15
 Release:          1%{?dist}
 Summary:          Non-Supervised Regional Frequency Analysis
 
@@ -34,6 +34,7 @@ ISBN:9781906698003). Homogeneity tests from Hosking and Wallis (1993)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -41,6 +42,7 @@ ISBN:9781906698003). Homogeneity tests from Hosking and Wallis (1993)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

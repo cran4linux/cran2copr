@@ -1,9 +1,9 @@
 %global packname  bridgesampling
-%global packver   0.8-1
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Bridge Sampling for Marginal Likelihoods and Bayes Factors
 
@@ -38,11 +38,13 @@ Requires:         R-methods
 Provides functions for estimating marginal likelihoods, Bayes factors,
 posterior model probabilities, and normalizing constants in general, via
 different versions of bridge sampling (Meng & Wong, 1996,
-<http://www3.stat.sinica.edu.tw/statistica/j6n4/j6n43/j6n43.htm>).
+<http://www3.stat.sinica.edu.tw/statistica/j6n4/j6n43/j6n43.htm>). Gronau,
+Singmann, & Wagenmakers (2020) <doi:10.18637/jss.v092.i10>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,6 +66,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

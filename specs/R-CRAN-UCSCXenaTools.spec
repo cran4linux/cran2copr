@@ -1,9 +1,9 @@
 %global packname  UCSCXenaTools
-%global packver   1.2.10
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.10
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Download and Explore Datasets from UCSC Xena Data Hubs
 
@@ -41,6 +41,7 @@ linked, filtered, explored and downloaded.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

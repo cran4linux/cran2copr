@@ -1,9 +1,9 @@
 %global packname  quanteda
-%global packver   1.5.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Quantitative Analysis of Textual Data
 
@@ -24,14 +24,12 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-extrafont 
 BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-network 
-BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-CRAN-SnowballC 
-BuildRequires:    R-CRAN-spacyr 
 BuildRequires:    R-CRAN-stopwords 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-xml2 
@@ -45,14 +43,12 @@ Requires:         R-methods
 Requires:         R-CRAN-extrafont 
 Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-network 
-Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-sna 
 Requires:         R-CRAN-SnowballC 
-Requires:         R-CRAN-spacyr 
 Requires:         R-CRAN-stopwords 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-xml2 
@@ -71,6 +67,7 @@ analyses, and more.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
