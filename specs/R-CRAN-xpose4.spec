@@ -1,11 +1,11 @@
 %global packname  xpose4
-%global packver   4.6.1
+%global packver   4.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.1
+Version:          4.7.0
 Release:          1%{?dist}
-Summary:          Tools for Nonlinear Mixed-Effect Model Building and Diagnostics
+Summary:          Diagnostics for Nonlinear Mixed-Effect Models
 
 License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,14 +37,17 @@ Requires:         R-grid
 Requires:         R-CRAN-readr 
 
 %description
-A collection of functions to be used as a model building aid for nonlinear
-mixed-effects (population) analysis using NONMEM. It facilitates data set
-checkout, exploration and visualization, model diagnostics, candidate
-covariate identification and model comparison.
+A model building aid for nonlinear mixed-effects (population) model
+analysis using NONMEM, facilitating data set checkout, exploration and
+visualization, model diagnostics, candidate covariate identification and
+model comparison. The methods are described in Keizer et al. (2013)
+<doi:10.1038/psp.2013.24>, and Jonsson et al. (1999)
+<doi:10.1016/s0169-2607(98)00067-4>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -52,6 +55,7 @@ covariate identification and model comparison.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

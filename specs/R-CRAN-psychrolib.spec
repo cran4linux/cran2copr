@@ -1,32 +1,28 @@
-%global packname  RJSDMX
-%global packver   2.3-3
+%global packname  psychrolib
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.4.0
 Release:          1%{?dist}
-Summary:          R Interface to SDMX Web Services
+Summary:          Psychrometric Properties of Moist and Dry Air
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo >= 1.6.4
-BuildRequires:    R-CRAN-rJava >= 0.8.8
-Requires:         R-CRAN-zoo >= 1.6.4
-Requires:         R-CRAN-rJava >= 0.8.8
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides functions to retrieve data and metadata from providers that
-disseminate data by means of SDMX web services. SDMX (Statistical Data and
-Metadata eXchange) is a standard that has been developed with the aim of
-simplifying the exchange of statistical information. More about the SDMX
-standard and the SDMX Web Services can be found at: <https://sdmx.org>.
+Implementation of 'PsychroLib'
+<https://github.com/psychrometrics/psychrolib> library which contains
+functions to enable the calculation properties of moist and dry air in
+both metric (SI) and imperial (IP) systems of units. References: Meyer, D.
+and Thevenard, D (2019) <doi.org/10.21105/joss.01137>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,11 +44,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/configuration.properties
-%doc %{rlibdir}/%{packname}/java
-%doc %{rlibdir}/%{packname}/Licence.pdf
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/PSYCHROLIB_AUTHORS.txt
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

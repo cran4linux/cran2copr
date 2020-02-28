@@ -1,9 +1,9 @@
 %global packname  FarmTest
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Factor Adjusted Robust Multiple Testing
 
@@ -20,17 +20,19 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Performs robust multiple testing for means in the presence of known and
-unknown latent factors. It implements a series of adaptive Huber methods
-combined with fast data-drive tuning schemes to estimate model parameters
-and construct test statistics that are robust against heavy-tailed and/or
-asymetric error distributions. Extensions to two-sample simultaneous mean
-comparison problems are also included. As by-products, this package also
-contains functions that compute adaptive Huber mean and covariance matrix
-estimators that are of independent interest.
+unknown latent factors (Fan et al., 2019). It implements a series of
+adaptive Huber methods combined with fast data-drive tuning schemes (Ke et
+al., 2019) to estimate model parameters and construct test statistics that
+are robust against heavy-tailed and/or asymmetric error distributions.
+Extensions to two-sample simultaneous mean comparison problems are also
+included. As by-products, this package also contains functions that
+compute adaptive Huber mean and covariance matrix estimators that are of
+independent interest.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  mmpca
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}
 Summary:          Integrative Analysis of Several Related Data Matrices
 
@@ -15,12 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-gsl >= 1.9
-BuildRequires:    R-CRAN-CMF >= 1.0
 BuildRequires:    R-CRAN-digest >= 0.6.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-gsl >= 1.9
-Requires:         R-CRAN-CMF >= 1.0
 Requires:         R-CRAN-digest >= 0.6.0
 
 %description
@@ -34,6 +32,7 @@ described in Kallus, Johansson, Nelander and Jörnsten (2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

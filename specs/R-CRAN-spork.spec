@@ -1,11 +1,11 @@
-%global packname  mbend
-%global packver   1.2.4
+%global packname  spork
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Matrix Bending
+Summary:          Generalized Label Formatting
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,12 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-latexpdf 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-latexpdf 
+Requires:         R-CRAN-knitr 
 
 %description
-Bending non-positive-definite (symmetric) matrices to positive-definite,
-using weighted and unweighted methods. Jorjani, H., et al. (2003)
-<doi:10.3168/jds.S0022-0302(03)73646-7>. Schaeffer, L. R. (2010)
-<http://animalbiosciences.uoguelph.ca/~lrs/piksLRS/PDforce.pdf>.
+The 'spork' syntax describes label formatting concisely, supporting mixed
+nesting of subscripts and superscripts to arbitrary depth. It intends to
+be easy to read and write in plain text, and easy to convert to equivalent
+presentations in 'plotmath' and 'latex'.  Greek symbols and a
+multiplication symbol are explicitly supported. See ?as_spork and
+?as_previews.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,7 +54,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

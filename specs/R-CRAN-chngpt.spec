@@ -1,9 +1,9 @@
 %global packname  chngpt
-%global packver   2019.11-30
+%global packver   2020.2-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2019.11.30
+Version:          2020.2.26
 Release:          1%{?dist}
 Summary:          Estimation and Hypothesis Testing for Threshold Regression
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-survival 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-kyotil 
@@ -40,6 +40,7 @@ estimation and inference, BMC Bioinformatics, in press,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

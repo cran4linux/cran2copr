@@ -1,33 +1,31 @@
-%global packname  twang
-%global packver   1.6
+%global packname  dundermifflin
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Toolkit for Weighting and Analysis of Nonequivalent Groups
+Summary:          The Office Quotes on-Demand
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-gbm >= 1.5.3
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-lattice 
-BuildRequires:    R-CRAN-latticeExtra 
-Requires:         R-CRAN-gbm >= 1.5.3
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-xtable 
-Requires:         R-lattice 
-Requires:         R-CRAN-latticeExtra 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-crayon 
 
 %description
-Provides functions for propensity score estimating and weighting,
-nonresponse weighting, and diagnosis of the weights.
+Provides functions to randomly select, return, and print quotes or entire
+scenes from the American version of the show the Office. Receive laughs
+from one of of the greatest sitcoms of all time on demand. Add these
+functions to your '.Rprofile' to get a good laugh everytime you start a
+new R session.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +52,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

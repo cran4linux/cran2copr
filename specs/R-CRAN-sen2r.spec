@@ -1,9 +1,9 @@
 %global packname  sen2r
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}
 Summary:          Find, Download and Process Sentinel-2 Data
 
@@ -34,8 +34,6 @@ BuildRequires:    R-CRAN-shinyWidgets
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-httr 
 Requires:         R-methods 
 Requires:         R-CRAN-sf 
@@ -56,8 +54,6 @@ Requires:         R-CRAN-shinyWidgets
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-units 
-Requires:         R-tools 
 Requires:         R-CRAN-httr 
 
 %description
@@ -70,6 +66,7 @@ processing is also provided.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

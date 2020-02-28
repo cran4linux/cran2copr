@@ -1,9 +1,9 @@
 %global packname  sgmodel
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Solves a Generic Stochastic Growth Model with a RepresentativeAgent
 
@@ -18,11 +18,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ramify 
 BuildRequires:    R-CRAN-Rtauchen 
-BuildRequires:    R-CRAN-tidyverse 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ramify 
 Requires:         R-CRAN-Rtauchen 
-Requires:         R-CRAN-tidyverse 
 
 %description
 It computes the solutions to a generic stochastic growth model for a given
@@ -37,6 +35,7 @@ ISBN:978-0-387-98140-6 ).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

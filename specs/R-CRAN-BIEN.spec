@@ -1,9 +1,9 @@
 %global packname  BIEN
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}
 Summary:          Tools for Accessing the Botanical Information and EcologyNetwork Database
 
@@ -22,6 +22,12 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-fasterize 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-RPostgreSQL 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rgdal 
@@ -29,6 +35,12 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-ape 
 Requires:         R-methods 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-fasterize 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
 
 %description
 Provides Tools for Accessing the Botanical Information and Ecology Network
@@ -41,6 +53,7 @@ executing optimized SQL queries.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -48,6 +61,7 @@ executing optimized SQL queries.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
