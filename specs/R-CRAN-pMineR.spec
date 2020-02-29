@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-XML >= 3.98.1.3
 BuildRequires:    R-cluster >= 2.0.4
 BuildRequires:    R-CRAN-stringr >= 1.0.0
@@ -32,6 +33,7 @@ and clinical data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -39,6 +41,7 @@ and clinical data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

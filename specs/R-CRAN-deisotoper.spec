@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 Requires:         java
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
+BuildArch:        noarch
 BuildRequires:    R-CRAN-rJava >= 0.9
 Requires:         R-CRAN-rJava >= 0.9
 
@@ -29,6 +30,7 @@ cluster of a given mass spectrum.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +38,7 @@ cluster of a given mass spectrum.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

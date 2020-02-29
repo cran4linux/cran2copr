@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-kinship2 
 Requires:         R-CRAN-kinship2 
 
@@ -31,6 +32,7 @@ rare variants for family-based sequencing studies. Genet Epidemiol
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +40,7 @@ rare variants for family-based sequencing studies. Genet Epidemiol
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

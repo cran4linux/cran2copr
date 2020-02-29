@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-rstan >= 2.18.2
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-knitr 
@@ -111,6 +112,7 @@ analysis. See the vignettes for more details.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

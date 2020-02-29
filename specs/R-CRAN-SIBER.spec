@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-hdrcde 
@@ -55,6 +56,7 @@ with the aim being to describe and compare their isotopic niche.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -62,6 +64,7 @@ with the aim being to describe and compare their isotopic niche.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

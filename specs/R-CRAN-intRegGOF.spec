@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.5.0
 Requires:         R-core >= 2.5.0
+BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 Requires:         R-graphics 
@@ -27,6 +28,7 @@ method. Works for several different fitting techniques.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -34,6 +36,7 @@ method. Works for several different fitting techniques.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

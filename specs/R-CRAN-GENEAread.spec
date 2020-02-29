@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-mmap 
 Requires:         R-CRAN-bitops 
@@ -29,6 +30,7 @@ the GENEActiv device.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

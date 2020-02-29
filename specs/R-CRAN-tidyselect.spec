@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
+BuildArch:        noarch
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 0.4.3
 BuildRequires:    R-CRAN-purrr >= 0.3.2
@@ -33,6 +34,7 @@ consistent with other 'tidyverse' interfaces for selection.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

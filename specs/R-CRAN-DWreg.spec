@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
+BuildArch:        noarch
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-DiscreteWeibull 
 BuildRequires:    R-CRAN-Ecdat 
@@ -31,6 +32,7 @@ modelled via a discrete Weibull distribution.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +40,7 @@ modelled via a discrete Weibull distribution.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

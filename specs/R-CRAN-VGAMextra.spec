@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.2
 Requires:         R-core >= 3.3.2
+BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-stats4 
@@ -45,6 +46,7 @@ details on the latest changes.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -52,6 +54,7 @@ details on the latest changes.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

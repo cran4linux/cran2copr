@@ -282,14 +282,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
   # top
   tpl <- c(switch(
     pkg,
-    StanHeaders=,reshape=,SIBER=,bestglm=,pbdRPC=,AGHmatrix=,anacor=,aspect=,
-    analogueExtra=,oai=,mapdata=,CARRoT=,Boom=,beam=,BANOVA=,deisotoper=,cfa=,
-    BNPdensity=,bcgam=,jmdl=,brglm2=,FastRWeb=,HDDesign=,mQTL=,MHTmult=,dfped=,
-    intRegGOF=,idmTPreg=,fxtract=,doubcens=,IGG=,ITRLearn=,ITRSelect=,lcc=,
-    esmprep=,MBSP=,MOLHD=,isotone=,GENEAread=,tbl2xts=,reproducible=,GESE=,
-    PACBO=,robustsae=,pMineR=,DWreg=,musica=,dgo=,NormalBetaPrime=,VGAMextra=,
-    ccrs=,WRS2=,stratifyR=,orderedLasso=,dimRed=,GGMM=,cpcens=,BayesianFROC=,
-    ROpenCVLite=,DREGAR="%global debug_package %{nil}",
+    BANOVA=,beam=,Boom=,FastRWeb=,mapdata=,oai=,pbdRPC=,ROpenCVLite=,
+    StanHeaders="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -392,6 +386,8 @@ create_spec <- function(pkg, cran=available.packages()) {
   # fields
   desc <- read.dcf(file.path(path, "DESCRIPTION"))
   desc <- as.data.frame(desc, stringsAsFactors=FALSE)
+  if (!dir.exists(file.path(path, "src")))
+    cran[cran[,"Package"] == desc$Package, "NeedsCompilation"] = "no"
   deps <- pkg_deps(desc, cran)
   description <- strwrap(desc$Description, 75)
   files <- pkg_files(pkg, path)

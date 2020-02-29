@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.0.0
 Requires:         R-core >= 2.0.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-leaps 
 BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-glmnet 
@@ -34,6 +35,7 @@ with the `caret` package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

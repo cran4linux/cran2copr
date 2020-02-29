@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
+BuildArch:        noarch
 BuildRequires:    R-nlme >= 3.1.124
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-grid 

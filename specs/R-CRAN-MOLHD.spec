@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-arrangements 
 Requires:         R-CRAN-fields 
@@ -35,6 +36,7 @@ Joseph, V. R., Gul, E., and Ba, S. (2015) <doi:10.1093/biomet/asv002>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,6 +44,7 @@ Joseph, V. R., Gul, E., and Ba, S. (2015) <doi:10.1093/biomet/asv002>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

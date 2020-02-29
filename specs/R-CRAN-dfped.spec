@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
+BuildArch:        noarch
 BuildRequires:    R-CRAN-rstan >= 2.8.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-stats4 
@@ -54,6 +55,7 @@ These methods are proposed by Petit et al, (2016)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -61,6 +63,7 @@ These methods are proposed by Petit et al, (2016)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

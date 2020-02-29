@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-msgps 
 Requires:         R-CRAN-msgps 
 
@@ -27,6 +28,7 @@ to select the tuning parameters.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

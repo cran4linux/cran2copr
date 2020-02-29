@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-lattice 

@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-zoo >= 1.8.6
 BuildRequires:    R-Matrix >= 1.2.7.1
 Requires:         R-CRAN-zoo >= 1.8.6
@@ -28,6 +29,7 @@ methods are implemented considering additive and non-additive models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -35,6 +37,7 @@ methods are implemented considering additive and non-additive models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

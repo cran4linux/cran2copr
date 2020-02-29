@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.15.0
 Requires:         R-core >= 2.15.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-qtl 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-outliers 
@@ -31,6 +32,7 @@ and finally QTL mapping using R/qtl package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +40,7 @@ and finally QTL mapping using R/qtl package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
