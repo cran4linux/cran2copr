@@ -419,3 +419,65 @@ create_spec <- function(pkg, cran=available.packages()) {
 
   tpl
 }
+
+get_url_copr <- function() paste(
+  "https://copr.fedorainfracloud.org/coprs",
+  copr_call("whoami"), getOption("copr.repo"), sep="/")
+
+get_url_back <- function() paste(
+  "https://copr-be.cloud.fedoraproject.org/results",
+  copr_call("whoami"), getOption("copr.repo"), sep="/")
+
+get_url_build <- function(id, pkg, chroot) {
+  id <- ifelse(nchar(id) == 7, paste0(0, id), id)
+  paste0(get_url_back(), "/", chroot, "/", id, "-", pkg)
+}
+
+get_chroots <- function() {
+  stopifnot(requireNamespace("XML", quietly=TRUE))
+  html <- readLines(get_url_back(), warn=FALSE)
+  df <- XML::readHTMLTable(html)[[1]]
+  sort(sub("/$", "", subset(df, !grepl("\\.\\.|srpm|praiskup|gpg", Name))$Name))
+}
+
+get_monitor <- function() {
+  stopifnot(requireNamespace("XML", quietly=TRUE))
+  html <- readLines(paste(get_url_copr(), "monitor", "detailed", sep="/"), warn=FALSE)
+  df <- XML::readHTMLTable(html)[[1]]
+  colnames(df) <- c("Package", get_chroots())
+  na.omit(df)
+}
+
+get_builds <- function() {
+  stopifnot(requireNamespace("XML", quietly=TRUE))
+  html <- readLines(paste(get_url_copr(), "builds", sep="/"), warn=FALSE)
+  XML::readHTMLTable(html)[[1]]
+}
+
+subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
+  x.chrt <- x[, 2:ncol(x), drop=FALSE]
+  x.fail <- x.chrt[, chroots, drop=FALSE]
+  x.succ <- x.chrt[, setdiff(names(x.chrt), names(x.fail)), drop=FALSE]
+  x.fail <- apply(x.fail, 2, function(x) grepl("failed", x))
+  x.succ <- apply(x.succ, 2, function(x) grepl("succeeded|forked", x))
+  subset(x, apply(cbind(x.fail, x.succ), 1, all))
+}
+
+which_build_msg <- function(ids, pkgs, chroot, msg) {
+  stopifnot(requireNamespace("httr", quietly=TRUE))
+  stopifnot(length(ids) == length(pkgs))
+  stopifnot(length(chroot) == 1)
+
+  unlist(lapply(seq_along(ids), function(i) {
+    message("Inspecting build ", i, "/", length(ids))
+    URL <- get_url_build(ids[i], pkgs[i], chroot)
+    res <- httr::GET(URL)
+    if (res$status_code == 200) {
+      res <- httr::GET(paste0(URL, "/builder-live.log.gz"))
+      content <- strsplit(httr::content(res), "\n")[[1]]
+      if (any(grepl(msg, content)))
+        return(i)
+    }
+    NULL
+  }))
+}
