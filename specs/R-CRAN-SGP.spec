@@ -13,7 +13,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         tex(latex)
-Requires:         tex(pdfpages)
+Requires:         tex(pdfpages.sty)
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
@@ -89,6 +89,7 @@ longitudinal education assessment data as developed in Betebenner (2009)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

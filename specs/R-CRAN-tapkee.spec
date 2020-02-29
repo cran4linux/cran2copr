@@ -12,7 +12,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         tapkee-cli
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
@@ -26,6 +25,7 @@ is a program for fast dimension reduction, see 'package?tapkee' and
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -33,6 +33,7 @@ is a program for fast dimension reduction, see 'package?tapkee' and
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
