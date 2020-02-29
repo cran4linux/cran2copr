@@ -68,7 +68,8 @@ tools for digitizing and data manipulation.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname}/{python,htmlwidgets} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -93,7 +94,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/images
-%doc %{rlibdir}/%{packname}/python
+%{rlibdir}/%{packname}/python
 %{rlibdir}/%{packname}/INDEX

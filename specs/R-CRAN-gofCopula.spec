@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 1.9.0
 Requires:         R-core >= 1.9.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-VineCopula >= 2.0.5
 BuildRequires:    R-CRAN-copula >= 0.999.15
 BuildRequires:    R-CRAN-foreach 
@@ -60,6 +61,7 @@ test statistic.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

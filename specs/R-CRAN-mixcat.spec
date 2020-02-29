@@ -12,6 +12,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    gsl-devel
 BuildRequires:    R-devel >= 2.8.1
 Requires:         R-core >= 2.8.1
 BuildRequires:    R-CRAN-statmod 
@@ -25,6 +26,7 @@ random effects.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

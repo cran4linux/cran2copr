@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.11.4
 BuildRequires:    R-CRAN-laeken 
 BuildRequires:    R-stats 
@@ -29,6 +30,7 @@ calculation of optimal sample size allocation.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

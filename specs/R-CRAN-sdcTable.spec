@@ -13,7 +13,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    glpk-devel
-Requires:         glpk
+BuildRequires:    gmp-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-sdcHierarchies >= 0.18
@@ -45,6 +45,7 @@ and secondary cell suppression as described for example in Hundepol et al.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

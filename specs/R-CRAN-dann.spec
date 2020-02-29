@@ -16,7 +16,6 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-MASS >= 7.3
-BuildRequires:    R-CRAN- >= 3.5.3
 BuildRequires:    R-stats >= 3.5.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
 BuildRequires:    R-CRAN-fpc >= 2.1.11.1
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
 BuildRequires:    R-CRAN-rlang >= 0.3.4
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 Requires:         R-MASS >= 7.3
-Requires:         R-CRAN- >= 3.5.3
 Requires:         R-stats >= 3.5.3
 Requires:         R-CRAN-ggplot2 >= 3.1.1
 Requires:         R-CRAN-fpc >= 2.1.11.1
@@ -49,6 +47,7 @@ boundaries. This package implements dann and sub_dann from Hastie (1995)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

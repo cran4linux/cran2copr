@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 Requires:         R-stats 
@@ -40,6 +41,7 @@ refer to Wurm, Hanlon, and Rathouz (2017) <arXiv:1706.05003>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

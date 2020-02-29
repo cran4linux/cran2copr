@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildArch:        noarch
 BuildRequires:    R-boot 
 BuildRequires:    R-utils 
 Requires:         R-boot 
@@ -30,6 +31,7 @@ ISBN: 978-4-9906441-1-6).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

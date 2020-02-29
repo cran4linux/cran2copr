@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
+BuildArch:        noarch
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-jsonlite 
@@ -32,6 +33,7 @@ authentication with the server has to happen.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

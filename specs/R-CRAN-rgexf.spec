@@ -38,7 +38,7 @@ with the 'igraph' package.
 
 %prep
 %setup -q -c -n %{packname}
-
+sed -i '/system.file/d' %{packname}/man/plot.gexf.Rd
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build

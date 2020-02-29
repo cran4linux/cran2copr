@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
+BuildArch:        noarch
 BuildRequires:    R-parallel 
 BuildRequires:    R-nnet 
 BuildRequires:    R-CRAN-faraway 
@@ -33,6 +34,7 @@ recommended for a large number of predictor variables.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

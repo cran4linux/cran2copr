@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.4
 BuildRequires:    R-CRAN-httpuv >= 1.3.3
 BuildRequires:    R-CRAN-geojsonio >= 0.3.2
@@ -27,6 +28,7 @@ Displays geospatial data on an interactive 3D globe in the web browser.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -27,6 +27,7 @@ Helps for interfacing with the operating system particularly for Windows.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

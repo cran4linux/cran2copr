@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
@@ -31,6 +32,7 @@ the examples in demo.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

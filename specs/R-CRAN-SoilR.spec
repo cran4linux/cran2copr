@@ -30,7 +30,8 @@ decomposition in terrestrial ecosystems.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname}/tests -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

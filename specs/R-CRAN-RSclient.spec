@@ -12,6 +12,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    openssl-devel
 BuildRequires:    R-devel >= 2.7.0
 Requires:         R-core >= 2.7.0
 

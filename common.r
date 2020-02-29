@@ -168,7 +168,8 @@ need_update <- function(pkgs, cran=available.packages()) {
 
 pkg_files <- function(pkg, path) {
   topdir <- "^DESCRIPTION$|^NAMESPACE$|^LICEN(S|C)E$|^NEWS|^R$|^data$|demo|exec"
-  nodocs <- "DESCRIPTION|INDEX|NAMESPACE|/R$|libs|data|include|LICEN"
+  nodocs <- "DESCRIPTION|INDEX|NAMESPACE|/R$|libs|data|include|LICEN|"
+  nodocs <- paste0(nodocs, "pomdp|java|bin|share|python|widgets")
   license <- "LICEN"
 
   instignore <- file.path(path, ".Rinstignore")
@@ -193,9 +194,10 @@ pkg_files <- function(pkg, path) {
     pkg, stringi=,dparser=,PreciseSums="include", readr="rcon", maps=,mapdata="mapdata",
     littler=,processx=,ps=,zip=,phylocomr=,arulesSequences=,brotli=,cepreader="bin",
     RcppParallel=,StanHeaders=,RInside=,Boom=,RcppMLPACK=,RcppClassic=,emstreeR="lib",
-    rscala="dependencies", pbdZMQ=,pbdMPI="etc", antiword=c("bin", "share"),
+    rscala="dependencies", pbdZMQ=,pbdMPI="etc", antiword=,unrtf=c("bin", "share"),
     TMB="Matrix-version", biomod2="HasBeenCustom.txt", icd="COPYING", Rttf2pt1="exec",
-    FastRWeb=c("Rcgi", "cgi-bin"), sundialr="libsundials_all.a"))
+    FastRWeb=c("Rcgi", "cgi-bin"), sundialr="libsundials_all.a", pomdp="pomdp-solve",
+    r2pmml="java", r2sundials="libsundials.a"))
 
   files <- paste0("%{rlibdir}/%{packname}/", files)
   files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
@@ -219,7 +221,7 @@ pkg_files <- function(pkg, path) {
     desc[[i]] <- ""
 
   deps <- gsub("\n", " ", as.matrix(desc)[,keys])
-  deps <- gsub("compiler,*", "", deps)
+  deps <- gsub("compiler[0-9\\(\\)[:space:]>=.]*,", "", deps)
   deps <- sub("[[:space:]]*,[[:space:]]*$", "", deps)
   deps <- strsplit(deps, "[[:space:]]*,[[:space:]]*")
   deps <- do.call(rbind, lapply(deps, function(i) {
@@ -323,11 +325,9 @@ pkg_exceptions <- function(tpl, pkg, path) {
       "%{packname}/man/checkFuncs.Rd"),
     rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
     h2o = "cp %{SOURCE1} %{packname}/inst/java",
-    nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=,ndl=,scrobbler=paste(
-      "find %{packname}/inst -type f -exec",
-      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
-    chromoR = paste(
-      "find %{packname}/exec -type f -exec",
+    nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=,ndl=,scrobbler=,
+    chromoR=,uavRmp=,SoilR=,dynwrap=,RcppRedis=,protViz=,PRISMA=paste(
+      "find %{packname} -type f -exec",
       "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
     shinyAce=, googleComputeEngineR =
       "find %{packname}/inst -type f -exec chmod a-x {} \\;",
@@ -343,7 +343,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
       "find %{packname} -type f -exec",
       "sed -Ei 's@/path/to/Rscript@/usr/bin/Rscript@g' {} \\;"),
     rhli = "rm -f %{packname}/src/Makevars*",
-    spcosa = "sed -i '/Sexpr/d' %{packname}/man/spcosa-package.Rd"
+    spcosa = "sed -i '/Sexpr/d' %{packname}/man/spcosa-package.Rd",
+    rgexf = "sed -i '/system.file/d' %{packname}/man/plot.gexf.Rd"
   ))
 
   # install

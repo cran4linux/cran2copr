@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.1
 Requires:         R-core >= 3.2.1
+BuildArch:        noarch
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-tbl2xts 
 BuildRequires:    R-CRAN-zoo 

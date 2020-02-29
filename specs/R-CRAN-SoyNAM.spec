@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
+BuildArch:        noarch
 BuildRequires:    R-CRAN-NAM 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-reshape2 
@@ -31,6 +32,7 @@ analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

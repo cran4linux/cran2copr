@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
+BuildArch:        noarch
 BuildRequires:    R-CRAN-nleqslv 
 Requires:         R-CRAN-nleqslv 
 
@@ -26,6 +27,7 @@ A. Gitter (2020) <doi:10.1186/s12859-019-3324-1>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

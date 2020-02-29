@@ -12,8 +12,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    poppler-devel
-Requires:         poppler
+BuildRequires:    poppler-glib-devel
 BuildRequires:    R-devel
 Requires:         R-core
 

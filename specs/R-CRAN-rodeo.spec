@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-deSolve 
 Requires:         R-CRAN-R6 
@@ -29,6 +30,7 @@ support for solvers contained in packages 'deSolve' and 'rootSolve'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
