@@ -1,11 +1,11 @@
 %global packname  hypercube
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
-Summary:          Organizing Data in a Hypercube
+Summary:          Organizing Data in Hypercubes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,7 +27,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-dplyr 
 
 %description
-Provides methods for organizing data in a hypercube (i.e., a
+Provides functions and methods for organizing data in hypercubes (i.e., a
 multi-dimensional cube). Cubes are generated from molten data frames. Each
 cube can be manipulated with five operations: rotation
 (change.dimensionOrder()), dicing and slicing (add.selection(),
@@ -37,6 +37,7 @@ remove.selection()), drilling down (add.aggregation()), and rolling up
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,6 +45,7 @@ remove.selection()), drilling down (add.aggregation()), and rolling up
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

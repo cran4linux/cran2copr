@@ -1,9 +1,9 @@
 %global packname  politeness
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Detecting Politeness Features in Text
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-CRAN-quanteda 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-textir
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-textclean 
 Requires:         R-CRAN-tm 
 Requires:         R-CRAN-quanteda 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-textir
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-slam 
 Requires:         R-CRAN-textclean 
 
 %description

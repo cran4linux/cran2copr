@@ -1,9 +1,9 @@
 %global packname  vamc
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          A Monte Carlo Valuation Framework for Variable Annuities
 
@@ -33,6 +33,7 @@ methodology was proposed by Gan (2017) <doi:10.1515/demo-2017-0021>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  transplantr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Audit and Research Functions for Transplantation
 
@@ -22,16 +22,17 @@ transplantation, focused mainly on transplantation of abdominal organs.
 These functions include donor and recipient risk indices as used by NHS
 Blood & Transplant, OPTN/UNOS and Eurotransplant, tools for quantifying
 HLA mismatches, functions for calculating estimated glomerular filtration
-rate (eGFR), a function to calculate the APRI score used in initial
-screening of suitability to receive a transplant from a hepatitis C
-seropositive donor and some biochemical unit converter functions. All
-functions are designed to work with either US or international units.
-References for the equations are provided in the vignettes and function
-documentation.
+rate (eGFR), a function to calculate the APRI (AST to platelet ratio)
+score used in initial screening of suitability to receive a transplant
+from a hepatitis C seropositive donor and some biochemical unit converter
+functions. All functions are designed to work with either US or
+international units. References for the equations are provided in the
+vignettes and function documentation.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

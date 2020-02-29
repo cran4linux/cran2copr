@@ -1,9 +1,9 @@
 %global packname  diffman
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Detect Differentiation Problems
 
@@ -42,11 +42,13 @@ it is sometimes possible to derive X on a small aggregate of records which
 could then lead to a break of confidentiality. The purpose of this package
 is to detect the set of aggregates composed of categories of the first
 nomenclature which lead to a differentiation problem, when given a
-confidentiality threshold.
+confidentiality threshold. Reference: Vianney Costemalle (2019) <doi:
+10.3233/SJI-190564>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -54,6 +56,7 @@ confidentiality threshold.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

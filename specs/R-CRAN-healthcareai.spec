@@ -1,9 +1,9 @@
 %global packname  healthcareai
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}
 Summary:          Tools for Healthcare Machine Learning
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caret >= 6.0.81
 BuildRequires:    R-CRAN-ranger >= 0.8.0
@@ -22,9 +22,7 @@ BuildRequires:    R-CRAN-recipes >= 0.1.3.9002
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
@@ -44,9 +42,7 @@ Requires:         R-CRAN-recipes >= 0.1.3.9002
 Requires:         R-methods 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
@@ -66,6 +62,7 @@ A machine learning toolbox tailored to healthcare data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

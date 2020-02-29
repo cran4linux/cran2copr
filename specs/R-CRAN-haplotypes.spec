@@ -1,9 +1,9 @@
 %global packname  haplotypes
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}
 Summary:          Manipulating DNA Sequences and Estimating Unambiguous HaplotypeNetwork with Statistical Parsimony
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-network
 BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-pegas 
 BuildRequires:    R-CRAN-plotrix 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-network
 Requires:         R-CRAN-sna 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-pegas 
 Requires:         R-CRAN-plotrix 
 
 %description

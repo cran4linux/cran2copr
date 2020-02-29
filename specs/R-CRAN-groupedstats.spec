@@ -1,9 +1,9 @@
 %global packname  groupedstats
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Grouped Statistical Analyses in a Tidy Way
 
@@ -15,34 +15,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.2.0
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-skimr >= 2.0.2
-BuildRequires:    R-CRAN-glue >= 1.3.1
-BuildRequires:    R-CRAN-lme4 >= 1.1.21
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-CRAN-parameters >= 0.3.0
-BuildRequires:    R-CRAN-sjstats >= 0.17.7
-BuildRequires:    R-CRAN-rstudioapi >= 0.10
-BuildRequires:    R-CRAN-broomExtra >= 0.0.6
+BuildRequires:    R-CRAN-broomExtra 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-ipmisc 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-parameters 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-sjstats 
+BuildRequires:    R-CRAN-skimr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-haven >= 2.2.0
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-skimr >= 2.0.2
-Requires:         R-CRAN-glue >= 1.3.1
-Requires:         R-CRAN-lme4 >= 1.1.21
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-parameters >= 0.3.0
-Requires:         R-CRAN-sjstats >= 0.17.7
-Requires:         R-CRAN-rstudioapi >= 0.10
-Requires:         R-CRAN-broomExtra >= 0.0.6
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-broomExtra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-ipmisc 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-parameters 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-sjstats 
+Requires:         R-CRAN-skimr 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
 Collection of functions to run statistical tests across all combinations
@@ -51,6 +53,7 @@ of multiple grouping variables.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -74,5 +77,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

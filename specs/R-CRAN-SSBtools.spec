@@ -1,9 +1,9 @@
 %global packname  SSBtools
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Statistics Norway's Miscellaneous Tools
 
@@ -17,8 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
 Requires:         R-Matrix 
 Requires:         R-CRAN-stringr 
+Requires:         R-methods 
 
 %description
 Functions used by other packages from Statistics Norway are gathered.
@@ -29,6 +31,7 @@ useful within statistical disclosure control.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

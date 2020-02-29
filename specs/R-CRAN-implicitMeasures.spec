@@ -1,9 +1,9 @@
 %global packname  implicitMeasures
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Computes the Scores for Different Implicit Measures
 
@@ -17,16 +17,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-qpdf 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-qpdf 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-xtable 
 
@@ -41,6 +37,7 @@ with the scores of implicit measures descriptive statistics are provided.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -48,6 +45,7 @@ with the scores of implicit measures descriptive statistics are provided.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -60,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

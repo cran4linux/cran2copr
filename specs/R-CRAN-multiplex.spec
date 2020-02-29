@@ -1,9 +1,9 @@
 %global packname  multiplex
-%global packver   2.9.2
+%global packver   2.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.2
+Version:          2.9.4
 Release:          1%{?dist}
 Summary:          Algebraic Tools for the Analysis of Multiple Social Networks
 
@@ -20,18 +20,21 @@ Requires:         R-methods
 
 %description
 Algebraic procedures for the analysis of multiple social networks are
-delivered with this package. Among other things, it makes possible to
-create and manipulate multivariate network data with different formats,
-and there are effective ways available to treat multiple networks with
-routines that combine algebraic systems like the partially ordered
-semigroup or the semiring structure together with the relational bundles
-occurring in different types of multivariate network data sets. It also
-provides an algebraic approach for two-mode networks through Galois
-derivations between families of the pairs of subsets in the two domains.
+delivered with this package as described in Ostoic (2020)
+<DOI:10.18637/jss.v092.i11>. Among other things, it makes it possible to
+create and manipulate multiplex, multimode, and multilevel network data
+with different formats. There are effective ways available to treat
+multiple networks with routines that combine algebraic systems like the
+partially ordered semigroup or the semiring structure with the relational
+bundles occurring in different types of multivariate network data sets. It
+also provides an algebraic approach for affiliation networks through
+Galois derivations between families of the pairs of subsets in the two
+domains.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -53,5 +56,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CHANGELOG
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

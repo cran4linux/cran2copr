@@ -1,9 +1,9 @@
 %global packname  baggr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Bayesian Aggregate Treatment Effects
 
@@ -51,6 +51,7 @@ plotting and pooling measures specific to meta-analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -74,7 +75,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/models
 %doc %{rlibdir}/%{packname}/tests
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

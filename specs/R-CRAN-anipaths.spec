@@ -1,9 +1,9 @@
 %global packname  anipaths
-%global packver   0.9.7
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.8
 Release:          1%{?dist}
 Summary:          Animation of Observed Trajectories Using Spline-BasedInterpolation
 
@@ -16,20 +16,18 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-animation 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-mgcv 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggmap 
 Requires:         R-CRAN-animation 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-raster 
 Requires:         R-mgcv 
 Requires:         R-grDevices 
 Requires:         R-CRAN-ggmap 
@@ -45,6 +43,7 @@ of presentations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -52,6 +51,7 @@ of presentations.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

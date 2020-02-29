@@ -1,9 +1,9 @@
 %global packname  naniar
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Data Structures, Summaries, and Visualisations for Missing Data
 
@@ -48,11 +48,13 @@ in the initial stages of analysis. 'naniar' provides data structures and
 functions that facilitate the plotting of missing values and examination
 of imputations. This allows missing data dependencies to be explored with
 minimal deviation from the common work patterns of 'ggplot2' and tidy
-data.
+data. The work is fully discussed at Tierney & Cook (2018)
+<arXiv:1809.02264>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

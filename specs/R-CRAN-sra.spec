@@ -1,9 +1,9 @@
 %global packname  sra
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Selection Response Analysis
 
@@ -15,11 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-stats4 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
 Requires:         R-stats4 
+Requires:         R-graphics 
 
 %description
-This package (sra) provides a set of tools to analyse artificial-selection
+Artificial selection through selective breeding is an efficient way to
+induce changes in traits of interest in experimental populations. This
+package (sra) provides a set of tools to analyse artificial-selection
 response datasets. The data typically feature for several generations the
 average value of a trait in a population, the variance of the trait, the
 population size and the average value of the parents that were chosen to
@@ -38,6 +44,7 @@ the output of the models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -45,6 +52,7 @@ the output of the models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  tsmp
-%global packver   0.3.5
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.4.8
 Release:          1%{?dist}
 Summary:          Time Series with Matrix Profile
 
@@ -12,21 +12,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildRequires:    R-CRAN-RcppParallel >= 4.4.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-audio 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-RJSONIO 
 Requires:         R-CRAN-audio 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-doSNOW 
-Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-magrittr 
+Requires:         R-parallel 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-RcppParallel >= 4.4.4
+Requires:         R-CRAN-RJSONIO 
 
 %description
 A toolkit implementing the Matrix Profile concept that was created by
@@ -35,6 +42,7 @@ CS-UCR <http://www.cs.ucr.edu/~eamonn/MatrixProfile.html>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,8 +63,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

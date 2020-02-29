@@ -1,9 +1,9 @@
 %global packname  multigraph
-%global packver   0.92
+%global packver   0.93
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.92
+Version:          0.93
 Release:          1%{?dist}
 Summary:          Plot and Manipulate Multigraphs
 
@@ -21,13 +21,14 @@ Requires:         R-CRAN-multiplex >= 2.9
 Requires:         R-methods 
 
 %description
-Functions to plot and manipulate multigraphs, signed and valued
-multigraphs, bipartite graphs, multilevel graphs, and Cayley graphs with
-different layout options (this package still under a devel version).
+Functions to plot and manipulate multigraphs, signed and valued graphs,
+bipartite graphs, multilevel graphs, and Cayley graphs with different
+layout options. Please note that this package still under a devel version.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -47,4 +48,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

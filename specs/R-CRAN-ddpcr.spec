@@ -1,9 +1,9 @@
 %global packname  ddpcr
-%global packver   1.12
+%global packver   1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12
+Version:          1.13
 Release:          1%{?dist}
 Summary:          Analysis and Visualization of Droplet Digital PCR in R and onthe Web
 
@@ -46,6 +46,7 @@ comfortable with using R.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

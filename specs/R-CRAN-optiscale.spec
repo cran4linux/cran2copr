@@ -1,11 +1,11 @@
 %global packname  optiscale
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}
-Summary:          Optimal scaling
+Summary:          Optimal Scaling
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,11 +19,15 @@ BuildRequires:    R-lattice
 Requires:         R-lattice 
 
 %description
-Tools for performing an optimal scaling transformation on a data vector
+Optimal scaling of a data vector is obtained through a least-squares
+transformation subject to appropriate measurement constraints. Further
+information about this methodology is provided by Young
+(1981)<doi:10.1007/BF02293796> and Jacoby (1999)< doi:10.2307/2991794>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  MatTransMix
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          Clustering with Matrix Gaussian and Matrix TransformationMixture Models
 
@@ -24,6 +24,7 @@ a total of 196 variations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

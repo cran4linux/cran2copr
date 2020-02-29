@@ -1,9 +1,9 @@
 %global packname  radsafer
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}
 Summary:          Radiation Safety
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggthemes 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-readr 
 Requires:         R-stats 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggthemes 
 
 %description
 Provides functions for radiation safety, also known as "radiation
@@ -54,6 +56,7 @@ transport (Werner et. al. (2018) <doi:10.2172/1419730>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

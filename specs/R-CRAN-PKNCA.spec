@@ -1,9 +1,9 @@
 %global packname  PKNCA
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}
 Summary:          Perform Pharmacokinetic Non-Compartmental Analysis
 
@@ -33,15 +33,13 @@ Requires:         R-CRAN-tidyr
 Requires:         R-utils 
 
 %description
-Compute standard Non-Compartmental Analysis (NCA) parameters and summarize
-them.  In addition to this core work, it also provides standardized
-plotting routines, basic assessments for biocomparison or drug
-interaction, and model-based estimation routines for calculating doses to
-reach specific values of AUC or Cmax.
+Compute standard Non-Compartmental Analysis (NCA) parameters for typical
+pharmacokinetic analyses and summarize them.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,6 +47,7 @@ reach specific values of AUC or Cmax.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

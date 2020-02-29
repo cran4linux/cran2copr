@@ -1,9 +1,9 @@
 %global packname  TRAMPR
-%global packver   1.0-8
+%global packver   1.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}
 Summary:          'TRFLP' Analysis and Matching Package for R
 
@@ -18,16 +18,18 @@ BuildArch:        noarch
 
 %description
 Matching terminal restriction fragment length polymorphism ('TRFLP')
-profiles between unknown samples and a database of known samples.  TRAMPR
-facilitates analysis of many unknown profiles at once, and provides tools
-for working directly with electrophoresis output through to generating
-summaries suitable for community analyses with R's rich set of statistical
-functions.  TRAMPR also resolves the issues of multiple 'TRFLP' profiles
-within a species, and shared 'TRFLP' profiles across species.
+profiles between unknown samples and a database of known samples.
+'TRAMPR' facilitates analysis of many unknown profiles at once, and
+provides tools for working directly with electrophoresis output through to
+generating summaries suitable for community analyses with R's rich set of
+statistical functions.  'TRAMPR' also resolves the issues of multiple
+'TRFLP' profiles within a species, and shared 'TRFLP' profiles across
+species.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

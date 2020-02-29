@@ -1,9 +1,9 @@
 %global packname  shinymanager
-%global packver   1.0.100
+%global packver   1.0.200
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.100
+Version:          1.0.200
 Release:          1%{?dist}
 Summary:          Authentication Management for 'Shiny' Applications
 
@@ -43,6 +43,7 @@ successful.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

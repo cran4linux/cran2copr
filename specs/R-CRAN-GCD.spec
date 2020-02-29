@@ -1,9 +1,9 @@
 %global packname  GCD
-%global packver   4.0.5
+%global packver   4.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.5
+Version:          4.0.6
 Release:          1%{?dist}
 Summary:          Global Charcoal Database
 
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-raster 
+Requires:         R-CRAN-raster 
 
 %description
 Contains the Global Charcoal database data. Data include charcoal series
@@ -26,6 +28,7 @@ mirrors the online SQL database at <http://paleofire.org>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
