@@ -1,28 +1,37 @@
-%global packname  muRty
-%global packver   0.3.1
+%global packname  modeltests
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Murty's Algorithm for k-Best Assignments
+Summary:          Testing Infrastructure for Broom Model Generics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-testthat >= 2.0.0
+BuildRequires:    R-CRAN-tibble >= 1.4.2
+BuildRequires:    R-CRAN-dplyr >= 0.7.6
+BuildRequires:    R-CRAN-purrr >= 0.2.5
+BuildRequires:    R-CRAN-generics 
+Requires:         R-CRAN-testthat >= 2.0.0
+Requires:         R-CRAN-tibble >= 1.4.2
+Requires:         R-CRAN-dplyr >= 0.7.6
+Requires:         R-CRAN-purrr >= 0.2.5
+Requires:         R-CRAN-generics 
 
 %description
-Calculates k-best solutions and costs for an assignment problem following
-the method outlined in Murty (1968) <doi:10.1287/opre.16.3.682>.
+Provides a number of testthat tests that can be used to verify that
+tidy(), glance() and augment() methods meet consistent specifications.
+This allows methods for the same generic to be spread across multiple
+packages, since all of those packages can make the same guarantees to
+users about returned objects.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +53,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE

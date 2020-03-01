@@ -1,40 +1,35 @@
-%global packname  WaveletGARCH
-%global packver   0.1.1
+%global packname  tsnetwork
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.2
 Release:          1%{?dist}
-Summary:          Fit the Wavelet-GARCH Model to Volatile Time Series Data
+Summary:          Constructing Dynamic Networks for Time-Series Data
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-wavelets 
-BuildRequires:    R-CRAN-FinTS 
-BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-devel >= 3.3.2
+Requires:         R-core >= 3.3.2
+BuildRequires:    R-CRAN-QUIC 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-longitudinal 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-rugarch 
-BuildRequires:    R-CRAN-fracdiff 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-wavelets 
-Requires:         R-CRAN-FinTS 
-Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-QUIC 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-longitudinal 
 Requires:         R-parallel 
-Requires:         R-CRAN-rugarch 
-Requires:         R-CRAN-fracdiff 
-Requires:         R-methods 
 
 %description
-Fits the combination of Wavelet-GARCH model for time series forecasting
-using algorithm by Paul (2015) <doi:10.3233/MAS-150328>.
+Implements the method in Behrouzi, Abegaz, and Wit (2018)
+<arXiv:1805.09840> to learn intra-time and inter-time conditional
+independence networks for ordinal time-series data and mixed
+discrete-and-continuous time-series data. This package assumes a
+stationary process, where both instantaneous and dynamic networks stay
+fixed over time.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,7 +51,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

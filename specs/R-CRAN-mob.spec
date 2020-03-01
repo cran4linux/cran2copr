@@ -1,28 +1,36 @@
-%global packname  muRty
-%global packver   0.3.1
+%global packname  mob
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Murty's Algorithm for k-Best Assignments
+Summary:          Monotonic Optimal Binning
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-lpSolve 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-Rborist 
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-stats 
+Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-Rborist 
+Requires:         R-CRAN-Hmisc 
 
 %description
-Calculates k-best solutions and costs for an assignment problem following
-the method outlined in Murty (1968) <doi:10.1287/opre.16.3.682>.
+Generate the monotonic binning and perform the woe (weight of evidence)
+transformation for the logistic regression used in the consumer credit
+scorecard development. The woe transformation is a piecewise
+transformation that is linear to the log odds. For a numeric variable, all
+of its monotonic functional transformations will converge to the same woe
+transformation.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,9 +52,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

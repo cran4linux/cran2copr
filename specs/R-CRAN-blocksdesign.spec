@@ -1,9 +1,9 @@
 %global packname  blocksdesign
-%global packver   3.8
+%global packver   3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8
+Version:          3.9
 Release:          1%{?dist}
 Summary:          Nested and Crossed Block Designs for Factorial, FractionalFactorial and Unstructured Treatment Sets
 
@@ -39,6 +39,7 @@ block and treatment design.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  csv
-%global packver   0.5.4
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.5
 Release:          1%{?dist}
 Summary:          Read and Write CSV Files with Selected Conventions
 
@@ -23,6 +23,7 @@ function for reading and writing to promote consistent formats.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

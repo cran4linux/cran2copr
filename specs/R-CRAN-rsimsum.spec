@@ -1,9 +1,9 @@
 %global packname  rsimsum
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          Analysis of Simulation Studies Including Monte Carlo Error
 
@@ -38,6 +38,7 @@ extending it with additional functionality.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

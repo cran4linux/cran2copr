@@ -1,9 +1,9 @@
 %global packname  clustermq
-%global packver   0.8.8.1
+%global packver   0.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8.1
+Version:          0.8.9
 Release:          1%{?dist}
 Summary:          Evaluate Function Calls on HPC Schedulers (LSF, SGE, SLURM,PBS/Torque)
 
@@ -36,6 +36,7 @@ accessing the file system. Remote schedulers are supported via SSH.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

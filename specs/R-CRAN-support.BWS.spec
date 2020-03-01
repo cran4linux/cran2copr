@@ -1,9 +1,9 @@
 %global packname  support.BWS
-%global packver   0.3-0
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Tools for Case 1 Best-Worst Scaling
 
@@ -17,16 +17,19 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Provides three basic functions that support an implementation of object
-case (Case 1) best-worst scaling: one for converting a two-level
+Provides basic functions that support an implementation of object case
+(Case 1) best-worst scaling: a function for converting a two-level
 orthogonal main-effect design/balanced incomplete block design into
-questions; one for creating a data set suitable for analysis; and one for
-calculating count-based scores. For details on best-worst scaling, see
-Louviere et al. (2015) <doi:10.1017/CBO9781107337855>.
+questions; two functions for creating a data set suitable for analysis; a
+function for calculating count-based scores; a function for calculating
+shares of preference; and a function for generating artificial responses
+to questions. For details on best-worst scaling, see Louviere et al.
+(2015) <doi:10.1017/CBO9781107337855>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

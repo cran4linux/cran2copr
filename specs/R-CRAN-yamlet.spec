@@ -1,9 +1,9 @@
 %global packname  yamlet
-%global packver   0.3.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.4
 Release:          1%{?dist}
 Summary:          Versatile Curation of Table Metadata
 
@@ -19,16 +19,20 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-csv >= 0.5.4
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-encode 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-spork 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-csv >= 0.5.4
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-encode 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-spork 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xtable 
 
 %description
 The 'yamlet' package implements a file-based mechanism for documenting
@@ -43,6 +47,7 @@ user. See ?yamlet and ?decorate.data.frame. See ?read_yamlet
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

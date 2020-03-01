@@ -1,9 +1,9 @@
 %global packname  helda
-%global packver   0.9.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Preprocess Data and Get Better Insights from Machine LearningModels
 
@@ -30,15 +30,16 @@ Requires:         R-CRAN-sqldf >= 0.4.11
 
 %description
 The main focus is on preprocessing and data visualization of machine
-learning models performances. Some functions allow to fill gaps in time
+learning models performances. Some functions allow to fill in gaps in time
 series using linear interpolation on panel data, some functions permit to
-draw lift effect and lift curves in order to benchmark machine learning
+draw lift effect and lift curve in order to benchmark machine learning
 models or you can even find the optimal number of clusters in
 agglomerative clustering algorithm.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -58,5 +59,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
