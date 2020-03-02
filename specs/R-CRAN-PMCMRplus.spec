@@ -1,9 +1,9 @@
 %global packname  PMCMRplus
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}
 Summary:          Calculate Pairwise Multiple Comparisons of Mean Rank SumsExtended
 
@@ -14,8 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    gmp-devel >= 4.2.3
 BuildRequires:    mpfr-devel >= 3.0.0
-Requires:         gmp
-Requires:         mpfr
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-kSamples >= 1.2.7

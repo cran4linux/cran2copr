@@ -1,9 +1,9 @@
 %global packname  stplanr
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Sustainable Transport Planning
 
@@ -66,6 +66,7 @@ Lovelace and Ellison (2018) <doi:10.32614/RJ-2018-053>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

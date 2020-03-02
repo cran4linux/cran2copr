@@ -1,29 +1,40 @@
-%global packname  parsetools
-%global packver   0.1.2
+%global packname  HLSM
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.8.2
 Release:          1%{?dist}
-Summary:          Parse Tools
+Summary:          Hierarchical Latent Space Network Model
 
-License:          GPL-2
+License:          GPL (> 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-stats 
+Requires:         R-MASS 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-igraph 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-CRAN-abind 
+Requires:         R-stats 
 
 %description
-Tools and utilities for dealing with parse data. Parse data represents the
-parse tree as data with location and type information.  This package
-provides functions for navigating the parse tree as a data frame.
+Implements Hierarchical Latent Space Network Model (HLSM) for ensemble of
+networks as described in Sweet, Thomas & Junker (2013).
+<DOI:10.3102/1076998612458702>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,11 +56,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

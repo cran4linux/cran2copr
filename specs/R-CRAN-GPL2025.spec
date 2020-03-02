@@ -1,30 +1,27 @@
-%global packname  rvcheck
-%global packver   0.1.8
+%global packname  GPL2025
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          R/Package Version Check
+Summary:          Convert Chip ID of the GPL2015 into GeneBank Accession andENTREZID
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BiocManager 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-BiocManager 
-Requires:         R-utils 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Check latest release version of R and R package (both in 'CRAN',
-'Bioconductor' or 'Github').
+Convert the chip ID of GPL2025
+<https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL2025> to GeneBank
+Accession and ENTREZID <http://www.ncbi.nlm.nih.gov/gene>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +45,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

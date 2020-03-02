@@ -1,9 +1,9 @@
 %global packname  phylobase
-%global packver   0.8.8
+%global packver   0.8.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.8.10
 Release:          1%{?dist}
 Summary:          Base Package for Phylogenetic Structures and Comparative Data
 

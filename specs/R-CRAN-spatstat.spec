@@ -1,9 +1,9 @@
 %global packname  spatstat
-%global packver   1.63-2
+%global packver   1.63-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.63.2
+Version:          1.63.3
 Release:          1%{?dist}
 Summary:          Spatial Point Pattern Analysis, Model-Fitting, Simulation, Tests
 

@@ -1,9 +1,9 @@
 %global packname  behaviorchange
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Tools for Behavior Change Researchers and Professionals
 
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-googlesheets >= 0.3.0
 BuildRequires:    R-CRAN-gtable >= 0.2.0
 BuildRequires:    R-CRAN-magrittr >= 0.1
 BuildRequires:    R-CRAN-DiagrammeRsvg >= 0.1
+BuildRequires:    R-CRAN-png >= 0.1
+BuildRequires:    R-CRAN-yum >= 0.0.1
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-BiasedUrn >= 1.07
@@ -37,6 +39,8 @@ Requires:         R-CRAN-googlesheets >= 0.3.0
 Requires:         R-CRAN-gtable >= 0.2.0
 Requires:         R-CRAN-magrittr >= 0.1
 Requires:         R-CRAN-DiagrammeRsvg >= 0.1
+Requires:         R-CRAN-png >= 0.1
+Requires:         R-CRAN-yum >= 0.0.1
 
 %description
 Contains specialised analyses and visualisation tools for behavior change
@@ -54,6 +58,7 @@ prevention workers.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

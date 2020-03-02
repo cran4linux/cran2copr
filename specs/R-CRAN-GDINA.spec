@@ -1,9 +1,9 @@
 %global packname  GDINA
-%global packver   2.7.8
+%global packver   2.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.8
+Version:          2.7.9
 Release:          1%{?dist}
 Summary:          The Generalized DINA Model Framework
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.1
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-graphics 
@@ -56,6 +56,7 @@ graphical user interface is also provided.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

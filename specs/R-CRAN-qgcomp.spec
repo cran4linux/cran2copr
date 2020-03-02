@@ -1,9 +1,9 @@
 %global packname  qgcomp
-%global packver   2.1.2
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.2
 Release:          1%{?dist}
 Summary:          Quantile G-Computation
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-arm 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
@@ -25,9 +26,11 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-stats 
 BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-arm 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-grid 
@@ -35,6 +38,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-pscl 
 Requires:         R-stats 
 Requires:         R-survival 
+Requires:         R-CRAN-tibble 
 
 %description
 G-computation for a set of time-fixed exposures with quantile-based basis
@@ -50,6 +54,7 @@ addressing the effects of exposure mixtures; <arXiv:1902.04200> [stat.ME].
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

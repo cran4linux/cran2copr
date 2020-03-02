@@ -1,9 +1,9 @@
 %global packname  rcheology
-%global packver   3.6.2.0
+%global packver   3.6.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.2.0
+Version:          3.6.3.0
 Release:          1%{?dist}
 Summary:          Data on Base Packages for Current and Previous Versions of R
 
@@ -23,6 +23,7 @@ onwards.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

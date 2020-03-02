@@ -1,9 +1,9 @@
 %global packname  pct
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Propensity to Cycle Tool
 
@@ -34,6 +34,7 @@ For an academic paper on the methods, see Lovelace et al (2017)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -41,6 +42,7 @@ For an academic paper on the methods, see Lovelace et al (2017)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -54,6 +56,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/cycling-potential-to-specific-zones.R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/pct_training_solutions.Rmd
 %doc %{rlibdir}/%{packname}/pct_training.R

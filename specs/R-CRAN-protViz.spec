@@ -1,9 +1,9 @@
 %global packname  protViz
-%global packver   0.6.0
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.3
 Release:          1%{?dist}
 Summary:          Visualizing and Analyzing Mass Spectrometry Related Data inProteomics
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-Rcpp >= 1.0
 BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 1.0

@@ -1,9 +1,9 @@
 %global packname  drake
-%global packver   7.10.0
+%global packver   7.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.10.0
+Version:          7.11.0
 Release:          1%{?dist}
 Summary:          A Pipeline Toolkit for Reproducible Computation at Scale
 
@@ -15,21 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-storr >= 1.1.0
+BuildRequires:    R-CRAN-digest >= 0.6.21
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-vctrs >= 0.2.0
 BuildRequires:    R-CRAN-txtq >= 0.1.3
 BuildRequires:    R-CRAN-base64url 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-storr >= 1.1.0
+Requires:         R-CRAN-digest >= 0.6.21
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-vctrs >= 0.2.0
 Requires:         R-CRAN-txtq >= 0.1.3
 Requires:         R-CRAN-base64url 
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
 Requires:         R-parallel 
@@ -49,6 +49,7 @@ to practical examples and more, is available at the reference website
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

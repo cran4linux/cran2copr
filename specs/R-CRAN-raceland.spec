@@ -1,9 +1,9 @@
 %global packname  raceland
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          Pattern-Based Zoneless Method for Analysis and Visualization ofRacial Topography
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-fasterize
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotwidgets 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -26,6 +27,7 @@ Requires:         R-CRAN-fasterize
 Requires:         R-methods 
 Requires:         R-CRAN-plotwidgets 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-comat >= 0.7.0
