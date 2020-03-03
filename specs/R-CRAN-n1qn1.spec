@@ -1,9 +1,9 @@
 %global packname  n1qn1
-%global packver   6.0.1-3
+%global packver   6.0.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.1.3
+Version:          6.0.1.6
 Release:          1%{?dist}
 Summary:          Port of the 'Scilab' 'n1qn1' and 'qnbd' Modules for(Un)constrained BFGS Optimization
 
@@ -25,11 +25,12 @@ than traditional L-BFGS.  The n1qn1 routine is useful since it allows
 prespecification of a Hessian. If the Hessian is near enough the truth in
 optimization it can speed up the optimization problem. Both algorithms are
 described in the 'Scilab' optimization documentation located at
-<http://www.scilab.org/content/download/250/1714/file/optimization_in_scilab.pdf>.
+<https://www.scilab.org/sites/default/files/optimization_in_scilab.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

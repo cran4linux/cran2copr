@@ -1,9 +1,9 @@
 %global packname  sarima
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}
 Summary:          Simulation and Prediction with Seasonal ARIMA Models
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-ltsa
 BuildRequires:    R-CRAN-FitARMA 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-KFAS 
+BuildRequires:    R-CRAN-FKF 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-ltsa
 Requires:         R-CRAN-FitARMA 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-KFAS 
+Requires:         R-CRAN-FKF 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-dplyr 
 
@@ -61,6 +63,7 @@ unit circle, which can be fixed or estimated.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

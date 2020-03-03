@@ -1,9 +1,9 @@
 %global packname  TDMR
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}
 Summary:          Tuned Data Mining in R
 
@@ -38,6 +38,7 @@ Koch et al. (2015) <doi:10.1016/j.asoc.2015.01.005>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -62,10 +63,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/demo02sonar
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/outcmaesdisp.dat
-%doc %{rlibdir}/%{packname}/source.tdm.r
-%doc %{rlibdir}/%{packname}/start.tdm.r
-%doc %{rlibdir}/%{packname}/startFromSource.r
 %doc %{rlibdir}/%{packname}/tdmMapDesign.csv
-%doc %{rlibdir}/%{packname}/testSpot.R
 %{rlibdir}/%{packname}/INDEX

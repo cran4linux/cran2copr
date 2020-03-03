@@ -1,11 +1,11 @@
-%global packname  KONPsurv
-%global packver   1.0.3
+%global packname  geotoolsR
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1
 Release:          1%{?dist}
-Summary:          KONP Tests: Powerful K-Sample Tests for Right-Censored Data
+Summary:          Tools to Improve the Use of Geostatistic
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,19 +14,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-survival 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-survival 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geoR 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-geoR 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-The K-sample omnibus non-proportional hazards (KONP) tests are powerful
-non-parametric tests for comparing K (>=2) hazard functions based on
-right-censored data (Gorfine, Schlesinger and Hsu, 2019,
-<arXiv:1901.05739v1>). These tests are consistent against any differences
-between the hazard functions of the groups. The KONP tests are often more
-powerful than other existing tests, especially under non-proportional
-hazard functions.
+The basic idea of this package is provides some tools to help the
+researcher to work with geostatistics. Initially, we present a collection
+of functions that allow the researchers to deal with spatial data using
+bootstrap procedure.There are five methods available and two ways to
+display them: bootstrap confidence interval - provides a two-sided
+bootstrap confidence interval; bootstrap plot - a graphic with the
+original variogram and each of the B bootstrap variograms.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,4 +58,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

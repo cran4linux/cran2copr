@@ -1,32 +1,32 @@
-%global packname  KONPsurv
-%global packver   1.0.3
+%global packname  MDSS
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          KONP Tests: Powerful K-Sample Tests for Right-Censored Data
+Summary:          Modeling Human Dentin Serial Sectioning
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-survival 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-survival 
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
-The K-sample omnibus non-proportional hazards (KONP) tests are powerful
-non-parametric tests for comparing K (>=2) hazard functions based on
-right-censored data (Gorfine, Schlesinger and Hsu, 2019,
-<arXiv:1901.05739v1>). These tests are consistent against any differences
-between the hazard functions of the groups. The KONP tests are often more
-powerful than other existing tests, especially under non-proportional
-hazard functions.
+Modeling microstructures of human tooth dentin and horizontal
+serial-sectioning of the dentin. Corresponding age range of dentin serial
+sections, that is used in stable isotope analyses, can be calculated by
+using this package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,9 +48,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

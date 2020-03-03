@@ -1,9 +1,9 @@
 %global packname  swmmr
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          R Interface for US EPA's SWMM
 
@@ -16,7 +16,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-tibble >= 1.2.4
 BuildRequires:    R-CRAN-readr >= 1.1.1
-BuildRequires:    R-CRAN-tidyr >= 0.8.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-xts >= 0.10.1
@@ -25,7 +25,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-tibble >= 1.2.4
 Requires:         R-CRAN-readr >= 1.1.1
-Requires:         R-CRAN-tidyr >= 0.8.0
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-purrr >= 0.2.4
 Requires:         R-CRAN-xts >= 0.10.1
@@ -46,6 +46,7 @@ glance model structures and to get direct access to simulation summaries.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -66,6 +67,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

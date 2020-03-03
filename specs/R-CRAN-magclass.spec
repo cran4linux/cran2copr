@@ -1,9 +1,9 @@
 %global packname  magclass
-%global packver   5.7.0
+%global packver   5.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.7.0
+Version:          5.7.3
 Release:          1%{?dist}
 Summary:          Data Class and Tools for Handling Spatial-Temporal Data
 
@@ -38,6 +38,7 @@ right data order in calculations).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

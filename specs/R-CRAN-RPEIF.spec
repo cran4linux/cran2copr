@@ -1,9 +1,9 @@
 %global packname  RPEIF
-%global packver   1.0.3
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          Computation and Plots of Influence Functions for Risk andPerformance Measures
 
@@ -15,17 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcpp >= 0.12.17
 BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-RobStatTM 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.17
 Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-RobStatTM 
 Requires:         R-stats 
 
 %description
@@ -39,6 +35,7 @@ shapes of the influence functions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

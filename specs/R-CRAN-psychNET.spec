@@ -1,9 +1,9 @@
 %global packname  psychNET
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}
 Summary:          Psychometric Networks for Intensive Longitudinal Data
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-SparseTSCGM
 BuildRequires:    R-CRAN-mlVAR 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-graphicalVAR 
-BuildRequires:    R-CRAN-sparsevar 
 BuildRequires:    R-CRAN-bigtime 
 BuildRequires:    R-CRAN-mgm 
 BuildRequires:    R-CRAN-crayon 
@@ -38,6 +37,15 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-ordinalNet 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-ncvreg 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-picasso 
+BuildRequires:    R-CRAN-corpcor 
 Requires:         R-CRAN-vars 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-imputeTS 
@@ -46,7 +54,6 @@ Requires:         R-CRAN-SparseTSCGM
 Requires:         R-CRAN-mlVAR 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-graphicalVAR 
-Requires:         R-CRAN-sparsevar 
 Requires:         R-CRAN-bigtime 
 Requires:         R-CRAN-mgm 
 Requires:         R-CRAN-crayon 
@@ -61,6 +68,15 @@ Requires:         R-MASS
 Requires:         R-CRAN-ordinalNet 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-ncvreg 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-grid 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-picasso 
+Requires:         R-CRAN-corpcor 
 
 %description
 In the past decade, mental processes have been conceptualized as complex
@@ -97,6 +113,7 @@ graphical VAR) model by Abegaz, F., Wit, E. (2013)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

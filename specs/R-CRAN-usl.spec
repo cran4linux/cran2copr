@@ -1,9 +1,9 @@
 %global packname  usl
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}
 Summary:          Analyze System Scalability with the Universal Scalability Law
 
@@ -33,6 +33,7 @@ forecast the scalability for the system.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

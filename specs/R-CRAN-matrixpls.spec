@@ -1,9 +1,9 @@
 %global packname  matrixpls
-%global packver   1.0.5
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.9
 Release:          1%{?dist}
 Summary:          Matrix-Based Partial Least Squares Estimation
 
@@ -18,15 +18,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-assertive 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-psych 
 Requires:         R-CRAN-assertive 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-psych 
 Requires:         R-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-psych 
 
 %description
 Partial Least Squares Path Modeling algorithm and related algorithms. The
@@ -38,6 +38,7 @@ simulations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

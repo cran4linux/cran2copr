@@ -1,9 +1,9 @@
 %global packname  cohorttools
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Cohort Data Analyses
 
@@ -16,6 +16,8 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Epi 
+BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-survival 
@@ -23,6 +25,8 @@ BuildRequires:    R-CRAN-DiagrammeR
 BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-rsvg 
 Requires:         R-CRAN-Epi 
+Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-CRAN-epitools 
 Requires:         R-survival 
@@ -39,6 +43,7 @@ transition rates between states. It utilizes 'Epi' package 'Lexis' data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -58,5 +63,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

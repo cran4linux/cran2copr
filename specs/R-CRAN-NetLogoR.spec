@@ -1,9 +1,9 @@
 %global packname  NetLogoR
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}
 Summary:          Build and Run Spatially Explicit Agent-Based Models
 
@@ -74,6 +74,7 @@ package 'fastshp' can be installed with 'install.packages("fastshp", repos
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

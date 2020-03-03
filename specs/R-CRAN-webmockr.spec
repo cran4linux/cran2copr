@@ -1,9 +1,9 @@
 %global packname  webmockr
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Stubbing and Setting Expectations on 'HTTP' Requests
 
@@ -40,6 +40,7 @@ context.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  SWMPrExtension
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}
 Summary:          Functions for Analyzing and Plotting Estuary Monitoring Data
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SWMPr 
 BuildRequires:    R-CRAN-broom 
@@ -63,11 +63,11 @@ Tools for performing routine analysis and plotting tasks with
 environmental data from the System Wide Monitoring Program of the National
 Estuarine Research Reserve System <http://cdmo.baruch.sc.edu/>. This
 package builds on the functionality of the SWMPr package
-<https://cran.r-project.org/web/packages/SWMPr/index.html>, which is used
-to retrieve and organize the data. The combined set of tools address
-common challenges associated with continuous time series data for
-environmental decision making, and are intended for use in annual
-reporting activities. References: Beck, Marcus W. (2016) <ISSN
+<https://cran.r-project.org/package=SWMPr>, which is used to retrieve and
+organize the data. The combined set of tools address common challenges
+associated with continuous time series data for environmental decision
+making, and are intended for use in annual reporting activities.
+References: Beck, Marcus W. (2016) <ISSN
 2073-4859><https://journal.r-project.org/archive/2016-1/beck.pdf> Rudis,
 Bob (2014)
 <https://rud.is/b/2014/11/16/moving-the-earth-well-alaska-hawaii-with-r/>.
@@ -79,6 +79,7 @@ United States Environmental Protection Agency (2012)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

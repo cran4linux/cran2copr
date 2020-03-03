@@ -1,9 +1,9 @@
 %global packname  sclr
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Scaled Logistic Regression
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-purrr 
 
 %description
 Maximum likelihood estimation of the scaled logit model parameters
@@ -33,6 +35,7 @@ proposed in Dunning (2006) <doi:10.1002/sim.2282>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

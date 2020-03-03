@@ -1,32 +1,28 @@
-%global packname  KONPsurv
-%global packver   1.0.3
+%global packname  rutifier
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
-Summary:          KONP Tests: Powerful K-Sample Tests for Right-Censored Data
+Summary:          Chilean Rol Unico Tributario
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-survival 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-survival 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R.utils 
+Requires:         R-CRAN-R.utils 
 
 %description
-The K-sample omnibus non-proportional hazards (KONP) tests are powerful
-non-parametric tests for comparing K (>=2) hazard functions based on
-right-censored data (Gorfine, Schlesinger and Hsu, 2019,
-<arXiv:1901.05739v1>). These tests are consistent against any differences
-between the hazard functions of the groups. The KONP tests are often more
-powerful than other existing tests, especially under non-proportional
-hazard functions.
+A RUT (Rol Unico Tributario) is an unique and personal identification
+number implemented in Chile to identify citizens and taxpayers. Rutifier
+allows to validate if a RUT exist or not and change between the different
+formats a RUT can have.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,9 +44,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

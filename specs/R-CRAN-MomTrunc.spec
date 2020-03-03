@@ -1,9 +1,9 @@
 %global packname  MomTrunc
-%global packver   5.71
+%global packver   5.79
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.71
+Version:          5.79
 Release:          1%{?dist}
 Summary:          Moments of Folded and Doubly Truncated MultivariateDistributions
 
