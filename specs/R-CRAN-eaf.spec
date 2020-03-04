@@ -1,9 +1,9 @@
 %global packname  eaf
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}
 Summary:          Plots of the Empirical Attainment Function
 
@@ -24,11 +24,15 @@ Requires:         R-grDevices
 Requires:         R-stats 
 
 %description
-Plots of the empirical attainment function for two objectives.
+Computation and visualization of the empirical attainment function (EAF)
+for the analysis of random sets in multi-criterion optimization. M.
+Lopez-Ibanez, L. Paquete, and T. Stuetzle (2010)
+<doi:10.1007/978-3-642-02538-9_9>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +40,7 @@ Plots of the empirical attainment function for two objectives.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -47,7 +52,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/extdata

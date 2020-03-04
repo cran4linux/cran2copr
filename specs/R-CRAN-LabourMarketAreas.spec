@@ -1,9 +1,9 @@
 %global packname  LabourMarketAreas
-%global packver   3.2.3
+%global packver   3.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          3.2.4
 Release:          1%{?dist}
 Summary:          Identification, Tuning, Visualisation and Analysis of LabourMarket Areas
 
@@ -39,6 +39,7 @@ the new functional geography.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

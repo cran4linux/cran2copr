@@ -1,13 +1,13 @@
 %global packname  dtwSat
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}
 Summary:          Time-Weighted Dynamic Time Warping for Satellite Image TimeSeries Analysis
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 3) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-caret
 BuildRequires:    R-mgcv 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-snow 
@@ -54,13 +55,12 @@ Requires:         R-CRAN-caret
 Requires:         R-mgcv 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-data.table 
 
 %description
 Provides an implementation of the Time-Weighted Dynamic Time Warping
 (TWDTW) method for land cover mapping using satellite image time series.
-TWDTW is based on the Dynamic Time Warping technique and has achieved high
-accuracy for land cover classification using satellite data. The method is
-based on comparing unclassified satellite image time series with a set of
+TWDTW compares unclassified satellite image time series with a set of
 known temporal patterns (e.g. phenological cycles associated with the
 vegetation). Using 'dtwSat' the user can build temporal patterns for land
 cover types, apply the TWDTW analysis for satellite datasets, visualize
@@ -71,6 +71,7 @@ metrics.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -95,6 +96,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/lucc_MT
+%doc %{rlibdir}/%{packname}/reduce_time
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

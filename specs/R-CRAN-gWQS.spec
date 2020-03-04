@@ -1,9 +1,9 @@
 %global packname  gWQS
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Generalized Weighted Quantile Sum Regression
 
@@ -30,7 +30,6 @@ BuildRequires:    R-nnet
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-pscl 
 Requires:         R-CRAN-Rsolnp 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
@@ -46,7 +45,6 @@ Requires:         R-nnet
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-pscl 
 
 %description
 Fits Weighted Quantile Sum (WQS) regressions for continuous, binomial,
@@ -55,6 +53,7 @@ multinomial and count outcomes.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -62,6 +61,7 @@ multinomial and count outcomes.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

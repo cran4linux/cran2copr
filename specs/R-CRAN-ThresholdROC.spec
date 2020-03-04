@@ -1,9 +1,9 @@
 %global packname  ThresholdROC
-%global packver   2.8
+%global packver   2.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          2.8.2
 Release:          1%{?dist}
 Summary:          Optimum Threshold Estimation
 
@@ -33,6 +33,7 @@ includes graphical tools.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

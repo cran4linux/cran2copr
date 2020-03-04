@@ -1,9 +1,9 @@
 %global packname  egor
-%global packver   0.20.01
+%global packver   0.20.03
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.01
+Version:          0.20.03
 Release:          1%{?dist}
 Summary:          Import and Analyse Ego-Centered Network Data
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-tidygraph
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-methods 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-tidygraph
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-tidyr 
 Requires:         R-methods 
@@ -53,6 +51,7 @@ procedures for creating and visualizing Clustered Graphs (Lerner 2008
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

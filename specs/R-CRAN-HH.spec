@@ -1,9 +1,9 @@
 %global packname  HH
-%global packver   3.1-39
+%global packver   3.1-40
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.39
+Version:          3.1.40
 Release:          1%{?dist}
 Summary:          Statistical Analysis and Data Display: Heiberger and Holland
 
@@ -71,6 +71,7 @@ directory of the package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

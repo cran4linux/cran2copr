@@ -1,9 +1,9 @@
 %global packname  stats19
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Work with Open Road Traffic Casualty Data from Great Britain
 
@@ -29,13 +29,14 @@ other incidents on the roads resulting in casualties in Great Britain from
 consequential casualties.  The statistics relate only to personal
 casualties on public roads that are reported to the police, and
 subsequently recorded, using the 'STATS19' accident reporting form. See
-the Department for Transportation website
+the Department for Transport website
 <https://data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data>
 for more information on these data.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,9 +58,15 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/2day-slides.Rmd
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/ggtheme-plot.png
+%doc %{rlibdir}/%{packname}/iow_example.R
+%{rlibdir}/%{packname}/national-cycling-data.R
 %doc %{rlibdir}/%{packname}/rstudio-autocomplete.png
 %doc %{rlibdir}/%{packname}/stats-19-exercises.Rmd
+%doc %{rlibdir}/%{packname}/tmap-zones-interactive.png
+%doc %{rlibdir}/%{packname}/ts_example.R
+%doc %{rlibdir}/%{packname}/walking-cycling-innovations-slides.Rmd
 %{rlibdir}/%{packname}/INDEX

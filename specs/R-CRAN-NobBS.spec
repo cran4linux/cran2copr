@@ -1,30 +1,36 @@
-%global packname  plyr
-%global packver   1.8.6
+%global packname  NobBS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.6
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Tools for Splitting, Applying and Combining Data
+Summary:          Nowcasting by Bayesian Smoothing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-magrittr 
 
 %description
-A set of tools that solves a common set of problems: you need to break a
-big problem down into manageable pieces, operate on each piece and then
-put all the pieces back together.  For example, you might want to fit a
-model to each spatial location or time point in your study, summarise data
-by panels or collapse high-dimensional arrays to simpler summary
-statistics. The development of 'plyr' has been generously supported by
-'Becton Dickinson'.
+A Bayesian approach to estimate the number of
+occurred-but-not-yet-reported cases from incomplete, time-stamped
+reporting data for disease outbreaks. 'NobBS' learns the reporting delay
+distribution and the time evolution of the epidemic curve to produce
+smoothed nowcasts in both stable and time-varying case reporting settings,
+as described in McGough et al. (2019) <doi:10.1101/663823>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +58,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/JAGS
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

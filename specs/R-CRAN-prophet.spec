@@ -1,13 +1,13 @@
 %global packname  prophet
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}
 Summary:          Automatic Forecasting Procedure
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-CRAN-BH
 BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
+BuildArch:        noarch
 BuildRequires:    R-CRAN-rstan >= 2.14.0
 BuildRequires:    R-CRAN-dygraphs >= 1.1.1.4
 BuildRequires:    R-CRAN-dplyr >= 0.7.7
@@ -76,4 +77,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/stan
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

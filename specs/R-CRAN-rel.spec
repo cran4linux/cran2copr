@@ -1,9 +1,9 @@
 %global packname  rel
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}
 Summary:          Reliability Coefficients
 
@@ -25,14 +25,15 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Derives point estimates with confidence intervals for Bennett et als S,
-Cohen's kappa, Conger's kappa, Fleiss' kappa, Gwet's AC, intraclass
-correlation coefficients, Krippendorff's alpha, Scott's pi, the standard
-error of measurement, and weighted kappa.
+Point estimates with confidence intervals for Bennett et als S, Cohen's
+kappa, Conger's kappa, Fleiss' kappa, Gwet's AC, intraclass correlation
+coefficients, Krippendorff's alpha, Scott's pi, the standard error of
+measurement, and weighted kappa.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

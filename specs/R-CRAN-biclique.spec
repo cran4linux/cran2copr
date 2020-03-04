@@ -1,9 +1,9 @@
 %global packname  biclique
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          Maximal Biclique Enumeration in Bipartite Graphs
 
@@ -22,13 +22,13 @@ Requires:         R-utils
 %description
 A tool for enumerating maximal complete bipartite graphs. The input should
 be a edge list file or a binary matrix file. The output are maximal
-complete bipartite graphs. Algorithms used can be found in this paper Y
-Zhang et al. BMC Bioinformatics 2014 15:110
-<doi:10.1186/1471-2105-15-110>.
+complete bipartite graphs. Algorithms used can be found in this paper Y.
+Lu et al. BMC Res Notes 13, 88 (2020) <doi:10.1186/s13104-020-04955-0>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  eRm
-%global packver   1.0-0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Extended Rasch Modeling
 
@@ -22,6 +22,8 @@ BuildRequires:    R-MASS
 BuildRequires:    R-splines 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-psych 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -30,6 +32,8 @@ Requires:         R-MASS
 Requires:         R-splines 
 Requires:         R-Matrix 
 Requires:         R-lattice 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-psych 
 
 %description
 Fits Rasch models (RM), linear logistic test models (LLTM), rating scale
@@ -45,6 +49,7 @@ data matrices.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -52,6 +57,7 @@ data matrices.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  LDATS
-%global packver   0.2.4
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.6
 Release:          1%{?dist}
 Summary:          Latent Dirichlet Allocation Coupled with Time Series Analyses
 
@@ -17,11 +17,9 @@ Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-memoise 
@@ -29,17 +27,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-nnet 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-topicmodels 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-here 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-memoise 
@@ -47,7 +42,6 @@ Requires:         R-methods
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-nnet 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-reshape 
 Requires:         R-stats 
 Requires:         R-CRAN-topicmodels 
 Requires:         R-CRAN-viridis 
@@ -67,6 +61,7 @@ ISBN-13:978-0387954578), and Christensen et al. (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

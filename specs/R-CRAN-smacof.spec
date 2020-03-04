@@ -1,9 +1,9 @@
 %global packname  smacof
-%global packver   2.0-0
+%global packver   2.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Multidimensional Scaling
 
@@ -12,14 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-MASS 
@@ -31,11 +32,12 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-e1071 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-nnls 
 Requires:         R-grDevices 
 Requires:         R-MASS 
@@ -62,6 +64,7 @@ and Procrustes are implemented as well.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -69,6 +72,7 @@ and Procrustes are implemented as well.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
