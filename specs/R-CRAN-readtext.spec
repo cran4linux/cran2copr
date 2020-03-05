@@ -1,9 +1,9 @@
 %global packname  readtext
-%global packver   0.75
+%global packver   0.76
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.75
+Version:          0.76
 Release:          1%{?dist}
 Summary:          Import and Handling for Plain and Formatted Text Files
 

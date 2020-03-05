@@ -1,31 +1,39 @@
-%global packname  pesel
-%global packver   0.7.3
+%global packname  grabsampling
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Automatic Estimation of Number of Principal Components in PCA
+Summary:          Probability of Detection for Grab Sample Selection
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
-Requires:         R-graphics 
 
 %description
-Automatic estimation of number of principal components in PCA with
-PEnalized SEmi-integrated Likelihood (PESEL). See Piotr Sobczyk,
-Malgorzata Bogdan, Julie Josse 'Bayesian dimensionality reduction with PCA
-using penalized semi-integrated likelihood' (2017)
-<doi:10.1080/10618600.2017.1340302>.
+Functions for obtaining the probability of detection, for grab samples
+selection by using two different methods such as systematic or random
+based on two-state Markov chain model. For detection probability
+calculation, we used results from Bhat, U. and Lal, R. (1988)
+<doi:10.2307/1427041>.
 
 %prep
 %setup -q -c -n %{packname}

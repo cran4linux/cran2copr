@@ -1,13 +1,13 @@
-%global packname  xaringan
-%global packver   0.15
+%global packname  rasterDT
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15
+Version:          0.3.1
 Release:          1%{?dist}
-Summary:          Presentation Ninja
+Summary:          Fast Raster Summary and Manipulation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.6
-BuildRequires:    R-CRAN-servr >= 0.13
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.6
-Requires:         R-CRAN-servr >= 0.13
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fasterize 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-methods 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fasterize 
+Requires:         R-CRAN-sf 
 
 %description
-Create HTML5 slides with R Markdown and the JavaScript library 'remark.js'
-(<https://remarkjs.com>).
+Fast alternatives to several relatively slow 'raster' package functions.
+For large rasters, the functions run from 5 to approximately 100 times
+faster than the 'raster' package functions they replace. The 'fasterize'
+package, on which one function in this package depends, includes an
+implementation of the scan line algorithm attributed to Wylie et al.
+(1967) <doi:10.1145/1465611.1465619>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,12 +55,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/rmarkdown
-%doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX

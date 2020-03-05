@@ -1,9 +1,9 @@
 %global packname  vcr
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Record 'HTTP' Calls to Disk
 
@@ -16,7 +16,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crul >= 0.8.4
-BuildRequires:    R-CRAN-webmockr >= 0.5.0
+BuildRequires:    R-CRAN-webmockr >= 0.6.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-yaml 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-crul >= 0.8.4
-Requires:         R-CRAN-webmockr >= 0.5.0
+Requires:         R-CRAN-webmockr >= 0.6.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-yaml 
@@ -44,6 +44,7 @@ the same 'cassette' use a cached 'HTTP' response.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

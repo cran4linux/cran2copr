@@ -1,9 +1,9 @@
 %global packname  rpdo
-%global packver   0.2.5
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Pacific Decadal Oscillation Index Data
 
@@ -12,15 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-err 
-BuildRequires:    R-CRAN-checkr 
+BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-err 
-Requires:         R-CRAN-checkr 
+Requires:         R-CRAN-chk 
 Requires:         R-utils 
 Requires:         R-stats 
 
@@ -31,6 +29,7 @@ to present.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

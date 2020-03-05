@@ -1,9 +1,9 @@
 %global packname  nc
-%global packver   2020.1.16
+%global packver   2020.2.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.1.16
+Version:          2020.2.27
 Release:          1%{?dist}
 Summary:          Named Capture to Data Tables
 
@@ -32,6 +32,7 @@ include numeric columns via user-specified type conversion functions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

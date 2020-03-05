@@ -1,9 +1,9 @@
 %global packname  gear
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Geostatistical Analysis in R
 
@@ -15,14 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-autoimage 
 BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-optimx 
-Requires:         R-CRAN-sp 
-Requires:         R-parallel 
+Requires:         R-CRAN-autoimage 
 Requires:         R-lattice 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sp 
 Requires:         R-stats 
 Requires:         R-CRAN-optimx 
 
@@ -30,8 +32,7 @@ Requires:         R-CRAN-optimx
 Implements common geostatistical methods in a clean, straightforward,
 efficient manner. The methods are discussed in Schabenberger and Gotway
 (2004, <ISBN:9781584883227>) and Waller and Gotway (2004,
-<ISBN:9780471387718>).  This package is a quasi-reboot of the
-'SpatialTools' package.
+<ISBN:9780471387718>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,4 +59,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/testdata
+%{rlibdir}/%{packname}/testdata-raw
 %{rlibdir}/%{packname}/INDEX

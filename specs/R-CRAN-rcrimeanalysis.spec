@@ -1,9 +1,9 @@
 %global packname  rcrimeanalysis
-%global packver   0.3.1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          An Implementation of Crime Analysis Methods
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-igraph 
@@ -24,13 +25,13 @@ BuildRequires:    R-CRAN-leafsync
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-KernSmooth 
 BuildRequires:    R-CRAN-pals 
-BuildRequires:    R-CRAN-prophet 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-igraph 
@@ -39,7 +40,6 @@ Requires:         R-CRAN-leafsync
 Requires:         R-CRAN-lubridate 
 Requires:         R-KernSmooth 
 Requires:         R-CRAN-pals 
-Requires:         R-CRAN-prophet 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rgdal 
@@ -51,9 +51,11 @@ An implementation of functions for the analysis of crime incident or
 records management system data. The package implements analysis algorithms
 scaled for city or regional crime analysis units. The package provides
 functions for kernel density estimation for crime heat maps, geocoding
-using the 'Google Maps' API, spatio-temporal map comparison across time
-intervals, time series analysis (forecasting and decomposition), and near
-repeat analysis (with crime network linkage).
+using the 'Google Maps' API, identification of repeat crime incidents,
+spatio-temporal map comparison across time intervals, time series analysis
+(forecasting and decomposition), detection of optimal parameters for the
+identification of near repeat incidents, and near repeat analysis with
+crime network linkage.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
-%global packname  xaringan
-%global packver   0.15
+%global packname  ghql
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Presentation Ninja
+Summary:          General Purpose 'GraphQL' Client
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,20 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.6
-BuildRequires:    R-CRAN-servr >= 0.13
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.6
-Requires:         R-CRAN-servr >= 0.13
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-graphql 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-graphql 
 
 %description
-Create HTML5 slides with R Markdown and the JavaScript library 'remark.js'
-(<https://remarkjs.com>).
+A 'GraphQL' client, with an R6 interface for initializing a connection to
+a 'GraphQL' instance, and methods for constructing queries, including
+fragments and parameterized queries. Queries are checked with the
+'libgraphqlparser' C++ parser via the 'gaphql' package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,10 +53,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/rmarkdown
-%doc %{rlibdir}/%{packname}/rstudio
+%doc %{rlibdir}/%{packname}/ignore
+%doc %{rlibdir}/%{packname}/js
 %{rlibdir}/%{packname}/INDEX

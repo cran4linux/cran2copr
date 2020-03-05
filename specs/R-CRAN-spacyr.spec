@@ -1,9 +1,9 @@
 %global packname  spacyr
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Wrapper to the 'spaCy' 'NLP' Library
 
@@ -29,6 +29,7 @@ An R wrapper to the 'Python' 'spaCy' 'NLP' library, from
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +37,7 @@ An R wrapper to the 'Python' 'spaCy' 'NLP' library, from
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -51,6 +53,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/python
+%{rlibdir}/%{packname}/python
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

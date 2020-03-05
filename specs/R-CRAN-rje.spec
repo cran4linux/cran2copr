@@ -1,9 +1,9 @@
 %global packname  rje
-%global packver   1.10.13
+%global packver   1.10.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.13
+Version:          1.10.15
 Release:          1%{?dist}
 Summary:          Miscellaneous Useful Functions for Statistics
 
@@ -26,6 +26,7 @@ combinations and more...
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

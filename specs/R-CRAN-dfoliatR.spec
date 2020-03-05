@@ -1,33 +1,44 @@
-%global packname  MNLpred
-%global packver   0.0.2
+%global packname  dfoliatR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Simulated Predicted Probabilities for Multinomial Logit Models
+Summary:          Detection and Analysis of Insect Defoliation Signals in TreeRings
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplR 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-MASS 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-forcats 
+Requires:         R-CRAN-dplR 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 Requires:         R-MASS 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-forcats 
 
 %description
-Functions to easily return simulated predicted probabilities and first
-differences for multinomial logit models. It takes a specified scenario
-and a multinomial model to predict probabilities with a set of
-coefficients, drawn from a simulated sampling distribution. The simulated
-predictions allow for meaningful plots with means and confidence
-intervals. The methodological approach is based on the principles laid out
-by King, Tomz, and Wittenberg (2000) <doi:10.2307/2669316>.
+Tools to identify, quantify, analyze, and visualize growth suppression
+events in tree rings that are often produced by insect defoliation.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,10 +60,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

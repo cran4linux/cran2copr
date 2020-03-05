@@ -1,9 +1,9 @@
 %global packname  rehh
-%global packver   3.0.1
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.0
 Release:          1%{?dist}
 Summary:          Searching for Footprints of Selection using 'Extended HaplotypeHomozygosity' Based Tests
 
@@ -33,12 +33,13 @@ well as 'Rsb' (Tang 2007) <doi:10.1371/journal.pbio.0050171> and 'XP-EHH'
 (Sabeti 2007) <doi:10.1038/nature06250>, targeted at differential
 selection between two populations. Various plotting functions are also
 included to facilitate visualization and interpretation of these
-statistics. Due to changes in the API, albeit mostly minor, this version
-is not compatible with versions 2.0.X.
+statistics. Due to changes in the API, albeit mostly minor, versions 3.X
+are not compatible with versions 2.0.X.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,6 +47,7 @@ is not compatible with versions 2.0.X.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

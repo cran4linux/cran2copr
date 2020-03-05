@@ -1,29 +1,31 @@
-%global packname  knncat
-%global packver   1.2.2
+%global packname  CFF
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Nearest-neighbor Classification with Categorical Variables
+Summary:          Simple Similarity for User-Based Collaborative Filtering Systems
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 
 %description
-Scale categorical variables in such a way as to make NN classification as
-accurate as possible. The code also handles continuous variables and prior
-probabilities, and does intelligent variable selection and estimation of
-both error rates and the right number of NN's.
+A simple, fast algorithm to find the neighbors and similarities of users
+in user-based filtering systems, to break free from the complex
+computation of existing similarity formulas and the ability to solve big
+data.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -31,6 +33,7 @@ both error rates and the right number of NN's.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -43,4 +46,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

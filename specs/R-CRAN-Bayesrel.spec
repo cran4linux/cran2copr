@@ -1,9 +1,9 @@
 %global packname  Bayesrel
-%global packver   0.1.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Bayesian Reliability Estimation
 
@@ -41,26 +41,29 @@ Requires:         R-graphics
 Requires:         R-CRAN-Rdpack 
 
 %description
-So far, it provides the most common single test reliability estimates,
-being: Coefficient Alpha, Guttman's lambda-2/-4/-6, greatest lower bound
-and Mcdonald's Omega. The Bayesian estimates are provided with credible
-intervals. The method for the Bayesian estimates, except for omega, is
-sampling from the posterior inverse Wishart for the covariance matrix
-based measures. See Murphy (2007)
-<https://www.seas.harvard.edu/courses/cs281/papers/murphy-2007.pdf>. Gibbs
-Sampling from the joint conditional distributions of a single factor model
-in the case of omega. See Lee (2007, ISBN:978-0-470-02424-9). Methods for
-the glb are from Moltner and Revelle (2018)
-<https://www.rdocumentation.org/packages/psych/versions/1.8.10/topics/glb.algebraic>;
-lambda-4 is from Benton (2015) <doi:10.1007/978-3-319-07503-7_19>; the
-principal factor analysis is from Schlegel (2017)
+Functionality for the most common single test reliability estimates is
+provided: Coefficient alpha, 'Guttman's' lambda-2/-4/-6, the greatest
+lower bound and coefficient omega. The Bayesian estimates are provided
+with credible intervals. The frequentist estimates are provided with
+bootstrapped confidence intervals The method for the Bayesian estimates,
+except for omega, is sampling from the posterior inverse 'Wishart' for the
+covariance matrix based measures. See 'Murphy' (2007)
+<https://www.seas.harvard.edu/courses/cs281/papers/murphy-2007.pdf>. In
+the case of omega it is 'Gibbs' Sampling from the joint conditional
+distributions of a single factor model. See 'Lee' (2007,
+<doi:10.1002/9780470024737>). The glb method is adjusted code from the
+'Rcsdp' package by 'Hector Corrada Bravo',
+<https://CRAN.R-project.org/package=Rcsdp>; lambda-4 is from 'Benton'
+(2015) <doi:10.1007/978-3-319-07503-7_19>; the principal factor analysis
+for the frequentist omega is from 'Schlegel' (2017)
 <https://www.r-bloggers.com/iterated-principal-factor-method-of-factor-analysis-with-r/>;
-and the analytic alpha interval is from Bonnett and Wright (2014)
+and the analytic alpha interval is from 'Bonett' and 'Wright' (2014)
 <doi:10.1002/job.1960>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -68,6 +71,7 @@ and the analytic alpha interval is from Bonnett and Wright (2014)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

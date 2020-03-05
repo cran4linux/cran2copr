@@ -1,37 +1,33 @@
-%global packname  catnet
-%global packver   1.15.5
+%global packname  dualtrees
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.5
+Version:          0.1.4
 Release:          1%{?dist}
-Summary:          Categorical Bayesian Network Inference
+Summary:          Decimated and Undecimated 2D Complex Dual-Tree Wavelet Transform
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Structure learning and parameter estimation of discrete Bayesian networks
-using likelihood-based criteria.  Exhaustive search for fixed node orders
-and stochastic search of optimal orders via simulated annealing algorithm
-are implemented.
+An implementation of the decimated two-dimensional complex dual-tree
+wavelet transform as described in Kingsbury (1999)
+<doi:10.1098/rsta.1999.0447> and Selesnick et al. (2005)
+<doi:10.1109/MSP.2005.1550194>. Also includes the undecimated version and
+spectral bias correction described in Nelson et al. (2018)
+<doi:10.1007/s11222-017-9784-0>. The code is partly based on the 'dtcwt'
+Python library.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -39,6 +35,7 @@ are implemented.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -48,10 +45,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

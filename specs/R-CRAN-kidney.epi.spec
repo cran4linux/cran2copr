@@ -1,9 +1,9 @@
 %global packname  kidney.epi
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Kidney Functions: Clinical and Epidemiological
 
@@ -17,16 +17,19 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 
 %description
-Contains kidney care oriented functions. Current version contains only
-function for calculation of Kidney Donor Risk Index and Kidney Donor
+Contains kidney care oriented functions. Current version contains
+functions for calculation of: - Kidney Donor Risk Index and Kidney Donor
 Profile Index for kidney transplant donors by Rao et al. (2009)
-<doi:10.1097/TP.0b013e3181ac620b>. Citation: Bikbov B. R open source
+<doi:10.1097/TP.0b013e3181ac620b>. - Estimated glomerular filtration rate
+by CKD-EPI, MDRD and other equations. Citation: Bikbov B. R open source
 programming code for calculation of the Kidney Donor Profile Index and
-Kidney Donor Risk Index. Kidney Diseases (2018) <doi:10.1159/000492427>.
+Kidney Donor Risk Index. Kidney Diseases (2018) 4:269–272
+<doi:10.1159/000492427> (the only citation for the whole package).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -34,6 +37,7 @@ Kidney Donor Risk Index. Kidney Diseases (2018) <doi:10.1159/000492427>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

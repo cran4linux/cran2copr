@@ -1,9 +1,9 @@
 %global packname  namedCapture
-%global packver   2019.7.30
+%global packver   2020.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2019.7.30
+Version:          2020.3.2
 Release:          1%{?dist}
 Summary:          Named Capture Regular Expressions
 
@@ -22,6 +22,7 @@ User-friendly wrappers for named capture regular expressions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

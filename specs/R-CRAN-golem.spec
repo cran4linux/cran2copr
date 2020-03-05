@@ -1,9 +1,9 @@
 %global packname  golem
-%global packver   0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          A Framework for Robust Shiny Applications
 
@@ -15,52 +15,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-attempt 
+BuildRequires:    R-CRAN-attempt >= 0.3.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-dockerfiler 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-pkgload 
-BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-roxygen2 
-BuildRequires:    R-CRAN-rsconnect 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yesno 
-Requires:         R-CRAN-attempt 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-attempt >= 0.3.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-config 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-dockerfiler 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-here 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-pkgload 
-Requires:         R-CRAN-processx 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-roxygen2 
-Requires:         R-CRAN-rsconnect 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shiny 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-testthat 
-Requires:         R-tools 
 Requires:         R-CRAN-usethis 
 Requires:         R-utils 
-Requires:         R-CRAN-yesno 
+Requires:         R-CRAN-yaml 
 
 %description
 An opinionated framework for building a production-ready 'Shiny'
@@ -70,6 +64,7 @@ application. This package contains a series of tools for building a robust
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -93,7 +88,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/img
+%doc %{rlibdir}/%{packname}/manualtests
 %doc %{rlibdir}/%{packname}/rstudio
 %doc %{rlibdir}/%{packname}/shinyexample
 %doc %{rlibdir}/%{packname}/utils
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

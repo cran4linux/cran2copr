@@ -1,9 +1,9 @@
 %global packname  skpr
-%global packver   0.62.0
+%global packver   0.64.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.62.0
+Version:          0.64.2
 Release:          1%{?dist}
 Summary:          Design of Experiments Suite: Generate and Evaluate OptimalDesigns
 
@@ -38,6 +38,8 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-shiny 
@@ -63,20 +65,24 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-lmerTest 
 Requires:         R-methods 
 Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-crayon 
 
 %description
 Generates and evaluates D, I, A, Alias, E, T, and G optimal designs.
-Supports generation and evaluation of split/split-split/.../N-split plot
-designs. Includes parametric and Monte Carlo power evaluation functions,
-and supports calculating power for censored responses. Provides a
-framework to evaluate power using functions provided in other packages or
-written by the user. Includes a Shiny graphical user interface that
-displays the underlying code used to create and evaluate the design to
-improve ease-of-use and make analyses more reproducible.
+Supports generation and evaluation of blocked and
+split/split-split/.../N-split plot designs. Includes parametric and Monte
+Carlo power evaluation functions, and supports calculating power for
+censored responses. Provides a framework to evaluate power using functions
+provided in other packages or written by the user. Includes a Shiny
+graphical user interface that displays the underlying code used to create
+and evaluate the design to improve ease-of-use and make analyses more
+reproducible.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

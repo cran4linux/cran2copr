@@ -1,9 +1,9 @@
 %global packname  mmcm
-%global packver   1.2-7
+%global packver   1.2-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.8
 Release:          1%{?dist}
 Summary:          Modified Maximum Contrast Method
 
@@ -15,9 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-OpenMPController 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-OpenMPController 
 
 %description
 An implementation of modified maximum contrast methods (Sato et al. (2009)
@@ -31,6 +29,7 @@ using a permutation method.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

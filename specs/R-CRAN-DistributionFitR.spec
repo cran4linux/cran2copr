@@ -1,31 +1,45 @@
-%global packname  pesel
-%global packver   0.7.3
+%global packname  DistributionFitR
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.1
 Release:          1%{?dist}
-Summary:          Automatic Estimation of Number of Principal Components in PCA
+Summary:          Fitting Multiple Parametric Distributions
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-datasets 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-datasets 
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Automatic estimation of number of principal components in PCA with
-PEnalized SEmi-integrated Likelihood (PESEL). See Piotr Sobczyk,
-Malgorzata Bogdan, Julie Josse 'Bayesian dimensionality reduction with PCA
-using penalized semi-integrated likelihood' (2017)
-<doi:10.1080/10618600.2017.1340302>.
+Given an univariate dataset, returns the best fitting parameter families,
+as defined in Shao (2003) <doi:10.1007/B97553>, including their parameter
+estimates via maximum likelihood.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,4 +64,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

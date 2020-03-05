@@ -1,9 +1,9 @@
 %global packname  todor
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Find All TODO Comments and More
 
@@ -29,6 +29,7 @@ This is a simple addin to 'RStudio' that finds all 'TODO', 'FIX ME',
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,6 +50,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/default.csv
 %doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX

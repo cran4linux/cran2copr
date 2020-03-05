@@ -1,9 +1,9 @@
 %global packname  multipanelfigure
-%global packver   2.0.2
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.2
 Release:          1%{?dist}
 Summary:          Infrastructure to Assemble Multi-Panel Figures (from Grobs)
 
@@ -53,6 +53,7 @@ grobs, as well as content from all image formats supported by
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

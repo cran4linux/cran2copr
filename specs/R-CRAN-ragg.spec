@@ -1,9 +1,9 @@
 %global packname  ragg
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Graphic Devices Based on AGG
 
@@ -16,9 +16,6 @@ BuildRequires:    make
 BuildRequires:    freetype-devel
 BuildRequires:    libpng-devel
 BuildRequires:    libtiff-devel
-Requires:         freetype
-Requires:         libpng
-Requires:         libtiff
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-systemfonts 

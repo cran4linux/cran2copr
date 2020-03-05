@@ -1,9 +1,9 @@
 %global packname  mgcViz
-%global packver   0.1.4
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Visualisations for Generalized Additive Models
 
@@ -54,6 +54,7 @@ framework is based on the layering system provided by 'ggplot2'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

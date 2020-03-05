@@ -1,9 +1,9 @@
 %global packname  orloca
-%global packver   4.8
+%global packver   4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.8
+Version:          4.9
 Release:          1%{?dist}
 Summary:          Operations Research LOCational Analysis Models
 
@@ -49,6 +49,7 @@ Weiszfeld and F. Plastria, Annals of Operations Research, 167, pg. 7-41,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

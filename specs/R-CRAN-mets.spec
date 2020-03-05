@@ -1,9 +1,9 @@
 %global packname  mets
-%global packver   1.2.7
+%global packver   1.2.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.7.1
 Release:          1%{?dist}
 Summary:          Analysis of Multivariate Event Times
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-survival >= 2.43.1
 BuildRequires:    R-CRAN-timereg >= 1.9.4
 BuildRequires:    R-CRAN-lava >= 1.6.6

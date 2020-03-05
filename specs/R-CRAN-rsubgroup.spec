@@ -1,9 +1,9 @@
 %global packname  rsubgroup
-%global packver   0.6
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.9
 Release:          1%{?dist}
 Summary:          Subgroup Discovery and Analytics
 
@@ -27,7 +27,7 @@ Requires:         R-methods
 A collection of efficient and effective tools and algorithms for subgroup
 discovery and analytics. The package integrates an R interface to the
 org.vikamine.kernel library of the VIKAMINE system
-(http://www.vikamine.org) implementing subgroup discovery, pattern mining
+<http://www.vikamine.org> implementing subgroup discovery, pattern mining
 and analytics in Java.
 
 %prep
@@ -55,5 +55,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %{rlibdir}/%{packname}/INDEX

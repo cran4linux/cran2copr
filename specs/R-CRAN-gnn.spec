@@ -1,9 +1,9 @@
 %global packname  gnn
-%global packver   0.0-1
+%global packver   0.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}
 Summary:          Generative Neural Networks
 
@@ -30,11 +30,12 @@ Requires:         R-tools
 Tools to set up, train, store, load, investigate and analyze generative
 neural networks. In particular, functionality for generative moment
 matching networks is provided. See Hofert, Prasad, Zhu (2018)
-<arXiv:abs/1811.00683> for more details.
+<arXiv:1811.00683> for more details.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,6 +43,7 @@ matching networks is provided. See Hofert, Prasad, Zhu (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  shipunov
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}
 Summary:          Miscellaneous Functions from Alexey Shipunov
 
@@ -55,5 +55,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/bin
+%{rlibdir}/%{packname}/bin
 %{rlibdir}/%{packname}/INDEX
