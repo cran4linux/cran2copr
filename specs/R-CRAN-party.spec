@@ -1,9 +1,9 @@
 %global packname  party
-%global packver   1.3-3
+%global packver   1.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}
 Summary:          A Laboratory for Recursive Partytioning
 
@@ -56,6 +56,7 @@ al. (2006) <doi:10.1198/106186006X133933>, Zeileis et al. (2008)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -63,6 +64,7 @@ al. (2006) <doi:10.1198/106186006X133933>, Zeileis et al. (2008)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

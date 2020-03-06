@@ -1,9 +1,9 @@
 %global packname  EGAnet
-%global packver   0.9.1
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.3
 Release:          1%{?dist}
 Summary:          Exploratory Graph Analysis - A Framework for Estimating theNumber of Dimensions in Multivariate Data Using NetworkPsychometrics
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-qgraph >= 1.4.1
 BuildRequires:    R-Matrix >= 1.2
 BuildRequires:    R-CRAN-glasso >= 1.10
 BuildRequires:    R-CRAN-NetworkToolbox >= 1.1.2
-BuildRequires:    R-CRAN-iterators >= 1.0.10
 BuildRequires:    R-CRAN-semPlot >= 1.0.1
 BuildRequires:    R-CRAN-igraph >= 1.0.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.8
@@ -30,7 +29,6 @@ Requires:         R-CRAN-qgraph >= 1.4.1
 Requires:         R-Matrix >= 1.2
 Requires:         R-CRAN-glasso >= 1.10
 Requires:         R-CRAN-NetworkToolbox >= 1.1.2
-Requires:         R-CRAN-iterators >= 1.0.10
 Requires:         R-CRAN-semPlot >= 1.0.1
 Requires:         R-CRAN-igraph >= 1.0.1
 Requires:         R-CRAN-dplyr >= 0.7.8
@@ -59,6 +57,7 @@ Christensen, A. P., Nieto, M. D., Sadana, R., & Thiyagarajan, J. A. (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

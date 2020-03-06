@@ -1,9 +1,9 @@
 %global packname  ROI.plugin.qpoases
-%global packver   0.3-2
+%global packver   0.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          'qpOASES' Plugin for the 'R' Optimization Infrastructure
 
@@ -33,6 +33,7 @@ at <https://projects.coin-or.org/qpOASES/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  ROI.plugin.scs
-%global packver   0.3-1
+%global packver   0.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          'SCS' Plug-in for the 'R' Optimization Infrastructure
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scs >= 1.2.2
+BuildRequires:    R-CRAN-scs >= 1.3.2
 BuildRequires:    R-CRAN-ROI >= 0.3.2
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-slam 
-Requires:         R-CRAN-scs >= 1.2.2
+Requires:         R-CRAN-scs >= 1.3.2
 Requires:         R-CRAN-ROI >= 0.3.2
 Requires:         R-stats 
 Requires:         R-methods 
@@ -33,6 +33,7 @@ Enhances the 'R' Optimization Infrastructure ('ROI') package with the
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

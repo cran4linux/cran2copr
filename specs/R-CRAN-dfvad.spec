@@ -1,27 +1,31 @@
-%global packname  Rgnuplot
-%global packver   1.0.3
+%global packname  dfvad
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.3.0
 Release:          1%{?dist}
-Summary:          R Interface for Gnuplot
+Summary:          Diewert and Fox's Method of Value Added Growth Decomposition
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gnuplot
-Requires:         gnuplot
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Interface for gnuplot Based on gnuplot_i version 1.11, the GPL code from
-Nicolas Devillard.
+Decomposing value added growth into explanatory factors. A cost
+constrained value added function is defined to specify the production
+frontier. Industry estimates can also be aggregated using a weighted
+average approach. Details about the methodology and data can be found in
+Diewert and Fox (2018) <doi:10.1093/oxfordhb/9780190226718.013.19> and
+Zeng, Parsons, Diewert and Fox (2018)
+<https://www.business.unsw.edu.au/research-site/centreforappliedeconomicresearch-site/Documents/emg2018-6_SZeng_EMG-Slides.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,12 +47,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

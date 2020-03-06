@@ -1,36 +1,40 @@
-%global packname  rtfbs
-%global packver   0.3.15
+%global packname  ipaddress
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.15
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Transcription Factor Binding Site Identification Tool
+Summary:          Tidy IP Addresses
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rphast 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-vctrs >= 0.2.2
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-rphast 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-AsioHeaders 
+Requires:         R-CRAN-vctrs >= 0.2.2
+Requires:         R-CRAN-assertthat 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Identifies and scores possible Transcription Factor Binding Sites and
-allows for FDR analysis and pruning.  It supports splitting of sequences
-based on size or a specified GFF, grouping by G+C content, and
-specification of Markov model order.  The heavy lifting is done in C while
-all results are made available via R.
+Classes and functions for working with IP (Internet Protocol) addresses
+and networks, inspired by the Python 'ipaddress' module.  Offers full
+support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
+address spaces. It is specifically designed to work well with the
+'tidyverse'.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,8 +54,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  lillies
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}
 Summary:          Estimation of Life Years Lost
 
@@ -39,12 +39,14 @@ Estimation of life expectancy and Life Years Lost (LYL, or lillies for
 short) for a given population, for example those with a given disease or
 condition. In addition, the package can be used to compare estimates from
 different populations, or to estimate confidence intervals. Technical
-details of the method are available in Andersen (2017)
+details of the method are available in Plana-Ripoll et al. (2020)
+<doi:10.1371/journal.pone.0228073> and Andersen (2017)
 <doi:10.1002/sim.7357>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

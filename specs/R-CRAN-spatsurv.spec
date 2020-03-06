@@ -1,9 +1,9 @@
 %global packname  spatsurv
-%global packver   1.2
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Bayesian Spatial Survival Analysis with Parametric ProportionalHazards Models
 
@@ -22,13 +22,11 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-RandomFields 
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-geostatsp 
-BuildRequires:    R-CRAN-OpenStreetMap 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lubridate 
 Requires:         R-survival 
@@ -38,13 +36,11 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-iterators 
 Requires:         R-CRAN-RandomFields 
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-rgl 
 Requires:         R-Matrix 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-geostatsp 
-Requires:         R-CRAN-OpenStreetMap 
 Requires:         R-methods 
 Requires:         R-CRAN-lubridate 
 
@@ -55,6 +51,7 @@ models; flexible spatial survival models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

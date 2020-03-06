@@ -1,28 +1,37 @@
-%global packname  fs
-%global packver   1.3.2
+%global packname  CRUF
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.5.1
 Release:          1%{?dist}
-Summary:          Cross-Platform File System Operations Based on 'libuv'
+Summary:          Clinical Research Utilities Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    make
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-miceadds 
+BuildRequires:    R-CRAN-aod 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-survminer 
+Requires:         R-survival 
+Requires:         R-CRAN-miceadds 
+Requires:         R-CRAN-aod 
 
 %description
-A cross-platform interface to file system operations, built on top of the
-'libuv' C library.
+Miscellaneous functions for clinical research data analysis. Format table
+of descriptive statistics, regression models, pvalues according to medical
+journals standards.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,12 +53,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/WORDLIST
+%doc %{rlibdir}/%{packname}/rmarkdown
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

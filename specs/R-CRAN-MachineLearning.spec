@@ -1,9 +1,9 @@
 %global packname  MachineLearning
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Machine Learning Algorithms for Innovation in Tourism
 
@@ -49,6 +49,7 @@ Escudero, Pérez-Martín, Rabasa, and Santamaría (2014)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

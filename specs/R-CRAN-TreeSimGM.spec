@@ -1,9 +1,9 @@
 %global packname  TreeSimGM
-%global packver   2.3
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.5
 Release:          1%{?dist}
 Summary:          Simulating Phylogenetic Trees under General Bellman Harris andLineage Shift Model
 
@@ -17,8 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-TreeSim 
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-TreeSim 
 Requires:         R-CRAN-ape 
+Requires:         R-methods 
 
 %description
 Provides a flexible simulation tool for phylogenetic trees under a general
@@ -37,10 +39,15 @@ time and age of its ancestor. The symmetric mode can be seen as an
 vicariant or allopatric process where divided populations suffer equal
 evolutionary forces while the asymmetric mode could be seen as a
 peripatric speciation where a mother lineage continues to exist.
+Reference: O. Hagen and T. Stadler (2017). TreeSimGM: Simulating
+phylogenetic trees under general Bellman Harris models with
+lineage-specific shifts of speciation and extinction in R. Methods in
+Ecology and Evolution. <doi:10.1111/2041-210X.12917>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -48,6 +55,7 @@ peripatric speciation where a mother lineage continues to exist.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

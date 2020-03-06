@@ -1,9 +1,9 @@
 %global packname  blogdown
-%global packver   0.17
+%global packver   0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17
+Version:          0.18
 Release:          1%{?dist}
 Summary:          Create Blogs and Websites with R Markdown
 
@@ -42,6 +42,7 @@ supports 'Jekyll' (<http://jekyllrb.com>) and 'Hexo' (<https://hexo.io>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

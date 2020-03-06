@@ -1,9 +1,9 @@
 %global packname  GADMTools
-%global packver   3.7-2
+%global packver   3.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.2
+Version:          3.8.1
 Release:          1%{?dist}
 Summary:          Easy Use of 'GADM' Maps
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-rgdal 
@@ -36,7 +35,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-prettymapr 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-rgdal 
@@ -57,13 +55,14 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-prettymapr 
 
 %description
-Manipulate, assemble, export <http://www.gadm.org> maps. Create
+Manipulate, assemble, export <https://gadm.org/> maps. Create
 'choropleth', 'isopleth', dots plot, proportional dots, dot-density and
 more.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

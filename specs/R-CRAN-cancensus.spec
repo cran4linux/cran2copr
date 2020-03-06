@@ -1,9 +1,9 @@
 %global packname  cancensus
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Access, Retrieve, and Work with Canadian Census Data andGeography
 
@@ -34,11 +34,13 @@ well as convenience functions for working with Census variables, variable
 hierarchies, and region selection. API keys are freely available with free
 registration at <https://censusmapper.ca/api>. Census data and boundary
 geometries are reproduced and distributed on an "as is" basis with the
-permission of Statistics Canada (Statistics Canada 2006; 2011; 2016).
+permission of Statistics Canada (Statistics Canada 2001; 2006; 2011;
+2016).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,6 +48,7 @@ permission of Statistics Canada (Statistics Canada 2006; 2011; 2016).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

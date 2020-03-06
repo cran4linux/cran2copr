@@ -1,9 +1,9 @@
 %global packname  MODISTools
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Interface to the 'MODIS Land Products Subsets' Web Services
 
@@ -18,18 +18,21 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-utils 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-raster 
 Requires:         R-stats 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-jsonlite 
 
 %description
-Programmatic interface to the 'MODIS Land Products Subsets' web services
+Programmatic interface to the Oak Ridge National Laboratories 'MODIS Land
+Products Subsets' web services
 (<https://modis.ornl.gov/data/modis_webservice.html>). Allows for easy
 downloads of 'MODIS' time series directly to your R workspace or your
 computer.
@@ -37,6 +40,7 @@ computer.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,6 +48,7 @@ computer.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -52,6 +57,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

@@ -1,9 +1,9 @@
 %global packname  harrypotter
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Palettes Generated from All "Harry Potter" Movies
 
@@ -21,12 +21,13 @@ Requires:         R-CRAN-ggplot2 >= 1.0.1
 Requires:         R-CRAN-gridExtra 
 
 %description
-Implementation of the characteristic palette of the houses of Hogwarts
-School of magic, present in all Harry Potter movies.
+Implementation of characteristic palettes inspired in the Wizarding World
+and the Harry Potter movie franchise.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -34,6 +35,7 @@ School of magic, present in all Harry Potter movies.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
