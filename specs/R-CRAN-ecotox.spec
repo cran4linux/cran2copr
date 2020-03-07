@@ -1,9 +1,9 @@
 %global packname  ecotox
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}
 Summary:          Analysis of Ecotoxicology
 
@@ -37,6 +37,7 @@ R.M., and Preisler, H.K. (2007, ISBN: 0849323312).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  Rcsdp
-%global packver   0.1.56
+%global packver   0.1.56.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.56
+Version:          0.1.56.1
 Release:          1%{?dist}
 Summary:          R Interface to the CSDP Semidefinite Programming Library
 

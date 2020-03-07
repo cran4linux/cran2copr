@@ -1,9 +1,9 @@
 %global packname  lgcp
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}
 Summary:          Log-Gaussian Cox Process
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-spatstat >= 1.50.0
 BuildRequires:    R-CRAN-rpanel >= 1.1.3
@@ -48,11 +48,13 @@ Requires:         R-CRAN-rgeos
 Spatial and spatio-temporal modelling of point patterns using the
 log-Gaussian Cox process. Bayesian inference for spatial, spatiotemporal,
 multivariate and aggregated point processes using Markov chain Monte
-Carlo.
+Carlo. See Benjamin M. Taylor, Tilman M. Davies, Barry S. Rowlingson,
+Peter J. Diggle (2015) <doi:10.18637/jss.v063.i07>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,13 +1,13 @@
-%global packname  intoo
-%global packver   0.4.0
+%global packname  actuaryr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Minimal Language-Like Extensions
+Summary:          Develop Actuarial Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,15 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-lubridate 
 
 %description
-Binary operators (%$%, %$%<-, %@% and %@%<-) to set and get object
-attributes and environment members, convenience functions for constructing
-named lists, S3 objects and self-referencing function objects, and
-functions for printing objects, particularly suitable for printing
-function objects bundled with data.
+Actuarial reports are prepared for the last day of a specific period, such
+as a month, a quarter or a year. Actuarial models assume that certain
+events happen at the beginning or end of periods. The package contains
+functions to easily refer the first or last (working) day within a
+specific period relative to a base date to facilitate actuarial reporting.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +46,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

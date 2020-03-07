@@ -1,29 +1,24 @@
-%global packname  intoo
-%global packver   0.4.0
+%global packname  dataresqc
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.3
 Release:          1%{?dist}
-Summary:          Minimal Language-Like Extensions
+Summary:          C3S Quality Control Tools for Historical Climate Data
 
-License:          GPL (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
 
 %description
-Binary operators (%$%, %$%<-, %@% and %@%<-) to set and get object
-attributes and environment members, convenience functions for constructing
-named lists, S3 objects and self-referencing function objects, and
-functions for printing objects, particularly suitable for printing
-function objects bundled with data.
+Quality control functions developed for the Copernicus Data Rescue Service
+(see <https://datarescue.climate.copernicus.eu/>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +40,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

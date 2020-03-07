@@ -1,9 +1,9 @@
 %global packname  see
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themesand Color Palettes for 'ggplot2'
 
@@ -23,13 +23,10 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-parameters 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -38,13 +35,10 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-insight 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-parameters 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
 
 %description
 Provides plotting utilities supporting easystats-packages
@@ -55,6 +49,7 @@ and scales for 'ggplot2'. Color scales are based on
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

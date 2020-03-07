@@ -1,9 +1,9 @@
 %global packname  PPCI
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Projection Pursuit for Cluster Identification
 
@@ -22,14 +22,15 @@ Requires:         R-CRAN-rARPACK
 Implements recently developed projection pursuit algorithms for finding
 optimal linear cluster separators. The clustering algorithms use optimal
 hyperplane separators based on minimum density, Pavlidis et. al (2016)
-<https://jmlr.csail.mit.edu/papers/volume17/15-307/15-307.pdf>; minimum
-normalised cut, Hofmeyr (2017) <doi:10.1109/TPAMI.2016.2609929>; and
-maximum variance ratio clusterability, Hofmeyr and Pavlidis (2015)
+<http://jmlr.org/papers/volume17/15-307/15-307.pdf>; minimum normalised
+cut, Hofmeyr (2017) <doi:10.1109/TPAMI.2016.2609929>; and maximum variance
+ratio clusterability, Hofmeyr and Pavlidis (2015)
 <doi:10.1109/SSCI.2015.116>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,4 +51,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

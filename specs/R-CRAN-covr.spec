@@ -1,9 +1,9 @@
 %global packname  covr
-%global packver   3.4.0
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.5.0
 Release:          1%{?dist}
 Summary:          Test Coverage for Packages
 
@@ -47,6 +47,7 @@ and compiled C/C++/FORTRAN code.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

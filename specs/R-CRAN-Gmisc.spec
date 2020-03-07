@@ -1,9 +1,9 @@
 %global packname  Gmisc
-%global packver   1.9.1
+%global packver   1.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.1
+Version:          1.9.2
 Release:          1%{?dist}
 Summary:          Descriptive Statistics, Transition Plots, and More
 
@@ -61,6 +61,7 @@ complementing the ones in the 'grid' package, and more.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

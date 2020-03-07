@@ -1,9 +1,9 @@
 %global packname  momentuHMM
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}
 Summary:          Maximum Likelihood Analysis of Animal Movement Behavior UsingMultivariate Hidden Markov Models
 
@@ -93,6 +93,7 @@ Michelot (2018) <doi:10.1111/2041-210X.12995>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

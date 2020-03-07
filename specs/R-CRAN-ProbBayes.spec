@@ -1,11 +1,11 @@
-%global packname  intoo
-%global packver   0.4.0
+%global packname  ProbBayes
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.1
 Release:          1%{?dist}
-Summary:          Minimal Language-Like Extensions
+Summary:          Probability and Bayesian Modeling
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,15 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-LearnBayes 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-LearnBayes 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-shiny 
 
 %description
-Binary operators (%$%, %$%<-, %@% and %@%<-) to set and get object
-attributes and environment members, convenience functions for constructing
-named lists, S3 objects and self-referencing function objects, and
-functions for printing objects, particularly suitable for printing
-function objects bundled with data.
+Functions and datasets to accompany J. Albert and J. Hu, "Probability and
+Bayesian Modeling", CRC Press, (2019, ISBN: 1138492566).
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,7 +48,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/shiny-examples
 %{rlibdir}/%{packname}/INDEX

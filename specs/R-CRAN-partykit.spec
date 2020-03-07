@@ -1,9 +1,9 @@
 %global packname  partykit
-%global packver   1.2-6
+%global packver   1.2-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}
 Summary:          A Toolkit for Recursive Partytioning
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-rpart >= 4.1.11
-BuildRequires:    R-CRAN-party >= 1.3.0
 BuildRequires:    R-CRAN-Formula >= 1.2.1
 BuildRequires:    R-CRAN-libcoin >= 1.0.0
 BuildRequires:    R-CRAN-inum >= 1.0.0
@@ -27,7 +26,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-survival 
 Requires:         R-rpart >= 4.1.11
-Requires:         R-CRAN-party >= 1.3.0
 Requires:         R-CRAN-Formula >= 1.2.1
 Requires:         R-CRAN-libcoin >= 1.0.0
 Requires:         R-CRAN-inum >= 1.0.0
@@ -54,6 +52,7 @@ was published by Hothorn and Zeileis (2015)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  RClickhouse
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}
 Summary:          A 'DBI' Interface to the 'Yandex Clickhouse' Database ProvidingBasic 'dplyr' Support
 
@@ -15,14 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildRequires:    R-methods >= 3.3.2
-BuildRequires:    R-CRAN-yaml >= 2.1.14
 BuildRequires:    R-CRAN-dbplyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-DBI >= 0.6.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-bit64 
 Requires:         R-methods >= 3.3.2
-Requires:         R-CRAN-yaml >= 2.1.14
 Requires:         R-CRAN-dbplyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-DBI >= 0.6.0

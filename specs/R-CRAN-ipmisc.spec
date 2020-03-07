@@ -1,9 +1,9 @@
 %global packname  ipmisc
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Miscellaneous Functions for Data Cleaning and Analysis
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.0.1
+BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-rlang >= 0.4.2
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-tibble >= 2.0.1
+Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-rlang >= 0.4.2
@@ -65,6 +65,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

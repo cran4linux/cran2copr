@@ -1,9 +1,9 @@
 %global packname  mosaic
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}
 Summary:          Project MOSAIC Statistics and Mathematics Teaching Utilities
 
@@ -17,13 +17,13 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mosaicCore >= 0.5.0
 BuildRequires:    R-lattice >= 0.20.21
-BuildRequires:    R-CRAN-lazyeval >= 0.2.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggformula 
 BuildRequires:    R-CRAN-mosaicData 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-MASS 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-tidyr 
@@ -39,13 +39,13 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-leaflet 
 Requires:         R-CRAN-mosaicCore >= 0.5.0
 Requires:         R-lattice >= 0.20.21
-Requires:         R-CRAN-lazyeval >= 0.2.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggformula 
 Requires:         R-CRAN-mosaicData 
 Requires:         R-Matrix 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-rlang 
 Requires:         R-MASS 
 Requires:         R-grid 
 Requires:         R-CRAN-tidyr 
@@ -71,6 +71,7 @@ which are usually taught in isolation, if at all.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -78,6 +79,7 @@ which are usually taught in isolation, if at all.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

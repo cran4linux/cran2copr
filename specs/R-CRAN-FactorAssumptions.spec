@@ -1,29 +1,31 @@
-%global packname  intoo
-%global packver   0.4.0
+%global packname  FactorAssumptions
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.1.2
 Release:          1%{?dist}
-Summary:          Minimal Language-Like Extensions
+Summary:          Set of Assumptions for Factor and Principal Component Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-psych 
+Requires:         R-MASS 
+Requires:         R-CRAN-psych 
 
 %description
-Binary operators (%$%, %$%<-, %@% and %@%<-) to set and get object
-attributes and environment members, convenience functions for constructing
-named lists, S3 objects and self-referencing function objects, and
-functions for printing objects, particularly suitable for printing
-function objects bundled with data.
+Tests for Kaiser-Meyer-Olkin (KMO) and communalities in a dataset. It
+provides a final sample by removing variables in a iterable manner while
+keeping account of the variables that were removed in each step. It
+follows the best practices and assumptions according to Hair, Black, Babin
+& Anderson (2018, ISBN:9781473756540).
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,5 +49,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

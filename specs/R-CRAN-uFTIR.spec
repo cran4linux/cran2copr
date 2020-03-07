@@ -1,29 +1,37 @@
-%global packname  intoo
-%global packver   0.4.0
+%global packname  uFTIR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Minimal Language-Like Extensions
+Summary:          Process and Analyze Agilent Cary 620 FTIR Microscope Images
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.4.4.0
+Requires:         R-core >= 3.4.4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-parallel 
 Requires:         R-methods 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgdal 
 
 %description
-Binary operators (%$%, %$%<-, %@% and %@%<-) to set and get object
-attributes and environment members, convenience functions for constructing
-named lists, S3 objects and self-referencing function objects, and
-functions for printing objects, particularly suitable for printing
-function objects bundled with data.
+A set of tools to read, process, and summarize Agilent Cary 620 uFTIR
+Microscope hyperspectral images primarily intended for microplastic
+analysis.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,7 +53,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

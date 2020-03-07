@@ -1,9 +1,9 @@
 %global packname  RPANDA
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}
 Summary:          Phylogenetic ANalyses of DiversificAtion
 
@@ -81,12 +81,16 @@ Manceau et al. (2015) <DOI:10.1111/ele.12415>, Lewitus & Morlon (2016)
 <DOI:10.1093/sysbio/syx079>, Lewitus & Morlon (2017)
 <DOI:10.1093/sysbio/syx095>, Drury et al. (2018)
 <DOI:10.1371/journal.pbio.2003563>, Clavel et al. (2019)
-<DOI:10.1093/sysbio/syy045> and Maliet et al. (2019)
-<DOI:10.1038/s41559-019-0908-0>.
+<DOI:10.1093/sysbio/syy045>, Maliet et al. (2019)
+<DOI:10.1038/s41559-019-0908-0>, Billaud et al. (2019)
+<DOI:10.1093/sysbio/syz057>, Lewitus et al. (2019)
+<DOI:10.1093/sysbio/syz061>, and Aristide & Morlon (2019)
+<DOI:10.1111/ele.13385>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,29 +1,30 @@
-%global packname  intoo
-%global packver   0.4.0
+%global packname  symengine
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Minimal Language-Like Extensions
+Summary:          Interface to the 'SymEngine' Library
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Binary operators (%$%, %$%<-, %@% and %@%<-) to set and get object
-attributes and environment members, convenience functions for constructing
-named lists, S3 objects and self-referencing function objects, and
-functions for printing objects, particularly suitable for printing
-function objects bundled with data.
+Provides an R interface to 'SymEngine' <https://github.com/symengine/>, a
+standalone 'C++' library for fast symbolic manipulation. The package has
+functionalities for symbolic computation like calculating exact
+mathematical expressions, solving systems of linear equations and code
+generation.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,4 +49,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/COPYRIGHTS
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

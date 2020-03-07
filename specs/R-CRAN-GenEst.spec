@@ -1,9 +1,9 @@
 %global packname  GenEst
-%global packver   1.4.0.2
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0.2
+Version:          1.4.1
 Release:          1%{?dist}
 Summary:          Generalized Mortality Estimator
 
@@ -14,6 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-htmlwidgets >= 1.5
+BuildRequires:    R-CRAN-shiny >= 1.4.0
 BuildRequires:    R-CRAN-corpus 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-gsl 
@@ -21,13 +23,15 @@ BuildRequires:    R-CRAN-gtools
 BuildRequires:    R-CRAN-hellno 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-sticky 
 BuildRequires:    R-survival 
+Requires:         R-CRAN-htmlwidgets >= 1.5
+Requires:         R-CRAN-shiny >= 1.4.0
 Requires:         R-CRAN-corpus 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-gsl 
@@ -35,10 +39,10 @@ Requires:         R-CRAN-gtools
 Requires:         R-CRAN-hellno 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-lubridate 
+Requires:         R-MASS 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-sticky 
 Requires:         R-survival 
@@ -51,6 +55,7 @@ following Dalthorp, et al. (2018) <doi:10.3133/tm7A2>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

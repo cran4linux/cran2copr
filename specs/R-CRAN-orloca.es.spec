@@ -1,9 +1,9 @@
 %global packname  orloca.es
-%global packver   4.6
+%global packver   4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6
+Version:          4.9
 Release:          1%{?dist}
 Summary:          Spanish version of orloca package. Modelos de localizacion eninvestigacion operativa
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-orloca >= 4.6
-Requires:         R-CRAN-orloca >= 4.6
+BuildRequires:    R-CRAN-orloca >= 4.9
+Requires:         R-CRAN-orloca >= 4.9
 
 %description
 Help and demo in Spanish of the orloca package. (Ayuda y demo en espanol
@@ -37,6 +37,7 @@ Operations Research, 167, pg. 7-41, 2009. <DOI:10.1007/s10479-008-0352-z>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

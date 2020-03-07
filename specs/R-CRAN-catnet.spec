@@ -1,29 +1,33 @@
-%global packname  intoo
-%global packver   0.4.0
+%global packname  catnet
+%global packver   1.15.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.15.6
 Release:          1%{?dist}
-Summary:          Minimal Language-Like Extensions
+Summary:          Categorical Bayesian Network Inference
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Binary operators (%$%, %$%<-, %@% and %@%<-) to set and get object
-attributes and environment members, convenience functions for constructing
-named lists, S3 objects and self-referencing function objects, and
-functions for printing objects, particularly suitable for printing
-function objects bundled with data.
+Structure learning and parameter estimation of discrete Bayesian networks
+using likelihood-based criteria.  Exhaustive search for fixed node orders
+and stochastic search of optimal orders via simulated annealing algorithm
+are implemented.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,7 +49,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

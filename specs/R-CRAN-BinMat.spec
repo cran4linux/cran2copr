@@ -1,9 +1,9 @@
 %global packname  BinMat
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Processes Binary Data Obtained from Fragment Analysis
 
@@ -42,7 +42,8 @@ Grahamstown, South Africa), <doi:10.13140/RG.2.2.28470.86083>. The GUI
 version of this package is available on the R Shiny online server at:
 <https://clarkevansteenderen.shinyapps.io/BINMAT/> , or it is accessible
 via GitHub by typing: shiny::runGitHub("BinMat", "CJMvS") into the console
-in R.
+in R. Please see the vignette supplied with the package for a worked
+example, and detailed explanations of functions.
 
 %prep
 %setup -q -c -n %{packname}

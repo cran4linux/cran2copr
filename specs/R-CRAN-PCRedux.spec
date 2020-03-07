@@ -1,9 +1,9 @@
 %global packname  PCRedux
-%global packver   1.0-4
+%global packver   1.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.6
 Release:          1%{?dist}
 Summary:          Quantitative Polymerase Chain Reaction (qPCR) Data Mining andMachine Learning Toolkit
 
@@ -59,6 +59,7 @@ can be used to extract features from an amplification curve.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
