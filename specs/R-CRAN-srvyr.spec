@@ -1,9 +1,9 @@
 %global packname  srvyr
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}
 Summary:          'dplyr'-Like Syntax for Summary Statistics of Survey Data
 
@@ -36,6 +36,7 @@ data using functions from the 'survey' package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

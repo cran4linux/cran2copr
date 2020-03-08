@@ -1,9 +1,9 @@
 %global packname  SimRVSequences
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          Simulate Genetic Sequence Data for Pedigrees
 
@@ -45,6 +45,7 @@ Nieuwoudt, Angela Brooks-Wilson, and Jinko Graham (2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

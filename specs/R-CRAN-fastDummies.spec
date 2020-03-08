@@ -1,9 +1,9 @@
 %global packname  fastDummies
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}
 Summary:          Fast Creation of Dummy (Binary) Columns and Rows fromCategorical Variables
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringi 
 
 %description
 Creates dummy columns from columns that have categorical variables
@@ -30,6 +32,7 @@ speed increase from creating dummy variables through model.matrix().
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

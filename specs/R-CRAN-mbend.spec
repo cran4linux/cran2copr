@@ -1,9 +1,9 @@
 %global packname  mbend
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}
 Summary:          Matrix Bending
 
@@ -19,8 +19,8 @@ BuildArch:        noarch
 %description
 Bending non-positive-definite (symmetric) matrices to positive-definite,
 using weighted and unweighted methods. Jorjani, H., et al. (2003)
-<doi:10.3168/jds.S0022-0302(03)73646-7>. Schaeffer, L. R. (2010)
-<http://animalbiosciences.uoguelph.ca/~lrs/piksLRS/PDforce.pdf>.
+<doi:10.3168/jds.S0022-0302(03)73646-7>. Schaeffer, L. R. (2014)
+<http://animalbiosciences.uoguelph.ca/~lrs/ELARES/PDforce.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

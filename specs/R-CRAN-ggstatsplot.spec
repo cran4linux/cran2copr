@@ -1,9 +1,9 @@
 %global packname  ggstatsplot
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-broomExtra 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-ggExtra 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggsignif 
 BuildRequires:    R-CRAN-groupedstats 
@@ -33,12 +33,12 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-statsExpressions 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-broomExtra 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-ggExtra 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggsignif 
 Requires:         R-CRAN-groupedstats 

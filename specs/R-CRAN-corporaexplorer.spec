@@ -1,9 +1,9 @@
 %global packname  corporaexplorer
-%global packver   0.8.1.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1.1
+Version:          0.8.2
 Release:          1%{?dist}
 Summary:          A 'Shiny' App for Exploration of Text Collections
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-padr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-re2r 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-scales 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-padr 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-re2r 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-scales 
@@ -70,6 +68,7 @@ one can explore Jane Austen's novels and the State of the Union Addresses
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
