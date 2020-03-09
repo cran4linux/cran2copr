@@ -1,9 +1,9 @@
 %global packname  eph
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Argentina's Permanent Household Survey Data and ManipulationUtilities
 
@@ -33,6 +33,13 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-attempt 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-expss 
 Requires:         R-CRAN-assertthat 
@@ -51,6 +58,13 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-attempt 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-stats 
 
 %description
 Tools to download and manipulate the Permanent Household Survey from
@@ -70,6 +84,7 @@ Spanish.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

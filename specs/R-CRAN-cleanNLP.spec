@@ -1,9 +1,9 @@
 %global packname  cleanNLP
-%global packver   3.0.0
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.2
 Release:          1%{?dist}
 Summary:          A Tidy Data Model for Natural Language Processing
 
@@ -41,6 +41,7 @@ named entity recognition, and dependency parsing.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -63,6 +64,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/txt_files
 %{rlibdir}/%{packname}/INDEX

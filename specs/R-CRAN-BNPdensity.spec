@@ -1,10 +1,9 @@
-%global debug_package %{nil}
 %global packname  BNPdensity
-%global packver   2019.9.18
+%global packver   2020.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2019.9.18
+Version:          2020.3.4
 Release:          1%{?dist}
 Summary:          Ferguson-Klass Type Algorithm for Posterior Normalized RandomMeasures
 

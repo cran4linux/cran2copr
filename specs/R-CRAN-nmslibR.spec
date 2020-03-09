@@ -1,9 +1,9 @@
 %global packname  nmslibR
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Non Metric Space (Approximate) Library
 
@@ -29,11 +29,11 @@ Requires:         R-CRAN-KernelKnn
 Requires:         R-utils 
 
 %description
-A Non-Metric Space Library ('NMSLIB'
-<https://github.com/searchivarius/nmslib>) wrapper, which according to the
-authors "is an efficient cross-platform similarity search library and a
-toolkit for evaluation of similarity search methods. The goal of the
-'NMSLIB' <https://github.com/searchivarius/nmslib> Library is to create an
+A Non-Metric Space Library ('NMSLIB' <https://github.com/nmslib/nmslib>)
+wrapper, which according to the authors "is an efficient cross-platform
+similarity search library and a toolkit for evaluation of similarity
+search methods. The goal of the 'NMSLIB'
+<https://github.com/searchivarius/nmslib> Library is to create an
 effective and comprehensive toolkit for searching in generic non-metric
 spaces. Being comprehensive is important, because no single method is
 likely to be sufficient in all cases. Also note that exact solutions are
@@ -45,6 +45,7 @@ Approximate Kernel k-Nearest-Neighbor functions based on the 'NMSLIB'
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

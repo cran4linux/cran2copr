@@ -1,38 +1,31 @@
-%global packname  xergm.common
-%global packver   1.7.7
+%global packname  evabic
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.7
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Common Infrastructure for Extensions of Exponential Random GraphModels
+Summary:          Evaluation of Binary Classifiers
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ergm >= 3.5.1
-BuildRequires:    R-CRAN-network >= 1.13.0
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ergm >= 3.5.1
-Requires:         R-CRAN-network >= 1.13.0
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
 
 %description
-Datasets and definitions of generic functions used in dependencies of the
-'xergm' package.
+Evaluates the performance of binary classifiers. Computes confusion
+measures (TP, TN, FP, FN), derived measures (TPR, FDR, accuracy, F1, DOR,
+..), and area under the curve.  Outputs are well suited for nested
+dataframes.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -40,6 +33,7 @@ Datasets and definitions of generic functions used in dependencies of the
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -48,9 +42,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

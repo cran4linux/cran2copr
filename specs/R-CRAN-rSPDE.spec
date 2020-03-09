@@ -1,9 +1,9 @@
 %global packname  rSPDE
-%global packver   0.4.6
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.8
 Release:          1%{?dist}
 Summary:          Rational Approximations of Fractional Stochastic PartialDifferential Equations
 

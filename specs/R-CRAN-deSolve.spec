@@ -1,9 +1,9 @@
 %global packname  deSolve
-%global packver   1.27.1
+%global packver   1.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.27.1
+Version:          1.28
 Release:          1%{?dist}
 Summary:          Solvers for Initial Value Problems of Differential Equations('ODE', 'DAE', 'DDE')
 
@@ -38,6 +38,7 @@ variable time steps.  The package contains routines designed for solving
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

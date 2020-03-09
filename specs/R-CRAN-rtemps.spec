@@ -1,25 +1,35 @@
-%global packname  rapidjsonr
-%global packver   1.2.0
+%global packname  rtemps
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.3.0
 Release:          1%{?dist}
-Summary:          'Rapidjson' C++ Header Files
+Summary:          R Templates for Reproducible Data Analyses
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    make
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-bookdown 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-bookdown 
 
 %description
-Provides JSON parsing capability through the 'Rapidjson' 'C++' header-only
-library.
+A collection of R Markdown templates for nicely structured, reproducible
+data analyses in R. The templates have embedded examples on how to write
+citations, footnotes, equations and use colored message boxes, how to
+cross-reference different parts/sections in the report, provide a nice
+table of contents (toc) with a References section and proper R session
+information as well as examples using DT tables and ggplot2 graphs. The
+bookdown Lite template theme supports code folding.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,7 +54,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/rmarkdown
 %{rlibdir}/%{packname}/INDEX

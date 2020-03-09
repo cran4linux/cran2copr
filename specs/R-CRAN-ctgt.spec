@@ -1,32 +1,30 @@
-%global packname  gapmap
-%global packver   0.0.4
+%global packname  ctgt
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Functions for Drawing Gapped Cluster Heatmap with ggplot2
+Summary:          Closed Testing with Globaltest for Pathway Analysis
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-grid 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.3
 
 %description
-The gap encodes the distance between clusters and improves interpretation
-of cluster heatmaps. The gaps can be of the same distance based on a
-height threshold to cut the dendrogram. Another option is to vary the size
-of gaps based on the distance between clusters.
+A shortcut procedure is proposed to implement closed testing for
+large-scale multiple testings, especially with the global test. This
+shortcut is asymptotically equivalent to closed testing and post hoc.
+Users could detect any possible sets of features or pathways with
+family-wise error rate controlled. The global test is powerful to detect
+associations between a group of features and an outcome of interest.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,9 +46,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

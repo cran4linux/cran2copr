@@ -1,9 +1,9 @@
 %global packname  clifford
-%global packver   1.0-1
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Arbitrary Dimensional Clifford Algebras
 
@@ -28,6 +28,7 @@ algebra, are discussed. Conformal geometric algebra theory is implemented.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -51,5 +52,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/linear_algebra.Rmd
 %doc %{rlibdir}/%{packname}/lorentz_clifford.Rmd
+%doc %{rlibdir}/%{packname}/quaternion_clifford.Rmd
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

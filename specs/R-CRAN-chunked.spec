@@ -1,9 +1,9 @@
 %global packname  chunked
-%global packver   0.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Chunkwise Text-File Processing for 'dplyr'
 
@@ -18,22 +18,23 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.7
 BuildRequires:    R-CRAN-LaF 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-DBI 
 Requires:         R-CRAN-dplyr >= 0.7
 Requires:         R-CRAN-LaF 
 Requires:         R-utils 
-Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-DBI 
 
 %description
-Text data can be processed chunkwise using 'dplyr' commands. These are
-recorded and executed per data chunk, so large files can be processed with
-limited memory using the 'LaF' package.
+Data stored in text file can be processed chunkwise using 'dplyr'
+commands. These are recorded and executed per data chunk, so large files
+can be processed with limited memory using the 'LaF' package.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,35 +1,35 @@
-%global packname  fmrs
-%global packver   1.0-9
+%global packname  rpls
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          0.4.0
 Release:          1%{?dist}
-Summary:          Variable Selection in Finite Mixture of AFT Regression and FMR
+Summary:          Robust Partial Least Squares
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-survival 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-survival 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pcaPP 
+BuildRequires:    R-CRAN-robustbase 
+Requires:         R-CRAN-pcaPP 
+Requires:         R-CRAN-robustbase 
 
 %description
-Provides parameter estimation as well as variable selection in Finite
-Mixture of Accelerated Failure Time Regression and Finite Mixture of
-Regression Models. Furthermore, this package provides Ridge Regression and
-Elastic Net.
+A robust Partial Least-Squares (PLS) method is implemented that is robust
+to outliers in the residuals as well as to leverage points. A specific
+weighting scheme is applied which avoids iterations, and leads to a highly
+efficient robust PLS estimator.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -37,6 +37,7 @@ Elastic Net.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -47,9 +48,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  Rfast
-%global packver   1.9.8
+%global packver   1.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.8
+Version:          1.9.9
 Release:          1%{?dist}
 Summary:          A Collection of Efficient and Extremely Fast R Functions
 
@@ -34,6 +34,7 @@ fast. Journal of Data Science, 16(4): 771--780.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

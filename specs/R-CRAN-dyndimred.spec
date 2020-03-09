@@ -1,38 +1,34 @@
-%global packname  ngstk
-%global packver   0.2.3
+%global packname  dyndimred
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.3
 Release:          1%{?dist}
-Summary:          Next-Generation Sequencing (NGS) Data Analysis Toolkit
+Summary:          Dimensionality Reduction Methods in a Common Format
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr >= 1.2.0
-BuildRequires:    R-CRAN-configr >= 0.3.1
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-optparse 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-stringr >= 1.2.0
-Requires:         R-CRAN-configr >= 0.3.1
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-optparse 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-dynutils >= 1.0.5
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-lmds 
+Requires:         R-CRAN-dynutils >= 1.0.5
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-lmds 
 
 %description
-Can be used to facilitate the analysis of NGS data, such as visualization,
-conversion of data format for WEB service input and other purpose.
+Provides a common interface for applying dimensionality reduction methods,
+such as Principal Component Analysis ('PCA'), Independent Component
+Analysis ('ICA'), diffusion maps, Locally-Linear Embedding ('LLE'),
+t-distributed Stochastic Neighbor Embedding ('t-SNE'), and Uniform
+Manifold Approximation and Projection ('UMAP'). Has built-in support for
+sparse matrices.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,6 +55,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

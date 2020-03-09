@@ -1,9 +1,9 @@
 %global packname  naivebayes
-%global packver   0.9.6
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}
 Summary:          High Performance Implementation of the Naive Bayes Algorithm
 
@@ -20,7 +20,8 @@ BuildArch:        noarch
 In this implementation of the Naive Bayes classifier following class
 conditional distributions are available: Bernoulli, Categorical, Gaussian,
 Poisson and non-parametric representation of the class conditional density
-estimated via Kernel Density Estimation.
+estimated via Kernel Density Estimation. Implemented classifiers handle
+missing data and can take advantage of sparse data.
 
 %prep
 %setup -q -c -n %{packname}

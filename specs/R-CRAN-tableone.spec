@@ -1,9 +1,9 @@
 %global packname  tableone
-%global packver   0.11.0
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.11.1
 Release:          1%{?dist}
 Summary:          Create 'Table 1' to Describe Baseline Characteristics
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-gmodels
 BuildRequires:    R-nlme 
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-methods 
 Requires:         R-CRAN-survey 
 Requires:         R-MASS 
 Requires:         R-CRAN-e1071 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-gmodels
 Requires:         R-nlme 
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-labelled 
-Requires:         R-methods 
 
 %description
 Creates 'Table 1', i.e., description of baseline patient characteristics,

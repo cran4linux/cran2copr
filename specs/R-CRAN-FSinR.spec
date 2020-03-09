@@ -1,9 +1,9 @@
 %global packname  FSinR
-%global packver   1.0.6
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.8
 Release:          1%{?dist}
 Summary:          Feature Selection
 
@@ -52,6 +52,7 @@ measure utilities. Full list and more information available at
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -72,6 +73,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/FSinR.Rmd
 %doc %{rlibdir}/%{packname}/methods.Rmd

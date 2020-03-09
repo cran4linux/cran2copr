@@ -1,9 +1,9 @@
 %global packname  taxotools
-%global packver   0.0.35
+%global packver   0.0.43
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.35
+Version:          0.0.43
 Release:          1%{?dist}
 Summary:          Tools to Handle Taxonomic Lists
 
@@ -30,6 +30,7 @@ Some tools to work with taxonomic name lists.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  NetworkToolbox
-%global packver   1.3.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Methods and Measures for Brain, Cognitive, and PsychometricNetwork Analysis
 
@@ -66,6 +66,7 @@ network analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  svs
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Tools for Semantic Vector Spaces
 
@@ -15,14 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-Matrix 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-gtools 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-Matrix 
 Requires:         R-utils 
-Requires:         R-CRAN-gtools 
 
 %description
 Various tools for semantic vector spaces, such as correspondence analysis
@@ -35,6 +39,7 @@ functions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
