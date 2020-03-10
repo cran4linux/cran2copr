@@ -1,28 +1,30 @@
-%global packname  SKAT
-%global packver   2.0.0
+%global packname  aof
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          SNP-Set (Sequence) Kernel Association Test
+Summary:          Ontogenetic Shifts in Central-Place Foraging Insects
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
-BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-SPAtest 
-Requires:         R-Matrix 
-Requires:         R-CRAN-SPAtest 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bcpa >= 1.1
+Requires:         R-CRAN-bcpa >= 1.1
 
 %description
-Functions for kernel-regression-based association tests including Burden
-test, SKAT and SKAT-O. These methods aggregate individual SNP score
-statistics in a SNP set and efficiently compute SNP-set level p-values.
+A breakpoint-based method to detect ontogenetic shifts in univariate
+time-activity budget series of central-place foraging insects. The method
+finds a single breakpoint according to the likelihood function. The method
+was developed with honey bees in order to detect the Age at Onset of
+Foraging (AOF), but can be used for the detection of other ontogenetic
+shifts in other central-place foraging insects.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

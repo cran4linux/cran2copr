@@ -1,9 +1,9 @@
 %global packname  Cairo
-%global packver   1.5-10
+%global packver   1.5-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.10
+Version:          1.5.11
 Release:          1%{?dist}
 Summary:          R Graphics Device using Cairo Graphics Library for CreatingHigh-Quality Bitmap (PNG, JPEG, TIFF), Vector (PDF, SVG,PostScript) and Display (X11 and Win32) Output
 
@@ -14,8 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    cairo-devel >= 1.2
 BuildRequires:    libXt-devel
-Requires:         cairo
-Requires:         libXt
 BuildRequires:    R-devel >= 2.4.0
 Requires:         R-core >= 2.4.0
 BuildRequires:    R-grDevices 
@@ -39,6 +37,7 @@ of backends is supported.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,6 +45,7 @@ of backends is supported.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

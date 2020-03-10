@@ -1,30 +1,38 @@
-%global packname  rotasym
-%global packver   1.0.7
+%global packname  ocs4R
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.1
 Release:          1%{?dist}
-Summary:          Tests for Rotational Symmetry on the Hypersphere
+Summary:          Interface to Open Collaboration Services (OCS) REST API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-XML 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-XML 
 
 %description
-Implementation of the tests for rotational symmetry on the hypersphere
-proposed in García-Portugués, Paindaveine and Verdebout (2020)
-<doi:10.1080/01621459.2019.1665527>. The package also implements the
-proposed distributions on the hypersphere, based on the tangent-normal
-decomposition, and allows for the replication of the data application
-considered in the paper.
+Provides an Interface to Open Collaboration Services 'OCS'
+(<http://www.open-collaboration-services.org/>) REST API.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,11 +54,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

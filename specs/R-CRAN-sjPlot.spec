@@ -1,9 +1,9 @@
 %global packname  sjPlot
-%global packver   2.8.2
+%global packver   2.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.2
+Version:          2.8.3
 Release:          1%{?dist}
 Summary:          Data Visualization for Statistics in Social Science
 
@@ -31,7 +31,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-effectsize 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-purrr 
@@ -53,7 +52,6 @@ Requires:         R-grDevices
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-effectsize 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-knitr 
 Requires:         R-MASS 
 Requires:         R-CRAN-purrr 
@@ -73,6 +71,7 @@ package supports labelled data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

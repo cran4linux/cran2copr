@@ -1,9 +1,9 @@
 %global packname  bigsnpr
-%global packver   1.2.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Analysis of Massive SNP Arrays
 
@@ -14,7 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-bigstatsr >= 1.1.1
+BuildRequires:    R-CRAN-bigstatsr >= 1.2.2
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
 BuildRequires:    R-CRAN-bigutilsr >= 0.3
 BuildRequires:    R-CRAN-bigassertr 
 BuildRequires:    R-CRAN-bigparallelr 
@@ -27,9 +28,8 @@ BuildRequires:    R-Matrix
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-rmio 
-Requires:         R-CRAN-bigstatsr >= 1.1.1
+Requires:         R-CRAN-bigstatsr >= 1.2.2
 Requires:         R-CRAN-bigutilsr >= 0.3
 Requires:         R-CRAN-bigassertr 
 Requires:         R-CRAN-bigparallelr 
@@ -50,6 +50,7 @@ SNP arrays <doi:10.1093/bioinformatics/bty185>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

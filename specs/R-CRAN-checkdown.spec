@@ -1,35 +1,33 @@
-%global packname  webddx
-%global packver   0.1.0
+%global packname  checkdown
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Interact with Online Differential Diagnosis-Generating Tools
+Summary:          Check-Fields and Check-Boxes for 'rmarkdown'
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-jsonlite >= 1.5
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-knitr 
 
 %description
-Freely available online differential-diagnosis generating tools are
-changing clinical medicine and biomedical research. With webddx, useRs can
-generate differential diagnosis lists given a set of symptoms. The web
-tools would likely be directly used in clinical practice, but programmatic
-interaction and data manipulation can sharply increase efficiency and
-reproducibility of research in clinical informatics. Relevant
-visualizations can also be created with webddx.
+Creates auto checking check-fields and check-boxes for 'rmarkdown' html.
+It could be used in class, when teacher share materials and tasks, so
+student can solve some problems and check themselves. In contrast with the
+'learnr' package the 'checkdown' package works without 'shiny'.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,4 +47,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

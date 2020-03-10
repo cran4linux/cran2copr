@@ -1,9 +1,9 @@
 %global packname  excelR
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          A Wrapper of the 'JavaScript' Library 'jExcel'
 
@@ -51,6 +51,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/images
 %{rlibdir}/%{packname}/INDEX

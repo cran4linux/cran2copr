@@ -1,9 +1,9 @@
 %global packname  blavaan
-%global packver   0.3-8
+%global packver   0.3-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}
 Summary:          Bayesian Latent Variable Analysis
 
@@ -20,7 +20,7 @@ BuildRequires:    R-CRAN-StanHeaders >= 2.18.1
 BuildRequires:    R-CRAN-loo >= 2.0
 BuildRequires:    R-CRAN-BH >= 1.69.0
 BuildRequires:    R-CRAN-rstantools >= 1.5.0
-BuildRequires:    R-CRAN-lavaan >= 0.6.4
+BuildRequires:    R-CRAN-lavaan >= 0.6.5
 BuildRequires:    R-CRAN-nonnest2 >= 0.5.2
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.15
@@ -36,7 +36,7 @@ BuildRequires:    R-CRAN-future.apply
 Requires:         R-CRAN-rstan >= 2.19.2
 Requires:         R-CRAN-loo >= 2.0
 Requires:         R-CRAN-rstantools >= 1.5.0
-Requires:         R-CRAN-lavaan >= 0.6.4
+Requires:         R-CRAN-lavaan >= 0.6.5
 Requires:         R-CRAN-nonnest2 >= 0.5.2
 Requires:         R-CRAN-Rcpp >= 0.12.15
 Requires:         R-methods 
@@ -57,6 +57,7 @@ models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  PredictABEL
-%global packver   1.2-3
+%global packver   1.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}
 Summary:          Assessment of Risk Prediction Models
 
@@ -17,13 +17,11 @@ Requires:         R-core >= 2.12.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-CRAN-PBSmodelling 
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-ROCR 
-Requires:         R-CRAN-epitools 
 Requires:         R-CRAN-PBSmodelling 
 Requires:         R-CRAN-lazyeval 
 Requires:         R-methods 

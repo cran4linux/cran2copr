@@ -1,9 +1,9 @@
 %global packname  CARBayesST
-%global packver   3.0.2
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.1
 Release:          1%{?dist}
 Summary:          Spatio-Temporal Generalised Linear Mixed Models for Areal UnitData
 
@@ -19,6 +19,9 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-CARBayesdata 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-matrixcalc 
@@ -37,6 +40,9 @@ Requires:         R-MASS
 Requires:         R-CRAN-CARBayesdata 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-matrixcalc 
@@ -59,8 +65,8 @@ Gaussian, or Poisson, but for some models only the binomial and Poisson
 data likelihoods are available. The spatio-temporal autocorrelation is
 modelled by random effects, which are assigned conditional autoregressive
 (CAR) style prior distributions. A number of different random effects
-structures are available, including Bernardinelli et al. (1995)
-<doi:10.1002/sim.4780142112>, Rushworth et al. (2014)
+structures are available, including models similar to Bernardinelli et al.
+(1995) <doi:10.1002/sim.4780142112>, Rushworth et al. (2014)
 <doi:10.1016/j.sste.2014.05.001> and Lee et al. (2016)
 <doi:10.1214/16-AOAS941>. Full details are given in the vignette
 accompanying this package. The creation of this package was supported by
@@ -70,6 +76,7 @@ EP/J017442/1 and the Medical Research Council (MRC) grant MR/L022184/1.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

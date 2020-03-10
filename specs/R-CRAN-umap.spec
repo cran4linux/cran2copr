@@ -1,9 +1,9 @@
 %global packname  umap
-%global packver   0.2.4.1
+%global packver   0.2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4.1
+Version:          0.2.5.0
 Release:          1%{?dist}
 Summary:          Uniform Manifold Approximation and Projection
 
@@ -39,6 +39,7 @@ see vignette for more details).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

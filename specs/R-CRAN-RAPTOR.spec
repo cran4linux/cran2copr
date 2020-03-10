@@ -1,35 +1,41 @@
-%global packname  mixmeta
-%global packver   1.0.8
+%global packname  RAPTOR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          An Extended Mixed-Effects Framework for Meta-Analysis
+Summary:          Row and Position Tracheid Organizer
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-mgcv 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
+Requires:         R-mgcv 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-utils 
 
 %description
-A collection of functions to perform various meta-analytical models
-through a unified mixed-effects framework, including standard univariate
-fixed and random-effects meta-analysis and meta-regression, and
-non-standard extensions such as multivariate, multilevel, longitudinal,
-and dose-response models.
+Performs wood cell anatomical data analyses on spatially explicit xylem
+(tracheids) datasets derived from thin sections of woody tissue. The
+package includes functions for visualisation, detection and alignment of
+continuous tracheid radial file (defined as rows) and individual tracheid
+position within an annual ring of coniferous species. This package is
+designed to be used with elaborate cell output, e.g. as provided with
+ROXAS (von Arx & Carrer, 2014 <doi:10.1016/j.dendro.2013.12.001>). The
+package has been validated for Picea abies, Larix Siberica, Pinus cembra
+and Pinus sylvestris.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,8 +60,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/INDEX

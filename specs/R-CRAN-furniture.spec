@@ -1,9 +1,9 @@
 %global packname  furniture
-%global packver   1.9.5
+%global packver   1.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5
+Version:          1.9.7
 Release:          1%{?dist}
 Summary:          Furniture for Quantitative Scientists
 
@@ -18,15 +18,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-crayon 
 
 %description
 Contains four main functions (i.e., four pieces of furniture): table1()
@@ -40,6 +34,7 @@ Other data summary and cleaning tools are also available.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

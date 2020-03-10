@@ -1,9 +1,9 @@
 %global packname  PHInfiniteEstimates
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Tools for Inference in the Presence of a Monotone Likelihood
 
@@ -20,13 +20,11 @@ BuildRequires:    R-survival
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-mlogit 
 BuildRequires:    R-CRAN-coxphf 
-BuildRequires:    R-CRAN-NADA 
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-survival 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-mlogit 
 Requires:         R-CRAN-coxphf 
-Requires:         R-CRAN-NADA 
 
 %description
 Proportional hazards estimation in the presence of a partially monotone

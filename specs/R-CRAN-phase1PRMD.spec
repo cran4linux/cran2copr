@@ -1,9 +1,9 @@
 %global packname  phase1PRMD
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Personalized Repeated Measurement Design for Phase I ClinicalTrials
 
@@ -20,11 +20,10 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-arrayhelpers 
-BuildRequires:    R-CRAN-phase1RMD 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-kableExtra 
@@ -34,11 +33,10 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-stats 
 Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-arrayhelpers 
-Requires:         R-CRAN-phase1RMD 
 Requires:         R-MASS 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-kableExtra 
@@ -58,6 +56,7 @@ Yin, Jun, et al. (2017) <doi:10.1002/sim.7134>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -65,6 +64,7 @@ Yin, Jun, et al. (2017) <doi:10.1002/sim.7134>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

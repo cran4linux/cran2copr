@@ -1,9 +1,9 @@
 %global packname  plotKML
-%global packver   0.6-0
+%global packver   0.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Visualization of Spatial and Spatio-Temporal Objects in GoogleEarth
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
@@ -67,6 +67,7 @@ spatio-temporal objects to KML following some basic cartographic rules.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

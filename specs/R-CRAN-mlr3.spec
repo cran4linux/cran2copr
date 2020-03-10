@@ -1,9 +1,9 @@
 %global packname  mlr3
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}
 Summary:          Machine Learning in R - Next Generation
 
@@ -18,7 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-lgr >= 0.3.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.1.8
-BuildRequires:    R-CRAN-mlr3measures >= 0.1.1
+BuildRequires:    R-CRAN-mlr3measures >= 0.1.2
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-data.table 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-uuid
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-lgr >= 0.3.0
 Requires:         R-CRAN-mlr3misc >= 0.1.8
-Requires:         R-CRAN-mlr3measures >= 0.1.1
+Requires:         R-CRAN-mlr3measures >= 0.1.2
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-data.table 

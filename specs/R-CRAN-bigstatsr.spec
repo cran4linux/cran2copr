@@ -1,9 +1,9 @@
 %global packname  bigstatsr
-%global packver   1.1.4
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Statistical Tools for Filebacked Big Matrices
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.0
 BuildRequires:    R-CRAN-bigparallelr >= 0.2.3
-BuildRequires:    R-CRAN-bigreadr >= 0.2
 BuildRequires:    R-CRAN-rmio >= 0.1.3
 BuildRequires:    R-CRAN-bigassertr >= 0.1.1
 BuildRequires:    R-CRAN-cowplot 
@@ -31,7 +30,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 3.0
 Requires:         R-CRAN-bigparallelr >= 0.2.3
-Requires:         R-CRAN-bigreadr >= 0.2
 Requires:         R-CRAN-bigassertr >= 0.1.1
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-foreach 
@@ -53,6 +51,7 @@ sparse linear supervised models, utility functions and more
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

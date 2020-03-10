@@ -1,9 +1,9 @@
 %global packname  confreq
-%global packver   1.5.4-7
+%global packver   1.5.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4.7
+Version:          1.5.5.0
 Release:          1%{?dist}
 Summary:          Configural Frequencies Analysis Using Log-Linear Modeling
 
@@ -33,6 +33,7 @@ Psychologie und Psychotherapie, 19(2), 99–115.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

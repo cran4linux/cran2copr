@@ -1,9 +1,9 @@
 %global packname  FrF2
-%global packver   2.1
+%global packver   2.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Fractional Factorial Designs with 2-Level Factors
 
@@ -18,14 +18,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sfsmisc >= 1.0.26
 BuildRequires:    R-CRAN-igraph >= 0.7
 BuildRequires:    R-CRAN-DoE.base >= 0.25
-BuildRequires:    R-CRAN-BsMD 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-sfsmisc >= 1.0.26
 Requires:         R-CRAN-igraph >= 0.7
 Requires:         R-CRAN-DoE.base >= 0.25
-Requires:         R-CRAN-BsMD 
 Requires:         R-utils 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-methods 
@@ -41,6 +39,7 @@ readable format than with the built-in function alias).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -48,6 +47,7 @@ readable format than with the built-in function alias).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
