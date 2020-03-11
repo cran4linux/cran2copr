@@ -1,28 +1,37 @@
-%global packname  Perc
-%global packver   0.1.4
+%global packname  econetwork
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.3
 Release:          1%{?dist}
-Summary:          Using Percolation and Conductance to Find Information FlowCertainty in a Direct Network
+Summary:          Analyzing Ecological Networks
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-rdiversity 
+BuildRequires:    R-CRAN-Matrix.utils 
 Requires:         R-stats 
-Requires:         R-grDevices 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-rdiversity 
+Requires:         R-CRAN-Matrix.utils 
 
 %description
-To find the certainty of dominance interactions with indirect interactions
-being considered.
+A collection of advanced tools, methods and models specifically designed
+for analyzing different types of ecological networks - especially
+antagonistic (food webs, host-parasite), mutualistic (plant-pollinator,
+plant-fungus, etc) and competitive networks, as well as their variability
+in time and space. Statistical models are developed to describe and
+understand the mechanisms that determine species interactions, and to
+decipher the organization of these (multi-layer) ecological networks.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,9 +53,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

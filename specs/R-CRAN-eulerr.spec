@@ -1,9 +1,9 @@
 %global packname  eulerr
-%global packver   6.0.2
+%global packver   6.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.2
+Version:          6.1.0
 Release:          1%{?dist}
 Summary:          Area-Proportional Euler and Venn Diagrams with Ellipses
 

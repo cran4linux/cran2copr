@@ -1,9 +1,9 @@
 %global packname  SensoMineR
-%global packver   1.23
+%global packver   1.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23
+Version:          1.25
 Release:          1%{?dist}
 Summary:          Sensory Data Analysis
 
@@ -38,6 +38,7 @@ sensory data analysis. S. Le and F. Husson (2008)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -45,6 +46,7 @@ sensory data analysis. S. Le and F. Husson (2008)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  distrMod
-%global packver   2.8.3
+%global packver   2.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.3
+Version:          2.8.4
 Release:          1%{?dist}
 Summary:          Object Oriented Implementation of Probability Models
 
@@ -45,6 +45,7 @@ Implements S4 classes for probability models based on packages 'distr' and
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

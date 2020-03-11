@@ -1,9 +1,9 @@
 %global packname  RJDBC
-%global packver   0.2-7.1
+%global packver   0.2-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7.1
+Version:          0.2.8
 Release:          1%{?dist}
 Summary:          Provides Access to Databases Through the JDBC Interface
 
@@ -51,5 +51,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %{rlibdir}/%{packname}/INDEX

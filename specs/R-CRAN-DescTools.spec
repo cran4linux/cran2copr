@@ -1,9 +1,9 @@
 %global packname  DescTools
-%global packver   0.99.32
+%global packver   0.99.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.32
+Version:          0.99.33
 Release:          1%{?dist}
 Summary:          Tools for Descriptive Statistics
 
@@ -59,6 +59,7 @@ functions borrowed from contributed R packages as well.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

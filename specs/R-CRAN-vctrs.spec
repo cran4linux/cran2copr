@@ -1,9 +1,9 @@
 %global packname  vctrs
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          Vector Helpers
 
@@ -14,11 +14,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-rlang >= 0.4.2
+BuildRequires:    R-CRAN-rlang >= 0.4.5
 BuildRequires:    R-CRAN-ellipsis >= 0.2.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-rlang >= 0.4.2
+Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-ellipsis >= 0.2.0
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-glue 

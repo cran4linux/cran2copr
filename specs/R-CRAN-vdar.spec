@@ -1,43 +1,37 @@
-%global packname  scTenifoldNet
-%global packver   1.2.0
+%global packname  vdar
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Construct and Compare scGRN from Single-Cell Transcriptomic Data
+Summary:          Discriminant Analysis Incorporating Individual Uncertainties
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-MASS 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-compositions 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-MASS 
+Requires:         R-CRAN-compositions 
 
 %description
-A workflow based on machine learning methods to construct and compare
-single-cell gene regulatory networks (scGRN) using single-cell RNA-seq
-(scRNA-seq) data collected from different conditions. Uses principal
-component regression, tensor decomposition, and manifold alignment, to
-accurately identify even subtly shifted gene expression programs.
+The qda() function from package 'MASS' is extended to calculate a weighted
+linear (LDA) and quadratic discriminant analysis (QDA) by changing the
+group variances and group means based on cell-wise uncertainties. The
+uncertainties can be derived e.g. through relative errors for each
+individual measurement (cell), not only row-wise or column-wise
+uncertainties. The method can be applied compositional data (e.g. portions
+of substances, concentrations) and non-compositional data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,8 +53,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/python
 %{rlibdir}/%{packname}/INDEX

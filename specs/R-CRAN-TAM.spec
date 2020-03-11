@@ -1,9 +1,9 @@
 %global packname  TAM
-%global packver   3.3-10
+%global packver   3.4-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.10
+Version:          3.4.26
 Release:          1%{?dist}
 Summary:          Test Analysis Modules
 
@@ -44,6 +44,7 @@ Adams, Wilson and Wu, 1997 <doi:10.3102/10769986022001047>, Formann, 1982
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

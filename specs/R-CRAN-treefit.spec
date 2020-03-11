@@ -1,13 +1,13 @@
-%global packname  rCarto
-%global packver   0.8
+%global packname  treefit
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          This package builds maps with a full cartographic layout.
+Summary:          The First Software for Quantitative Trajectory Inference
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,23 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-classInt 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-classInt 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-pracma 
 
 %description
-This package makes some maps using shapefiles and dataframes. Five kinds
-of maps are available : proportionnal circles, proportionnal circles
-colored by a discretized quantitative variable, proportionnal circles
-colored by the modalities of a qualitative variable, choropleth and
-typology.
+Perform two types of analysis: 1) checking the goodness-of-fit of tree
+models to your single-cell gene expression data; and 2) deciding which
+tree best fits your data.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -48,9 +49,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/shapes
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

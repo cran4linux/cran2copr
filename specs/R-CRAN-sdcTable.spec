@@ -1,9 +1,9 @@
 %global packname  sdcTable
-%global packver   0.30
+%global packver   0.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30
+Version:          0.31
 Release:          1%{?dist}
 Summary:          Methods for Statistical Disclosure Control in Tabular Data
 

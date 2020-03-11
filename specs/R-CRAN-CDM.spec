@@ -1,9 +1,9 @@
 %global packname  CDM
-%global packver   7.4-19
+%global packver   7.5-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.4.19
+Version:          7.5.15
 Release:          1%{?dist}
 Summary:          Cognitive Diagnosis Modeling
 
@@ -45,14 +45,16 @@ latent class model (SLCA; Formann, 1992,
 <doi:10.1080/01621459.1992.10475229>) and regularized latent class
 analysis (Chen, Li, Liu, & Ying, 2017, <doi:10.1007/s11336-016-9545-6>).
 See George, Robitzsch, Kiefer, Gross, and Uenlue (2017)
-<doi:10.18637/jss.v074.i02> for further details on estimation and the
-package structure. For tutorials on how to use the CDM package see George
-and Robitzsch (2015, <doi:10.20982/tqmp.11.3.p189>) as well as Ravand and
-Robitzsch (2015).
+<doi:10.18637/jss.v074.i02> or Robitzsch and George (2019,
+<doi:10.1007/978-3-030-05584-4_26>) for further details on estimation and
+the package structure. For tutorials on how to use the CDM package see
+George and Robitzsch (2015, <doi:10.20982/tqmp.11.3.p189>) as well as
+Ravand and Robitzsch (2015).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -60,6 +62,7 @@ Robitzsch (2015).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

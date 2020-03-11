@@ -1,9 +1,9 @@
 %global packname  VWPre
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}
 Summary:          Tools for Preprocessing Visual World Data
 
@@ -49,6 +49,7 @@ mainly entail maintenance and the addition of minor functionality.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  warbleR
-%global packver   1.1.22
+%global packver   1.1.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.22
+Version:          1.1.23
 Release:          1%{?dist}
 Summary:          Streamline Bioacoustic Analysis
 

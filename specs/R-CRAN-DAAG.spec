@@ -1,33 +1,31 @@
-%global packname  catnet
-%global packver   1.15.7
+%global packname  DAAG
+%global packver   1.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.7
+Version:          1.24
 Release:          1%{?dist}
-Summary:          Categorical Bayesian Network Inference
+Summary:          Data Analysis and Graphics Data and Functions
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildArch:        noarch
+BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+Requires:         R-lattice 
+Requires:         R-CRAN-latticeExtra 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-Structure learning and parameter estimation of discrete Bayesian networks
-using likelihood-based criteria.  Exhaustive search for fixed node orders
-and stochastic search of optimal orders via simulated annealing algorithm
-are implemented.
+Various data sets used in examples and exercises in the book Maindonald,
+J.H. and Braun, W.J. (2003, 2007, 2010) "Data Analysis and Graphics Using
+R".
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,10 +48,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/misc
+%doc %{rlibdir}/%{packname}/seedrates.txt
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  VIM
-%global packver   5.1.0
+%global packver   5.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.0
+Version:          5.1.1
 Release:          1%{?dist}
 Summary:          Visualization and Imputation of Missing Values
 
@@ -54,8 +54,8 @@ Requires:         R-CRAN-laeken
 Requires:         R-CRAN-ranger 
 
 %description
-New tools for the visualization of missing and/or imputed values are
-introduced, which can be used for exploring the data and the structure of
+Methods for the visualization of missing and/or imputed values are
+provided, which can be used for exploring the data and the structure of
 the missing and/or imputed values. Depending on this structure of the
 missing values, the corresponding methods may help to identify the
 mechanism generating the missing values and allows to explore the data
@@ -64,12 +64,14 @@ visually explored using various univariate, bivariate, multiple and
 multivariate plot methods (<doi:10.1007/s11634-011-0102-y>). A graphical
 user interface available in the separate package VIMGUI allows an easy
 handling of the implemented plot methods. Fast imputation methods such as
-k-nearest neighbor imputation (<doi:10.18637/jss.v074.i07>) and imputation
-using robust methods are provided (<doi:10.1016/j.csda.2011.04.012>).
+k-nearest neighbor imputation (<doi:10.18637/jss.v074.i07>) and (multiple)
+EM-based imputation using robust methods are provided
+(<doi:10.1016/j.csda.2011.04.012>).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

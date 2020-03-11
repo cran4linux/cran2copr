@@ -1,9 +1,9 @@
 %global packname  DLMtool
-%global packver   5.4.1
+%global packver   5.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.1
+Version:          5.4.2
 Release:          1%{?dist}
 Summary:          Data-Limited Methods Toolkit
 
@@ -16,61 +16,23 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-snowfall 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fmsb 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rfishbase 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-snowfall 
 Requires:         R-CRAN-abind 
-Requires:         R-boot 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fmsb 
 Requires:         R-methods 
 Requires:         R-grDevices 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-knitr 
-Requires:         R-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-openxlsx 
 Requires:         R-parallel 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rfishbase 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
@@ -81,6 +43,7 @@ procedures for data-limited fisheries (see Carruthers & Hordyk (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

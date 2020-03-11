@@ -1,9 +1,9 @@
 %global packname  tosca
-%global packver   0.1-4
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Tools for Statistical Content Analysis
 
@@ -12,26 +12,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate >= 1.7.3
 BuildRequires:    R-CRAN-WikipediR >= 1.5.0
-BuildRequires:    R-CRAN-lubridate >= 1.3.3
-BuildRequires:    R-CRAN-lda >= 1.3.2
+BuildRequires:    R-CRAN-lda >= 1.4.2
+BuildRequires:    R-CRAN-quanteda >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-data.table >= 1.11.4
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
-BuildRequires:    R-CRAN-quanteda >= 1.1.1
-BuildRequires:    R-CRAN-tm >= 0.7.3
+BuildRequires:    R-CRAN-tm >= 0.7.5
 BuildRequires:    R-CRAN-htmltools >= 0.3.6
+Requires:         R-CRAN-lubridate >= 1.7.3
 Requires:         R-CRAN-WikipediR >= 1.5.0
-Requires:         R-CRAN-lubridate >= 1.3.3
-Requires:         R-CRAN-lda >= 1.3.2
+Requires:         R-CRAN-lda >= 1.4.2
+Requires:         R-CRAN-quanteda >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-data.table >= 1.11.4
 Requires:         R-CRAN-RColorBrewer >= 1.1.2
-Requires:         R-CRAN-quanteda >= 1.1.1
-Requires:         R-CRAN-tm >= 0.7.3
+Requires:         R-CRAN-tm >= 0.7.5
 Requires:         R-CRAN-htmltools >= 0.3.6
 
 %description
@@ -44,6 +44,7 @@ implementation of Chang's intruder words and intruder topics is provided.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,5 +65,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  spaMM
-%global packver   3.1.2
+%global packver   3.1.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.1.27
 Release:          1%{?dist}
 Summary:          Mixed-Effect Models, Particularly Spatial Models
 
