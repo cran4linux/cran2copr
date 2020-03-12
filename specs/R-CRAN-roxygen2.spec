@@ -1,9 +1,9 @@
 %global packname  roxygen2
-%global packver   7.0.2
+%global packver   7.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.2
+Version:          7.1.0
 Release:          1%{?dist}
 Summary:          In-Line Documentation for R
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-brew 
 BuildRequires:    R-CRAN-commonmark 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-brew 
 Requires:         R-CRAN-commonmark 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-knitr 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 
@@ -53,6 +55,7 @@ C++.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

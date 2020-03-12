@@ -1,9 +1,9 @@
 %global packname  spant
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          MR Spectroscopy Analysis Tools
 
@@ -29,7 +29,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-smoother 
-BuildRequires:    R-CRAN-svd 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ptw 
@@ -45,6 +44,7 @@ BuildRequires:    R-CRAN-oro.dicom
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-lsei 
+BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-plyr 
@@ -60,7 +60,6 @@ Requires:         R-utils
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-smoother 
-Requires:         R-CRAN-svd 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ptw 
@@ -76,11 +75,12 @@ Requires:         R-CRAN-oro.dicom
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-lsei 
+Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-tibble 
 
 %description
 Tools for reading, visualising and processing Magnetic Resonance
-Spectroscopy data.
+Spectroscopy data. <https://martin3141.github.io/spant/>.
 
 %prep
 %setup -q -c -n %{packname}

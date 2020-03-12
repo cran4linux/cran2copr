@@ -1,11 +1,11 @@
 %global packname  ODB
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}
-Summary:          Open Document Databases (.odb) management
+Summary:          Open Document Databases (.odb) Management
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,18 +19,20 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RJDBC 
+BuildRequires:    R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RJDBC 
+Requires:         R-utils 
 
 %description
-This package provides functions to create, connect, update and query HSQL
-databases embedded in Open Document Databases (.odb) files, as OpenOffice
-and LibreOffice do.
+Functions to create, connect, update and query 'HSQL' databases embedded
+in Open Document Databases files, as 'OpenOffice' and 'LibreOffice' do.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +52,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/java
 %doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/tools
+%doc %{rlibdir}/%{packname}/template.odb
 %{rlibdir}/%{packname}/INDEX

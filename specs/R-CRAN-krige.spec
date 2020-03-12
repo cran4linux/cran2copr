@@ -1,9 +1,9 @@
 %global packname  krige
-%global packver   0.3-1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Geospatial Kriging with Metropolis Sampling
 
@@ -12,13 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-invgamma 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-MASS 
+Requires:         R-CRAN-invgamma 
 
 %description
 Estimates kriging models for geographical point-referenced data. Method is
@@ -27,6 +29,7 @@ described in Monogan and Gill (2016) <doi:10.1017/psrm.2015.5>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

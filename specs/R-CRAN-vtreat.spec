@@ -1,9 +1,9 @@
 %global packname  vtreat
-%global packver   1.5.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.0
 Release:          1%{?dist}
 Summary:          A Statistically Sound 'data.frame' Processor/Conditioner
 

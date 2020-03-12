@@ -1,9 +1,9 @@
 %global packname  daewr
-%global packver   1.1-8
+%global packver   1.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Design and Analysis of Experiments with R
 
@@ -17,14 +17,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-FrF2 
-BuildRequires:    R-CRAN-BsMD 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringi 
 Requires:         R-lattice 
 Requires:         R-CRAN-FrF2 
-Requires:         R-CRAN-BsMD 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -37,6 +35,7 @@ of Experiments with R".
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

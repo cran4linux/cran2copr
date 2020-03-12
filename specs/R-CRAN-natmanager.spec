@@ -1,9 +1,9 @@
 %global packname  natmanager
-%global packver   0.1.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Install the 'Natverse' Packages from Scratch
 
@@ -19,30 +19,22 @@ BuildRequires:    R-CRAN-gh
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-gh 
 Requires:         R-utils 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-withr 
 
 %description
-Enables user to install different packages in the 'natverse' repository
-from scratch. The rationale behind the utility of this package is as
-follows. The suite of packages encompassed by 'natverse' helps in
-analysing neuroanatomical data ranging from a variety of species like the
-nematode worm to the mouse brain. The principal problem while installing
-the core 'natverse' package is that it installs a lot of its friends
-(dependencies, imports etc.) that are required for its proper functioning.
-Most of these friends are development packages (which are also quite
-heavy) located in GITHUB. This in turn makes the installation of
-'natverse' to have a lot of API calls to the GITHUB, however GITHUB has a
-limit of 60 requests per hour for unauthenticated requests. Hence for the
-unauthenticated user, the installation would fail if it was done directly.
-The proper way to fix this problem would be to set the GITHUB_PAT to make
-the request authenticated. Hence, to make the installation of 'natverse'
-easier from the end user perspective (who are not well versed in R or in
-GITHUB), we have developed this package. This package will act as a
-wrapper that will set the GITHUB_PAT and will handhold the user to
-initiate the installation of the 'natverse' packages.
+Provides streamlined installation for packages from the 'natverse', a
+suite of R packages for computational neuroanatomy built on top of the
+'nat' 'NeuroAnatomy Toolbox' package. Installation of the complete
+'natverse' suite requires a 'GitHub' user account and personal access
+token 'GITHUB_PAT'. 'natmanager' will help the end user set this up if
+necessary.
 
 %prep
 %setup -q -c -n %{packname}
@@ -66,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

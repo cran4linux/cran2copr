@@ -1,28 +1,34 @@
-%global packname  xml2
-%global packver   1.2.5
+%global packname  aws.transcribe
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.1.3
 Release:          1%{?dist}
-Summary:          Parse XML
+Summary:          Client for 'AWS Transcribe'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    libxml2-devel
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-aws.signature >= 0.3.4
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-aws.signature >= 0.3.4
+Requires:         R-tools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Work with XML files using a simple, consistent interface. Built on top of
-the 'libxml2' C library.
+Client for 'AWS Transcribe'
+<https://aws.amazon.com/documentation/transcribe>, a cloud transcription
+service that can convert an audio media file in English and other
+languages into a text transcript.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,8 +54,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

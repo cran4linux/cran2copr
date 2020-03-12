@@ -1,9 +1,9 @@
 %global packname  sentometrics
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}
 Summary:          An Integrated Framework for Textual Sentiment Time SeriesAggregation and Prediction
 
@@ -46,12 +46,13 @@ Requires:         R-utils
 %description
 Optimized prediction based on textual sentiment, accounting for the
 intrinsic challenge that sentiment can be computed and pooled across texts
-and time in various ways. See Ardia et al. (2019)
+and time in various ways. See Ardia et al. (2020)
 <doi:10.2139/ssrn.3067734>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

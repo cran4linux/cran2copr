@@ -1,9 +1,9 @@
 %global packname  workflowr
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}
 Summary:          A Framework for Reproducible and Collaborative Data Science
 
@@ -58,6 +58,7 @@ documented results.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

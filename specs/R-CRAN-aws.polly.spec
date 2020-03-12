@@ -1,33 +1,32 @@
-%global packname  gof
-%global packver   1.0.0
+%global packname  aws.polly
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.5
 Release:          1%{?dist}
-Summary:          Model Diagnostics Based on Cumulative Residuals
+Summary:          Client for AWS Polly
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-lava >= 1.6.3
-BuildRequires:    R-CRAN-mets >= 1.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-lava >= 1.6.3
-Requires:         R-CRAN-mets >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-aws.signature >= 0.3.4
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tuneR 
+Requires:         R-CRAN-aws.signature >= 0.3.4
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tuneR 
 
 %description
-Implementation of model-checking techniques for generalized linear models
-and linear structural equation models based on cumulative residuals (Lin,
-Wei & Ying (2002) <doi:10.1111/j.0006-341x.2002.00001.x>).
+A client for AWS Polly <http://aws.amazon.com/documentation/polly>, a
+speech synthesis service.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,11 +48,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

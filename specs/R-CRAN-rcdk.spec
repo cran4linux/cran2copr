@@ -1,9 +1,9 @@
 %global packname  rcdk
-%global packver   3.4.7.2
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.7.2
+Version:          3.5.0
 Release:          1%{?dist}
 Summary:          Interface to the 'CDK' Libraries
 
@@ -16,14 +16,14 @@ Requires:         java
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rcdklibs >= 1.5
+BuildRequires:    R-CRAN-rcdklibs >= 2.3
 BuildRequires:    R-CRAN-fingerprint 
 BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-itertools 
-Requires:         R-CRAN-rcdklibs >= 1.5
+Requires:         R-CRAN-rcdklibs >= 2.3
 Requires:         R-CRAN-fingerprint 
 Requires:         R-CRAN-rJava 
 Requires:         R-methods 
@@ -40,6 +40,7 @@ fingerprints, calculate molecular descriptors and so on. In addition, the
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,5 +65,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/cont
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/molfiles
 %doc %{rlibdir}/%{packname}/unitTests
 %{rlibdir}/%{packname}/INDEX

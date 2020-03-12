@@ -1,9 +1,9 @@
 %global packname  BMA
-%global packver   3.18.11
+%global packver   3.18.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.18.11
+Version:          3.18.12
 Release:          1%{?dist}
 Summary:          Bayesian Model Averaging
 
@@ -34,6 +34,7 @@ models, generalized linear models and survival models (cox regression).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

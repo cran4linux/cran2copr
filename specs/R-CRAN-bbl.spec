@@ -1,39 +1,41 @@
-%global packname  transport
-%global packver   0.12-2
+%global packname  bbl
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.2
+Version:          0.3.1
 Release:          1%{?dist}
-Summary:          Computation of Optimal Transport Plans and Wasserstein Distances
+Summary:          Boltzmann Bayes Learner
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    gsl-devel
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 0.12.10
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-data.table 
+Requires:         R-utils 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Solve optimal transport problems. Compute Wasserstein distances (a.k.a.
-Kantorovitch, Fortet--Mourier, Mallows, Earth Mover's, or minimal L_p
-distances), return the corresponding transference plans, and display them
-graphically. Objects that can be compared include grey-scale images,
-(weighted) point patterns, and mass vectors.
+Supervised learning using Boltzmann Bayes model inference, which extends
+naive Bayes model to include interactions. Enables classification of data
+into multiple response groups based on a large number of discrete
+predictors that can take factor values of heterogeneous levels. Either
+pseudo-likelihood or mean field inference can be used with L2
+regularization, cross-validation, and prediction on new data. Woo et al.
+(2016) <doi:10.1186/s12864-016-2871-3>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,12 +57,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/INSTALL
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
