@@ -354,9 +354,9 @@ pkg_exceptions <- function(tpl, pkg, path) {
   install <- grep("%install", tpl)
   tpl[install] <- paste0(tpl[install], "\n", switch(
     pkg,
-    aws=,biglars=,bsamGP=,deldir=,deSolve=,DRAFT=,DynamicGP=,EDR=,eha=,frontier=,
-    igraph=,lbfgsb3=,lbfgsb3c=,lsei=,mclust=,mda=,n1qn1=,npsp=,robeth=,robustbase=,
-    rootSolve=,sequoia=,subplex=,VGAM=paste(
+    aws=,biglars=,bsamGP=,deldir=,deSolve=,DRAFT=,DynamicGP=,EDR=,eha=,
+    frailtypack=,frontier=,igraph=,lbfgsb3=,lbfgsb3c=,lsei=,mclust=,mda=,n1qn1=,
+    npsp=,robeth=,robustbase=,rootSolve=,sequoia=,subplex=,VGAM=paste(
       "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
       "echo \"FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch\" > ~/.R/Makevars"),
     vctrs=paste(
