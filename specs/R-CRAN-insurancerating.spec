@@ -1,9 +1,9 @@
 %global packname  insurancerating
-%global packver   0.4.3
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Analytic Insurance Rating Techniques
 
@@ -17,6 +17,7 @@ Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-evtree 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
@@ -24,6 +25,7 @@ BuildRequires:    R-mgcv
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-evtree 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
@@ -43,6 +45,7 @@ thereafter changing the base level of the factor to this level.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,4 +67,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

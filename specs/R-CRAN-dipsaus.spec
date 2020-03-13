@@ -1,9 +1,9 @@
 %global packname  dipsaus
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-crayon 
@@ -45,7 +45,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-parallel 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-crayon 
@@ -73,6 +73,7 @@ get system information such like CPU chipset, memory limit, etc.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

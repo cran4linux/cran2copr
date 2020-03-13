@@ -1,9 +1,9 @@
 %global packname  qtl
-%global packver   1.45-11
+%global packver   1.46-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.45.11
+Version:          1.46.2
 Release:          1%{?dist}
 Summary:          Tools for Analyzing QTL Experiments
 
@@ -33,6 +33,7 @@ et al. (2003) <doi:10.1093/bioinformatics/btg112>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

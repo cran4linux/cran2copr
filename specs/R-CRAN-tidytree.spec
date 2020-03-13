@@ -1,9 +1,9 @@
 %global packname  tidytree
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
 
@@ -41,6 +41,7 @@ to manipulate tree data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

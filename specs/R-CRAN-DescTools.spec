@@ -1,9 +1,9 @@
 %global packname  DescTools
-%global packver   0.99.33
+%global packver   0.99.34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.33
+Version:          0.99.34
 Release:          1%{?dist}
 Summary:          Tools for Descriptive Statistics
 

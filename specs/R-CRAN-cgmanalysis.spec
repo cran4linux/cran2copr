@@ -1,9 +1,9 @@
 %global packname  cgmanalysis
-%global packver   2.6
+%global packver   2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          2.6.1
 Release:          1%{?dist}
 Summary:          Clean and Analyze Continuous Glucose Monitor Data
 

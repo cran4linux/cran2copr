@@ -1,9 +1,9 @@
 %global packname  processmapR
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Construct Process Maps Using Event Data
 
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
 BuildRequires:    R-CRAN-edeaR >= 0.8.0
 BuildRequires:    R-CRAN-bupaR >= 0.4.0
@@ -34,6 +33,9 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
 Requires:         R-CRAN-edeaR >= 0.8.0
 Requires:         R-CRAN-bupaR >= 0.4.0
@@ -53,14 +55,17 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Visualize of process maps based on event logs, in the form of directed
-graphs. Part of the 'bupaR' framework.
+Visualize event logs using directed graphs, i.e. process maps. Part of the
+'bupaR' framework.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -68,6 +73,7 @@ graphs. Part of the 'bupaR' framework.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -82,3 +88,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

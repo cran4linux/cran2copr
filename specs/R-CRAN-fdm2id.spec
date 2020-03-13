@@ -1,9 +1,9 @@
 %global packname  fdm2id
-%global packver   0.9.1
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.3
 Release:          1%{?dist}
 Summary:          Data Mining and R Programming for Beginners
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-CRAN-FactoMineR 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-nnet 
 BuildRequires:    R-CRAN-pls 
@@ -25,6 +24,7 @@ BuildRequires:    R-CRAN-caret
 BuildRequires:    R-class 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-FactoMineR 
 BuildRequires:    R-CRAN-flexclust 
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-glmnet 
@@ -38,7 +38,6 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-mda 
 BuildRequires:    R-CRAN-meanShiftR 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-NMF 
 BuildRequires:    R-CRAN-questionr 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-ROCR 
@@ -52,7 +51,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-wordcloud 
 BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-arules 
-Requires:         R-CRAN-FactoMineR 
 Requires:         R-CRAN-mclust 
 Requires:         R-nnet 
 Requires:         R-CRAN-pls 
@@ -61,6 +59,7 @@ Requires:         R-CRAN-caret
 Requires:         R-class 
 Requires:         R-cluster 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-FactoMineR 
 Requires:         R-CRAN-flexclust 
 Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-glmnet 
@@ -74,7 +73,6 @@ Requires:         R-MASS
 Requires:         R-CRAN-mda 
 Requires:         R-CRAN-meanShiftR 
 Requires:         R-methods 
-Requires:         R-CRAN-NMF 
 Requires:         R-CRAN-questionr 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ROCR 
@@ -100,6 +98,7 @@ en Master 2 Informatique Décisionnelle".
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

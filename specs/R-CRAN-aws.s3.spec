@@ -1,13 +1,13 @@
-%global packname  glmnetUtils
-%global packver   1.1.5
+%global packname  aws.s3
+%global packver   0.3.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.3.20
 Release:          1%{?dist}
-Summary:          Utilities for 'Glmnet'
+Summary:          'AWS S3' Client Package
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,23 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-parallel 
-BuildRequires:    R-Matrix 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-glmnet 
-Requires:         R-parallel 
-Requires:         R-Matrix 
+BuildRequires:    R-CRAN-aws.signature >= 0.3.7
+BuildRequires:    R-CRAN-xml2 > 1.0.0
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-aws.signature >= 0.3.7
+Requires:         R-CRAN-xml2 > 1.0.0
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-digest 
 
 %description
-Provides a formula interface for the 'glmnet' package for elasticnet
-regression, a method for cross-validating the alpha parameter, and other
-quality-of-life tools.
+A simple client package for the Amazon Web Services ('AWS') Simple Storage
+Service ('S3') 'REST' 'API' <https://aws.amazon.com/s3/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,5 +60,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/experiments
 %{rlibdir}/%{packname}/INDEX

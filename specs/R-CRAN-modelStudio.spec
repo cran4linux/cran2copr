@@ -1,9 +1,9 @@
 %global packname  modelStudio
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Interactive Studio for Explanatory Model Analysis
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-iBreakDown >= 1.0
 BuildRequires:    R-CRAN-ingredients >= 1.0
 BuildRequires:    R-CRAN-r2d3 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-iBreakDown >= 1.0
 Requires:         R-CRAN-ingredients >= 1.0
 Requires:         R-CRAN-r2d3 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-progress 
 
 %description
 Automate the explanatory analysis of machine learning predictive models.

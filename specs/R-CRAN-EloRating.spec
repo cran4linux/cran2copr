@@ -1,9 +1,9 @@
 %global packname  EloRating
-%global packver   0.46.10
+%global packver   0.46.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.46.10
+Version:          0.46.11
 Release:          1%{?dist}
 Summary:          Animal Dominance Hierarchies by Elo Rating
 
@@ -38,6 +38,7 @@ an introduction.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
