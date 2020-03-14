@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    make
-Requires:         pandoc
+BuildRequires:    R-CRAN-rstantools,make
+Requires:         R-CRAN-rstantools,pandoc
 Requires:         pandoc-citeproc
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
@@ -55,6 +55,7 @@ et al. (2014) <doi:10.1111/biom.12242> for details on the methodology.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
