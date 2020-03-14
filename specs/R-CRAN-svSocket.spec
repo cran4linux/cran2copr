@@ -25,7 +25,7 @@ Implements a simple socket server allowing to connect GUI clients to R
 
 %prep
 %setup -q -c -n %{packname}
-find %{packname} -type f -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
+find %{packname} -type f -exec sed -Ei 's@/local/bin/tclsh8.4@/bin/tclsh@g' {} \;
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
