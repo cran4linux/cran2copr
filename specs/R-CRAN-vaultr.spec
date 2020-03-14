@@ -12,7 +12,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         vault
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
@@ -36,6 +35,7 @@ authentication via 'GitHub'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
