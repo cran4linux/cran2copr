@@ -1,10 +1,9 @@
-%global debug_package %{nil}
 %global packname  bestglm
-%global packver   0.37.1
+%global packver   0.37.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.37.1
+Version:          0.37.3
 Release:          1%{?dist}
 Summary:          Best Subset GLM and Regression Utilities
 
@@ -13,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.0
-Requires:         R-core >= 2.0.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-leaps 
 BuildRequires:    R-lattice 
@@ -28,9 +27,12 @@ Requires:         R-CRAN-grpreg
 Requires:         R-CRAN-pls 
 
 %description
-Best subset glm using information criteria or cross-validation. Implements
-PCR and PLS using AIC/BIC. Implements one-standard deviation rule for use
-with the `caret` package.
+Best subset glm using information criteria or cross-validation, carried by
+using 'leaps' algorithm (Furnival and Wilson, 1974) <doi:10.2307/1267601>
+or complete enumeration (Morgan and Tatar, 1972)
+<doi:10.1080/00401706.1972.10488918>. Implements PCR and PLS using
+AIC/BIC. Implements one-standard deviation rule for use with the 'caret'
+package.
 
 %prep
 %setup -q -c -n %{packname}

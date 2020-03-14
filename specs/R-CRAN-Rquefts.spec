@@ -1,9 +1,9 @@
 %global packname  Rquefts
-%global packver   1.0-5
+%global packver   1.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.7
 Release:          1%{?dist}
 Summary:          Quantitative Evaluation of the Native Fertility of TropicalSoils
 
@@ -23,16 +23,18 @@ Requires:         R-methods
 
 %description
 An implementation of the QUEFTS (Quantitative Evaluation of the Native
-Fertility of Tropical Soils) model. The model estimates nutrient
-requirements for crops to achieve a target yield given native soil
-fertility, as estimated from a few soil chemical properties. See Janssen
-et al. (1990) <doi:10.1016/0016-7061(90)90021-Z> for the technical details
-and Sattari et al. (2014) <doi:10.1016/j.fcr.2013.12.005> for a recent
-evaluation.
+Fertility of Tropical Soils) model. The model (1) estimates native
+nutrient (N, P, K) supply of soils from a few soil chemical properties;
+and (2) computes crop yield given that supply, fertilizer application and
+crop parameters. See Janssen et al. (1990)
+<doi:10.1016/0016-7061(90)90021-Z> for the technical details and Sattari
+et al. (2014) <doi:10.1016/j.fcr.2013.12.005> for a recent evaluation and
+improvements.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  dad
-%global packver   3.3.0
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.4.0
 Release:          1%{?dist}
 Summary:          Three-Way / Multigroup Data Analysis Through Densities
 
@@ -12,15 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-DescTools 
 Requires:         R-methods 
@@ -28,7 +28,7 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-lattice 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-DescTools 
 
@@ -43,6 +43,7 @@ densities.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +51,7 @@ densities.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

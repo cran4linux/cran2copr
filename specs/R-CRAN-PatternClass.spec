@@ -1,9 +1,9 @@
 %global packname  PatternClass
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Class-Focused Pattern Metric Comparisons using Simulation
 
@@ -21,17 +21,22 @@ Requires:         R-CRAN-landscapemetrics
 Requires:         R-CRAN-raster 
 
 %description
-Provides tools for estimating composition and configuration parameters
-from a categorical (binary) landscape map (grid) and then simulates a
-selected number of statistically similar landscapes.  Class-focused
-pattern metrics are computed for each simulated map to produce empirical
-distributions against which statistical comparisons can be made. The code
-permits the analysis of single maps or pairs of maps.  Current limitation
-is for binary (classes 1, 2) maps that are 64x64 cells in extent.
+NOTE: This content is being migrated to the package ShapePattern to
+provide a comprehensive set of tools for shape and pattern analysis. All
+future maintenance will be in that package -- please update your links.
+This current package provides tools for estimating composition and
+configuration parameters from a categorical (binary) landscape map (grid)
+and then simulates a selected number of statistically similar landscapes.
+Class-focused pattern metrics are computed for each simulated map to
+produce empirical distributions against which statistical comparisons can
+be made. The code permits the analysis of single maps or pairs of maps.
+Current limitation is for binary (classes 1, 2) maps that are 64x64 cells
+in extent.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

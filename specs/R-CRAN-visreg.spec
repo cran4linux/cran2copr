@@ -1,9 +1,9 @@
 %global packname  visreg
-%global packver   2.6-0
+%global packver   2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.6.1
 Release:          1%{?dist}
 Summary:          Visualization of Regression Models
 
@@ -26,6 +26,7 @@ fit of regression models arising from a wide variety of models in R ('lm',
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  plothelper
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}
 Summary:          New Plots Based on 'ggplot2' and Functions to Create RegularShapes
 
@@ -15,20 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-ggfittext >= 0.8.1
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.1.1
+BuildRequires:    R-CRAN-farver 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-ggfittext >= 0.8.1
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-magick 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-farver 
 
 %description
 An extension to 'ggplot2' and 'magick'. It contains three groups of
@@ -46,6 +48,7 @@ based functions facilitating image processing.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

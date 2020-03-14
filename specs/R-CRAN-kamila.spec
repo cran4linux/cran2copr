@@ -1,9 +1,9 @@
 %global packname  kamila
-%global packver   0.1.1.3
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.3
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Methods for Clustering Mixed-Type Data
 
@@ -44,6 +44,7 @@ variables. For more information, see Foss, Markatou, Ray, & Heching (2016)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -51,6 +52,7 @@ variables. For more information, see Foss, Markatou, Ray, & Heching (2016)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

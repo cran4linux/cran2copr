@@ -1,9 +1,9 @@
 %global packname  cohorttools
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Cohort Data Analyses
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-Epi
 BuildRequires:    R-CRAN-cmprsk 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-DiagrammeRsvg 
@@ -28,7 +27,6 @@ Requires:         R-CRAN-Epi
 Requires:         R-CRAN-cmprsk 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-CRAN-epitools 
 Requires:         R-survival 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-DiagrammeRsvg 

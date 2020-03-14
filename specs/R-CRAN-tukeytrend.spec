@@ -1,9 +1,9 @@
 %global packname  tukeytrend
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}
 Summary:          Tukeys Trend Test via Multiple Marginal Models
 
@@ -38,6 +38,7 @@ Heyse (1985) <DOI:10.2307/2530666> for general parametric models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

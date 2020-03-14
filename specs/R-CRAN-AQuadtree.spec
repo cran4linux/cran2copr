@@ -1,32 +1,40 @@
-%global packname  maSAE
-%global packver   2.0.0
+%global packname  AQuadtree
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Mandallaz' Model-Assisted Small Area Estimators
+Summary:          Confidentiality of Spatial Point Data
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.2
+Requires:         R-core >= 3.3.2
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-dplyr 
 
 %description
-An S4 implementation of the unbiased extension of the model- assisted
-synthetic-regression estimator proposed by Mandallaz (2013)
-<DOI:10.1139/cjfr-2012-0381>, Mandallaz et al. (2013)
-<DOI:10.1139/cjfr-2013-0181> and Mandallaz (2014)
-<DOI:10.1139/cjfr-2013-0449>.  It yields smaller variances than the
-standard bias correction, the generalised regression estimator.
+Provides an automatic aggregation tool to manage point data privacy,
+intended to be helpful for the production of official spatial data and for
+researchers. The package pursues the data accuracy at the smallest
+possible areas preventing individual information disclosure. The
+methodology, based on hierarchical geographic data structures performs
+aggregation and local suppression of point data to ensure privacy as
+described in Lagonigro, R., Oller, R., Martori J.C. (2017)
+<doi:10.2436/20.8080.02.55>. The data structures are created following the
+guidelines for grid datasets from the European Forum for Geography and
+Statistics.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,12 +57,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/runit_tests
 %{rlibdir}/%{packname}/INDEX

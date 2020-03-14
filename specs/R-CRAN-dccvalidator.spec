@@ -1,9 +1,9 @@
 %global packname  dccvalidator
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Metadata Validation for Data Coordinating Centers
 
@@ -20,11 +20,11 @@ BuildRequires:    R-CRAN-config
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-golem 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-jsonvalidate 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reactable 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-reticulate 
@@ -34,7 +34,6 @@ BuildRequires:    R-CRAN-shinydashboard
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-skimr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
@@ -44,11 +43,11 @@ Requires:         R-CRAN-config
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-golem 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonvalidate 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reactable 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-reticulate 
@@ -58,7 +57,6 @@ Requires:         R-CRAN-shinydashboard
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-skimr 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-tools 
 Requires:         R-utils 
@@ -74,6 +72,7 @@ data releases.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -96,6 +95,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/app
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/using-the-dccvalidator-app-amp-ad.md
 %doc %{rlibdir}/%{packname}/using-the-dccvalidator-app-amp-ad.Rmd
 %doc %{rlibdir}/%{packname}/using-the-dccvalidator-pec.Rmd
 %{rlibdir}/%{packname}/INDEX

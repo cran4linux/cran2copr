@@ -1,9 +1,9 @@
 %global packname  shiny.semantic
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Semantic UI Support for Shiny
 
@@ -19,14 +19,12 @@ BuildRequires:    R-CRAN-htmlwidgets >= 0.8
 BuildRequires:    R-CRAN-htmltools >= 0.2.6
 BuildRequires:    R-CRAN-purrr >= 0.2.2
 BuildRequires:    R-CRAN-shiny >= 0.12.1
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-htmlwidgets >= 0.8
 Requires:         R-CRAN-htmltools >= 0.2.6
 Requires:         R-CRAN-purrr >= 0.2.2
 Requires:         R-CRAN-shiny >= 0.12.1
-Requires:         R-utils 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 
 
@@ -62,8 +60,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/assets
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/prepare_package_cran.sh
-%doc %{rlibdir}/%{packname}/semantic-range
 %doc %{rlibdir}/%{packname}/www
 %{rlibdir}/%{packname}/INDEX

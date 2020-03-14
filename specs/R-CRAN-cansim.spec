@@ -1,11 +1,11 @@
-%global packname  processanimateR
-%global packver   1.0.3
+%global packname  cansim
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.3.5
 Release:          1%{?dist}
-Summary:          Process Map Token Replay Animation
+Summary:          Accessing Statistics Canada Data Table and Vectors
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,35 +15,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
-BuildRequires:    R-CRAN-processmapR >= 0.3.1
-BuildRequires:    R-CRAN-bupaR 
+BuildRequires:    R-CRAN-httr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.7
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-DiagrammeR >= 1.0.0
-Requires:         R-CRAN-processmapR >= 0.3.1
-Requires:         R-CRAN-bupaR 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.7
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-grDevices 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provides animated process maps based on the 'procesmapR' package. Cases
-stored in event logs created with with 'bupaR' S3 class eventlog() are
-rendered as tokens (SVG shapes) and animated according to their occurrence
-times on top of the process map. For rendering SVG animations ('SMIL') and
-the 'htmlwidget' package are used.
+Searches for, accesses, and retrieves new-format and old-format Statistics
+Canada data tables, as well as individual vectors, as tidy data frames.
+This package deals with encoding issues, allows for bilingual English or
+French language data retrieval, and bundles convenience functions to make
+it easier to work with retrieved table data. Optional caching features are
+provided.
 
 %prep
 %setup -q -c -n %{packname}
@@ -72,5 +73,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/htmlwidgets
+%doc %{rlibdir}/%{packname}/Statistics_Canada_Open_Licence_Agreement
 %{rlibdir}/%{packname}/INDEX

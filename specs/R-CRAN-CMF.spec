@@ -1,9 +1,9 @@
 %global packname  CMF
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Collective Matrix Factorization
 
@@ -22,9 +22,18 @@ Requires:         R-stats
 %description
 Collective matrix factorization (CMF) finds joint low-rank representations
 for a collection of matrices with shared row or column entities. This code
-learns variational Bayesian approximation for CMF, supporting multiple
+learns a variational Bayesian approximation for CMF, supporting multiple
 likelihood potentials and missing data, while identifying both factors
-shared by multiple matrices and factors private for each matrix.
+shared by multiple matrices and factors private for each matrix. For
+further details on the method see Klami et al. (2014) <arXiv:1312.5921>.
+The package can also be used to learn Bayesian canonical correlation
+analysis (CCA) and group factor analysis (GFA) models, both of which are
+special cases of CMF. This is likely to be useful for people looking for
+CCA and GFA solutions supporting missing data and non-Gaussian
+likelihoods. See Klami et al. (2013)
+<http://www.jmlr.org/papers/v14/klami13a.html> and Virtanen et al. (2012)
+<http://proceedings.mlr.press/v22/virtanen12.html> for details on Bayesian
+CCA and GFA, respectively.
 
 %prep
 %setup -q -c -n %{packname}

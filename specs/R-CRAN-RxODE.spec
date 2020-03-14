@@ -1,9 +1,9 @@
 %global packname  RxODE
-%global packver   0.9.1-9
+%global packver   0.9.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1.9
+Version:          0.9.2.0
 Release:          1%{?dist}
 Summary:          Facilities for Simulating from ODE-Based Models
 
@@ -12,19 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.300.2.0
 BuildRequires:    R-CRAN-units >= 0.6.0
 BuildRequires:    R-CRAN-PreciseSums >= 0.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-dparser >= 0.1.8
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-brew 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-inline 
 BuildRequires:    R-CRAN-magrittr 
@@ -37,17 +35,14 @@ BuildRequires:    R-CRAN-sys
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-lotri 
-BuildRequires:    R-CRAN-remotes 
 Requires:         R-CRAN-units >= 0.6.0
 Requires:         R-CRAN-PreciseSums >= 0.3
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-dparser >= 0.1.8
+Requires:         R-CRAN-knitr 
 Requires:         R-Matrix 
 Requires:         R-CRAN-brew 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-inline 
 Requires:         R-CRAN-magrittr 
@@ -60,7 +55,6 @@ Requires:         R-CRAN-sys
 Requires:         R-utils 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-lotri 
-Requires:         R-CRAN-remotes 
 
 %description
 Facilities for running simulations from ordinary differential equation
@@ -73,7 +67,10 @@ this package requires both C and Fortran compilers, for details on their
 use with R please see Section 6.3, Appendix A, and Appendix D in the "R
 Administration and Installation" manual. Also the code is mostly released
 under GPL.  The VODE and LSODA are in the public domain.  The information
-is available in the inst/COPYRIGHTS.
+is available in the inst/COPYRIGHTS. You can also obtain the archived
+SnakeCharmR for python integration from CRAN archives
+<https://cran.r-project.org/src/contrib/Archive/SnakeCharmR/> or
+<https://github.com/nlmixrdevelopment/SnakeCharmR>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -107,6 +104,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/THANKS
 %doc %{rlibdir}/%{packname}/tools
 %doc %{rlibdir}/%{packname}/tran.g
+%doc %{rlibdir}/%{packname}/tutorials
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

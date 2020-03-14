@@ -1,9 +1,9 @@
 %global packname  crminer
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Fetch 'Scholary' Full Text from 'Crossref'
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.4
-BuildRequires:    R-CRAN-pdftools >= 1.2
-BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-CRAN-hoardr >= 0.5.0
-BuildRequires:    R-CRAN-crul >= 0.3.4
-Requires:         R-CRAN-jsonlite >= 1.4
-Requires:         R-CRAN-pdftools >= 1.2
-Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-CRAN-hoardr >= 0.5.0
-Requires:         R-CRAN-crul >= 0.3.4
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-hoardr 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-hoardr 
 
 %description
 Text mining client for 'Crossref' (<https://crossref.org>). Includes
@@ -35,6 +35,7 @@ full text articles from those links or Digital Object Identifiers
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,6 +43,7 @@ full text articles from those links or Digital Object Identifiers
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

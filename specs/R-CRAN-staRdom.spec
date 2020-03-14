@@ -1,9 +1,9 @@
 %global packname  staRdom
-%global packver   1.1.3
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.7
 Release:          1%{?dist}
 Summary:          PARAFAC Analysis of EEMs from DOM
 
@@ -71,6 +71,7 @@ absorbance slope parameters and create beautiful plots.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

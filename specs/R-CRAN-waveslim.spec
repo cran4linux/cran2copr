@@ -1,11 +1,11 @@
 %global packname  waveslim
-%global packver   1.7.5.2
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.5.2
+Version:          1.8.2
 Release:          1%{?dist}
-Summary:          Basic Wavelet Routines for One-, Two- And Three-DimensionalSignal Processing
+Summary:          Basic Wavelet Routines for One-, Two-, and Three-DimensionalSignal Processing
 
 License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

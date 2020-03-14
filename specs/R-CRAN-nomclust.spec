@@ -1,9 +1,9 @@
 %global packname  nomclust
-%global packver   2.1.3
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.1.4
 Release:          1%{?dist}
 Summary:          Hierarchical Cluster Analysis of Nominal Data
 
