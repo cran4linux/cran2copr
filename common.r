@@ -362,7 +362,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
     npsp=,robeth=,robustbase=,rootSolve=,sequoia=,subplex=,VGAM=paste(
       "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
       "echo \"FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch\" > ~/.R/Makevars"),
-    vctrs=paste(
+    vctrs=, RcppCWB=paste(
       "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
       "echo \"CFLAGS=$(R CMD config CFLAGS) -fcommon\" > ~/.R/Makevars"),
     rPython = "export RPYTHON_PYTHON_VERSION=3",
