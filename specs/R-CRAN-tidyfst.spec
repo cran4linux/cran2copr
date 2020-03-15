@@ -1,9 +1,9 @@
 %global packname  tidyfst
-%global packver   0.7.7
+%global packver   0.8.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.8.8
 Release:          1%{?dist}
 Summary:          Tidy Verbs for Fast Data Manipulation
 
@@ -15,23 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.6
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-fst >= 0.9.0
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-data.table >= 1.12.6
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-fst >= 0.9.0
-Requires:         R-CRAN-stringr 
 
 %description
 A toolkit of tidy data manipulation verbs with 'data.table' as the
 backend. Combining the merits of syntax elegance from 'dplyr' and
 computing performance from 'data.table', 'tidyfst' intends to provide
 users with state-of-the-art data manipulation tools with least pain. This
-package is inspired by 'maditr', but follows a different philosophy of
-design, such as prohibiting in place replacement and used a "_dt" suffix
-API. Also, 'tidyfst' would introduce more tidy data verbs from (and for)
-other packages, including but not limited to 'fst','tidyverse' and
-'data.table'.
+package is an extension of 'data.table'. While enjoying a tidy syntax, it
+also wraps combinations of efficient functions to facilitate
+frequently-used data operations.
 
 %prep
 %setup -q -c -n %{packname}

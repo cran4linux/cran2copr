@@ -1,9 +1,9 @@
 %global packname  utile.tools
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          Summarize Data for Publication
 
@@ -31,12 +31,13 @@ Requires:         R-CRAN-stringr
 %description
 A set of tools for preparing and summarizing data for publication
 purposes. Includes functions for tabulating models, means to produce
-human-readable summary statistics from raw data, tools for calculating
-durations, and simplistic hypothesis testing tools.
+human-readable summary statistics from raw data, macros for calculating
+duration of time, and simplistic hypothesis testing tools.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

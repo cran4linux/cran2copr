@@ -1,9 +1,9 @@
 %global packname  SQRL
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}
 Summary:          Enhanced Database Interactivity
 
@@ -21,12 +21,14 @@ Requires:         R-base
 Requires:         R-CRAN-RODBC 
 
 %description
-Facilitates interaction with ODBC data sources, by hiding communications,
-and supporting parameterised multi-statement SQL with embedded R.
+Facilitates interaction with ODBC data sources, by remembering and hiding
+communication settings and supporting parameterised multi-statement SQL
+with embedded R.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

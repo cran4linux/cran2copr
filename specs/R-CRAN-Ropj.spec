@@ -1,9 +1,9 @@
 %global packname  Ropj
-%global packver   0.2-2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3
 Release:          1%{?dist}
 Summary:          Import Origin(R) Project Files
 
@@ -20,12 +20,12 @@ Requires:         R-CRAN-Rcpp >= 0.12.9
 %description
 Read the data from Origin(R) project files ('*.opj')
 <https://www.originlab.com/doc/User-Guide/Origin-File-Types>. No write
-support is planned. More object types may be available to be imported
-later.
+support is planned.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -47,5 +47,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/test.opj
+%doc %{rlibdir}/%{packname}/tree.opj
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

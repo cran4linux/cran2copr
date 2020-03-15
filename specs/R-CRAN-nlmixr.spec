@@ -1,9 +1,9 @@
 %global packname  nlmixr
-%global packver   1.1.1-5
+%global packver   1.1.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1.5
+Version:          1.1.1.6
 Release:          1%{?dist}
 Summary:          Nonlinear Mixed Effects Models in Population Pharmacokineticsand Pharmacodynamics
 
@@ -22,26 +22,19 @@ BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-dparser >= 0.1.8
 BuildRequires:    R-CRAN-brew 
-BuildRequires:    R-lattice 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-lbfgs 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-rex 
-BuildRequires:    R-CRAN-minqa 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-n1qn1 
 BuildRequires:    R-CRAN-fastGHQuad 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-nlme 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-sys 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-huxtable 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-yaml 
@@ -52,27 +45,19 @@ Requires:         R-CRAN-RxODE >= 0.9.1.9
 Requires:         R-CRAN-RcppArmadillo >= 0.5.600.2.0
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-brew 
-Requires:         R-lattice 
 Requires:         R-parallel 
-Requires:         R-CRAN-lbfgs 
-Requires:         R-CRAN-dparser >= 0.1.8
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-rex 
-Requires:         R-CRAN-minqa 
 Requires:         R-Matrix 
 Requires:         R-CRAN-n1qn1 
 Requires:         R-CRAN-fastGHQuad 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
 Requires:         R-nlme 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-sys 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-huxtable 
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-yaml 
@@ -88,6 +73,7 @@ compiled C code provided in the 'RxODE' package (Wang, Hallow, and James
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  jsonify
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Convert Between 'R' Objects and Javascript Object Notation(JSON)
 
@@ -12,11 +12,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-rapidjsonr >= 1.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-rapidjsonr 
 Requires:         R-CRAN-Rcpp >= 0.12.18
 
 %description
@@ -27,6 +26,7 @@ using the 'rapidjsonr' library
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

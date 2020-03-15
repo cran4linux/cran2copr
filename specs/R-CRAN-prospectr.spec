@@ -1,35 +1,30 @@
-%global packname  IOHexperimenter
-%global packver   0.1.0
+%global packname  prospectr
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Benchmarking Part of the 'IOHprofiler'
+Summary:          Miscellaneous Functions for Processing and Sample Selection ofSpectroscopic Data
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-iterators 
 
 %description
-The benchmarking module for the Iterative Optimization Heuristics Profiler
-('IOHprofiler'). This module provides benchmarking in the 'IOHprofiler'
-format. It enables performance tracking and analysis for any iterative
-optimization heuristic, which can be visualized and analyzed using the
-'IOHanalyzer' package. It also provides access to predefined benchmarking
-functions, both for pseudo-boolean and continuous domains, as well as some
-sample algorithms.
+Functions to preprocess spectroscopic data and conduct (representative)
+sample selection/calibration sampling.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,9 +46,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

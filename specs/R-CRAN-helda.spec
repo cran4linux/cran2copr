@@ -1,9 +1,9 @@
 %global packname  helda
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Preprocess Data and Get Better Insights from Machine LearningModels
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.8
 BuildRequires:    R-CRAN-rlang >= 0.4.2
 BuildRequires:    R-CRAN-sqldf >= 0.4.11
 Requires:         R-stats >= 3.5.0
-Requires:         R-CRAN-ggplot2 >= 3.1.0
+Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-dplyr >= 0.7.8
 Requires:         R-CRAN-rlang >= 0.4.2

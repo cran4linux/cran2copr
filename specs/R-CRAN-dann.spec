@@ -1,9 +1,9 @@
 %global packname  dann
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Discriminant Adaptive Nearest Neighbor Classification
 
@@ -14,27 +14,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-MASS >= 7.3
 BuildRequires:    R-stats >= 3.5.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
 BuildRequires:    R-CRAN-fpc >= 2.1.11.1
 BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-mlbench >= 2.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-rlang >= 0.3.4
 BuildRequires:    R-CRAN-purrr >= 0.3.2
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-MASS >= 7.3
 Requires:         R-stats >= 3.5.3
 Requires:         R-CRAN-ggplot2 >= 3.1.1
 Requires:         R-CRAN-fpc >= 2.1.11.1
 Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-mlbench >= 2.1
-Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-dplyr >= 0.8.0.1
+Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-rlang >= 0.3.4
 Requires:         R-CRAN-purrr >= 0.3.2
 
@@ -70,3 +66,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

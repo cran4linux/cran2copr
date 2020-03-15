@@ -1,28 +1,31 @@
-%global packname  RcppAPT
-%global packver   0.0.6
+%global packname  HighestMedianRules
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0
 Release:          1%{?dist}
-Summary:          'Rcpp' Interface to the APT Package Manager
+Summary:          Implementation of Voting Rules Electing the Candidate withHighest Median Grade
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RMallow 
+Requires:         R-CRAN-RMallow 
 
 %description
-The 'APT Package Management System' provides Debian and Debian-derived
-Linux systems with a powerful system to resolve package dependencies. This
-package offers access directly from R.  This can only work on a system
-with a suitable 'libapt-pkg-dev' installation so functionality is
-curtailed if such a library is not found.
+Computes the scores and ranks candidates according to voting rules
+electing the highest median grade. Based on "Tie-breaking the highest
+median: alternatives to the majority judgment", A. Fabre, Social Choice &
+Welfare (forthcoming as of 2020). The paper is available here:
+<https://github.com/bixiou/highest_median/raw/master/Tie-breaking%20Highest%20Median%20-%20Fabre%202019.pdf>.
+Functions to plot the voting profiles can be found on github:
+<https://github.com/bixiou/highest_median/blob/master/packages_functions_data.R>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,9 +50,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/scripts
-%doc %{rlibdir}/%{packname}/TODO.md
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

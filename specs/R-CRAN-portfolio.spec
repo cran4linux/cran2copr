@@ -1,30 +1,36 @@
 %global packname  portfolio
-%global packver   0.4-7
+%global packver   0.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.5.0
 Release:          1%{?dist}
-Summary:          Analysing equity portfolios
+Summary:          Analysing Equity Portfolios
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
 BuildRequires:    R-lattice 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-nlme 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-grid 
 Requires:         R-lattice 
+Requires:         R-grDevices 
 Requires:         R-nlme 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Classes for analysing and implementing equity portfolios.
@@ -32,6 +38,7 @@ Classes for analysing and implementing equity portfolios.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

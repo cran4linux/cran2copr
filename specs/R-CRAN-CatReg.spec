@@ -1,11 +1,11 @@
-%global packname  RcppAPT
-%global packver   0.0.6
+%global packname  CatReg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          'Rcpp' Interface to the APT Package Manager
+Summary:          Solution Paths for Linear and Logistic Regression Models withSCOPE Penalty
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,15 +14,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-Rdpack 
 
 %description
-The 'APT Package Management System' provides Debian and Debian-derived
-Linux systems with a powerful system to resolve package dependencies. This
-package offers access directly from R.  This can only work on a system
-with a suitable 'libapt-pkg-dev' installation so functionality is
-curtailed if such a library is not found.
+Computes solutions for linear and logistic regression models with a
+nonconvex penalty (SCOPE) in an efficient path-wise fashion (Stokell, Shah
+and Tibshirani 2020, <arXiv:2002.12606>). The scaling of the solution
+paths is selected automatically. Includes functionality for selecting
+tuning parameter lambda by k-fold cross-validation and early termination
+based on information criteria. Solutions are computed by cyclical
+block-coordinate descent, iterating an innovative dynamic programming
+algorithm to compute exact solutions for each block.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,9 +52,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/scripts
-%doc %{rlibdir}/%{packname}/TODO.md
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

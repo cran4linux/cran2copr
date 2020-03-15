@@ -1,9 +1,9 @@
 %global packname  lmomco
-%global packver   2.3.2
+%global packver   2.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          2.3.6
 Release:          1%{?dist}
 Summary:          L-Moments, Censored L-Moments, Trimmed L-Moments, L-Comoments,and Many Distributions
 
@@ -51,6 +51,7 @@ measure asymmetric associations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -58,6 +59,7 @@ measure asymmetric associations.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

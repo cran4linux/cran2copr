@@ -1,29 +1,28 @@
-%global packname  RMySQL
-%global packver   0.10.20
+%global packname  msd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.20
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Database Interface and 'MySQL' Driver for R
+Summary:          Method of Successive Dichotomizations
 
-License:          GPL-2
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    mariadb-devel
-BuildRequires:    R-devel >= 2.8.0
-Requires:         R-core >= 2.8.0
-BuildRequires:    R-CRAN-DBI >= 0.4
-BuildRequires:    R-methods 
-Requires:         R-CRAN-DBI >= 0.4
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Legacy 'DBI' interface to 'MySQL' / 'MariaDB' based on old code ported
-from S-PLUS. A modern 'MySQL' client based on 'Rcpp' is available from the
-'RMariaDB' package.
+Implements the method of successive dichotomizations by Bradley and Massof
+(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
+person measures and ordered rating category thresholds given ordinal
+rating scale data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,4 +49,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
