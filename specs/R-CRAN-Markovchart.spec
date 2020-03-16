@@ -1,13 +1,13 @@
-%global packname  packMBPLSDA
-%global packver   0.8.0
+%global packname  Markovchart
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.6
 Release:          1%{?dist}
-Summary:          Multi-Block Partial Least Squares Discriminant Analysis
+Summary:          Markov Chain-Based Cost-Optimal Control Charts
 
-License:          GPL (>= 2.0)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,32 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-DiscriMiner 
-BuildRequires:    R-MASS 
+BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-optimParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-FactoMineR 
-Requires:         R-CRAN-ade4 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-DiscriMiner 
-Requires:         R-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-metR 
+Requires:         R-stats 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-optimParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-metR 
 
 %description
-Several functions are provided to implement a MBPLSDA : components search,
-optimal model components number search, optimal model validity test by
-permutation tests, observed values evaluation of optimal model parameters
-and predicted categories, bootstrap values evaluation of optimal model
-parameters and predicted cross-validated categories. The use of this
-package is described in Brandolini-Bunlon et al (2019, Multi-block PLS
-discriminant analysis for the joint analysis of metabolomic and
-epidemiological data (submitted in Metabolomics)).
+Functions for cost-optimal control charts with a focus on health care
+applications. Compared to assumptions in traditional control chart theory,
+here, we allow random shift sizes, random repair and random sampling
+times. The package focuses on X-bar charts with a sample size of 1
+(representing the monitoring of a single patient at a time). The methods
+are described in Zempleni et al. (2004) <doi:10.1002/asmb.521>, Dobi and
+Zempleni (2019) <doi:10.1002/qre.2518> and Dobi and Zempleni (2019)
+<http://ac.inf.elte.hu/Vol_049_2019/129_49.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,7 +60,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

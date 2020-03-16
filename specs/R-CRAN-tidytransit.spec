@@ -1,9 +1,9 @@
 %global packname  tidytransit
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}
 Summary:          Read, Validate, Analyze, and Map Files in the General TransitFeed Specification
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.5
 Requires:         R-core >= 3.2.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-zip >= 2.0.1
+BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-assertthat 
@@ -30,11 +30,11 @@ BuildRequires:    R-CRAN-hms
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-zip >= 2.0.1
+Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-zip 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-assertthat 
@@ -56,6 +56,7 @@ see the GTFS documentation here for more detail: <http://gtfs.org/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

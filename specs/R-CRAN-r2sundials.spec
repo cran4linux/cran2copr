@@ -1,9 +1,9 @@
 %global packname  r2sundials
-%global packver   5.0.0-4
+%global packver   5.0.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0.4
+Version:          5.0.0.7
 Release:          1%{?dist}
 Summary:          Wrapper for 'SUNDIALS' Solving ODE and Sensitivity Problem
 

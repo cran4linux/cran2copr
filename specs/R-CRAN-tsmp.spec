@@ -1,19 +1,19 @@
 %global packname  tsmp
-%global packver   0.4.8
+%global packver   0.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.8
+Version:          0.4.11
 Release:          1%{?dist}
 Summary:          Time Series with Matrix Profile
 
-License:          GPL-3
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-RcppParallel >= 4.4.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-audio 
@@ -64,6 +64,15 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/API-v0.3.1
+%doc %{rlibdir}/%{packname}/API-v0.3.2
+%doc %{rlibdir}/%{packname}/API-v0.3.4
+%doc %{rlibdir}/%{packname}/API-v0.3.5
+%doc %{rlibdir}/%{packname}/API-v0.4.0
+%doc %{rlibdir}/%{packname}/API-v0.4.10
+%doc %{rlibdir}/%{packname}/API-v0.4.11
+%doc %{rlibdir}/%{packname}/API-v0.4.8
+%doc %{rlibdir}/%{packname}/API-v0.4.9
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

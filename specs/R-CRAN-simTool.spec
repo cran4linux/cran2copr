@@ -1,9 +1,9 @@
 %global packname  simTool
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}
 Summary:          Conduct Simulation Studies with a Minimal Amount of Source Code
 
@@ -12,21 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.0.0
-BuildRequires:    R-CRAN-plyr >= 1.8.1
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-reshape >= 0.8.5
 BuildRequires:    R-CRAN-dplyr >= 0.7.2
 BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-tibble >= 2.0.0
-Requires:         R-CRAN-plyr >= 1.8.1
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-reshape >= 0.8.5
 Requires:         R-CRAN-dplyr >= 0.7.2
 Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-parallel 
@@ -44,6 +40,7 @@ provided to summarize the simulation results.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -51,6 +48,7 @@ provided to summarize the simulation results.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -61,7 +59,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

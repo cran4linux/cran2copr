@@ -1,9 +1,9 @@
 %global packname  fgeo.analyze
-%global packver   1.1.11
+%global packver   1.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.11
+Version:          1.1.12
 Release:          1%{?dist}
 Summary:          Analyze ForestGEO Data
 
@@ -55,6 +55,7 @@ visit <http://www.forestgeo.si.edu/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

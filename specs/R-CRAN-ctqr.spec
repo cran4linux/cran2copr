@@ -1,32 +1,31 @@
-%global packname  pollen
-%global packver   0.72.0
+%global packname  ctqr
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.72.0
+Version:          1.1
 Release:          1%{?dist}
-Summary:          Analysis of Aerobiological Data
+Summary:          Censored and Truncated Quantile Regression
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-pch >= 1.4
+BuildRequires:    R-survival 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-pch >= 1.4
+Requires:         R-survival 
+Requires:         R-stats 
 
 %description
-Supports analysis of aerobiological data. Available features include
-determination of pollen season limits, replacement of outliers (Kasprzyk
-and Walanus (2014) <doi:10.1007/s10453-014-9332-8>), and calculation of
-growing degree days (Baskerville and Emin (1969) <doi:10.2307/1933912>).
+Estimation of quantile regression models for survival data. The package
+implements the two-step estimator described in Frumento and Bottai (2017),
+<doi: 10.1016/j.csda.2016.08.015>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,11 +47,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

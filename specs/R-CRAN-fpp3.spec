@@ -1,9 +1,9 @@
 %global packname  fpp3
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}
 Summary:          Data for "Forecasting: Principles and Practice" (3rd Edition)
 
@@ -55,6 +55,7 @@ the examples are also loaded.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  canvasXpress
-%global packver   1.26.5
+%global packver   1.27.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.26.5
+Version:          1.27.6
 Release:          1%{?dist}
 Summary:          Visualization Package for CanvasXpress in R
 
@@ -12,13 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets >= 0.8
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-htmlwidgets >= 0.8
 Requires:         R-CRAN-httr 
+Requires:         R-stats 
 
 %description
 Enables creation of visualizations using the CanvasXpress framework in R.
@@ -30,6 +32,7 @@ for more information.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -52,6 +55,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/shiny-examples
 %{rlibdir}/%{packname}/INDEX

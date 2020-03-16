@@ -1,37 +1,38 @@
-%global packname  rbacon
-%global packver   2.4.1
+%global packname  RiemStiefel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Age-Depth Modelling using Bayesian Statistics
+Summary:          Tools for Inference, Learning, and Optimization on StiefelManifold
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-coda >= 0.19.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RiemBase 
+BuildRequires:    R-CRAN-RiemBaseExt 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-coda >= 0.19.1
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-RiemBase 
+Requires:         R-CRAN-RiemBaseExt 
 Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-An approach to age-depth modelling that uses Bayesian statistics to
-reconstruct accumulation histories for deposits, through combining
-radiocarbon and other dates with prior information. See Blaauw & Christen
-(2011) <doi:10.1214/11-BA618>.
+Stiefel manifold is a set of orthonormal frames in Euclidean space. We
+provide algorithms for statistical inference, optimization, and learning
+over the Stiefel manifold. For general exposition to the statistics on the
+manifold, see the book by Chikuse (2003) <doi:10.1007/978-0-387-21540-2>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,6 +58,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  attachment
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Deal with Dependencies
 
@@ -20,8 +20,8 @@ BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-knitr >= 1.20
 BuildRequires:    R-CRAN-desc >= 1.2.0
-BuildRequires:    R-CRAN-devtools >= 1.13.6
 BuildRequires:    R-CRAN-rmarkdown >= 1.10
+BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-magrittr >= 1.5
@@ -29,8 +29,8 @@ Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-desc >= 1.2.0
-Requires:         R-CRAN-devtools >= 1.13.6
 Requires:         R-CRAN-rmarkdown >= 1.10
+Requires:         R-CRAN-roxygen2 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -46,6 +46,7 @@ scripts and Rmd files can be used independently of a package development.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -53,6 +54,7 @@ scripts and Rmd files can be used independently of a package development.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

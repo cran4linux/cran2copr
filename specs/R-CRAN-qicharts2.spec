@@ -1,9 +1,9 @@
 %global packname  qicharts2
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Quality Improvement Charts
 
@@ -16,11 +16,9 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 
@@ -38,6 +36,7 @@ identified by Shewhart's 3-sigma rule [Mohammed, Worthington, Woodall
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -45,6 +44,7 @@ identified by Shewhart's 3-sigma rule [Mohammed, Worthington, Woodall
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
