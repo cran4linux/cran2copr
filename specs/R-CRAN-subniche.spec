@@ -1,9 +1,9 @@
 %global packname  subniche
-%global packver   0.9.7
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          1.0
 Release:          1%{?dist}
 Summary:          Within Outlying Mean Indexes: Refining the OMI Analysis
 
@@ -16,7 +16,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ade4 
+BuildRequires:    R-CRAN-siar 
+BuildRequires:    R-CRAN-polyclip 
+BuildRequires:    R-CRAN-wordcloud 
 Requires:         R-CRAN-ade4 
+Requires:         R-CRAN-siar 
+Requires:         R-CRAN-polyclip 
+Requires:         R-CRAN-wordcloud 
 
 %description
 Complementary indexes calculation to the Outlying Mean Index analysis to
@@ -26,6 +32,7 @@ Euclidean space, with graphical displays.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  uwot
-%global packver   0.1.5
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.8
 Release:          1%{?dist}
 Summary:          The Uniform Manifold Approximation and Projection (UMAP) Methodfor Dimensionality Reduction
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-dqrng 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-methods 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-irlba 
 
 %description
@@ -48,6 +46,7 @@ examples.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -68,5 +67,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

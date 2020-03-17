@@ -1,9 +1,9 @@
 %global packname  packagefinder
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Comfortable Search for R Packages on CRAN Directly from the RConsole
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-textutils 
+BuildRequires:    R-CRAN-htmlTable 
 Requires:         R-tools >= 3.4.0
 Requires:         R-CRAN-httr 
 Requires:         R-utils 
@@ -35,6 +37,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-textutils 
+Requires:         R-CRAN-htmlTable 
 
 %description
 Search for R packages on CRAN directly from the R console, based on the
@@ -46,6 +50,7 @@ contributions to CRAN.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

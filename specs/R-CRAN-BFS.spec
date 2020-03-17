@@ -1,13 +1,13 @@
 %global packname  BFS
-%global packver   0.2.2
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          Search and Download Data from the Swiss Federal StatisticalOffice (BFS)
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-pxR 
+BuildRequires:    R-CRAN-pins 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tibble 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-pxR 
+Requires:         R-CRAN-pins 
 
 %description
 Search and download data from the Swiss Federal Statistical Office
@@ -39,6 +41,7 @@ Search and download data from the Swiss Federal Statistical Office
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -56,7 +59,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

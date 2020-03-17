@@ -1,9 +1,9 @@
 %global packname  apollo
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Tools for Choice Model Estimation and Application
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-randtoolbox
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-RSGHB 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.0
@@ -42,6 +43,7 @@ Requires:         R-CRAN-randtoolbox
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-RSGHB 
 Requires:         R-parallel 
+Requires:         R-CRAN-Deriv 
 
 %description
 The Choice Modelling Centre (CMC) at the University of Leeds has developed
@@ -63,6 +65,7 @@ of the field.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

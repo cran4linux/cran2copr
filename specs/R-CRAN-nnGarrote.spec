@@ -1,9 +1,9 @@
 %global packname  nnGarrote
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Non-Negative Garrote Estimation with Penalized InitialEstimators
 
@@ -18,11 +18,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-multicool 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-mvnfast 
 Requires:         R-CRAN-multicool 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-caret 
-Requires:         R-CRAN-mvnfast 
 
 %description
 Functions to compute the non-negative garrote estimator as proposed by

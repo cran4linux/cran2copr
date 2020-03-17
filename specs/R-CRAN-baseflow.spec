@@ -1,31 +1,31 @@
-%global packname  easyNCDF
-%global packver   0.1.0
+%global packname  baseflow
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.12.0
 Release:          1%{?dist}
-Summary:          Tools to Easily Read/Write NetCDF Files into/fromMultidimensional R Arrays
+Summary:          Computes Hydrograph Separation
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    netcdf-devel
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-ClimProjDiags 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-ClimProjDiags 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-devel >= 3.0.3
+Requires:         R-core >= 3.0.3
+BuildRequires:    R-CRAN-airGR >= 1.2.13.16
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-airGR >= 1.2.13.16
+Requires:         R-methods 
+Requires:         R-graphics 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+Computes hydrograph separation using the conceptual automated process from
+Pelletier and Andreassian (2019) <doi:10.5194/hess-2019-503>. Contains
+scalar and vectorized functions to compute correlation criterion to
+calibrate the baseflow separation model.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,4 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

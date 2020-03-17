@@ -1,9 +1,9 @@
 %global packname  Renvlp
-%global packver   2.7
+%global packver   2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          2.8
 Release:          1%{?dist}
 Summary:          Computing Envelope Estimators
 
@@ -39,6 +39,7 @@ Optimization is based on a clockwise coordinate descent algorithm.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

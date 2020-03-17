@@ -1,13 +1,13 @@
-%global packname  RPESE
-%global packver   1.0.3
+%global packname  fplyr
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}
-Summary:          Estimates of Standard Errors for Risk and Performance Measures
+Summary:          Apply Functions to Blocks of Files
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RPEIF 
-BuildRequires:    R-CRAN-RPEGLMEN 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-RPEIF 
-Requires:         R-CRAN-RPEGLMEN 
-Requires:         R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-boot 
-Requires:         R-CRAN-sandwich 
+BuildRequires:    R-parallel >= 3.5.1
+BuildRequires:    R-CRAN-data.table >= 1.1.4
+BuildRequires:    R-CRAN-iotools >= 0.2.5
+Requires:         R-parallel >= 3.5.1
+Requires:         R-CRAN-data.table >= 1.1.4
+Requires:         R-CRAN-iotools >= 0.2.5
 
 %description
-Estimates of standard errors of popular risk and performance measures for
-asset or portfolio returns using methods as described in Chen and Martin
-(2019) <https://ssrn.com/abstract=3085672>.
+Read and process a large delimited file block by block. A block consists
+of all the contiguous rows that have the same value in the first field.
+The result can be saved as a list or printed to an output file.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,8 +48,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

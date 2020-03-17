@@ -1,31 +1,25 @@
-%global packname  easyNCDF
+%global packname  zalpha
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Tools to Easily Read/Write NetCDF Files into/fromMultidimensional R Arrays
+Summary:          Run a Suite of Selection Statistics
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    netcdf-devel
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-ClimProjDiags 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-ClimProjDiags 
-Requires:         R-CRAN-abind 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+A suite of statistics for identifying areas of the genome under selective
+pressure. See Jacobs, Sluckin and Kivisild (2016)
+<doi:10.1534/genetics.115.185900>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,7 +41,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

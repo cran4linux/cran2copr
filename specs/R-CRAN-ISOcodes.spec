@@ -1,9 +1,9 @@
 %global packname  ISOcodes
-%global packver   2019.12.22
+%global packver   2020.03.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2019.12.22
+Version:          2020.03.16
 Release:          1%{?dist}
 Summary:          Selected ISO Codes
 
@@ -25,6 +25,7 @@ M.49 area codes.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

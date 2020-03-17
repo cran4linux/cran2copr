@@ -1,11 +1,11 @@
-%global packname  RPESE
-%global packver   1.0.3
+%global packname  snem
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Estimates of Standard Errors for Risk and Performance Measures
+Summary:          EM Algorithm for Multivariate Skew-Normal Distribution withOverparametrization
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RPEIF 
-BuildRequires:    R-CRAN-RPEGLMEN 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-RPEIF 
-Requires:         R-CRAN-RPEGLMEN 
-Requires:         R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-boot 
-Requires:         R-CRAN-sandwich 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Estimates of standard errors of popular risk and performance measures for
-asset or portfolio returns using methods as described in Chen and Martin
-(2019) <https://ssrn.com/abstract=3085672>.
+Efficient estimation of multivariate skew-normal distribution in closed
+form.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,7 +44,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

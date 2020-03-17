@@ -1,9 +1,9 @@
 %global packname  gluvarpro
-%global packver   2.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.0
 Release:          1%{?dist}
 Summary:          Glucose Variability Measures from Continuous Glucose MonitoringData
 
@@ -55,11 +55,21 @@ Frits Holleman, Joost B. L. Hoekstra, and J. Hans DeVries (2010)
 <doi:10.1210/er.2009-0021>. Gabor Marics, Zsofia Lendvai, Csaba Lodi,
 Levente Koncz, David Zakarias, Gyorgy Schuster, Borbala Mikos, Csaba
 Hermann, Attila J. Szabo, and Peter Toth-Heyn (2015)
-<doi:10.1186/s12938-015-0035-3>.
+<doi:10.1186/s12938-015-0035-3>. Thomas Danne, Revital Nimri, Tadej
+Battelino, Richard M. Bergenstal, Kelly L. Close, J. Hans DeVries,
+SatishGarg, Lutz Heinemann, Irl Hirsch, Stephanie A. Amiel, Roy Beck,
+Emanuele Bosi, Bruce Buckingham, ClaudioCobelli, Eyal Dassau, Francis J.
+Doyle, Simon Heller, Roman Hovorka, Weiping Jia, Tim Jones, Olga
+Kordonouri,Boris Kovatchev, Aaron Kowalski, Lori Laffel, David Maahs,
+Helen R. Murphy, Kirsten Nørgaard, Christopher G.Parkin, Eric Renard,
+Banshi Saboo, Mauro Scharf, William V. Tamborlane, Stuart A. Weinzimer,
+and Moshe Phillip.International consensus on use of continuous glucose
+monitoring.Diabetes Care, 2017 <doi:10.2337/dc17-1600>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

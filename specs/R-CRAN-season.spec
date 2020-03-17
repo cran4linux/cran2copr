@@ -1,9 +1,9 @@
 %global packname  season
-%global packver   0.3.9
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.10
 Release:          1%{?dist}
 Summary:          Seasonal Analysis of Health Data
 
@@ -31,6 +31,7 @@ Yuming Guo for checking the case-crossover code.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

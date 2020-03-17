@@ -1,34 +1,37 @@
 %global packname  TMDb
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
-Summary:          Access to TMDb API - Apiary
+Summary:          Access to TMDb API
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 0.9
-BuildRequires:    R-CRAN-httr >= 0.4
-Requires:         R-CRAN-jsonlite >= 0.9
-Requires:         R-CRAN-httr >= 0.4
+BuildRequires:    R-CRAN-jsonlite >= 1.6.1
+BuildRequires:    R-CRAN-stringi >= 1.4.6
+BuildRequires:    R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-jsonlite >= 1.6.1
+Requires:         R-CRAN-stringi >= 1.4.6
+Requires:         R-CRAN-httr >= 1.4.1
 
 %description
 Provides an R-interface to the TMDb API (see TMDb API on
-<http://docs.themoviedb.apiary.io/#>). The Movie Database (TMDb) is a
-popular user editable database for movies and TV shows (see
-<https://www.themoviedb.org>).
+<https://developers.themoviedb.org/3/getting-started/introduction>). The
+Movie Database (TMDb) is a popular user editable database for movies and
+TV shows (see <https://www.themoviedb.org>).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  MortalityLaws
-%global packver   1.8.3
+%global packver   1.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.3
+Version:          1.8.4
 Release:          1%{?dist}
 Summary:          Parametric Mortality Models, Life Tables and HMD
 
@@ -36,6 +36,7 @@ data from various human mortality databases are provided as well.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

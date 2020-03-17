@@ -1,9 +1,9 @@
 %global packname  detrendr
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}
 Summary:          Detrend Images
 
@@ -15,52 +15,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    make
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-RcppParallel >= 4.4.3
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.0
 BuildRequires:    R-CRAN-filesstrings >= 3.1.5
 BuildRequires:    R-CRAN-withr >= 2.1.0
 BuildRequires:    R-CRAN-ijtiff >= 2.0.2
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-autothresholdr >= 1.3.3
-BuildRequires:    R-CRAN-stringi >= 1.3.1
-BuildRequires:    R-CRAN-fs >= 1.3.1
-BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-stringr >= 1.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-rlang >= 0.3.3
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-sigmoid 
 BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-RcppParallel >= 4.4.3
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-RcppParallel >= 5.0.0
 Requires:         R-CRAN-filesstrings >= 3.1.5
 Requires:         R-CRAN-withr >= 2.1.0
 Requires:         R-CRAN-ijtiff >= 2.0.2
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-autothresholdr >= 1.3.3
-Requires:         R-CRAN-stringi >= 1.3.1
-Requires:         R-CRAN-fs >= 1.3.1
-Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-stringr >= 1.2.0
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-rlang >= 0.3.3
-Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-sigmoid 
 Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-assertthat 
+Requires:         R-parallel 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-tools 
 
 %description
 Detrend fluorescence microscopy image series for fluorescence fluctuation
@@ -72,6 +64,7 @@ with the Robin Hood algorithm and thus contains unpublished work.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -79,6 +72,7 @@ with the Robin Hood algorithm and thus contains unpublished work.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

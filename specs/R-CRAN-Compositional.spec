@@ -1,9 +1,9 @@
 %global packname  Compositional
-%global packver   3.7
+%global packver   3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          3.8
 Release:          1%{?dist}
 Summary:          Compositional Data Analysis
 
@@ -22,6 +22,7 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-mda 
 BuildRequires:    R-CRAN-mixture 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-sn 
@@ -33,6 +34,7 @@ Requires:         R-MASS
 Requires:         R-CRAN-mda 
 Requires:         R-CRAN-mixture 
 Requires:         R-parallel 
+Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
 Requires:         R-CRAN-sn 

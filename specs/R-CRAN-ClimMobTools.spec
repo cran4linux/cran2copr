@@ -1,46 +1,40 @@
 %global packname  ClimMobTools
-%global packver   0.2-7
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.2
 Release:          1%{?dist}
-Summary:          Tools for Crowdsourcing Citizen Science in Agriculture
+Summary:          API Client for the 'ClimMob' Platform
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PlackettLuce >= 0.2.8
+BuildRequires:    R-CRAN-climatrends 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nasapower 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-PlackettLuce >= 0.2.8
+Requires:         R-CRAN-climatrends 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-nasapower 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
-Toolkit for the 'ClimMob' platform in R. 'ClimMob' is an open source
-software for crowdsourcing citizen science in agriculture
+API client for 'ClimMob', an open source software for crowdsourcing
+citizen science in agriculture under the 'tricot' method
 <https://climmob.net/climmob3/>. Developed by van Etten et al. (2019)
 <doi:10.1017/S0014479716000739>, it turns the research paradigm on its
 head; instead of a few researchers designing complicated trials to compare
@@ -52,6 +46,7 @@ deep explore and analyse their 'ClimMob' data in R.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -69,6 +64,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R

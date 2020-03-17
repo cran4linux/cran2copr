@@ -1,9 +1,9 @@
 %global packname  dae
-%global packver   3.1-21
+%global packver   3.1-23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.21
+Version:          3.1.23
 Release:          1%{?dist}
 Summary:          Functions Useful in the Design and ANOVA of Experiments
 
@@ -40,6 +40,7 @@ call to 'aov'. The package 'dae' can also be installed from
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  Unicode
-%global packver   12.0.0-1
+%global packver   13.0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          12.0.0.1
+Version:          13.0.0.1
 Release:          1%{?dist}
 Summary:          Unicode Data and Utilities
 
@@ -12,18 +12,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
 Requires:         R-utils 
 
 %description
-Data from Unicode 12.0.0 and related utilities.
+Data from Unicode 13.0.0 and related utilities.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

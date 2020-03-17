@@ -1,9 +1,9 @@
 %global packname  R3port
-%global packver   0.1.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Report Functions to Create HTML and PDF Files
 
@@ -23,6 +23,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tinytex 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-whisker 
@@ -31,6 +32,7 @@ Requires:         R-grDevices
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-tinytex 
 
 %description
 Create and combine HTML and PDF reports from within R. Possibility to

@@ -1,13 +1,13 @@
-%global packname  RPESE
-%global packver   1.0.3
+%global packname  correlation
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Estimates of Standard Errors for Risk and Performance Measures
+Summary:          Easy Peasy Correlations
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RPEIF 
-BuildRequires:    R-CRAN-RPEGLMEN 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-insight >= 0.8.0
+BuildRequires:    R-CRAN-bayestestR >= 0.5.0
+BuildRequires:    R-CRAN-parameters >= 0.5.0
+BuildRequires:    R-CRAN-effectsize >= 0.2.0
+BuildRequires:    R-stats 
 BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-RPEIF 
-Requires:         R-CRAN-RPEGLMEN 
-Requires:         R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-insight >= 0.8.0
+Requires:         R-CRAN-bayestestR >= 0.5.0
+Requires:         R-CRAN-parameters >= 0.5.0
+Requires:         R-CRAN-effectsize >= 0.2.0
+Requires:         R-stats 
 Requires:         R-boot 
-Requires:         R-CRAN-sandwich 
 
 %description
-Estimates of standard errors of popular risk and performance measures for
-asset or portfolio returns using methods as described in Chen and Martin
-(2019) <https://ssrn.com/abstract=3085672>.
+Lightweight package for computing different kinds of correlations, such as
+partial correlations, Bayesian correlations, multilevel correlations,
+polychoric correlations, biweight correlations, distance correlations and
+more. Relies on the easystats ecosystem (Lüdecke, Waggoner & Makowski
+(2019) <doi:10.21105/joss.01412>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,7 +57,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

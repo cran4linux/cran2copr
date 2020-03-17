@@ -1,39 +1,38 @@
-%global packname  RPESE
-%global packver   1.0.3
+%global packname  graphsim
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Estimates of Standard Errors for Risk and Performance Measures
+Summary:          Simulate Expression Data from 'igraph' Networks
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RPEIF 
-BuildRequires:    R-CRAN-RPEGLMEN 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-RPEIF 
-Requires:         R-CRAN-RPEGLMEN 
-Requires:         R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-boot 
-Requires:         R-CRAN-sandwich 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-graphics 
+Requires:         R-utils 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-Matrix 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-graphics 
 
 %description
-Estimates of standard errors of popular risk and performance measures for
-asset or portfolio returns using methods as described in Chen and Martin
-(2019) <https://ssrn.com/abstract=3085672>.
+Functions to develop simulated continuous data (e.g., gene expression)
+from a sigma covariance matrix derived from a graph structure in 'igraph'
+objects. Intended to extend 'mvtnorm' to take 'igraph' structures rather
+than sigma matrices as input.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,9 +54,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
