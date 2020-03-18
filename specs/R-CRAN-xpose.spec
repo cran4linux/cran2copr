@@ -1,9 +1,9 @@
 %global packname  xpose
-%global packver   0.4.7
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.4.8
 Release:          1%{?dist}
 Summary:          Diagnostics for Pharmacometric Models
 
@@ -51,6 +51,7 @@ graphics for data exploration and model diagnostics.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

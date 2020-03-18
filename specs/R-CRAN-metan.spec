@@ -1,9 +1,9 @@
 %global packname  metan
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Multi Environment Trials Analysis
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-ggforce
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
-BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-magrittr 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-ggforce
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 
-Requires:         R-lattice 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-magrittr 

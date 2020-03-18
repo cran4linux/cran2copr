@@ -1,9 +1,9 @@
 %global packname  MOCCA
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Multi-Objective Optimization for Collecting Cluster Alternatives
 
@@ -16,11 +16,11 @@ BuildRequires:    R-devel >= 2.0.0
 Requires:         R-core >= 2.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cclust 
-BuildRequires:    R-CRAN-clv 
+BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-cluster 
 BuildRequires:    R-class 
 Requires:         R-CRAN-cclust 
-Requires:         R-CRAN-clv 
+Requires:         R-CRAN-clue 
 Requires:         R-cluster 
 Requires:         R-class 
 
@@ -32,6 +32,7 @@ optimization of cluster validation indices. For details see Kraus et al.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

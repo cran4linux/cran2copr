@@ -1,9 +1,9 @@
 %global packname  vein
-%global packver   0.8.7
+%global packver   0.8.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.7
+Version:          0.8.8
 Release:          1%{?dist}
 Summary:          Vehicular Emissions Inventories
 

@@ -1,9 +1,9 @@
 %global packname  rtemps
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          R Templates for Reproducible Data Analyses
 
@@ -18,14 +18,20 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-xfun 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-xfun 
 
 %description
 A collection of R Markdown templates for nicely structured, reproducible
 data analyses in R. The templates have embedded examples on how to write
-citations, footnotes, equations and use colored message boxes, how to
+citations, footnotes, equations and use colored message/info boxes, how to
 cross-reference different parts/sections in the report, provide a nice
 table of contents (toc) with a References section and proper R session
 information as well as examples using DT tables and ggplot2 graphs. The

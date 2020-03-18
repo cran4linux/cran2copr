@@ -1,9 +1,9 @@
 %global packname  REddyProc
-%global packver   1.2
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Post Processing of (Half-)Hourly Eddy-Covariance Measurements
 
@@ -54,6 +54,7 @@ by night-time based and day-time based approaches (Lasslop et al. (2010)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -77,5 +78,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/genData
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

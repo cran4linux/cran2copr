@@ -1,9 +1,9 @@
 %global packname  Rcpp
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Seamless R and C++ Integration
 
@@ -35,6 +35,7 @@ Balamuta (2018, <doi:10.1080/00031305.2017.1375990>); see
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,6 +65,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/prompt
 %doc %{rlibdir}/%{packname}/skeleton
-%doc %{rlibdir}/%{packname}/unitTests
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

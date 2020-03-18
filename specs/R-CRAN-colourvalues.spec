@@ -1,9 +1,9 @@
 %global packname  colourvalues
-%global packver   0.3.2
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Assigns Colours to Values
 
@@ -12,11 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-BH >= 1.72.0.3
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
 Requires:         R-graphics 
 Requires:         R-CRAN-Rcpp 
 
@@ -32,6 +32,7 @@ in this library have been derived from 'RColorBrewer'
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

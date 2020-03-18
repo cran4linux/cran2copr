@@ -1,9 +1,9 @@
 %global packname  noctua
-%global packver   1.5.1
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.0
 Release:          1%{?dist}
 Summary:          Connect to 'AWS Athena' using R 'AWS SDK' 'paws' ('DBI'Interface)
 
@@ -60,5 +60,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/icons
 %{rlibdir}/%{packname}/INDEX

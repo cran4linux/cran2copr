@@ -1,9 +1,9 @@
 %global packname  workflows
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Modeling Workflows
 
@@ -18,17 +18,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 2.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.1
 BuildRequires:    R-CRAN-ellipsis >= 0.2.0
+BuildRequires:    R-CRAN-hardhat >= 0.1.2
 BuildRequires:    R-CRAN-parsnip >= 0.0.4
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-hardhat 
 Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-rlang >= 0.4.1
 Requires:         R-CRAN-ellipsis >= 0.2.0
+Requires:         R-CRAN-hardhat >= 0.1.2
 Requires:         R-CRAN-parsnip >= 0.0.4
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-hardhat 
 
 %description
 Managing both a 'parsnip' model and a preprocessor, such as a model
@@ -39,6 +39,7 @@ the preprocessor, all within the same object.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

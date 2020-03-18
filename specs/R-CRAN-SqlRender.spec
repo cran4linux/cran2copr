@@ -1,9 +1,9 @@
 %global packname  SqlRender
-%global packver   1.6.3
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.6.4
 Release:          1%{?dist}
 Summary:          Rendering Parameterized SQL and Translation to Dialects
 
@@ -27,6 +27,7 @@ BigQuery', 'Microsoft PDW', and 'SQLite'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,7 +50,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/csv
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %doc %{rlibdir}/%{packname}/shinyApps
 %doc %{rlibdir}/%{packname}/sql
 %{rlibdir}/%{packname}/INDEX

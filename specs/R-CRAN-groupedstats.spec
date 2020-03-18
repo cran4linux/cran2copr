@@ -1,9 +1,9 @@
 %global packname  groupedstats
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Grouped Statistical Analyses in a Tidy Way
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-parameters 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-sjstats 
 BuildRequires:    R-CRAN-skimr 
 BuildRequires:    R-stats 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-parameters 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-sjstats 
 Requires:         R-CRAN-skimr 
 Requires:         R-stats 
@@ -77,6 +75,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

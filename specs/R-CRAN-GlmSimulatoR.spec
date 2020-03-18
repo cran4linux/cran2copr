@@ -1,9 +1,9 @@
 %global packname  GlmSimulatoR
-%global packver   0.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Creates Ideal Data for Generalized Linear Models
 
@@ -50,6 +50,7 @@ generalized linear models so your questions can be empirically answered.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

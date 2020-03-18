@@ -1,11 +1,11 @@
 %global packname  AlphaPart
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}
-Summary:          Partition/Decomposition of Additive Genetic Values by Paths ofInformation
+Summary:          Partition/Decomposition of Breeding Values by Paths ofInformation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,29 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-gdata >= 2.6.0
-BuildRequires:    R-CRAN-quadprog >= 1.5.3
-BuildRequires:    R-CRAN-pedigree >= 1.3.1
+BuildRequires:    R-CRAN-pedigree >= 1.3
 BuildRequires:    R-CRAN-directlabels >= 1.1
 BuildRequires:    R-CRAN-Rcpp >= 0.9.4
 BuildRequires:    R-CRAN-ggplot2 >= 0.8.9
 BuildRequires:    R-CRAN-reshape 
 Requires:         R-CRAN-gdata >= 2.6.0
-Requires:         R-CRAN-quadprog >= 1.5.3
-Requires:         R-CRAN-pedigree >= 1.3.1
+Requires:         R-CRAN-pedigree >= 1.3
 Requires:         R-CRAN-directlabels >= 1.1
 Requires:         R-CRAN-Rcpp >= 0.9.4
 Requires:         R-CRAN-ggplot2 >= 0.8.9
 Requires:         R-CRAN-reshape 
 
 %description
-Additive genetic (breeding) value represents a sum of additive gene
-effects over whole genome and can be inferred from phenotype values of
-relatives via pedigree based mixed models. The partitioning method is
-described in Garcia-Cortes et al. (2008) <DOI:10.1017/S175173110800205X>.
+A software that implements a method for partitioning genetic trends to
+quantify the sources of genetic gain in breeding programmes. The
+partitioning method is described in Garcia-Cortes et al. (2008)
+<doi:10.1017/S175173110800205X>. The package includes the main function
+AlphaPart for partitioning breeding values and auxiliary functions for
+manipulating data and summarizing, visualizing, and saving results.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -45,6 +46,7 @@ described in Garcia-Cortes et al. (2008) <DOI:10.1017/S175173110800205X>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

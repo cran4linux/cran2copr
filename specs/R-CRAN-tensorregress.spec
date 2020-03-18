@@ -1,9 +1,9 @@
 %global packname  tensorregress
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0
 Release:          1%{?dist}
 Summary:          Generalized Tensor Regression with Covariates on Multiple Modes
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rTensor 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-speedglm 
 BuildRequires:    R-MASS 
-Requires:         R-CRAN-rTensor 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-speedglm 
 Requires:         R-MASS 
+Requires:         R-methods 
 
 %description
 Implement the generalized tensor regression in Xu, Hu and Wang (2019)

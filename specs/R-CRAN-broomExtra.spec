@@ -1,11 +1,11 @@
 %global packname  broomExtra
-%global packver   2.0.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.5.0
 Release:          1%{?dist}
-Summary:          Enhancements for 'broom' Package Family
+Summary:          Enhancements for 'broom' and 'easystats' Package Families
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,14 +33,13 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tibble 
 
 %description
-Collection of functions to assist 'broom' and 'broom.mixed'
-package-related data analysis workflows. In particular, the generic
-functions tidy(), glance(), and augment() choose appropriate S3 methods
-from these two packages depending on which package exports the needed
-method. The 'grouped_' variants of the generics provides a convenient way
-to execute functions across a combination of grouping variable(s) in a
-dataframe. Additionally, tidy-and glance-like methods from 'parameters'
-and 'performance' can also be accessed.
+Provides helper functions that assist in data analysis workflows involving
+regression analyses. The goal is to combine the functionality offered by
+different set of packages ('broom', 'broom.mixed', 'parameters', and
+'performance') through a common syntax to return tidy dataframes
+containing model parameters and performance measure summaries. The
+'grouped_' variants of the generics provides a convenient way to execute
+functions across a combination of grouping variable(s) in a dataframe.
 
 %prep
 %setup -q -c -n %{packname}

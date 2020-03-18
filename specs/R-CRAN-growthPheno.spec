@@ -1,9 +1,9 @@
 %global packname  growthPheno
-%global packver   1.0-21
+%global packver   1.0-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.21
+Version:          1.0.22
 Release:          1%{?dist}
 Summary:          Plotting, Smoothing and Growth Trait Extraction for LongitudinalData
 
@@ -54,6 +54,7 @@ information). The package 'growthPheno' can also be installed from
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

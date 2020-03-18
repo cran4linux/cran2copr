@@ -1,9 +1,9 @@
 %global packname  geouy
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}
 Summary:          Geographic Information of Uruguay
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-ggplot2 
@@ -30,6 +29,7 @@ BuildRequires:    R-CRAN-ggthemes
 BuildRequires:    R-CRAN-ggsn 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rgdal 
 Requires:         R-CRAN-sp >= 1.2.4
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
@@ -37,7 +37,6 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-ggplot2 
@@ -45,6 +44,7 @@ Requires:         R-CRAN-ggthemes
 Requires:         R-CRAN-ggsn 
 Requires:         R-methods 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rgdal 
 
 %description
 The toolbox have functions to load and process geographic information for
@@ -77,5 +77,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

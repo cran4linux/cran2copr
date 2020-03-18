@@ -1,9 +1,9 @@
 %global packname  languageserversetup
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Automated Setup and Auto Run for R Language Server
 
@@ -45,8 +45,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/check_rhub.R
-%doc %{rlibdir}/%{packname}/docker_stage.sh
-%doc %{rlibdir}/%{packname}/test_deploy.R
 %doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX

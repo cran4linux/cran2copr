@@ -1,9 +1,9 @@
 %global packname  febr
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Free Brazilian Repository for Open Soil Data
 
@@ -18,20 +18,14 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-googlesheets 
 BuildRequires:    R-CRAN-pedometrics 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xlsx 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-googlesheets 
 Requires:         R-CRAN-pedometrics 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xlsx 
 
 %description
 Making the access to the Free Brazilian Repository for Open Soil Data
@@ -40,6 +34,7 @@ Making the access to the Free Brazilian Repository for Open Soil Data
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
