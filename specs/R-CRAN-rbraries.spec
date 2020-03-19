@@ -1,9 +1,9 @@
 %global packname  rbraries
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Interface to the 'Libraries.io' API
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-crul >= 0.5.0
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-crul 
 BuildRequires:    R-CRAN-fauxpas 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-crul >= 0.5.0
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-crul 
 Requires:         R-CRAN-fauxpas 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-tibble 

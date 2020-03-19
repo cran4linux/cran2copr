@@ -1,9 +1,9 @@
 %global packname  planor
-%global packver   1.5-1
+%global packver   1.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.3
 Release:          1%{?dist}
 Summary:          Generation of Regular Factorial Designs
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -31,10 +31,13 @@ Requires:         R-CRAN-bit64
 %description
 Automatic generation of regular factorial designs, including fractional
 designs, orthogonal block designs, row-column designs and split-plots.
+See: Kobilinsky, Monod and Bailey (2017) Computational Statistics and Data
+Analysis 113, 311-329, <doi:10.1016/j.csda.2016.09.003>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

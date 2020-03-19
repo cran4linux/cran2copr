@@ -1,9 +1,9 @@
 %global packname  condMVNorm
-%global packver   2015.2-1
+%global packver   2020.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2015.2.1
+Version:          2020.1
 Release:          1%{?dist}
 Summary:          Conditional Multivariate Normal Distribution
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.9.0
-Requires:         R-core >= 1.9.0
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
@@ -21,12 +21,13 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-stats 
 
 %description
-Computes conditional multivariate normal probabilities, random deviates
-and densities.
+Computes conditional multivariate normal densities, probabilities, and
+random deviates.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -34,6 +35,7 @@ and densities.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -44,7 +46,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/INDEX

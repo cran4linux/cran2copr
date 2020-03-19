@@ -1,9 +1,9 @@
 %global packname  emdi
-%global packver   1.1.6
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.7
 Release:          1%{?dist}
 Summary:          Estimating and Mapping Disaggregated Indicators
 
@@ -66,6 +66,7 @@ Indicators" by Kreutzmann et al. (2019) <doi:10.18637/jss.v091.i07>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  projects
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          A Project Infrastructure for Researchers
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
 BuildRequires:    R-CRAN-rstudioapi >= 0.7
 BuildRequires:    R-CRAN-rlang >= 0.3.4
 BuildRequires:    R-CRAN-purrr >= 0.2.5
+BuildRequires:    R-CRAN-vctrs >= 0.2.4
 BuildRequires:    R-methods 
 Requires:         R-CRAN-zip >= 2.0.2
 Requires:         R-CRAN-tibble >= 2.0.1
@@ -40,6 +41,7 @@ Requires:         R-CRAN-dplyr >= 0.8.0.1
 Requires:         R-CRAN-rstudioapi >= 0.7
 Requires:         R-CRAN-rlang >= 0.3.4
 Requires:         R-CRAN-purrr >= 0.2.5
+Requires:         R-CRAN-vctrs >= 0.2.4
 Requires:         R-methods 
 
 %description
@@ -50,6 +52,7 @@ for specific components, templates for manuscripts, and so on.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,6 +60,7 @@ for specific components, templates for manuscripts, and so on.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

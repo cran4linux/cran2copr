@@ -1,36 +1,32 @@
-%global packname  opendatatoronto
-%global packver   0.1.2
+%global packname  aws.comprehend
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}
-Summary:          Access the City of Toronto Open Data Portal
+Summary:          Client for 'AWS Comprehend'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ckanr >= 0.4.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-ckanr >= 0.4.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-aws.signature >= 0.3.4
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-aws.signature >= 0.3.4
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Access data from the "City of Toronto Open Data Portal"
-(<https://open.toronto.ca>) directly from R.
+Client for 'AWS Comprehend' <https://aws.amazon.com/comprehend>, a cloud
+natural language processing service that can perform a number of
+quantitative text analyses, including language detection, sentiment
+analysis, and feature extraction.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,9 +49,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

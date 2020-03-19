@@ -1,9 +1,9 @@
 %global packname  rtide
-%global packver   0.0.5
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.7
 Release:          1%{?dist}
 Summary:          Tide Heights
 
@@ -12,17 +12,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-chk >= 0.4.0
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-checkr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dttr2 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-chk >= 0.4.0
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-checkr 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dttr2 
 Requires:         R-utils 
+Requires:         R-CRAN-tibble 
 
 %description
 Calculates tide heights based on tide station harmonics. It includes the

@@ -1,31 +1,31 @@
-%global packname  geoRglm
-%global packver   0.9-16
+%global packname  ocd
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.16
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Generalised Linear Spatial Models
+Summary:          High-Dimensional Multiscale Online Changepoint Detection
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-geoR >= 1.7.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-geoR >= 1.7.5
+BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-sp 
+Requires:         R-utils 
 
 %description
-Functions for inference in generalised linear spatial models. The
-posterior and predictive inference is based on Markov chain Monte Carlo
-methods. Package 'geoRglm' is an extension to the package 'geoR', which
-must be installed first.
+Implements the algorithm in Chen, Wang and Samworth (2020)
+<arxiv:2003.03668> for online detection of sudden mean changes in a
+sequence of high-dimensional observations. It also implements methods by
+Mei (2010) <doi:10.1093/biomet/asq010>, Xie and Siegmund (2013)
+<doi:10.1214/13-AOS1094> and Chan (2017) <doi:10.1214/17-AOS1546>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,11 +47,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

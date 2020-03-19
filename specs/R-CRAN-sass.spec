@@ -1,9 +1,9 @@
 %global packname  sass
-%global packver   0.1.2.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Syntactically Awesome Style Sheets ('Sass')
 
@@ -16,7 +16,13 @@ BuildRequires:    make
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-htmltools 
 
 %description
 An 'SCSS' compiler, powered by the 'LibSass' library. With this, R
@@ -27,6 +33,7 @@ which is stable, powerful, and CSS compatible.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

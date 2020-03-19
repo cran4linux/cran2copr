@@ -1,9 +1,9 @@
 %global packname  rwhatsapp
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Import and Handling for 'WhatsApp' Chat Logs
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 1.4.0
 BuildRequires:    R-CRAN-stringi >= 1.1.7
@@ -21,13 +21,14 @@ Requires:         R-CRAN-tibble >= 1.4.0
 Requires:         R-CRAN-stringi >= 1.1.7
 
 %description
-A straightforward, easy-to-use and robust parsing package which digests
-history files from the popular messenger service 'WhatsApp' in all locales
-and from all devices.
+A straightforward, easy-to-use and robust parsing package which aims to
+digest history files from the popular messenger service 'WhatsApp' in all
+locales and from all devices.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

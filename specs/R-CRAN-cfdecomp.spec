@@ -1,11 +1,11 @@
-%global packname  networktree
-%global packver   0.2.2
+%global packname  cfdecomp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Recursive Partitioning of Network Models
+Summary:          Counterfactual Decomposition: MC Integration of the G-Formula
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,32 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-partykit 
-BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-grid 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-gridBase 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-partykit 
-Requires:         R-CRAN-qgraph 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-Matrix 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-grid 
-Requires:         R-graphics 
-Requires:         R-CRAN-gridBase 
-Requires:         R-CRAN-reshape2 
 
 %description
-Methods to create tree models with correlation-based network models
-(multivariate normal distributions).
+Provides a set of functions for counterfactual decomposition (cfdecomp).
+The functions available in this package decompose differences in an
+outcome attributable to a mediating variable (or sets of mediating
+variables) between groups based on counterfactual (causal inference)
+theory. By using Monte Carlo (MC) integration (simulations based on
+empirical estimates from multivariable models) we provide added
+flexibility compared to existing (analytical) approaches, at the cost of
+computational power or time. The added flexibility means that we can
+decompose difference between groups in any outcome or and with any
+mediator (any variable type and distribution). See Sudharsanan & Bijlsma
+(2019) <doi:10.4054/MPIDR-WP-2019-004> for more information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -67,5 +54,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

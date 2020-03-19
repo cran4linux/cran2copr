@@ -1,9 +1,9 @@
 %global packname  timetk
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          A Tool Kit for Working with Time Series
 
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-tidyr >= 0.6.1
 BuildRequires:    R-CRAN-padr >= 0.3.0
 BuildRequires:    R-CRAN-purrr >= 0.2.2
 BuildRequires:    R-CRAN-lazyeval >= 0.2.0
+BuildRequires:    R-CRAN-recipes >= 0.1.4
+BuildRequires:    R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-zoo >= 1.7.14
 Requires:         R-CRAN-lubridate >= 1.6.0
 Requires:         R-CRAN-tibble >= 1.2
@@ -37,6 +39,8 @@ Requires:         R-CRAN-tidyr >= 0.6.1
 Requires:         R-CRAN-padr >= 0.3.0
 Requires:         R-CRAN-purrr >= 0.2.2
 Requires:         R-CRAN-lazyeval >= 0.2.0
+Requires:         R-CRAN-recipes >= 0.1.4
+Requires:         R-CRAN-rlang >= 0.1.2
 
 %description
 Get the time series index (date or date-time component), time series
@@ -54,6 +58,7 @@ forecasting." Universit Libre de Bruxelles, Belgium (2014): 75-86.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -61,6 +66,7 @@ forecasting." Universit Libre de Bruxelles, Belgium (2014): 75-86.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

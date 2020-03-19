@@ -1,36 +1,26 @@
-%global packname  opendatatoronto
-%global packver   0.1.2
+%global packname  opera
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.1
 Release:          1%{?dist}
-Summary:          Access the City of Toronto Open Data Portal
+Summary:          Online Prediction by Expert Aggregation
 
-License:          MIT + file LICENSE
+License:          LGPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ckanr >= 0.4.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-ckanr >= 0.4.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xml2 
 
 %description
-Access data from the "City of Toronto Open Data Portal"
-(<https://open.toronto.ca>) directly from R.
+Misc methods to form online predictions, for regression-oriented
+time-series, by combining a finite set of forecasts provided by the user.
+See Cesa-Bianchi and Lugosi (2006) <doi:10.1017/CBO9780511546921> for an
+overview.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,10 +42,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/img
+%doc %{rlibdir}/%{packname}/rmd
 %{rlibdir}/%{packname}/INDEX
