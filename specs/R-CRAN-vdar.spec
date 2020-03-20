@@ -1,9 +1,9 @@
 %global packname  vdar
-%global packver   0.1.1
+%global packver   0.1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2.1
 Release:          1%{?dist}
 Summary:          Discriminant Analysis Incorporating Individual Uncertainties
 
@@ -15,13 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-compositions 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-MASS 
 Requires:         R-CRAN-compositions 
 
 %description

@@ -1,9 +1,9 @@
 %global packname  IsoplotR
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}
 Summary:          Statistical Toolbox for Radiometric Geochronology
 
@@ -33,12 +33,14 @@ means accounting for overdispersion. Calculates U-Th-He (single grain and
 central) ages, logratio plots and ternary diagrams. Processes fission
 track data using the external detector method and LA-ICP-MS, calculates
 central ages and plots fission track and other data on radial (a.k.a.
-'Galbraith') plots. Constructs total Pb-U, Pb-Pb, K-Ca, Re-Os, Sm-Nd,
-Lu-Hf, Rb-Sr and 230Th-U isochrons as well as 230Th-U evolution plots.
+'Galbraith') plots. Constructs total Pb-U, Pb-Pb, Th-Pb, K-Ca, Re-Os,
+Sm-Nd, Lu-Hf, Rb-Sr and 230Th-U isochrons as well as 230Th-U evolution
+plots.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -91,6 +93,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/SmNd1.csv
 %doc %{rlibdir}/%{packname}/SmNd2.csv
 %doc %{rlibdir}/%{packname}/SmNd3.csv
+%doc %{rlibdir}/%{packname}/ThPb1.csv
+%doc %{rlibdir}/%{packname}/ThPb2.csv
+%doc %{rlibdir}/%{packname}/ThPb3.csv
 %doc %{rlibdir}/%{packname}/ThU1.csv
 %doc %{rlibdir}/%{packname}/ThU2.csv
 %doc %{rlibdir}/%{packname}/ThU3.csv
@@ -103,7 +108,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/UPb5.csv
 %doc %{rlibdir}/%{packname}/UPb6.csv
 %doc %{rlibdir}/%{packname}/UPb7.csv
-%doc %{rlibdir}/%{packname}/UPb8.csv
 %doc %{rlibdir}/%{packname}/UTh1.csv
 %doc %{rlibdir}/%{packname}/UTh2.csv
 %doc %{rlibdir}/%{packname}/UThHe.csv

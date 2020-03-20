@@ -1,9 +1,9 @@
 %global packname  Hmsc
-%global packver   3.0-4
+%global packver   3.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.0.6
 Release:          1%{?dist}
 Summary:          Hierarchical Model of Species Communities
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-MCMCpack
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-nnet 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pdist 
 BuildRequires:    R-CRAN-pROC 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-MCMCpack
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-nnet 
+Requires:         R-CRAN-rlang 
 Requires:         R-parallel 
 Requires:         R-CRAN-pdist 
 Requires:         R-CRAN-pROC 
@@ -61,6 +63,7 @@ sampling.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  actuaryr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Develop Actuarial Models
 
@@ -16,14 +16,23 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-purrr 
 
 %description
 Actuarial reports are prepared for the last day of a specific period, such
 as a month, a quarter or a year. Actuarial models assume that certain
 events happen at the beginning or end of periods. The package contains
-functions to easily refer the first or last (working) day within a
-specific period relative to a base date to facilitate actuarial reporting.
+functions to easily refer to the first or last (working) day within a
+specific period relative to a base date to facilitate actuarial reporting
+and to compare results.
 
 %prep
 %setup -q -c -n %{packname}

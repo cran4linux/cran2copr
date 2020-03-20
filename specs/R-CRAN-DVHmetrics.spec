@@ -1,9 +1,9 @@
 %global packname  DVHmetrics
-%global packver   0.3.9
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.10
 Release:          1%{?dist}
 Summary:          Analyze Dose-Volume Histograms and Check Constraints
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-KernSmooth 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-reshape2
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DT 
 Requires:         R-KernSmooth 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -42,6 +44,7 @@ DVH. Includes web-based graphical user interface.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,6 +52,7 @@ DVH. Includes web-based graphical user interface.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

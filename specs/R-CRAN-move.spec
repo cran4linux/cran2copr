@@ -1,9 +1,9 @@
 %global packname  move
-%global packver   3.2.2
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.3.0
 Release:          1%{?dist}
 Summary:          Visualizing and Analyzing Animal Track Data
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-raster >= 2.4.15
 BuildRequires:    R-CRAN-geosphere >= 1.4.3
 BuildRequires:    R-methods 
@@ -42,6 +42,7 @@ Models. Move helps addressing movement ecology questions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

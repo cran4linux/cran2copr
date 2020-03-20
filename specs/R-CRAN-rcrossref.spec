@@ -1,9 +1,9 @@
 %global packname  rcrossref
-%global packver   0.9.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Client for Various 'CrossRef' 'APIs'
 
@@ -54,6 +54,7 @@ text of articles when available.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -79,5 +80,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/ignore
 %doc %{rlibdir}/%{packname}/rstudio
-%doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX

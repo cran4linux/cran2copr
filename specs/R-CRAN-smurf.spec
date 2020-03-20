@@ -1,9 +1,9 @@
 %global packname  smurf
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          Sparse Multi-Type Regularized Feature Modeling
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.300.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-catdata 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-MASS 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-speedglm 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-catdata 
 Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-MASS 
@@ -63,7 +65,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

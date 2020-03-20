@@ -1,9 +1,9 @@
 %global packname  n1qn1
-%global packver   6.0.1-6
+%global packver   6.0.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.1.6
+Version:          6.0.1.7
 Release:          1%{?dist}
 Summary:          Port of the 'Scilab' 'n1qn1' and 'qnbd' Modules for(Un)constrained BFGS Optimization
 

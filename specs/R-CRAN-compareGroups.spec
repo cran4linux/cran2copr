@@ -1,9 +1,9 @@
 %global packname  compareGroups
-%global packver   4.2.0
+%global packver   4.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.4.1
 Release:          1%{?dist}
 Summary:          Descriptive Analysis by Groups
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 2.13.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SNPassoc 
 BuildRequires:    R-survival 
-BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-HardyWeinberg 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-flextable
 BuildRequires:    R-CRAN-officer 
 Requires:         R-CRAN-SNPassoc 
 Requires:         R-survival 
-Requires:         R-CRAN-epitools 
 Requires:         R-tools 
 Requires:         R-CRAN-HardyWeinberg 
 Requires:         R-CRAN-rmarkdown 
@@ -60,6 +58,7 @@ other typical statistics and tests for these kind of data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -67,6 +66,7 @@ other typical statistics and tests for these kind of data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

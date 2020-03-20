@@ -1,9 +1,9 @@
 %global packname  tokenbrowser
-%global packver   0.1.2
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Create Full Text Browsers from Annotated Token Lists
 
@@ -29,6 +29,7 @@ scaling) can be used to annotate the texts.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

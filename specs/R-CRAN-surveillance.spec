@@ -1,9 +1,9 @@
 %global packname  surveillance
-%global packver   1.17.3
+%global packver   1.18.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17.3
+Version:          1.18.0
 Release:          1%{?dist}
 Summary:          Temporal and Spatio-Temporal Modeling and Monitoring of EpidemicPhenomena
 
@@ -76,6 +76,7 @@ by Meyer et al. (2017) <doi:10.18637/jss.v077.i11>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

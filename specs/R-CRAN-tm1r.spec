@@ -1,9 +1,9 @@
 %global packname  tm1r
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}
 Summary:          The Integration Between 'IBM COGNOS TM1' and R
 
@@ -31,6 +31,7 @@ metadata information can be taken.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  ursa
-%global packver   3.8.16
+%global packver   3.8.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.16
+Version:          3.8.17
 Release:          1%{?dist}
 Summary:          Non-Interactive Spatial Tools for Raster Processing andVisualization
 

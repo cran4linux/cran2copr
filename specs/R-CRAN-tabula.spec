@@ -1,9 +1,9 @@
 %global packname  tabula
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}
 Summary:          Analysis, Seriation and Visualization of Archaeological CountData
 
@@ -48,6 +48,7 @@ data and statistical thresholds: rank vs. abundance plots, heatmaps, Ford
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

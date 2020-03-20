@@ -1,34 +1,29 @@
-%global packname  rsubgroup
-%global packver   0.9
+%global packname  CoxR2
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Subgroup Discovery and Analytics
+Summary:          R-Squared Measure Based on Partial LR Statistic, for the Cox PHRegression Model
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-foreign >= 0.8.40
-BuildRequires:    R-CRAN-rJava >= 0.6.3
-BuildRequires:    R-methods 
-Requires:         R-foreign >= 0.8.40
-Requires:         R-CRAN-rJava >= 0.6.3
-Requires:         R-methods 
+BuildRequires:    R-survival 
+BuildRequires:    R-stats 
+Requires:         R-survival 
+Requires:         R-stats 
 
 %description
-A collection of efficient and effective tools and algorithms for subgroup
-discovery and analytics. The package integrates an R interface to the
-org.vikamine.kernel library of the VIKAMINE system
-<http://www.vikamine.org> implementing subgroup discovery, pattern mining
-and analytics in Java.
+Calculate the R-squared, aka explained randomness, based on the partial
+likelihood ratio statistic under the Cox Proportional Hazard model [J
+O'Quigley, R Xu, J Stare (2005) <doi:10.1002/sim.1946>].
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,10 +45,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/java
 %{rlibdir}/%{packname}/INDEX

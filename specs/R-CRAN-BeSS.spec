@@ -1,26 +1,26 @@
 %global packname  BeSS
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}
-Summary:          Best Subset Selection for Sparse Generalized Linear Model andCox Model
+Summary:          Best Subset Selection in Linear, Logistic and CoxPH Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-Matrix >= 1.2.6
+BuildRequires:    R-CRAN-Rcpp >= 0.12.6
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-Matrix 
+Requires:         R-Matrix >= 1.2.6
+Requires:         R-CRAN-Rcpp >= 0.12.6
 Requires:         R-CRAN-glmnet 
 Requires:         R-survival 
 
@@ -57,5 +57,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

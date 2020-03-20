@@ -1,9 +1,9 @@
 %global packname  UniprotR
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}
 Summary:          Retrieving Information of Proteins from Uniprot
 
@@ -53,11 +53,14 @@ Requires:         R-CRAN-alakazam
 %description
 Connect to Uniprot <https://www.uniprot.org/> to retrieve information
 about proteins using their accession number such information could be name
-or taxonomy information.
+or taxonomy information, For detailed information kindly read the
+publication
+<https://www.sciencedirect.com/science/article/pii/S1874391919303859>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

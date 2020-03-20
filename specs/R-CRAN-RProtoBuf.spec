@@ -1,9 +1,9 @@
 %global packname  RProtoBuf
-%global packver   0.4.15
+%global packver   0.4.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.15
+Version:          0.4.16
 Release:          1%{?dist}
 Summary:          R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
 
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    protobuf-devel >= 2.2.0
 BuildRequires:    protobuf-compiler
-Requires:         protobuf
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-methods 
@@ -68,7 +67,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/opencpu
 %doc %{rlibdir}/%{packname}/proto
-%doc %{rlibdir}/%{packname}/python
+%{rlibdir}/%{packname}/python
 %doc %{rlibdir}/%{packname}/THANKS
 %doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX

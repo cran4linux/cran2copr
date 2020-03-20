@@ -1,9 +1,9 @@
 %global packname  SHT
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Statistical Hypothesis Testing Toolbox
 
@@ -38,6 +38,7 @@ hypothesis testing, see the book by Lehmann and Romano (2005)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

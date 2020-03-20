@@ -1,9 +1,9 @@
 %global packname  igraph
-%global packver   1.2.4.2
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4.2
+Version:          1.2.5
 Release:          1%{?dist}
 Summary:          Network Analysis and Visualization
 
@@ -15,9 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    gmp-devel
 BuildRequires:    libxml2-devel
 BuildRequires:    glpk-devel
-Requires:         gmp
-Requires:         libxml2
-Requires:         glpk
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-pkgconfig >= 2.0.0
@@ -45,6 +42,7 @@ graphs, graph visualization, centrality methods and much more.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
