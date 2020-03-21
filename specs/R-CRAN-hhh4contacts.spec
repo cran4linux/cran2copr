@@ -1,9 +1,9 @@
 %global packname  hhh4contacts
-%global packver   0.13.0
+%global packver   0.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.13.1
 Release:          1%{?dist}
 Summary:          Age-Structured Spatio-Temporal Models for Infectious DiseaseCounts
 
@@ -39,6 +39,7 @@ code to reproduce the results from the paper, see 'demo("hhh4contacts")'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,6 +47,7 @@ code to reproduce the results from the paper, see 'demo("hhh4contacts")'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

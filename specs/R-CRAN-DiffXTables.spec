@@ -1,9 +1,9 @@
 %global packname  DiffXTables
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Pattern Heterogeneity via Distributional Differences AcrossContingency Tables
 
@@ -15,8 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-Matrix 
-Requires:         R-Matrix 
 
 %description
 Statistical hypothesis testing of pattern heterogeneity via differences in
@@ -35,6 +33,7 @@ first-order differences across heterogeneous patterns.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

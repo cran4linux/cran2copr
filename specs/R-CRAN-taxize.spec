@@ -1,9 +1,9 @@
 %global packname  taxize
-%global packver   0.9.92
+%global packver   0.9.93
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.92
+Version:          0.9.93
 Release:          1%{?dist}
 Summary:          Taxonomic Information from Around the Web
 

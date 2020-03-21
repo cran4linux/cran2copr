@@ -1,9 +1,9 @@
 %global packname  caret
-%global packver   6.0-85
+%global packver   6.0-86
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.85
+Version:          6.0.86
 Release:          1%{?dist}
 Summary:          Classification and Regression Training
 
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-ModelMetrics >= 1.1.0
+BuildRequires:    R-CRAN-ModelMetrics >= 1.2.2.2
 BuildRequires:    R-lattice >= 0.20
-BuildRequires:    R-CRAN-recipes >= 0.1.4
+BuildRequires:    R-CRAN-recipes >= 0.1.10
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-methods 
@@ -30,9 +30,9 @@ BuildRequires:    R-utils
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-pROC 
 Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-ModelMetrics >= 1.1.0
+Requires:         R-CRAN-ModelMetrics >= 1.2.2.2
 Requires:         R-lattice >= 0.20
-Requires:         R-CRAN-recipes >= 0.1.4
+Requires:         R-CRAN-recipes >= 0.1.10
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-foreach 
 Requires:         R-methods 
@@ -52,6 +52,7 @@ models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

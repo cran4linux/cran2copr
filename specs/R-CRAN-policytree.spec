@@ -1,9 +1,9 @@
 %global packname  policytree
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Policy Learning via Doubly Robust Empirical Welfare Maximizationover Trees
 
@@ -14,10 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-grf >= 1.0.0
+BuildRequires:    R-CRAN-grf >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-grf >= 1.0.0
+Requires:         R-CRAN-grf >= 1.1.0
 Requires:         R-CRAN-Rcpp 
 
 %description
@@ -27,6 +27,7 @@ Athey and Wager (2018) <arXiv:1810.04778>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  cchsflow
-%global packver   1.3.2
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.5.1
 Release:          1%{?dist}
 Summary:          Transforming and Harmonizing CCHS Variables
 
@@ -27,13 +27,14 @@ Requires:         R-CRAN-dplyr >= 0.8.2
 Requires:         R-CRAN-magrittr 
 
 %description
-Variable transformation and harmonization of the Canadian Community Health
-Survey (CCHS) from 2001 to 2014. This is useful for researchers interested
-in using Canadian population health data across multiple years as it helps
-combine variables. This package relies on rec_with_table() which was based
-off 'sjmisc' rec(). Lüdecke D (2018). "sjmisc: Data and Variable
-Transformation Functions". Journal of Open Source Software, 3(26), 754.
-<doi:10.21105/joss.00754>.
+Supporting the use of the Canadian Community Health Survey (CCHS) by
+transforming variables from each cycle into harmonized, consistent
+versions that span survey cycles (currently, 2001 to 2014). CCHS data used
+in this library is accessed and adapted in accordance to the Statistics
+Canada Open Licence Agreement. This package uses rec_with_table(), which
+was developed from 'sjmisc' rec(). Lüdecke D (2018). "sjmisc: Data and
+Variable Transformation Functions". Journal of Open Source Software,
+3(26), 754. <doi:10.21105/joss.00754>.
 
 %prep
 %setup -q -c -n %{packname}

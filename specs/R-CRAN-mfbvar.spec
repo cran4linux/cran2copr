@@ -1,9 +1,9 @@
 %global packname  mfbvar
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}
 Summary:          Mixed-Frequency Bayesian VAR Models
 
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-stochvol >= 2.0.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-methods 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-stochvol >= 2.0.3
 Requires:         R-CRAN-Rcpp >= 0.12.7
 Requires:         R-methods 
@@ -50,6 +50,7 @@ models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

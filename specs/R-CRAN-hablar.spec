@@ -1,9 +1,9 @@
 %global packname  hablar
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Non-Astonishing Results in R
 
@@ -16,7 +16,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-dplyr >= 0.8.0
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lubridate 
 
 %description
 Simple tools for converting columns to new data types. Intuitive functions
@@ -25,6 +29,7 @@ for columns with missing values.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -32,6 +37,7 @@ for columns with missing values.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

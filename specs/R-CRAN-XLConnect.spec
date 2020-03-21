@@ -1,9 +1,9 @@
 %global packname  XLConnect
-%global packver   0.2-15
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.15
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Excel Connector for R
 
@@ -16,10 +16,8 @@ Requires:         java
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-XLConnectJars == 0.2.15
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rJava 
-Requires:         R-CRAN-XLConnectJars == 0.2.15
 Requires:         R-methods 
 Requires:         R-CRAN-rJava 
 
@@ -29,6 +27,7 @@ Provides comprehensive functionality to read, write and format Excel data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +35,7 @@ Provides comprehensive functionality to read, write and format Excel data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -53,7 +53,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/COPYRIGHTS
 %doc %{rlibdir}/%{packname}/demoFiles
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %doc %{rlibdir}/%{packname}/unitTests
 %doc %{rlibdir}/%{packname}/XLConnect.R
 %{rlibdir}/%{packname}/INDEX

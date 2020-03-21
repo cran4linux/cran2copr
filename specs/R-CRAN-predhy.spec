@@ -1,9 +1,9 @@
 %global packname  predhy
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Genomic Prediction of Hybrid Performance
 
@@ -26,6 +26,7 @@ population (Xu S et al (2016) <doi:10.1111/tpj.13242>; Xu S (2017)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

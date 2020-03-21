@@ -1,9 +1,9 @@
 %global packname  sbtools
-%global packver   1.1.9
+%global packver   1.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.1.10
 Release:          1%{?dist}
 Summary:          USGS ScienceBase Tools
 
@@ -35,6 +35,7 @@ querying ScienceBase, and creating and fetching datasets.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

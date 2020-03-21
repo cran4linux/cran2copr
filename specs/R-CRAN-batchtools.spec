@@ -1,9 +1,9 @@
 %global packname  batchtools
-%global packver   0.9.12
+%global packver   0.9.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.12
+Version:          0.9.13
 Release:          1%{?dist}
 Summary:          Tools for Computation on Batch Systems
 
@@ -63,6 +63,7 @@ computer experiments in a well-organized and reproducible way.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -83,7 +84,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/bin
+%{rlibdir}/%{packname}/bin
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/templates

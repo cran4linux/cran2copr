@@ -1,9 +1,9 @@
 %global packname  easyr
-%global packver   0.2-0
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Helpful Functions from Oliver Wyman Actuarial Consulting
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-openssl
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-qs 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-openssl
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-qs 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
@@ -52,6 +54,7 @@ Accepting proposed contributions through GitHub.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

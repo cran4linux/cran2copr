@@ -1,9 +1,9 @@
 %global packname  ridge
-%global packver   2.4
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.5
 Release:          1%{?dist}
 Summary:          Ridge Regression with Automatic Selection of the PenaltyParameter
 
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel >= 1.14
-Requires:         gsl
 BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildRequires:    R-stats 
@@ -33,6 +32,7 @@ data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
