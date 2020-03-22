@@ -1,9 +1,9 @@
 %global packname  prewas
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Data Pre-Processing for Bacterial Genome-Wide AssociationStudies
 
@@ -42,7 +42,9 @@ prewas can perform 3 pre-processing steps including: dealing with
 multiallelic SNPs, (optional) dealing with SNPs in overlapping genes, and
 choosing a reference allele. prewas can output matrices for use with both
 SNP-based bGWAS and gene-based bGWAS. This method is described in Saund et
-al. (2019) <doi:10.1101/2019.12.20.873158>.
+al. (2019) <doi:10.1101/2019.12.20.873158>. prewas can also provide gene
+matrices for variants with specific SnpEff annotations (Cingolani et al.
+2012).
 
 %prep
 %setup -q -c -n %{packname}
@@ -68,6 +70,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

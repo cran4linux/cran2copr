@@ -1,9 +1,9 @@
 %global packname  mable
-%global packver   2.0.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Maximum Approximate Bernstein/Beta Likelihood Estimation
 
@@ -44,6 +44,7 @@ be estimated smoothly based on general interval censored data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

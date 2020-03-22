@@ -1,9 +1,9 @@
 %global packname  RiemBase
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          Functions and C++ Header Files for Computation on Manifolds
 
@@ -40,6 +40,7 @@ computational aspects of optimization on matrix manifolds.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

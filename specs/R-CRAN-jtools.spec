@@ -1,9 +1,9 @@
 %global packname  jtools
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}
 Summary:          Analysis and Presentation of Social Scientific Data
 
@@ -42,6 +42,7 @@ supports models from the survey package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

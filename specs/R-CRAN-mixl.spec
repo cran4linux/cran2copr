@@ -1,9 +1,9 @@
 %global packname  mixl
-%global packver   1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.2
 Release:          1%{?dist}
 Summary:          Simulated Maximum Likelihood Estimation of Mixed Logit Modelsfor Large Datasets
 
@@ -17,31 +17,32 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.19
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-Rcpp >= 0.12.19
-Requires:         R-stats 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
 
 %description
-Specification and estimation of multinomial logit models. Large datasets
-and complex models are supported, with an intuitive syntax. Multinomial
+Specification and estimation of multinomial logit models.  Large datasets
+and complex models are supported, with an intuitive syntax.  Multinomial
 Logit Models, Mixed models, random coefficients and Hybrid Choice are all
-supported. For more information, see Molloy et al. (2019)
+supported.  For more information, see Molloy et al. (2019)
 <doi:10.3929/ethz-b-000334289>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  spatialrisk
-%global packver   0.6.5
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.6
 Release:          1%{?dist}
 Summary:          Calculating Concentration Risk under Solvency II
 
@@ -55,6 +55,7 @@ partly or fully located within circle of a radius of 200m.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

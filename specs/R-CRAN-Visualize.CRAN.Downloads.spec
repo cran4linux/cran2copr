@@ -1,32 +1,35 @@
-%global packname  exactextractr
-%global packver   0.2.1
+%global packname  Visualize.CRAN.Downloads
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Fast Extraction from Raster Datasets using Polygons
+Summary:          Visualize Downloads from 'CRAN' Packages
 
-License:          Apache License (== 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    geos-devel >= 3.5.0
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cranlogs 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-cranlogs 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Provides a replacement for the 'extract' function from the 'raster'
-package that is suitable for extracting raster values using 'sf' polygons.
+Visualize the trends and historical downloads from packages in the 'CRAN'
+repository. Data is obtained by using the 'API' to query the database from
+the 'RStudio' 'CRAN' mirror.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,7 +53,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
