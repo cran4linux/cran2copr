@@ -1,9 +1,9 @@
 %global packname  Rwofost
-%global packver   0.5-4
+%global packver   0.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          WOFOST Crop Growth Simulation Model
 

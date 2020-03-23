@@ -1,9 +1,9 @@
 %global packname  forrel
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Forensic Pedigree Analysis and Relatedness Inference
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 0.9.1
+BuildRequires:    R-CRAN-pedtools >= 0.9.3
 BuildRequires:    R-CRAN-pedprobr 
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-pedmut 
-Requires:         R-CRAN-pedtools >= 0.9.1
+Requires:         R-CRAN-pedtools >= 0.9.3
 Requires:         R-CRAN-pedprobr 
 Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-glue 
@@ -41,12 +41,13 @@ ped suite, a collection of packages for pedigree analysis. In particular,
 'forrel' imports 'pedtools' for creating and manipulating pedigrees and
 markers, 'pedprobr' for likelihood computations, and 'pedmut' for mutation
 modelling. Pedigree data may be created from scratch, or loaded from text
-files. Data import from the Familias software (Egeland et al. (2000)
+files. Data import from the 'Familias' software (Egeland et al. (2000)
 <doi:10.1016/S0379-0738(00)00147-X>) is supported.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

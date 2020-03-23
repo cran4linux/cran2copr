@@ -1,9 +1,9 @@
 %global packname  ropenaq
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}
 Summary:          Accesses Air Quality Data from the Open Data Platform OpenAQ
 
@@ -16,28 +16,30 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lazyeval 
 Requires:         R-CRAN-crul 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lazyeval 
 
 %description
 Allows access to air quality data from the API of the OpenAQ platform
 <https://docs.openaq.org/>, with the different services the API offers
 (getting measurements for a given query, getting latest measurements,
-getting lists of available countries/cities/locations). This package has
-been peer-reviewed by rOpenSci (v. 0.1.0).
+getting lists of available countries/cities/locations).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -58,5 +60,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

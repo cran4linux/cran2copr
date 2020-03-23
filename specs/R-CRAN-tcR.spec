@@ -1,9 +1,9 @@
 %global packname  tcR
-%global packver   2.2.4
+%global packver   2.2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.4
+Version:          2.2.4.1
 Release:          1%{?dist}
 Summary:          Advanced Data Analysis of Immune Receptor Repertoires
 
@@ -46,6 +46,7 @@ repertoires data and visualisation of the analysis results.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

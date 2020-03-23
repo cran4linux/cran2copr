@@ -1,9 +1,9 @@
 %global packname  matsbyname
-%global packver   0.4.11
+%global packver   0.4.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.11
+Version:          0.4.12
 Release:          1%{?dist}
 Summary:          An Implementation of Matrix Mathematics
 
@@ -18,9 +18,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
 An implementation of matrix mathematics wherein operations are performed
@@ -29,6 +35,7 @@ An implementation of matrix mathematics wherein operations are performed
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

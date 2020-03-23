@@ -1,9 +1,9 @@
 %global packname  NSM3
-%global packver   1.12
+%global packver   1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12
+Version:          1.13
 Release:          1%{?dist}
 Summary:          Functions and Datasets to Accompany Hollander, Wolfe, andChicken - Nonparametric Statistical Methods, Third Edition
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-ash
 BuildRequires:    R-CRAN-binom 
 BuildRequires:    R-CRAN-BSDA 
 BuildRequires:    R-CRAN-coin 
-BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-CRAN-fANCOVA 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-Hmisc 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-ash
 Requires:         R-CRAN-binom 
 Requires:         R-CRAN-BSDA 
 Requires:         R-CRAN-coin 
-Requires:         R-CRAN-epitools 
 Requires:         R-CRAN-fANCOVA 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-Hmisc 
@@ -72,6 +70,7 @@ standardize the output with the other procedures in the package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -79,6 +78,7 @@ standardize the output with the other procedures in the package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

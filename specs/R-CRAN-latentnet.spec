@@ -1,9 +1,9 @@
 %global packname  latentnet
-%global packver   2.10.1
+%global packver   2.10.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.1
+Version:          2.10.5
 Release:          1%{?dist}
 Summary:          Latent Position and Cluster Models for Statistical Networks
 
@@ -35,11 +35,14 @@ Requires:         R-MASS
 
 %description
 Fit and simulate latent position and cluster models for statistical
-networks.
+networks. See Krivitsky and Handcock (2008) <10.18637/jss.v024.i05> and
+Krivitsky, Handcock, Raftery, and Hoff (2009)
+<10.1016/j.socnet.2009.04.001>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  silicate
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Common Forms for Complex Hierarchical and Relational DataStructures
 
@@ -17,6 +17,7 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-gibble >= 0.2.0
+BuildRequires:    R-CRAN-crsmeta >= 0.2.0
 BuildRequires:    R-CRAN-unjoin >= 0.0.3
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
@@ -24,7 +25,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-decido 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-gridBase 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-gibble >= 0.2.0
+Requires:         R-CRAN-crsmeta >= 0.2.0
 Requires:         R-CRAN-unjoin >= 0.0.3
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
@@ -39,7 +40,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-decido 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-geometry 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
@@ -62,6 +62,7 @@ mathematical construct.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

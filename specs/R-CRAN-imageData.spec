@@ -1,9 +1,9 @@
 %global packname  imageData
-%global packver   0.1-59
+%global packver   0.1-60
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.59
+Version:          0.1.60
 Release:          1%{?dist}
 Summary:          Aids in Processing and Plotting Data from a Lemna-TecScananalyzer
 
@@ -18,7 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dae 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-XLConnect 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-RColorBrewer 
@@ -27,7 +27,7 @@ BuildRequires:    R-grid
 Requires:         R-CRAN-dae 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-CRAN-XLConnect 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-RColorBrewer 
@@ -44,6 +44,7 @@ retained for legacy purposes.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

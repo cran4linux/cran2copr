@@ -1,28 +1,23 @@
-%global packname  rjstat
-%global packver   0.4.1
+%global packname  tth
+%global packver   4.12-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          4.12.0
 Release:          1%{?dist}
-Summary:          Handle 'JSON-stat' Format in R
+Summary:          TeX-to-HTML/MathML Translators TtH/TtM
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 1.7.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.8
-Requires:         R-CRAN-checkmate >= 1.7.0
-Requires:         R-CRAN-jsonlite >= 0.9.8
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 
 %description
-Handle 'JSON-stat' format (<https://json-stat.org>) in R. Not all features
-are supported, especially the extensive metadata features of 'JSON-stat'.
+C source code and R wrappers for the tth/ttm TeX-to-HTML/MathML
+translators.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,8 +40,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

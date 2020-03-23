@@ -1,9 +1,9 @@
 %global packname  NADA
-%global packver   1.6-1
+%global packver   1.6-1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.1.1
 Release:          1%{?dist}
 Summary:          Nondetects and Data Analysis for Environmental Data
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-survival 
@@ -27,6 +27,7 @@ Data Analysis: Statistics for Censored Environmental Data".
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

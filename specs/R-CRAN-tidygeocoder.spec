@@ -1,9 +1,9 @@
 %global packname  tidygeocoder
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Tidyverse-Style Interface for Geocoding
 
@@ -42,6 +42,7 @@ supported services are the US Census geocoder and Nominatim (OSM).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

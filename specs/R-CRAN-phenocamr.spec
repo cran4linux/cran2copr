@@ -1,9 +1,9 @@
 %global packname  phenocamr
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}
 Summary:          Facilitates 'PhenoCam' Data Access and Time SeriesPost-Processing
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-changepoint 
 BuildRequires:    R-CRAN-httr 
@@ -25,7 +24,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-daymetr 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-MODISTools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-changepoint 
 Requires:         R-CRAN-httr 
@@ -35,6 +34,7 @@ Requires:         R-graphics
 Requires:         R-stats 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-daymetr 
+Requires:         R-CRAN-MODISTools 
 
 %description
 Programmatic interface to the 'PhenoCam' web services
@@ -48,6 +48,7 @@ Methods for this package are described in detail in Hufkens et. al (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,6 +56,7 @@ Methods for this package are described in detail in Hufkens et. al (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
