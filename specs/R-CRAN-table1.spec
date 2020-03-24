@@ -1,9 +1,9 @@
 %global packname  table1
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Tables of Descriptive Statistics in HTML
 
@@ -19,10 +19,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-stats 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-yaml 
 
 %description
 Create HTML tables of descriptive statistics, as one would expect to see
@@ -32,6 +34,7 @@ article.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

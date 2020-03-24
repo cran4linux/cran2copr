@@ -1,9 +1,9 @@
 %global packname  CorrToolBox
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}
 Summary:          Modeling Correlational Magnitude Transformations inDiscretization Contexts
 
@@ -37,6 +37,7 @@ Demirtas, H. and Vardar-Acar, C. (2017) <DOI:10.1007/978-981-10-3307-0_4>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,6 +45,7 @@ Demirtas, H. and Vardar-Acar, C. (2017) <DOI:10.1007/978-981-10-3307-0_4>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

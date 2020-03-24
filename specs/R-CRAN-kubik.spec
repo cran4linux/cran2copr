@@ -1,11 +1,11 @@
 %global packname  kubik
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Cubic Hermite Splines
+Summary:          Cubic Hermite Splines and Related Optimization Methods
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,19 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-intoo 
-Requires:         R-CRAN-intoo 
 
 %description
 Constructs, plots and evaluates constrained cubic Hermite splines, which
-can be used to construct monotonic splines. Computes their first
-derivatives, indefinite integrals and smooth approximations of their
-first, second and higher derivatives. Also, computes their roots,
-including their argmins, argmaxs and inflection points.
+can be used to construct monotonic and bounded splines. Computes their
+first derivatives, indefinite integrals and smooth approximations of their
+first, second and higher derivatives. Also, computes their
+roots/solutions, along with their minima/maxima and inflection points.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

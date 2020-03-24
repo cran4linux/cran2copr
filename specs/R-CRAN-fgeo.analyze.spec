@@ -1,9 +1,9 @@
 %global packname  fgeo.analyze
-%global packver   1.1.12
+%global packver   1.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.1.13
 Release:          1%{?dist}
 Summary:          Analyze ForestGEO Data
 

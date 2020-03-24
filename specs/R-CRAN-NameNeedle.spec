@@ -1,9 +1,9 @@
 %global packname  NameNeedle
-%global packver   1.2.4
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.6
 Release:          1%{?dist}
 Summary:          Using Needleman-Wunsch to Match Sample Names
 
@@ -26,6 +26,7 @@ et al. (2010) <doi:10.4137/CIN.S5613>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

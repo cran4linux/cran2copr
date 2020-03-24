@@ -1,24 +1,34 @@
-%global packname  locfit
-%global packver   1.5-9.2
+%global packname  edina
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.9.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Local Regression, Likelihood and Density Estimation.
+Summary:          Bayesian Estimation of an Exploratory Deterministic Input, Noisyand Gate Model
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
-BuildRequires:    R-lattice 
-Requires:         R-lattice 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jjb 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-rgen 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jjb 
+Requires:         R-CRAN-reshape2 
 
 %description
-Local regression, likelihood and density estimation.
+Perform a Bayesian estimation of the exploratory deterministic input,
+noisy and gate (EDINA) cognitive diagnostic model described by Chen et al.
+(2018) <doi:10.1007/s11336-017-9579-4>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,10 +50,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

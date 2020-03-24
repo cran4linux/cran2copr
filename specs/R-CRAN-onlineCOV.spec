@@ -1,29 +1,30 @@
-%global packname  metacom
-%global packver   1.5.3
+%global packname  onlineCOV
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.3
 Release:          1%{?dist}
-Summary:          Analysis of the 'Elements of Metacommunity Structure'
+Summary:          Online Change Point Detection in High-Dimensional CovarianceStructure
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan >= 2.2.1
-Requires:         R-CRAN-vegan >= 2.2.1
 
 %description
-Functions to analyze coherence, boundary clumping, and turnover following
-the pattern-based metacommunity analysis of Leibold and Mikkelson 2002
-<doi:10.1034/j.1600-0706.2002.970210.x>. The package also includes
-functions to visualize ecological networks, and to calculate modularity as
-a replacement to boundary clumping.
+Implement a new stopping rule to detect anomaly in the covariance
+structure of high-dimensional online data. The detection procedure can be
+applied to Gaussian or non-Gaussian data with a large number of
+components. Moreover, it allows both spatial and temporal dependence in
+data. The dependence can be estimated by a data-driven procedure. The
+level of threshold in the stopping rule can be determined at a
+pre-selected average run length. More detail can be seen in Li, L. and Li,
+J. (2020) "Online Change-Point Detection in High-Dimensional Covariance
+Structure with Application to Dynamic Networks." <arXiv:1911.07762>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,9 +46,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

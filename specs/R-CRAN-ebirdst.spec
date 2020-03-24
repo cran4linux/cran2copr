@@ -1,9 +1,9 @@
 %global packname  ebirdst
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Access and Analyze eBird Status and Trends Data
 
@@ -19,10 +19,10 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-fasterize 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-mgcv 
 BuildRequires:    R-CRAN-PresenceAbsence 
@@ -42,10 +42,10 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-fasterize 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-mgcv 
 Requires:         R-CRAN-PresenceAbsence 

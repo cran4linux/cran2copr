@@ -1,9 +1,9 @@
 %global packname  mma
-%global packver   10.0-0
+%global packver   10.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.0.0
+Version:          10.2.2
 Release:          1%{?dist}
 Summary:          Multiple Mediation Analysis
 
@@ -20,8 +20,6 @@ BuildRequires:    R-splines
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-lattice 
 Requires:         R-CRAN-gbm 
@@ -29,8 +27,6 @@ Requires:         R-splines
 Requires:         R-survival 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-gplots 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-plotrix 
 Requires:         R-lattice 
 

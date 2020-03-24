@@ -1,9 +1,9 @@
 %global packname  ctmm
-%global packver   0.5.8
+%global packver   0.5.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.8
+Version:          0.5.9
 Release:          1%{?dist}
 Summary:          Continuous-Time Movement Modeling
 
@@ -77,6 +77,7 @@ Calabrese (2017) <doi:10.1111/2041-210X.12673>, Péron et al (2017)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

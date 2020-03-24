@@ -1,9 +1,9 @@
 %global packname  lazytrade
-%global packver   0.3.9
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.10
 Release:          1%{?dist}
 Summary:          Learn Computer and Data Science using Algorithmic Trading
 
@@ -47,6 +47,7 @@ price changes using pattern recognition deep regression learning.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

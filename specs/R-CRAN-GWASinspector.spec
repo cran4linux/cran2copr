@@ -1,9 +1,9 @@
 %global packname  GWASinspector
-%global packver   1.4.5
+%global packver   1.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.4.6
 Release:          1%{?dist}
 Summary:          Comprehensive and Easy to Use Quality Control of GWAS Results
 

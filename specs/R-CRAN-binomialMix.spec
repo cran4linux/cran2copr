@@ -1,9 +1,9 @@
 %global packname  binomialMix
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Mixture Models for Binomial and Longitudinal Data
 
@@ -43,6 +43,7 @@ longitudinal data mixture model.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  proffer
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Profile R Code and Visualize with 'Pprof'
 
@@ -15,21 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-profile 
 BuildRequires:    R-CRAN-RProtoBuf 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-profile 
 Requires:         R-CRAN-RProtoBuf 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 Like similar profiling tools, the 'proffer' package automatically detects
 sources of slowness in R code. The distinguishing feature of 'proffer' is
 its utilization of 'pprof', which supplies interactive visualizations that
 are efficient and easy to interpret. Behind the scenes, the 'profile'
-package converts native 'Rprof()' data to a protocol buffer that 'pprof'
+package converts native Rprof() data to a protocol buffer that 'pprof'
 understands. For the documentation of 'proffer', visit
 <https://r-prof.github.io/proffer>. To learn about the implementations and
 methodologies of 'pprof', 'profile', and protocol buffers, visit

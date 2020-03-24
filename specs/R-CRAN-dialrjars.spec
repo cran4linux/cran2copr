@@ -1,9 +1,9 @@
 %global packname  dialrjars
-%global packver   8.11.4
+%global packver   8.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.11.4
+Version:          8.12.0
 Release:          1%{?dist}
 Summary:          Required 'libphonenumber' jars for the 'dialr' Package
 
@@ -47,5 +47,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/COPYRIGHTS
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %{rlibdir}/%{packname}/INDEX

@@ -1,11 +1,11 @@
 %global packname  priceR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Regular Expressions for Prices and Currencies
+Summary:          Microeconomics and Pricing Tools
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,19 +18,31 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gsubfn 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gsubfn 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-stringi 
 
 %description
-Functions to aid in the analysis of price and currency data by expediting
-data preprocessing. This includes extraction of relevant data (e.g. from
-text fields), conversion into numeric class, cleaning, and standardisation
-as appropriate.
+Functions to aid in microeconomic analysis and handling of price and
+currency data. This includes extraction of relevant data (e.g. from World
+Bank API, and other sources), data cleaning/parsing, and standardisation.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

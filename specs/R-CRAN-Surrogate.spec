@@ -1,9 +1,9 @@
 %global packname  Surrogate
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}
 Summary:          Evaluation of Surrogate Endpoints in Clinical Trials
 
@@ -65,6 +65,7 @@ Agreement no 602552.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,48 +1,45 @@
-%global packname  retrosheet
-%global packver   1.1.1
+%global packname  covid19us
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Import Professional Baseball Data from 'Retrosheet'
+Summary:          Cases of COVID-19 in the United States
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-data.table >= 1.9.4
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-httr >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-readr >= 1.3.1
-BuildRequires:    R-CRAN-xml2 >= 1.2.2
-BuildRequires:    R-CRAN-stringi >= 0.4.1
-BuildRequires:    R-CRAN-rvest >= 0.3.5
+BuildRequires:    R-CRAN-glue >= 1.3.1
+BuildRequires:    R-CRAN-tidyr >= 1.0.2
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-snakecase >= 0.11.0
 Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-data.table >= 1.9.4
 Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-httr >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-readr >= 1.3.1
-Requires:         R-CRAN-xml2 >= 1.2.2
-Requires:         R-CRAN-stringi >= 0.4.1
-Requires:         R-CRAN-rvest >= 0.3.5
+Requires:         R-CRAN-glue >= 1.3.1
+Requires:         R-CRAN-tidyr >= 1.0.2
+Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-purrr >= 0.3.3
+Requires:         R-CRAN-snakecase >= 0.11.0
 
 %description
-A collection of tools to import and structure the (currently)
-single-season event, game-log, roster, and schedule data available from
-<http://www.retrosheet.org>. In particular, the event (a.k.a.
-play-by-play) files can be especially difficult to parse. This package
-does the parsing on those files, returning the requested data in the most
-practical R structure to use for sabermetric or other analyses.
+A wrapper around the 'COVID Tracking Project API'
+<https://covidtracking.com/api/> providing data on cases of COVID-19 in
+the US.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,7 +62,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

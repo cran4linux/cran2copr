@@ -1,9 +1,9 @@
 %global packname  medfate
-%global packver   0.8.2
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Mediterranean Forest Simulation
 
@@ -12,20 +12,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-meteoland >= 0.8.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-GSIF 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-meteoland >= 0.8.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-GSIF 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 
@@ -37,6 +35,7 @@ cohort-based description of vegetation [De Caceres et al. (2015)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -56,7 +55,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

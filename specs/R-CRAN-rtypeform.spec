@@ -1,9 +1,9 @@
 %global packname  rtypeform
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Interface to 'typeform' Results
 
@@ -15,32 +15,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-purrr 
-Requires:         R-utils 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 An R interface to the 'typeform' <https://typeform.com> application
-program interface. Also provides functions for downloading your results.
+program interface.  Also provides functions for downloading your results.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

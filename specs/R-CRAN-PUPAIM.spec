@@ -1,30 +1,30 @@
 %global packname  PUPAIM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          'A Collection of Physical and Chemical Adsorption IsothermModels'
+Summary:          A Collection of Physical and Chemical Adsorption Isotherm Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FSA 
-BuildRequires:    R-CRAN-Metrics 
-BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-FSA 
-Requires:         R-CRAN-Metrics 
-Requires:         R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-nls2 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-minpack.lm 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-nls2 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-minpack.lm 
 
 %description
 Adsorption isotherm equations are linearized plots of different
@@ -40,6 +40,7 @@ in R using adsorption data (Ce and Qe) obtained from experiments.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

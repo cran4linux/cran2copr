@@ -1,9 +1,9 @@
 %global packname  rayimage
-%global packver   0.2.3
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Image Processing for Simulated Cameras
 
@@ -14,26 +14,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-rayshader 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-rayshader 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jpeg 
 Requires:         R-grDevices 

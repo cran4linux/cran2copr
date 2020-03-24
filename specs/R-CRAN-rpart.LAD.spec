@@ -1,9 +1,9 @@
 %global packname  rpart.LAD
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Least Absolute Deviation Regression Trees
 
@@ -28,6 +28,7 @@ Stone in addition to the 'rpart' package (Breiman, Friedman, Olshen, Stone
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

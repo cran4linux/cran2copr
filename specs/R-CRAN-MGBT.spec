@@ -1,9 +1,9 @@
 %global packname  MGBT
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Multiple Grubbs-Beck Low-Outlier Test
 
@@ -25,6 +25,7 @@ annual peak-streamflow data processing discussed in Cohn et al. (2013)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -47,6 +48,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/helpers
+%doc %{rlibdir}/%{packname}/INSTALL_HELP.md
 %doc %{rlibdir}/%{packname}/legend
 %doc %{rlibdir}/%{packname}/README.md
 %doc %{rlibdir}/%{packname}/sources
