@@ -1,9 +1,9 @@
 %global packname  RNAsmc
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          RNA Secondary Structure Module Mining, Comparison and Plotting
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-RRNA 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-circlize 
 Requires:         R-CRAN-RRNA 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-circlize 
 
 %description
 Provides function for RNA secondary structure plotting, comparison and
@@ -36,6 +38,7 @@ represents similarity. Reference: Reuter JS, Mathews DH (2010)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

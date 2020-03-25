@@ -1,13 +1,13 @@
-%global packname  RCrypto
-%global packver   0.1.0
+%global packname  RcppDate
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          'Httr' Implementation of the 'Coinmarketcap' API
+Summary:          'date' C++ Header Library for Date and Time Functionality
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
 
 %description
-Pulls current pricing and market cap info from the
-<https://coinmarketcap.com/api/> API and presents it in a dataframe, see
-function help documentation for headerdetails.
+'date' is a C++ header library offering extensive date and time
+functionality for the C++11, C++14 and C++17 standards written by Howard
+Hinnant and released under the MIT license. A slightly modified version
+has been accepted (along with 'tz.h') as part of C++20. This package
+regroups all header files from the upstream repository by Howard Hinnant
+so that other R packages can use them in their C++ code. At present, few
+of the types have explicit 'Rcpp' wrapper though these may be added as
+needed.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,7 +47,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/examples
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX

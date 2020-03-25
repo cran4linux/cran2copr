@@ -1,9 +1,9 @@
 %global packname  Directional
-%global packver   4.2
+%global packver   4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2
+Version:          4.3
 Release:          1%{?dist}
 Summary:          Directional Statistics
 
@@ -20,6 +20,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-rgl 
@@ -28,6 +29,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-MASS 
+Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
 Requires:         R-CRAN-rgl 
@@ -44,9 +46,10 @@ Computing 28(3): 689-697. <doi:10.1007/s11222-017-9756-4>. b) Tsagris M.
 and Alenazi A. (2019). Comparison of discriminant analysis methods on the
 sphere. Communications in Statistics: Case Studies, Data Analysis and
 Applications 5(4):467--491. <doi:10.1080/23737484.2019.1684854>. c) P. J.
-Paine, S. P. Preston, M. Tsagris and Andrew T. A. Wood (2019). Spherical
+Paine, S. P. Preston, M. Tsagris and Andrew T. A. Wood (2020). Spherical
 regression models with general covariates and anisotropic errors.
-Statistics and Computing (to appear). <doi:10.1007/s11222-019-09872-2>.
+Statistics and Computing 30(1): 153--165.
+<doi:10.1007/s11222-019-09872-2>.
 
 %prep
 %setup -q -c -n %{packname}

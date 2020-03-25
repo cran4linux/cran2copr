@@ -1,9 +1,9 @@
 %global packname  mlr
-%global packver   2.17.0
+%global packver   2.17.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.17.0
+Version:          2.17.1
 Release:          1%{?dist}
 Summary:          Machine Learning in R
 
@@ -55,6 +55,7 @@ allowing for easy nested resampling. Most operations can be parallelized.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

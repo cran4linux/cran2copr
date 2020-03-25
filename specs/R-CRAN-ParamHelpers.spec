@@ -1,9 +1,9 @@
 %global packname  ParamHelpers
-%global packver   1.13
+%global packver   1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13
+Version:          1.14
 Release:          1%{?dist}
 Summary:          Helpers for Parameters in Black-Box Optimization, Tuning andMachine Learning
 
@@ -35,6 +35,7 @@ function evaluations is also provided.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

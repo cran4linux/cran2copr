@@ -1,9 +1,9 @@
 %global packname  BayesS5
-%global packver   1.40
+%global packver   1.41
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.40
+Version:          1.41
 Release:          1%{?dist}
 Summary:          Bayesian Variable Selection Using Simplified Shotgun StochasticSearch with Screening (S5)
 

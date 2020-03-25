@@ -1,9 +1,9 @@
 %global packname  fabletools
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Core Tools for Packages in the 'fable' Framework
 
@@ -48,6 +48,7 @@ consistent and tidy interface for time series modelling and analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

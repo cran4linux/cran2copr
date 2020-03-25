@@ -1,13 +1,13 @@
-%global packname  ZeligEI
-%global packver   0.1-2
+%global packname  eponge
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Zelig Ecological Inference Models
+Summary:          Keep Your Environment Clean
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,32 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Zelig >= 5.1.0
-BuildRequires:    R-CRAN-eiPack 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ei 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Zelig >= 5.1.0
-Requires:         R-CRAN-eiPack 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ei 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-MASS 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-rlang 
 
 %description
-Add-on package for Zelig 5. Enables the use of a variety of ecological
-inference models.
+Provides a set of functions, which facilitates removing objects from an
+environment. It allows to delete objects specified with regular expression
+or with other conditions (e.g. if object is numeric), using one function
+call.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -48,6 +35,7 @@ inference models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -57,8 +45,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/JSON
 %{rlibdir}/%{packname}/INDEX

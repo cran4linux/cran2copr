@@ -1,25 +1,34 @@
-%global packname  MFAg
-%global packver   1.6
+%global packname  spherepc
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Multiple Factor Analysis (MFA)
+Summary:          Spherical Principal Curves
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-sphereplot 
+BuildRequires:    R-CRAN-geosphere 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-sphereplot 
+Requires:         R-CRAN-geosphere 
 
 %description
-Performs Multiple Factor Analysis method for quantitative, categorical,
-frequency and mixed data, in addition to generating a lot of graphics,
-also has other useful functions.
+Fitting a principal curve to data lying in the spherical surface. This
+package provides principal circle, principal geodesic analysis, Hauberg's
+principal curves, and spherical principal curves. Moreover, it partially
+offers locally defined principal geodesics which are currently under
+study. The detailed procedure is described in Jang-Hyun Kim, Jongmin Lee
+and Hee-Seok Oh (2020) <arXiv:2003.02578>.
 
 %prep
 %setup -q -c -n %{packname}

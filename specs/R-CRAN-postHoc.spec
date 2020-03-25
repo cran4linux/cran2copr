@@ -1,13 +1,13 @@
-%global packname  coinmarketcapr
-%global packver   0.3
+%global packname  postHoc
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Get 'Cryptocurrencies' Market Cap Prices from Coin Market Cap
+Summary:          Tools for Post-Hoc Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,26 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-multcomp 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-multcomp 
 
 %description
-Extract and monitor price and market cap of 'Cryptocurrencies' from 'Coin
-Market Cap' <https://coinmarketcap.com/api/>.
+Implements a range of facilities for post-hoc analysis and summarizing
+linear models, generalized linear models and generalized linear mixed
+models, including grouping and clustering via pairwise comparisons using
+graph representations and efficient algorithms for finding maximal cliques
+of a graph. It has S3 methods for printing summarizing, and producing
+plots, line and barplots suitable for post-hoc analyses.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -51,9 +48,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

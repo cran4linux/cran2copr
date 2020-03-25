@@ -1,9 +1,9 @@
 %global packname  BAwiR
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Analysis of Basketball Data
 
@@ -69,6 +69,7 @@ season games and maps of nationalities. Please see Vinue (2020)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,33 +1,42 @@
-%global packname  synthACS
-%global packver   1.5.5
+%global packname  loewesadditivity
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Synthetic Microdata and Spatial MicroSimulation Modeling for ACSData
+Summary:          Loewe's Additivity
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
-BuildRequires:    R-CRAN-acs >= 2.1
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-acs >= 2.1
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-metR 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-metR 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-viridis 
 
 %description
-Provides access to curated American Community Survey (ACS) base tables via
-a wrapper to library(acs). Builds synthetic micro-datasets at any
-user-specified geographic level with ten default attributes; and, conducts
-spatial microsimulation modeling (SMSM) via simulated annealing.  SMSM is
-conducted in parallel by default. Lastly, we provide functionality for
-data-extensibility of micro-datasets.
+Estimate model parameters to determine whether two compounds have synergy,
+antagonism, or Loewe's Additivity.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,7 +63,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

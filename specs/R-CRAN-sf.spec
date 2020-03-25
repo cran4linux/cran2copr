@@ -1,9 +1,9 @@
 %global packname  sf
-%global packver   0.8-1
+%global packver   0.9-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Simple Features for R
 
@@ -16,10 +16,6 @@ BuildRequires:    gdal-devel >= 2.0.1
 BuildRequires:    geos-devel >= 3.4.0
 BuildRequires:    proj-devel >= 4.8.0
 BuildRequires:    sqlite-devel
-Requires:         gdal
-Requires:         geos
-Requires:         proj
-Requires:         sqlite
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-DBI >= 0.8
@@ -56,6 +52,7 @@ transformations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

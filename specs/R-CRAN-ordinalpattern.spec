@@ -1,25 +1,32 @@
-%global packname  MFAg
-%global packver   1.6
+%global packname  ordinalpattern
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Multiple Factor Analysis (MFA)
+Summary:          Tests Based on Ordinal Patterns
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Performs Multiple Factor Analysis method for quantitative, categorical,
-frequency and mixed data, in addition to generating a lot of graphics,
-also has other useful functions.
+Ordinal patterns describe the dynamics of a time series by looking at the
+ranks of subsequent observations. By comparing ordinal patterns of two
+times series, Schnurr (2014) <doi:10.1007/s00362-013-0536-8> defines a
+robust and non-parametric dependence measure: the ordinal pattern
+coefficient. Functions to calculate this and a method to detect a change
+in the pattern coefficient proposed in Schnurr and Dehling (2017)
+<doi:10.1080/01621459.2016.1164706> are provided.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,8 +48,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

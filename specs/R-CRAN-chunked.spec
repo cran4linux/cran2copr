@@ -1,9 +1,9 @@
 %global packname  chunked
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Chunkwise Text-File Processing for 'dplyr'
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-LaF
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-dplyr >= 0.7
 Requires:         R-CRAN-LaF 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-progress 
 
 %description
 Data stored in text file can be processed chunkwise using 'dplyr'

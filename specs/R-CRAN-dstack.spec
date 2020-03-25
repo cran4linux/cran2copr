@@ -1,32 +1,41 @@
-%global packname  heddlr
-%global packver   0.6.0
+%global packname  dstack
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Dynamic R Markdown Document Generation
+Summary:          Publishing Interactive Plots
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-utf8 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-nanotime 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-utf8 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-nanotime 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-base64enc 
 
 %description
-Helper functions designed to make dynamically generating R Markdown
-documents easier by providing a simple and tidy way to create report
-pieces, shape them to your data, and combine them for exporting into a
-single R Markdown document.
+A native R package that allows to publish, share and track revisions of
+plots using your favorite plotting package, e.g. 'ggplot2'. It also
+provides a kind of interactivity for such plots by specifying certain
+parameters for any specific plot view. See <https://docs.dstack.ai> for
+more information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,9 +58,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

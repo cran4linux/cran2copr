@@ -1,9 +1,9 @@
 %global packname  covid19us
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Cases of COVID-19 in the United States
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 4.3
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-snakecase >= 0.11.0
+Requires:         R-CRAN-curl >= 4.3
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
