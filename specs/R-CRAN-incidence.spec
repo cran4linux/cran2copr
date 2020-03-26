@@ -1,9 +1,9 @@
 %global packname  incidence
-%global packver   1.7.0
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.1
 Release:          1%{?dist}
 Summary:          Compute, Handle, Plot and Model Incidence of Dated Events
 
@@ -32,6 +32,7 @@ addition, log-linear models can be fitted to 'incidence' objects using
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -39,6 +40,7 @@ addition, log-linear models can be fitted to 'incidence' objects using
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

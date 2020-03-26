@@ -1,9 +1,9 @@
 %global packname  ipaddress
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Tidy IP Addresses
 
@@ -14,13 +14,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-blob >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-vctrs >= 0.2.2
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-AsioHeaders 
+Requires:         R-CRAN-blob >= 1.2.0
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-vctrs >= 0.2.2
-Requires:         R-CRAN-assertthat 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 
@@ -56,5 +58,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

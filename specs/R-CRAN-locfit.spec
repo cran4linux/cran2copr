@@ -1,24 +1,25 @@
 %global packname  locfit
-%global packver   1.5-9.2
+%global packver   1.5-9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.9.2
+Version:          1.5.9.4
 Release:          1%{?dist}
-Summary:          Local Regression, Likelihood and Density Estimation.
+Summary:          Local Regression, Likelihood and Density Estimation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-lattice 
 Requires:         R-lattice 
 
 %description
-Local regression, likelihood and density estimation.
+Local regression, likelihood and density estimation methods as described
+in the 1999 book by Loader.
 
 %prep
 %setup -q -c -n %{packname}

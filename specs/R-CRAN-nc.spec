@@ -1,9 +1,9 @@
 %global packname  nc
-%global packver   2020.2.27
+%global packver   2020.3.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.2.27
+Version:          2020.3.23
 Release:          1%{?dist}
 Summary:          Named Capture to Data Tables
 
@@ -27,7 +27,9 @@ complex patterns in terms of simpler, re-usable sub-patterns. Named R
 arguments are translated to column names in the output; capture groups
 without names are used internally in order to provide a standard interface
 to three regular expression C libraries (PCRE, RE2, ICU). Output can also
-include numeric columns via user-specified type conversion functions.
+include numeric columns via user-specified type conversion functions. RE2
+engine (re2r package) was removed from CRAN in Mar 2020 so must be
+installed from github.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,4 +57,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/test_engines.R
 %{rlibdir}/%{packname}/INDEX

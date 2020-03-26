@@ -1,9 +1,9 @@
 %global packname  hdf5r
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}
 Summary:          Interface to the 'HDF5' Binary Data Format
 
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    hdf5-devel >= 1.8.13
-Requires:         hdf5
 BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
 BuildRequires:    R-methods 
@@ -36,6 +35,7 @@ behave very similar to their corresponding R counterparts.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -59,6 +59,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CWrappers_1.10.2
 %doc %{rlibdir}/%{packname}/CWrappers_1.10.3
+%doc %{rlibdir}/%{packname}/CWrappers_1.12.0
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/h5ex_t_enum.h5
 %doc %{rlibdir}/%{packname}/HDF5_COPYRIGHTS.txt

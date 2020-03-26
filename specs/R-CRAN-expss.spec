@@ -1,9 +1,9 @@
 %global packname  expss
-%global packver   0.10.1
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.2
 Release:          1%{?dist}
 Summary:          Tables, Labels and Some Useful Functions from Spreadsheets and'SPSS' Statistics
 
@@ -46,6 +46,7 @@ surveys. Package intended to help people to move data processing from
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

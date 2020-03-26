@@ -1,9 +1,9 @@
 %global packname  pcds
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Proximity Catch Digraphs and Their Applications
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-interp
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-combinat 
 Requires:         R-graphics 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-interp
 Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-plotrix 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 Contains the functions for generating patterns of segregation,

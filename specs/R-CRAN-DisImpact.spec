@@ -1,9 +1,9 @@
 %global packname  DisImpact
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}
 Summary:          Calculates Disproportionate Impact When Binary Success Data areDisaggregated by Subgroups
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Implements methods for calculating disproportionate impact: the percentage
@@ -38,6 +38,7 @@ Measuring Disproportionate Impact in Equity Plans.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  nonmemica
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Create and Evaluate NONMEM Models in a Project Context
 
@@ -45,6 +45,7 @@ is software for nonlinear mixed effects modeling. See 'package?nonmemica'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
