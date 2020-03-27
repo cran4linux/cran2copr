@@ -1,9 +1,9 @@
 %global packname  iml
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}
 Summary:          Interpretable Machine Learning
 
@@ -15,34 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-partykit 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-yaImpute 
-BuildRequires:    R-CRAN-prediction 
 BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-prediction 
+BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-partykit 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-yaImpute 
-Requires:         R-CRAN-prediction 
 Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-prediction 
+Requires:         R-CRAN-R6 
 
 %description
 Interpretability methods to analyze the behavior and predictions of any
-machine learning model. Implemented methods are: Feature importance
+machine learning model.  Implemented methods are: Feature importance
 described by Fisher et al. (2018) <arXiv:1801.01489>, accumulated local
 effects plots described by Apley (2018) <arXiv:1612.08468>, partial
 dependence plots described by Friedman (2001)
@@ -57,6 +53,7 @@ and tree surrogate models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,31 +1,28 @@
-%global packname  wsbackfit
-%global packver   1.0-1
+%global packname  shinyCyJS
+%global packver   0.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.11
 Release:          1%{?dist}
-Summary:          Weighted Smooth Backfitting for Structured Models
+Summary:          Create Interactive Network Visualizations in R and 'shiny'
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Non- and semiparametric regression for generalized additive, partial
-linear, and varying coefficient models as well as their combinations via
-smoothed backfitting. Based on Roca-Pardinas J and Sperlich S (2010)
-<doi:10.1007/s11222-009-9130-2>; Mammen E, Linton O and Nielsen J (1999)
-<doi:10.1214/aos/1017939138>; Lee YK, Mammen E, Park BU (2012)
-<doi:10.1214/12-AOS1026>.
+Create Interactive Graph (Network) Visualizations. 'shinyCyJS' can be used
+in 'Shiny' apps or viewed from 'Rstudio' Viewer. 'shinyCyJS' includes API
+to build Graph model like node or edge with customized attributes for R.
+'shinyCyJS' is built with 'cytoscape.js' and 'htmlwidgets' R package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,9 +44,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/htmlwidgets
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

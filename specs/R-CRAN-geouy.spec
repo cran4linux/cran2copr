@@ -1,9 +1,9 @@
 %global packname  geouy
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}
 Summary:          Geographic Information of Uruguay
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp >= 1.2.4
+BuildRequires:    R-CRAN-sp >= 1.4
+BuildRequires:    R-CRAN-sf >= 0.9
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggthemes 
@@ -30,14 +30,14 @@ BuildRequires:    R-CRAN-ggsn
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rgdal 
-Requires:         R-CRAN-sp >= 1.2.4
+Requires:         R-CRAN-sp >= 1.4
+Requires:         R-CRAN-sf >= 0.9
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggthemes 

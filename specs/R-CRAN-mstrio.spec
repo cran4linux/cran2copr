@@ -1,9 +1,9 @@
 %global packname  mstrio
-%global packver   11.2.0
+%global packver   11.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.2.0
+Version:          11.2.1
 Release:          1%{?dist}
 Summary:          Interface for 'MicroStrategy' REST API
 
@@ -18,7 +18,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-httr >= 1.4.1
 BuildRequires:    R-CRAN-openssl >= 1.4.1
+BuildRequires:    R-CRAN-crul 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-rstudioapi 
@@ -27,7 +29,9 @@ BuildRequires:    R-CRAN-shiny
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-httr >= 1.4.1
 Requires:         R-CRAN-openssl >= 1.4.1
+Requires:         R-CRAN-crul 
 Requires:         R-methods 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-rstudioapi 
@@ -42,6 +46,7 @@ Interface for creating data sets and extracting data through the
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

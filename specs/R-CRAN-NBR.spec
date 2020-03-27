@@ -1,31 +1,33 @@
-%global packname  wsbackfit
-%global packver   1.0-1
+%global packname  NBR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Weighted Smooth Backfitting for Structured Models
+Summary:          Network Based Statistics in R for Mixed Effects Models
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-nlme 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
+Requires:         R-nlme 
+Requires:         R-parallel 
 Requires:         R-stats 
 
 %description
-Non- and semiparametric regression for generalized additive, partial
-linear, and varying coefficient models as well as their combinations via
-smoothed backfitting. Based on Roca-Pardinas J and Sperlich S (2010)
-<doi:10.1007/s11222-009-9130-2>; Mammen E, Linton O and Nielsen J (1999)
-<doi:10.1214/aos/1017939138>; Lee YK, Mammen E, Park BU (2012)
-<doi:10.1214/12-AOS1026>.
+An implementation of network-based statistics in R for mixed effects
+models. Theoretical background for Network Based Statistics can be found
+in Zalesky et al. (2010) <doi:10.1016/j.neuroimage.2010.06.041>. For Mixed
+Effects Models check the R package
+<https://CRAN.R-project.org/package=nlme>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,5 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

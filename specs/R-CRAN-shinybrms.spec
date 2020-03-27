@@ -1,31 +1,31 @@
-%global packname  wsbackfit
-%global packver   1.0-1
+%global packname  shinybrms
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Weighted Smooth Backfitting for Structured Models
+Summary:          Graphical User Interface (Shiny App) for Package 'brms'
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-brms >= 2.12.0
+BuildRequires:    R-CRAN-shiny >= 1.4.0
+Requires:         R-CRAN-brms >= 2.12.0
+Requires:         R-CRAN-shiny >= 1.4.0
 
 %description
-Non- and semiparametric regression for generalized additive, partial
-linear, and varying coefficient models as well as their combinations via
-smoothed backfitting. Based on Roca-Pardinas J and Sperlich S (2010)
-<doi:10.1007/s11222-009-9130-2>; Mammen E, Linton O and Nielsen J (1999)
-<doi:10.1214/aos/1017939138>; Lee YK, Mammen E, Park BU (2012)
-<doi:10.1214/12-AOS1026>.
+A graphical user interface (GUI) for the package 'brms' which allows to
+fit Bayesian regression models using 'Stan' (<https://mc-stan.org/>) (more
+specifically, using its R interface, the package 'rstan'). The GUI is a
+'Shiny' (<https://shiny.rstudio.com/>) app, i.e. it was created using the
+package 'shiny'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,9 +47,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/shinybrms_app
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

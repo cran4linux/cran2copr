@@ -1,13 +1,13 @@
-%global packname  multDM
-%global packver   1.1
+%global packname  deepdive
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Multivariate Version of the Diebold-Mariano Test
+Summary:          Deep Learning for General Purpose
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,13 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MTS 
-Requires:         R-CRAN-MTS 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-rpart 
+BuildRequires:    R-CRAN-treeClust 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-plyr 
+Requires:         R-rpart 
+Requires:         R-CRAN-treeClust 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
 
 %description
-Allows to perform the multivariate version of the Diebold-Mariano test for
-equal predictive ability of multiple forecast comparison. Main reference:
-Mariano, R.S., Preve, D. (2012) <doi:10.1016/j.jeconom.2012.01.014>.
+Aims to provide simple intuitive functions to create quick prototypes of
+artificial neural network or deep learning models. In addition novel
+ensemble models like 'deeptree' and 'deepforest' has been included which
+combines decision trees and neural network.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,10 +54,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

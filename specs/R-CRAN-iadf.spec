@@ -1,9 +1,9 @@
 %global packname  iadf
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Analysis of Intra Annual Density Fluctuations
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-dplR 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-manipulate 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-dplR 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Calculate false ring proportions from data frames of intra annual density
@@ -37,6 +39,7 @@ fluctuations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,6 +47,7 @@ fluctuations.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -55,6 +59,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

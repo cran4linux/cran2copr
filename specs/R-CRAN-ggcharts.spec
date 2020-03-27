@@ -1,37 +1,35 @@
-%global packname  binomialRF
+%global packname  ggcharts
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Binomial Random Forest Feature Selection
+Summary:          Shorten the Distance from Data Visualization Idea to Actual Plot
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlist 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-data.table 
-Requires:         R-stats 
-Requires:         R-CRAN-rlist 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-rlang 
 
 %description
-The 'binomialRF' is a new feature selection technique for decision trees
-that aims at providing an alternative approach to identify significant
-feature subsets using binomial distributional assumptions (Rachid Zaim,
-S., et al. (2019)) <doi:10.1101/681973>. Treating each splitting variable
-selection as a set of exchangeable correlated Bernoulli trials,
-'binomialRF' then tests whether a feature is selected more often than by
-random chance.
+Streamline the creation of common charts by taking care of a lot of data
+preprocessing and plot customization for the user. Provides a high-level
+interface to create plots using 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,8 +53,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

@@ -1,31 +1,28 @@
-%global packname  wsbackfit
-%global packver   1.0-1
+%global packname  sped
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.1
 Release:          1%{?dist}
-Summary:          Weighted Smooth Backfitting for Structured Models
+Summary:          Multi-Gene Descent Probabilities
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-pooh >= 0.3
+Requires:         R-CRAN-pooh >= 0.3
 
 %description
-Non- and semiparametric regression for generalized additive, partial
-linear, and varying coefficient models as well as their combinations via
-smoothed backfitting. Based on Roca-Pardinas J and Sperlich S (2010)
-<doi:10.1007/s11222-009-9130-2>; Mammen E, Linton O and Nielsen J (1999)
-<doi:10.1214/aos/1017939138>; Lee YK, Mammen E, Park BU (2012)
-<doi:10.1214/12-AOS1026>.
+Do multi-gene descent probabilities (Thompson, 1983,
+<doi:10.1098/rspb.1983.0072>) and special cases thereof (Thompson, 1986,
+<doi:10.1002/zoo.1430050210>) including inbreeding and kinship
+coefficients.  But does much more: probabilities of any set of genes
+descending from any other set of genes.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,5 +48,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/DesignDoc
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
