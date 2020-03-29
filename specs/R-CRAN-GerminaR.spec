@@ -1,9 +1,9 @@
 %global packname  GerminaR
-%global packver   1.4
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.4.2
 Release:          1%{?dist}
 Summary:          Indices and Graphics for Assess Seed Germination Process
 

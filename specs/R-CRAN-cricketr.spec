@@ -1,9 +1,9 @@
 %global packname  cricketr
-%global packver   0.0.22
+%global packver   0.0.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.22
+Version:          0.0.23
 Release:          1%{?dist}
 Summary:          Analyze Cricketers and Cricket Teams Based on ESPN CricinfoStatsguru
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-XML 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-httr 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -47,6 +49,7 @@ to analyze team performances.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -54,6 +57,7 @@ to analyze team performances.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

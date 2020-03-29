@@ -1,9 +1,9 @@
 %global packname  LibOPF
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}
 Summary:          Design of Optimum-Path Forest Classifiers
 

@@ -1,9 +1,9 @@
 %global packname  MPTmultiverse
-%global packver   0.3-3
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Multiverse Analysis of Multinomial Processing Tree Models
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.11.1
 Requires:         R-core >= 2.11.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-TreeBUGS >= 1.4.4
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
@@ -24,13 +25,13 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MPTinR 
-BuildRequires:    R-CRAN-TreeBUGS 
 BuildRequires:    R-CRAN-runjags 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-limSolve 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-TreeBUGS >= 1.4.4
 Requires:         R-parallel 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
@@ -40,7 +41,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MPTinR 
-Requires:         R-CRAN-TreeBUGS 
 Requires:         R-CRAN-runjags 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-purrr 
@@ -70,6 +70,7 @@ fit_mpt() who performs the multiverse analysis in one call.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -77,6 +78,7 @@ fit_mpt() who performs the multiverse analysis in one call.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -87,6 +89,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata

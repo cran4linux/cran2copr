@@ -1,28 +1,28 @@
 %global packname  nFactors
-%global packver   2.3.3.1
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3.1
+Version:          2.4.1
 Release:          1%{?dist}
-Summary:          Parallel Analysis and Non Graphical Solutions to the CattellScree Test
+Summary:          Parallel Analysis and Other Non Graphical Solutions to theCattell Scree Test
 
-License:          GPL (>= 2)
+License:          GPL (>= 3.5.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.2
-Requires:         R-core >= 2.9.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-lattice 
+BuildRequires:    R-stats 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-boot 
-BuildRequires:    R-lattice 
+Requires:         R-lattice 
+Requires:         R-stats 
 Requires:         R-MASS 
 Requires:         R-CRAN-psych 
-Requires:         R-boot 
-Requires:         R-lattice 
 
 %description
 Indices, heuristics and strategies to help determine the number of
@@ -38,6 +38,7 @@ Bentler-Yuan khi-2.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -45,6 +46,7 @@ Bentler-Yuan khi-2.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -58,6 +60,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

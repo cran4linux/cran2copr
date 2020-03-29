@@ -1,9 +1,9 @@
 %global packname  wrapr
-%global packver   1.9.6
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.6
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Wrap R Tools for Debugging and Parametric Programming
 
@@ -24,15 +24,17 @@ Requires:         R-stats
 
 %description
 Tools for writing and debugging R code. Provides: '%.>%' dot-pipe (an 'S3'
-configurable pipe), unpack/to, (converts non-standard evaluation
-interfaces to parametric standard evaluation interfaces, inspired by
-'gtools:strmacro()' and 'base::bquote()'), 'build_frame()'/'draw_frame()'
-('data.frame' example tools), 'qc()' (quoting concatenate), ':=' (named
-map builder), 'let()', and more.
+configurable pipe), unpack/to (R style multiple assignment/return),
+'build_frame()'/'draw_frame()' ('data.frame' example tools), 'qc()'
+(quoting concatenate), ':=' (named map builder), 'let()' (converts
+non-standard evaluation interfaces to parametric standard evaluation
+interfaces, inspired by 'gtools::strmacro()' and 'base::bquote()'), and
+more.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

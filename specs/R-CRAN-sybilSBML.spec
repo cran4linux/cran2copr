@@ -1,32 +1,31 @@
-%global packname  tidytable
-%global packver   0.4.0
+%global packname  sybilSBML
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          3.1.2
 Release:          1%{?dist}
-Summary:          Tidy Interface to 'data.table'
+Summary:          'SBML' Integration in Package 'Sybil'
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 2.14.2
+Requires:         R-core >= 2.14.2
+BuildRequires:    R-CRAN-sybil >= 2.0.0
+BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sybil >= 2.0.0
+Requires:         R-Matrix 
 Requires:         R-methods 
 
 %description
-Tidy interface to 'data.table'. 'rlang' compatible, which allows the user
-to build custom functions much like they would in the tidyverse.
+'SBML' (Systems Biology Markup Language) with 'FBC' (Flux Balance
+Constraints) integration in 'sybil'. Many constraint based metabolic
+models are published in 'SBML' format ('*.xml'). Herewith is the ability
+to read, write, and check 'SBML' files in 'sybil' provided.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +50,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/INSTALL
+%doc %{rlibdir}/%{packname}/NEWS.Rd
+%doc %{rlibdir}/%{packname}/README
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

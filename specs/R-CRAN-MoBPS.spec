@@ -1,32 +1,33 @@
-%global packname  tidytable
-%global packver   0.4.0
+%global packname  MoBPS
+%global packver   1.4.87
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.4.87
 Release:          1%{?dist}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Modular Breeding Program Simulator
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Tidy interface to 'data.table'. 'rlang' compatible, which allows the user
-to build custom functions much like they would in the tidyverse.
+Framework for the simulation framework for the simulation of complex
+breeding programs and compare their economic and genetic impact. The
+package is also used as the background simulator for our a web-based
+interface <http:www.mobps.de>. Associated publication: Pook et al (2019)
+<doi:10.1101/829333>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,9 +49,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

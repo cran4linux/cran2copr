@@ -1,11 +1,11 @@
-%global packname  WorldFlora
-%global packver   1.5
+%global packname  SSP
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Standardize Plant Names According to World Flora OnlineTaxonomic Backbone
+Summary:          Simulated Sampling Procedure for Community Ecology
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,16 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sampling 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-vegan 
+Requires:         R-stats 
+Requires:         R-CRAN-sampling 
+Requires:         R-CRAN-ggplot2 
 
 %description
-World Flora Online is an online flora of all known plants, available from
-<http://www.worldfloraonline.org/>. Methods are provided of matching a
-list of plant names (scientific names, taxonomic names, botanical names)
-against a static copy of the World Flora Online Taxonomic Backbone data
-that can be downloaded from the World Flora Online website. The World
-Flora Online Taxonomic Backbone is an updated version of The Plant List
-(<http://www.theplantlist.org/>), a working list of plant names that has
-become static since 2013.
+Simulation-based sampling protocol (SSP) is an R package design to
+estimate sampling effort in studies of ecological communities based on the
+definition of pseudo-multivariate standard error (MultSE) (Anderson &
+Santana-Garcon, 2015) <doi:10.1111/ele.12385> and simulation of ecological
+data. The theoretical background is described in Guerra-Castro et al.
+(2020) <doi:10.1101/2020.03.19.996991>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +56,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/ChangeLog
-%doc %{rlibdir}/%{packname}/etc
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

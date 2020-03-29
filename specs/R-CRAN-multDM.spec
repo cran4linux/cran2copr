@@ -1,9 +1,9 @@
 %global packname  multDM
-%global packver   1.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Multivariate Version of the Diebold-Mariano Test
 

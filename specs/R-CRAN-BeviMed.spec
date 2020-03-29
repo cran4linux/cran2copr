@@ -1,9 +1,9 @@
 %global packname  BeviMed
-%global packver   5.3
+%global packver   5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3
+Version:          5.7
 Release:          1%{?dist}
 Summary:          Bayesian Evaluation of Variant Involvement in Mendelian Disease
 
@@ -15,7 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-methods 
 
 %description
 A fast integrative genetic association test for rare diseases based on a
@@ -29,6 +31,7 @@ Involved in Rare Diseases', Greene et al 2017
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +39,7 @@ Involved in Rare Diseases', Greene et al 2017
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

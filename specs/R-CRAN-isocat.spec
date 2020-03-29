@@ -1,9 +1,9 @@
 %global packname  isocat
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Isotope Origin Clustering and Assignment Tools
 
@@ -19,7 +19,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-foreach 
@@ -27,7 +26,6 @@ Requires:         R-utils
 Requires:         R-CRAN-raster 
 Requires:         R-stats 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-foreach 
@@ -48,6 +46,7 @@ traveled by individuals.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

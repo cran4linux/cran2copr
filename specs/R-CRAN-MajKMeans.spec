@@ -1,13 +1,13 @@
-%global packname  tidytable
-%global packver   0.4.0
+%global packname  MajKMeans
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Tidy Interface to 'data.table'
+Summary:          k-Means Algorithm with a Majorization-Minimization Method
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
+BuildRequires:    R-MASS 
+Requires:         R-MASS 
 
 %description
-Tidy interface to 'data.table'. 'rlang' compatible, which allows the user
-to build custom functions much like they would in the tidyverse.
+A hybrid of the K-means algorithm and a Majorization-Minimization method
+to introduce a robust clustering. The reference paper is: Julien Mairal,
+(2015) <doi:10.1137/140957639>. The two most important functions in
+package 'MajKMeans' are cluster_km() and cluster_MajKm(). cluster_km()
+clusters data without Majorization-Minimization and cluster_MajKm()
+clusters data with Majorization-Minimization method. Both of these
+functions calculate the sum of squares (SS) of clustering.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,8 +48,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  phenesse
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Estimate Phenological Metrics using Presence-Only Data
 
@@ -25,15 +25,19 @@ Requires:         R-stats
 %description
 Generates Weibull-parameterized estimates of phenology for any percentile
 of a distribution using the framework established in Cooke (1979)
-<doi.org/10.1093/biomet/66.2.367>. Non-parametric bootstrapping can be
-used to generate confidence intervals around those estimates.
-Additionally, this package offers an easy way to perform non-parametric
-bootstrapping to generate confidence intervals for quantile estimates or
-mean estimates.
+<doi:10.1093/biomet/66.2.367>.. Extensive testing against other estimators
+suggest the weib_percentile() function is especially useful in generating
+more accurate and less biased estimates of onset and offset.
+Non-parametric bootstrapping can be used to generate confidence intervals
+around those estimates. Additionally, this package offers an easy way to
+perform non-parametric bootstrapping to generate confidence intervals for
+quantile estimates, mean estimates, or any statistical function of
+interest.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

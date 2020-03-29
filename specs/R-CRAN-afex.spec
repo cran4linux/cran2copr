@@ -1,9 +1,9 @@
 %global packname  afex
-%global packver   0.26-0
+%global packver   0.27-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.26.0
+Version:          0.27.2
 Release:          1%{?dist}
 Summary:          Analysis of Factorial Experiments
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lmerTest >= 3.0.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.8
@@ -49,6 +49,7 @@ squares as default (imitating commercial statistical software).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

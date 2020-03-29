@@ -1,9 +1,9 @@
 %global packname  msae
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Multivariate Fay Herriot Models for Small Area Estimation
 
@@ -23,7 +23,7 @@ Implements multivariate Fay-Herriot models for small area estimation. It
 uses empirical best linear unbiased prediction (EBLUP) estimator.
 Multivariate models consider the correlation of several target variables
 and borrow strength from auxiliary variables to improve the effectiveness
-of a domain sample size. Models which accomodated by this package are
+of a domain sample size. Models which accommodated by this package are
 univariate model with several target variables (model 0), multivariate
 model (model 1), autoregressive multivariate model (model 2), and
 heteroscedastic autoregressive multivariate model (model 3). Functions

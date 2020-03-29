@@ -1,9 +1,9 @@
 %global packname  chilemapas
-%global packver   0.1.4
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2
 Release:          1%{?dist}
 Summary:          Mapas de las Divisiones Politicas y Administrativas de Chile(Maps of the Political and Administrative Divisions of Chile)
 
@@ -38,15 +38,16 @@ Derecho Internacional por parte de Chile. Esta paquete esta documentado
 intencionalmente en castellano asciificado para que funcione sin problema
 en diferentes plataformas. (Terrestrial maps with simplified toplogies.
 These maps lack geodesic precision, therefore DFL-83 1979 of the Republic
-of Chile applies and are consider to have no legal validity. Antartic
+of Chile applies and are considered to have no legal validity. Antartic
 territories are excluded and under no event these maps mean there is a
 cession or occupation of sovereign territories against International Laws
 from Chile. This package was intentionally documented in asciified spanish
-to make it work with problem on different platforms.)
+to make it work without problem on different platforms.)
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

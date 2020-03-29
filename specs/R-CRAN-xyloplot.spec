@@ -1,9 +1,9 @@
 %global packname  xyloplot
-%global packver   1.6
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          2.0
 Release:          1%{?dist}
 Summary:          A Method for Creating Xylophone-Like Frequency Density Plots
 
@@ -17,12 +17,13 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-A method for creating vertical histograms sharing a y-axis using base
+Methods for plotting multiple xylophone-style histograms using base
 graphics.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

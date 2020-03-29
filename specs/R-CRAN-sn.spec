@@ -1,9 +1,9 @@
 %global packname  sn
-%global packver   1.5-5
+%global packver   1.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          1.6.0
 Release:          1%{?dist}
 Summary:          The Skew-Normal and Related Distributions Such as the Skew-t
 
@@ -19,18 +19,14 @@ BuildRequires:    R-CRAN-mnormt >= 1.5.4
 BuildRequires:    R-methods 
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-quantreg 
 Requires:         R-CRAN-mnormt >= 1.5.4
 Requires:         R-methods 
 Requires:         R-stats4 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-CRAN-quantreg 
 
 %description
 Build and manipulate probability distributions of the skew-normal family
@@ -41,6 +37,7 @@ univariate and the multivariate case.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

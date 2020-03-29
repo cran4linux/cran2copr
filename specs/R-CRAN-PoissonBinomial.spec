@@ -1,11 +1,11 @@
 %global packname  PoissonBinomial
-%global packver   1.0.2-1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2.1
+Version:          1.1.0
 Release:          1%{?dist}
-Summary:          Efficient Exact and Approximate Implementations of the PoissonBinomial Distribution
+Summary:          Efficient Computation of Ordinary and Generalized PoissonBinomial Distributions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-BH
 Requires:         R-CRAN-Rcpp >= 1.0.3
 
 %description
-Implementations of multiple exact and approximate methods as described in
-Hong (2013) <doi:10.1016/j.csda.2012.10.006> and Biscarri et al. (2018)
-<doi:10.1016/j.csda.2018.01.007> for computing the probability mass,
-cumulative distribution and quantile functions, as well as generating
-random numbers for the Poisson binomial distribution.
+Efficient implementations of multiple exact and approximate methods as
+described in Hong (2013) <doi:10.1016/j.csda.2012.10.006>, Biscarri, Zhao
+& Brunner (2018) <doi:10.1016/j.csda.2018.01.007> and Zhang, Hong &
+Balakrishnan (2018) <doi:10.1080/00949655.2018.1440294> for computing the
+probability mass, cumulative distribution and quantile functions, as well
+as generating random numbers for both the ordinary and generalized Poisson
+binomial distribution.
 
 %prep
 %setup -q -c -n %{packname}

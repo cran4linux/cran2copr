@@ -1,9 +1,9 @@
 %global packname  gasfluxes
-%global packver   0.4-3
+%global packver   0.4-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}
 Summary:          Greenhouse Gas Flux Calculation from Chamber Measurements
 

@@ -1,9 +1,9 @@
 %global packname  scorecard
-%global packver   0.2.8.1
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8.1
+Version:          0.2.9
 Release:          1%{?dist}
 Summary:          Credit Risk Scorecard
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-data.table >= 1.10.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-stringi 
 
 %description
 The `scorecard` package makes the development of credit risk scorecard
@@ -44,6 +46,7 @@ Intelligent Credit Scoring.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

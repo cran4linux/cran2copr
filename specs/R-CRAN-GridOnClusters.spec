@@ -1,9 +1,9 @@
 %global packname  GridOnClusters
-%global packver   0.0.3
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.6
 Release:          1%{?dist}
 Summary:          Joint Discretization of Data on a Grid that Preserves Clusters
 
@@ -16,17 +16,19 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-cluster 
-BuildRequires:    R-CRAN-GDAtools 
+BuildRequires:    R-CRAN-fossil 
+BuildRequires:    R-CRAN-dqrng 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-cluster 
-Requires:         R-CRAN-GDAtools 
+Requires:         R-CRAN-fossil 
+Requires:         R-CRAN-dqrng 
 
 %description
 Discretize continuous multivariate data using a grid that captures the
 joint distribution via preserving clusters in the original data. Joint
-grid discretization is applicable as a data transformation step in methods
-inferring dependency by association, function, or causality with assuming
-a parametric model.
+grid discretization is applicable as a data transformation step before
+using other methods to infer association, function, or causality without
+assuming a parametric model.
 
 %prep
 %setup -q -c -n %{packname}

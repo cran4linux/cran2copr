@@ -1,9 +1,9 @@
 %global packname  tcensReg
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          MLE of a Truncated Normal Distribution with Censored Data
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-stats 
 Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Maximum likelihood estimation (MLE) of parameters assuming an underlying
@@ -32,6 +34,7 @@ truncated only problems.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,5 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %doc %{rlibdir}/%{packname}/script
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

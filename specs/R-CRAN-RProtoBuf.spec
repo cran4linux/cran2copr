@@ -1,9 +1,9 @@
 %global packname  RProtoBuf
-%global packver   0.4.16
+%global packver   0.4.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.16
+Version:          0.4.17
 Release:          1%{?dist}
 Summary:          R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
 

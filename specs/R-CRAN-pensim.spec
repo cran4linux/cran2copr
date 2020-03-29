@@ -1,11 +1,11 @@
 %global packname  pensim
-%global packver   1.2.9
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          1.3.1
 Release:          1%{?dist}
-Summary:          Simulation of high-dimensional data and parallelized repeatedpenalized regression
+Summary:          Simulation of High-Dimensional Data and Parallelized RepeatedPenalized Regression
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,6 +31,7 @@ tuning of the Elastic Net.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +39,7 @@ tuning of the Elastic Net.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

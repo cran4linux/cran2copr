@@ -1,32 +1,32 @@
-%global packname  tidytable
-%global packver   0.4.0
+%global packname  generalKSStat
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.3
 Release:          1%{?dist}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Computes KS-Like Goodness-of-Fit Test Statistics
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Tidy interface to 'data.table'. 'rlang' compatible, which allows the user
-to build custom functions much like they would in the tidyverse.
+Computing KS-like goodness-of-fit test statistics such as the
+Kolmogorov-Smirnov, Berk-Jones and the higher criticism statistics. The
+p-values are computed via the Exact-KS-FFT(fast Fourier transform) method
+developed by Dimitrova, Kaishev, Tan (2017) <doi:10.18637/jss.v039.i11>.
+The algorithm works for the sample size up to 25,000.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,8 +49,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs
