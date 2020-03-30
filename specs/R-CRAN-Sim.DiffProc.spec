@@ -1,9 +1,9 @@
 %global packname  Sim.DiffProc
-%global packver   4.4
+%global packver   4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4
+Version:          4.5
 Release:          1%{?dist}
 Summary:          Simulation of Diffusion Processes
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.15.1
 Requires:         R-core >= 2.15.1
 BuildRequires:    R-MASS >= 7.3.30
-BuildRequires:    R-CRAN-Deriv >= 3.8.0
+BuildRequires:    R-CRAN-Deriv >= 3.8
 BuildRequires:    R-parallel 
 Requires:         R-MASS >= 7.3.30
-Requires:         R-CRAN-Deriv >= 3.8.0
+Requires:         R-CRAN-Deriv >= 3.8
 Requires:         R-parallel 
 
 %description
@@ -34,6 +34,7 @@ the attractive center (Boukhetala K, 1996) ISBN:1-56252-342-2.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -41,6 +42,7 @@ the attractive center (Boukhetala K, 1996) ISBN:1-56252-342-2.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

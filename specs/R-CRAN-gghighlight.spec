@@ -1,9 +1,9 @@
 %global packname  gghighlight
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Highlight Lines and Points in 'ggplot2'
 
@@ -17,22 +17,18 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-dplyr > 0.7.0
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-dplyr > 0.7.0
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-tibble 
 
 %description
 Make it easier to explore data with highlights.
@@ -40,6 +36,7 @@ Make it easier to explore data with highlights.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  sweidnumbr
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}
 Summary:          Handling of Swedish Identity Numbers
 
@@ -15,10 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate >= 1.4
+BuildRequires:    R-CRAN-lubridate >= 1.5
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-lubridate >= 1.4
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-lubridate >= 1.5
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-checkmate 
 
 %description
 Structural handling of identity numbers used in the Swedish administration
@@ -28,6 +30,7 @@ identity numbers ('organisationsnummer').
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

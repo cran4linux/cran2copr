@@ -1,9 +1,9 @@
 %global packname  SimInf
-%global packver   6.4.0
+%global packver   6.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.4.0
+Version:          6.5.0
 Release:          1%{?dist}
 Summary:          A Framework for Data-Driven Stochastic Disease SpreadSimulations
 
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel
-Requires:         gsl
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-graphics 
@@ -48,6 +47,7 @@ details see the paper by Widgren, Bauer, Eriksson and Engblom (2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

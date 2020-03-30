@@ -1,9 +1,9 @@
 %global packname  ggupset
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Combination Matrix Axis for 'ggplot2' to Create 'UpSet' Plots
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-gtable 
 Requires:         R-grid 
 Requires:         R-CRAN-tibble 

@@ -1,9 +1,9 @@
 %global packname  geobr
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}
 Summary:          Loads Shapefiles of Official Spatial Data Sets of Brazil
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-sf 
 Requires:         R-utils 
 
 %description

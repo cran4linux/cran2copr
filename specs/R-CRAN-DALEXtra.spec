@@ -1,9 +1,9 @@
 %global packname  DALEXtra
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Extension for 'DALEX' Package
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DALEX >= 0.4.9
+BuildRequires:    R-CRAN-DALEX >= 1.0.0
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-DALEX >= 0.4.9
+Requires:         R-CRAN-DALEX >= 1.0.0
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
@@ -46,6 +46,7 @@ variables.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

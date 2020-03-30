@@ -1,9 +1,9 @@
 %global packname  heuristicsmineR
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          Discovery of Process Models with the Heuristics Miner
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
 Requires:         R-CRAN-processmapR >= 0.3.1
@@ -43,6 +44,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
 
 %description
 Provides the heuristics miner algorithm for process discovery as proposed

@@ -1,9 +1,9 @@
 %global packname  ProjectionBasedClustering
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Projection Based Clustering
 
@@ -24,10 +24,8 @@ BuildRequires:    R-CRAN-geometry
 BuildRequires:    R-CRAN-GeneralizedUmatrix 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
@@ -39,10 +37,8 @@ Requires:         R-CRAN-geometry
 Requires:         R-CRAN-GeneralizedUmatrix 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-magrittr 
 Requires:         R-grDevices 
 
 %description
@@ -66,6 +62,7 @@ translated from 'MATLAB' ('SOM Toolbox' 2.0) to R.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

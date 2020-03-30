@@ -1,9 +1,9 @@
 %global packname  LPRelevance
-%global packver   2.1
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          3.0
 Release:          1%{?dist}
 Summary:          Relevance-Integrated Statistical Inference Engine
 
@@ -17,20 +17,26 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-BayesGOF 
+BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-leaps 
 BuildRequires:    R-CRAN-locfdr 
 BuildRequires:    R-CRAN-Bolstad2 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-polynom 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-caret 
 Requires:         R-stats 
 Requires:         R-CRAN-BayesGOF 
+Requires:         R-MASS 
 Requires:         R-CRAN-leaps 
 Requires:         R-CRAN-locfdr 
 Requires:         R-CRAN-Bolstad2 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-polynom 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-caret 
 
 %description
 A framework of methods to perform customized inference at individual level
@@ -39,11 +45,12 @@ provided in this package: (i) LASER(): it generates specially-designed
 artificial relevant samples for a given case; (ii) g2l.proc(): computes
 customized fdr(z|x); and (iii) rEB.proc(): performs empirical Bayes
 inference based on LASERs. The details can be found in Mukhopadhyay, S.,
-and Wang, K (2019, Technical Report).
+and Wang, K (2020, Technical Report).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

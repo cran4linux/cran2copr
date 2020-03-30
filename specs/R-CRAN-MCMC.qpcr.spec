@@ -1,9 +1,9 @@
 %global packname  MCMC.qpcr
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}
 Summary:          Bayesian Analysis of qRT-PCR Data
 
@@ -31,11 +31,13 @@ global effects (common to all genes). The package also implements a
 lognormal model for higher-abundance data and a "classic" model involving
 multi-gene normalization on a by-sample basis. Several plotting functions
 are included to extract and visualize results. The detailed tutorial is
-available here: <http://bit.ly/1Nwo4CB>.
+available here:
+<https://matzlab.weebly.com/uploads/7/6/2/2/76229469/mcmc.qpcr.tutorial.v1.2.4.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

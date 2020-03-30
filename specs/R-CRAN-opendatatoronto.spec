@@ -1,9 +1,9 @@
 %global packname  opendatatoronto
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Access the City of Toronto Open Data Portal
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-ckanr >= 0.4.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-curl 
 
 %description
 Access data from the "City of Toronto Open Data Portal"

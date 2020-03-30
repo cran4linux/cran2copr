@@ -1,9 +1,9 @@
 %global packname  seedCCA
-%global packver   1.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          3.0
 Release:          1%{?dist}
 Summary:          Seeded Canonical Correlation Analysis
 
@@ -41,6 +41,7 @@ with the initially-reduced two sets of variables.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

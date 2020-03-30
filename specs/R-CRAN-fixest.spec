@@ -1,9 +1,9 @@
 %global packname  fixest
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Fast Fixed-Effects Estimations
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-MASS 
@@ -24,6 +25,7 @@ BuildRequires:    R-nlme
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-CRAN-Formula 
 Requires:         R-MASS 

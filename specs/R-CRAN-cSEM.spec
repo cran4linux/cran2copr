@@ -1,9 +1,9 @@
 %global packname  cSEM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Composite-Based Structural Equation Modeling
 
@@ -72,6 +72,7 @@ the estimates, assess the model fit, test the model fit etc.).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -92,9 +93,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
-%doc %{rlibdir}/%{packname}/REFERENCES.bib.sav
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
