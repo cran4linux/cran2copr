@@ -1,38 +1,35 @@
-%global packname  fICA
-%global packver   1.1-1
+%global packname  irace
+%global packver   3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          3.4
 Release:          1%{?dist}
-Summary:          Classical, Reloaded and Adaptive FastICA Algorithms
+Summary:          Iterated Racing for Automatic Algorithm Configuration
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-JADE 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-R6 
 Requires:         R-stats 
-Requires:         R-CRAN-JADE 
+Requires:         R-utils 
+Requires:         R-CRAN-R6 
 
 %description
-Algorithms for classical symmetric and deflation-based FastICA, reloaded
-deflation-based FastICA algorithm and an algorithm for adaptive
-deflation-based FastICA using multiple nonlinearities. For details, see
-Miettinen et al. (2014) <doi:10.1109/TSP.2014.2356442> and Miettinen et
-al. (2017) <doi:10.1016/j.sigpro.2016.08.028>. The package is described in
-Miettinen, Nordhausen and Taskinen (2018) <doi:10.32614/RJ-2018-046>.
+Iterated race is an extension of the Iterated F-race method for the
+automatic configuration of optimization algorithms, that is, (offline)
+tuning their parameters by finding the most appropriate settings given a
+set of instances of an optimization problem.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
@@ -52,8 +49,13 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/ChangeLog
+%{rlibdir}/%{packname}/bin
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
+%{rlibdir}/%{packname}/exdata
+%doc %{rlibdir}/%{packname}/templates
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

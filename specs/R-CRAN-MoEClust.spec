@@ -1,9 +1,9 @@
 %global packname  MoEClust
-%global packver   1.2.4
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Gaussian Parsimonious Clustering Models with Covariates and aNoise Component
 
@@ -44,6 +44,7 @@ parameterisation, and the subsets of gating/expert network covariates.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

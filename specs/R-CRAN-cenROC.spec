@@ -1,33 +1,29 @@
-%global packname  spNNGP
-%global packver   0.1.4
+%global packname  cenROC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Spatial Regression Models for Large Datasets using NearestNeighbor Gaussian Processes
+Summary:          Estimation of the Time-Dependent ROC Curve and AUC for CensoredSurvival Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-RANN 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-RANN 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-condSURV 
+Requires:         R-CRAN-condSURV 
 
 %description
-Fits univariate Bayesian spatial regression models for large datasets
-using Nearest Neighbor Gaussian Processes (NNGP) detailed in Finley,
-Datta, Banerjee (2020) <arXiv:2001.09111>, and Finley, Datta, Cook,
-Morton, Andersen, and Banerjee (2019) <doi:10.1080/10618600.2018.1537924>
-and Datta, Banerjee, Finley, and Gelfand (2016)
-<doi:10.1080/01621459.2015.1044091>.
+Contains functions to estimate a smoothed and a non-smoothed (empirical)
+time- dependent ROC curve (receiver operating characteristic curve) and
+the corresponding area under the ROC curve (AUC) for the right censored
+survival data, as described in Beyene and El Ghouch (2019)
+<https://dial.uclouvain.be/pr/boreal/object/boreal:219643>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,4 +50,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

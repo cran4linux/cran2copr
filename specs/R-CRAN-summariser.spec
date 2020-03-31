@@ -1,9 +1,9 @@
 %global packname  summariser
-%global packver   2.0.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Easy Calculation and Visualisation of Confidence Intervals
 
@@ -16,9 +16,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
 
 %description
 Functions to speed up the exploratory analysis of simple datasets using

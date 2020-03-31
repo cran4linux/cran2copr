@@ -1,9 +1,9 @@
 %global packname  IMIFA
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}
 Summary:          Infinite Mixtures of Infinite Factor Analysers and RelatedModels
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mclust >= 5.1
-BuildRequires:    R-CRAN-Rfast >= 1.9.4
+BuildRequires:    R-CRAN-Rfast >= 1.9.8
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-mclust >= 5.1
-Requires:         R-CRAN-Rfast >= 1.9.4
+Requires:         R-CRAN-Rfast >= 1.9.8
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-slam 
@@ -43,6 +43,7 @@ interest, posterior predictive checking, and quantifying uncertainty.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  Rsagacmd
-%global packver   0.0.2
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          Linking R with the Open-Source 'SAGA-GIS' Software
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-minpack.lm
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-sf 
@@ -35,6 +37,8 @@ Requires:         R-CRAN-minpack.lm
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides an R scripting interface to the open-source 'SAGA-GIS' (System
@@ -60,7 +64,7 @@ binaries. SAGA-GIS is also included in Debian/Ubuntu default software
 repositories and is available for macOS using homebrew
 (<https://brew.sh/>) from the osgeo/osgeo4mac
 (<https://github.com/OSGeo/homebrew-osgeo4mac>) formula tap. Rsagacmd has
-currently been tested on 'SAGA-GIS' versions from 2.3.1 to 7.4.0 on
+currently been tested on 'SAGA-GIS' versions from 2.3.1 to 7.6.0 on
 Windows, Linux and macOS.
 
 %prep

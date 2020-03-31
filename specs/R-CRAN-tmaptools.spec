@@ -1,9 +1,9 @@
 %global packname  tmaptools
-%global packver   2.0-2
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          3.0
 Release:          1%{?dist}
 Summary:          Thematic Map Tools
 
@@ -16,14 +16,12 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster >= 2.7.15
-BuildRequires:    R-CRAN-sf >= 0.7.1
+BuildRequires:    R-CRAN-sf >= 0.9
 BuildRequires:    R-CRAN-units >= 0.6.1
+BuildRequires:    R-CRAN-stars >= 0.4.0
 BuildRequires:    R-CRAN-lwgeom >= 0.1.4
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-KernSmooth 
 BuildRequires:    R-CRAN-magrittr 
@@ -33,14 +31,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-dichromat 
 BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-raster >= 2.7.15
-Requires:         R-CRAN-sf >= 0.7.1
+Requires:         R-CRAN-sf >= 0.9
 Requires:         R-CRAN-units >= 0.6.1
+Requires:         R-CRAN-stars >= 0.4.0
 Requires:         R-CRAN-lwgeom >= 0.1.4
 Requires:         R-methods 
-Requires:         R-CRAN-sp 
 Requires:         R-grid 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-classInt 
 Requires:         R-KernSmooth 
 Requires:         R-CRAN-magrittr 
@@ -58,6 +54,7 @@ the workflow to create thematic maps. This package also facilitates
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -65,6 +62,7 @@ the workflow to create thematic maps. This package also facilitates
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,34 +1,30 @@
-%global packname  fICA
-%global packver   1.1-1
+%global packname  text.alignment
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Classical, Reloaded and Adaptive FastICA Algorithms
+Summary:          Text Alignment with Smith-Waterman
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-JADE 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-stats 
-Requires:         R-CRAN-JADE 
+BuildRequires:    R-CRAN-Rcpp >= 0.11.5
+Requires:         R-CRAN-Rcpp >= 0.11.5
 
 %description
-Algorithms for classical symmetric and deflation-based FastICA, reloaded
-deflation-based FastICA algorithm and an algorithm for adaptive
-deflation-based FastICA using multiple nonlinearities. For details, see
-Miettinen et al. (2014) <doi:10.1109/TSP.2014.2356442> and Miettinen et
-al. (2017) <doi:10.1016/j.sigpro.2016.08.028>. The package is described in
-Miettinen, Nordhausen and Taskinen (2018) <doi:10.32614/RJ-2018-046>.
+Find similarities between texts using the Smith-Waterman algorithm. The
+algorithm performs local sequence alignment and determines similar regions
+between two strings. The Smith-Waterman algorithm is explained in the
+paper: "Identification of common molecular subsequences" by T.F.Smith and
+M.S.Waterman (1981), available at <doi:10.1016/0022-2836(81)90087-5>. This
+package implements the same logic for sequences of words and letters
+instead of molecular sequences.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,9 +47,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/ChangeLog
-%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

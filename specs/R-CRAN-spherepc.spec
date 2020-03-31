@@ -1,9 +1,9 @@
 %global packname  spherepc
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Spherical Principal Curves
 
@@ -15,20 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-sphereplot 
-BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-sphereplot 
-Requires:         R-CRAN-geosphere 
+Requires:         R-stats 
 
 %description
 Fitting a principal curve to data lying in the spherical surface. This
 package provides principal circle, principal geodesic analysis, Hauberg's
-principal curves, and spherical principal curves. Moreover, it partially
-offers locally defined principal geodesics which are currently under
-study. The detailed procedure is described in Jang-Hyun Kim, Jongmin Lee
-and Hee-Seok Oh (2020) <arXiv:2003.02578>.
+principal curves, and spherical principal curves. Moreover, it offers
+locally defined principal geodesics which are currently under study. The
+detailed procedures are described in Jang-Hyun Kim, Jongmin Lee and
+Hee-Seok Oh (2020) <arXiv:2003.02578>.
 
 %prep
 %setup -q -c -n %{packname}

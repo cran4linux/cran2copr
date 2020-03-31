@@ -1,9 +1,9 @@
 %global packname  PublicationBias
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Sensitivity Analysis for Publication Bias in Meta-Analyses
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-MetaUtility
 
 %description
 Performs sensitivity analysis for publication bias in meta-analyses (per
-Mathur & VanderWeele, 2019 [<https://osf.io/s9dp6>]). These analyses
+Mathur & VanderWeele, 2020 [<https://osf.io/s9dp6>]). These analyses
 enable statements such as: "For publication bias to shift the observed
 point estimate to the null, 'significant' results would need to be at
 least 30-fold more likely to be published than negative or
@@ -45,6 +45,7 @@ only the negative and "nonsignificant" studies.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  cotram
-%global packver   0.1-1
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Count Transformation Models
 
@@ -31,11 +31,12 @@ transformed expectations. An appropriate data transformation for a count
 outcome and regression coefficients are simultaneously estimated by
 maximising the exact discrete log-likelihood using the computational
 framework provided in package 'mlt', technical details are given in
-Hothorn et al. (2018) <DOI:10.1111/sjos.12291>.
+Siegfried & Hothorn (2020) <DOI:10.1111/2041-210X.13383>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -56,8 +57,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/application
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/README.txt
+%doc %{rlibdir}/%{packname}/README
 %doc %{rlibdir}/%{packname}/simulation
 %{rlibdir}/%{packname}/INDEX

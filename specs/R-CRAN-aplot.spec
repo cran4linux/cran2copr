@@ -1,41 +1,36 @@
-%global packname  schrute
-%global packver   0.2.1
+%global packname  aplot
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.3
 Release:          1%{?dist}
-Summary:          The Entire Transcript from the Office in Tidy Format
+Summary:          Decorate a 'ggplot' with Associated Information
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
+Requires:         R-methods 
 
 %description
-The complete scripts from the American version of the Office television
-show in tibble format. Use this package to analyze and have fun with text
-from the best series of all time.
+For many times, we are not just aligning plots as what 'cowplot' and
+'patchwork' did. Users would like to align associated information that
+requires axes to be exactly matched in subplots, e.g. hierarchical
+clustering with a heatmap. This package provides utilities to aligns
+associated subplots to a main plot at different sides (left, right, top
+and bottom) with axes exactly matched.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,12 +52,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

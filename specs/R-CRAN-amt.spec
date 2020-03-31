@@ -1,9 +1,9 @@
 %global packname  amt
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}
 Summary:          Animal Movement Tools
 
@@ -79,8 +79,10 @@ Requires:         R-utils
 Manage and analyze animal movement data. The functionality of 'amt'
 includes methods to calculate track statistics (e.g. step lengths, speed,
 or turning angles), prepare data for fitting habitat selection analyses
-(resource and step-selection functions), and simulation of space-use from
-fitted step-selection functions.
+(resource selection functions and step-selection functions
+<doi:10.1890/04-0953> and integrated step-selection functions
+<doi:10.1111/2041-210X.12528>), and simulation of space-use from fitted
+step-selection functions <doi:10.1002/ecs2.1771>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -110,5 +112,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

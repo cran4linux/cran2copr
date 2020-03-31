@@ -1,9 +1,9 @@
 %global packname  paws.customer.engagement
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          Amazon Web Services Customer Engagement APIs
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.2.5
-Requires:         R-CRAN-paws.common >= 0.2.5
+BuildRequires:    R-CRAN-paws.common >= 0.3.0
+Requires:         R-CRAN-paws.common >= 0.3.0
 
 %description
 Interface to Amazon Web Services customer engagement APIs, including
@@ -26,6 +26,7 @@ Interface to Amazon Web Services customer engagement APIs, including
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

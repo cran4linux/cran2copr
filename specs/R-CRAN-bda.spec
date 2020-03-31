@@ -1,9 +1,9 @@
 %global packname  bda
-%global packver   14.1.4
+%global packver   14.3.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          14.1.4
+Version:          14.3.19
 Release:          1%{?dist}
 Summary:          Binned Data Analysis
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
 Algorithms developed for binned data analysis, gene expression data
@@ -22,6 +22,7 @@ analysis and measurement error models for ordinal data analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
