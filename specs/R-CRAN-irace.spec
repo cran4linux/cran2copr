@@ -1,9 +1,9 @@
 %global packname  irace
-%global packver   3.4
+%global packver   3.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4
+Version:          3.4.1
 Release:          1%{?dist}
 Summary:          Iterated Racing for Automatic Algorithm Configuration
 
@@ -25,7 +25,9 @@ Requires:         R-CRAN-R6
 Iterated race is an extension of the Iterated F-race method for the
 automatic configuration of optimization algorithms, that is, (offline)
 tuning their parameters by finding the most appropriate settings given a
-set of instances of an optimization problem.
+set of instances of an optimization problem. M. López-Ibáñez, J.
+Dubois-Lacoste, L. Pérez Cáceres, T. Stützle, and M. Birattari (2016)
+<doi:10.1016/j.orp.2016.09.002>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,7 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/bin
 %doc %{rlibdir}/%{packname}/CITATION

@@ -1,9 +1,9 @@
 %global packname  forecast
-%global packver   8.11
+%global packver   8.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.11
+Version:          8.12
 Release:          1%{?dist}
 Summary:          Forecasting Functions for Time Series and Linear Models
 

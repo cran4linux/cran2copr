@@ -1,30 +1,29 @@
-%global packname  bcmixed
-%global packver   0.1.4
+%global packname  SpatialRoMLE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Mixed Effect Model with the Box-Cox Transformation
+Summary:          Robust Maximum Likelihood Estimation for Spatial Error Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.3
-Requires:         R-core >= 3.3.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.45
-BuildRequires:    R-nlme >= 3.1.131
-Requires:         R-MASS >= 7.3.45
-Requires:         R-nlme >= 3.1.131
 
 %description
-Inference on the marginal model of the mixed effect model with the Box-Cox
-transformation and on the model median differences between treatment
-groups for longitudinal randomized clinical trials. These statistical
-methods are proposed by Maruo et al. (2017) <doi:10.1002/sim.7279>.
+Provides robust estimation for spatial error model to presence of outliers
+in the residuals. The classical estimation methods can be influenced by
+the presence of outliers in the data. We proposed a robust estimation
+approach based on the robustified likelihood equations for spatial error
+model (Vural Yildirim & Yeliz Mert Kantar (2020): Robust estimation
+approach for spatial error model, Journal of Statistical Computation and
+Simulation, <doi:10.1080/00949655.2020.1740223>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +48,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

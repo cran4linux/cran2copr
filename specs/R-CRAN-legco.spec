@@ -1,32 +1,36 @@
-%global packname  flacco
-%global packver   1.8
+%global packname  legco
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          0.1.3
 Release:          1%{?dist}
-Summary:          Feature-Based Landscape Analysis of Continuous and ConstrainedOptimization Problems
+Summary:          Accessing Hong Kong Legislative Council API
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BBmisc 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-mlr 
-Requires:         R-CRAN-BBmisc 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-mlr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-Tools and features for "Exploratory Landscape Analysis (ELA)" of
-single-objective continuous optimization problems. Those features are able
-to quantify rather complex properties, such as the global structure,
-separability, etc., of the optimization problems.
+Fetching data from Hong Kong Legislative Council's open data API in R.
+Functions correspond to the data endpoints of the API. Documentations of
+supported API databases:
+<https://www.legco.gov.hk/odata/english/billsdb.html>,
+<https://www.legco.gov.hk/odata/english/hansard-db.html>,
+<https://www.legco.gov.hk/odata/english/attendance-db.html>,
+<https://www.legco.gov.hk/odata/english/schedule-db.html> and
+<https://www.legco.gov.hk/odata/english/vrdb.html>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,9 +56,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/flaccogui
 %{rlibdir}/%{packname}/INDEX

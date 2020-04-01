@@ -1,9 +1,9 @@
 %global packname  RRphylo
-%global packver   2.4.0
+%global packver   2.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.4.4
 Release:          1%{?dist}
 Summary:          Phylogenetic Ridge Regression Methods for Comparative Studies
 
@@ -22,8 +22,6 @@ BuildRequires:    R-CRAN-geiger
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-pvclust 
-BuildRequires:    R-CRAN-mvMORPH 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-phangorn 
@@ -40,7 +38,6 @@ BuildRequires:    R-CRAN-picante
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-cluster 
-BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-ddpcr 
 BuildRequires:    R-CRAN-geomorph 
 Requires:         R-CRAN-emmeans >= 1.4.3
@@ -50,8 +47,6 @@ Requires:         R-CRAN-geiger
 Requires:         R-stats4 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-pvclust 
-Requires:         R-CRAN-mvMORPH 
 Requires:         R-CRAN-lmtest 
 Requires:         R-parallel 
 Requires:         R-CRAN-phangorn 
@@ -68,7 +63,6 @@ Requires:         R-CRAN-picante
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-plotrix 
 Requires:         R-cluster 
-Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-ddpcr 
 Requires:         R-CRAN-geomorph 
 
@@ -83,6 +77,7 @@ test for morphological convergence.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

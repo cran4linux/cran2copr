@@ -1,9 +1,9 @@
 %global packname  slga
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Data Access Tools for the Soil and Landscape Grid of Australia
 
@@ -15,25 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
 
 %description
 Provides access to soil and landscape grid of Australia raster datasets
 via existing open geospatial consortium web coverage services. See
-<http://www.csiro.au/soil-and-landscape-grid>.
+<https://www.csiro.au/soil-and-landscape-grid>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

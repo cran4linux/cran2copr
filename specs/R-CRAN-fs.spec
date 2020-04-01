@@ -1,9 +1,9 @@
 %global packname  fs
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Cross-Platform File System Operations Based on 'libuv'
 
@@ -16,9 +16,7 @@ BuildRequires:    make
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
 
 %description
 A cross-platform interface to file system operations, built on top of the

@@ -1,30 +1,28 @@
-%global packname  bcmixed
-%global packver   0.1.4
+%global packname  aniview
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Mixed Effect Model with the Box-Cox Transformation
+Summary:          Animate Shiny and R Markdown Content when it Comes into View
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.3
-Requires:         R-core >= 3.3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.45
-BuildRequires:    R-nlme >= 3.1.131
-Requires:         R-MASS >= 7.3.45
-Requires:         R-nlme >= 3.1.131
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
 
 %description
-Inference on the marginal model of the mixed effect model with the Box-Cox
-transformation and on the model median differences between treatment
-groups for longitudinal randomized clinical trials. These statistical
-methods are proposed by Maruo et al. (2017) <doi:10.1002/sim.7279>.
+Animate Shiny and R Markdown content when it comes into view using
+'animate-css' effects thanks to 'jQuery AniView'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,9 +44,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/animate.css-3.7.2
+%doc %{rlibdir}/%{packname}/jquery-aniview-1.0.2
 %{rlibdir}/%{packname}/INDEX

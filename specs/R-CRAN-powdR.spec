@@ -1,9 +1,9 @@
 %global packname  powdR
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Full Pattern Summation of X-Ray Powder Diffraction Data
 
@@ -17,27 +17,29 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.7.1
 BuildRequires:    R-stats >= 3.4.3
+BuildRequires:    R-utils >= 2.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-nnls >= 1.4
 BuildRequires:    R-CRAN-baseline >= 1.2
 BuildRequires:    R-CRAN-shiny >= 1.0.5
-BuildRequires:    R-CRAN-memisc >= 0.99.17
 BuildRequires:    R-CRAN-reshape >= 0.8.6
 BuildRequires:    R-CRAN-tidyr >= 0.8
 BuildRequires:    R-CRAN-shinyWidgets >= 0.4.3
+BuildRequires:    R-CRAN-DT >= 0.12
 BuildRequires:    R-CRAN-ggpubr >= 0.1.7
 Requires:         R-CRAN-plotly >= 4.7.1
 Requires:         R-stats >= 3.4.3
+Requires:         R-utils >= 2.5.0
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-nnls >= 1.4
 Requires:         R-CRAN-baseline >= 1.2
 Requires:         R-CRAN-shiny >= 1.0.5
-Requires:         R-CRAN-memisc >= 0.99.17
 Requires:         R-CRAN-reshape >= 0.8.6
 Requires:         R-CRAN-tidyr >= 0.8
 Requires:         R-CRAN-shinyWidgets >= 0.4.3
+Requires:         R-CRAN-DT >= 0.12
 Requires:         R-CRAN-ggpubr >= 0.1.7
 
 %description
@@ -49,6 +51,7 @@ in complex mixtures.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

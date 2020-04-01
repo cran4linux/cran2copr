@@ -1,9 +1,9 @@
 %global packname  SDraw
-%global packver   2.1.8
+%global packver   2.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.8
+Version:          2.1.11
 Release:          1%{?dist}
 Summary:          Spatially Balanced Samples of Spatial Objects
 
@@ -23,6 +23,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-covr 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spsurvey 
 Requires:         R-utils 
@@ -31,6 +32,7 @@ Requires:         R-graphics
 Requires:         R-methods 
 Requires:         R-CRAN-deldir 
 Requires:         R-stats 
+Requires:         R-CRAN-covr 
 
 %description
 Routines for drawing samples from spatial objects, focused on spatially
@@ -46,6 +48,7 @@ from package 'sp'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

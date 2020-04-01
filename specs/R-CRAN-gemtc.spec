@@ -1,9 +1,9 @@
 %global packname  gemtc
-%global packver   0.8-2
+%global packver   0.8-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.4
 Release:          1%{?dist}
 Summary:          Network Meta-Analysis Using Bayesian Methods
 
@@ -47,6 +47,7 @@ inconsistency, and a number of standard visualizations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -71,8 +72,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/gemtc.armeffect.likelihood.txt
 %doc %{rlibdir}/%{packname}/gemtc.fixedeffect.txt
-%doc %{rlibdir}/%{packname}/gemtc.likelihood.binom.power.txt
-%doc %{rlibdir}/%{packname}/gemtc.likelihood.binom.txt
+%{rlibdir}/%{packname}/gemtc.likelihood.binom.power.txt
+%{rlibdir}/%{packname}/gemtc.likelihood.binom.txt
 %doc %{rlibdir}/%{packname}/gemtc.likelihood.normal.power.txt
 %doc %{rlibdir}/%{packname}/gemtc.likelihood.normal.txt
 %doc %{rlibdir}/%{packname}/gemtc.likelihood.poisson.power.txt

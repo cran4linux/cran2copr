@@ -1,9 +1,9 @@
 %global packname  biogram
-%global packver   1.6.1
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.3
 Release:          1%{?dist}
 Summary:          N-Gram Analysis of Biological Sequences
 
@@ -16,12 +16,10 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-CRAN-bit 
 BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-entropy 
 BuildRequires:    R-CRAN-partitions 
 Requires:         R-CRAN-slam 
-Requires:         R-CRAN-bit 
 Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-entropy 
 Requires:         R-CRAN-partitions 
@@ -34,6 +32,7 @@ permutation test) for fast feature-filtering of the n-gram data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

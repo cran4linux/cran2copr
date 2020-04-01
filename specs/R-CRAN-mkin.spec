@@ -1,9 +1,9 @@
 %global packname  mkin
-%global packver   0.9.49.8
+%global packver   0.9.49.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.49.8
+Version:          0.9.49.9
 Release:          1%{?dist}
 Summary:          Kinetic Evaluation of Chemical Degradation Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-inline
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-pkgbuild 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-methods 
@@ -33,20 +34,21 @@ Requires:         R-CRAN-inline
 Requires:         R-parallel 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-pkgbuild 
 
 %description
 Calculation routines based on the FOCUS Kinetics Report (2006, 2014).
 Includes a function for conveniently defining differential equation
 models, model solution based on eigenvalues if possible or using numerical
-solvers and a choice of the optimisation methods made available by the
-'FME' package.  If a C compiler (on windows: 'Rtools') is installed,
-differential equation models are solved using compiled C functions.
-Please note that no warranty is implied for correctness of results or
-fitness for a particular purpose.
+solvers.  If a C compiler (on windows: 'Rtools') is installed,
+differential equation models are solved using automatically generated C
+functions.  Please note that no warranty is implied for correctness of
+results or fitness for a particular purpose.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

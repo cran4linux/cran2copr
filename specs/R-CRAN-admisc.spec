@@ -1,9 +1,9 @@
 %global packname  admisc
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}
 Summary:          Adrian Dusa's Miscellaneous
 
@@ -25,10 +25,10 @@ binary and multi-value crisp sets, and extracts information (set names,
 set values) from those expressions. Other functions perform various other
 checks if possibly numeric (even if all numbers reside in a character
 vector) and coerce to numeric, or check if the numbers are whole. It also
-offers, among others, a highly flexible recoding function. Some functions
+offers, among others, a highly flexible recoding routine. Some functions
 need specific functionality from package QCA, but since that package
-depends on this package, admisc cannot automatically load package QCA due
-to circular dependency.
+depends on this one, admisc cannot automatically load it due to circular
+dependency.
 
 %prep
 %setup -q -c -n %{packname}

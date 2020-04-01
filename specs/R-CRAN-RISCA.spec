@@ -1,9 +1,9 @@
 %global packname  RISCA
-%global packver   0.8
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.8.1
 Release:          1%{?dist}
 Summary:          Causal Inference and Prediction in Cohort-Based Analyses
 
@@ -12,29 +12,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-splines 
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-relsurv 
-BuildRequires:    R-CRAN-riskRegression 
 BuildRequires:    R-CRAN-date 
 BuildRequires:    R-graphics 
 BuildRequires:    R-nlme 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-splines 
 Requires:         R-survival 
 Requires:         R-CRAN-relsurv 
-Requires:         R-CRAN-riskRegression 
 Requires:         R-CRAN-date 
 Requires:         R-graphics 
 Requires:         R-nlme 
 Requires:         R-MASS 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-statmod 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
 We propose numerous functions for cohort-based analyses, either for
@@ -53,13 +57,14 @@ functions to estimate time-dependent receiver operating characteristic
 (ROC) curves with the possible consideration of right-censoring
 times-to-events or the presence of confounders (Le Borgne, 2018, <doi:
 10.1177/0962280217702416>). Finally, several functions are available to
-assess time-dependant ROC curves (Combescure, 2017, <doi:
+assess time-dependent ROC curves (Combescure, 2017, <doi:
 10.1177/0962280212464542>) or survival curves (Combescure, 2014, <doi:
 10.1002/sim.6111>) from aggregated data.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

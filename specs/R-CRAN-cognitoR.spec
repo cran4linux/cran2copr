@@ -1,39 +1,40 @@
-%global packname  meteoland
-%global packver   0.9.2
+%global packname  cognitoR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Landscape Meteorology Tools
+Summary:          Authentication for 'Shiny' Apps with 'Amazon Cognito'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
 
 %description
-Functions to estimate weather variables at any position of a landscape [De
-Caceres et al. (2018) <doi:10.1016/j.envsoft.2018.08.003>].
+Provides authentication for Shiny applications using 'Amazon Cognito' (
+<https://aws.amazon.com/es/cognito/>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,13 +56,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/config.yml
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/examples
+%doc %{rlibdir}/%{packname}/js
+%doc %{rlibdir}/%{packname}/sample_config.yml
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

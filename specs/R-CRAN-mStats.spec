@@ -1,30 +1,33 @@
-%global packname  bcmixed
-%global packver   0.1.4
+%global packname  mStats
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          3.2.2
 Release:          1%{?dist}
-Summary:          Mixed Effect Model with the Box-Cox Transformation
+Summary:          Epidemiological Data Analysis
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.3
-Requires:         R-core >= 3.3.3
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.45
-BuildRequires:    R-nlme >= 3.1.131
-Requires:         R-MASS >= 7.3.45
-Requires:         R-nlme >= 3.1.131
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Inference on the marginal model of the mixed effect model with the Box-Cox
-transformation and on the model median differences between treatment
-groups for longitudinal randomized clinical trials. These statistical
-methods are proposed by Maruo et al. (2017) <doi:10.1002/sim.7279>.
+This is a tool for epidemiologist, medical data analyst, medical or public
+health professionals. It contains three domains of functions: functions
+for 1) data management, 2) statistical analysis and 3) calculating
+epidemiological measures. The calculations are mainly based on three
+books, 1) Betty R. K, (2006, ISBN:978–0–86542–871–3), 2) B. Burt Gerstman
+(2013, ISBN:978-1-4443-3608-5) and 3) Douglas G Altman (2005, ISBN:0 7279
+1375 1).
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,7 +49,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md

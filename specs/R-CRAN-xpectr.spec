@@ -1,9 +1,9 @@
 %global packname  xpectr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Generates Expectations for 'testthat' Unit Testing
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-testthat >= 2.3.1
+BuildRequires:    R-CRAN-withr >= 2.0.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-clipr >= 0.7.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.10
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,7 +28,9 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-testthat >= 2.3.1
+Requires:         R-CRAN-withr >= 2.0.0
 Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-clipr >= 0.7.0
 Requires:         R-CRAN-rstudioapi >= 0.10
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
