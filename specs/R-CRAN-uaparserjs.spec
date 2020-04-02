@@ -1,38 +1,37 @@
 %global packname  uaparserjs
-%global packver   0.1.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.1
 Release:          1%{?dist}
-Summary:          Parse Browser 'User-Agent' Strings into Data Frames
+Summary:          Parse 'User-Agent' Strings
 
-License:          Apache License
+License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-V8 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-V8 
 
 %description
 Despite there being a section in RFC 7231
 <https://tools.ietf.org/html/rfc7231#section-5.5.3> defining a suggested
 structure for 'User-Agent' headers this data is notoriously difficult to
-parse consistently. A function is provided that will take in user agent
+parse consistently. Tools are provided that will take in user agent
 strings and return structured R objects. This is a 'V8'-backed package
 based on the 'ua-parser' project <https://github.com/ua-parser>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -40,6 +39,7 @@ based on the 'ua-parser' project <https://github.com/ua-parser>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -49,6 +49,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R

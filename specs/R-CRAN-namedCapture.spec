@@ -1,9 +1,9 @@
 %global packname  namedCapture
-%global packver   2020.3.2
+%global packver   2020.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.3.2
+Version:          2020.4.1
 Release:          1%{?dist}
 Summary:          Named Capture Regular Expressions
 
@@ -17,7 +17,11 @@ Requires:         R-core >= 2.14
 BuildArch:        noarch
 
 %description
-User-friendly wrappers for named capture regular expressions.
+User-friendly wrappers for named capture regular expressions. Introduction
+and comparison in research paper by Hocking (2019), R Journal.
+<doi:10.32614/RJ-2019-050> RE2 engine ('re2r' package)
+<https://github.com/qinwf/re2r> was removed from CRAN in Mar 2020 so must
+be installed from github.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,4 +49,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/test_engines.R
 %{rlibdir}/%{packname}/INDEX

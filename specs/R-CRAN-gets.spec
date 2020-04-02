@@ -1,9 +1,9 @@
 %global packname  gets
-%global packver   0.21
+%global packver   0.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21
+Version:          0.22
 Release:          1%{?dist}
 Summary:          General-to-Specific (GETS) Modelling and Indicator SaturationMethods
 
@@ -28,6 +28,7 @@ for structural breaks in the mean.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -35,6 +36,7 @@ for structural breaks in the mean.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

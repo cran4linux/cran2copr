@@ -1,33 +1,23 @@
-%global packname  bivrp
-%global packver   1.2-2
+%global packname  poorman
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.9
 Release:          1%{?dist}
-Summary:          Bivariate Residual Plots with Simulation Polygons
+Summary:          A Poor Man's Base R Copy of 'dplyr' Verbs
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.35
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-MASS >= 7.3.35
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
 
 %description
-Generates bivariate residual plots with simulation polygons for any
-diagnostics and bivariate model from which functions to extract the
-desired diagnostics, simulate new data and refit the models are available.
+A simple replication of key 'dplyr' verbs using only base R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +40,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX

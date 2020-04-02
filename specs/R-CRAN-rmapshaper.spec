@@ -1,9 +1,9 @@
 %global packname  rmapshaper
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}
 Summary:          Client for 'mapshaper' for 'Geospatial' Operations
 

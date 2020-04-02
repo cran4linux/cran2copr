@@ -1,33 +1,31 @@
-%global packname  bivrp
-%global packver   1.2-2
+%global packname  aziztest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Bivariate Residual Plots with Simulation Polygons
+Summary:          Novel Statistical Test for Aberration Enrichment
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.35
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-MASS >= 7.3.35
-Requires:         R-methods 
-Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
-Generates bivariate residual plots with simulation polygons for any
-diagnostics and bivariate model from which functions to extract the
-desired diagnostics, simulate new data and refit the models are available.
+Testing for heterogeneous effects in a case-control setting. The aim here
+to discover an association that is beyond a mean difference between all
+cases and all controls. Instead, the signal of interest here is present in
+only a proportion of the cases. This test should be more powerful than a
+t-test or Wilcoxon test in this heterogeneous setting. Please cite the
+corresponding paper: Mezlini et al. (2020)
+<doi:10.1101/2020.03.23.002972>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,4 +50,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

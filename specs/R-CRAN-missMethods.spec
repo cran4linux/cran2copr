@@ -1,33 +1,33 @@
-%global packname  bivrp
-%global packver   1.2-2
+%global packname  missMethods
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Bivariate Residual Plots with Simulation Polygons
+Summary:          Methods for Missing Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.35
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-MASS >= 7.3.35
-Requires:         R-methods 
-Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
-Generates bivariate residual plots with simulation polygons for any
-diagnostics and bivariate model from which functions to extract the
-desired diagnostics, simulate new data and refit the models are available.
+Supply functions for the creation and handling of missing data as well as
+tools to evaluate missing data methods. Nearly all possibilities of
+generating missing data discussed by Santos et. al (2019)
+<doi:10.1109/ACCESS.2019.2891360> and some additional are implemented.
+Functions are supplied to compare parameter estimates and imputed values
+to true values to evaluate missing data methods. Evaluations of these
+types are done, for example, by Cetin-Berber et al. (2019)
+<doi:10.1177/0013164418805532> and Kim et al. (2005)
+<doi:10.1093/bioinformatics/bth499>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,5 +51,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

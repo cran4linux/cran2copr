@@ -1,9 +1,9 @@
 %global packname  spsurvey
-%global packver   4.1.1
+%global packver   4.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          4.1.2
 Release:          1%{?dist}
 Summary:          Spatial Survey Design and Analysis
 
@@ -66,6 +66,7 @@ University Press, New York, <Online ISBN:9781139022422>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

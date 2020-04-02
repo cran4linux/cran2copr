@@ -1,9 +1,9 @@
 %global packname  tigris
-%global packver   0.9.2
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.4
 Release:          1%{?dist}
 Summary:          Load Census TIGER/Line Shapefiles
 
@@ -48,6 +48,7 @@ into R as 'SpatialDataFrame' or 'sf' objects.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

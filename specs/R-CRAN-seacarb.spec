@@ -1,9 +1,9 @@
 %global packname  seacarb
-%global packver   3.2.12
+%global packver   3.2.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.12
+Version:          3.2.13
 Release:          1%{?dist}
 Summary:          Seawater Carbonate Chemistry
 
@@ -27,6 +27,7 @@ design of ocean acidification perturbation experiments.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -34,6 +35,7 @@ design of ocean acidification perturbation experiments.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

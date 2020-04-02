@@ -1,9 +1,9 @@
 %global packname  bdl
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Interface and Tools for 'BDL' API
 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tmaptools 
 BuildRequires:    R-CRAN-tmap 
-BuildRequires:    R-CRAN-lwgeom 
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
@@ -48,7 +47,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tmaptools 
 Requires:         R-CRAN-tmap 
-Requires:         R-CRAN-lwgeom 
 
 %description
 Interface to Local Data Bank ('Bank Danych Lokalnych' - 'bdl') API

@@ -1,9 +1,9 @@
 %global packname  Rprofet
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}
 Summary:          WOE Transformation and Scorecard Builder
 
@@ -43,6 +43,7 @@ scoring process, see Siddiqi (2005, ISBN:047175451X).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

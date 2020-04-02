@@ -1,9 +1,9 @@
 %global packname  mrbsizeR
-%global packver   1.2.1
+%global packver   1.2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.1.1
 Release:          1%{?dist}
 Summary:          Scale Space Multiresolution Analysis of Random Signals
 
@@ -46,6 +46,7 @@ proposed by Holmstrom, Pasanen, Furrer, Sain (2011)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

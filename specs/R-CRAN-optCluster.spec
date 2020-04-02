@@ -1,9 +1,9 @@
 %global packname  optCluster
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Determine Optimal Clustering Algorithm and Number of Clusters
 
@@ -19,7 +19,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-clValid 
 BuildRequires:    R-CRAN-RankAggreg 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-methods 
@@ -31,7 +30,6 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-clValid 
 Requires:         R-CRAN-RankAggreg 
 Requires:         R-CRAN-mclust 
 Requires:         R-methods 
@@ -47,6 +45,7 @@ both continuous and count data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

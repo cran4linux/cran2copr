@@ -1,9 +1,9 @@
 %global packname  varjmcm
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Estimations for the Covariance of Estimated Parameters in JointMean-Covariance Models
 
@@ -28,7 +28,7 @@ Requires:         R-Matrix
 
 %description
 The goal of the package is to equip the 'jmcm' package (current version
-0.1.8.0) with estimations of the covariance of estimated parameters. Two
+0.2.1) with estimations of the covariance of estimated parameters. Two
 methods are provided. The first method is to use the inverse of estimated
 Fisher's information matrix, see M. Pourahmadi (2000)
 <doi:10.1093/biomet/87.2.425>, M. Maadooliat, M. Pourahmadi and J. Z.
@@ -39,6 +39,7 @@ based, see Liu, R.Y. (1988) <doi:10.1214/aos/1176351062> for reference.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,5 +58,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

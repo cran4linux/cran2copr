@@ -1,9 +1,9 @@
 %global packname  quantreg
-%global packver   5.54
+%global packver   5.55
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.54
+Version:          5.55
 Release:          1%{?dist}
 Summary:          Quantile Regression
 
@@ -37,6 +37,7 @@ methods based on expected shortfall risk are also now included.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

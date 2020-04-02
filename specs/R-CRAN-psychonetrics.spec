@@ -1,9 +1,9 @@
 %global packname  psychonetrics
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}
 Summary:          Structural Equation Modeling and Confirmatory Network Analysis
 
@@ -37,7 +37,11 @@ BuildRequires:    R-CRAN-pbv
 BuildRequires:    R-CRAN-IsingSampler 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-roptim 
 Requires:         R-methods 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-numDeriv 
@@ -60,6 +64,9 @@ Requires:         R-CRAN-pbv
 Requires:         R-CRAN-IsingSampler 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-GA 
+Requires:         R-CRAN-combinat 
 
 %description
 Multi-group (dynamical) structural equation models in combination with

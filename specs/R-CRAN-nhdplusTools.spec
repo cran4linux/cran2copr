@@ -1,9 +1,9 @@
 %global packname  nhdplusTools
-%global packver   0.3.12
+%global packver   0.3.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.12
+Version:          0.3.13
 Release:          1%{?dist}
 Summary:          NHDPlus Tools
 
@@ -55,6 +55,7 @@ Agency <https://www.epa.gov/waterdata/basic-information>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

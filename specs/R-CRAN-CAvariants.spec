@@ -1,9 +1,9 @@
 %global packname  CAvariants
-%global packver   5.0
+%global packver   5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0
+Version:          5.5
 Release:          1%{?dist}
 Summary:          Correspondence Analysis Variants
 
@@ -12,19 +12,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel > 3.2.0
-Requires:         R-core > 3.2.0
+BuildRequires:    R-devel > 3.0.1
+Requires:         R-core > 3.0.1
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-methods 
 Requires:         R-tools 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 
 %description
 Provides six variants of two-way correspondence analysis (ca): simple ca,
@@ -34,6 +38,7 @@ non symmetrical ca, and doubly ordered non symmetrical ca.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -41,6 +46,7 @@ non symmetrical ca, and doubly ordered non symmetrical ca.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  dials
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          Tools for Creating Tuning Parameter Values
 
@@ -24,6 +24,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-DiceDesign 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
@@ -33,6 +34,7 @@ Requires:         R-utils
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-DiceDesign 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Many models contain tuning parameters (i.e. parameters that cannot be
@@ -43,6 +45,7 @@ parameters.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

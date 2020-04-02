@@ -1,33 +1,30 @@
-%global packname  bivrp
-%global packver   1.2-2
+%global packname  hystReet
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Bivariate Residual Plots with Simulation Polygons
+Summary:          Get Pedestrian Frequency Data from the 'Hystreet' Project
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.35
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-MASS >= 7.3.35
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 
 %description
-Generates bivariate residual plots with simulation polygons for any
-diagnostics and bivariate model from which functions to extract the
-desired diagnostics, simulate new data and refit the models are available.
+An R API wrapper for the 'Hystreet' project <https://hystreet.com>.
+'Hystreet' provides pedestrian counts in different cities in Germany.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,7 +46,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

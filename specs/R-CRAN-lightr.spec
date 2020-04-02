@@ -1,9 +1,9 @@
 %global packname  lightr
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Read Spectrometric Data and Metadata
 
@@ -25,12 +25,16 @@ Requires:         R-CRAN-progressr
 %description
 Parse various reflectance/transmittance/absorbance spectra file formats to
 extract spectral data and metadata, as described in Gruson, White & Maia
-(2019) <doi:10.21105/joss.01857>. This package has been peer-reviewed by
-rOpenSci (v. 0.1).
+(2019) <doi:10.21105/joss.01857>. Among other formats, it can import files
+from 'Avantes' <https://www.avantes.com/>, 'CRAIC'
+<http://www.microspectra.com/>, and 'OceanInsight' (formerly
+'OceanOptics') <https://www.oceaninsight.com/> brands. This package has
+been peer-reviewed by rOpenSci (v. 0.1).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

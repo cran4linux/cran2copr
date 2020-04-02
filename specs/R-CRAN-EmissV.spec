@@ -1,9 +1,9 @@
 %global packname  EmissV
-%global packver   0.665.2.0
+%global packver   0.665.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.665.2.0
+Version:          0.665.2.1
 Release:          1%{?dist}
 Summary:          Vehicular Emissions by Top-Down Methods
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lwgeom 
 Requires:         R-CRAN-units >= 0.5.1
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-raster 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-sf 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lwgeom 
 
 %description
 Creates emissions for use in air quality models. Vehicular emissions are

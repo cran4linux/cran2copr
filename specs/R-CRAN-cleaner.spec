@@ -1,9 +1,9 @@
 %global packname  cleaner
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Fast and Easy Data Cleaning
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-vctrs 
 
 %description
 Data cleaning functions for classes logical, factor, numeric, character,
@@ -33,6 +35,7 @@ override anything if needed.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  xml2
-%global packver   1.2.5
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Parse XML
 
@@ -15,9 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    libxml2-devel
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
 
 %description

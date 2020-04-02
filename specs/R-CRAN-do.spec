@@ -1,9 +1,9 @@
 %global packname  do
-%global packver   1.1.0.0
+%global packver   1.2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.0
+Version:          1.2.0.0
 Release:          1%{?dist}
 Summary:          Data Operator
 
@@ -17,8 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tmcn 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tmcn 
 
 %description
 Flexibly convert data between long and wide format using just two
@@ -27,6 +29,7 @@ functions: reshape_toLong() and reshape_toWide().
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

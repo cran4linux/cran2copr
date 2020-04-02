@@ -1,9 +1,9 @@
 %global packname  huge
-%global packver   1.3.4
+%global packver   1.3.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.4.1
 Release:          1%{?dist}
 Summary:          High-Dimensional Undirected Graph Estimation
 
@@ -55,6 +55,7 @@ which is only available for the graphical lasso.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

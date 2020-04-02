@@ -1,9 +1,9 @@
 %global packname  tbm
-%global packver   0.3-2
+%global packver   0.3-2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.2.1
 Release:          1%{?dist}
 Summary:          Transformation Boosting Machines
 
@@ -36,6 +36,7 @@ Boosting the likelihood of conditional and shift transformation models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

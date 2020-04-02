@@ -1,9 +1,9 @@
 %global packname  eha
-%global packver   2.8.0
+%global packver   2.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.0
+Version:          2.8.1
 Release:          1%{?dist}
 Summary:          Event History Analysis
 
@@ -31,6 +31,7 @@ failure time models for left truncated and right censored data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

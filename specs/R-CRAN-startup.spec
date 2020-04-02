@@ -1,9 +1,9 @@
 %global packname  startup
-%global packver   0.14.0
+%global packver   0.14.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.14.1
 Release:          1%{?dist}
 Summary:          Friendly R Startup Configuration
 
@@ -27,6 +27,7 @@ directory.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

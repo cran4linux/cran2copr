@@ -1,9 +1,9 @@
 %global packname  rsparse
-%global packver   0.3.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3.4
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Statistical Learning on Sparse Matrices
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.100.5.0
 BuildRequires:    R-CRAN-float >= 0.2.2
 BuildRequires:    R-CRAN-lgr >= 0.2
 BuildRequires:    R-CRAN-Rcpp >= 0.11
-BuildRequires:    R-CRAN-mlapi >= 0.1.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RhpcBLASctl 
 Requires:         R-Matrix >= 1.2
@@ -28,7 +27,6 @@ Requires:         R-CRAN-data.table >= 1.10.0
 Requires:         R-CRAN-float >= 0.2.2
 Requires:         R-CRAN-lgr >= 0.2
 Requires:         R-CRAN-Rcpp >= 0.11
-Requires:         R-CRAN-mlapi >= 0.1.0
 Requires:         R-methods 
 Requires:         R-CRAN-RhpcBLASctl 
 
