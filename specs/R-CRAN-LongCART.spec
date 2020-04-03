@@ -1,9 +1,9 @@
 %global packname  LongCART
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Recursive Partitioning for Longitudinal Profiles Using BaselineCovariates
 
@@ -32,6 +32,7 @@ as described in Kundu and Harezlak (2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

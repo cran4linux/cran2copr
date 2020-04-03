@@ -1,9 +1,9 @@
 %global packname  rrtable
-%global packver   0.1.7
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Reproducible Research with a Table of R Codes
 
@@ -29,6 +29,9 @@ BuildRequires:    R-CRAN-devEMF
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-editData 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-readr >= 1.1.1
 Requires:         R-CRAN-flextable >= 0.4.4
@@ -43,6 +46,9 @@ Requires:         R-CRAN-devEMF
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-editData 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-rlang 
 
 %description
 Makes documents containing plots and tables from a table of R codes. Can
@@ -54,6 +60,7 @@ applications.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -75,6 +82,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/chooser
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/doc_examples
 %doc %{rlibdir}/%{packname}/pptxList

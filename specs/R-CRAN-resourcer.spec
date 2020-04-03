@@ -1,13 +1,13 @@
-%global packname  forestError
-%global packver   0.2.0
+%global packname  resourcer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          A Unified Framework for Random Forest Prediction ErrorEstimation
+Summary:          Resource Resolver
 
-License:          GPL-3
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-httr 
 
 %description
-Estimates the conditional error distributions of random forest predictions
-and common parameters of those distributions, including conditional mean
-squared prediction errors, conditional biases, and conditional quantiles,
-by out-of-bag weighting of out-of-bag prediction errors as proposed by Lu
-and Hardin (2019+) <arXiv:1912.07435>. This package is compatible with
-several existing packages that implement random forests in R.
+A resource represents some data or a computation unit. It is described by
+a URL and credentials. This package proposes a Resource model with
+"resolver" and "client" classes to facilitate the access and the usage of
+the resources.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,7 +48,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/DATASHIELD
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  macleish
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          Retrieve Data from MacLeish Field Station
 
@@ -39,6 +39,7 @@ various man-made and natural structures.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

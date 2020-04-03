@@ -1,9 +1,9 @@
 %global packname  openair
-%global packver   2.7-0
+%global packver   2.7-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          2.7.2
 Release:          1%{?dist}
 Summary:          Tools for the Analysis of Air Pollution Data
 
@@ -64,6 +64,7 @@ including meteorological and traffic data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

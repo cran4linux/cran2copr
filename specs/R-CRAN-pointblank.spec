@@ -1,9 +1,9 @@
 %global packname  pointblank
-%global packver   0.3.0
+%global packver   0.3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1.1
 Release:          1%{?dist}
 Summary:          Validation of Local and Remote Data Tables
 
@@ -15,13 +15,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-tidyselect >= 0.2.5
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-cli >= 2.0.2
+BuildRequires:    R-CRAN-dbplyr >= 1.4.2
+BuildRequires:    R-CRAN-glue >= 1.3.2
+BuildRequires:    R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-CRAN-scales >= 1.1.0
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-htmltools >= 0.4.0
+BuildRequires:    R-CRAN-blastula >= 0.3.1
+BuildRequires:    R-CRAN-ggforce >= 0.3.1
+BuildRequires:    R-CRAN-gt >= 0.2.0.5
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-tidyselect >= 0.2.5
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-cli >= 2.0.2
+Requires:         R-CRAN-dbplyr >= 1.4.2
+Requires:         R-CRAN-glue >= 1.3.2
+Requires:         R-CRAN-DBI >= 1.1.0
+Requires:         R-CRAN-scales >= 1.1.0
+Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-htmltools >= 0.4.0
+Requires:         R-CRAN-blastula >= 0.3.1
+Requires:         R-CRAN-ggforce >= 0.3.1
+Requires:         R-CRAN-gt >= 0.2.0.5
 Requires:         R-CRAN-magrittr 
 
 %description
@@ -35,6 +57,7 @@ reporting actions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,4 +80,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/css
+%{rlibdir}/%{packname}/javascript
+%doc %{rlibdir}/%{packname}/lib
+%doc %{rlibdir}/%{packname}/small_table.db
 %{rlibdir}/%{packname}/INDEX

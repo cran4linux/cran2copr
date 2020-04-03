@@ -1,9 +1,9 @@
 %global packname  cdcfluview
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Retrieve Flu Season Data from the United States Centers forDisease Control and Prevention ('CDC') 'FluView' Portal
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-sf 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-httr
 Requires:         R-tools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-sf 
@@ -42,7 +44,7 @@ Requires:         R-CRAN-MMWRweek
 
 %description
 The 'U.S.' Centers for Disease Control and Prevention (CDC) maintain a
-portal <http://gis.cdc.gov/grasp/fluview/fluportaldashboard.html> for
+portal <https://gis.cdc.gov/grasp/fluview/fluportaldashboard.html> for
 accessing state, regional and national influenza statistics as well as
 mortality surveillance data. The web interface makes it difficult and
 time-consuming to select and retrieve influenza data. Tools are provided
@@ -51,6 +53,7 @@ to access the data provided by the portal's underlying 'API'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

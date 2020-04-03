@@ -1,9 +1,9 @@
 %global packname  portalr
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Create Useful Summaries of the Portal Data
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-usethis >= 1.5.0
+BuildRequires:    R-CRAN-gh >= 1.1.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-lubridate 
@@ -24,11 +25,10 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-lunar 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-gh 
 Requires:         R-CRAN-usethis >= 1.5.0
+Requires:         R-CRAN-gh >= 1.1.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-lubridate 
@@ -37,10 +37,8 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-lunar 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-gh 
 
 %description
 Download and generate summaries for the rodent, plant, ant, and weather
@@ -51,6 +49,7 @@ can be found at <https://github.com/weecology/portaldata>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -71,5 +70,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/CITATION-PORTAL-DATA
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

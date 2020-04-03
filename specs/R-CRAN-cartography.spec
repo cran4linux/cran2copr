@@ -1,9 +1,9 @@
 %global packname  cartography
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}
 Summary:          Thematic Cartography
 
@@ -15,9 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    gdal-devel >= 2.0.1
 BuildRequires:    geos-devel >= 3.4.0
 BuildRequires:    proj-devel >= 4.8.0
-Requires:         gdal
-Requires:         geos
-Requires:         proj
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-sp >= 1.2.4
@@ -32,6 +29,8 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-slippymath 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-sp >= 1.2.4
 Requires:         R-CRAN-sf >= 0.6.4
 Requires:         R-CRAN-classInt 
@@ -44,6 +43,8 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-slippymath 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
 Create and integrate maps in your R workflow. This package helps to design
@@ -56,6 +57,7 @@ Giraud and Lambert (2017) <doi:10.1007/978-3-319-57336-6_13>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -81,7 +83,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/csv
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/gpkg
-%doc %{rlibdir}/%{packname}/shape
+%doc %{rlibdir}/%{packname}/img
 %doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

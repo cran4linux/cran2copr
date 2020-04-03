@@ -1,9 +1,9 @@
 %global packname  wskm
-%global packver   1.4.36
+%global packver   1.4.37
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.36
+Version:          1.4.37
 Release:          1%{?dist}
 Summary:          Weighted k-Means Clustering
 

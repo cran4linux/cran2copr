@@ -1,9 +1,9 @@
 %global packname  tune
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Tidy Tuning Tools
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-rsample
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-GPfit 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-dplyr >= 0.8.3
@@ -53,6 +54,7 @@ Requires:         R-CRAN-rsample
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-GPfit 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-lifecycle 
 
 %description
 The ability to tune models is important. 'tune' contains functions and

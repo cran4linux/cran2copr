@@ -1,9 +1,9 @@
 %global packname  PINSPlus
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Clustering Algorithm for Data Integration and Disease Subtyping
 
@@ -14,31 +14,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-cluster 
-BuildRequires:    R-CRAN-entropy 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbmcapply 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-Requires:         R-cluster 
-Requires:         R-CRAN-entropy 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbmcapply 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-CRAN-entropy 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-entropy 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-FNN 
+Requires:         R-cluster 
 
 %description
 Provides a robust approach for omics data integration and disease
 subtyping. 'PINSPlus' supports both single and multiple data types. The
 software automatically determines the optimal number of clusters and then
 partitions the samples in a way such that the results are robust to noise
-and data perturbation. 'PINSPlus' is fast and it supports parallel
+and data perturbation (Hung Nguyen (2018)
+<doi:10.1093/bioinformatics/bty1049>, Tin Nguyen (2017)
+<doi:10.1101/gr.215129.116>). 'PINSPlus' is fast and it supports parallel
 computing on Windows, Linux, and Mac OS.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -62,3 +68,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

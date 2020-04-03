@@ -1,9 +1,9 @@
 %global packname  reticulate
-%global packver   1.14
+%global packver   1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14
+Version:          1.15
 Release:          1%{?dist}
 Summary:          Interface to 'Python'
 
@@ -41,6 +41,7 @@ converted back to R types. Compatible with all versions of 'Python' >=
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -63,6 +64,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/config
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/python
+%{rlibdir}/%{packname}/python
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

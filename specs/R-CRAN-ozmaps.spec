@@ -1,9 +1,9 @@
 %global packname  ozmaps
-%global packver   0.3.0
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.6
 Release:          1%{?dist}
 Summary:          Australia Maps
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-oz 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-oz 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-sf 
 
 %description
 Maps of Australian coastline and administrative regions. Data can be drawn
@@ -32,6 +34,7 @@ detail to allow mapping of a local municipality.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,32 +1,24 @@
-%global packname  forestError
-%global packver   0.2.0
+%global packname  mrfse
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2
 Release:          1%{?dist}
-Summary:          A Unified Framework for Random Forest Prediction ErrorEstimation
+Summary:          Markov Random Field Structure Estimator
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-purrr 
 
 %description
-Estimates the conditional error distributions of random forest predictions
-and common parameters of those distributions, including conditional mean
-squared prediction errors, conditional biases, and conditional quantiles,
-by out-of-bag weighting of out-of-bag prediction errors as proposed by Lu
-and Hardin (2019+) <arXiv:1912.07435>. This package is compatible with
-several existing packages that implement random forests in R.
+A Markov random field structure estimator that uses a penalized maximum
+conditional likelihood method similar to the Bayesian Information
+Criterion (Frondana, 2016) <doi:10.11606/T.45.2018.tde-02022018-151123>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,7 +42,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

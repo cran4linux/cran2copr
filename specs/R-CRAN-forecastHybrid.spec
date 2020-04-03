@@ -1,9 +1,9 @@
 %global packname  forecastHybrid
-%global packver   4.2.17
+%global packver   5.0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.17
+Version:          5.0.18
 Release:          1%{?dist}
 Summary:          Convenient Functions for Ensemble Time Series Forecasts
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forecast >= 8.1
+BuildRequires:    R-CRAN-forecast >= 8.12
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
 BuildRequires:    R-CRAN-zoo >= 1.7
 BuildRequires:    R-CRAN-foreach >= 1.4.3
 BuildRequires:    R-CRAN-doParallel >= 1.0.10
 BuildRequires:    R-CRAN-purrr >= 0.2.5
 BuildRequires:    R-CRAN-thief 
-Requires:         R-CRAN-forecast >= 8.1
+Requires:         R-CRAN-forecast >= 8.12
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-zoo >= 1.7
 Requires:         R-CRAN-foreach >= 1.4.3
@@ -42,6 +42,7 @@ forecasting functions is also supported to evaluate model accuracy.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,6 +50,7 @@ forecasting functions is also supported to evaluate model accuracy.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

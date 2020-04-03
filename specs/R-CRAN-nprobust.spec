@@ -1,9 +1,9 @@
 %global packname  nprobust
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Nonparametric Robust Estimation and Inference Methods usingLocal Polynomial Regression and Kernel Density Estimation
 
@@ -35,6 +35,7 @@ Farrell (2019, <doi:10.18637/jss.v091.i08>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

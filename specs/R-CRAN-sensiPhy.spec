@@ -1,9 +1,9 @@
 %global packname  sensiPhy
-%global packver   0.8.4
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.8.5
 Release:          1%{?dist}
 Summary:          Sensitivity Analysis for Comparative Methods
 
@@ -40,6 +40,7 @@ error).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

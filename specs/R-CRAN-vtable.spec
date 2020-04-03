@@ -1,9 +1,9 @@
 %global packname  vtable
-%global packver   0.6.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Variable Table for Variable Documentation
 
@@ -16,11 +16,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-sjlabelled 
+BuildRequires:    R-CRAN-haven 
 Requires:         R-utils 
+Requires:         R-stats 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-sjlabelled 
+Requires:         R-CRAN-haven 
 
 %description
 Automatically generates HTML variable documentation including variable
@@ -30,6 +34,7 @@ summary statistics. See the vignette "vtable" for a package overview.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
