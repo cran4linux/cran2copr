@@ -1,9 +1,9 @@
 %global packname  ggasym
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Asymmetric Matrix Plotting in 'ggplot2'
 
@@ -22,8 +22,6 @@ BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.0
-BuildRequires:    R-CRAN-broom >= 0.5.0
-BuildRequires:    R-CRAN-corrr >= 0.3.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-ggplot2 >= 3.1.0
@@ -33,8 +31,6 @@ Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-tidyr >= 0.8.0
-Requires:         R-CRAN-broom >= 0.5.0
-Requires:         R-CRAN-corrr >= 0.3.0
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-rlang >= 0.3.0
 
@@ -46,6 +42,7 @@ within the Grammar of Graphics paradigm implemented in 'ggplot2'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

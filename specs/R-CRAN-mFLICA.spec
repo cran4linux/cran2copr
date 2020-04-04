@@ -1,11 +1,11 @@
 %global packname  mFLICA
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Leadership-Inference Framework for Multivariate Time Series:'mFLICA'
+Summary:          Leadership-Inference Framework for Multivariate Time Series
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -64,5 +64,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/mFLICA_0.1.0.pdf
 %{rlibdir}/%{packname}/INDEX

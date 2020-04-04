@@ -1,43 +1,33 @@
-%global packname  walkalytics
-%global packver   0.1.0
+%global packname  r2rtf
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Interface to the 'Walkalytics' API for Calculating WalkingIsochrones
+Summary:          Easily Create Presentation-Ready Rich Text Format (RTF) Tableand Figure
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-sp 
+Requires:         R-grDevices 
 
 %description
-A wrapper for the 'walkalytics' API (see <https://dev.walkalytics.com/>),
-which is a web service that calculates walking isochrones for source
-locations.  Basic, limited API access is free.
+Create presentation-ready Rich Text Format (RTF) table and figure with
+flexible and customized format.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -54,7 +44,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/pkgdown
+%doc %{rlibdir}/%{packname}/Rbadges
 %{rlibdir}/%{packname}/INDEX

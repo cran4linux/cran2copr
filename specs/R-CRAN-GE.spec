@@ -1,13 +1,13 @@
-%global packname  pubmedR
-%global packver   0.0.2
+%global packname  GE
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}
-Summary:          Gathering Metadata About Publications, Grants, Clinical Trialsfrom 'PubMed' Database
+Summary:          General Equilibrium Modeling
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rentrez 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-rentrez 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-CGE 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-CGE 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-graphics 
+Requires:         R-CRAN-stringr 
 
 %description
-A set of tools to extract bibliographic content from 'PubMed' database
-using 'NCBI' REST API <https://www.ncbi.nlm.nih.gov/home/develop/api/>.
+Some tools for developing general equilibrium models and some general
+equilibrium models. These models can be used for teaching economic theory
+and are built by the methods of new structural economics (see
+<https://www.nse.pku.edu.cn/> and LI Wu, 2019, General Equilibrium and
+Structural Dynamics: Perspectives of New Structural Economics. Beijing:
+Economic Science Press).
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,7 +56,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

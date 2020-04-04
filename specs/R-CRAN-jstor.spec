@@ -1,9 +1,9 @@
 %global packname  jstor
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}
 Summary:          Read Data from JSTOR/DfR
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 1.4.2
+BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-readr >= 1.3.0
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-tibble >= 1.4.2
+Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-readr >= 1.3.0
 Requires:         R-CRAN-xml2 >= 1.2.0
@@ -49,6 +49,7 @@ by Data for Research by JSTOR.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -56,6 +57,7 @@ by Data for Research by JSTOR.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

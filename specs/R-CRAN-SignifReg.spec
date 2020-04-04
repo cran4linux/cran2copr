@@ -1,9 +1,9 @@
 %global packname  SignifReg
-%global packver   2.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Consistent Significance Controlled Variable Selection in LinearRegression
 
@@ -26,6 +26,7 @@ of False Discovery Rate, Bonferroni, or no correction.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

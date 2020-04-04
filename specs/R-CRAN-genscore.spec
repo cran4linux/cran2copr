@@ -1,37 +1,38 @@
-%global packname  dirichletprocess
-%global packver   0.3.1.1
+%global packname  genscore
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1.1
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Build Dirichlet Process Objects for Bayesian Modelling
+Summary:          Generalized Score Matching Estimators
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-utils 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-stringr 
 
 %description
-Perform nonparametric Bayesian analysis using Dirichlet processes without
-the need to program the inference algorithms. Utilise included pre-built
-models or specify custom models and allow the 'dirichletprocess' package
-to handle the Markov chain Monte Carlo sampling. Our Dirichlet process
-objects can act as building blocks for a variety of statistical models
-including and not limited to: density estimation, clustering and prior
-distributions in hierarchical models. See Teh, Y. W. (2011)
-<https://www.stats.ox.ac.uk/~teh/research/npbayes/Teh2010a.pdf>, among
-many other sources.
+Implementation of the Generalized Score Matching estimator in Yu et al.
+(2019) <http://jmlr.org/papers/v20/18-278.html> for non-negative graphical
+models (truncated Gaussian, exponential square-root, gamma, a-b models)
+and univariate truncated Gaussian distributions. Also includes the
+original estimator for untruncated Gaussian graphical models from Lin et
+al. (2016) <doi:10.1214/16-EJS1126>, with the addition of a diagonal
+multiplier.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,10 +54,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

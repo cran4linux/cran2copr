@@ -1,9 +1,9 @@
 %global packname  openblender
-%global packver   0.5.7
+%global packver   0.5.71
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.5.71
 Release:          1%{?dist}
 Summary:          Request <https://openblender.io> API Services
 

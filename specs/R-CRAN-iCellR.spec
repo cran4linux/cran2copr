@@ -1,9 +1,9 @@
 %global packname  iCellR
-%global packver   1.3.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Analyzing High-Throughput Single Cell Sequencing Data
 
@@ -74,8 +74,8 @@ visualizations, differential expression analysis, filters based on cells,
 genes and clusters, data merging, normalizing for dropouts, data
 imputation methods, correcting for batch differences, pathway analysis,
 tools to find marker genes for clusters and conditions, predict cell types
-and pseudotime analysis. See Li F, et al (2019)
-<doi:10.1158/2159-8290.CD-19-0780> for more details.
+and pseudotime analysis. See Khodadadi-Jamayran, et al (2020)
+<doi:10.1101/2020.03.31.019109> for more details.
 
 %prep
 %setup -q -c -n %{packname}
@@ -101,5 +101,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

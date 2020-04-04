@@ -1,9 +1,9 @@
 %global packname  tradestatistics
-%global packver   0.2.7
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          1.0
 Release:          1%{?dist}
 Summary:          Open Trade Statistics API Wrapper and Utility Program
 
@@ -12,23 +12,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-crul 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-digest 
 
 %description
 Access 'Open Trade Statistics' API from R to download international trade
@@ -37,6 +33,7 @@ data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

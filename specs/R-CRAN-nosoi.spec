@@ -1,9 +1,9 @@
 %global packname  nosoi
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          A Forward Agent-Based Transmission Chain Simulator
 
@@ -34,13 +34,14 @@ Requires:         R-CRAN-dplyr >= 0.8.0
 
 %description
 The aim of 'nosoi' (pronounced no.si) is to provide a flexible agent-based
-stochastic transmission chain/epidemic simulator (Lequime et al. in prep).
-It is named after the daimones of plague, sickness and disease that
-escaped Pandora's jar in the Greek mythology. 'nosoi' is able to take into
-account the influence of multiple variable on the transmission process
-(e.g. dual-host systems (such as arboviruses), within-host viral dynamics,
-transportation, population structure), alone or taken together, to create
-complex but relatively intuitive epidemiological simulations.
+stochastic transmission chain/epidemic simulator (Lequime et al. bioRxiv
+2020.03.03.973107). It is named after the daimones of plague, sickness and
+disease that escaped Pandora's jar in the Greek mythology. 'nosoi' is able
+to take into account the influence of multiple variable on the
+transmission process (e.g. dual-host systems (such as arboviruses),
+within-host viral dynamics, transportation, population structure), alone
+or taken together, to create complex but relatively intuitive
+epidemiological simulations.
 
 %prep
 %setup -q -c -n %{packname}

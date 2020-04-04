@@ -1,9 +1,9 @@
 %global packname  bipartite
-%global packver   2.14
+%global packver   2.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14
+Version:          2.15
 Release:          1%{?dist}
 Summary:          Visualising Bipartite Networks and Calculating Some (Ecological)Indices
 
@@ -40,6 +40,7 @@ the web's topology.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

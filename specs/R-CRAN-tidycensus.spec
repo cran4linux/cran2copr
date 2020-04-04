@@ -1,9 +1,9 @@
 %global packname  tidycensus
-%global packver   0.9.6
+%global packver   0.9.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.9.2
 Release:          1%{?dist}
 Summary:          Load US Census Boundary and Attribute Data as 'tidyverse' and'sf'-Ready Data Frames
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.5
+BuildRequires:    R-CRAN-jsonlite >= 1.5.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-tidyr >= 0.7.0
 BuildRequires:    R-CRAN-httr 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite >= 1.5
+Requires:         R-CRAN-jsonlite >= 1.5.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-tidyr >= 0.7.0
 Requires:         R-CRAN-httr 
@@ -54,6 +54,7 @@ for many geographies.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  fDMA
-%global packver   2.2.4
+%global packver   2.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.4
+Version:          2.2.5
 Release:          1%{?dist}
 Summary:          Dynamic Model Averaging and Dynamic Model Selection forContinuous Outcomes
 
@@ -69,6 +69,7 @@ P. (2010) <doi:10.1198/TECH.2009.08104>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

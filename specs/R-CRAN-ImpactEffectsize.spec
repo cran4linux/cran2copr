@@ -1,9 +1,9 @@
 %global packname  ImpactEffectsize
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Calculation and Visualization of the Impact Effect Size Measure
 
@@ -16,7 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DataVisualizations 
-BuildRequires:    R-CRAN-RcppAlgos 
+BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-parallelDist 
@@ -24,7 +24,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-DataVisualizations 
-Requires:         R-CRAN-RcppAlgos 
+Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-parallelDist 
@@ -41,6 +41,7 @@ groups.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

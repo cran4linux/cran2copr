@@ -1,51 +1,47 @@
-%global packname  coveffectsplot
-%global packver   0.0.9
+%global packname  EventDetectGUI
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.3.0
 Release:          1%{?dist}
-Summary:          Produce Forest Plots to Visualize Covariate Effects
+Summary:          Graphical User Interface for the 'EventDetectR' Package
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-colourpicker 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-egg 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggstance 
-BuildRequires:    R-CRAN-markdown 
+BuildRequires:    R-CRAN-EventDetectR 
+BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-table1 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-colourpicker 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-egg 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggstance 
-Requires:         R-CRAN-markdown 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-EventDetectR 
+Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-plotly 
+Requires:         R-tools 
+Requires:         R-CRAN-DT 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-table1 
-Requires:         R-CRAN-data.table 
 Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Produce forest plots to visualize covariate effects using either the
-command line or an interactive 'Shiny' application.
+A graphical user interface for open source event detection.
 
 %prep
 %setup -q -c -n %{packname}
@@ -69,11 +65,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/sample_data
-%doc %{rlibdir}/%{packname}/shiny
+%doc %{rlibdir}/%{packname}/app.R
+%doc %{rlibdir}/%{packname}/appTests
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/config.xml
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

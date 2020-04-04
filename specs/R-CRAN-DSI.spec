@@ -1,31 +1,37 @@
-%global packname  pliable
-%global packver   1.1.1
+%global packname  DSI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          The Pliable Lasso
+Summary:          'DataSHIELD' Interface
 
-License:          GPL-3
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-class 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-class 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-methods 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-R6 
 
 %description
-Fits a pliable lasso model.  For details see Tibshirani and Friedman
-(2018) <arXiv:1712.00484>.
+'DataSHIELD' is an infrastructure and series of R packages that enables
+the remote and 'non-disclosive' analysis of sensitive research data. This
+package defines the API that is to be implemented by 'DataSHIELD'
+compliant data repositories.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -45,7 +51,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/mortran
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

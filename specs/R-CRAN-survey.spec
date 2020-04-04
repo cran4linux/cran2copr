@@ -1,9 +1,9 @@
 %global packname  survey
-%global packver   3.37
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.37
+Version:          4.0
 Release:          1%{?dist}
 Summary:          Analysis of Complex Survey Samples
 
@@ -50,6 +50,7 @@ sampling without replacement. Principal components, factor analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

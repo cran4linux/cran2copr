@@ -1,9 +1,9 @@
 %global packname  xslt
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Extensible Style-Sheet Language Transformations
 
@@ -13,12 +13,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libxslt-devel
-Requires:         libxslt
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-xml2 >= 1.1.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.0
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 >= 1.1.0
+Requires:         R-CRAN-xml2 >= 1.3.0
+Requires:         R-CRAN-Rcpp 
 
 %description
 An extension for the 'xml2' package to transform XML documents by applying
@@ -27,6 +27,7 @@ an 'xslt' style-sheet.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
