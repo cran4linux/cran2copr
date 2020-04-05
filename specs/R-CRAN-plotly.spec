@@ -1,9 +1,9 @@
 %global packname  plotly
-%global packver   4.9.2
+%global packver   4.9.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.2
+Version:          4.9.2.1
 Release:          1%{?dist}
 Summary:          Create Interactive Web Graphics via 'plotly.js'
 
@@ -96,7 +96,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/docker
 %doc %{rlibdir}/%{packname}/docs.R
 %doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/plotlyjs.R
 %doc %{rlibdir}/%{packname}/stars.R
 %{rlibdir}/%{packname}/INDEX

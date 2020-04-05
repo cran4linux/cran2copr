@@ -1,9 +1,9 @@
 %global packname  interactions
-%global packver   1.1.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.3
 Release:          1%{?dist}
 Summary:          Comprehensive, User-Friendly Toolkit for Probing Interactions
 
@@ -11,17 +11,18 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
+
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jtools >= 2.0.0
+BuildRequires:    R-CRAN-jtools >= 2.0.3
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-jtools >= 2.0.0
+Requires:         R-CRAN-jtools >= 2.0.3
 Requires:         R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-crayon 
@@ -42,12 +43,15 @@ the standard linear regression context.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

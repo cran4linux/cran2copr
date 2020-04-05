@@ -1,9 +1,9 @@
 %global packname  uGMAR
-%global packver   3.2.4
+%global packver   3.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          3.2.5
 Release:          1%{?dist}
 Summary:          Estimate Univariate Gaussian or Student's t MixtureAutoregressive Model
 

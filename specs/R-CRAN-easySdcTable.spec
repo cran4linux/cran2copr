@@ -1,9 +1,9 @@
 %global packname  easySdcTable
-%global packver   0.3.3
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Easy Interface to the Statistical Disclosure Control Package'sdcTable'
 
@@ -12,15 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sdcTable 
 BuildRequires:    R-CRAN-SSBtools 
+BuildRequires:    R-CRAN-sdcTable 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-sdcTable 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-SSBtools 
+Requires:         R-CRAN-sdcTable 
 Requires:         R-CRAN-shiny 
+Requires:         R-methods 
 
 %description
 The main function, ProtectTable(), performs table suppression according to
@@ -34,6 +36,7 @@ based on the shiny package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -54,6 +57,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

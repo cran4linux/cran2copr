@@ -1,9 +1,9 @@
 %global packname  CMplot
-%global packver   3.5.1
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.1
+Version:          3.6.0
 Release:          1%{?dist}
 Summary:          Circle Manhattan Plot
 
@@ -28,12 +28,13 @@ both traditional rectangular patterns, QQ-plot and novel circular ones.
 United in only one bull's eye style plot, association results from
 multiple traits can be compared interactively, thereby to reveal both
 similarities and differences between signals. Additional functions
-include: hightlight signals, a group of SNPs, chromosome visualization and
+include: highlight signals, a group of SNPs, chromosome visualization and
 candidate genes around SNPs.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

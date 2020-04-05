@@ -1,9 +1,9 @@
 %global packname  nngeo
-%global packver   0.3.4
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.7
 Release:          1%{?dist}
 Summary:          k-Nearest Neighbor Join for Spatial Data
 
@@ -18,14 +18,14 @@ BuildRequires:    R-CRAN-sf >= 0.6
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-sf >= 0.6
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-units 
 Requires:         R-methods 
-Requires:         R-CRAN-stars 
 Requires:         R-CRAN-lwgeom 
+Requires:         R-parallel 
 
 %description
 K-nearest neighbor search for projected and non-projected 'sf' spatial
@@ -38,6 +38,7 @@ for spatial analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

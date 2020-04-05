@@ -1,9 +1,9 @@
 %global packname  hyfo
-%global packver   1.4.0
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.2
 Release:          1%{?dist}
 Summary:          Hydrology and Climate Forecasting
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-maps >= 2.3.9
 BuildRequires:    R-CRAN-plyr >= 1.8.3
 BuildRequires:    R-CRAN-zoo >= 1.7.12
 BuildRequires:    R-CRAN-reshape2 >= 1.4.1
-BuildRequires:    R-CRAN-ncdf4 >= 1.14.1
+BuildRequires:    R-CRAN-ncdf4 >= 1.14
 BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
 BuildRequires:    R-CRAN-maptools >= 0.8.36
 BuildRequires:    R-CRAN-rgdal >= 0.8.16
@@ -39,7 +39,7 @@ Requires:         R-CRAN-maps >= 2.3.9
 Requires:         R-CRAN-plyr >= 1.8.3
 Requires:         R-CRAN-zoo >= 1.7.12
 Requires:         R-CRAN-reshape2 >= 1.4.1
-Requires:         R-CRAN-ncdf4 >= 1.14.1
+Requires:         R-CRAN-ncdf4 >= 1.14
 Requires:         R-CRAN-ggplot2 >= 1.0.1
 Requires:         R-CRAN-maptools >= 0.8.36
 Requires:         R-CRAN-rgdal >= 0.8.16
@@ -59,6 +59,7 @@ hydraulic modellers.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

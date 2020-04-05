@@ -1,9 +1,9 @@
 %global packname  arules
-%global packver   1.6-4
+%global packver   1.6-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.5
 Release:          1%{?dist}
 Summary:          Mining Association Rules and Frequent Itemsets
 
@@ -29,11 +29,13 @@ Requires:         R-utils
 Provides the infrastructure for representing, manipulating and analyzing
 transaction data and patterns (frequent itemsets and association rules).
 Also provides C implementations of the association mining algorithms
-Apriori and Eclat. See Christian Borgelt (2012) <doi:10.1002/widm.1074>.
+Apriori and Eclat. Hahsler, Gruen and Hornik (2005)
+<doi:10.18637/jss.v014.i15>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -41,6 +43,7 @@ Apriori and Eclat. See Christian Borgelt (2012) <doi:10.1002/widm.1074>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

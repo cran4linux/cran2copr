@@ -1,9 +1,9 @@
 %global packname  Xplortext
-%global packver   1.2.1
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.1
 Release:          1%{?dist}
 Summary:          Statistical Analysis of Textual Data
 
@@ -12,12 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-FactoMineR >= 1.36
 BuildRequires:    R-CRAN-tm >= 0.7.3
+BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-gridExtra 
@@ -30,9 +30,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-flexclust 
 BuildRequires:    R-CRAN-flashClust 
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-FactoMineR >= 1.36
 Requires:         R-CRAN-tm >= 0.7.3
+Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggdendro 
 Requires:         R-graphics 
 Requires:         R-CRAN-gridExtra 
@@ -62,6 +62,7 @@ See <http://www.xplortext.org> for examples.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

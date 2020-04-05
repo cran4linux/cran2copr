@@ -1,9 +1,9 @@
 %global packname  RCT
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Assign Treatments, Power Calculations, Balances, ImpactEvaluation of Experiments
 
@@ -56,7 +56,8 @@ multiple endogenous variables and multiple heterogeneous variables (to
 test treatment effect heterogeneity) summary_statistics: Function that
 creates a summary statistics table with statistics rank observations in n
 groups: Creates a factor variable with n groups. Each group has a min and
-max label attach to each category.
+max label attach to each category. Athey, Susan, and Guido W. Imbens
+(2017) <arXiv:1607.00698>.
 
 %prep
 %setup -q -c -n %{packname}

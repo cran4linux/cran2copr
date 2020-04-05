@@ -1,9 +1,9 @@
 %global packname  rPraat
-%global packver   1.3
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.3.1
 Release:          1%{?dist}
 Summary:          Interface to Praat
 
@@ -16,17 +16,17 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-graphics >= 3.1.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-tuneR >= 1.3.3
-BuildRequires:    R-CRAN-stringr >= 1.3.1
-BuildRequires:    R-CRAN-readr >= 1.2.1
+BuildRequires:    R-CRAN-readr >= 1.3.1
 BuildRequires:    R-CRAN-dygraphs >= 1.1.1.6
-BuildRequires:    R-CRAN-dplyr >= 0.7.8
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
 Requires:         R-graphics >= 3.1.0
+Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-tuneR >= 1.3.3
-Requires:         R-CRAN-stringr >= 1.3.1
-Requires:         R-CRAN-readr >= 1.2.1
+Requires:         R-CRAN-readr >= 1.3.1
 Requires:         R-CRAN-dygraphs >= 1.1.1.6
-Requires:         R-CRAN-dplyr >= 0.7.8
+Requires:         R-CRAN-dplyr >= 0.8.5
 
 %description
 Read, write and manipulate 'Praat' TextGrid, PitchTier, Pitch,
@@ -36,6 +36,7 @@ IntensityTier, Formant, Sound, and Collection files
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
