@@ -1,9 +1,9 @@
 %global packname  micropan
-%global packver   2.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Microbial Pan-Genome Analysis
 
@@ -35,6 +35,7 @@ pan-genomes.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

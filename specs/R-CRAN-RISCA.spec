@@ -1,9 +1,9 @@
 %global packname  RISCA
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}
 Summary:          Causal Inference and Prediction in Cohort-Based Analyses
 
@@ -27,6 +27,11 @@ BuildRequires:    R-CRAN-statmod
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-nnet 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-SuperLearner 
 Requires:         R-splines 
 Requires:         R-survival 
 Requires:         R-CRAN-relsurv 
@@ -39,6 +44,11 @@ Requires:         R-CRAN-statmod
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-nnet 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-SuperLearner 
 
 %description
 We propose numerous functions for cohort-based analyses, either for

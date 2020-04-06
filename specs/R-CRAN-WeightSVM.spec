@@ -1,32 +1,36 @@
-%global packname  rdpower
-%global packver   0.5
+%global packname  WeightSVM
+%global packver   1.7-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.7.3
 Release:          1%{?dist}
-Summary:          Power Calculations for RD Designs
+Summary:          Subject Weighted Support Vector Machines
 
-License:          GPL-2
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rdrobust 
-Requires:         R-CRAN-rdrobust 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-class 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-class 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-The regression discontinuity (RD) design is a popular quasi-experimental
-design for causal inference and policy evaluation. The 'rdpower' package
-provides tools to perform power and sample size calculations in RD
-designs: rdpower() calculates the power of an RD design and rdsampsi()
-calculates the required sample size to achieve a desired power. See
-Cattaneo, Titiunik and Vazquez-Bare (2019)
-<https://sites.google.com/site/rdpackages/rdpower/Cattaneo-Titiunik-VazquezBare_2019_Stata.pdf>
-for further methodological details.
+Functions for subject/instance weighted support vector machines (SVM). It
+uses a modified version of 'libsvm' and is compatible with package
+'e1071'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,3 +56,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

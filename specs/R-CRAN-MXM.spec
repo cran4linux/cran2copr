@@ -1,9 +1,9 @@
 %global packname  MXM
-%global packver   1.4.5
+%global packver   1.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.4.6
 Release:          1%{?dist}
 Summary:          Feature Selection (Including Multiple Solutions) and BayesianNetworks
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -84,13 +84,16 @@ Efficient feature selection on gene expression data: Which algorithm to
 use? BioRxiv. <doi:10.1101/431734>. e) Tsagris, M. (2019). Bayesian
 Network Learning with the PC Algorithm: An Improved and Correct Variation.
 Applied Artificial Intelligence, 33(2):101-123.
-<doi:10.1080/08839514.2018.1526760>. f) Borboudakis, G. and Tsamardinos,
+<doi:10.1080/08839514.2018.1526760>. f) Tsagris, M. and Tsamardinos, I.
+(2019). Feature selection with the R package MXM. F1000Research 7: 1505.
+<doi:10.12688/f1000research.16216.2>. g) Borboudakis, G. and Tsamardinos,
 I. (2019). Forward-Backward Selection with Early Dropping. Journal of
 Machine Learning Research 20: 1-39.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

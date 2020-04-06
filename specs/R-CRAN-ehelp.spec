@@ -1,9 +1,9 @@
 %global packname  ehelp
-%global packver   1.1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Enhanced Help to Enable "Docstring"-Comments in Users Functions
 
@@ -18,11 +18,14 @@ BuildArch:        noarch
 
 %description
 By overloading the R help() function, this package allows users to use
-"docstring" style comments within their own defined functions.
+"docstring" style comments within their own defined functions. The package
+also provides additional functions to mimic the R basic example() function
+and the prototyping of packages.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

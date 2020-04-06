@@ -1,36 +1,40 @@
-%global packname  implicitMeasures
-%global packver   0.1.2
+%global packname  ggetho
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.5
 Release:          1%{?dist}
-Summary:          Computes the Scores for Different Implicit Measures
+Summary:          Visualisation of High-Throughput Behavioural (i.e. Ethomics)Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.00
+Requires:         R-core >= 3.00
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-behavr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-labeling 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-behavr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-labeling 
+Requires:         R-CRAN-rlang 
 
 %description
-A tool for computing the scores for the Implicit Association Test (IAT;
-Greenwald, McGhee & Schwartz (1998) <doi:10.1037/0022-3514.74.6.1464>) and
-the Single Category-IAT (SC-IAT: Karpinski & Steinman (2006)
-<doi:10.1037/0022-3514.91.1.16>). Functions for preparing the data (both
-for the IAT and the SC-IAT), plotting the results, and obtaining a table
-with the scores of implicit measures descriptive statistics are provided.
+Extension of 'ggplot2' providing layers, scales and preprocessing
+functions useful to represent behavioural variables that are recorded over
+multiple animals and days. This package is part of the 'rethomics'
+framework <http://rethomics.github.io/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,11 +56,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
