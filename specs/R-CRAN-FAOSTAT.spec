@@ -1,11 +1,11 @@
 %global packname  FAOSTAT
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}
-Summary:          Download Data from the FAOSTAT Database of the Food andAgricultural Organization (FAO) of the United Nations
+Summary:          Download Data from the FAOSTAT Database
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,14 +31,17 @@ Requires:         R-CRAN-classInt >= 0.1.19
 Requires:         R-CRAN-labeling >= 0.1
 
 %description
-A list of functions to download statistics from FAOSTAT (database of the
-Food and Agricultural Organization of the United Nations) and WDI
-(database of the World Bank), and to perform some harmonization
+Download Data from the FAOSTAT Database of the Food and Agricultural
+Organization (FAO) of the United Nations. A list of functions to download
+statistics from FAOSTAT (database of the FAO
+<http://www.fao.org/faostat/en/#data>) and WDI (database of the World Bank
+<https://data.worldbank.org/>), and to perform some harmonization
 operations.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  spData
-%global packver   0.3.3
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          Datasets for Spatial Analysis
 

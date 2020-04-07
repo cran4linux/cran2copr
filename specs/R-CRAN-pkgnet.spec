@@ -1,9 +1,9 @@
 %global packname  pkgnet
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Get Network Representation of an R Package
 
@@ -51,11 +51,13 @@ Tools from the domain of graph theory can be used to quantify the
 complexity and vulnerability to failure of a software package. That is the
 guiding philosophy of this package. 'pkgnet' provides tools to analyze the
 dependencies between functions in an R package and between its imported
-packages.
+packages.  See the pkgnet website for vignettes and other supplementary
+information.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -63,6 +65,7 @@ packages.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -77,8 +80,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/baseballstats
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/milne
 %doc %{rlibdir}/%{packname}/package_report
 %doc %{rlibdir}/%{packname}/sartre
+%doc %{rlibdir}/%{packname}/silverstein
 %{rlibdir}/%{packname}/INDEX

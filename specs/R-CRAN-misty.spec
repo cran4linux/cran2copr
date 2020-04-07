@@ -1,9 +1,9 @@
 %global packname  misty
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -16,15 +16,21 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-readxl 
 Requires:         R-CRAN-haven 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-readxl 
 
 %description
-Miscellaneous functions for data management, descriptive statistics, and
-statistical analysis e.g., reading and writing a SPSS file, frequency
-table, cross tabulation, multilevel and missing data descriptive
-statistics, various effect size measures, scale and group scores,
-centering at the grand mean or within cluster, or coefficient alpha and
-item statistics.
+Miscellaneous functions for descriptive statistics (e.g., frequency table,
+cross tabulation, multilevel descriptive statistics, coefficient alpha and
+omega, and various effect size measures), missing data (e.g., descriptive
+statistics for missing data, missing data pattern and auxiliary variable
+analysis), data management (e.g., reading and writing SPSS files,
+grand-mean and group-mean centering, recode variables and reverse code
+items, and scale and group scores), and statistical analysis (e.g.,
+confidence intervals, Levene's test, and sample size determination).
 
 %prep
 %setup -q -c -n %{packname}

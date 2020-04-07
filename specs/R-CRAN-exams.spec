@@ -1,9 +1,9 @@
 %global packname  exams
-%global packver   2.3-5
+%global packver   2.3-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          2.3.6
 Release:          1%{?dist}
 Summary:          Automatic Generation of Exams in R
 

@@ -1,9 +1,9 @@
 %global packname  trialr
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Clinical Trial Designs in 'rstan'
 
@@ -13,16 +13,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    make
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-rstan >= 2.18.2
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.1
+BuildRequires:    R-CRAN-tidybayes >= 2.0.3
 BuildRequires:    R-CRAN-BH >= 1.69.0.1
 BuildRequires:    R-CRAN-rstantools >= 1.5.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-rlang >= 0.4.5
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.5.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
@@ -31,15 +33,15 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-tidybayes 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-binom 
 BuildRequires:    R-MASS 
+Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-rstan >= 2.18.2
+Requires:         R-CRAN-tidybayes >= 2.0.3
 Requires:         R-CRAN-rstantools >= 1.5.1
 Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
@@ -48,8 +50,6 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-tidybayes 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-binom 
 Requires:         R-MASS 
 
@@ -69,6 +69,7 @@ a method you would like implemented, please get in touch.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,26 +1,34 @@
-%global packname  highlightHTML
-%global packver   0.2.4
+%global packname  ppgam
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Highlight HTML Text and Tables
+Summary:          Generalised Additive Point Process Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-MASS 
+BuildRequires:    R-mgcv 
+BuildRequires:    R-CRAN-evgam 
+Requires:         R-MASS 
+Requires:         R-mgcv 
+Requires:         R-CRAN-evgam 
 
 %description
-A tool to format R markdown with CSS ids for HTML output. The tool may be
-most helpful for those using markdown to create reproducible documents.
-The biggest limitations in formatting is the knowledge of CSS by the
-document authors.
+Methods for fitting point processes with parameters of generalised
+additive model (GAM) form are provided. For an introduction to point
+processes see Cox, D.R & Isham, V. (Point Processes, 1980, CRC Press),
+GAMs see Wood, S.N. (2017) <doi:10.1201/9781315370279>, and the fitting
+approach see Wood, S.N., Pya, N. & Safken, B. (2016)
+<doi:10.1080/01621459.2016.1180986>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,13 +50,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/joss
-%doc %{rlibdir}/%{packname}/shiny
 %{rlibdir}/%{packname}/INDEX

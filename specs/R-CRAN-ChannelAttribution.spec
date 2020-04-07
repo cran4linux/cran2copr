@@ -1,34 +1,33 @@
-%global packname  GridOnClusters
-%global packver   0.0.7
+%global packname  ChannelAttribution
+%global packver   1.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          1.17
 Release:          1%{?dist}
-Summary:          Joint Discretization of Data on a Grid that Preserves Clusters
+Summary:          Markov Model for the Online Multi-Channel Attribution Problem
 
-License:          LGPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-cluster 
-BuildRequires:    R-CRAN-fossil 
-BuildRequires:    R-CRAN-dqrng 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-cluster 
-Requires:         R-CRAN-fossil 
-Requires:         R-CRAN-dqrng 
 
 %description
-Discretize multivariate continuous data using a grid that captures the
-joint distribution via preserving clusters in the original data. Joint
-grid discretization is applicable as a data transformation step before
-using other methods to infer association, function, or causality without
-assuming a parametric model.
+Advertisers use a variety of online marketing channels to reach consumers
+and they want to know the degree each channel contributes to their
+marketing success. This is called the online multi-channel attribution
+problem. This package contains a probabilistic algorithm for the
+attribution problem. The model uses a k-order Markov representation to
+identify structural correlations in the customer journey data. The package
+also contains three heuristic algorithms (first-touch, last-touch and
+linear-touch approach) for the same problem. The algorithms are
+implemented in C++.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,10 +49,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

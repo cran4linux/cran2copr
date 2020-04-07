@@ -1,9 +1,9 @@
 %global packname  rGEDI
-%global packver   0.1.2
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          NASA's Global Ecosystem Dynamics Investigation (GEDI) DataVisualization and Processing
 

@@ -1,9 +1,9 @@
 %global packname  ijtiff
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}
 Summary:          Comprehensive TIFF I/O with Full Support for 'ImageJ' TIFF Files
 
@@ -14,8 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    libtiff-devel
 BuildRequires:    libjpeg-turbo-devel
-Requires:         libtiff
-Requires:         libjpeg-turbo
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-CRAN-filesstrings >= 3.1.5
@@ -23,7 +21,6 @@ BuildRequires:    R-CRAN-withr >= 2.1.0
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-fs >= 1.3.1
-BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-stringr >= 1.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-rlang >= 0.3.3
@@ -38,7 +35,6 @@ Requires:         R-CRAN-withr >= 2.1.0
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-fs >= 1.3.1
-Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-stringr >= 1.2.0
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-rlang >= 0.3.3
@@ -60,6 +56,7 @@ text image I/O.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

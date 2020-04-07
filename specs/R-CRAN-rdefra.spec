@@ -1,13 +1,13 @@
-%global packname  geomerge
-%global packver   0.3.2
+%global packname  rdefra
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.8
 Release:          1%{?dist}
-Summary:          Geospatial Data Integration
+Summary:          Interact with the UK AIR Pollution Database from DEFRA
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,33 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-inlmisc 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-inlmisc 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-geosphere 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgdal 
 Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgdal 
 
 %description
-Geospatial data integration framework that merges raster, spatial polygon,
-and (dynamic) spatial points data into a spatial (panel) data frame at any
-geographical resolution.
+Get data from DEFRA's UK-AIR website <https://uk-air.defra.gov.uk/>. It
+basically scrapes the HTML content.
 
 %prep
 %setup -q -c -n %{packname}
@@ -66,6 +57,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

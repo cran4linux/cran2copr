@@ -1,41 +1,29 @@
-%global packname  arcos
+%global packname  survCurve
 %global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
 Release:          1%{?dist}
-Summary:          Load ARCOS Prescription Data Prepared by the Washington Post
+Summary:          Plots Survival Curves Element by Element
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-vroom 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-vroom 
+BuildRequires:    R-survival >= 3.1
+Requires:         R-survival >= 3.1
 
 %description
-A wrapper for the 'ARCOS API'
-<https://arcos-api.ext.nile.works/__swagger__/> that returns raw and
-summarized data frames from the Drug Enforcement Administration’s
-Automation of Reports and Consolidated Orders System, a database that
-monitors controlled substances transactions between manufacturers and
-distributors which was made public by The Washington Post and The
-Charleston Gazette-Mail.
+Plots survival models from the 'survival' package. Additionally, it plots
+curves of multistate models from the 'mstate' package. Typically, a plot
+is drawn by the sequence survplot(), confIntArea(), survCurve() and
+nrAtRisk(). The separation of the plot in this 4 functions allows for
+great flexibility to make a custom plot for publication.
 
 %prep
 %setup -q -c -n %{packname}
@@ -60,7 +48,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

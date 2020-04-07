@@ -1,26 +1,29 @@
-%global packname  highlightHTML
-%global packver   0.2.4
+%global packname  SpatialAcc
+%global packver   0.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1.4
 Release:          1%{?dist}
-Summary:          Highlight HTML Text and Tables
+Summary:          Spatial Accessibility Measures
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-sp 
 
 %description
-A tool to format R markdown with CSS ids for HTML output. The tool may be
-most helpful for those using markdown to create reproducible documents.
-The biggest limitations in formatting is the knowledge of CSS by the
-document authors.
+Provides a set of spatial accessibility measures from a set of locations
+(demand) to another set of locations (supply). It aims, among others, to
+support research on spatial accessibility to health care facilities.
+Includes the locations and some characteristics of major public hospitals
+in Greece.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,13 +45,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/joss
-%doc %{rlibdir}/%{packname}/shiny
 %{rlibdir}/%{packname}/INDEX

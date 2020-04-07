@@ -1,9 +1,9 @@
 %global packname  eq5d
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}
 Summary:          Methods for Calculating 'EQ-5D' Utility Index Scores
 
@@ -44,6 +44,7 @@ a web browser using EQ-5D dimension scores stored in CSV or Excel files.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
