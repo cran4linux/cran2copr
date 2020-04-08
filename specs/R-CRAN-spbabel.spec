@@ -1,9 +1,9 @@
 %global packname  spbabel
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Convert Spatial Data Using Tidy Tables
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
 Tools to convert from specific formats to more general forms of spatial
@@ -37,6 +39,7 @@ to tables of objects, parts, and unique coordinates.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,6 +47,7 @@ to tables of objects, parts, and unique coordinates.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

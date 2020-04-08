@@ -1,9 +1,9 @@
 %global packname  stars
-%global packver   0.4-0
+%global packver   0.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Spatiotemporal Arrays, Raster and Vector Data Cubes
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.8.0
+BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-classInt >= 0.4.1
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-methods 
@@ -23,7 +23,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf >= 0.8.0
+Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-classInt >= 0.4.1
 Requires:         R-CRAN-abind 
 Requires:         R-methods 
@@ -40,6 +40,7 @@ and vector data cubes) in 'R', using 'GDAL' bindings provided by 'sf', and
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

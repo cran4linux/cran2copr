@@ -1,35 +1,31 @@
-%global packname  NHMSAR
-%global packver   1.17
+%global packname  groupWQS
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Non-Homogeneous Markov Switching Autoregressive Models
+Summary:          Group Weighted Quantile Sum Regression
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-lars 
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-ncvreg 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-lars 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-glm2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-glm2 
+Requires:         R-stats 
 
 %description
-Calibration, simulation, validation of (non-)homogeneous Markov switching
-autoregressive models with Gaussian or von Mises innovations.
-Penalization methods are implemented for Markov Switching Vector
-Autoregressive Models of order 1 only. Most functions of the package
-handle missing values.
+Fits weighted quantile sum (WQS) regressions for one or more chemical
+groups with continuous or binary outcomes. Wheeler D, Czarnota J.(2016)
+<doi:10.1289/isee.2016.4698>.
 
 %prep
 %setup -q -c -n %{packname}

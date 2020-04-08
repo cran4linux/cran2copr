@@ -1,9 +1,9 @@
 %global packname  spsur
-%global packver   1.0.0.4
+%global packver   1.0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.4
+Version:          1.0.1.3
 Release:          1%{?dist}
 Summary:          Spatial Seemingly Unrelated Regression Models
 
@@ -12,26 +12,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.50
-BuildRequires:    R-methods >= 3.5.0
-BuildRequires:    R-stats >= 3.5.0
-BuildRequires:    R-CRAN-numDeriv >= 2016.8.1
+BuildRequires:    R-MASS >= 7.3.51.4
+BuildRequires:    R-methods >= 3.6
+BuildRequires:    R-stats >= 3.6
+BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
+BuildRequires:    R-CRAN-gmodels >= 2.18.1
 BuildRequires:    R-CRAN-minqa >= 1.2.4
 BuildRequires:    R-CRAN-Formula >= 1.2.3
-BuildRequires:    R-Matrix >= 1.2.14
-BuildRequires:    R-CRAN-spdep >= 0.7.9
+BuildRequires:    R-Matrix >= 1.2.16
+BuildRequires:    R-CRAN-spatialreg >= 1.1.5
+BuildRequires:    R-CRAN-spdep >= 1.1.3
 BuildRequires:    R-CRAN-sparseMVN >= 0.2.1.1
-Requires:         R-MASS >= 7.3.50
-Requires:         R-methods >= 3.5.0
-Requires:         R-stats >= 3.5.0
-Requires:         R-CRAN-numDeriv >= 2016.8.1
+Requires:         R-MASS >= 7.3.51.4
+Requires:         R-methods >= 3.6
+Requires:         R-stats >= 3.6
+Requires:         R-CRAN-numDeriv >= 2016.8.1.1
+Requires:         R-CRAN-gmodels >= 2.18.1
 Requires:         R-CRAN-minqa >= 1.2.4
 Requires:         R-CRAN-Formula >= 1.2.3
-Requires:         R-Matrix >= 1.2.14
-Requires:         R-CRAN-spdep >= 0.7.9
+Requires:         R-Matrix >= 1.2.16
+Requires:         R-CRAN-spatialreg >= 1.1.5
+Requires:         R-CRAN-spdep >= 1.1.3
 Requires:         R-CRAN-sparseMVN >= 0.2.1.1
 
 %description
@@ -52,6 +56,7 @@ found in next references Mur, J., Lopez, F., and Herrera, M. (2010)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -69,6 +74,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

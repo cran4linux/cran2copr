@@ -1,9 +1,9 @@
 %global packname  basket
-%global packver   0.10.1
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.2
 Release:          1%{?dist}
 Summary:          Basket Trial Analysis
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-GenSA 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
@@ -46,7 +45,6 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-rlang 
 
 %description
 Implementation of multisource exchangeability models for Bayesian analyses

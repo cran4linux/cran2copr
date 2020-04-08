@@ -1,13 +1,13 @@
-%global packname  semantic.dashboard
-%global packver   0.1.5
+%global packname  densitr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Dashboard with Semantic UI Support for Shiny
+Summary:          Analysing Density Profiles from Resistance Drilling of Trees
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 0.12.1
-BuildRequires:    R-CRAN-shiny.semantic >= 0.1.2
+BuildRequires:    R-CRAN-changepoint >= 2.2.2
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-shiny >= 0.12.1
-Requires:         R-CRAN-shiny.semantic >= 0.1.2
+Requires:         R-CRAN-changepoint >= 2.2.2
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-glue 
 
 %description
-It offers functions for creating dashboard with Semantic UI.
+Provides various tools for analysing density profiles obtained by
+resistance drilling. It can load individual or multiple files and trim the
+starting and ending part of each density profile. Tools are also provided
+to trim profiles manually, to remove the trend from measurements using
+several methods, to plot the profiles and to detect tree rings
+automatically. Written with a focus on forestry use of resistance drilling
+in standing trees.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,11 +52,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/compare.png
-%doc %{rlibdir}/%{packname}/semantic.dashboard.js
-%doc %{rlibdir}/%{packname}/semantic.dashboard.min.js
-%doc %{rlibdir}/%{packname}/themes.png
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

@@ -1,33 +1,28 @@
-%global packname  semantic.dashboard
-%global packver   0.1.5
+%global packname  ipify
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Dashboard with Semantic UI Support for Shiny
+Summary:          Query the Ipify Service
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 0.12.1
-BuildRequires:    R-CRAN-shiny.semantic >= 0.1.2
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-shiny >= 0.12.1
-Requires:         R-CRAN-shiny.semantic >= 0.1.2
-Requires:         R-utils 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-methods 
+Requires:         R-CRAN-httr 
 
 %description
-It offers functions for creating dashboard with Semantic UI.
+Query the ipify service (<https://www.ipify.org>) to retrieve this
+machine's public IP address.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,8 +48,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/compare.png
-%doc %{rlibdir}/%{packname}/semantic.dashboard.js
-%doc %{rlibdir}/%{packname}/semantic.dashboard.min.js
-%doc %{rlibdir}/%{packname}/themes.png
 %{rlibdir}/%{packname}/INDEX

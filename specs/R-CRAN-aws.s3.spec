@@ -1,9 +1,9 @@
 %global packname  aws.s3
-%global packver   0.3.20
+%global packver   0.3.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.20
+Version:          0.3.21
 Release:          1%{?dist}
 Summary:          'AWS S3' Client Package
 

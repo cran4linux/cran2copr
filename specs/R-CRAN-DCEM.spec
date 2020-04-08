@@ -1,9 +1,9 @@
 %global packname  DCEM
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Clustering for Multivariate and Univariate Data UsingExpectation Maximization Algorithm
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildRequires:    R-MASS >= 7.3.49
 BuildRequires:    R-CRAN-mvtnorm >= 1.0.7
 BuildRequires:    R-CRAN-matrixcalc >= 1.0.3
@@ -61,5 +61,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

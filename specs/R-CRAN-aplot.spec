@@ -1,9 +1,9 @@
 %global packname  aplot
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}
 Summary:          Decorate a 'ggplot' with Associated Information
 
@@ -54,6 +54,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

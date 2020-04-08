@@ -1,29 +1,34 @@
-%global packname  grpSLOPE
-%global packver   0.3.0
+%global packname  finity
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Group Sorted L1 Penalized Estimation
+Summary:          Test for Finiteness of Moments in a Distribution
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-stabledist >= 0.7
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-stabledist >= 0.7
 
 %description
-Group SLOPE is a penalized linear regression method that is used for
-adaptive selection of groups of significant predictors in a
-high-dimensional linear model. The Group SLOPE method can control the
-(group) false discovery rate at a user-specified level (i.e., control the
-expected proportion of irrelevant among all selected groups of
-predictors).
+The purpose of this package is to tests whether a given moment of the
+distribution of a given sample is finite or not. For heavy-tailed
+distributions with tail exponent b, only moments of order smaller than b
+are finite. Tail exponent and heavy- tailedness are notoriously difficult
+to ascertain. But the finiteness of moments (including fractional moments)
+can be tested directly. This package does that following the test
+suggested by Trapani (2016) <doi:10.1016/j.jeconom.2015.08.006>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,8 +52,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

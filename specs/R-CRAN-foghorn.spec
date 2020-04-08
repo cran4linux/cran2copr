@@ -1,9 +1,9 @@
 %global packname  foghorn
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}
 Summary:          Summarize CRAN Check Results in the Terminal
 
@@ -39,6 +39,7 @@ submission queue in your R terminal.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

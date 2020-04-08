@@ -1,9 +1,9 @@
 %global packname  pins
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Pin, Discover and Share Resources
 
@@ -15,8 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
@@ -26,8 +29,11 @@ BuildRequires:    R-CRAN-rappdirs
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-backports 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
@@ -47,6 +53,7 @@ avoid recomputing; discover and share resources in local folders,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

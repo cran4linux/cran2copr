@@ -1,35 +1,28 @@
-%global packname  NHMSAR
-%global packver   1.17
+%global packname  nmaINLA
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Non-Homogeneous Markov Switching Autoregressive Models
+Summary:          Network Meta-Analysis using Integrated Nested LaplaceApproximations
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-lars 
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-ncvreg 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-lars 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-ncvreg 
 
 %description
-Calibration, simulation, validation of (non-)homogeneous Markov switching
-autoregressive models with Gaussian or von Mises innovations.
-Penalization methods are implemented for Markov Switching Vector
-Autoregressive Models of order 1 only. Most functions of the package
-handle missing values.
+Performs network meta-analysis using integrated nested Laplace
+approximations ('INLA') which is described in Guenhan, Held, and Friede
+(2018) <doi:10.1002/jrsm.1285>. Includes methods to assess the
+heterogeneity and inconsistency in the network. Contains more than ten
+different network meta-analysis data. 'INLA' package can be obtained from
+<http://www.r-inla.org>. We recommend the testing version.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,4 +48,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

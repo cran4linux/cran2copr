@@ -1,9 +1,9 @@
 %global packname  FlexScan
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Flexible Scan Statistics
 
@@ -36,6 +36,7 @@ Takahashi (2005) <doi:10.1186/1476-072X-4-11>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

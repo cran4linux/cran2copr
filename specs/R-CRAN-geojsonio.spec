@@ -1,9 +1,9 @@
 %global packname  geojsonio
-%global packver   0.9.0
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.2
 Release:          1%{?dist}
 Summary:          Convert Data from and to 'GeoJSON' or 'TopoJSON'
 
@@ -75,7 +75,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/ignore
 %doc %{rlibdir}/%{packname}/js
 %doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX

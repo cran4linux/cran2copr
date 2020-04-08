@@ -1,9 +1,9 @@
 %global packname  classInt
-%global packver   0.4-2
+%global packver   0.4-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}
 Summary:          Choose Univariate Class Intervals
 
@@ -34,6 +34,7 @@ mapping or other graphics purposes.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -54,5 +55,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/ChangeLog
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

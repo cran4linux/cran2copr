@@ -1,9 +1,9 @@
 %global packname  ecodist
-%global packver   2.0.3
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.5
 Release:          1%{?dist}
 Summary:          Dissimilarity-Based Functions for Ecological Analysis
 
@@ -21,11 +21,15 @@ Requires:         R-graphics
 
 %description
 Dissimilarity-based analysis functions including ordination and Mantel
-test functions, intended for use with spatial and community data.
+test functions, intended for use with spatial and community data. The
+original package description is in Goslee and Urban (2007)
+<doi:10.18637/jss.v022.i07>, with further statistical detail in Goslee
+(2010) <doi:10.1007/s11258-009-9641-0>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

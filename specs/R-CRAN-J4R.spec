@@ -1,13 +1,13 @@
-%global packname  semantic.dashboard
-%global packver   0.1.5
+%global packname  J4R
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.6
 Release:          1%{?dist}
-Summary:          Dashboard with Semantic UI Support for Shiny
+Summary:          Create 'Java' Objects and Execute 'Java' Methods
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 0.12.1
-BuildRequires:    R-CRAN-shiny.semantic >= 0.1.2
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-shiny >= 0.12.1
-Requires:         R-CRAN-shiny.semantic >= 0.1.2
-Requires:         R-utils 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-utils >= 3.4.4
+Requires:         R-utils >= 3.4.4
 
 %description
-It offers functions for creating dashboard with Semantic UI.
+Makes it possible to create 'Java' objects and to execute 'Java' methods
+from the 'R' environment. The 'Java' Virtual Machine is handled by a
+gateway server. Commands are sent to the server through a socket
+connection from the 'R' environment. Calls to 'Java' methods allow for
+vectors so that a particular method is iteratively run on each element of
+the vector. A score algorithm also makes the calls to 'Java' methods less
+restrictive. The gateway server relies on the runnable 'Java' library
+'j4r.jar'. This library is licensed under the LGPL-3. Its sources are
+included in this package. To start the gateway server, 'Java' must be part
+of the path.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,11 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/compare.png
-%doc %{rlibdir}/%{packname}/semantic.dashboard.js
-%doc %{rlibdir}/%{packname}/semantic.dashboard.min.js
-%doc %{rlibdir}/%{packname}/themes.png
+%{rlibdir}/%{packname}/java
 %{rlibdir}/%{packname}/INDEX

@@ -1,35 +1,33 @@
-%global packname  NHMSAR
-%global packver   1.17
+%global packname  HadamardR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Non-Homogeneous Markov Switching Autoregressive Models
+Summary:          Hadamard Matrix Generation
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-lars 
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-ncvreg 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-lars 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-numbers 
+BuildRequires:    R-CRAN-openxlsx 
+Requires:         R-CRAN-numbers 
+Requires:         R-CRAN-openxlsx 
 
 %description
-Calibration, simulation, validation of (non-)homogeneous Markov switching
-autoregressive models with Gaussian or von Mises innovations.
-Penalization methods are implemented for Markov Switching Vector
-Autoregressive Models of order 1 only. Most functions of the package
-handle missing values.
+Generates Hadamard matrices using different construction methods. For
+those who want to generate Hadamard matrix, a generic function,
+Hadamard_matrix() is provided. For those who want to generate Hadamard
+matrix using a particular method, separate functions are available. See
+Horadam (2007, ISBN:9780691119212) Hadamard Matrices and their
+applications, Princeton University Press for more information on Hadamard
+Matrices.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,7 +49,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

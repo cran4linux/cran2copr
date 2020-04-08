@@ -1,9 +1,9 @@
 %global packname  rsdmx
-%global packver   0.5-13
+%global packver   0.5-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.13
+Version:          0.5.14
 Release:          1%{?dist}
 Summary:          Tools for Reading SDMX Data and Metadata
 

@@ -1,35 +1,28 @@
-%global packname  NHMSAR
-%global packver   1.17
+%global packname  eatDB
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17
+Version:          0.4.0
 Release:          1%{?dist}
-Summary:          Non-Homogeneous Markov Switching Autoregressive Models
+Summary:          Spreadsheet Interface for Relational Databases
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-lars 
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-ncvreg 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-lars 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
 
 %description
-Calibration, simulation, validation of (non-)homogeneous Markov switching
-autoregressive models with Gaussian or von Mises innovations.
-Penalization methods are implemented for Markov Switching Vector
-Autoregressive Models of order 1 only. Most functions of the package
-handle missing values.
+Use 'SQLite3' as a database system via a complete SQL free R interface,
+treating the data as if it was a single spreadsheet.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,4 +48,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

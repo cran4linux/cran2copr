@@ -1,33 +1,31 @@
-%global packname  semantic.dashboard
-%global packver   0.1.5
+%global packname  VUROCS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Dashboard with Semantic UI Support for Shiny
+Summary:          Volume under the ROC Surface for Multi-Class ROC Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 0.12.1
-BuildRequires:    R-CRAN-shiny.semantic >= 0.1.2
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-shiny >= 0.12.1
-Requires:         R-CRAN-shiny.semantic >= 0.1.2
-Requires:         R-utils 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
-It offers functions for creating dashboard with Semantic UI.
+Calculates the volume under the ROC surface and its (co)variance for
+ordered multi-class ROC analysis as well as certain bivariate ordinal
+measures of association.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,11 +48,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/compare.png
-%doc %{rlibdir}/%{packname}/semantic.dashboard.js
-%doc %{rlibdir}/%{packname}/semantic.dashboard.min.js
-%doc %{rlibdir}/%{packname}/themes.png
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

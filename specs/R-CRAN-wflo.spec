@@ -1,9 +1,9 @@
 %global packname  wflo
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}
 Summary:          Data Set and Helper Functions for Wind Farm Layout OptimizationProblems
 
@@ -12,12 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Provides a convenient data set, a set of helper functions and a benchmark
+Provides a convenient data set, a set of helper functions, and a benchmark
 function for economically (profit) driven wind farm layout optimization.
 This enables researchers in the field of the NP-hard (non-deterministic
 polynomial-time hard) problem of wind farm layout optimization to focus on

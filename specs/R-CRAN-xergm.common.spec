@@ -1,33 +1,34 @@
-%global packname  semantic.dashboard
-%global packver   0.1.5
+%global packname  xergm.common
+%global packver   1.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.7.8
 Release:          1%{?dist}
-Summary:          Dashboard with Semantic UI Support for Shiny
+Summary:          Common Infrastructure for Extensions of Exponential Random GraphModels
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 0.12.1
-BuildRequires:    R-CRAN-shiny.semantic >= 0.1.2
+BuildRequires:    R-CRAN-ergm >= 3.5.1
+BuildRequires:    R-CRAN-network >= 1.13.0
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-shiny >= 0.12.1
-Requires:         R-CRAN-shiny.semantic >= 0.1.2
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ergm >= 3.5.1
+Requires:         R-CRAN-network >= 1.13.0
+Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-glue 
+Requires:         R-stats 
 
 %description
-It offers functions for creating dashboard with Semantic UI.
+Datasets and definitions of generic functions used in dependencies of the
+'xergm' package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,12 +50,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/compare.png
-%doc %{rlibdir}/%{packname}/semantic.dashboard.js
-%doc %{rlibdir}/%{packname}/semantic.dashboard.min.js
-%doc %{rlibdir}/%{packname}/themes.png
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

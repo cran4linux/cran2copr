@@ -1,13 +1,13 @@
-%global packname  semantic.dashboard
-%global packver   0.1.5
+%global packname  aws.iam
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.8
 Release:          1%{?dist}
-Summary:          Dashboard with Semantic UI Support for Shiny
+Summary:          AWS IAM Client Package
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 0.12.1
-BuildRequires:    R-CRAN-shiny.semantic >= 0.1.2
+BuildRequires:    R-CRAN-aws.signature >= 0.3.4
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-shiny >= 0.12.1
-Requires:         R-CRAN-shiny.semantic >= 0.1.2
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-aws.signature >= 0.3.4
 Requires:         R-utils 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-jsonlite 
 
 %description
-It offers functions for creating dashboard with Semantic UI.
+A simple client for the Amazon Web Services ('AWS') Identity and Access
+Management ('IAM') 'API' <https://aws.amazon.com/iam/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,11 +51,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/compare.png
-%doc %{rlibdir}/%{packname}/semantic.dashboard.js
-%doc %{rlibdir}/%{packname}/semantic.dashboard.min.js
-%doc %{rlibdir}/%{packname}/themes.png
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

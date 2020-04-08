@@ -1,9 +1,9 @@
 %global packname  poweRlaw
-%global packver   0.70.2
+%global packver   0.70.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.70.2
+Version:          0.70.4
 Release:          1%{?dist}
 Summary:          Analysis of Heavy Tailed Distributions
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-VGAM 
-Requires:         R-parallel 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-VGAM 
 Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-VGAM 
 
 %description
 An implementation of maximum likelihood estimators for a variety of heavy
@@ -35,6 +35,7 @@ estimate the lower cut-off for the scaling region.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,6 +43,7 @@ estimate the lower cut-off for the scaling region.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
