@@ -1,9 +1,9 @@
 %global packname  rasciidoc
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Create Reports Using R and 'asciidoc'
 
@@ -18,11 +18,15 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-document 
+BuildRequires:    R-CRAN-git2r 
 BuildRequires:    R-CRAN-highr 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-xfun 
 Requires:         R-CRAN-document 
+Requires:         R-CRAN-git2r 
 Requires:         R-CRAN-highr 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-xfun 
 
 %description
 Inspired by Karl Broman`s reader on using 'knitr' with 'asciidoc'
@@ -32,6 +36,7 @@ a wrapper to 'knitr' and 'asciidoc'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

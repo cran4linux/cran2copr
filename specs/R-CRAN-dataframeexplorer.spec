@@ -1,48 +1,43 @@
-%global packname  kntnr
-%global packver   0.4.4
+%global packname  dataframeexplorer
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.1.5
 Release:          1%{?dist}
-Summary:          R Client for 'kintone' API
+Summary:          Familiarity with Dataframes Before Data Manipulation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-purrr >= 0.2.3
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-purrr >= 0.2.3
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-tidyr 
 
 %description
-Retrieve data from 'kintone' (<https://www.kintone.com/>) via its API.
-'kintone' is an enterprise application platform.
+Real life data is muddy, fuzzy and unpredictable. This makes data
+manipulations tedious and bringing the data to right shape alone is a
+major chunk of work. Functions in this package help us get an
+understanding of dataframes to dramatically reduces data coding time. The
+package describes the datatypes of columns, generates frequency of each
+value in a dataframe column, creates percentile table and determines level
+of dataset.
 
 %prep
 %setup -q -c -n %{packname}
@@ -67,7 +62,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

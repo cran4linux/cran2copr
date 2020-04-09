@@ -1,9 +1,9 @@
 %global packname  lmerTest
-%global packver   3.1-1
+%global packver   3.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.2
 Release:          1%{?dist}
 Summary:          Tests in Linear Mixed Effects Models
 
@@ -39,6 +39,7 @@ linear contrasts of fixed effects are also available.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

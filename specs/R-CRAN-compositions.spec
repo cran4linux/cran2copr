@@ -1,9 +1,9 @@
 %global packname  compositions
-%global packver   1.40-4
+%global packver   1.40-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.40.4
+Version:          1.40.5
 Release:          1%{?dist}
 Summary:          Compositional Data Analysis
 

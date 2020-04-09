@@ -1,9 +1,9 @@
 %global packname  optimx
-%global packver   2020-2.2
+%global packver   2020-4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.2.2
+Version:          2020.4.2
 Release:          1%{?dist}
 Summary:          Expanded Replacement and Extension of the 'optim' Function
 
@@ -31,6 +31,7 @@ the version for CRAN.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

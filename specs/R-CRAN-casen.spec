@@ -1,9 +1,9 @@
 %global packname  casen
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Metodos De Estimacion Con Disenio Probabilistico y Estratificadoen Encuesta CASEN (Estimation Methods with ProbabilisticStratified Sampling in CASEN Survey)
 
@@ -15,11 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-labelled 
@@ -31,11 +29,9 @@ BuildRequires:    R-CRAN-janitor
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-srvyr 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-fs 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-labelled 
@@ -81,6 +77,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

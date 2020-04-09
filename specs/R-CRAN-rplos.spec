@@ -1,9 +1,9 @@
 %global packname  rplos
-%global packver   0.8.6
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Interface to the Search API for 'PLoS' Journals
 
@@ -71,5 +71,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/schema_new.xml
 %doc %{rlibdir}/%{packname}/schema.xml
-%doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX

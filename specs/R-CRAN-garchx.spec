@@ -1,35 +1,31 @@
-%global packname  DIFtree
-%global packver   3.1.5
+%global packname  garchx
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.5
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Item Focussed Trees for the Identification of Items inDifferential Item Functioning
+Summary:          Flexible and Robust GARCH-X Modelling
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-penalized 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridBase 
-BuildRequires:    R-CRAN-plotrix 
-Requires:         R-CRAN-penalized 
-Requires:         R-CRAN-VGAM 
-Requires:         R-grid 
-Requires:         R-CRAN-gridBase 
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-zoo 
 
 %description
-Item focussed recursive partitioning for simultaneous selection of items
-and variables that induce Differential Item Functioning (DIF) in
-dichotomous or polytomous items.
+Flexible and robust estimation and inference of generalised autoregressive
+conditional heteroscedasticity (GARCH) models with covariates based on the
+results by Francq and Thieu (2018) <doi:10.1017/S0266466617000512>.
+Suitable subsets of the coefficients can be restricted to zero during
+estimation, and quasi maximum likelihood methods ensure estimates are
+generally consistent, even when the standardised innovations are
+non-normal and/or not independent and identically distributed.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,8 +47,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

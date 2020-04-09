@@ -1,9 +1,9 @@
 %global packname  pollster
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Calculate Crosstab and Topline Tables of Weighted Survey Data
 
@@ -20,14 +20,12 @@ BuildRequires:    R-CRAN-stringr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-forcats 
 Requires:         R-CRAN-labelled >= 2.0.0
 Requires:         R-CRAN-stringr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-forcats 
 
 %description

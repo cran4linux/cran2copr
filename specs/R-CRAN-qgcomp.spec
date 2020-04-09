@@ -1,9 +1,9 @@
 %global packname  qgcomp
-%global packver   2.2.2
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Quantile G-Computation
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-arm 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
@@ -27,11 +27,11 @@ BuildRequires:    R-CRAN-pscl
 BuildRequires:    R-stats 
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-arm 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
@@ -49,7 +49,7 @@ quantile-based category for all exposures. Works with continuous, binary,
 and right-censored time-to-event outcomes.  Reference: Alexander P. Keil,
 Jessie P. Buckley, Katie M. OBrien, Kelly K. Ferguson, Shanshan Zhao, and
 Alexandra J. White (2019) A quantile-based g-computation approach to
-addressing the effects of exposure mixtures; <arXiv:1902.04200> [stat.ME].
+addressing the effects of exposure mixtures; <doi:10.1289/EHP5838>.
 
 %prep
 %setup -q -c -n %{packname}

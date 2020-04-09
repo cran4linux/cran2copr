@@ -1,9 +1,9 @@
 %global packname  exampletestr
-%global packver   1.5.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.0
 Release:          1%{?dist}
 Summary:          Help for Writing Unit Tests Based on Function Examples
 
@@ -21,10 +21,11 @@ BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-usethis >= 1.5.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-ore >= 1.4.0
-BuildRequires:    R-CRAN-glue >= 1.3.0
+BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-fs >= 1.2.3
-BuildRequires:    R-CRAN-stringr >= 1.2.0
 BuildRequires:    R-CRAN-styler >= 1.2.0
+BuildRequires:    R-CRAN-clipr >= 0.7.0
+BuildRequires:    R-CRAN-rstudioapi >= 0.4
 BuildRequires:    R-CRAN-rlang >= 0.3.3
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
@@ -35,10 +36,11 @@ Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-usethis >= 1.5.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-ore >= 1.4.0
-Requires:         R-CRAN-glue >= 1.3.0
+Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-fs >= 1.2.3
-Requires:         R-CRAN-stringr >= 1.2.0
 Requires:         R-CRAN-styler >= 1.2.0
+Requires:         R-CRAN-clipr >= 0.7.0
+Requires:         R-CRAN-rstudioapi >= 0.4
 Requires:         R-CRAN-rlang >= 0.3.3
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
@@ -53,6 +55,7 @@ python 'doctests' for R.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -77,5 +80,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CODE_OF_CONDUCT.md
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/rstudio
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

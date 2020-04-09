@@ -1,9 +1,9 @@
 %global packname  multcomp
-%global packver   1.4-12
+%global packver   1.4-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.12
+Version:          1.4.13
 Release:          1%{?dist}
 Summary:          Simultaneous Inference in General Parametric Models
 
@@ -40,6 +40,7 @@ Hothorn, Westfall, 2010, CRC Press).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
