@@ -1,9 +1,9 @@
 %global packname  tmap
-%global packver   2.3-2
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          3.0
 Release:          1%{?dist}
 Summary:          Thematic Maps
 
@@ -12,35 +12,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster >= 2.7.15
-BuildRequires:    R-CRAN-tmaptools >= 2.0.2
+BuildRequires:    R-CRAN-tmaptools >= 3.0
 BuildRequires:    R-CRAN-leaflet >= 2.0.2
-BuildRequires:    R-CRAN-sf >= 0.7.1
+BuildRequires:    R-CRAN-sf >= 0.9.1
 BuildRequires:    R-CRAN-units >= 0.6.1
-BuildRequires:    R-CRAN-lwgeom >= 0.1.4
+BuildRequires:    R-CRAN-classInt >= 0.4.3
+BuildRequires:    R-CRAN-stars >= 0.4.1
+BuildRequires:    R-CRAN-leafem >= 0.1
 BuildRequires:    R-methods 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-leafsync 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-raster >= 2.7.15
-Requires:         R-CRAN-tmaptools >= 2.0.2
+Requires:         R-CRAN-tmaptools >= 3.0
 Requires:         R-CRAN-leaflet >= 2.0.2
-Requires:         R-CRAN-sf >= 0.7.1
+Requires:         R-CRAN-sf >= 0.9.1
 Requires:         R-CRAN-units >= 0.6.1
-Requires:         R-CRAN-lwgeom >= 0.1.4
+Requires:         R-CRAN-classInt >= 0.4.3
+Requires:         R-CRAN-stars >= 0.4.1
+Requires:         R-CRAN-leafem >= 0.1
 Requires:         R-methods 
 Requires:         R-grid 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-leafsync 
@@ -54,6 +54,7 @@ use approach to create thematic maps, such as choropleths and bubble maps.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

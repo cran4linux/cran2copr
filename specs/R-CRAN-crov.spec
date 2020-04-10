@@ -1,9 +1,9 @@
 %global packname  crov
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Constrained Regression Model for an Ordinal Response and OrdinalPredictors
 
@@ -24,18 +24,19 @@ Requires:         R-CRAN-VGAM >= 1.0.5
 
 %description
 Fits a constrained regression model for an ordinal response with ordinal
-predictors and possibly others, Espinosa and Hennig (2018)
-<arXiv:1804.08715>. The parameter estimates associated with an ordinal
-predictor are constrained to be monotonic. If a monotonicity direction
-(isotonic or antitonic) is not specified for an ordinal predictor by the
-user, then the monotonicity direction classification procedure establishes
-it. A monotonicity test is also available to test the null hypothesis of
-monotonicity over a set of parameters associated with an ordinal
-predictor.
+predictors and possibly others, Espinosa and Hennig (2019)
+<doi:10.1007/s11222-018-9842-2>. The parameter estimates associated with
+an ordinal predictor are constrained to be monotonic. If a monotonicity
+direction (isotonic or antitonic) is not specified for an ordinal
+predictor by the user, then the monotonicity direction classification
+procedure establishes it. Two monotonicity tests are also available to
+test the null hypothesis of monotonicity over a set of parameters
+associated with an ordinal predictor.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +44,7 @@ predictor.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

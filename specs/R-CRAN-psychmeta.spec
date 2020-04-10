@@ -1,9 +1,9 @@
 %global packname  psychmeta
-%global packver   2.3.6
+%global packver   2.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.6
+Version:          2.3.7
 Release:          1%{?dist}
 Summary:          Psychometric Meta-Analysis Toolkit
 

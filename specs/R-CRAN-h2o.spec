@@ -1,16 +1,16 @@
 %global packname  h2o
-%global packver   3.28.0.4
+%global packver   3.30.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.28.0.4
+Version:          3.30.0.1
 Release:          1%{?dist}
 Summary:          R Interface for the 'H2O' Scalable Machine Learning Platform
 
 License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
-Source1:          https://s3.amazonaws.com/h2o-release/h2o/rel-yu/4/Rjar/h2o.jar
+Source1:          https://s3.amazonaws.com/h2o-release/h2o/rel-zahradnik/1/Rjar/h2o.jar
 
 Requires:         java
 BuildRequires:    R-devel >= 2.13.0
@@ -68,6 +68,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/branch.txt
 %doc %{rlibdir}/%{packname}/buildnum.txt
 %{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %doc %{rlibdir}/%{packname}/source_code_repository_info.txt
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  incadata
-%global packver   0.8.2
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Recognize and Handle Data in Formats Used by Swedish CancerCenters
 
@@ -15,15 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-decoder 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-sweidnumbr 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-backports 
 Requires:         R-CRAN-decoder 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-sweidnumbr 
 Requires:         R-CRAN-xml2 
@@ -51,6 +47,7 @@ are also included, as previously found in the 'rccmisc' package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -73,4 +70,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

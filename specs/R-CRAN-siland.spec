@@ -1,13 +1,13 @@
-%global packname  MST
-%global packver   2.2
+%global packname  siland
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.0
 Release:          1%{?dist}
-Summary:          Multivariate Survival Trees
+Summary:          Spatial Influence of Landscape
 
-License:          GPL-2
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,26 +15,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-survival 
+BuildRequires:    R-base 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-stats 
-Requires:         R-survival 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-fasterize 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-base 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-MASS 
-Requires:         R-CRAN-Formula 
-Requires:         R-methods 
-Requires:         R-CRAN-partykit 
 Requires:         R-stats 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-fasterize 
+Requires:         R-CRAN-reshape2 
 
 %description
-Constructs trees for multivariate survival data using marginal and frailty
-models. Grows, prunes, and selects the best-sized tree.
+Functions to analyze the effect of landscape features on spatial
+observations (described in a GIS shapefile format). It simultaneously
+estimates the spatial scales and intensities of landscape variable effects
+without any information about the scale of effect, Carpentier and Martin
+(2019) <doi:10.1101/692566>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -60,6 +69,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/NEWS.Rd
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

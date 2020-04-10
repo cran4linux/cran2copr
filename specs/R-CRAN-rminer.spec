@@ -1,9 +1,9 @@
 %global packname  rminer
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}
 Summary:          Data Mining Classification and Regression Methods
 
@@ -53,21 +53,24 @@ Requires:         R-CRAN-xgboost
 %description
 Facilitates the use of data mining algorithms in classification and
 regression (including time series forecasting) tasks by presenting a short
-and coherent set of functions. Versions: 1.4.3 new metrics (e.g., macro
-precision, explained variance), new least squares support vector machine
-model and improved mparheuristic function; 1.4.2 new NMAE metric,
-"xgboost" and "cv.glmnet" models (16 classification and 18 regression
-models); 1.4.1 new tutorial and more robust version; 1.4 - new
-classification and regression models/algorithms, with a total of 14
+and coherent set of functions. Versions: 1.4.4 new automated machine
+learning (AutoML) and ensembles, via improved fit(), mining() and
+mparheuristic() functions, and new categorical preprocessing, via improved
+delevels() function; 1.4.3 new metrics (e.g., macro precision, explained
+variance), new "lssvm" model and improved mparheuristic() function; 1.4.2
+new "NMAE" metric, "xgboost" and "cv.glmnet" models (16 classification and
+18 regression models); 1.4.1 new tutorial and more robust version; 1.4 -
+new classification and regression models, with a total of 14
 classification and 15 regression methods, including: Decision Trees,
 Neural Networks, Support Vector Machines, Random Forests, Bagging and
-Boosting; 1.3 and 1.3.1 - new classification and regression metrics
-(improved mmetric function); 1.2 - new input importance methods (improved
-Importance function); 1.0 - first version.
+Boosting; 1.3 and 1.3.1 - new classification and regression metrics; 1.2 -
+new input importance methods via improved Importance() function; 1.0 -
+first version.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

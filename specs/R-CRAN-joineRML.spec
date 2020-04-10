@@ -1,9 +1,9 @@
 %global packname  joineRML
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}
 Summary:          Joint Modelling of Multivariate Longitudinal Data andTime-to-Event Outcomes
 
@@ -21,6 +21,7 @@ BuildRequires:    R-survival
 BuildRequires:    R-CRAN-cobs 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-MASS 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-randtoolbox 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-lme4 >= 1.1.8
@@ -38,6 +40,7 @@ Requires:         R-survival
 Requires:         R-CRAN-cobs 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-MASS 
@@ -46,6 +49,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-parallel 
 Requires:         R-CRAN-randtoolbox 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description

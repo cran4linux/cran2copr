@@ -1,11 +1,11 @@
 %global packname  correlation
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Easy Peasy Correlations
+Summary:          Methods for Correlation Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,13 +20,11 @@ BuildRequires:    R-CRAN-bayestestR >= 0.5.0
 BuildRequires:    R-CRAN-parameters >= 0.5.0
 BuildRequires:    R-CRAN-effectsize >= 0.2.0
 BuildRequires:    R-stats 
-BuildRequires:    R-boot 
 Requires:         R-CRAN-insight >= 0.8.0
 Requires:         R-CRAN-bayestestR >= 0.5.0
 Requires:         R-CRAN-parameters >= 0.5.0
 Requires:         R-CRAN-effectsize >= 0.2.0
 Requires:         R-stats 
-Requires:         R-boot 
 
 %description
 Lightweight package for computing different kinds of correlations, such as
@@ -57,5 +55,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

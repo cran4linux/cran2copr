@@ -1,9 +1,9 @@
 %global packname  scTenifoldNet
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Construct and Compare scGRN from Single-Cell Transcriptomic Data
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-Matrix 
@@ -23,7 +22,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-MASS 
-Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-Matrix 
@@ -62,5 +60,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/python
 %{rlibdir}/%{packname}/INDEX

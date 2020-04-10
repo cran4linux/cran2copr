@@ -1,9 +1,9 @@
 %global packname  effsize
-%global packver   0.7.9
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.9
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          Efficient Effect Size Computation
 

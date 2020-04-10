@@ -1,9 +1,9 @@
 %global packname  replicateBE
-%global packver   1.0.13
+%global packver   1.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.13
+Version:          1.0.14
 Release:          1%{?dist}
 Summary:          Average Bioequivalence with Expanding Limits (ABEL)
 
@@ -42,6 +42,7 @@ Cooperation Council, South Africa: Cmax) - is implemented as well.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

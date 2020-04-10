@@ -1,9 +1,9 @@
 %global packname  rscorecard
-%global packver   0.14.0
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.15.0
 Release:          1%{?dist}
 Summary:          A Method to Download Department of Education College ScorecardData
 
@@ -42,6 +42,7 @@ Education is required.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

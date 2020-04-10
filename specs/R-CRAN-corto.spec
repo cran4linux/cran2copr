@@ -1,9 +1,9 @@
 %global packname  corto
-%global packver   1.0.5
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.8
 Release:          1%{?dist}
 Summary:          Inference of Gene Regulatory Networks
 
@@ -41,11 +41,11 @@ between a list of source nodes (centroids) and target genes. Then all
 triplets containing two centroids and one target are tested in a DPI step
 which removes edges. A bootstrapping process then calculates the
 robustness of the network, eventually re-adding edges previously removed
-by DPI. The package implements a similar pipeline as ARACNe-AP (Algorithm
-for the Reconstruction of Accurate Cellular Networks with Adaptive
-Partitioning) by Giorgi (2016) <doi:10.1093/bioinformatics/btw216>) with
-optimizations to run outside a computing cluster (most notably correlation
-to infer feature dependencies instead of Mutual Information).
+by DPI. The algorithm has been optimized to run outside a computing
+cluster, using a fast correlation implementation. The package finally
+provides functions to calculate network enrichment analysis from RNA-Seq
+and ATAC-Seq signatures as described in the article by Giorgi lab (2020)
+<doi:10.1093/bioinformatics/btaa223>.
 
 %prep
 %setup -q -c -n %{packname}
