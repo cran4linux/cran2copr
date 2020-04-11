@@ -1,9 +1,9 @@
 %global packname  metR
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}
 Summary:          Tools for Easier Analysis of Meteorological Fields
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RCurl 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RCurl 
 
 %description
 Many useful functions and extensions for dealing with meteorological data

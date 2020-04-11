@@ -1,9 +1,9 @@
 %global packname  secrdesign
-%global packver   2.5.10
+%global packver   2.5.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.10
+Version:          2.5.11
 Release:          1%{?dist}
 Summary:          Sampling Design for Spatially Explicit Capture-Recapture
 
@@ -32,6 +32,7 @@ spacing.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

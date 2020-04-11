@@ -1,9 +1,9 @@
 %global packname  spathial
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Evolutionary Analysis
 
@@ -24,6 +24,7 @@ BuildRequires:    R-class
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-irlba 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-matrixStats 
@@ -33,6 +34,7 @@ Requires:         R-class
 Requires:         R-utils 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-irlba 
 
 %description
 A generic tool for manifold analysis. It allows to infer a relevant

@@ -1,11 +1,11 @@
-%global packname  httpcode
-%global packver   0.3.0
+%global packname  lodr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0
 Release:          1%{?dist}
-Summary:          'HTTP' Status Code Helper
+Summary:          Linear Model Fitting with LOD Covariates
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,12 +14,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-Rdpack 
 
 %description
-Find and explain the meaning of 'HTTP' status codes. Functions included
-for searching for codes by full or partial number, by message, and get
-appropriate dog and cat images for many status codes.
+Tools to fit linear regression model to data while taking into account
+covariates with lower limit of detection (LOD).
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,9 +44,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  jstable
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}
 Summary:          Create Tables from Different Types of Regression
 
@@ -55,6 +55,7 @@ model(svyglm) and survey-weighted Cox model results for publication.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

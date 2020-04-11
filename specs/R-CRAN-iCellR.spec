@@ -1,9 +1,9 @@
 %global packname  iCellR
-%global packver   1.4.0
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.5
 Release:          1%{?dist}
 Summary:          Analyzing High-Throughput Single Cell Sequencing Data
 
@@ -38,6 +38,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-uwot 
 BuildRequires:    R-CRAN-hdf5r 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-Matrix 
@@ -61,6 +62,7 @@ Requires:         R-methods
 Requires:         R-CRAN-uwot 
 Requires:         R-CRAN-hdf5r 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-igraph 
 
 %description
 A toolkit that allows scientists to work with data from single cell

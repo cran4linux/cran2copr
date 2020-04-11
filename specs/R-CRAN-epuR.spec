@@ -1,44 +1,43 @@
-%global packname  BAT
-%global packver   2.0.1
+%global packname  epuR
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1
 Release:          1%{?dist}
-Summary:          Biodiversity Assessment Tools
+Summary:          Collect and Process Economic Policy Uncertainty Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-hypervolume 
-BuildRequires:    R-CRAN-nls2 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-graphics 
-Requires:         R-CRAN-hypervolume 
-Requires:         R-CRAN-nls2 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-data.table 
 Requires:         R-utils 
-Requires:         R-CRAN-vegan 
 
 %description
-Includes algorithms to assess alpha and beta diversity in all their
-dimensions (taxon, phylogenetic and functional diversity), whether
-communities are completely sampled or not. It allows performing a number
-of analyses based on either species identities or phylogenetic/functional
-trees or functional kernel n-dimensional hypervolumes depicting species
-relationships.
+Provides functions to collect the economic policy uncertainty and related
+index data from the official website
+<https://www.policyuncertainty.com/index.html> in real time. Deals with
+date format and returns an time series object to facilitate further data
+manipulation and analysis.
 
 %prep
 %setup -q -c -n %{packname}
@@ -60,8 +59,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/figures
 %{rlibdir}/%{packname}/INDEX

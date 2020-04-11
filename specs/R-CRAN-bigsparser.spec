@@ -1,25 +1,33 @@
-%global packname  httpcode
-%global packver   0.3.0
+%global packname  bigsparser
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          'HTTP' Status Code Helper
+Summary:          Sparse Matrix Format with Data on Disk
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-bigassertr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rmio 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-bigassertr 
+Requires:         R-methods 
 
 %description
-Find and explain the meaning of 'HTTP' status codes. Functions included
-for searching for codes by full or partial number, by message, and get
-appropriate dog and cat images for many status codes.
+Provides a sparse matrix format with data stored on disk, to be used in
+both R and C++. This is intended for more efficient use of sparse data in
+C++ and also when parallelizing, since data on disk does not need copying.
+Only a limited number of features will be implemented. For now, conversion
+can be performed from a 'dgCMatrix' of R package 'Matrix'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,8 +50,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

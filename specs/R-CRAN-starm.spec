@@ -1,30 +1,30 @@
-%global packname  phmm
-%global packver   0.7-14
+%global packname  starm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.14
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Proportional Hazards Mixed-Effects Model
+Summary:          Spatio-Temporal Autologistic Regression Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-survival 
-BuildRequires:    R-lattice 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-Matrix 
-Requires:         R-survival 
-Requires:         R-lattice 
 Requires:         R-Matrix 
 
 %description
-Fits proportional hazards model incorporating random effects using an EM
-algorithm using Markov Chain Monte Carlo at E-step. Vaida and Xu (2000)
-<DOI:10.1002/1097-0258(20001230)19:24%3C3309::AID-SIM825%3E3.0.CO;2-9>.
+Estimates the coefficients of the two-time centered autologistic
+regression model based on Gegout-Petit A., Guerin-Dubrana L., Li S. "A new
+centered spatio-temporal autologistic regression model. Application to
+local spread of plant diseases." 2019. <arXiv:1811.06782>, using a grid of
+binary variables to estimate the spread of a disease on the grid over the
+years.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,10 +46,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
