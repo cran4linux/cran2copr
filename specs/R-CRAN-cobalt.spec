@@ -1,9 +1,9 @@
 %global packname  cobalt
-%global packver   4.0.0
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.1.0
 Release:          1%{?dist}
 Summary:          Covariate Balance Tables and Plots
 
@@ -15,19 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-backports >= 1.1.5
 BuildRequires:    R-CRAN-gtable >= 0.3.0
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-backports >= 1.1.5
 Requires:         R-CRAN-gtable >= 0.3.0
 Requires:         R-grid 
-Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-crayon 
 
 %description
@@ -44,6 +42,7 @@ treatments.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

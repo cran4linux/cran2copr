@@ -1,9 +1,9 @@
 %global packname  apex
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Phylogenetic Methods for Multiple Gene Data
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-phangorn
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-adegenet 
 Requires:         R-methods 
 Requires:         R-CRAN-ape 
@@ -29,17 +28,18 @@ Requires:         R-CRAN-phangorn
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-grDevices 
 Requires:         R-CRAN-adegenet 
 
 %description
-Toolkit for the analysis of multiple gene data. Apex implements the new S4
-classes 'multidna', 'multiphyDat' and associated methods to handle aligned
-DNA sequences from multiple genes.
+Toolkit for the analysis of multiple gene data (Jombart et al. 2017)
+<doi:10.1111/1755-0998.12567>. Apex implements the new S4 classes
+'multidna', 'multiphyDat' and associated methods to handle aligned DNA
+sequences from multiple genes.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -47,6 +47,7 @@ DNA sequences from multiple genes.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -57,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/patr_poat43.fasta

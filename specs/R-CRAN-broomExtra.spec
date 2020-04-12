@@ -1,9 +1,9 @@
 %global packname  broomExtra
-%global packver   2.5.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          3.0.0
 Release:          1%{?dist}
 Summary:          Enhancements for 'broom' and 'easystats' Package Families
 
@@ -12,25 +12,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-broom.mixed 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ipmisc 
 BuildRequires:    R-CRAN-parameters 
 BuildRequires:    R-CRAN-performance 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-broom.mixed 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ipmisc 
 Requires:         R-CRAN-parameters 
 Requires:         R-CRAN-performance 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 
 %description
 Provides helper functions that assist in data analysis workflows involving

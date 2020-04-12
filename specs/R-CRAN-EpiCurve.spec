@@ -1,11 +1,11 @@
-%global packname  futile.any
-%global packver   1.3.2
+%global packname  EpiCurve
+%global packver   2.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          2.3.1
 Release:          1%{?dist}
-Summary:          A Tiny Utility Providing Polymorphic Operations
+Summary:          Plot an Epidemic Curve
 
 License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,16 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lambda.r >= 1.1.0
-Requires:         R-CRAN-lambda.r >= 1.1.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ISOweek 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ISOweek 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-timeDate 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-tibble 
 
 %description
-This utility package provides polymorphism over common operations and is
-now subsumed by lambda.tools.
+Creates simple or stacked epidemic curves for hourly, daily, weekly or
+monthly outcome data.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -32,6 +45,7 @@ now subsumed by lambda.tools.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -43,5 +57,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/tests
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  RCzechia
-%global packver   1.4.5
+%global packver   1.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.4.6
 Release:          1%{?dist}
 Summary:          Spatial Objects of the Czech Republic
 
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-rlang
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lwgeom 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -38,6 +36,7 @@ Administrative regions and other spatial objects of the Czech Republic.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

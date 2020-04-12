@@ -1,9 +1,9 @@
 %global packname  mclust
-%global packver   5.4.5
+%global packver   5.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.5
+Version:          5.4.6
 Release:          1%{?dist}
 Summary:          Gaussian Mixture Modelling for Model-Based Clustering,Classification, and Density Estimation
 
@@ -32,6 +32,7 @@ resampling-based inference.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

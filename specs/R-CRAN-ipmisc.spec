@@ -1,9 +1,9 @@
 %global packname  ipmisc
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Miscellaneous Functions for Data Cleaning and Analysis
 
@@ -12,32 +12,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-broomExtra 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-broomExtra 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-zeallot 
 
 %description
 Provides functions needed for data cleaning and formatting and forms data
-cleaning and wrangling backend for the following packages: 'ggstatsplot',
-'groupedstats', 'pairwiseComparisons', and 'statsExpressions'.
+cleaning and wrangling backend for the following packages: 'broomExtra',
+'ggstatsplot', 'groupedstats', 'pairwiseComparisons', 'statsExpressions',
+and 'tidyBF'.
 
 %prep
 %setup -q -c -n %{packname}

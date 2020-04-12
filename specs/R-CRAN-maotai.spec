@@ -1,35 +1,38 @@
 %global packname  maotai
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Tools for Matrix Algebra, Optimization and Inference
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-cluster 
-BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-labdsv 
 BuildRequires:    R-CRAN-shapes 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+Requires:         R-Matrix 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-Matrix 
+Requires:         R-CRAN-Rtsne 
 Requires:         R-cluster 
-Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-labdsv 
 Requires:         R-CRAN-shapes 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -62,9 +65,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

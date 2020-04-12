@@ -1,9 +1,9 @@
 %global packname  thickmatch
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Threshold Matching for Thick Description for Optimal Matching inObservational Studies
 
@@ -17,16 +17,14 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rcbalance 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-liqueueR 
+BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-DiPs 
 Requires:         R-CRAN-rcbalance 
 Requires:         R-stats 
-Requires:         R-CRAN-liqueueR 
+Requires:         R-MASS 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-mvnfast 
 Requires:         R-methods 
 Requires:         R-CRAN-DiPs 
 
@@ -39,6 +37,7 @@ observational studies. Rosenbaum, P. R. (2017).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  simmer
-%global packver   4.4.0
+%global packver   4.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.0
+Version:          4.4.1
 Release:          1%{?dist}
 Summary:          Discrete-Event Simulation for R
 
@@ -39,6 +39,7 @@ and the paper by Ucar, Hernández, Serrano & Azcorra (2018,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

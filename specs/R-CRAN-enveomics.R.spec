@@ -1,9 +1,9 @@
 %global packname  enveomics.R
-%global packver   1.7.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.8.0
 Release:          1%{?dist}
 Summary:          Various Utilities for Microbial Genomics and Metagenomics
 
@@ -37,6 +37,7 @@ genomics and metagenomics. Companion package for the Enveomics Collection
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

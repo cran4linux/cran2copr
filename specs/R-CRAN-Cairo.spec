@@ -1,9 +1,9 @@
 %global packname  Cairo
-%global packver   1.5-11
+%global packver   1.5-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.11
+Version:          1.5.12
 Release:          1%{?dist}
 Summary:          R Graphics Device using Cairo Graphics Library for CreatingHigh-Quality Bitmap (PNG, JPEG, TIFF), Vector (PDF, SVG,PostScript) and Display (X11 and Win32) Output
 

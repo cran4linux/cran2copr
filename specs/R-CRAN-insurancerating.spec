@@ -1,9 +1,9 @@
 %global packname  insurancerating
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Analytic Insurance Rating Techniques
 
@@ -21,28 +21,31 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-evtree 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-mgcv 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-evtree 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-mgcv 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Methods for insurance rating. It provides a data driven strategy for the
 construction of insurance tariff classes. This strategy is based on the
-work by Antonio and Valdez (2012) <doi:10.1007/s10182-011-0152-7>. The
-package also adds functionality showing additional lines for the reference
-categories in the levels of the coefficients in the output of a
-generalized linear regression analysis. In addition it implements a
-procedure determining the level of a factor with the largest exposure, and
-thereafter changing the base level of the factor to this level.
+work by Antonio and Valdez (2012) <doi:10.1007/s10182-011-0152-7>.
+insurancerating also provides recipes on how to easily perform univariate
+analyses on an insurance portfolio. In addition it adds functionality to
+include reference categories in the levels of the coefficients in the
+output of a generalized linear regression analysis.
 
 %prep
 %setup -q -c -n %{packname}

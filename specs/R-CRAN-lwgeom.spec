@@ -1,9 +1,9 @@
 %global packname  lwgeom
-%global packver   0.2-1
+%global packver   0.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Bindings to Selected 'liblwgeom' Functions for Simple Features
 
@@ -14,14 +14,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    geos-devel >= 3.3.0
 BuildRequires:    proj-devel >= 4.8.0
-Requires:         geos
-Requires:         proj
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-sf >= 0.6.0
+BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf >= 0.6.0
+Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-units 
 
@@ -33,6 +31,7 @@ light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

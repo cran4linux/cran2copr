@@ -1,9 +1,9 @@
 %global packname  canvasXpress
-%global packver   1.27.6
+%global packver   1.27.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.27.6
+Version:          1.27.6.1
 Release:          1%{?dist}
 Summary:          Visualization Package for CanvasXpress in R
 
@@ -26,8 +26,8 @@ Requires:         R-stats
 Enables creation of visualizations using the CanvasXpress framework in R.
 CanvasXpress is a standalone JavaScript library for reproducible research
 with complete tracking of data and end-user modifications stored in a
-single PNG image that can be played back. See <http://canvasxpress.org>
-for more information.
+single PNG image that can be played back. See
+<https://www.canvasxpress.org> for more information.
 
 %prep
 %setup -q -c -n %{packname}

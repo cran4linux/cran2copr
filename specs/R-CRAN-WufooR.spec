@@ -1,9 +1,9 @@
 %global packname  WufooR
-%global packver   0.9
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          R Wrapper for the 'Wufoo.com' - The Form Building Service
 
@@ -12,15 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-httr >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 0.8
-Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-httr >= 1.4.0
-Requires:         R-CRAN-dplyr >= 0.8
+BuildRequires:    R-CRAN-jsonlite >= 1.6.1
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-jsonlite >= 1.6.1
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-dplyr >= 0.8.5
 
 %description
 Allows form managers to download entries from their respondents using
@@ -31,6 +31,7 @@ new forms within this package is not supported.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

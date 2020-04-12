@@ -1,11 +1,11 @@
 %global packname  gpairs
-%global packver   1.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3.3
 Release:          1%{?dist}
-Summary:          gpairs: The Generalized Pairs Plot
+Summary:          The Generalized Pairs Plot
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,11 +29,18 @@ Requires:         R-MASS
 Requires:         R-CRAN-colorspace 
 
 %description
-Produces a generalized pairs (gpairs) plot.
+Offers a generalization of the scatterplot matrix based on the recognition
+that most datasets include both categorical and quantitative information.
+Traditional grids of scatterplots often obscure important features of the
+data when one or more variables are categorical but coded as numerical.
+The generalized pairs plot offers a range of displays of paired
+combinations of categorical and quantitative variables. Emerson et al.
+(2013) <DOI:10.1080/10618600.2012.694762>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -41,6 +48,7 @@ Produces a generalized pairs (gpairs) plot.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

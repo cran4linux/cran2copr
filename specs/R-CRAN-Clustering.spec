@@ -1,9 +1,9 @@
 %global packname  Clustering
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Execution of Multiple Clustering Algorithm
 
@@ -30,6 +30,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-sqldf 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-kableExtra 
 Requires:         R-CRAN-apcluster 
 Requires:         R-cluster 
 Requires:         R-CRAN-ClusterR 
@@ -45,6 +47,8 @@ Requires:         R-utils
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-sqldf 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-kableExtra 
 
 %description
 The design of this package allows us to run different clustering packages
@@ -75,4 +79,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

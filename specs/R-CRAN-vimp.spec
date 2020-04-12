@@ -1,11 +1,11 @@
 %global packname  vimp
-%global packver   1.1.6
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          2.0.1
 Release:          1%{?dist}
-Summary:          Nonparametric Variable Importance
+Summary:          Perform Inference on Algorithm-Agnostic Variable Importance
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,31 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-SuperLearner 
 Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
 Calculate point estimates of and valid confidence intervals for
-nonparametric variable importance measures in high and low dimensions,
-using flexible estimators of the underlying regression functions. For more
-information about the methods, please see Williamson et al. (2017)
-<https://biostats.bepress.com/uwbiostat/paper422/>.
+nonparametric, algorithm-agnostic variable importance measures in high and
+low dimensions, using flexible estimators of the underlying regression
+functions. For more information about the methods, please see Williamson
+et al. (Biometrics, 2020) and Williamson et al. (arXiv, 2020+)
+<arXiv:2004.03683>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -39,6 +49,7 @@ information about the methods, please see Williamson et al. (2017)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

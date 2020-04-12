@@ -1,9 +1,9 @@
 %global packname  pairwiseComparisons
-%global packver   0.2.5
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Multiple Pairwise Comparison Tests
 
@@ -12,39 +12,41 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-jmv >= 1.0.8
-BuildRequires:    R-CRAN-ipmisc >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-WRS2 >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-forcats >= 0.4.0
-BuildRequires:    R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-ipmisc >= 2.0.0
+BuildRequires:    R-CRAN-tidyBF >= 0.2.0
+BuildRequires:    R-CRAN-broomExtra 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-jmv 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-jmv >= 1.0.8
-Requires:         R-CRAN-ipmisc >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-WRS2 >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-forcats >= 0.4.0
-Requires:         R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-WRS2 
+Requires:         R-CRAN-ipmisc >= 2.0.0
+Requires:         R-CRAN-tidyBF >= 0.2.0
+Requires:         R-CRAN-broomExtra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-jmv 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-WRS2 
 
 %description
 Multiple pairwise comparison tests on tidy data for one-way analysis of
 variance for both between-subjects and within-subjects designs. Currently,
 it supports only the most common types of statistical analyses and tests:
 parametric (Welch's and Student's t-test), nonparametric (Durbin-Conover
-test and Dwass-Steel-Crichtlow-Fligner test), robust (Yuen’s trimmed means
-test).
+test Dwass-Steel-Crichtlow-Fligner test), robust (Yuen’s trimmed means
+test), and Bayes Factor (Student's t-test).
 
 %prep
 %setup -q -c -n %{packname}
@@ -73,6 +75,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
