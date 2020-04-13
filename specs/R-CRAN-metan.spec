@@ -1,9 +1,9 @@
 %global packname  metan
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}
 Summary:          Multi Environment Trials Analysis
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-ade4 
-BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-FWDselect 
@@ -37,7 +36,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-ade4 
-Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-FWDselect 

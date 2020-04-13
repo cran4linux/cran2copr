@@ -1,9 +1,9 @@
 %global packname  rayimage
-%global packver   0.2.5
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.7
 Release:          1%{?dist}
 Summary:          Image Processing for Simulated Cameras
 

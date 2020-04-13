@@ -1,9 +1,9 @@
 %global packname  testthis
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Utils and 'RStudio' Addins to Make Testing Even More Fun
 
@@ -18,32 +18,32 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-usethis >= 0.1.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-usethis >= 0.1.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-tools 
 Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-fs 
+Requires:         R-stats 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-testthat 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Utility functions and 'RStudio' addins for writing, running and organizing
 automated tests. Integrates tightly with the packages 'testthat',
-'devtools' and 'usethis'. Hotkeys can be assigned to the 'RStudio' addins
+'devtools' and 'usethis'.  Hotkeys can be assigned to the 'RStudio' addins
 for running tests in a single file or to switch between a source file and
 the associated test file. In addition, testthis provides function to
 manage and run tests in subdirectories of the test/testthat directory.
@@ -51,6 +51,7 @@ manage and run tests in subdirectories of the test/testthat directory.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -58,6 +59,7 @@ manage and run tests in subdirectories of the test/testthat directory.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

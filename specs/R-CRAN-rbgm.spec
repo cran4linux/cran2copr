@@ -1,9 +1,9 @@
 %global packname  rbgm
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Tools for 'Box Geometry Model' (BGM) Files and Topology for theAtlantis Ecosystem Model
 
@@ -15,31 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 1.1
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tibble >= 1.1
+BuildRequires:    R-CRAN-reproj 
+BuildRequires:    R-CRAN-sfheaders 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-reproj 
+Requires:         R-CRAN-sfheaders 
 
 %description
 Facilities for working with Atlantis box-geometry model (BGM) files.
 Atlantis is a deterministic, biogeochemical, whole-of-ecosystem model.
 Functions are provided to read from BGM files directly, preserving their
-internal topology, as well as helper functions to generate 'Spatial'
-objects. This functionality aims to simplify the creation and modification
-of box and geometry as well as the ability to integrate with other data
-sources.
+internal topology, as well as helper functions to generate spatial data
+from these mesh forms. This functionality aims to simplify the creation
+and modification of box and geometry as well as the ability to integrate
+with other data sources.
 
 %prep
 %setup -q -c -n %{packname}
