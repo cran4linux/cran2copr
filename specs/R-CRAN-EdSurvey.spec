@@ -1,9 +1,9 @@
 %global packname  EdSurvey
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}
 Summary:          Analysis of NCES Education Survey and Assessment Data
 
@@ -28,17 +28,11 @@ BuildRequires:    R-MASS
 BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-NAEPprimer 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-wCorr 
 BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-wCorr 
+BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-WeMix >= 3.1.3
 Requires:         R-CRAN-data.table >= 1.11.4
 Requires:         R-CRAN-lfactors >= 1.0.3
@@ -52,17 +46,11 @@ Requires:         R-MASS
 Requires:         R-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-NAEPprimer 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-wCorr 
 Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-wCorr 
+Requires:         R-CRAN-xtable 
 
 %description
 Read in and analyze functions for education survey and assessment data
@@ -83,6 +71,7 @@ and Information Literacy Study (ICILS), and Civic Education Study (CivEd).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -103,6 +92,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/linkingErrors
 %doc %{rlibdir}/%{packname}/mapproj
 %doc %{rlibdir}/%{packname}/NEWS.Rd

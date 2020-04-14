@@ -1,9 +1,9 @@
 %global packname  actuaryr
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Develop Actuarial Models
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 
 %description
 Actuarial reports are prepared for the last day of a specific period, such

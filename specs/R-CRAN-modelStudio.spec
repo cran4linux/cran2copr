@@ -1,9 +1,9 @@
 %global packname  modelStudio
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Interactive Studio for Explanatory Model Analysis
 
@@ -20,22 +20,26 @@ BuildRequires:    R-CRAN-ingredients >= 1.0
 BuildRequires:    R-CRAN-r2d3 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-iBreakDown >= 1.0
 Requires:         R-CRAN-ingredients >= 1.0
 Requires:         R-CRAN-r2d3 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-digest 
 
 %description
 Automate the explanatory analysis of machine learning predictive models.
-This package generates advanced interactive and animated model
-explanations in the form of a serverless HTML site with only one line of
-code. The main function computes various (instance and dataset level)
-model explanations and produces an interactive, customisable dashboard
-made with 'D3.js'. It consists of multiple panels for plots with their
-short descriptions. Easily save and share the dashboard with others. Tools
-for model exploration unite with tools for EDA (Exploratory Data Analysis)
-to give a broad overview of the model behavior.
+Generate advanced interactive and animated model explanations in the form
+of a serverless HTML site with only one line of code. This tool is model
+agnostic, therefore compatible with most of the black box predictive
+models and frameworks. The main function computes various (instance and
+dataset level) model explanations and produces an interactive,
+customizable dashboard made with 'D3.js'. It consists of multiple panels
+for plots with their short descriptions. Easily save and share the
+dashboard with others. Tools for model exploration unite with tools for
+EDA (Exploratory Data Analysis) to give a broad overview of the model
+behavior.
 
 %prep
 %setup -q -c -n %{packname}

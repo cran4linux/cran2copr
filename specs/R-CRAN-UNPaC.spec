@@ -1,9 +1,9 @@
 %global packname  UNPaC
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Non-Parametric Cluster Significance Testing with Reference to aUnimodal Null Distribution
 
@@ -15,8 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glasso 
-Requires:         R-CRAN-glasso 
+BuildRequires:    R-CRAN-huge 
+BuildRequires:    R-CRAN-PDSCE 
+Requires:         R-CRAN-huge 
+Requires:         R-CRAN-PDSCE 
 
 %description
 Assess the significance of identified clusters and estimates the true
@@ -33,6 +35,7 @@ Gaussian copula approach is used to account for feature correlation.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

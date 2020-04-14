@@ -1,9 +1,9 @@
 %global packname  PINSPlus
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Clustering Algorithm for Data Integration and Disease Subtyping
 
@@ -18,28 +18,31 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-entropy 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-cluster 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-entropy 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-FNN 
 Requires:         R-cluster 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-mclust 
 
 %description
 Provides a robust approach for omics data integration and disease
-subtyping. 'PINSPlus' supports both single and multiple data types. The
-software automatically determines the optimal number of clusters and then
-partitions the samples in a way such that the results are robust to noise
-and data perturbation (Hung Nguyen (2018)
-<doi:10.1093/bioinformatics/bty1049>, Tin Nguyen (2017)
-<doi:10.1101/gr.215129.116>). 'PINSPlus' is fast and it supports parallel
-computing on Windows, Linux, and Mac OS.
+subtyping. PINSPlus is fast and supports the analysis of large datasets
+with hundreds of thousands of samples and features. The software
+automatically determines the optimal number of clusters and then
+partitions the samples in a way such that the results are robust against
+noise and data perturbation.
 
 %prep
 %setup -q -c -n %{packname}

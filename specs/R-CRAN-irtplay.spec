@@ -1,11 +1,11 @@
 %global packname  irtplay
-%global packver   1.4.1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.0
 Release:          1%{?dist}
-Summary:          Online Item Calibration, Scoring, and Evaluation of Model-DataFit in Item Response Theory
+Summary:          Unidimensional Item Response Theory Modeling
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-Matrix 
 Requires:         R-stats 
 Requires:         R-CRAN-statmod 
 Requires:         R-utils 
@@ -39,23 +40,28 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-gridExtra 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
+Requires:         R-Matrix 
 
 %description
-Calibrate online item parameters (i.e., pretest and operational items),
-estimate examinees abilities, and examine the IRT model-data fit on
-item-level in different ways as well as provide useful functions related
-to unidimensional item response theory (IRT) models. For the online
-calibration, Stocking's Method A (Ban, Hanson, Wang, Yi, & Harris (2011)
-<doi:10.1111/j.1745-3984.2001.tb01123.x>) is provided. More methods of
-online calibration (e.g., fixed item parameter calibration) will be
-included in the future updated version. For the ability estimation,
-several popular scoring methods (e.g., MLE, EAP, and MAP) are implemented.
-In terms of assessing the IRT model-data fit, one of distinguished
-features of this package is that it gives not only well-known item fit
-statistics (e.g., chi-square (X2), likelihood ratio chi-square (G2), infit
-and oufit statistics, and S-X2 statistic (Ames & Penfield (2015)
-<doi:10.1111/emip.12067>)) but also graphical displays to look at
-residuals between the observed data and model-based predictions
+Fit unidimensional item response theory (IRT) models to mixture of
+dichotomous and polytomous data, calibrate online item parameters (i.e.,
+pretest and operational items), estimate examinees abilities, and examine
+the IRT model-data fit on item-level in different ways as well as provide
+useful functions related to unidimensional IRT models. For the item
+parameter estimation, marginal maximum likelihood estimation with
+expectation-maximization (MMLE-EM) algorithm (Bock & Aitkin (1981)
+<doi:10.1007/BF02294168>) is used. For the online calibration, Stocking's
+Method A (Ban, Hanson, Wang, Yi, & Harris (2011)
+<doi:10.1111/j.1745-3984.2001.tb01123.x>) and the fixed item parameter
+calibration (FIPC) method (Kim (2006)
+<doi:10.1111/j.1745-3984.2006.00021.x>) are provided. For the ability
+estimation, several popular scoring methods (e.g., MLE, EAP, and MAP) are
+implemented. In terms of assessing the IRT model-data fit, one of
+distinguished features of this package is that it gives not only
+well-known item fit statistics (e.g., chi-square (X2), likelihood ratio
+chi-square (G2), infit and oufit statistics, and S-X2 statistic (Ames &
+Penfield (2015) <doi:10.1111/emip.12067>)) but also graphical displays to
+look at residuals between the observed data and model-based predictions
 (Hambleton, Swaminathan, & Rogers (1991, ISBN:9780803936478)). In
 addition, there are many useful functions such as computing asymptotic
 variance-covariance matrices of item parameter estimates (Li & Lissitz

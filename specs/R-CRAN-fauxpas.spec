@@ -1,9 +1,9 @@
 %global packname  fauxpas
-%global packver   0.2.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          HTTP Error Helpers
 
@@ -16,10 +16,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.1.2
-BuildRequires:    R-CRAN-httpcode >= 0.2.0
+BuildRequires:    R-CRAN-httpcode >= 0.3.0
 BuildRequires:    R-CRAN-whisker 
 Requires:         R-CRAN-R6 >= 2.1.2
-Requires:         R-CRAN-httpcode >= 0.2.0
+Requires:         R-CRAN-httpcode >= 0.3.0
 Requires:         R-CRAN-whisker 
 
 %description
@@ -34,6 +34,7 @@ with 'crul', 'curl', and 'httr'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -41,6 +42,7 @@ with 'crul', 'curl', and 'httr'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

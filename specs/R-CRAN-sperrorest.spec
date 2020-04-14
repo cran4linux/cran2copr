@@ -1,9 +1,9 @@
 %global packname  sperrorest
-%global packver   2.1.5
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          3.0.0
 Release:          1%{?dist}
 Summary:          Perform Spatial Error Estimation and Variable Importance inParallel
 
@@ -15,38 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-pbmcapply 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-doFuture 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-stats 
-BuildRequires:    R-rpart 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-pbmcapply 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-future 
-Requires:         R-CRAN-doFuture 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ROCR 
-Requires:         R-parallel 
+Requires:         R-CRAN-future.apply 
 Requires:         R-graphics 
+Requires:         R-CRAN-ROCR 
 Requires:         R-stats 
-Requires:         R-rpart 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-glue 
 
 %description
 Implements spatial error estimation and permutation-based variable
@@ -56,6 +36,7 @@ and spatial block bootstrap.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -75,10 +56,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/convert_to_ascii_news.sh
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

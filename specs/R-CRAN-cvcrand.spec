@@ -1,9 +1,9 @@
 %global packname  cvcrand
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Efficient Design and Analysis of Cluster Randomized Trials
 
@@ -30,12 +30,13 @@ analyzed through clustered permutation test introduced by Gail, et al.
 <doi:10.1002/(SICI)1097-0258(19960615)15:11%3C1069::AID-SIM220%3E3.0.CO;2-Q>.
 Motivated from Li, et al. (2016) <doi:10.1002/sim.7410>, the package
 performs constrained randomization on the baseline values of cluster-level
-covariates and cluster permutation test on the individual-level outcome
+covariates and clustered permutation test on the individual-level outcomes
 for cluster randomized trials.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
