@@ -1,9 +1,9 @@
 %global packname  cvms
-%global packver   0.3.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Cross-Validation for Model Selection
 
@@ -15,42 +15,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret >= 6.0.84
 BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-MuMIn >= 1.43.6
-BuildRequires:    R-CRAN-pROC >= 1.14.0
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-MuMIn >= 1.43.15
+BuildRequires:    R-CRAN-pROC >= 1.16.0
 BuildRequires:    R-CRAN-data.table >= 1.12
-BuildRequires:    R-CRAN-lme4 >= 1.1.21
-BuildRequires:    R-CRAN-tidyr >= 0.8.3
-BuildRequires:    R-CRAN-broom >= 0.5.2
-BuildRequires:    R-CRAN-mltools >= 0.3.5
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-lme4 >= 1.1.23
+BuildRequires:    R-CRAN-tidyr >= 1.0.2
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-broom >= 0.5.5
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-ggimage >= 0.2.7
+BuildRequires:    R-CRAN-recipes >= 0.1.10
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-caret >= 6.0.84
 Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-MuMIn >= 1.43.6
-Requires:         R-CRAN-pROC >= 1.14.0
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-MuMIn >= 1.43.15
+Requires:         R-CRAN-pROC >= 1.16.0
 Requires:         R-CRAN-data.table >= 1.12
-Requires:         R-CRAN-lme4 >= 1.1.21
-Requires:         R-CRAN-tidyr >= 0.8.3
-Requires:         R-CRAN-broom >= 0.5.2
-Requires:         R-CRAN-mltools >= 0.3.5
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-lme4 >= 1.1.23
+Requires:         R-CRAN-tidyr >= 1.0.2
+Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-broom >= 0.5.5
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-ggimage >= 0.2.7
+Requires:         R-CRAN-recipes >= 0.1.10
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rsvg 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
 Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
 
 %description
 Cross-validate one or multiple regression and classification models and
@@ -63,6 +67,7 @@ Jeyaraman, B. P., Olsen, L. R., & Wambugu M. (2019, ISBN: 9781838550134).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -86,4 +91,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/images
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  escalation
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Modular Approach to Dose Finding Clinical Trials
 
@@ -25,6 +25,10 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-dfcrm 
 BuildRequires:    R-CRAN-BOIN 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-tidyr >= 1.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -35,6 +39,10 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-dfcrm 
 Requires:         R-CRAN-BOIN 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-viridis 
 
 %description
 Methods for working with dose-finding clinical trials. We start by

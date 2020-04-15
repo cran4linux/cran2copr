@@ -1,9 +1,9 @@
 %global packname  photobiologyInOut
-%global packver   0.4.22
+%global packver   0.4.22-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.22
+Version:          0.4.22.1
 Release:          1%{?dist}
 Summary:          Read Spectral and Logged Data from Foreign Files
 

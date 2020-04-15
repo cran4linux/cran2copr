@@ -1,9 +1,9 @@
 %global packname  PHYLOGR
-%global packver   1.0.10
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.11
 Release:          1%{?dist}
 Summary:          Functions for Phylogenetically Based Statistical Analyses
 
@@ -23,6 +23,7 @@ phylogenetically based analyses using GLS.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,4 +45,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/Examples
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/INDEX

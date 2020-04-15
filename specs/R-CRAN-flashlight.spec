@@ -1,9 +1,9 @@
 %global packname  flashlight
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}
 Summary:          Shed Light on Black Box Machine Learning Models
 
@@ -12,24 +12,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-MetricsWeighted >= 0.3.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-rpart 
 BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-MetricsWeighted >= 0.3.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-rpart 
 Requires:         R-CRAN-rpart.plot 

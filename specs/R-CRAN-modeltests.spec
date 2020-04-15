@@ -1,9 +1,9 @@
 %global packname  modeltests
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Testing Infrastructure for Broom Model Generics
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-testthat >= 2.0.0
-BuildRequires:    R-CRAN-tibble >= 1.4.2
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
 BuildRequires:    R-CRAN-purrr >= 0.2.5
 BuildRequires:    R-CRAN-generics 
+Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-testthat >= 2.0.0
-Requires:         R-CRAN-tibble >= 1.4.2
 Requires:         R-CRAN-dplyr >= 0.7.6
 Requires:         R-CRAN-purrr >= 0.2.5
 Requires:         R-CRAN-generics 

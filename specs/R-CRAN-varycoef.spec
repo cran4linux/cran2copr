@@ -1,9 +1,9 @@
 %global packname  varycoef
-%global packver   0.2.10
+%global packver   0.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.2.11
 Release:          1%{?dist}
 Summary:          Modeling Spatially Varying Coefficients
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimParallel >= 0.8.1
+BuildRequires:    R-CRAN-optimParallel >= 0.8
 BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-RandomFields 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-RandomFields 
-Requires:         R-CRAN-optimParallel >= 0.8.1
+Requires:         R-CRAN-optimParallel >= 0.8
 Requires:         R-CRAN-spam 
+Requires:         R-CRAN-RandomFields 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-RandomFields 
 
 %description
 Implements a maximum likelihood estimation (MLE) method for estimation and

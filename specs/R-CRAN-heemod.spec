@@ -1,9 +1,9 @@
 %global packname  heemod
-%global packver   0.11.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.12.0
 Release:          1%{?dist}
 Summary:          Markov Models for Health Economic Evaluations
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-tibble >= 1.3.0
 BuildRequires:    R-CRAN-memoise >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.2
 BuildRequires:    R-CRAN-rlang >= 0.3
+BuildRequires:    R-CRAN-purrr >= 0.3
 BuildRequires:    R-CRAN-mvnfast >= 0.2.2
 BuildRequires:    R-CRAN-lazyeval >= 0.2.0
 BuildRequires:    R-CRAN-pryr >= 0.1.2
@@ -30,6 +31,7 @@ Requires:         R-CRAN-tibble >= 1.3.0
 Requires:         R-CRAN-memoise >= 1.1.0
 Requires:         R-CRAN-dplyr >= 0.7.2
 Requires:         R-CRAN-rlang >= 0.3
+Requires:         R-CRAN-purrr >= 0.3
 Requires:         R-CRAN-mvnfast >= 0.2.2
 Requires:         R-CRAN-lazyeval >= 0.2.0
 Requires:         R-CRAN-pryr >= 0.1.2
@@ -46,6 +48,7 @@ heterogeneity analysis, time dependency on state-time and model-time
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  forestr
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Ecosystem and Canopy Structural Complexity Metrics from LiDAR
 
@@ -21,14 +21,18 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-moments 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides a toolkit for calculating forest and canopy structural complexity
@@ -40,6 +44,7 @@ Atkins et al. 2018 <doi:10.1111/2041-210X.13061>; Hardiman et al. 2013
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

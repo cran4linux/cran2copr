@@ -1,40 +1,45 @@
-%global packname  SpatialPosition
-%global packver   2.0.1
+%global packname  letsR
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.2
 Release:          1%{?dist}
-Summary:          Spatial Position Models
+Summary:          Data Handling and Analysis in Macroecology
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-CRAN-raster 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-isoband 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rgeos 
+Requires:         R-methods 
 
 %description
-Computes spatial position models: Stewart potentials, Reilly catchment
-areas, Huff catchment areas.
+Handling, processing, and analyzing geographic data on species'
+distributions and environmental variables. Read Vilela & Villalobos (2015)
+<doi: 10.1111/2041-210X.12401> for details.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,7 +64,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/CITATION
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

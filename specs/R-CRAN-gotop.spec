@@ -1,30 +1,30 @@
-%global packname  readxlsb
-%global packver   0.1.3
+%global packname  gotop
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Read 'Excel' Binary (.xlsb) Workbooks
+Summary:          Scroll Back to Top Icon in R Markdown and Shiny
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-cellranger 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-cellranger 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Import data from 'Excel' binary (.xlsb) workbooks into R.
+Add a scroll back to top 'Font Awesome' icon in R Markdown documents and
+Shiny apps using 'jQuery GoTop'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,9 +47,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
+%{rlibdir}/%{packname}/htmlwidgets
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

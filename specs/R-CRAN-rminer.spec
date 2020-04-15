@@ -1,9 +1,9 @@
 %global packname  rminer
-%global packver   1.4.4
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.5
 Release:          1%{?dist}
 Summary:          Data Mining Classification and Regression Methods
 
@@ -53,8 +53,8 @@ Requires:         R-CRAN-xgboost
 %description
 Facilitates the use of data mining algorithms in classification and
 regression (including time series forecasting) tasks by presenting a short
-and coherent set of functions. Versions: 1.4.4 new automated machine
-learning (AutoML) and ensembles, via improved fit(), mining() and
+and coherent set of functions. Versions: 1.4.5 / 1.4.4 new automated
+machine learning (AutoML) and ensembles, via improved fit(), mining() and
 mparheuristic() functions, and new categorical preprocessing, via improved
 delevels() function; 1.4.3 new metrics (e.g., macro precision, explained
 variance), new "lssvm" model and improved mparheuristic() function; 1.4.2

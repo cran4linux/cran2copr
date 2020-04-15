@@ -1,13 +1,13 @@
-%global packname  tanaka
-%global packver   0.1.3
+%global packname  aws.kms
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
-Summary:          Design Shaded Contour Lines (or Tanaka) Maps
+Summary:          'AWS Key Management Service' Client Package
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-isoband 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-aws.signature >= 0.4.0
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-aws.signature >= 0.4.0
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-base64enc 
 
 %description
-The Tanaka method enhances the representation of topography on a map using
-shaded contour lines. In this simplified implementation of the method,
-north-west white contours represent illuminated topography and south-east
-black contours represent shaded topography. See Tanaka (1950)
-<doi:10.2307/211219>.
+Client package for the 'AWS Key Management Service'
+<https://aws.amazon.com/kms/>, a cloud service for managing encryption
+keys.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,6 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/gpkg
-%doc %{rlibdir}/%{packname}/grd
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  mapsapi
-%global packver   0.4.2
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.5
 Release:          1%{?dist}
 Summary:          'sf'-Compatible Interface to 'Google Maps' APIs
 
@@ -12,19 +12,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-xml2 >= 1.1.1
-BuildRequires:    R-CRAN-bitops >= 1.0.6
-BuildRequires:    R-CRAN-sf >= 0.5.3
-Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-xml2 >= 1.1.1
-Requires:         R-CRAN-bitops >= 1.0.6
-Requires:         R-CRAN-sf >= 0.5.3
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-bitops 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-RgoogleMaps 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-bitops 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-RgoogleMaps 
 
 %description
 Interface to the 'Google Maps' APIs: (1) routing directions based on the
@@ -32,11 +34,13 @@ Interface to the 'Google Maps' APIs: (1) routing directions based on the
 alternative route, or a single feature per segment per alternative route;
 (2) travel distance or time matrices based on the 'Distance Matrix' API;
 (3) geocoded locations based on the 'Geocode' API, returned as 'sf'
-objects, either points or bounds.
+objects, either points or bounds; (4) map images using the 'Maps Static'
+API, returned as 'stars' objects.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,6 +48,7 @@ objects, either points or bounds.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

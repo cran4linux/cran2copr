@@ -1,11 +1,11 @@
 %global packname  Umpire
-%global packver   1.3.9
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          2.0.0
 Release:          1%{?dist}
-Summary:          Simulating Realistic Gene Expression Data
+Summary:          Simulating Realistic Gene Expression and Clinical Data
 
 License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +17,24 @@ Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mc2d 
+BuildRequires:    R-CRAN-BimodalIndex 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-mc2d 
+Requires:         R-CRAN-BimodalIndex 
 
 %description
 The Ultimate Microrray Prediction, Reality and Inference Engine (UMPIRE)
 is a package to facilitate the simulation of realistic microarray data
-sets with link to associate outcomes. See Zhang and Coombes (2012)
-<doi:10.1186/1471-2105-13-S13-S1>.
+sets with links to associated outcomes. See Zhang and Coombes (2012)
+<doi:10.1186/1471-2105-13-S13-S1>. Version 2.0 adds the ability to
+simulate realistic mixed-typed clinical data.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

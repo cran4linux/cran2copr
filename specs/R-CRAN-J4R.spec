@@ -1,9 +1,9 @@
 %global packname  J4R
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}
 Summary:          Create 'Java' Objects and Execute 'Java' Methods
 
@@ -27,8 +27,7 @@ vectors so that a particular method is iteratively run on each element of
 the vector. A score algorithm also makes the calls to 'Java' methods less
 restrictive. The gateway server relies on the runnable 'Java' library
 'j4r.jar'. This library is licensed under the LGPL-3. Its sources are
-included in this package. To start the gateway server, 'Java' must be part
-of the path.
+included in this package.
 
 %prep
 %setup -q -c -n %{packname}

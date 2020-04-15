@@ -1,9 +1,9 @@
 %global packname  textrecipes
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Extra 'Recipes' for Text Processing
 
@@ -14,8 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
 BuildRequires:    R-CRAN-recipes >= 0.1.4
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tokenizers 
@@ -28,7 +28,11 @@ BuildRequires:    R-CRAN-stopwords
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-modeldata 
 Requires:         R-CRAN-recipes >= 0.1.4
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tokenizers 
@@ -41,6 +45,9 @@ Requires:         R-CRAN-stopwords
 Requires:         R-CRAN-magrittr 
 Requires:         R-Matrix 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-modeldata 
 
 %description
 Converting text to numerical features requires specifically created
@@ -68,7 +75,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
@@ -76,3 +82,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

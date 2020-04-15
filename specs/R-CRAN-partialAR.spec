@@ -1,9 +1,9 @@
 %global packname  partialAR
-%global packver   1.0.11
+%global packver   1.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.0.12
 Release:          1%{?dist}
 Summary:          Partial Autoregression
 
@@ -47,6 +47,7 @@ in modeling certain financial time series.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

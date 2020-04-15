@@ -1,9 +1,9 @@
 %global packname  osrm
-%global packver   3.3.2
+%global packver   3.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.2
+Version:          3.3.3
 Release:          1%{?dist}
 Summary:          Interface Between R and the OpenStreetMap-Based Routing ServiceOSRM
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-gepaf 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-RCurl 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-lwgeom 
 Requires:         R-CRAN-isoband 
 Requires:         R-methods 
 Requires:         R-CRAN-gepaf 
@@ -45,6 +43,7 @@ kilometric distance) between points and travel time matrices.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

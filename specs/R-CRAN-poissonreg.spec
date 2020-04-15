@@ -1,11 +1,11 @@
-%global packname  stopwords
-%global packver   2.0
+%global packname  poissonreg
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Multilingual Stopword Lists
+Summary:          Model Wrappers for Poisson Regression
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,16 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-desc 
-Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-desc 
+BuildRequires:    R-CRAN-parsnip >= 0.1.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-parsnip >= 0.1.0
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-glue 
 
 %description
-Provides multiple sources of stopwords, for use in text analysis and
-natural language processing.
+Bindings for Poisson regression models for use with the 'parsnip' package.
+Models include simple generalized linear models, Bayesian models, and
+zero-inflated Poisson models (Zeileis, Kleiber, and Jackman (2008)
+<doi:10.18637/jss.v027.i08>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,8 +62,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/templates
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

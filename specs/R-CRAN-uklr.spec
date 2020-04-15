@@ -1,9 +1,9 @@
 %global packname  uklr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Client to United Kingdom Land Registry
 
@@ -15,9 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 4.3
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-curl >= 4.3
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-httr >= 1.4.1
@@ -30,6 +32,7 @@ supports the house price index, transaction and price paid data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

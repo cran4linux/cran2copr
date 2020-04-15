@@ -1,9 +1,9 @@
 %global packname  LHD
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Latin Hypercube Designs (LHDs) Algorithms
 
@@ -27,9 +27,8 @@ experiments. One advantage of our package is its comprehensiveness. It
 contains a variety of heuristic algorithms (and their modifications) for
 searching maximin distance LHDs. In addition to that, it also contains
 other useful tools for developing and constructing maximin distance LHDs.
-In the future, algebraic construction methods will be added. Please refer
-to the function documentations for the detailed references of each
-function. Among all the references we used, one reference should be
+Please refer to the function documentations for the detailed references of
+each function. Among all the references we used, one reference should be
 highlighted here, which is Ruichen Jin, Wei Chen, Agus Sudjianto (2005)
 <doi:10.1016/j.jspi.2004.02.014>. They provided a new form of phi_p
 criterion, which does not lose the space-filling property and
@@ -41,6 +40,7 @@ new phi_p criterion enables our functions to have less CPU time.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

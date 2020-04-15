@@ -1,9 +1,9 @@
 %global packname  PHEindicatormethods
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}
 Summary:          Common Public Health Statistics and their Confidence Intervals
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
 Functions to calculate commonly used public health statistics and their

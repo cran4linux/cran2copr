@@ -1,9 +1,9 @@
 %global packname  rgl
-%global packver   0.100.50
+%global packver   0.100.54
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.100.50
+Version:          0.100.54
 Release:          1%{?dist}
 Summary:          3D Visualization Using OpenGL
 
@@ -17,11 +17,6 @@ BuildRequires:    mesa-libGLU-devel
 BuildRequires:    zlib-devel
 BuildRequires:    libpng-devel >= 1.2.9
 BuildRequires:    freetype-devel
-Requires:         mesa-libGL
-Requires:         mesa-libGLU
-Requires:         zlib
-Requires:         libpng
-Requires:         freetype
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.20
@@ -84,7 +79,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/demodata
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/fonts
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/NEWS
 %doc %{rlibdir}/%{packname}/shinyDemo
 %doc %{rlibdir}/%{packname}/shinySimple

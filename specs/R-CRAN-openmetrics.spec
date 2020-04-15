@@ -1,13 +1,13 @@
-%global packname  tanaka
-%global packver   0.1.3
+%global packname  openmetrics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Design Shaded Contour Lines (or Tanaka) Maps
+Summary:          A 'Prometheus' Client for R Using the 'OpenMetrics' Format
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-isoband 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-R6 
 
 %description
-The Tanaka method enhances the representation of topography on a map using
-shaded contour lines. In this simplified implementation of the method,
-north-west white contours represent illuminated topography and south-east
-black contours represent shaded topography. See Tanaka (1950)
-<doi:10.2307/211219>.
+Provides a client for the open-source monitoring and alerting toolkit,
+'Prometheus', that emits metrics in the 'OpenMetrics' format. Allows users
+to automatically instrument 'Plumber' and 'Shiny' applications, collect
+standard process metrics, as well as define custom counter, gauge, and
+histogram metrics of their own.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,9 +46,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/gpkg
-%doc %{rlibdir}/%{packname}/grd
 %{rlibdir}/%{packname}/INDEX

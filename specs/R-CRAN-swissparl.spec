@@ -1,40 +1,47 @@
-%global packname  rwebstat
-%global packver   1.1.0
+%global packname  swissparl
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.2.1
 Release:          1%{?dist}
-Summary:          Download Data from the Webstat API
+Summary:          Interface to the Webservices of the Swiss Parliament
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-getPass 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-getPass 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Access the Webstat API, download data and metadata from more than 35000
-time series from the Banque de France statistics web portal. Access
-requires a free client ID easily available from the API portal
-<https://developer.webstat.banque-france.fr/>.
+Retrieves the most important data on parliamentary activities of the Swiss
+Federal Assembly via an open, machine-readable interface (see
+<https://ws.parlament.ch/odata.svc/>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,8 +63,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

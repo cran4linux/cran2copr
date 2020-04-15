@@ -1,9 +1,9 @@
 %global packname  cwbtools
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Tools to create, modify and manage 'CWB' Corpora
 
@@ -23,6 +23,10 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RCurl 
 Requires:         R-CRAN-RcppCWB >= 0.2.8
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
@@ -31,6 +35,10 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-pbapply 
 Requires:         R-methods 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RCurl 
 
 %description
 The 'Corpus Workbench' ('CWB', <http://cwb.sourceforge.net/>) offers a
@@ -52,6 +60,7 @@ approaches for working with textual data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

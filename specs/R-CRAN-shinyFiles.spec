@@ -1,9 +1,9 @@
 %global packname  shinyFiles
-%global packver   0.7.5
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          A Server-Side File System Viewer for Shiny
 
@@ -38,6 +38,7 @@ saving is available.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  nhstplot
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Plot Null Hypothesis Significance Tests
 
@@ -12,15 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats >= 3.3.1
-BuildRequires:    R-grDevices >= 3.3.1
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-stats >= 3.3.1
-Requires:         R-grDevices >= 3.3.1
-Requires:         R-CRAN-ggplot2 >= 2.2.0
+BuildRequires:    R-stats >= 3.5.0
+BuildRequires:    R-grDevices >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-stats >= 3.5.0
+Requires:         R-grDevices >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 
 %description
 Illustrate graphically the most common Null Hypothesis Significance
@@ -40,6 +40,7 @@ Null Hypothesis Significance Testing process, its use and/or shortcomings.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

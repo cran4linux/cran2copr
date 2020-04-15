@@ -1,31 +1,34 @@
-%global packname  FAMoS
-%global packver   0.3.0
+%global packname  mfdb
+%global packver   6.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          6.2.0
 Release:          1%{?dist}
-Summary:          A Flexible Algorithm for Model Selection
+Summary:          MareFrame DB Querying Library
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.1.1
+Requires:         R-core >= 3.1.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-R.utils 
+BuildRequires:    R-CRAN-logging >= 0.7.103
+BuildRequires:    R-CRAN-RPostgreSQL >= 0.4
+BuildRequires:    R-CRAN-DBI >= 0.3.1
+BuildRequires:    R-CRAN-getPass >= 0.1.1
+Requires:         R-CRAN-logging >= 0.7.103
+Requires:         R-CRAN-RPostgreSQL >= 0.4
+Requires:         R-CRAN-DBI >= 0.3.1
+Requires:         R-CRAN-getPass >= 0.1.1
 
 %description
-Given a set of parameters describing model dynamics and a corresponding
-cost function, FAMoS performs a dynamic forward-backward model selection
-on a specified selection criterion. It also applies a non-local swap
-search method. Works on any cost function. For detailed information see
-Gabel et al. (2019) <doi:10.1371/journal.pcbi.1007230>.
+Creates and manages a PostgreSQL database suitable for storing fisheries
+data and aggregating ready for use within a Gadget
+<https://hafro.github.io/gadget> model. See
+<https://mareframe.github.io/mfdb> for more information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,10 +51,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/demo-data
 %{rlibdir}/%{packname}/INDEX

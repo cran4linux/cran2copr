@@ -1,44 +1,43 @@
 %global packname  Rdimtools
-%global packver   0.4.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Dimension Reduction and Estimation Methods
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-CVXR >= 0.95
+BuildRequires:    R-CRAN-CVXR >= 1.0
 BuildRequires:    R-CRAN-ADMM >= 0.2.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-maotai >= 0.1.5
+BuildRequires:    R-CRAN-RcppDE 
 BuildRequires:    R-CRAN-Rcsdp 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppDE 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-CVXR >= 0.95
+BuildRequires:    R-CRAN-RcppDist 
+Requires:         R-CRAN-CVXR >= 1.0
 Requires:         R-CRAN-ADMM >= 0.2.2
 Requires:         R-CRAN-Rcpp >= 0.12.10
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-maotai >= 0.1.5
+Requires:         R-CRAN-RcppDE 
 Requires:         R-CRAN-Rcsdp 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-Matrix 
+Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-RcppDE 
 
 %description
 We provide linear and nonlinear dimension reduction techniques. Intrinsic
@@ -52,6 +51,7 @@ overview.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -69,7 +69,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX

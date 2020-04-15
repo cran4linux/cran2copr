@@ -1,9 +1,9 @@
 %global packname  BAwiR
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}
 Summary:          Analysis of Basketball Data
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-rworldmap
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-Anthropometry 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-rworldmap
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-xml2 
 

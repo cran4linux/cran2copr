@@ -1,9 +1,9 @@
 %global packname  future.batchtools
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          A Future API for Parallel and Distributed Processing using'batchtools'
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-future >= 1.14.0
 BuildRequires:    R-CRAN-batchtools >= 0.9.11
+BuildRequires:    R-utils 
 Requires:         R-CRAN-future >= 1.14.0
 Requires:         R-CRAN-batchtools >= 0.9.11
+Requires:         R-utils 
 
 %description
 Implementation of the Future API on top of the 'batchtools' package. This
@@ -31,6 +33,7 @@ such as 'LSF', 'OpenLava', 'Slurm', 'SGE', and 'TORQUE' / 'PBS', e.g. 'y
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +41,7 @@ such as 'LSF', 'OpenLava', 'Slurm', 'SGE', and 'TORQUE' / 'PBS', e.g. 'y
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -53,5 +57,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/templates
+%doc %{rlibdir}/%{packname}/templates-for-R_CMD_check
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

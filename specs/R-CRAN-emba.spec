@@ -1,9 +1,9 @@
 %global packname  emba
-%global packver   0.1.2
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Ensemble Boolean Model Biomarker Analysis
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Ckmeans.1d.dp >= 4.2.2
 BuildRequires:    R-CRAN-visNetwork >= 2.0.9
@@ -25,6 +25,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-Ckmeans.1d.dp >= 4.2.2
 Requires:         R-CRAN-visNetwork >= 2.0.9
 Requires:         R-CRAN-magrittr >= 1.5
@@ -35,6 +36,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 
 %description
 Analysis and visualization of an ensemble of boolean models for biomarker
@@ -56,6 +58,7 @@ operator, link operator biomarkers can also be assessed.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
