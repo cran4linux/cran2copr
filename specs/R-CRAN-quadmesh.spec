@@ -1,9 +1,9 @@
 %global packname  quadmesh
-%global packver   0.4.0
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.5
 Release:          1%{?dist}
 Summary:          Quadrangle Mesh
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reproj >= 0.2.0
+BuildRequires:    R-CRAN-reproj >= 0.4.0
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-gridBase 
 BuildRequires:    R-CRAN-viridis 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-png
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-reproj >= 0.2.0
+Requires:         R-CRAN-reproj >= 0.4.0
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-gridBase 
 Requires:         R-CRAN-viridis 
@@ -45,6 +45,7 @@ surfaces available with 'dquadmesh' and 'dtriangmesh' functions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -52,6 +53,7 @@ surfaces available with 'dquadmesh' and 'dtriangmesh' functions.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

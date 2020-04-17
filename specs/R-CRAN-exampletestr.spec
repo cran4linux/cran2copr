@@ -1,9 +1,9 @@
 %global packname  exampletestr
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}
 Summary:          Help for Writing Unit Tests Based on Function Examples
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-ore >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-fs >= 1.2.3
 BuildRequires:    R-CRAN-styler >= 1.2.0
-BuildRequires:    R-CRAN-clipr >= 0.7.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.4
 BuildRequires:    R-CRAN-rlang >= 0.3.3
 BuildRequires:    R-CRAN-purrr 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-ore >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-fs >= 1.2.3
 Requires:         R-CRAN-styler >= 1.2.0
-Requires:         R-CRAN-clipr >= 0.7.0
 Requires:         R-CRAN-rstudioapi >= 0.4
 Requires:         R-CRAN-rlang >= 0.3.3
 Requires:         R-CRAN-purrr 

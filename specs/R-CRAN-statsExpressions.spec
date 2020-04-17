@@ -1,9 +1,9 @@
 %global packname  statsExpressions
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Expressions with Statistical Details
 
@@ -12,43 +12,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ipmisc >= 1.1.0
-BuildRequires:    R-CRAN-broomExtra >= 1.0.1
-BuildRequires:    R-CRAN-BayesFactor 
+BuildRequires:    R-CRAN-broomExtra >= 3.0.0
+BuildRequires:    R-CRAN-ipmisc >= 2.0.0
+BuildRequires:    R-CRAN-effectsize >= 0.3.0
+BuildRequires:    R-CRAN-correlation >= 0.2.0
+BuildRequires:    R-CRAN-tidyBF >= 0.2.0
 BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ez 
-BuildRequires:    R-CRAN-metaBMA 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-metaplus 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rcompanion 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sjstats 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-WRS2 
-Requires:         R-CRAN-ipmisc >= 1.1.0
-Requires:         R-CRAN-broomExtra >= 1.0.1
-Requires:         R-CRAN-BayesFactor 
+Requires:         R-CRAN-broomExtra >= 3.0.0
+Requires:         R-CRAN-ipmisc >= 2.0.0
+Requires:         R-CRAN-effectsize >= 0.3.0
+Requires:         R-CRAN-correlation >= 0.2.0
+Requires:         R-CRAN-tidyBF >= 0.2.0
 Requires:         R-boot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ez 
-Requires:         R-CRAN-metaBMA 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-metaplus 
-Requires:         R-CRAN-psych 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rcompanion 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sjstats 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-WRS2 
 
@@ -56,7 +52,7 @@ Requires:         R-CRAN-WRS2
 Statistical processing backend for 'ggstatsplot', this package creates
 expressions with details from statistical tests. Currently, it supports
 only the most common types of statistical tests: parametric,
-nonparametric, robust, and bayesian versions of t-test/anova, correlation
+nonparametric, robust, and Bayesian versions of t-test/ANOVA, correlation
 analyses, contingency table analysis, and meta-analysis.
 
 %prep

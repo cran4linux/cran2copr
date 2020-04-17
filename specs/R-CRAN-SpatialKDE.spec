@@ -1,9 +1,9 @@
 %global packname  SpatialKDE
-%global packver   0.5.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Kernel Density Estimation for Spatial Data
 
@@ -41,6 +41,7 @@ S., Tompson, L., Uhlig, S.(2008) <doi:10.1057/palgrave.sj.8350066>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

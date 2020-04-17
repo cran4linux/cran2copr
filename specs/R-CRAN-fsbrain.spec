@@ -1,9 +1,9 @@
 %global packname  fsbrain
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Managing and Visualizing Brain Surface Data
 
@@ -15,20 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 0.1.4
+BuildRequires:    R-CRAN-freesurferformats >= 0.1.7
 BuildRequires:    R-CRAN-pkgfilecache >= 0.1.1
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-squash 
 BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-freesurferformats >= 0.1.4
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-freesurferformats >= 0.1.7
 Requires:         R-CRAN-pkgfilecache >= 0.1.1
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-squash 
 Requires:         R-CRAN-fields 
+Requires:         R-CRAN-data.table 
 
 %description
 Provides high-level access to 'FreeSurfer' <http://freesurfer.net/>
@@ -40,6 +42,7 @@ results directly in 'R'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

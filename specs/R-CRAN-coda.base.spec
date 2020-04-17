@@ -1,9 +1,9 @@
 %global packname  coda.base
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          A Basic Set of Functions for Compositional Data Analysis
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.4
 Requires:         R-core >= 3.0.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-MASS 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-MASS 
+Requires:         R-stats 
 
 %description
 A minimum set of functions to perform compositional data analysis using
@@ -29,6 +29,7 @@ implemented in c++ for better performance.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +37,7 @@ implemented in c++ for better performance.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

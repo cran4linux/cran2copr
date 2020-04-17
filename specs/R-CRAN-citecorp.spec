@@ -1,9 +1,9 @@
 %global packname  citecorp
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Client for the Open Citations Corpus
 
@@ -16,12 +16,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crul >= 0.7.0
+BuildRequires:    R-CRAN-fauxpas >= 0.5.0
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-fauxpas 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-crul >= 0.7.0
+Requires:         R-CRAN-fauxpas >= 0.5.0
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-fauxpas 
 Requires:         R-CRAN-jsonlite 
 
 %description
@@ -32,6 +32,7 @@ as well as getting references and citations for a given identifier.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

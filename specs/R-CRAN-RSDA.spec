@@ -1,9 +1,9 @@
 %global packname  RSDA
-%global packver   3.0.1
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.3
 Release:          1%{?dist}
 Summary:          R to Symbolic Data Analysis
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-vctrs >= 0.2.4
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-CRAN-XML 
@@ -37,16 +37,17 @@ BuildRequires:    R-CRAN-princurve
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-sqldf 
 BuildRequires:    R-CRAN-randomcoloR 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-labelled 
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-vctrs >= 0.2.4
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tibble 
 Requires:         R-stats 
 Requires:         R-CRAN-RJSONIO 
 Requires:         R-CRAN-XML 
@@ -59,6 +60,7 @@ Requires:         R-CRAN-princurve
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-sqldf 
 Requires:         R-CRAN-randomcoloR 
+Requires:         R-CRAN-labelled 
 
 %description
 Symbolic Data Analysis (SDA) was proposed by professor Edwin Diday in
@@ -70,6 +72,7 @@ classification, as well as some linear models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

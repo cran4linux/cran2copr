@@ -1,9 +1,9 @@
 %global packname  Ryacas
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}
 Summary:          R Interface to the 'Yacas' Computer Algebra System
 
@@ -30,6 +30,7 @@ Interface to the 'yacas' computer algebra system
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/NEWS
 %doc %{rlibdir}/%{packname}/THANKS

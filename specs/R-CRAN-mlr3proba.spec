@@ -1,9 +1,9 @@
 %global packname  mlr3proba
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Probabilistic Supervised Learning for 'mlr3'
 
@@ -14,8 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-distr6 >= 1.3.5
-BuildRequires:    R-CRAN-mlr3 >= 0.1.7
+BuildRequires:    R-CRAN-distr6 >= 1.3.6
+BuildRequires:    R-CRAN-mlr3 >= 0.1.8
 BuildRequires:    R-CRAN-mlr3misc >= 0.1.7
 BuildRequires:    R-CRAN-paradox >= 0.1.0
 BuildRequires:    R-CRAN-checkmate 
@@ -23,8 +23,8 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-mlr3pipelines 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-survival 
-Requires:         R-CRAN-distr6 >= 1.3.5
-Requires:         R-CRAN-mlr3 >= 0.1.7
+Requires:         R-CRAN-distr6 >= 1.3.6
+Requires:         R-CRAN-mlr3 >= 0.1.8
 Requires:         R-CRAN-mlr3misc >= 0.1.7
 Requires:         R-CRAN-paradox >= 0.1.0
 Requires:         R-CRAN-checkmate 
@@ -67,5 +67,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/references.bib
+%doc %{rlibdir}/%{packname}/testthat
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

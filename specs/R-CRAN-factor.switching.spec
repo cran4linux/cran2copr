@@ -1,9 +1,9 @@
 %global packname  factor.switching
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Post-Processing MCMC Outputs of Bayesian Factor Analytic Models
 
@@ -28,10 +28,11 @@ invariance with respect to orthogonal transformations. This problem
 burdens the inference under a Bayesian setup, where Markov chain Monte
 Carlo (MCMC) methods are used to generate samples from the posterior
 distribution. The package applies a series of rotation, sign and
-permutation transformations into raw MCMC samples of factor loadings,
-which are provided by the user. The post-processed output is identifiable
-and can be used for MCMC inference on any parametric function of factor
-loadings. Comparison of multiple MCMC chains is also possible.
+permutation transformations (Papastamoulis and Ntzoufras (2020)
+<arXiv:2004.05105>) into raw MCMC samples of factor loadings, which are
+provided by the user. The post-processed output is identifiable and can be
+used for MCMC inference on any parametric function of factor loadings.
+Comparison of multiple MCMC chains is also possible.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,4 +58,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  ProPublicaR
-%global packver   0.9.2
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Access Functions for ProPublica's APIs
 
@@ -39,6 +39,7 @@ to: <https://www.propublica.org/datastore/apis>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -59,6 +60,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/config_template.yml
 %{rlibdir}/%{packname}/INDEX

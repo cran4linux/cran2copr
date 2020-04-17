@@ -1,9 +1,9 @@
 %global packname  highfrequency
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}
 Summary:          Tools for Highfrequency Data Analysis
 

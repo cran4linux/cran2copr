@@ -1,9 +1,9 @@
 %global packname  reghelper
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}
 Summary:          Helper Functions for Regression Analysis
 
@@ -35,6 +35,7 @@ documentation for more information, documentation, and examples.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

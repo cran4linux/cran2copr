@@ -1,9 +1,9 @@
 %global packname  silicate
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Common Forms for Complex Hierarchical and Relational DataStructures
 
@@ -15,9 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-crsmeta >= 0.3.0
 BuildRequires:    R-CRAN-gibble >= 0.2.0
-BuildRequires:    R-CRAN-crsmeta >= 0.2.0
 BuildRequires:    R-CRAN-unjoin >= 0.0.3
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
@@ -30,9 +29,8 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-gridBase 
-Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-crsmeta >= 0.3.0
 Requires:         R-CRAN-gibble >= 0.2.0
-Requires:         R-CRAN-crsmeta >= 0.2.0
 Requires:         R-CRAN-unjoin >= 0.0.3
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 

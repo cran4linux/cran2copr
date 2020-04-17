@@ -1,9 +1,9 @@
 %global packname  dsa
-%global packver   0.70.3
+%global packver   0.74.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.70.3
+Version:          0.74.18
 Release:          1%{?dist}
 Summary:          Seasonal Adjustment of Daily Time Series
 
@@ -58,6 +58,7 @@ adjustment of daily time series. Bundesbank Discussion Paper 41/2018.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -76,7 +77,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

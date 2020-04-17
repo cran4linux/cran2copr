@@ -1,9 +1,9 @@
 %global packname  plotrix
-%global packver   3.7-7
+%global packver   3.7-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.7
+Version:          3.7.8
 Release:          1%{?dist}
 Summary:          Various Plotting Functions
 
@@ -30,6 +30,7 @@ Lots of plots, various labeling, axis and color scaling functions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

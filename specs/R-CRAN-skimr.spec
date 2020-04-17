@@ -1,9 +1,9 @@
 %global packname  skimr
-%global packver   2.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Compact and Flexible Summaries of Data
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-repr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-magrittr >= 1.5
@@ -42,12 +43,13 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-repr 
 Requires:         R-stats 
+Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-withr 
 
 %description
 A simple to use summary function that can be used with pipes and displays
 nicely in the console. The default summary statistics may be modified by
-the user as can the default formatting. Support for data frames and
+the user as can the default formatting.  Support for data frames and
 vectors is included, and users can implement their own skim methods for
 specific object types as described in a vignette. Default summaries
 include support for inline spark graphs. Instructions for managing these
@@ -57,6 +59,7 @@ the README.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

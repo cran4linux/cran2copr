@@ -1,9 +1,9 @@
 %global packname  readroper
-%global packver   0.9.1
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.3
 Release:          1%{?dist}
 Summary:          Simply Read ASCII Single and Multicard Polling Datasets
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 1.1
-Requires:         R-CRAN-readr >= 1.1
+BuildRequires:    R-CRAN-readr >= 1.3.1
+Requires:         R-CRAN-readr >= 1.3.1
 
 %description
 A convenient way to read fixed-width ASCII polling datasets from providers
@@ -25,6 +25,7 @@ like the Roper Center <https://ropercenter.cornell.edu>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

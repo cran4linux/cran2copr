@@ -1,9 +1,9 @@
 %global packname  ghibli
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Studio Ghibli Colour Palettes
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-prismatic 
 Requires:         R-grDevices 
+Requires:         R-CRAN-prismatic 
 
 %description
 Colour palettes inspired by Studio Ghibli

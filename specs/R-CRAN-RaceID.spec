@@ -1,9 +1,9 @@
 %global packname  RaceID
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}
 Summary:          Identification of Cell Types and Inference of Lineage Trees fromSingle-Cell RNA-Seq Data
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-locfit
 BuildRequires:    R-methods 
 BuildRequires:    R-MASS 
 BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-NlcOptim 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pheatmap 
 BuildRequires:    R-CRAN-propr 
@@ -52,6 +53,7 @@ Requires:         R-CRAN-locfit
 Requires:         R-methods 
 Requires:         R-MASS 
 Requires:         R-Matrix 
+Requires:         R-CRAN-NlcOptim 
 Requires:         R-parallel 
 Requires:         R-CRAN-pheatmap 
 Requires:         R-CRAN-propr 

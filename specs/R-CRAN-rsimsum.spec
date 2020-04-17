@@ -1,9 +1,9 @@
 %global packname  rsimsum
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Analysis of Simulation Studies Including Monte Carlo Error
 
@@ -19,12 +19,14 @@ BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 

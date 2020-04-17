@@ -1,11 +1,11 @@
 %global packname  reproj
-%global packver   0.4.0
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.2
 Release:          1%{?dist}
-Summary:          Coordinate System Transformations for Map Data
+Summary:          Coordinate System Transformations for Generic Map Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,21 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.5
 Requires:         R-core >= 3.2.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-crsmeta >= 0.3.0
+BuildRequires:    R-CRAN-PROJ >= 0.1.6
 BuildRequires:    R-CRAN-proj4 
-BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-crsmeta >= 0.3.0
+Requires:         R-CRAN-PROJ >= 0.1.6
 Requires:         R-CRAN-proj4 
-Requires:         R-CRAN-tibble 
 
 %description
-Transform coordinates via 'PROJ' using the library directly, by wrapping
-the 'proj4' package. The 'reproj' function handles the need for radian
-units for either source or target and allows removing an explicit source
-definition in methods that extend the generic. The 'PROJ' library is
-available at <https://proj4.org/>.
+Transform coordinates from a specified source to a specified target map
+projection. This uses the 'PROJ' library directly, by wrapping the 'PROJ'
+package (if functional), otherwise the 'proj4' package. The 'reproj()'
+function is generic, methods may be added to remove the need for an
+explicit source definition. If 'proj4' is in use 'reproj()' handles the
+requirement for conversion of angular units where necessary. This is for
+use primarily to transform generic data formats and direct leverage of the
+underlying 'PROJ' library. (There are transformations that aren't possible
+with 'PROJ' and that are provided by the 'GDAL' library, a limitation
+which users of this package should be aware of.) The 'PROJ' library is
+available at <https://proj.org/>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

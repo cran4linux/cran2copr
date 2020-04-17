@@ -1,9 +1,9 @@
 %global packname  hscovar
-%global packver   0.1.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Calculation of Covariance Between Markers for Half-Sib Families
 
@@ -19,25 +19,28 @@ BuildRequires:    R-parallel
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-pwr 
 Requires:         R-parallel 
 Requires:         R-Matrix 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-pwr 
 
 %description
 The theoretical covariance between pairs of markers is calculated from
 either paternal haplotypes and maternal linkage disequilibrium (LD) or
 vise versa. A genetic map is required. Grouping of markers is based on the
 correlation matrix and a representative marker is suggested for each
-group. The implementation relies on paternal half-sib families and
-biallelic markers. If maternal half-sib families are used, the roles of
-sire/dam are swapped. Multiple families can be considered. Wittenburg,
-Bonk, Doschoris, Reyer (2019) "Design of Experiments for Fine-Mapping
-Quantitative Trait Loci in Livestock Populations"
-<doi:10.1101/2019.12.17.879106>. Carlson, Eberle, Rieder, Yi, Kruglyak,
-Nickerson (2004) "Selecting a maximally informative set of
-single-nucleotide polymorphisms for association analyses using linkage
-disequilibrium" <doi:10.1086/381000>.
+group. Employing the correlation matrix, optimal sample size can be
+derived for association studies based on a SNP-BLUP approach. The
+implementation relies on paternal half-sib families and biallelic markers.
+If maternal half-sib families are used, the roles of sire/dam are swapped.
+Multiple families can be considered. Wittenburg, Bonk, Doschoris, Reyer
+(2019) "Design of Experiments for Fine-Mapping Quantitative Trait Loci in
+Livestock Populations" <doi:10.1101/2019.12.17.879106>. Carlson, Eberle,
+Rieder, Yi, Kruglyak, Nickerson (2004) "Selecting a maximally informative
+set of single-nucleotide polymorphisms for association analyses using
+linkage disequilibrium" <doi:10.1086/381000>.
 
 %prep
 %setup -q -c -n %{packname}

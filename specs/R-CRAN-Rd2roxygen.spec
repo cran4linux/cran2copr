@@ -1,9 +1,9 @@
 %global packname  Rd2roxygen
-%global packver   1.9
+%global packver   1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          1.10
 Release:          1%{?dist}
 Summary:          Convert Rd to 'Roxygen' Documentation
 
@@ -17,8 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-roxygen2 >= 4.0.0
 BuildRequires:    R-CRAN-formatR >= 1.0
+BuildRequires:    R-CRAN-xfun >= 0.13
 Requires:         R-CRAN-roxygen2 >= 4.0.0
 Requires:         R-CRAN-formatR >= 1.0
+Requires:         R-CRAN-xfun >= 0.13
 
 %description
 Functions to convert Rd to 'roxygen' documentation. It can parse an Rd
@@ -32,6 +34,7 @@ be more readable.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

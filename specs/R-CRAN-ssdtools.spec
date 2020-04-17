@@ -1,9 +1,9 @@
 %global packname  ssdtools
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Species Sensitivity Distributions
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-VGAM 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-graphics 
 Requires:         R-grid 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-VGAM 
@@ -41,7 +43,7 @@ Requires:         R-CRAN-VGAM
 %description
 Species sensitivity distributions are cumulative probability distributions
 which are fitted to toxicity concentrations for different species as
-described by Posthuma et al. (2001) <isbn:9781566705783>. The ssdtools
+described by Posthuma et al.(2001) <isbn:9781566705783>. The ssdtools
 package uses Maximum Likelihood to fit distributions such as the
 log-normal, gamma, burr Type-III, log-logistic, log-Gumbel, Gompertz and
 Weibull. The user can provide custom distributions. Multiple distributions
@@ -51,6 +53,7 @@ concentrations and proportions are produced by parametric bootstrapping.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

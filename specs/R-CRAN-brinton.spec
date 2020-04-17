@@ -1,9 +1,9 @@
 %global packname  brinton
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          A Graphical EDA Tool
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-sm 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-GGally 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
@@ -37,7 +36,6 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-sm 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-forcats 
-Requires:         R-stats 
 Requires:         R-CRAN-GGally 
 
 %description

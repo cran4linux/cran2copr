@@ -1,9 +1,9 @@
 %global packname  edbuildmapr
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Download School District Geospatial Data, Perform SpatialAnalysis, and Create Formatted Exportable Maps
 
@@ -15,22 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tmap >= 3.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9.1
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tmap 
+Requires:         R-CRAN-tmap >= 3.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9.1
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-lwgeom 
 Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tmap 
 
 %description
 Import US Census Bureau, Education Demographic and Geographic Estimates
