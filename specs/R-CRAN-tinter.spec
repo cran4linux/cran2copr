@@ -1,33 +1,32 @@
-%global packname  jenkins
-%global packver   1.0
+%global packname  tinter
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Simple Jenkins Client
+Summary:          Generate a Monochromatic Palette
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-chk 
+Requires:         R-grDevices 
 
 %description
-Manage jobs and builds on your Jenkins CI server <https://jenkins.io/>.
-Create and edit projects, schedule builds, manage the queue, download
-build logs, and much more.
+Generate a palette of tints, shades or both from a single colour.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -35,6 +34,7 @@ build logs, and much more.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

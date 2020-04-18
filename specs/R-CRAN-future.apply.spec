@@ -1,9 +1,9 @@
 %global packname  future.apply
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}
 Summary:          Apply Function to Elements in Parallel using Futures
 
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.15.1
+BuildRequires:    R-CRAN-future >= 1.16.0
 BuildRequires:    R-CRAN-globals >= 0.12.5
-Requires:         R-CRAN-future >= 1.15.1
+Requires:         R-CRAN-future >= 1.16.0
 Requires:         R-CRAN-globals >= 0.12.5
 
 %description
@@ -32,6 +32,7 @@ future framework.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -53,6 +54,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/vignettes-static
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

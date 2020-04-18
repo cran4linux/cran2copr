@@ -1,33 +1,36 @@
-%global packname  natserv
-%global packver   0.4.0
+%global packname  rbi
+%global packver   0.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.10.3
 Release:          1%{?dist}
-Summary:          'NatureServe' Interface
+Summary:          Interface to 'LibBi'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crul >= 0.7.0
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-crul >= 0.7.0
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-reshape2 
 
 %description
-Interface to 'NatureServe' (<https://www.natureserve.org>). Includes
-methods to get data, image metadata, search taxonomic names, and make
-maps.
+Provides a complete interface to 'LibBi', a library for Bayesian inference
+(see <http://libbi.org> and <doi:10.18637/jss.v067.i10> for more
+information). This includes functions for manipulating 'LibBi' models, for
+reading and writing 'LibBi' input/output files, for converting 'LibBi'
+output to provide traces for use with the coda package, and for running
+'LibBi' to conduct inference.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,11 +52,14 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/example_dataset.nc
+%doc %{rlibdir}/%{packname}/example_output.nc
+%doc %{rlibdir}/%{packname}/PZ.bi
+%doc %{rlibdir}/%{packname}/SIR.bi
 %{rlibdir}/%{packname}/INDEX

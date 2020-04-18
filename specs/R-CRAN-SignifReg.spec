@@ -1,9 +1,9 @@
 %global packname  SignifReg
-%global packver   2.1.1
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          3.0
 Release:          1%{?dist}
 Summary:          Consistent Significance Controlled Variable Selection in LinearRegression
 
@@ -17,11 +17,11 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Provide consistent significance controlled variable selection procedure
-with different directions (forward, backward, stepwise) based on diverse
-criteria (AIC, BIC, adjusted r-square, and p-value). The algorithm selects
-a final model with only significant variables based on a correction choice
-of False Discovery Rate, Bonferroni, or no correction.
+Provides significance controlled variable selection algorithms with
+different directions (forward, backward, stepwise) based on diverse
+criteria (AIC, BIC, adjusted r-square, PRESS, or p-value). The algorithm
+selects a final model with only significant variables based on a
+correction choice of False Discovery Rate, Bonferroni, or no correction.
 
 %prep
 %setup -q -c -n %{packname}

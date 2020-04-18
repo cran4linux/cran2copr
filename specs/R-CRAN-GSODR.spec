@@ -1,9 +1,9 @@
 %global packname  GSODR
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Global Surface Summary of the Day ('GSOD') Weather Data Client
 
@@ -42,17 +42,19 @@ individually checked for number of missing days defined by the user, where
 stations with too many missing observations are omitted.  Only stations
 with valid reported latitude and longitude values are permitted in the
 final data.  Additional useful elements, saturation vapour pressure
-('es'), actual vapour pressure ('ea') and relative humidity are calculated
-from the original data and included in the final data set.  The resulting
-metadata include station identification information, country, state,
-latitude, longitude, elevation, weather observations and associated flags.
-For information on the 'GSOD' data from 'NCEI', please see the 'GSOD'
-'readme.txt' file available from,
+('es'), actual vapour pressure ('ea') and relative humidity ('RH') are
+calculated from the original data using the improved August-Roche-Magnus
+approximation (Alduchov & Eskridge 1996) and included in the final data
+set.  The resulting metadata include station identification information,
+country, state, latitude, longitude, elevation, weather observations and
+associated flags.  For information on the 'GSOD' data from 'NCEI', please
+see the 'GSOD' 'readme.txt' file available from,
 <http://www1.ncdc.noaa.gov/pub/data/gsod/readme.txt>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

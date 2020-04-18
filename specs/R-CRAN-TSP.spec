@@ -1,9 +1,9 @@
 %global packname  TSP
-%global packver   1.1-9
+%global packver   1.1-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.1.10
 Release:          1%{?dist}
 Summary:          Traveling Salesperson Problem (TSP)
 
@@ -31,7 +31,7 @@ problem (also traveling salesman problem; TSP). The package provides some
 simple algorithms and an interface to the Concorde TSP solver and its
 implementation of the Chained-Lin-Kernighan heuristic. The code for
 Concorde itself is not included in the package and has to be obtained
-separately.
+separately. Hahsler and Hornik (2007) <doi:10.18637/jss.v023.i02>.
 
 %prep
 %setup -q -c -n %{packname}

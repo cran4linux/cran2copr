@@ -1,9 +1,9 @@
 %global packname  stablelearner
-%global packver   0.1-1
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Stability Assessment of Statistical Learning Methods
 
@@ -20,11 +20,17 @@ BuildRequires:    R-methods
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-party 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ranger 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-MASS 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-party 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ranger 
 
 %description
 Graphical and computational methods that can be used to assess the
@@ -33,6 +39,7 @@ stability of results from supervised statistical learning.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,4 +62,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

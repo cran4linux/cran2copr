@@ -1,11 +1,11 @@
 %global packname  centrifugeR
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
-Summary:          Balancing Centrifuge Rotors
+Summary:          Non-Trivial Balance of Centrifuge Rotors
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,15 +25,15 @@ Requires:         R-graphics
 Requires:         R-utils 
 
 %description
-Find the numbers of tubes that can be loaded in centrifuge rotors and give
-the instructions on how to balance these tubes in cases of equal or
-unequal masses. The methods of the package are constructed based on Sivek
-(2010) <doi:10.1515/integ.2010.031> and Peil and Hauryliuk (2010)
-<arXiv:1004.3671>.
+Find the numbers of tubes that can be loaded in centrifuge rotors in a
+single operation and show how to balance these tubes in cases of equal or
+unequal masses. Refer to Pham (2020) <doi:10.31224/osf.io/4xs38> for more
+information on package functionality.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -53,4 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

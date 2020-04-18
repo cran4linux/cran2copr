@@ -1,11 +1,11 @@
 %global packname  vistime
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Pretty Timeline Creation
+Summary:          Pretty Timelines
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,26 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-RColorBrewer >= 0.2.2
 BuildRequires:    R-CRAN-assertive >= 0.1.4
 Requires:         R-CRAN-plotly >= 4.0.0
+Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-RColorBrewer >= 0.2.2
 Requires:         R-CRAN-assertive >= 0.1.4
 
 %description
-Create interactive timelines or Gantt charts that are usable in the
-'RStudio' viewer pane, in 'R Markdown' documents and in 'Shiny' apps.
-Hover the mouse pointer over a point or task to show details or drag a
-rectangle to zoom in. Timelines and their components can afterwards be
-manipulated using plotly_build(), which transforms the plot into a mutable
-list.
+A library for creating time based charts, like Gantt or timelines.
+Possible outputs include 'ggplot' diagrams, 'Plotly' graphs and
+'data.frame's. Results can be used in the 'RStudio' viewer pane, in
+'RMarkdown' documents or in 'Shiny' apps. In the interactive 'Plotly'
+output, you can hover the mouse pointer over a point or task to show
+details or drag a rectangle to zoom in.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -56,4 +59,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/img
+%doc %{rlibdir}/%{packname}/WORDLIST.R
 %{rlibdir}/%{packname}/INDEX

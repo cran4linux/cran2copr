@@ -1,9 +1,9 @@
 %global packname  ManifoldOptim
-%global packver   0.1.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          An R Interface to the 'ROPTLIB' Library for Riemannian ManifoldOptimization
 
@@ -22,7 +22,8 @@ Requires:         R-CRAN-Rcpp >= 0.12.0
 An R interface to version 0.3 of the 'ROPTLIB' optimization library (see
 <http://www.math.fsu.edu/~whuang2> for more information). Optimize real-
 valued functions over manifolds such as Stiefel, Grassmann, and Symmetric
-Positive Definite matrices.
+Positive Definite matrices. For details see Martin et. al. (2020)
+<doi:10.18637/jss.v093.i01>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +48,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX

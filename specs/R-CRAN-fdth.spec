@@ -1,33 +1,33 @@
-%global packname  Rpipedrive
-%global packver   0.1.1
+%global packname  fdth
+%global packver   1.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.2.5
 Release:          1%{?dist}
-Summary:          'Pipedrive API's' Functions to Improvement and Integration'sSystems
+Summary:          Frequency Distribution Tables, Histograms and Polygons
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.6.0
+Requires:         R-core >= 2.6.0
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.0.0
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.3.1
-Requires:         R-utils >= 3.0.0
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-httr >= 1.3.1
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-xtable 
 
 %description
-R interaction with 'pipedrive.com API'. All functions were created and
-documented according to <https://developers.pipedrive.com/docs/api/v1/>.
-Created with the objective of offering integration and even the
-development of 'APIs'. Making possible to create workflows and easily
-downloading databases for analysis.
+Perform frequency distribution tables, associated histograms and polygons
+from vector, data.frame and matrix objects for numerical and categorical
+variables.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,4 +52,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/COPYRIGHTS
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

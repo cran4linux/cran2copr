@@ -1,9 +1,9 @@
 %global packname  weathercan
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Download Weather Data from the Environment and Climate ChangeCanada Website
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-lubridate >= 1.7.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-stringi >= 1.1.2
 BuildRequires:    R-CRAN-httr >= 1.1.0
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-tidyr >= 0.4.1
 BuildRequires:    R-CRAN-rvest >= 0.3.4
@@ -31,6 +32,7 @@ Requires:         R-CRAN-lubridate >= 1.7.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-stringi >= 1.1.2
 Requires:         R-CRAN-httr >= 1.1.0
+Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-tidyr >= 0.4.1
 Requires:         R-CRAN-rvest >= 0.3.4
@@ -49,6 +51,7 @@ to identify stations either by name or proximity to a location.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

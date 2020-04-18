@@ -1,9 +1,9 @@
 %global packname  poio
-%global packver   0.0-3
+%global packver   0.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}
 Summary:          Input/Output Functionality for "PO" and "POT" MessageTranslation Files
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-devtools
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tibble 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-devtools
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tibble 
@@ -54,6 +56,7 @@ Read and write PO and POT files, for package translations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

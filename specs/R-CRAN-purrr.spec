@@ -1,9 +1,9 @@
 %global packname  purrr
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Functional Programming Tools
 
@@ -25,6 +25,7 @@ A complete and consistent functional programming toolkit for R.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

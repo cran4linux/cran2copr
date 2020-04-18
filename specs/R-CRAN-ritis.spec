@@ -1,9 +1,9 @@
 %global packname  ritis
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Integrated Taxonomic Information System Client
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-tibble >= 1.3.4
-BuildRequires:    R-CRAN-solrium >= 1.1.0
-BuildRequires:    R-CRAN-crul >= 0.4.0
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-tibble >= 1.3.4
-Requires:         R-CRAN-solrium >= 1.1.0
-Requires:         R-CRAN-crul >= 0.4.0
+BuildRequires:    R-CRAN-solrium >= 1.1.4
+BuildRequires:    R-CRAN-crul >= 0.9.0
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-solrium >= 1.1.4
+Requires:         R-CRAN-crul >= 0.9.0
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tibble 
 
 %description
 An interface to the Integrated Taxonomic Information System ('ITIS')
@@ -35,6 +35,7 @@ API methods (<https://www.itis.gov/ws_description.html>), as well as the
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

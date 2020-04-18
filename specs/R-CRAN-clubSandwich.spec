@@ -1,9 +1,9 @@
 %global packname  clubSandwich
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}
 Summary:          Cluster-Robust (Sandwich) Variance Estimators with Small-SampleCorrections
 
@@ -41,6 +41,7 @@ lmer() (from `lme4`), robu() (from 'robumeta'), and rma.uni() and rma.mv()
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

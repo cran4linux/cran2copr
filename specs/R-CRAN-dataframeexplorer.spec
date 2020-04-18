@@ -1,9 +1,9 @@
 %global packname  dataframeexplorer
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Familiarity with Dataframes Before Data Manipulation
 
@@ -34,10 +34,7 @@ Requires:         R-CRAN-tidyr
 Real life data is muddy, fuzzy and unpredictable. This makes data
 manipulations tedious and bringing the data to right shape alone is a
 major chunk of work. Functions in this package help us get an
-understanding of dataframes to dramatically reduces data coding time. The
-package describes the datatypes of columns, generates frequency of each
-value in a dataframe column, creates percentile table and determines level
-of dataset.
+understanding of dataframes to dramatically reduces data coding time.
 
 %prep
 %setup -q -c -n %{packname}

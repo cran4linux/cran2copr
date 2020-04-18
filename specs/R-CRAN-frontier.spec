@@ -1,9 +1,9 @@
 %global packname  frontier
-%global packver   1.1-6
+%global packver   1.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.8
 Release:          1%{?dist}
 Summary:          Stochastic Frontier Analysis
 
@@ -40,6 +40,7 @@ Coelli, 1995, <doi:10.1007/BF01205442>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

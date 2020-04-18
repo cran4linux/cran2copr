@@ -1,9 +1,9 @@
 %global packname  usefun
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}
 Summary:          A Collection of Useful Functions by John
 
@@ -19,33 +19,33 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
 
 %description
 A set of general functions that I have used in various projects and in
 other R packages. They support some miscellaneous operations on data
-frames, matrices and vectors: adding a row on a ternary (3-value)
+frames, matrices and vectors like adding a row on a ternary (3-value)
 data.frame based on positive and negative vector-indicators, rearranging a
 list of data.frames by rownames, pruning rows or columns of a data.frame
-that contain only one specific value given by the user, checking for
-matrix equality, pruning and reordering a vector according to the common
-elements between its names and elements of another given vector, finding
-the non-common elements between two vectors (outer-section), normalization
-of a vector, matrix or data.frame's numeric values in a specified range,
-pretty printing of vector names and values in an R notebook (common names
-and values between two vectors also supported), retrieving the parent
-directory of any string path, checking whether a numeric value is inside a
-given interval, trim the decimal points of a given numeric value, quick
-saving of data to a file, making a multiple densities plot and a color bar
-plot and executing a plot string expression while generating the result to
-the specified file format.
+that contain only one specific value given by the user, pruning and
+reordering a vector according to the common elements between its names and
+elements of another given vector, finding the non-common elements between
+two vectors (outer-section), normalization of a vector, matrix or
+data.frame's numeric values in a specified range, pretty printing of
+vector names and values in an R Markdown document. Also included is a
+function that returns the statistics needed for plotting a ROC curve.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -67,4 +67,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

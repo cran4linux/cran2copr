@@ -1,9 +1,9 @@
 %global packname  camtrapR
-%global packver   1.2.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Camera Trap Data Management and Preparation of Occupancy andSpatial Capture-Recapture Analyses
 
@@ -28,18 +28,18 @@ Requires:         R-CRAN-secr
 Requires:         R-CRAN-data.table 
 
 %description
-Management of and data extraction from camera trap photographs in wildlife
+Management of and data extraction from camera trap data in wildlife
 studies. The package provides a workflow for storing and sorting camera
-trap photos, tabulates records of species and individuals, and creates
-detection/non-detection matrices for occupancy and spatial
-capture-recapture analyses with great flexibility. In addition, it
-provides simple mapping functions (number of species, number of
-independent species detections by station including GIS export) and can
-visualise species activity data.
+trap photos (and videos), tabulates records of species and individuals,
+and creates detection/non-detection matrices for occupancy and spatial
+capture-recapture analyses with great flexibility. In addition, it can
+visualise species activity data and provides simple mapping functions with
+GIS export.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -59,7 +59,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
