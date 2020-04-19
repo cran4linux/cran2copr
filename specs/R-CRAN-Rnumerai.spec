@@ -1,9 +1,9 @@
 %global packname  Rnumerai
-%global packver   0.3
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          2.1
 Release:          1%{?dist}
 Summary:          Interface to the Numerai Machine Learning Tournament API
 
@@ -17,8 +17,16 @@ Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
 
 %description
 Routines to interact with the Numerai Machine Learning Tournament API

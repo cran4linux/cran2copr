@@ -1,9 +1,9 @@
 %global packname  OptSig
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}
 Summary:          Optimal Level of Significance for Regression and OtherStatistical Tests
 
@@ -24,13 +24,15 @@ approach. The optimal level is chosen so that the expected loss from
 hypothesis testing is minimized. A range of statistical tests are covered,
 including the test for the population mean, population proportion, and a
 linear restriction in a multiple regression model. The details are covered
-in Kim, Jae H. and Choi, In, 2019, Choosing the Level of Significance: A
-Decision-Theoretic Approach, Abacus. See also Kim and Ji (2015)
-<doi:10.1016/j.jempfin.2015.08.006>.
+in Kim, Jae H. and Choi, In, 2020, Choosing the Level of Significance: A
+Decision-Theoretic Approach, Abacus. See also Kim, Jae H., 2020,
+Decision-theoretic hypothesis testing: A primer with R package OptSig, The
+American Statistician.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +40,7 @@ Decision-Theoretic Approach, Abacus. See also Kim and Ji (2015)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

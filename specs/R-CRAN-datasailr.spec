@@ -1,36 +1,27 @@
-%global packname  matsbyname
-%global packver   0.4.13
+%global packname  datasailr
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.13
+Version:          0.8.3
 Release:          1%{?dist}
-Summary:          An Implementation of Matrix Mathematics
+Summary:          Fast Row by Row Data Processing Tool, Using 'Sailr' Language
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-Rcpp >= 0.12.18
 
 %description
-An implementation of matrix mathematics wherein operations are performed
-"by name."
+A fast row by row data processing tool. You can write data manipulation
+code in 'Sailr' language which is specially intended for the data
+manipulation. The package uses 'libsailr' (C/C++ library) for its 'Sailr'
+code parsing and its execution.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,11 +43,13 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
+%doc %{rlibdir}/%{packname}/exec
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/COPYRIGHTS
+%doc %{rlibdir}/%{packname}/unit_tests
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

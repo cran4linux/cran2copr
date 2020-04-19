@@ -1,9 +1,9 @@
 %global packname  mkin
-%global packver   0.9.49.9
+%global packver   0.9.49.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.49.9
+Version:          0.9.49.10
 Release:          1%{?dist}
 Summary:          Kinetic Evaluation of Chemical Degradation Data
 
@@ -25,6 +25,8 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-pkgbuild 
+BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-methods 
@@ -35,6 +37,8 @@ Requires:         R-parallel
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-pkgbuild 
+Requires:         R-nlme 
+Requires:         R-CRAN-purrr 
 
 %description
 Calculation routines based on the FOCUS Kinetics Report (2006, 2014).

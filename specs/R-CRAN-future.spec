@@ -1,9 +1,9 @@
 %global packname  future
-%global packver   1.16.0
+%global packver   1.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16.0
+Version:          1.17.0
 Release:          1%{?dist}
 Summary:          Unified Parallel and Distributed Processing in R for Everyone
 
@@ -45,6 +45,7 @@ straightforward to tweak existing code to make use of futures.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

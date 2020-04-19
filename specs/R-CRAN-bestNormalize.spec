@@ -1,9 +1,9 @@
 %global packname  bestNormalize
-%global packver   1.4.3
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.5.0
 Release:          1%{?dist}
 Summary:          Normalizing Transformation Functions
 
@@ -21,12 +21,16 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-LambertW 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-tibble 
 
 %description
 Estimate a suite of normalizing transformations, including a new
@@ -45,6 +49,7 @@ normalization efficacy of other commonly used transformations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

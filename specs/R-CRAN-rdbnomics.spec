@@ -1,9 +1,9 @@
 %global packname  rdbnomics
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Download DBnomics Data
 
@@ -29,6 +29,7 @@ R access to hundreds of millions data series from DBnomics API
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

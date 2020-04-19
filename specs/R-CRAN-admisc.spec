@@ -1,34 +1,32 @@
 %global packname  admisc
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}
 Summary:          Adrian Dusa's Miscellaneous
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 Requires:         R-methods 
 
 %description
 Contains functions used across packages 'QCA', 'DDIwR', and 'venn'.
-Interprets and translates SOP - Sum of Products expressions, for both
-binary and multi-value crisp sets, and extracts information (set names,
-set values) from those expressions. Other functions perform various other
-checks if possibly numeric (even if all numbers reside in a character
-vector) and coerce to numeric, or check if the numbers are whole. It also
-offers, among others, a highly flexible recoding routine. Some functions
-need specific functionality from package QCA, but since that package
-depends on this one, admisc cannot automatically load it due to circular
-dependency.
+Interprets and translates, factorizes and negates SOP - Sum of Products
+expressions, for both binary and multi-value crisp sets, and extracts
+information (set names, set values) from those expressions. Other
+functions perform various other checks if possibly numeric (even if all
+numbers reside in a character vector) and coerce to numeric, or check if
+the numbers are whole. It also offers, among many others, a highly
+flexible recoding routine.
 
 %prep
 %setup -q -c -n %{packname}

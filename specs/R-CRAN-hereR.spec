@@ -1,9 +1,9 @@
 %global packname  hereR
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          'sf'-Based Interface to the 'HERE' REST APIs
 
@@ -20,13 +20,13 @@ BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-data.table >= 1.12.6
 BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-lwgeom >= 0.1.7
+BuildRequires:    R-CRAN-lwgeom >= 0.2.3
 Requires:         R-CRAN-curl >= 4.2
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.12.6
 Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-lwgeom >= 0.1.7
+Requires:         R-CRAN-lwgeom >= 0.2.3
 
 %description
 Interface to the 'HERE' REST APIs
