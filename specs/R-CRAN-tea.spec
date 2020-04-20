@@ -1,13 +1,13 @@
-%global packname  RiskPortfolios
-%global packver   2.1.3
+%global packname  tea
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          1.1
 Release:          1%{?dist}
-Summary:          Computation of Risk-Based Portfolios
+Summary:          Threshold Estimation Approaches
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-nloptr 
-Requires:         R-MASS 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-nloptr 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-Matrix 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Collection of functions designed to compute risk-based portfolios as
-described in Ardia et al. (2017) <doi:10.1007/s10479-017-2474-7> and Ardia
-et al. (2017) <doi:10.21105/joss.00171>.
+Different approaches for selecting the threshold in generalized Pareto
+distributions. Most of them are based on minimizing the AMSE-criterion or
+at least by reducing the bias of the assumed GPD-model. Others are
+heuristically motivated by searching for stable sample paths, i.e. a
+nearly constant region of the tail index estimator with respect to k,
+which is the number of data in the tail. The third class is motivated by
+graphical inspection. In addition, a sequential testing procedure for
+GPD-GoF-tests is also implemented here.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,8 +55,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
 %{rlibdir}/%{packname}/INDEX

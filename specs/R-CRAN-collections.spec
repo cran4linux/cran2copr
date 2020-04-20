@@ -1,9 +1,9 @@
 %global packname  collections
-%global packver   0.2.5
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          High Performance Container Data Types
 
@@ -14,12 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-xptr >= 1.1.2
-Requires:         R-CRAN-xptr >= 1.1.2
 
 %description
-Provides high performance container data types such as Queue, Stack,
-Deque, Dict and OrderedDict. Benchmarks
+Provides high performance container data types such as queues, stacks,
+deques, dicts and ordered dicts. Benchmarks
 <https://randy3k.github.io/collections/articles/benchmark.html> have shown
 that these containers are asymptotically more efficient than those offered
 by other packages.

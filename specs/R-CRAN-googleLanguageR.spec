@@ -1,9 +1,9 @@
 %global packname  googleLanguageR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Call Google's 'Natural Language' API, 'Cloud Translation' API,'Cloud Speech' API and 'Cloud Text-to-Speech' API
 
@@ -15,19 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-googleAuthR >= 1.1.1
 BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-googleAuthR 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-googleAuthR >= 1.1.1
 Requires:         R-CRAN-purrr >= 0.2.4
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-googleAuthR 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
@@ -47,6 +47,7 @@ to turn text into sound files.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -54,6 +55,7 @@ to turn text into sound files.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

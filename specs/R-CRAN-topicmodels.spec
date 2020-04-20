@@ -1,9 +1,9 @@
 %global packname  topicmodels
-%global packver   0.2-9
+%global packver   0.2-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.2.11
 Release:          1%{?dist}
 Summary:          Topic Models
 
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel >= 1.8
-Requires:         gsl
 BuildRequires:    R-devel >= 2.15.0
 Requires:         R-core >= 2.15.0
 BuildRequires:    R-CRAN-tm >= 0.6
@@ -36,6 +35,7 @@ Phan and co-authors.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

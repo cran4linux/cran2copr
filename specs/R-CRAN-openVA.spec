@@ -1,9 +1,9 @@
 %global packname  openVA
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}
 Summary:          Automated Method for Verbal Autopsy
 
@@ -43,10 +43,11 @@ method by James et al (2011) <doi:10.1186/1478-7954-9-31> and Serina, et
 al. (2015) <doi:10.1186/s12916-015-0527-9>. It also provides tools for
 data manipulation tasks commonly used in Verbal Autopsy analysis and
 implements easy graphical visualization of individual and population level
-statistics. Note that this package was not developed by authors affiliated
-with the Institute for Health Metrics and Evaluation and thus
-unintentional discrepancies may exist in the implementation of the
-'Tariff' method.
+statistics. The 'NBC' method is implemented by the 'nbc4va' package that
+can be installed from <https://github.com/rrwen/nbc4va>. Note that this
+package was not developed by authors affiliated with the Institute for
+Health Metrics and Evaluation and thus unintentional discrepancies may
+exist in the implementation of the 'Tariff' method.
 
 %prep
 %setup -q -c -n %{packname}

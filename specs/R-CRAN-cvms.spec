@@ -1,9 +1,9 @@
 %global packname  cvms
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Cross-Validation for Model Selection
 
@@ -25,13 +25,11 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-broom >= 0.5.5
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-ggimage >= 0.2.7
 BuildRequires:    R-CRAN-recipes >= 0.1.10
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
@@ -45,13 +43,11 @@ Requires:         R-CRAN-tidyr >= 1.0.2
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-broom >= 0.5.5
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-ggimage >= 0.2.7
 Requires:         R-CRAN-recipes >= 0.1.10
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rsvg 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 

@@ -1,9 +1,9 @@
 %global packname  wyz.code.offensiveProgramming
-%global packver   1.1.17
+%global packver   1.1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          1.1.18
 Release:          1%{?dist}
 Summary:          Wizardry Code Offensive Programming
 
@@ -31,16 +31,20 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-crayon 
 
 %description
-Allows to change R coding from defensive programming (i.e. many input
-parameter checks implementation required) to offensive programming
-(none/reduced number of parameter checks required). Provides code
-instrumentation to ease this change. Should reduce the code size as many
-controls and type checks have no more reason to exist. Should also speed
-up processing as many checks will be reduced to single check.
+Allows to turn standard R code into offensive programming code. Provides
+code instrumentation to ease this change and tools to assist and
+accelerate code production and tuning while using offensive programming
+code technics. Should improve code robustness and quality. Function calls
+can be easily verified on-demand or in batch mode to assess parameter
+types and length conformities. Should improve coders productivity as
+offensive programming reduces the code size due to reduced number of
+controls all along the call chain. Should speed up processing as many
+checks will be reduced to one single check.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

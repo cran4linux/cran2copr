@@ -1,9 +1,9 @@
 %global packname  rayrender
-%global packver   0.6.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Build and Raytrace 3D Scenes
 
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-decido 
+BuildRequires:    R-CRAN-rayimage 
 BuildRequires:    R-CRAN-RcppThread 
 BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-Rcpp >= 1.0.0
@@ -32,6 +34,8 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-decido 
+Requires:         R-CRAN-rayimage 
 
 %description
 Render scenes using pathtracing. Build 3D scenes out of spheres, cubes,

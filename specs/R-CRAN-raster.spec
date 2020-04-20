@@ -1,9 +1,9 @@
 %global packname  raster
-%global packver   3.0-12
+%global packver   3.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.12
+Version:          3.1.5
 Release:          1%{?dist}
 Summary:          Geographic Data Analysis and Modeling
 
@@ -31,6 +31,7 @@ operations such as intersections. See the manual and tutorials on
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,7 +51,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/external
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

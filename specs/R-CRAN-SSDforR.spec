@@ -1,9 +1,9 @@
 %global packname  SSDforR
-%global packver   1.5.12
+%global packver   1.5.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.12
+Version:          1.5.15
 Release:          1%{?dist}
 Summary:          Functions to Analyze Single System Data
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-CRAN-TTR 
 BuildRequires:    R-MASS 
 BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-TSA 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-psych
 Requires:         R-CRAN-TTR 
 Requires:         R-MASS 
 Requires:         R-tcltk 
-Requires:         R-CRAN-TSA 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -46,6 +44,7 @@ Functions to visually and statistically analyze single system data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,11 +1,11 @@
 %global packname  timetk
-%global packver   0.1.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          A Tool Kit for Working with Time Series
+Summary:          A Tool Kit for Working with Time Series in R
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,6 +28,17 @@ BuildRequires:    R-CRAN-purrr >= 0.2.2
 BuildRequires:    R-CRAN-lazyeval >= 0.2.0
 BuildRequires:    R-CRAN-recipes >= 0.1.4
 BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-slider 
+BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-assertthat 
 Requires:         R-CRAN-zoo >= 1.7.14
 Requires:         R-CRAN-lubridate >= 1.6.0
 Requires:         R-CRAN-tibble >= 1.2
@@ -41,15 +52,22 @@ Requires:         R-CRAN-purrr >= 0.2.2
 Requires:         R-CRAN-lazyeval >= 0.2.0
 Requires:         R-CRAN-recipes >= 0.1.4
 Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-slider 
+Requires:         R-CRAN-timeDate 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-assertthat 
 
 %description
-Get the time series index (date or date-time component), time series
-signature (feature extraction of date or date-time component for time
-series machine learning), and time series summary (summary attributes
-about time series). Create future time series based on properties of
-existing time series index using logistic regression. Coerce between
-time-based tibbles ('tbl') and 'xts', 'zoo', and 'ts'. Methods discussed
-herein are commonplace in machine learning, and have been cited in various
+Easy visualization, wrangling, and preprocessing of time series data for
+forecasting and machine learning prediction. Methods discussed herein are
+commonplace in machine learning, and have been cited in various
 literature. Refer to "Calendar Effects" in papers such as Taieb, Souhaib
 Ben. "Machine learning strategies for multi-step-ahead time series
 forecasting." Universit Libre de Bruxelles, Belgium (2014): 75-86.
@@ -75,6 +93,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md

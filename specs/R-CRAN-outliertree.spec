@@ -1,9 +1,9 @@
 %global packname  outliertree
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Explainable Outlier Detection Through Decision Tree Conditioning
 
@@ -37,6 +37,7 @@ being predicted from them). Full procedure is described in Cortes (2020)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
