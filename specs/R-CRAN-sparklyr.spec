@@ -1,9 +1,9 @@
 %global packname  sparklyr
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          R Interface to Apache Spark
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-dbplyr >= 1.1.0
 BuildRequires:    R-CRAN-openssl >= 0.8
 BuildRequires:    R-CRAN-dplyr >= 0.7.2
 BuildRequires:    R-CRAN-DBI >= 0.6.1
+BuildRequires:    R-CRAN-rjson >= 0.2.20
 BuildRequires:    R-CRAN-config >= 0.2
 BuildRequires:    R-CRAN-rstudioapi >= 0.10
 BuildRequires:    R-CRAN-rlang >= 0.1.4
@@ -31,6 +32,7 @@ BuildRequires:    R-CRAN-base64enc
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-forge 
 BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-r2d3 
@@ -46,6 +48,7 @@ Requires:         R-CRAN-dbplyr >= 1.1.0
 Requires:         R-CRAN-openssl >= 0.8
 Requires:         R-CRAN-dplyr >= 0.7.2
 Requires:         R-CRAN-DBI >= 0.6.1
+Requires:         R-CRAN-rjson >= 0.2.20
 Requires:         R-CRAN-config >= 0.2
 Requires:         R-CRAN-rstudioapi >= 0.10
 Requires:         R-CRAN-rlang >= 0.1.4
@@ -55,6 +58,7 @@ Requires:         R-CRAN-base64enc
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-forge 
 Requires:         R-CRAN-generics 
+Requires:         R-CRAN-globals 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-r2d3 
@@ -75,6 +79,7 @@ learning algorithms.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -99,7 +104,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/conf
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/icons
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %doc %{rlibdir}/%{packname}/pkgdown
 %doc %{rlibdir}/%{packname}/rstudio
 %doc %{rlibdir}/%{packname}/sparkml

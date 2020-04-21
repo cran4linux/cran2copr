@@ -1,9 +1,9 @@
 %global packname  spaMM
-%global packver   3.1.27
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.27
+Version:          3.2.0
 Release:          1%{?dist}
 Summary:          Mixed-Effect Models, Particularly Spatial Models
 
@@ -28,6 +28,8 @@ BuildRequires:    R-CRAN-minqa
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-CRAN-ROI 
+BuildRequires:    R-CRAN-ROI.plugin.glpk 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-methods 
 Requires:         R-stats 
@@ -41,6 +43,8 @@ Requires:         R-CRAN-minqa
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-gmp 
+Requires:         R-CRAN-ROI 
+Requires:         R-CRAN-ROI.plugin.glpk 
 
 %description
 Inference based on mixed-effect models, including generalized linear mixed

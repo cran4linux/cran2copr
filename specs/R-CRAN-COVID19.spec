@@ -1,9 +1,9 @@
 %global packname  COVID19
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Coronavirus COVID-19 (2019-nCoV) Epidemic Datasets
 
@@ -12,24 +12,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-remotes 
 Requires:         R-utils 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 
 %description
 Unified tidy format datasets of the 2019 Novel Coronavirus COVID-19
 (2019-nCoV) epidemic across several sources. The data are downloaded in
-real-time, cleaned and matched with exogenous variables.
+real-time, cleaned and matched with exogenous variables. Vintage databases
+are also supported.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,5 +53,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  DHARMa
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Residual Diagnostics for Hierarchical (Multi-Level / Mixed)Regression Models
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-spaMM >= 2.6.0
+BuildRequires:    R-CRAN-qgam >= 1.3.2
 BuildRequires:    R-CRAN-glmmTMB >= 1.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -25,7 +26,6 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-gap 
-BuildRequires:    R-CRAN-qrnn 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-sfsmisc 
@@ -33,6 +33,7 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-mgcv 
 Requires:         R-CRAN-spaMM >= 2.6.0
+Requires:         R-CRAN-qgam >= 1.3.2
 Requires:         R-CRAN-glmmTMB >= 1.0.0
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -42,7 +43,6 @@ Requires:         R-parallel
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-gap 
-Requires:         R-CRAN-qrnn 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-sfsmisc 
@@ -69,6 +69,7 @@ autocorrelation.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

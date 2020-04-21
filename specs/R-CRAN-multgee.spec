@@ -1,9 +1,9 @@
 %global packname  multgee
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}
 Summary:          GEE Solver for Correlated Nominal or Ordinal MultinomialResponses
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel >= 2.15.0
 Requires:         R-core >= 2.15.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gnm 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-VGAM 
 Requires:         R-CRAN-gnm 
-Requires:         R-CRAN-VGAM 
-Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-VGAM 
 
 %description
 GEE solver for correlated nominal or ordinal multinomial responses using a
@@ -31,6 +31,7 @@ local odds ratios parameterization.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +39,7 @@ local odds ratios parameterization.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -52,5 +54,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX

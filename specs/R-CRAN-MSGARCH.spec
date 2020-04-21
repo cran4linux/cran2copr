@@ -1,9 +1,9 @@
 %global packname  MSGARCH
-%global packver   2.31
+%global packver   2.42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.31
+Version:          2.42
 Release:          1%{?dist}
 Summary:          Markov-Switching GARCH Models
 
@@ -40,6 +40,7 @@ various Markov-Switching GARCH models as described in Ardia et al. (2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

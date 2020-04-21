@@ -1,9 +1,9 @@
 %global packname  mkin
-%global packver   0.9.49.10
+%global packver   0.9.49.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.49.10
+Version:          0.9.49.11
 Release:          1%{?dist}
 Summary:          Kinetic Evaluation of Chemical Degradation Data
 

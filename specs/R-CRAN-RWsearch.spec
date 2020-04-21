@@ -1,9 +1,9 @@
 %global packname  RWsearch
-%global packver   4.7.0
+%global packver   4.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7.0
+Version:          4.8.0
 Release:          1%{?dist}
 Summary:          Lazy Search in R Packages, Task Views, CRAN, the Web. All-in-OneDownload
 
@@ -30,12 +30,13 @@ Requires:         R-CRAN-XML
 
 %description
 Search by keywords in R packages, task views, CRAN, the web and display
-the results in console, txt, html or pdf pages. Download the whole
-documentation (html index, pdf manual, vignettes, source code, etc) with a
-single instruction. Visualize the package dependencies. Several functions
-for task view maintenance and exploration of CRAN archive. Quick links to
-more than 70 web search engines. Lazy evaluation of non-standard content
-is available throughout the package and eases the use of many functions.
+the results in the console or in txt, html or pdf files. Download the
+whole documentation of packages (html index, pdf manual, vignettes, source
+code, etc) with a single instruction. Visualize the package dependencies
+and CRAN checks. Explore CRAN archive. Use the above functions for task
+view maintenance. Use quick links and 70 web search engines to explore the
+web. A lazy evaluation of non-standard content is available throughout the
+package and eases the use of many functions.
 
 %prep
 %setup -q -c -n %{packname}

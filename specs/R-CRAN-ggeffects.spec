@@ -1,9 +1,9 @@
 %global packname  ggeffects
-%global packver   0.14.2
+%global packver   0.14.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.2
+Version:          0.14.3
 Release:          1%{?dist}
 Summary:          Create Tidy Data Frames of Marginal Effects for 'ggplot' fromModel Outputs
 

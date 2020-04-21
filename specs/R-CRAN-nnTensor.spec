@@ -1,9 +1,9 @@
 %global packname  nnTensor
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Non-Negative Tensor Decomposition
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-fields
 BuildRequires:    R-CRAN-rTensor 
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-tagcloud 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-rTensor 
 Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-tagcloud 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Some functions for performing non-negative matrix factorization,
@@ -37,6 +39,7 @@ methods.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,27 +1,35 @@
-%global packname  datasailr
-%global packver   0.8.3
+%global packname  offlineChange
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.0.4
 Release:          1%{?dist}
-Summary:          Fast Row by Row Data Processing Tool, Using 'Sailr' Language
+Summary:          Detect Multiple Change Points from Time Series
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
-Requires:         R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-A fast row by row data processing tool. You can write data manipulation
-code in 'Sailr' language which is specially intended for the data
-manipulation. The package uses 'libsailr' (C/C++ library) for its 'Sailr'
-code parsing and its execution.
+Detect the number and locations of change points. The locations can be
+either exact or in terms of ranges, depending on the available
+computational resource. The method is based on Jie Ding, Yu Xiang, Lu
+Shen, Vahid Tarokh (2017) <doi:10.1109/TSP.2017.2711558>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,13 +51,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%doc %{rlibdir}/%{packname}/exec
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%doc %{rlibdir}/%{packname}/unit_tests
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  broom
-%global packver   0.5.5
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}
 Summary:          Convert Statistical Analysis Objects into Tidy Tibbles
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-generics >= 0.0.2
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-dplyr 
@@ -23,8 +24,8 @@ BuildRequires:    R-nlme
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-generics >= 0.0.2
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-dplyr 
@@ -33,7 +34,6 @@ Requires:         R-nlme
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description

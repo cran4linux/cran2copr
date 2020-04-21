@@ -1,9 +1,9 @@
 %global packname  ChemoSpecUtils
-%global packver   0.4.38
+%global packver   0.4.51
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.38
+Version:          0.4.51
 Release:          1%{?dist}
 Summary:          Functions Supporting Packages ChemoSpec and ChemoSpec2D
 
@@ -25,6 +25,7 @@ Functions supporting the common needs of packages 'ChemoSpec' and
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

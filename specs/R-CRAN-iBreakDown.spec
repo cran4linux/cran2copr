@@ -1,9 +1,9 @@
 %global packname  iBreakDown
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Model Agnostic Instance Level Variable Attributions
 
@@ -16,9 +16,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-DALEX 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-DALEX 
 
 %description
 Model agnostic tool for decomposition of predictions from black boxes.

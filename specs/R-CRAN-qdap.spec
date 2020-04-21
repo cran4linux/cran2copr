@@ -1,9 +1,9 @@
 %global packname  qdap
-%global packver   2.3.6
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.6
+Version:          2.4.1
 Release:          1%{?dist}
 Summary:          Bridging the Gap Between Qualitative Data and QuantitativeAnalysis
 
@@ -34,12 +34,12 @@ BuildRequires:    R-CRAN-NLP
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-reports 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-venneuler 
 BuildRequires:    R-CRAN-wordcloud 
 BuildRequires:    R-CRAN-xlsx 
@@ -63,12 +63,12 @@ Requires:         R-CRAN-NLP
 Requires:         R-parallel 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-reports 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
+Requires:         R-utils 
 Requires:         R-CRAN-venneuler 
 Requires:         R-CRAN-wordcloud 
 Requires:         R-CRAN-xlsx 
@@ -90,6 +90,7 @@ Processing.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -112,7 +113,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/Rmd_vignette
 %{rlibdir}/%{packname}/INDEX

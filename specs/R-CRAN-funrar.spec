@@ -1,9 +1,9 @@
 %global packname  funrar
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}
 Summary:          Functional Rarity Indices Computation
 
@@ -15,11 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.4.3
 BuildRequires:    R-cluster 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr >= 0.4.3
 Requires:         R-cluster 
 Requires:         R-methods 
 Requires:         R-stats 

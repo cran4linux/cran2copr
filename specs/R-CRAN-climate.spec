@@ -1,9 +1,9 @@
 %global packname  climate
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}
 Summary:          Interface to Download Meteorological (and Hydrological) Datasets
 
@@ -24,9 +24,10 @@ Requires:         R-CRAN-XML
 Automatize downloading of meteorological and hydrological data from
 publicly available repositories: OGIMET
 (<http://ogimet.com/index.phtml.en>), University of Wyoming - atmospheric
-vertical profiling data (<http://weather.uwyo.edu/upperair>), and Polish
+vertical profiling data (<http://weather.uwyo.edu/upperair>), Polish
 Institute of Meterology and Water Management - National Research Institute
-(<https://dane.imgw.pl>). This package also allows for adding geographical
+(<https://dane.imgw.pl>), and National Oceanic & Atmospheric
+Administration (NOAA). This package also allows for adding geographical
 coordinates for each observation.
 
 %prep

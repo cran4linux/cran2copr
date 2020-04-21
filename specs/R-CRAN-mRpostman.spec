@@ -1,9 +1,9 @@
 %global packname  mRpostman
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          IMAP Toolkit
 
@@ -33,14 +33,12 @@ IMAP4rev1 (Internet Message Access Protocol, Version 4rev1)
 functionalities based on the RFC 3501 manual (Crispin, 2003,
 <doi:10.17487/RFC3501>), its updates, and other related documents.
 'mRpostman' makes extensive use of 'curl' and 'libcurl' capabilities,
-providing functions for mailboxes and electronic messages manipulation,
-such as moving, deleting, and searching messages using specific criteria,
-setting and clearing flags, selective fetching of message attributes and
-more.
+providing functions for mailboxes and electronic messages manipulation.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
