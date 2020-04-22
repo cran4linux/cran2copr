@@ -1,9 +1,9 @@
 %global packname  HMMcopula
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Markov Regime Switching Copula Models Estimation and Goodness ofFit
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-copula 
+Requires:         R-stats 
 
 %description
 R functions to estimate and perform goodness of fit test for several
@@ -37,6 +39,7 @@ likelihood method using pseudo-observations defined as normalized ranks.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,31 +1,38 @@
-%global packname  mokken
-%global packver   3.0.1
+%global packname  rtrim
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          2.1.1
 Release:          1%{?dist}
-Summary:          Conducts Mokken Scale Analysis
+Summary:          Trends and Indices for Monitoring Data
 
-License:          GPL (>= 2)
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-poLCA 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-grDevices 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-poLCA 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-grDevices 
 
 %description
-Contains functions for performing Mokken scale analysis on test and
-questionnaire data (e.g., Sijtsma and Van der Ark, 2017,
-<doi:10.1111/bmsp.12078>). It includes an automated item selection
-algorithm, and various checks of model assumptions.
+The TRIM model is widely used for estimating growth and decline of animal
+populations based on (possibly sparsely available) count data. The current
+package is a reimplementation of the original TRIM software developed at
+Statistics Netherlands by Jeroen Pannekoek. See
+<https://www.cbs.nl/en-gb/society/nature-and-environment/indices-and-trends%2d%2dtrim%2d%2d>
+for more information about TRIM.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,8 +57,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

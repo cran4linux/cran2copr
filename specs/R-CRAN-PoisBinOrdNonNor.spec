@@ -1,9 +1,9 @@
 %global packname  PoisBinOrdNonNor
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}
 Summary:          Generation of Up to Four Different Types of Variables
 
@@ -28,11 +28,14 @@ Requires:         R-CRAN-BB
 
 %description
 Generation of a chosen number of count, binary, ordinal, and continuous
-random variables, with specified correlations and marginal properties.
+random variables, with specified correlations and marginal properties. The
+details of the method are explained in Demirtas (2012)
+<DOI:10.1002/sim.5362>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

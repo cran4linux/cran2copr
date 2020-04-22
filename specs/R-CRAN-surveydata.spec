@@ -1,9 +1,9 @@
 %global packname  surveydata
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Tools to Work with Survey Data
 
@@ -44,6 +44,7 @@ specific questions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -68,4 +69,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/vignette_child
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

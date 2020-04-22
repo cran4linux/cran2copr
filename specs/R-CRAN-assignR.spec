@@ -1,9 +1,9 @@
 %global packname  assignR
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Infer Geographic Origin from Isotopic Data
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
@@ -34,6 +34,7 @@ ISBN:9789048133536) and Vander Zanden, H. B. et. al (2014)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

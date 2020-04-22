@@ -1,9 +1,9 @@
 %global packname  ctsem
-%global packver   3.1.1
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.2.0
 Release:          1%{?dist}
 Summary:          Continuous Time Structural Equation Modelling
 
@@ -20,11 +20,11 @@ BuildRequires:    R-CRAN-rstan >= 2.19.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-BH >= 1.66.0.1
 BuildRequires:    R-CRAN-rstantools >= 1.5.0
+BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-datasets 
 BuildRequires:    R-stats 
@@ -45,10 +45,10 @@ BuildRequires:    R-CRAN-quantreg
 Requires:         R-CRAN-OpenMx >= 2.9.0
 Requires:         R-CRAN-rstan >= 2.19.0
 Requires:         R-CRAN-rstantools >= 1.5.0
+Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-plyr 
 Requires:         R-tools 
-Requires:         R-CRAN-data.table 
 Requires:         R-Matrix 
 Requires:         R-datasets 
 Requires:         R-stats 
@@ -89,7 +89,7 @@ Exogenous inputs may also be included, for an overview of such
 possibilities see
 <https://www.researchgate.net/publication/328221807_Understanding_the_Time_Course_of_Interventions_with_Continuous_Time_Dynamic_Models>
 . Stan based functions are not available on 32 bit Windows systems at
-present.
+present. <https://cdriver.netlify.com> contains some tutorial blog posts.
 
 %prep
 %setup -q -c -n %{packname}

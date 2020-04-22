@@ -1,9 +1,9 @@
 %global packname  BinNor
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}
 Summary:          Simultaneous Generation of Multivariate Binary and NormalVariates
 
@@ -33,6 +33,7 @@ methodology proposed by Demirtas and Doganay (2012)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -40,6 +41,7 @@ methodology proposed by Demirtas and Doganay (2012)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

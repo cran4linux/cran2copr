@@ -1,9 +1,9 @@
 %global packname  mustashe
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Stash and Load Objects
 
@@ -17,12 +17,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.0
 BuildRequires:    R-CRAN-formatR >= 1.7
-BuildRequires:    R-CRAN-readr >= 1.3.0
 BuildRequires:    R-CRAN-digest >= 0.6.0
+BuildRequires:    R-CRAN-qs >= 0.21.2
 Requires:         R-CRAN-tibble >= 2.1.0
 Requires:         R-CRAN-formatR >= 1.7
-Requires:         R-CRAN-readr >= 1.3.0
 Requires:         R-CRAN-digest >= 0.6.0
+Requires:         R-CRAN-qs >= 0.21.2
 
 %description
 A simple system for saving and loading objects in R. Long running

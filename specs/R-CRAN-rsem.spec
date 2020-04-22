@@ -1,9 +1,9 @@
 %global packname  rsem
-%global packver   0.4.6
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Robust Structural Equation Modeling with Missing Data andAuxiliary Variables
 
@@ -28,6 +28,7 @@ estimate a structural equation model.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -35,6 +36,7 @@ estimate a structural equation model.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

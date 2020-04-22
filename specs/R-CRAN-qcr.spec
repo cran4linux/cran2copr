@@ -1,9 +1,9 @@
 %global packname  qcr
-%global packver   1.0
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Quality Control Review
 
@@ -27,17 +27,25 @@ Requires:         R-CRAN-qualityTools
 Requires:         R-MASS 
 
 %description
-Allows to generate Shewhart-type charts and to obtain numerical results of
-interest for a process quality control (involving continuous, attribute or
-count data). This package provides basic functionality for univariable and
-multivariable quality control analysis, including: xbar, xbar-one, S, R,
-ewna, cusum, mewna, mcusum and T2 charts. Additionally have nonparametric
-control charts multivariate. Parametric and nonparametric Process
-Capability Indices.
+Univariate and multivariate SQC tools that completes and increases the SQC
+techniques available in R. Apart from integrating different R packages
+devoted to SQC ('qcc','MSQC'), provides nonparametric tools that are
+highly useful when Gaussian assumption is not met. This package computes
+standard univariate control charts for individual measurements, X-bar, S,
+R, p, np, c, u, EWMA and CUSUM. In addition, it includes functions to
+perform multivariate control charts such as Hotelling T2, MEWMA and
+MCUSUM. As representative feature, multivariate nonparametric alternatives
+based on data depth are implemented in this package: r, Q and S control
+charts. In addition, Phase I and II control charts for functional data are
+included. This package also allows the estimation of the most complete set
+of capability indices from first to fourth generation, covering the
+nonparametric alternatives, and performing the corresponding capability
+analysis graphical outputs, including the process capability plots.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

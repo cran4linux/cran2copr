@@ -1,9 +1,9 @@
 %global packname  osmose
-%global packver   0.1.1
+%global packver   3.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          3.3.3
 Release:          1%{?dist}
 Summary:          Object Oriented Simulator of Marine Ecosystems
 
@@ -13,21 +13,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         java
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-mgcv 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-fields 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-rlist 
 Requires:         R-stats 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-mgcv 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-fields 
 
 %description
 The multispecies and individual-based model (IBM) 'OSMOSE' (Shin and Curry
@@ -48,6 +60,7 @@ run simulations using the 'OSMOSE' model.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,9 +77,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/java
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/reports
 %{rlibdir}/%{packname}/INDEX
