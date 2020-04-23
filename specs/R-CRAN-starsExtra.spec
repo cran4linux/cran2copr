@@ -1,39 +1,40 @@
-%global packname  gdm
-%global packver   1.4.2
+%global packname  starsExtra
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.0.3
 Release:          1%{?dist}
-Summary:          Generalized Dissimilarity Modeling
+Summary:          Miscellaneous Functions for Working with 'stars' Rasters
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
-BuildRequires:    R-CRAN-Rcpp >= 0.10.4
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.10.4
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-parallel 
+BuildRequires:    R-mgcv 
+BuildRequires:    R-CRAN-nngeo 
+BuildRequires:    R-CRAN-units 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
 Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-mgcv 
+Requires:         R-CRAN-nngeo 
+Requires:         R-CRAN-units 
 
 %description
-A toolkit with functions to fit, plot, summarize, and apply Generalized
-Dissimilarity Models.
+Miscellaneous functions for working with 'stars' objects, mainly
+single-band rasters. Currently includes functions for: (1) focal
+filtering, (2) detrending of Digital Elevation Models, (3) calculating
+flow length, (4) calculating the Convergence Index, (5) calculating
+topographic aspect.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,9 +58,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,39 +1,39 @@
-%global packname  gdm
-%global packver   1.4.2
+%global packname  quantspec
+%global packver   1.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.2.2
 Release:          1%{?dist}
-Summary:          Generalized Dissimilarity Modeling
+Summary:          Quantile-Based Spectral Analysis of Time Series
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
-BuildRequires:    R-CRAN-Rcpp >= 0.10.4
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-stats4 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.10.4
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-snowfall 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-stats4 
 Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-snowfall 
 
 %description
-A toolkit with functions to fit, plot, summarize, and apply Generalized
-Dissimilarity Models.
+Methods to determine, smooth and plot quantile periodograms for univariate
+and multivariate time series.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,10 +56,14 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

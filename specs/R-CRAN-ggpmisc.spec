@@ -1,9 +1,9 @@
 %global packname  ggpmisc
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Miscellaneous Extensions to 'ggplot2'
 
@@ -15,39 +15,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.51.3
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
+BuildRequires:    R-MASS >= 7.3.51.5
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-tibble >= 3.0.1
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-zoo >= 1.8.6
-BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-zoo >= 1.8.7
+BuildRequires:    R-CRAN-plyr >= 1.8.6
+BuildRequires:    R-CRAN-lubridate >= 1.7.8
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-polynom >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-splus2R >= 1.2.2
-BuildRequires:    R-CRAN-scales >= 1.0.0
+BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-broom >= 0.5.2
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-xts >= 0.11.2
+BuildRequires:    R-CRAN-broom >= 0.5.5
+BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-xts >= 0.12.0
 BuildRequires:    R-grid 
-Requires:         R-MASS >= 7.3.51.3
-Requires:         R-CRAN-ggplot2 >= 3.2.1
+Requires:         R-MASS >= 7.3.51.5
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-zoo >= 1.8.6
-Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-zoo >= 1.8.7
+Requires:         R-CRAN-plyr >= 1.8.6
+Requires:         R-CRAN-lubridate >= 1.7.8
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-polynom >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-splus2R >= 1.2.2
-Requires:         R-CRAN-scales >= 1.0.0
+Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-broom >= 0.5.2
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-xts >= 0.11.2
+Requires:         R-CRAN-broom >= 0.5.5
+Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-xts >= 0.12.0
 Requires:         R-grid 
 
 %description
@@ -69,6 +69,7 @@ false discovery rates.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  wyz.code.metaTesting
-%global packver   1.1.11
+%global packver   1.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.11
+Version:          1.1.12
 Release:          1%{?dist}
 Summary:          Wizardry Code Meta Testing
 
@@ -33,16 +33,19 @@ Requires:         R-utils
 Requires:         R-stats 
 
 %description
-Test R any R function without having to provide parameter values. Values
-will be generated, based on semantic naming of parameters as introduced by
-package 'wyz.code.offensiveProgramming'. Generated tests can be saved and
-reused. Value generation logic can be completed with your own specific
-data types and generation schemes, to meet your requirements. Main
-benefits of 'wyz.code.metaTesting' is higher developer productivity,
-reduced time to production, and industrial inference testing. Refer to
-chapter 10 of Offensive Programming Book, Fabien GELINEAU (2019,
-ISBN:979-10-699-4075-8), to learn about details and get value from this
-package.
+Meta testing is the ability to test a function without having to provide
+its parameter values. Those values will be generated, based on semantic
+naming of parameters, as introduced by package
+'wyz.code.offensiveProgramming'. Value generation logic can be completed
+with your own data types and generation schemes. This to meet your most
+specific requirements and to answer to a wide variety of usages, from
+general use case to very specific ones. While using meta testing, it
+becomes easier to generate stress test campaigns, non-regression test
+campaigns and robustness test campaigns, as generated tests can be saved
+and reused from session to session. Main benefits of using
+'wyz.code.metaTesting' is ability to discover valid and invalid function
+parameter combinations, ability to infer valid parameter values, and to
+provide smart summaries that allows you to focus on dysfunctional cases.
 
 %prep
 %setup -q -c -n %{packname}

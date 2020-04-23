@@ -1,13 +1,13 @@
-%global packname  coefficientalpha
-%global packver   0.7
+%global packname  sanityTracker
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Robust Coefficient Alpha and Omega with Missing and Non-NormalData
+Summary:          Keeps Track of all Performed Sanity Checks
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rsem 
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-CRAN-rsem 
-Requires:         R-CRAN-lavaan 
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-data.table >= 1.12.2
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-data.table >= 1.12.2
 
 %description
-Cronbach's alpha and McDonald's omega are widely used reliability or
-internal consistency measures in social, behavioral and education
-sciences. Alpha is reported in nearly every study that involves measuring
-a construct through multiple test items. The package 'coefficientalpha'
-calculates coefficient alpha and coefficient omega with missing data and
-non-normal data. Robust standard errors and confidence intervals are also
-provided. A test is also available to test the tau-equivalent and
-homogeneous assumptions. Since Version 0.5, the bootstrap confidence
-intervals were added.
+During the preparation of data set(s) one usually performs some sanity
+checks. The idea is that irrespective of where the checks are performed,
+they are centralized by this package in order to list all at once with
+examples if a check failed.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,7 +46,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

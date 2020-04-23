@@ -1,9 +1,9 @@
 %global packname  GET
-%global packver   0.1-6
+%global packver   0.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          Global Envelopes
 
@@ -17,25 +17,17 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-gstat 
 Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spatstat 
 Requires:         R-stats 
 Requires:         R-utils 

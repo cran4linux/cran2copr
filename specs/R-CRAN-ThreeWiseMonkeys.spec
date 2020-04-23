@@ -1,13 +1,13 @@
-%global packname  PRISM.forecast
-%global packver   0.2.0
+%global packname  ThreeWiseMonkeys
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Penalized Regression with Inferred Seasonality Module -Forecasting Unemployment Initial Claims using 'Google Trends'Data
+Summary:          The Japanese Pictorial Maxim "See No Evil, Hear No Evil, SpeakNo Evil"
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-zoo 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-stringr 
 
 %description
-Implements Penalized Regression with Inferred Seasonality Module (PRISM)
-to generate forecast estimation of weekly unemployment initial claims
-using 'Google Trends' data. It includes required data and tools for
-backtesting the performance in 2007-2020.
+Does nothing useful, but perhaps does that nothing in an entertaining or
+informative fashion.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,7 +45,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/audio
+%doc %{rlibdir}/%{packname}/logos
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  usefun
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}
 Summary:          A Collection of Useful Functions by John
 
@@ -20,13 +20,11 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
 
 %description
 A set of general functions that I have used in various projects and in

@@ -1,9 +1,9 @@
 %global packname  mlr3learners
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Recommended Learners for 'mlr3'
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3misc >= 0.1.7
-BuildRequires:    R-CRAN-mlr3 >= 0.1.4
+BuildRequires:    R-CRAN-mlr3 >= 0.2.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.2.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-mlr3misc >= 0.1.7
-Requires:         R-CRAN-mlr3 >= 0.1.4
+Requires:         R-CRAN-mlr3 >= 0.2.0
+Requires:         R-CRAN-mlr3misc >= 0.2.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-R6 
@@ -57,5 +57,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/paramtest
 %doc %{rlibdir}/%{packname}/references.bib
 %{rlibdir}/%{packname}/INDEX

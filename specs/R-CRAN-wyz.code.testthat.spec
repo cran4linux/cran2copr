@@ -1,9 +1,9 @@
 %global packname  wyz.code.testthat
-%global packver   1.1.16
+%global packver   1.1.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.16
+Version:          1.1.17
 Release:          1%{?dist}
 Summary:          Wizardry Code Offensive Programming Test Generation
 
@@ -37,9 +37,7 @@ generated files without any need to view or modify them, and enter a zero
 time latency between code implementation and industrial testing. As with
 'testthat', you may complete provided test cases according to your needs
 to push testing further, but this need is nearly void when using
-'wyz.code.offensiveProgramming'. Refer to chapter 9 of Offensive
-Programming Book, Fabien GELINEAU (2019, ISBN:979-10-699-4075-8), to learn
-about details and get value from this package.
+'wyz.code.offensiveProgramming'.
 
 %prep
 %setup -q -c -n %{packname}
