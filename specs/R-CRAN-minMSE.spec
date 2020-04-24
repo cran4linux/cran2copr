@@ -1,9 +1,9 @@
 %global packname  minMSE
-%global packver   0.1.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Implementation of the minMSE Treatment Assignment Method for Oneor Multiple Treatment Groups
 
@@ -28,6 +28,7 @@ according to the minMSE-method as proposed by Schneider and Schlather
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

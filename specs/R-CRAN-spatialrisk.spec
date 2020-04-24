@@ -1,11 +1,11 @@
 %global packname  spatialrisk
-%global packver   0.6.6
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.6.7
 Release:          1%{?dist}
-Summary:          Calculating Concentration Risk under Solvency II
+Summary:          Calculating Spatial Risk
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -48,9 +48,12 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-vroom 
 
 %description
-Methods for determining spatial risk, in particular calculating the
-maximum value of insured fire risk policies of all buildings that are
-partly or fully located within circle of a radius of 200m.
+Methods for spatial risk calculations. It offers an efficient approach to
+determine the sum of all observations within a circle of a certain radius.
+This might be beneficial for insurers who are required (by a recent
+European Commission regulation) to determine the maximum value of insured
+fire risk policies of all buildings that are partly or fully located
+within a circle of a radius of 200m.
 
 %prep
 %setup -q -c -n %{packname}

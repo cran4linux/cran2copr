@@ -1,34 +1,35 @@
-%global packname  EDR
-%global packver   0.6-7
+%global packname  JuliaConnectoR
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.6.0
 Release:          1%{?dist}
-Summary:          Estimation of the Effective Dimension Reduction ('EDR') Space
+Summary:          A Functionally Oriented Interface for Integrating 'Julia' with R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-sm 
-Requires:         R-CRAN-sm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-The library contains R-functions to estimate the effective dimension
-reduction space in 'multi-index' regression models.
+Allows to import functions and whole packages from 'Julia' in R. Imported
+'Julia' functions can directly be called as R functions. Data structures
+can be translated between 'Julia' and R.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 
@@ -40,9 +41,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENCE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/examples
+%doc %{rlibdir}/%{packname}/Julia
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

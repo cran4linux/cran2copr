@@ -1,13 +1,13 @@
-%global packname  RPEIF
-%global packver   1.0.8
+%global packname  dosedesignR
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.2.4
 Release:          1%{?dist}
-Summary:          Computation and Plots of Influence Functions for Risk andPerformance Measures
+Summary:          Interactive Designing of Dose Finding Studies
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DoseFinding 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-latticeExtra 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DoseFinding 
+Requires:         R-CRAN-DT 
+Requires:         R-lattice 
+Requires:         R-CRAN-latticeExtra 
 
 %description
-Computes the influence functions time series of the returns for the risk
-and performance measures as mentioned in Zhang and Martin (2017)
-<https://ssrn.com/abstract=2747179> as well as Chen and Martin (2018)
-<https://ssrn.com/abstract=3085672>. Also evaluates estimators influence
-functions at a set of parameter values and plots them to display the
-shapes of the influence functions.
+Provides the user with an interactive application which can be used to
+facilitate the planning of dose finding studies by applying the theory of
+optimal experimental design (e.g., Ling (2006)
+<doi:10.1007/0-387-33706-7>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,7 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/shiny-app
 %{rlibdir}/%{packname}/INDEX

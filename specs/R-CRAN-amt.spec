@@ -1,9 +1,9 @@
 %global packname  amt
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Animal Movement Tools
 
@@ -113,5 +113,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %doc %{rlibdir}/%{packname}/tinytest
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  clustMixType
-%global packver   0.2-2
+%global packver   0.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          k-Prototypes Clustering for Mixed Variable-Type Data
 
@@ -46,6 +46,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

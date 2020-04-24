@@ -1,9 +1,9 @@
 %global packname  finbif
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Interface for the 'Finnish Biodiversity Information Facility'API
 
@@ -16,16 +16,16 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-lutz 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr 
 Requires:         R-graphics 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-lutz 
@@ -48,6 +48,7 @@ preformatted for subsequent analyses.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -72,5 +73,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/vign
 %{rlibdir}/%{packname}/INDEX

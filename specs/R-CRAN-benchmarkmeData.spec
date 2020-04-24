@@ -1,9 +1,9 @@
 %global packname  benchmarkmeData
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Data Set for the 'benchmarkme' Package
 
@@ -30,6 +30,7 @@ Crowd sourced benchmarks from running the 'benchmarkme' package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

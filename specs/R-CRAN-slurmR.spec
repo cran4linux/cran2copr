@@ -1,9 +1,9 @@
 %global packname  slurmR
-%global packver   0.3-0
+%global packver   0.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          A Lightweight Wrapper for 'Slurm'
 
@@ -32,6 +32,7 @@ nodes that can be used with the 'parallel' package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  TestDimorph
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Analysis Of The Interpopulation Difference In Degree of SexualDimorphism Using Summary Statistics
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-caret
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-klaR 
-BuildRequires:    R-CRAN-mda 
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-stringr 
@@ -49,7 +48,6 @@ Requires:         R-CRAN-caret
 Requires:         R-CRAN-rlang 
 Requires:         R-MASS 
 Requires:         R-CRAN-klaR 
-Requires:         R-CRAN-mda 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-stringr 
@@ -75,6 +73,7 @@ Greene, D. L. (1989) <doi:10.1002/ajpa.1330790113> and Konigsberg, L. W.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

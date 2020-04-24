@@ -1,9 +1,9 @@
 %global packname  cuRe
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Parametric Cure Model Estimation
 
@@ -19,14 +19,12 @@ BuildRequires:    R-survival
 BuildRequires:    R-CRAN-rstpm2 
 BuildRequires:    R-CRAN-date 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-relsurv 
 Requires:         R-survival 
 Requires:         R-CRAN-rstpm2 
 Requires:         R-CRAN-date 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-rootSolve 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-relsurv 
 
@@ -38,6 +36,7 @@ crude event probabilities.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  abtest
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Bayesian A/B Testing
 
@@ -17,7 +17,7 @@ Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-qgam 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-grDevices 
@@ -27,7 +27,7 @@ BuildRequires:    R-parallel
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-sn 
-Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-qgam 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-plotrix 
 Requires:         R-grDevices 
@@ -43,6 +43,7 @@ options based on Kass and Vaidyanathan (1992)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +51,7 @@ options based on Kass and Vaidyanathan (1992)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

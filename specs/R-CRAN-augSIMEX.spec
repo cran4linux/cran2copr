@@ -1,9 +1,9 @@
 %global packname  augSIMEX
-%global packver   3.7.3
+%global packver   3.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.3
+Version:          3.7.4
 Release:          1%{?dist}
 Summary:          Analysis of Data with Mixed Measurement Error andMisclassification in Covariates
 
@@ -16,14 +16,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.11
 BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-nleqslv 
 Requires:         R-CRAN-Rcpp >= 0.12.11
 Requires:         R-MASS 
-Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-Formula 
@@ -39,6 +37,7 @@ Both parametric and empirical SIMEX are considered in the package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,6 +45,7 @@ Both parametric and empirical SIMEX are considered in the package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

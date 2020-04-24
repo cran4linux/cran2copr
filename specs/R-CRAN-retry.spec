@@ -1,13 +1,13 @@
-%global packname  HRQoL
-%global packver   1.0
+%global packname  retry
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Health Related Quality of Life Analysis
+Summary:          Repeated Evaluation
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,29 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fmsb 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-rootSolve 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-Matrix 
-Requires:         R-CRAN-fmsb 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-rootSolve 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-Matrix 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-later 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-later 
 
 %description
-Offers tools and modelling approaches for binomial data with
-overdispersion, with particular interest in Health Related Quality of Life
-(HRQoL) questionnaires regression analysis.
+Provide simple mechanism to repeatedly evaluate an expression until either
+it succeeds or timeout exceeded. It is useful in situations that random
+failures could happen.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,6 +46,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

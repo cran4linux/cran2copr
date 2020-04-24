@@ -1,9 +1,9 @@
 %global packname  finity
-%global packver   0.1.4
+%global packver   0.1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.4.1
 Release:          1%{?dist}
 Summary:          Test for Finiteness of Moments in a Distribution
 

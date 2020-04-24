@@ -1,13 +1,13 @@
-%global packname  FCPS
-%global packver   1.2.0
+%global packname  transmem
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Fundamental Clustering Problems Suite
+Summary:          Treatment of Membrane-Transport Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,24 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-cmna 
+BuildRequires:    R-CRAN-ggformula 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-DataVisualizations 
-Requires:         R-CRAN-mclust 
+BuildRequires:    R-CRAN-plot3D 
+Requires:         R-CRAN-cmna 
+Requires:         R-CRAN-ggformula 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-DataVisualizations 
+Requires:         R-CRAN-plot3D 
 
 %description
-Many conventional clustering algorithms are provided in this package with
-consistent input and output, which enables the user to try out algorithms
-swiftly. Additionally, 26 statistical approaches for the estimation of the
-number of clusters as well as the the mirrored density plot (MD-plot) of
-clusterability are implemented. Moreover, the fundamental clustering
-problems suite (FCPS) offers a variety of clustering challenges any
-algorithm should handle when facing real world data, see Thrun, M.C.,
-Ultsch A.: "Clustering Benchmark Datasets Exploiting the Fundamental
-Clustering Problems" (2020), Data in Brief,
-<DOI:10.1016/j.dib.2020.105501>.
+Treatment and visualization of membrane (selective) transport data.
+Transport profiles involving up to three species are produced as
+publication-ready plots and several membrane performance parameters (e.g.
+separation factors as defined in Koros et al. (1996)
+<doi:10.1351/pac199668071479> and non-linear regression parameters for the
+equations described in Rodriguez de San Miguel et al. (2014)
+<doi:10.1016/j.jhazmat.2014.03.052>) can be obtained. Many widely used
+experimental setups (e.g. membrane physical aging) can be easily studied
+through the package's graphical representations.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,6 +58,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

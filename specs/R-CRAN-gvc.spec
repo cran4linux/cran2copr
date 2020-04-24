@@ -1,36 +1,32 @@
-%global packname  sbrl
-%global packver   1.2
+%global packname  gvc
+%global packver   5.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          5.2.0
 Release:          1%{?dist}
-Summary:          Scalable Bayesian Rule Lists Model
+Summary:          Global Value Chains Tools
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.0
-BuildRequires:    gsl-devel
-Requires:         gmp
-Requires:         gsl
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-arules 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-decompr 
+BuildRequires:    R-CRAN-diagonals 
+Requires:         R-CRAN-decompr 
+Requires:         R-CRAN-diagonals 
 
 %description
-An implementation of Scalable Bayesian Rule Lists Algorithm.
+Several tools for Global Value Chain ('GVC') analysis are implemented.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +34,7 @@ An implementation of Scalable Bayesian Rule Lists Algorithm.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -46,10 +43,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  Rdimtools
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Dimension Reduction and Estimation Methods
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-CVXR >= 1.0
-BuildRequires:    R-CRAN-ADMM >= 0.2.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-CRAN-maotai >= 0.1.5
 BuildRequires:    R-CRAN-RcppDE 
@@ -28,7 +27,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppDist 
 Requires:         R-CRAN-CVXR >= 1.0
-Requires:         R-CRAN-ADMM >= 0.2.2
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-CRAN-maotai >= 0.1.5
 Requires:         R-CRAN-RcppDE 

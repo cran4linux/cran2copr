@@ -1,9 +1,9 @@
 %global packname  DAMisc
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}
 Summary:          Dave Armstrong's Miscellaneous Functions
 
@@ -26,7 +26,6 @@ BuildRequires:    R-MASS
 BuildRequires:    R-nnet 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-optiscale 
 BuildRequires:    R-CRAN-fANCOVA 
@@ -46,7 +45,6 @@ Requires:         R-MASS
 Requires:         R-nnet 
 Requires:         R-splines 
 Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-VGAM 
 Requires:         R-boot 
 Requires:         R-CRAN-optiscale 
 Requires:         R-CRAN-fANCOVA 

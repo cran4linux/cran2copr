@@ -1,9 +1,9 @@
 %global packname  HyRiM
-%global packver   1.0.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Multicriteria Risk Management using Zero-Sum Games withVector-Valued Payoffs that are Probability Distributions
 
@@ -17,8 +17,14 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-compare 
 BuildRequires:    R-CRAN-orthopolynom 
+BuildRequires:    R-CRAN-grImport2 
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-compare 
 Requires:         R-CRAN-orthopolynom 
+Requires:         R-CRAN-grImport2 
+Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-purrr 
 
 %description
 Construction and analysis of multivalued zero-sum matrix games over the
@@ -43,6 +49,7 @@ Practice. Springer, <doi:10.1007/978-3-319-75268-6>, ISBN
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  multivariance
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Measuring Multivariate Dependence Using Distance Multivariance
 
@@ -27,22 +27,21 @@ Requires:         R-CRAN-microbenchmark
 
 %description
 Distance multivariance is a measure of dependence which can be used to
-detect and quantify dependence. The necessary functions are implemented in
-this packages, and examples are given. For the theoretic background we
-refer to the papers: B. Böttcher, Dependence and Dependence Structures:
-Estimation and Visualization Using Distance Multivariance.
-<arXiv:1712.06532>. B. Böttcher, M. Keller-Ressel, R.L. Schilling,
-Detecting independence of random vectors: generalized distance covariance
-and Gaussian covariance. VMSTA, 2018, Vol. 5, No. 3, 353-383.
-<arXiv:1711.07778>. B. Böttcher, M. Keller-Ressel, R.L. Schilling,
-Distance multivariance: New dependence measures for random vectors.
-<arXiv:1711.07775>. G. Berschneider, B. Böttcher, On complex Gaussian
-random fields, Gaussian quadratic forms and sample distance multivariance.
-<arXiv:1808.07280>.
+detect and quantify dependence of arbitrarily many random vectors. The
+necessary functions are implemented in this packages and examples are
+given. It includes: distance multivariance, distance multicorrelation,
+dependence structure detection, tests of independence and copula versions
+of distance multivariance based on the Monte Carlo empirical transform.
+Detailed references are given in the package description, as starting
+point for the theoretic background we refer to: B. Böttcher, Dependence
+and Dependence Structures: Estimation and Visualization Using the Unifying
+Concept of Distance Multivariance. Open Statistics, Vol. 1, No. 1 (2020),
+<doi:10.1515/stat-2020-0001>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -65,5 +64,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

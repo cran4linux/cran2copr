@@ -1,9 +1,9 @@
 %global packname  cat.dt
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Computerized Adaptive Testing and Decision Trees
 
@@ -17,17 +17,18 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rglpk 
 BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-Rglpk 
 Requires:         R-Matrix 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Implements the Merged Tree-CAT method to generate Computerized Adaptive
+Implements the Merged Tree-CAT method (Javier Rodriguez-Cuadrado et al.,
+2020, <doi:10.1016/j.eswa.2019.113066>) to generate Computerized Adaptive
 Tests (CATs) based on a decision tree. The tree growth is controlled by
 merging branches with similar trait distributions and estimations. This
 package has the necessary tools for creating CATs and estimate the
-subject's ability level. The Merged Tree-CAT method is an extension of the
-Tree-CAT method (see Delgado-Gómez et al., 2019
-<doi:10.1016/j.eswa.2018.09.052>).
+subject's ability level.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,4 +54,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  gprofiler2
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}
 Summary:          Interface to the 'g:Profiler' Toolset
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-crosstalk 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-crosstalk 
-Requires:         R-CRAN-plyr 
 Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-grid 
@@ -57,6 +55,7 @@ toolset.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
