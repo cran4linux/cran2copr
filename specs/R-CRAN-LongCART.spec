@@ -1,11 +1,11 @@
 %global packname  LongCART
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0
 Release:          1%{?dist}
-Summary:          Recursive Partitioning for Longitudinal Profiles Using BaselineCovariates
+Summary:          Recursive Partitioning for Longitudinal Data and Right CensoredData Using Baseline Covariates
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,21 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-nlme 
 BuildRequires:    R-rpart 
+BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-magic 
+BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-Formula 
 Requires:         R-nlme 
 Requires:         R-rpart 
+Requires:         R-survival 
+Requires:         R-CRAN-magic 
+Requires:         R-CRAN-survminer 
 Requires:         R-CRAN-Formula 
 
 %description
-Constructs longitudinal tree (i.e., regression tree with heterogeneous
-longitudinal profile) for continuous longitudinal outcome using baseline
-covariates as partitioning variables according to the 'LongCART' algorithm
-as described in Kundu and Harezlak (2019)
-<doi:10.1080/24709360.2018.1557797>.
+Constructs tree for continuous longitudinal data and survival data using
+baseline covariates as partitioning variables according to the 'LongCART'
+and 'SurvCART' algorithm, respectively.
 
 %prep
 %setup -q -c -n %{packname}

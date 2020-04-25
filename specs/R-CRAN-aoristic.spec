@@ -1,63 +1,59 @@
 %global packname  aoristic
-%global packver   0.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          aoristic analysis with spatial output (kml)
+Summary:          Generates Aoristic Probability Distributions
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-foreign 
+BuildRequires:    R-CRAN-formattable 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-CRAN-GISTools 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-plotKML 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-foreign 
+Requires:         R-CRAN-formattable 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-spatstat 
-Requires:         R-CRAN-GISTools 
+Requires:         R-grid 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-plotKML 
-Requires:         R-MASS 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-plyr 
 
 %description
-'Aoristic' is one of the past tenses in Greek and represents an uncertain
-occurrence time.  Aoristic analysis suggested by Ratcliffe (2002) is a
-method to analyze events that do not have exact times of occurrence but
-have starting times and ending times.  For example, a property crime
-database (e.g., burglary) typically has a starting time and ending time of
-the crime that could have occurred.  Aoristic analysis allocates the
-probability of a crime incident occurring at every hour over a 24-hour
-period. The probability is aggregated over a study area to create an
-aoristic graph. Using crime incident data with lat/lon, DateTimeFrom, and
-DateTimeTo, functions in this package create a total of three (3) kml
-files and corresponding aoristic graphs: 1) density and contour; 2) grid
-count; and 3) shapefile boundary. (see also:
-https://sites.google.com/site/georgekick/software)
+It can sometimes be difficult to ascertain when some events (such as
+property crime) occur because the victim is not present when the crime
+happens. As a result, police databases often record a 'start' (or 'from')
+date and time, and an 'end' (or 'to') date and time. The time span between
+these date/times can be minutes, hours, or sometimes days, hence the term
+'Aoristic'. Aoristic is one of the past tenses in Greek and represents an
+uncertain occurrence in time. For events with a location describes with
+either a latitude/longitude, or X,Y coordinate pair, and a start and end
+date/time, this package generates an aoristic data frame with aoristic
+weighted probability values for each hour of the week, for each
+observation. Outputs include an aoristic data frame, as well as summary
+graphs and displays. For more information see: Ratcliffe, JH (2002)
+Aoristic signatures and the temporal analysis of high volume crime
+patterns, Journal of Quantitative Criminology. 18 (1): 23-43. Note: This
+package replaces an original 'aoristic' package (version 0.6) by George
+Kikuchi that has been discontinued with his permission.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -65,6 +61,7 @@ https://sites.google.com/site/georgekick/software)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -74,9 +71,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

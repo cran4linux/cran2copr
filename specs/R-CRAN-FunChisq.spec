@@ -1,9 +1,9 @@
 %global packname  FunChisq
-%global packver   2.4.9.2
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.9.2
+Version:          2.5.0
 Release:          1%{?dist}
 Summary:          Model-Free Functional Chi-Squared and Exact Tests
 
@@ -14,13 +14,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rdpack >= 0.6.1
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rdpack >= 0.6.1
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-Rdpack 
 
 %description
 Statistical hypothesis testing methods for inferring model-free functional

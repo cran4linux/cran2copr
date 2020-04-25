@@ -1,9 +1,9 @@
 %global packname  MGMS2
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          'MGMS2' for Polymicrobial Samples
 
@@ -42,6 +42,7 @@ the analysis of mass spectrometry data."
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

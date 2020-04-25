@@ -1,27 +1,30 @@
-%global packname  soundcorrs
-%global packver   0.1.1
+%global packname  legislatoR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Semi-Automatic Analysis of Sound Correspondences
+Summary:          Interface to the Comparative Legislators Database
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 3.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.4
+Requires:         R-CRAN-curl >= 3.0
+Requires:         R-CRAN-dplyr >= 0.7.4
 
 %description
-A set of tools that can be used in computer-aided analysis of sound
-correspondences between languages, plus several helper functions. Analytic
-functions range from purely qualitative analysis, through statistic
-methods yielding qualitative results, to an entirely quantitative
-approach.
+Facilitates access to the Comparative Legislators Database (CLD). The CLD
+includes political, sociodemographic, career, online presence, public
+attention, and visual information for over 45,000 contemporary and
+historical politicians from ten countries.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,12 +46,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

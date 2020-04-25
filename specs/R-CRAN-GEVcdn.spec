@@ -1,13 +1,13 @@
 %global packname  GEVcdn
-%global packver   1.1.6
+%global packver   1.1.6-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.6.2
 Release:          1%{?dist}
 Summary:          GEV Conditional Density Estimation Network
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,8 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-VGAM 
-Requires:         R-CRAN-VGAM 
 
 %description
 Implements a flexible nonlinear modelling framework for nonstationary
@@ -26,6 +24,7 @@ generalized extreme value analysis in hydroclimatology following Cannon
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -33,6 +32,7 @@ generalized extreme value analysis in hydroclimatology following Cannon
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

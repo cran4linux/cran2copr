@@ -1,13 +1,13 @@
-%global packname  soundcorrs
-%global packver   0.1.1
+%global packname  Autoseed
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Semi-Automatic Analysis of Sound Correspondences
+Summary:          Retrieve Disease-Related Genes from Public Sources
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,11 +17,14 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-A set of tools that can be used in computer-aided analysis of sound
-correspondences between languages, plus several helper functions. Analytic
-functions range from purely qualitative analysis, through statistic
-methods yielding qualitative results, to an entirely quantitative
-approach.
+For researchers to quickly and comprehensively acquire disease genes, so
+as to understand the mechanism of disease, we developed this program to
+acquire disease-related genes. The data is integrated from three public
+databases. The three databases are 'eDGAR', 'DrugBank' and 'MalaCards'.
+The 'eDGAR' is a comprehensive database, containing data on the
+relationship between disease and genes. 'DrugBank' contains information on
+13443 drugs and 5157 targets. 'MalaCards' integrates human disease
+information, including disease-related genes.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,9 +49,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

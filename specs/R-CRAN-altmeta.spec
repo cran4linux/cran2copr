@@ -1,9 +1,9 @@
 %global packname  altmeta
-%global packver   2.3
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          3.0
 Release:          1%{?dist}
 Summary:          Alternative Meta-Analysis Methods
 
@@ -19,6 +19,9 @@ BuildRequires:    R-CRAN-rjags >= 4.6
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -26,18 +29,23 @@ Requires:         R-CRAN-rjags >= 4.6
 Requires:         R-CRAN-coda 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-lme4 
+Requires:         R-Matrix 
+Requires:         R-CRAN-metafor 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
 Provides alternative statistical methods for meta-analysis, including new
-heterogeneity tests and measures that are robust to outliers, measures of
-publication bias, and models for multivariate meta-analysis.
+heterogeneity tests and measures that are robust to outliers; measures,
+tests, and visualization tools for publication bias; meta-analysis methods
+for synthesizing proportions; models for multivariate meta-analysis, etc.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

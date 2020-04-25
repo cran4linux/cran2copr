@@ -1,9 +1,9 @@
 %global packname  crplyr
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          A 'dplyr' Interface for Crunch
 
@@ -20,22 +20,26 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-crunch >= 1.15.3
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-viridisLite 
 
 %description
@@ -49,6 +53,7 @@ data locally as possible.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
