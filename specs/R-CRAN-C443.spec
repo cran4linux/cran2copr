@@ -1,9 +1,9 @@
 %global packname  C443
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          See a Forest for the Trees
 
@@ -29,6 +29,8 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-plot.matrix 
 Requires:         R-MASS 
 Requires:         R-CRAN-partykit 
 Requires:         R-rpart 
@@ -43,16 +45,21 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-qgraph 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-plot.matrix 
 
 %description
 Getting insight into a forest of classification trees, by calculating
 similarities between the trees, and subsequently clustering them. Each
-cluster is represented by it's most central cluster member. Sies, A & Van
-Mechelen, I. (paper submitted for publication).
+cluster is represented by it's most central cluster member. The package
+implements the methodology described in Sies & Van Mechelen (2020). Sies,
+A., & Van Mechelen, I. (2020). C443: A methodology to see a forest for the
+trees. Journal of Classification. <doi:10.1007/s00357-019-09350-4>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

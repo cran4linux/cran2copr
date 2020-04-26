@@ -1,9 +1,9 @@
 %global packname  zeitgebr
-%global packver   0.3.3
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          Analysis of Circadian Behaviours
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-behavr
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lomb 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-WaveletComp 
 Requires:         R-CRAN-behavr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lomb 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-WaveletComp 
 
 %description
 Use behavioural variables to compute period, rhythmicity and other
@@ -36,6 +38,7 @@ periodograms.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +46,7 @@ periodograms.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

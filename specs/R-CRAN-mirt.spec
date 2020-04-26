@@ -1,9 +1,9 @@
 %global packname  mirt
-%global packver   1.32
+%global packver   1.32.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.32
+Version:          1.32.1
 Release:          1%{?dist}
 Summary:          Multidimensional Item Response Theory
 

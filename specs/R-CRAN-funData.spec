@@ -1,9 +1,9 @@
 %global packname  funData
-%global packver   1.3-4
+%global packver   1.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}
 Summary:          An S4 Class for Functional Data
 
@@ -32,11 +32,15 @@ Requires:         R-stats
 
 %description
 S4 classes for univariate and multivariate functional data with utility
-functions.
+functions. See <doi:10.18637/jss.v093.i05> for a detailed description of
+the package functionalities and its interplay with the MFPCA package for
+multivariate functional principal component analysis
+<https://CRAN.R-project.org/package=MFPCA>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,4 +61,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

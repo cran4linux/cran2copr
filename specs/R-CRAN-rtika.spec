@@ -1,9 +1,9 @@
 %global packname  rtika
-%global packver   1.23
+%global packver   1.24.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23
+Version:          1.24.1
 Release:          1%{?dist}
 Summary:          R Interface to 'Apache Tika'
 
@@ -37,6 +37,7 @@ content.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

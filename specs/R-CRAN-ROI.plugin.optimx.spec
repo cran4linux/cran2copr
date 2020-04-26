@@ -1,9 +1,9 @@
 %global packname  ROI.plugin.optimx
-%global packver   0.3-2
+%global packver   0.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          'optimx' Plug-in for the 'R' Optimization Infrastructure
 
@@ -33,6 +33,7 @@ Enhances the R Optimization Infrastructure ('ROI') package with the
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

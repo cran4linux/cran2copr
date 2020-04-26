@@ -1,9 +1,9 @@
 %global packname  MFPCA
-%global packver   1.3-4
+%global packver   1.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}
 Summary:          Multivariate Functional Principal Component Analysis for DataObserved on Different Dimensional Domains
 
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    fftw-devel >= 3.3.4
-Requires:         fftw
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-funData >= 1.3.4
@@ -43,11 +42,12 @@ functional data (Happ & Greven, 2018) <doi:10.1080/01621459.2016.1273115>.
 Multivariate and univariate functional data objects are represented by S4
 classes for this type of data implemented in the package 'funData'. For
 more details on the general concepts of both packages and a case study,
-see Happ (2018) <arXiv:1707.02129>.
+see Happ-Kurz (2020) <doi:10.18637/jss.v093.i05>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

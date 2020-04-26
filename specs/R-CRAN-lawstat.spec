@@ -1,9 +1,9 @@
 %global packname  lawstat
-%global packver   3.3
+%global packver   3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3
+Version:          3.4
 Release:          1%{?dist}
 Summary:          Tools for Biostatistics, Public Policy, and Law
 
@@ -18,11 +18,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-VGAM 
 Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-VGAM 
 
 %description
 Statistical tests widely utilized in biostatistics, public policy, and
@@ -37,6 +35,7 @@ biostatistics.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,6 +43,7 @@ biostatistics.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

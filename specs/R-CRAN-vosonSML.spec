@@ -1,9 +1,9 @@
 %global packname  vosonSML
-%global packver   0.29.4
+%global packver   0.29.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.29.4
+Version:          0.29.10
 Release:          1%{?dist}
 Summary:          Collecting Social Media Data and Generating Networks forAnalysis
 
@@ -15,44 +15,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RedditExtractoR >= 2.1.2
 BuildRequires:    R-CRAN-igraph >= 1.2.2
 BuildRequires:    R-CRAN-dplyr >= 0.7.8
 BuildRequires:    R-CRAN-rtweet >= 0.6.8
 BuildRequires:    R-CRAN-rlang >= 0.3.0.1
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-httpuv 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-textutils 
-BuildRequires:    R-CRAN-tictoc 
-BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-RedditExtractoR >= 2.1.2
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-textutils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-igraph >= 1.2.2
 Requires:         R-CRAN-dplyr >= 0.7.8
 Requires:         R-CRAN-rtweet >= 0.6.8
 Requires:         R-CRAN-rlang >= 0.3.0.1
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-httpuv 
-Requires:         R-methods 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-textutils 
-Requires:         R-CRAN-tictoc 
-Requires:         R-stats 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-textutils 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 A suite of tools for collecting and constructing networks from social
@@ -63,6 +63,7 @@ types of networks for analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -83,4 +84,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

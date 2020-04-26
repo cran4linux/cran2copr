@@ -1,9 +1,9 @@
 %global packname  packager
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Create, Build and Maintain Packages
 
@@ -21,7 +21,6 @@ BuildRequires:    R-codetools
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cyclocomp 
 BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-fakemake 
 BuildRequires:    R-CRAN-git2r 
 BuildRequires:    R-CRAN-httr 
@@ -43,7 +42,6 @@ Requires:         R-codetools
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cyclocomp 
 Requires:         R-CRAN-desc 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-fakemake 
 Requires:         R-CRAN-git2r 
 Requires:         R-CRAN-httr 

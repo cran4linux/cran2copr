@@ -1,9 +1,9 @@
 %global packname  rpsftm
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}
 Summary:          Rank Preserving Structural Failure Time Models
 
@@ -16,11 +16,9 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-survival 
-BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 Requires:         R-survival 
-Requires:         R-CRAN-rootSolve 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 
@@ -34,6 +32,7 @@ accelerated failure time model and no unmeasured confounders.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

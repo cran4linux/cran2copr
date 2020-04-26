@@ -1,9 +1,9 @@
 %global packname  tidymv
-%global packver   2.2.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          3.0.0
 Release:          1%{?dist}
 Summary:          Tidy Model Visualisation for Generalised Additive Models
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-itsadug 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-mgcv 
 BuildRequires:    R-CRAN-rlang 
@@ -25,7 +24,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-itsadug 
 Requires:         R-CRAN-magrittr 
 Requires:         R-mgcv 
 Requires:         R-CRAN-rlang 
@@ -39,6 +37,7 @@ predicted values using tidy tools from the 'tidyverse' packages.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

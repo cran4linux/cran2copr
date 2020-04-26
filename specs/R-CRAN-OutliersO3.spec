@@ -1,9 +1,9 @@
 %global packname  OutliersO3
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}
 Summary:          Draws Overview of Outliers (O3) Plots
 
@@ -57,6 +57,7 @@ DectectDeviatingCells() from 'cellWise', covMcd() from 'robustbase'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,6 +65,7 @@ DectectDeviatingCells() from 'cellWise', covMcd() from 'robustbase'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

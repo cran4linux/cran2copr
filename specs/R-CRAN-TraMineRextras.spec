@@ -1,9 +1,9 @@
 %global packname  TraMineRextras
-%global packver   0.4.7
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          TraMineR Extension
 
@@ -14,16 +14,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-TraMineR >= 2.0.8
+BuildRequires:    R-CRAN-TraMineR >= 2.2.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-stats 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-survival 
-Requires:         R-CRAN-TraMineR >= 2.0.8
+Requires:         R-CRAN-TraMineR >= 2.2.0
 Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-CRAN-gtools 
 Requires:         R-stats 
 Requires:         R-cluster 
 Requires:         R-CRAN-RColorBrewer 

@@ -1,9 +1,9 @@
 %global packname  ROCnReg
-%global packver   1.0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          ROC Curve Inference with and without Covariates
 
@@ -54,7 +54,8 @@ M.X. (2018) <arXiv:1806.00473>; Janes, H., and Pepe, M.S. (2009)
 <doi:10.1093/biomet/asp002>; Pepe, M.S. (1998)
 <https://www.jstor.org/stable/2534001?seq=1>; Rodriguez-Alvarez, M.X. et
 al. (2011a) <doi:10.1016/j.csda.2010.07.018>; Rodriguez-Alvarez, M.X. et
-al. (2011a) <doi:10.1007/s11222-010-9184-1>.
+al. (2011a) <doi:10.1007/s11222-010-9184-1>. Please see Rodriguez-Alvarez,
+M.X. and Inacio, V. (20208) <arXiv:2003.13111> for more details.
 
 %prep
 %setup -q -c -n %{packname}
@@ -79,5 +80,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

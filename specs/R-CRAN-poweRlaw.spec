@@ -1,9 +1,9 @@
 %global packname  poweRlaw
-%global packver   0.70.5
+%global packver   0.70.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.70.5
+Version:          0.70.6
 Release:          1%{?dist}
 Summary:          Analysis of Heavy Tailed Distributions
 

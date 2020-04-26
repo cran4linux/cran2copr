@@ -1,9 +1,9 @@
 %global packname  pcFactorStan
-%global packver   1.4.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.1
 Release:          1%{?dist}
 Summary:          Stan Models for the Paired Comparison Factor Model
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-loo 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Provides convenience functions and pre-programmed Stan models related to

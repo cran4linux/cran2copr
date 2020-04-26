@@ -1,9 +1,9 @@
 %global packname  gotop
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Scroll Back to Top Icon in R Markdown and Shiny
 
@@ -17,10 +17,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rmarkdown 
 
 %description
 Add a scroll back to top 'Font Awesome' icon in R Markdown documents and
