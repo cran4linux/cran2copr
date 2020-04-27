@@ -1,9 +1,9 @@
 %global packname  googleAuthR
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Authenticate and Create Google APIs
 
@@ -18,7 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-memoise >= 1.1.0
-BuildRequires:    R-CRAN-gargle >= 0.3.1
+BuildRequires:    R-CRAN-gargle >= 0.4.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-rlang 
@@ -26,7 +26,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-memoise >= 1.1.0
-Requires:         R-CRAN-gargle >= 0.3.1
+Requires:         R-CRAN-gargle >= 0.4.0
 Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-rlang 
@@ -40,6 +40,7 @@ and Shiny compatibility.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -47,6 +48,7 @@ and Shiny compatibility.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

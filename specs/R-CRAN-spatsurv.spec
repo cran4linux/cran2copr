@@ -1,9 +1,9 @@
 %global packname  spatsurv
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}
 Summary:          Bayesian Spatial Survival Analysis with Parametric ProportionalHazards Models
 
@@ -26,7 +26,6 @@ BuildRequires:    R-Matrix
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-geostatsp 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lubridate 
 Requires:         R-survival 
@@ -40,13 +39,13 @@ Requires:         R-Matrix
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-geostatsp 
 Requires:         R-methods 
 Requires:         R-CRAN-lubridate 
 
 %description
 Bayesian inference for parametric proportional hazards spatial survival
-models; flexible spatial survival models.
+models; flexible spatial survival models. See Benjamin M. Taylor, Barry S.
+Rowlingson (2017) <doi:10.18637/jss.v077.i04>.
 
 %prep
 %setup -q -c -n %{packname}

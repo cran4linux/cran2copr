@@ -1,9 +1,9 @@
 %global packname  compareDF
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Do a Git Style Diff of the Rows Between Two Dataframes withSimilar Structure
 
@@ -16,12 +16,14 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx >= 4.1
+BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-htmlTable >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.4.3
 BuildRequires:    R-CRAN-tidyr >= 0.4.1
 Requires:         R-CRAN-openxlsx >= 4.1
+Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-htmlTable >= 1.5
 Requires:         R-CRAN-stringr >= 1.0.0

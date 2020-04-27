@@ -1,9 +1,9 @@
 %global packname  RXshrink
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}
 Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or LeastAngle Regression Methods
 
@@ -27,6 +27,8 @@ function, correct.signs(), provides beta coefficient estimates when an
 ill-conditioned (nearly multicollinear) model yields OLS estimates with
 ("wrong") numerical signs that disagree with the signs of the observed
 correlations between the Y-outcome and the selected X-predictor variables.
+In-Sample predictions can be made for all five-types of RXshrink linear
+regression model estimation.
 
 %prep
 %setup -q -c -n %{packname}

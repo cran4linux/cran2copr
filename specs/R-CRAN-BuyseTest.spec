@@ -1,9 +1,9 @@
 %global packname  BuyseTest
-%global packver   1.8.5
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.5
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Generalized Pairwise Comparisons
 
@@ -45,14 +45,14 @@ extended in Peron (2018) <doi:10.1177/0962280216658320> to deal with
 right-censoring. GPC compare two groups of observations (intervention vs.
 control group) regarding several prioritized endpoints to estimate the
 probability that a random observation drawn from one group performs better
-than a random observation drawn from the other group. The net benefit and
-win ratio statistics, i.e. the difference and ratio between the
-probabilities relative to the intervention and control groups, can then be
-estimated. Confidence intervals and p-values are obtained using
-permutations, a non-parametric bootstrap, or the asymptotic theory. The
-software enables the use of thresholds of minimal importance difference,
-stratification, non-prioritized endpoints (O'Brien test), and corrections
-to deal with missing values.
+than a random observation drawn from the other group (Mann-Whitney
+parameter). The net benefit and win ratio statistics, i.e. the difference
+and ratio between the probabilities relative to the intervention and
+control groups, can then also be estimated. Confidence intervals and
+p-values are obtained using permutations, a non-parametric bootstrap, or
+the asymptotic theory. The software enables the use of thresholds of
+minimal importance difference, stratification, non-prioritized endpoints
+(O'Brien test), and can handle right-censoring and competing-risks.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  bbricks
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Bayesian Methods and Graphical Model Structures for StatisticalModeling
 
@@ -19,11 +19,12 @@ BuildArch:        noarch
 %description
 A class of frequently used Bayesian parametric and nonparametric model
 structures, as well as a set of tools for common analytical tasks.
-Structures include Gaussian and Normal-Inverse-Wishart conjugate
-structure, Gaussian and Normal-Inverse-Gamma conjugate structure,
-Categorical and Dirichlet conjugate structure, Dirichlet Process on
-positive integers, Dirichlet Process in general, Hierarchical Dirichlet
-Process ... Tasks include updating posteriors, calculating marginal
+Structures include linear Gaussian systems, Gaussian and
+Normal-Inverse-Wishart conjugate structure, Gaussian and
+Normal-Inverse-Gamma conjugate structure, Categorical and Dirichlet
+conjugate structure, Dirichlet Process on positive integers, Dirichlet
+Process in general, Hierarchical Dirichlet Process ... Tasks include
+updating posteriors, sampling from posteriors, calculating marginal
 likelihood, calculating posterior predictive densities, sampling from
 posterior predictive distributions, calculating "Maximum A Posteriori"
 (MAP) estimates ... See Murphy (2012, <doi:10.1080/09332480.2014.914768>),
