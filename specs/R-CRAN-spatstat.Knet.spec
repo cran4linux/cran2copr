@@ -1,9 +1,9 @@
 %global packname  spatstat.Knet
-%global packver   1.11-2
+%global packver   1.12-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.2
+Version:          1.12.2
 Release:          1%{?dist}
 Summary:          Extension to 'spatstat' for Large Datasets on a Linear Network
 
@@ -12,24 +12,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-spatstat >= 1.60.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-spatstat >= 1.62.2
 BuildRequires:    R-CRAN-spatstat.utils 
 BuildRequires:    R-Matrix 
-Requires:         R-CRAN-spatstat >= 1.60.0
+Requires:         R-CRAN-spatstat >= 1.62.2
 Requires:         R-CRAN-spatstat.utils 
 Requires:         R-Matrix 
 
 %description
 Extension to the 'spatstat' package, for analysing large datasets of
-spatial points on a network. Provides a memory-efficient algorithm for
-computing the geometrically-corrected K function, described in S. Rakshit,
-A. Baddeley and G. Nair (2019) <doi:10.18637/jss.v090.i01>
+spatial points on a network. The geometrically-corrected K function is
+computed using the memory-efficient tree-based algorithm described by
+Rakshit, Baddeley and Nair (2019).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

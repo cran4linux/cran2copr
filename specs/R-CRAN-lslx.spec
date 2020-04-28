@@ -1,9 +1,9 @@
 %global packname  lslx
-%global packver   0.6.9
+%global packver   0.6.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          0.6.10
 Release:          1%{?dist}
 Summary:          Semi-Confirmatory Structural Equation Modeling via PenalizedLikelihood or Least Squares
 
@@ -28,11 +28,13 @@ Requires:         R-CRAN-lavaan
 
 %description
 Fits semi-confirmatory structural equation modeling (SEM) via penalized
-likelihood (PL) or penalized least squares (PLS).
+likelihood (PL) or penalized least squares (PLS). For details, please see
+Huang (2020) <doi:10.18637/jss.v093.i07>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  bama
-%global packver   0.9.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          High Dimensional Bayesian Mediation Analysis
 
@@ -12,26 +12,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-parallel 
 
 %description
 Perform mediation analysis in the presence of high-dimensional mediators
 based on the potential outcome framework. Bayesian Mediation Analysis
-(BAMA), developed by Song et al (2018) <doi:10.1101/467399>, relies on two
-Bayesian sparse linear mixed models to simultaneously analyze a relatively
-large number of mediators for a continuous exposure and outcome assuming a
-small number of mediators are truly active. This sparsity assumption also
-allows the extension of univariate mediator analysis by casting the
-identification of active mediators as a variable selection problem and
-applying Bayesian methods with continuous shrinkage priors on the effects.
+(BAMA), developed by Song et al (2019) <doi:10.1111/biom.13189>, relies on
+two Bayesian sparse linear mixed models to simultaneously analyze a
+relatively large number of mediators for a continuous exposure and outcome
+assuming a small number of mediators are truly active. This sparsity
+assumption also allows the extension of univariate mediator analysis by
+casting the identification of active mediators as a variable selection
+problem and applying Bayesian methods with continuous shrinkage priors on
+the effects.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

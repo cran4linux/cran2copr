@@ -1,9 +1,9 @@
 %global packname  labelled
-%global packver   2.2.2
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Manipulating Labelled Data
 
@@ -31,6 +31,7 @@ package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

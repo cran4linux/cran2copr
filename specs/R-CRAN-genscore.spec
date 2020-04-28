@@ -1,36 +1,36 @@
-%global packname  factorial2x2
-%global packver   0.2.0
+%global packname  genscore
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Design and Analysis of a 2x2 Factorial Trial
+Summary:          Generalized Score Matching Estimators
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-survival 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-survival 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-stringr 
 
 %description
-Used for the design and analysis of a 2x2 factorial trial for a
-time-to-event endpoint.  It performs power calculations and significance
-testing as well as providing estimates of the relevant hazard ratios and
-the corresponding 95% confidence intervals.  Important reference papers
-include Slud EV. (1994) <https://www.ncbi.nlm.nih.gov/pubmed/8086609> Lin
-DY, Gong J, Gallo P, Bunn PH, Couper D. (2016) <DOI:10.1111/biom.12507>
-Leifer ES, Troendle JF, Kolecki A, Follmann DA. (2020)
-<https://github.com/EricSLeifer/factorial2x2/blob/master/Leifer%20et%20al.%20paper.pdf>.
+Implementation of the Generalized Score Matching estimator in Yu et al.
+(2019) <http://jmlr.org/papers/v20/18-278.html> for non-negative graphical
+models (truncated Gaussian, exponential square-root, gamma, a-b models)
+and univariate truncated Gaussian distributions. Also includes the
+original estimator for untruncated Gaussian graphical models from Lin et
+al. (2016) <doi:10.1214/16-EJS1126>, with the addition of a diagonal
+multiplier.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,10 +52,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
+%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

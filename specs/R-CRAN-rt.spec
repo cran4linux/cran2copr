@@ -1,38 +1,34 @@
-%global packname  tricolore
-%global packver   1.2.1
+%global packname  rt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          A Flexible Color Scale for Ternary Compositions
+Summary:          Interface to the 'Request Tracker' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-ggtern >= 3.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-ggtern >= 3.0.0
-Requires:         R-grDevices 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
 
 %description
-A flexible color scale for ternary compositions with options for
-discretization, centering and scaling.
+Provides a programmatic interface to the 'Request Tracker' (RT) HTTP API
+<https://rt-wiki.bestpractical.com/wiki/REST>. 'RT' is a popular ticket
+tracking system.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -40,6 +36,7 @@ discretization, centering and scaling.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -48,12 +45,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/figures
-%doc %{rlibdir}/%{packname}/shiny
 %{rlibdir}/%{packname}/INDEX

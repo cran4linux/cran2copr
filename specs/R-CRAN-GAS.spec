@@ -1,33 +1,40 @@
-%global packname  hypr
-%global packver   0.1.7
+%global packname  GAS
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.3.3
 Release:          1%{?dist}
-Summary:          Hypothesis Matrix Translation
+Summary:          Generalized Autoregressive Score Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.2
 BuildRequires:    R-methods 
-Requires:         R-MASS 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.2
 Requires:         R-methods 
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-MASS 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-cubature 
 
 %description
-Translation between experimental null hypotheses, hypothesis matrices, and
-contrast matrices as used in linear regression models. The package is
-based on the method described in Schad, Vasishth, Hohenstein, and Kliegl
-(2019) <doi:10.1016/j.jml.2019.104038> and Rabe, Vasishth, Hohenstein,
-Kliegl, and Schad (2020) <doi:10.21105/joss.02134>.
+Simulate, estimate and forecast using univariate and multivariate GAS
+models as described in Ardia et al. (2019) <doi:10.18637/jss.v088.i06>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,9 +56,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/ExtensionTests
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

@@ -1,34 +1,33 @@
-%global packname  nVennR
-%global packver   0.2.1
+%global packname  uchardet
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.6
 Release:          1%{?dist}
-Summary:          Create n-Dimensional, Quasi-Proportional Venn Diagrams
+Summary:          The Universal Character Encoding Detector
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Provides an interface for the nVenn algorithm (Perez-Silva et al. 2018)
-<DOI:10.1093/bioinformatics/bty109>. This algorithm works for any number
-of sets, and usually yields pleasing and informative Venn diagrams with
-proportionality information. However, representing more than six sets
-takes a long time and is hard to interpret, unless many of the regions are
-empty. If you cannot make sense of the result, you may want to consider
-'UpSetR' <https://cran.r-project.org/package=UpSetR/README.html>.
+R bindings of the 'uchardet', encoding detector library from Mozilla
+(<https://www.freedesktop.org/wiki/Software/uchardet/>). It takes a
+sequence of bytes in an unknown character encoding and without any
+additional information, and attempts to get the encoding of the text. All
+return names of the encodings are iconv-compatible.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +35,7 @@ empty. If you cannot make sense of the result, you may want to consider
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -44,12 +44,14 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/COPYRIGHTS
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
+%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

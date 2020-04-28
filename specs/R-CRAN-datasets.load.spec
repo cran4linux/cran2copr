@@ -1,9 +1,9 @@
 %global packname  datasets.load
-%global packver   1.2.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Interfaces for Loading Datasets
 
@@ -24,11 +24,12 @@ Requires:         R-CRAN-DT
 
 %description
 Visual interface for loading datasets in RStudio from all installed
-(unloaded) packages, also includes command line interfaces.
+(including unloaded) packages, also includes command line interfaces.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -47,6 +48,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX

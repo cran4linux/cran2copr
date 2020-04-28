@@ -1,9 +1,9 @@
 %global packname  ShapePattern
-%global packver   2.0.4
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Tools for Analyzing Shapes and Patterns
 
@@ -15,15 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-landscapemetrics 
+BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-landscapemetrics 
+Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-raster 
 
 %description
@@ -33,7 +35,7 @@ collection provides tools for: (1) the spatial decomposition of planar
 shapes using 'ShrinkShape' to incrementally shrink shapes to extinction
 while computing area, perimeter, and number of parts at each iteration of
 shrinking; the spectra of results are returned in graphic and tabular
-formats (Remmel 2018) <doi:10.3390/su10103413>, (2) simulating landscape
+formats (Remmel 2015) <doi:10.1111/cag.12222>, (2) simulating landscape
 patterns, (3) provision of tools for estimating composition and
 configuration parameters from a categorical (binary) landscape map (grid)
 and then simulates a selected number of statistically similar landscapes.
@@ -43,7 +45,8 @@ be made. The code permits the analysis of single maps or pairs of maps
 (Remmel and Fortin 2013) <doi:10.1007/s10980-013-9905-x>, (4) counting the
 number of each first-order pattern element and converting that information
 into both frequency and empirical probability vectors (Remmel 2020)
-<doi:10.3390/e22040420>. NOTE: This is a consolidation of existing
+<doi:10.3390/e22040420>, and (5) computing the porosity of raster patches
+<doi:10.3390/su10103413>. NOTE: This is a consolidation of existing
 packages ('PatternClass', 'ShapePattern') to begin warehousing all shape
 and pattern code in a common package. Additional utility tools for
 handling data are provided and this package will be added to as more tools

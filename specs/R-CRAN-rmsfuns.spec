@@ -1,40 +1,43 @@
-%global packname  vitae
-%global packver   0.2.2
+%global packname  rmsfuns
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0.0
 Release:          1%{?dist}
-Summary:          Curriculum Vitae for R Markdown
+Summary:          Quickly View Data Frames in 'Excel', Build Folder Paths andCreate Date Vectors
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.18
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-RefManageR 
-Requires:         R-CRAN-rmarkdown >= 1.18
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-tbl2xts 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-RefManageR 
+Requires:         R-CRAN-tbl2xts 
+Requires:         R-CRAN-PerformanceAnalytics 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
-Provides templates and functions to simplify the production and
-maintenance of curriculum vitae.
+Contains several useful navigation helper functions, including easily
+building folder paths, quick viewing dataframes in 'Excel', creating date
+vectors and changing the console prompt to reflect time.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,9 +61,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/bib_format.tex
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/rmarkdown
 %{rlibdir}/%{packname}/INDEX
