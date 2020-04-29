@@ -1,13 +1,13 @@
-%global packname  gridSVG
-%global packver   1.7-2
+%global packname  textplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Export 'grid' Graphics as SVG
+Summary:          Text Plots
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,26 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-data.table >= 1.9.6
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-lattice 
+BuildRequires:    R-stats 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-data.table >= 1.9.6
 Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-grid 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-XML 
+Requires:         R-lattice 
+Requires:         R-stats 
+Requires:         R-Matrix 
+Requires:         R-CRAN-igraph 
+Requires:         R-graphics 
 
 %description
-Functions to export graphics drawn with package grid to SVG format.
-Additional functions provide access to SVG features that are not available
-in standard R graphics, such as hyperlinks, animation, filters, masks,
-clipping paths, and gradient and pattern fills.
+Visualise complex relations in texts. This is done by providing
+functionalities for displaying text co-occurrence networks, text
+correlation networks, dependency relationships as well as text clustering.
+Feel free to join the effort of providing interesting text visualisations.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,11 +58,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/js
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/svg
 %{rlibdir}/%{packname}/INDEX

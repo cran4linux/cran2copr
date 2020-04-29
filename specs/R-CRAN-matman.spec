@@ -1,40 +1,46 @@
-%global packname  gridSVG
-%global packver   1.7-2
+%global packname  matman
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Export 'grid' Graphics as SVG
+Summary:          Material Management
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-ISOweek 
 BuildRequires:    R-methods 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyverse 
 Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-ISOweek 
 Requires:         R-methods 
-Requires:         R-grid 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tidyverse 
 
 %description
-Functions to export graphics drawn with package grid to SVG format.
-Additional functions provide access to SVG features that are not available
-in standard R graphics, such as hyperlinks, animation, filters, masks,
-clipping paths, and gradient and pattern fills.
+A set of functions, classes and methods for performing ABC and ABC/XYZ
+analyses, identifying overperforming, underperforming and constantly
+performing items, and plotting, analyzing as well as predicting the
+temporal development of items.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,11 +62,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/js
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/svg
 %{rlibdir}/%{packname}/INDEX

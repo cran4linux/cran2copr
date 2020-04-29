@@ -1,9 +1,9 @@
 %global packname  stationery
-%global packver   0.98.24
+%global packver   0.98.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.98.24
+Version:          0.98.30
 Release:          1%{?dist}
 Summary:          Working Examples for Reproducible Research Documents
 
@@ -33,6 +33,7 @@ programming.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

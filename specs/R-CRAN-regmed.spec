@@ -1,40 +1,37 @@
-%global packname  gridSVG
-%global packver   1.7-2
+%global packname  regmed
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.0.5
 Release:          1%{?dist}
-Summary:          Export 'grid' Graphics as SVG
+Summary:          Regularized Mediation Analysis
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-methods 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-methods 
-Requires:         R-grid 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-XML 
+Requires:         R-graphics 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
 
 %description
-Functions to export graphics drawn with package grid to SVG format.
-Additional functions provide access to SVG features that are not available
-in standard R graphics, such as hyperlinks, animation, filters, masks,
-clipping paths, and gradient and pattern fills.
+Mediation analysis for multiple mediators by penalized structural equation
+models using sparse group lasso. The penalty considers the natural
+groupings of parameters that determine mediation, as well as encourages
+sparseness of the model parameters.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,11 +53,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/js
 %doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/svg
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

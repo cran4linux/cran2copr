@@ -1,40 +1,34 @@
-%global packname  gridSVG
-%global packver   1.7-2
+%global packname  bcTSNE
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          0.10.0
 Release:          1%{?dist}
-Summary:          Export 'grid' Graphics as SVG
+Summary:          Projected t-SNE for Batch Correction
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-RSpectra 
 Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-grid 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-Rtsne 
+Requires:         R-graphics 
 
 %description
-Functions to export graphics drawn with package grid to SVG format.
-Additional functions provide access to SVG features that are not available
-in standard R graphics, such as hyperlinks, animation, filters, masks,
-clipping paths, and gradient and pattern fills.
+Implements the projected t-SNE method for batch correction of
+high-dimensional data. Please see Aliverti et al. (2020)
+<doi:10.1093/bioinformatics/btaa189> for more information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,8 +53,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/js
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/svg
+%doc %{rlibdir}/%{packname}/realDataAnalysis.R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

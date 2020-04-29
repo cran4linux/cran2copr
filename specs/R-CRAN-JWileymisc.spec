@@ -1,9 +1,9 @@
 %global packname  JWileymisc
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Miscellaneous Utilities and Functions
 
@@ -16,9 +16,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-BuildRequires:    R-CRAN-data.table >= 1.12.0
-BuildRequires:    R-CRAN-VGAM >= 1.0.6
-BuildRequires:    R-CRAN-lavaan >= 0.6.3
+BuildRequires:    R-CRAN-data.table >= 1.12.4
+BuildRequires:    R-CRAN-VGAM >= 1.1.2
+BuildRequires:    R-CRAN-lavaan >= 0.6.5
 BuildRequires:    R-CRAN-extraoperators >= 0.1.1
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -38,9 +38,9 @@ BuildRequires:    R-CRAN-robustbase
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-lme4 
 Requires:         R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-CRAN-data.table >= 1.12.0
-Requires:         R-CRAN-VGAM >= 1.0.6
-Requires:         R-CRAN-lavaan >= 0.6.3
+Requires:         R-CRAN-data.table >= 1.12.4
+Requires:         R-CRAN-VGAM >= 1.1.2
+Requires:         R-CRAN-lavaan >= 0.6.5
 Requires:         R-CRAN-extraoperators >= 0.1.1
 Requires:         R-stats 
 Requires:         R-utils 
@@ -69,6 +69,7 @@ diagnostics.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

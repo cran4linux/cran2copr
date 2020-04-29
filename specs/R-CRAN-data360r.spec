@@ -1,11 +1,11 @@
-%global packname  webutils
-%global packver   1.1
+%global packname  data360r
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.6
 Release:          1%{?dist}
-Summary:          Utility Functions for Developing Web Applications
+Summary:          Wrapper for 'TCdata360' and 'Govdata360' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,15 +14,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-curl >= 2.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-curl >= 2.5
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
+Requires:         R-CRAN-curl 
 
 %description
-Parses http request data in application/json, multipart/form-data, or
-application/x-www-form-urlencoded format. Includes example of hosting and
-parsing html form data in R using either 'httpuv' or 'Rhttpd'.
+Makes it easy to engage with the Application Program Interface (API) of
+the 'TCdata360' and 'Govdata360' platforms at
+<https://tcdata360.worldbank.org/> and
+<https://govdata360.worldbank.org/>, respectively. These application
+program interfaces provide access to over 5000 trade, competitiveness, and
+governance indicator data, metadata, and related information from sources
+both inside and outside the World Bank Group. Package functions include
+easier download of data sets, metadata, and related information, as well
+as searching based on user-inputted query.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,8 +60,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/testpage.html
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

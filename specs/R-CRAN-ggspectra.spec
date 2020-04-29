@@ -1,9 +1,9 @@
 %global packname  ggspectra
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}
 Summary:          Extensions to 'ggplot2' for Radiation Spectra
 
@@ -12,25 +12,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-scales >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-photobiology >= 0.9.30
-BuildRequires:    R-CRAN-ggrepel >= 0.8.1
+BuildRequires:    R-CRAN-scales >= 1.1.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.2
+BuildRequires:    R-CRAN-ggrepel >= 0.8.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-photobiologyWavebands >= 0.4.3
-Requires:         R-CRAN-ggplot2 >= 3.1.1
+BuildRequires:    R-CRAN-photobiology >= 0.10.1
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-scales >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-photobiology >= 0.9.30
-Requires:         R-CRAN-ggrepel >= 0.8.1
+Requires:         R-CRAN-scales >= 1.1.0
+Requires:         R-CRAN-tidyr >= 1.0.2
+Requires:         R-CRAN-ggrepel >= 0.8.2
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-photobiologyWavebands >= 0.4.3
+Requires:         R-CRAN-photobiology >= 0.10.1
 
 %description
 Additional annotations, stats, geoms and scales for plotting "light"
@@ -43,6 +43,7 @@ objects of classes defined in package 'photobiology'. Part of the
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

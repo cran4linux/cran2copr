@@ -1,9 +1,9 @@
 %global packname  creditmodel
-%global packver   1.1.9
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Toolkit for Credit Modeling, Analysis and Visualization
 

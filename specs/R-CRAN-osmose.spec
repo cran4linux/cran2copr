@@ -1,9 +1,9 @@
 %global packname  osmose
-%global packver   3.3.3
+%global packver   3.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          3.3.4
 Release:          1%{?dist}
 Summary:          Object Oriented Simulator of Marine Ecosystems
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-mgcv 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-fields 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-stringr
 Requires:         R-utils 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-mgcv 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-fields 
 
 %description

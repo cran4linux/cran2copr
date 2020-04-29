@@ -1,9 +1,9 @@
 %global packname  lmSubsets
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}
 Summary:          Exact Variable-Subset Selection in Linear Regression
 
@@ -25,12 +25,13 @@ Requires:         R-utils
 Exact and approximation algorithms for variable-subset selection in
 ordinary linear regression models.  Either compute all submodels with the
 lowest residual sum of squares, or determine the single-best submodel
-according to a pre-determined statistical criterion.  Hofmann, Gatu,
-Kontoghiorghes, Colubi, Zeileis (2018, submitted).
+according to a pre-determined statistical criterion.  Hofmann et al.
+(2020) <10.18637/jss.v093.i03>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +39,7 @@ Kontoghiorghes, Colubi, Zeileis (2018, submitted).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  superml
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}
 Summary:          Build Machine Learning Models Like Using Python's Scikit-LearnLibrary in R
 
@@ -17,18 +17,15 @@ Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-R6 >= 2.2
 BuildRequires:    R-CRAN-data.table >= 1.10
 BuildRequires:    R-CRAN-Rcpp >= 1.0
-BuildRequires:    R-CRAN-doParallel >= 1.0
 BuildRequires:    R-CRAN-assertthat >= 0.2
 BuildRequires:    R-CRAN-Metrics >= 0.1
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-R6 >= 2.2
 Requires:         R-CRAN-data.table >= 1.10
 Requires:         R-CRAN-Rcpp >= 1.0
-Requires:         R-CRAN-doParallel >= 1.0
 Requires:         R-CRAN-assertthat >= 0.2
 Requires:         R-CRAN-Metrics >= 0.1
-Requires:         R-parallel 
 
 %description
 The idea is to provide a standard interface to users who use both R and

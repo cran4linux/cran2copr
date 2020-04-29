@@ -1,34 +1,29 @@
-%global packname  flora
-%global packver   0.3.4
+%global packname  tsriadditive
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Tools for Interacting with the Brazilian Flora 2020
+Summary:          Two Stage Residual Inclusion Additive Hazards Estimator
 
-License:          GPL (>= 2)
+License:          LGPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringdist 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringdist 
+BuildRequires:    R-survival 
+Requires:         R-survival 
 
 %description
-Tools to quickly compile taxonomic and distribution data from the
-Brazilian Flora 2020.
+Additive hazards models with two stage residual inclusion method are
+fitted under either survival data or competing risks data. The estimator
+incorporates an instrumental variable and therefore can recover causal
+estimand in the presence of unmeasured confounding under some assumptions.
+A.Ying, R. Xu and J. Murphy. (2019) <doi:10.1002/sim.8071>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,10 +45,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/plantminer
 %{rlibdir}/%{packname}/INDEX

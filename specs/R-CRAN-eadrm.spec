@@ -1,34 +1,30 @@
-%global packname  flora
-%global packver   0.3.4
+%global packname  eadrm
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Tools for Interacting with the Brazilian Flora 2020
+Summary:          Fitting Dose-Response Models Using an Evolutionary Algorithm
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringdist 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringdist 
 
 %description
-Tools to quickly compile taxonomic and distribution data from the
-Brazilian Flora 2020.
+Fits dose-response models using an evolutionary algorithm to estimate the
+model parameters. The procedure currently can fit 3-parameter,
+4-parameter, and 5-parameter log-logistic models as well as exponential
+models. Functions are also provided to plot, make predictions, and
+calculate confidence intervals for the resulting models. For details see
+"Nonlinear Dose-response Modeling of High-Throughput Screening Data Using
+an Evolutionary Algorithm", Ma, J., Bair, E., Motsinger-Reif, A.;
+Dose-Response (In press).
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,7 +49,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/plantminer
 %{rlibdir}/%{packname}/INDEX

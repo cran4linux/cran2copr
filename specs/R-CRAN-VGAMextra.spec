@@ -1,10 +1,9 @@
-%global debug_package %{nil}
 %global packname  VGAMextra
-%global packver   0.0-1
+%global packver   0.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}
 Summary:          Additions and Extensions of the 'VGAM' Package
 
@@ -13,17 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-VGAM >= 1.1.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-VGAM >= 1.1.0
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-stats4 
-Requires:         R-CRAN-VGAM 
 
 %description
 Extending the functionalities of the 'VGAM' package with additional

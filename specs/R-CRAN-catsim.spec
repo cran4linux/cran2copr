@@ -1,33 +1,31 @@
-%global packname  ChannelAttribution
-%global packver   1.18
+%global packname  catsim
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.18
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Markov Model for the Online Multi-Channel Attribution Problem
+Summary:          Binary and Categorical Image Similarity Index
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Advertisers use a variety of online marketing channels to reach consumers
-and they want to know the degree each channel contributes to their
-marketing success. This is called the online multi-channel attribution
-problem. This package contains a probabilistic algorithm for the
-attribution problem. The model uses a k-order Markov representation to
-identify structural correlations in the customer journey data. The package
-also contains three heuristic algorithms (first-touch, last-touch and
-linear-touch approach) for the same problem. The algorithms are
-implemented in C++.
+Computes a structural similarity metric (after the style of MS-SSIM for
+images) for binary and categorical 2D and 3D images. Can be based on
+accuracy (simple matching), Cohen's kappa, Rand index, adjusted Rand
+index, Jaccard index, Dice index, normalized mutual information, or
+adjusted mutual information. In addition, has fast computation of Cohen's
+kappa, the Rand indices, and the two mutual informations. Implements the
+methods of Thompson and Maitra (2020) <arXiv:2004.09073>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +50,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

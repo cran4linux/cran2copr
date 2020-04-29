@@ -1,34 +1,31 @@
-%global packname  flora
-%global packver   0.3.4
+%global packname  XICOR
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.2
 Release:          1%{?dist}
-Summary:          Tools for Interacting with the Brazilian Flora 2020
+Summary:          Association Measurement Through Cross Rank Increments
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringdist 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringdist 
+BuildRequires:    R-CRAN-psychTools 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-psychTools 
+Requires:         R-stats 
 
 %description
-Tools to quickly compile taxonomic and distribution data from the
-Brazilian Flora 2020.
+Computes robust association measures that do not presuppose linearity. The
+xi correlation (xicor) is based on cross correlation between ranked
+increments. The reference for the methods implemented here is Chatterjee,
+Sourav (2020) <arXiv:1909.10140> This package includes the Galton peas
+example.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,10 +47,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/plantminer
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

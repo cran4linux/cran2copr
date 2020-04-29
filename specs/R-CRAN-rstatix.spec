@@ -1,9 +1,9 @@
 %global packname  rstatix
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Pipe-Friendly Framework for Basic Statistical Tests
 
@@ -15,29 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.1
 BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-car 
+Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.1
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-car 
 
 %description

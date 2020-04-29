@@ -1,9 +1,9 @@
 %global packname  plotfunctions
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Various Functions to Facilitate Visualization of Data andAnalysis
 
@@ -34,6 +34,7 @@ package 'plotfunctions', which contains more general plot functions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
