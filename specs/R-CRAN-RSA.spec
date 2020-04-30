@@ -1,9 +1,9 @@
 %global packname  RSA
-%global packver   0.9.13
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.13
+Version:          0.10.0
 Release:          1%{?dist}
 Summary:          Response Surface Analysis
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-aplpack 
 BuildRequires:    R-CRAN-tkrplot 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-lavaan >= 0.5.20
 Requires:         R-CRAN-ggplot2 
 Requires:         R-lattice 
@@ -29,20 +30,23 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-aplpack 
 Requires:         R-CRAN-tkrplot 
+Requires:         R-methods 
 
 %description
 Advanced response surface analysis. The main function RSA computes and
-compares several nested polynomial regression models (full polynomial,
-shifted and rotated squared differences, rising ridge surfaces, basic
-squared differences). The package provides plotting functions for 3d
-wireframe surfaces, interactive 3d plots, and contour plots. Calculates
-many surface parameters (a1 to a4, principal axes, stationary point,
-eigenvalues) and provides standard, robust, or bootstrapped standard
-errors and confidence intervals for them.
+compares several nested polynomial regression models (full second- or
+third-order polynomial, shifted and rotated squared difference model,
+rising ridge surfaces, basic squared difference model, asymmetric or
+level-dependent congruence effect models). The package provides plotting
+functions for 3d wireframe surfaces, interactive 3d plots, and contour
+plots. Calculates many surface parameters (a1 to a5, principal axes,
+stationary point, eigenvalues) and provides standard, robust, or
+bootstrapped standard errors and confidence intervals for them.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +54,7 @@ errors and confidence intervals for them.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

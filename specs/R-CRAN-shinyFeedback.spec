@@ -1,13 +1,13 @@
 %global packname  shinyFeedback
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Displays User Feedback Next to Shiny Inputs
+Summary:          Display User Feedback in Shiny Apps
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-digest 
 
 %description
-Easily display user feedback next to Shiny inputs.  The feedback message
-is displayed when the feedback condition evaluates to TRUE.
+Easily display user feedback in Shiny apps.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,11 +46,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/css
+%doc %{rlibdir}/%{packname}/assets
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/img
-%doc %{rlibdir}/%{packname}/srcjs
 %{rlibdir}/%{packname}/INDEX

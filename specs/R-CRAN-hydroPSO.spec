@@ -1,9 +1,9 @@
 %global packname  hydroPSO
-%global packver   0.5-0
+%global packver   0.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Particle Swarm Optimisation, with Focus on Environmental Models
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-zoo >= 1.7.2
 BuildRequires:    R-CRAN-hydroTSM >= 0.3.6

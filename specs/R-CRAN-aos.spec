@@ -1,33 +1,29 @@
-%global packname  IndependenceTests
-%global packver   0.4
+%global packname  aos
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Non-Parametric Tests of Independence Between Random Vectors
+Summary:          Animate on Scroll Library for 'shiny'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.3.0
-Requires:         R-core >= 2.3.0
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-Runuran 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-MASS 
-Requires:         R-CRAN-Runuran 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
 
 %description
-Functions for non-parametric tests of independence (mutual or serial)
-between some quantitative random vectors.
+Trigger animation effects on scroll on any HTML element of 'shiny' and
+'rmarkdown', such as any text or plot, thanks to the 'AOS' Animate On
+Scroll jQuery library.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,11 +45,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/HISTORY
+%doc %{rlibdir}/%{packname}/aos-css-2.3.4
+%doc %{rlibdir}/%{packname}/aos-js-2.3.4
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

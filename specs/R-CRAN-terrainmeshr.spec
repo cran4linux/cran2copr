@@ -1,33 +1,29 @@
-%global packname  IndependenceTests
-%global packver   0.4
+%global packname  terrainmeshr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Non-Parametric Tests of Independence Between Random Vectors
+Summary:          Triangulate and Simplify 3D Terrain Meshes
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.3.0
-Requires:         R-core >= 2.3.0
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-Runuran 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-MASS 
-Requires:         R-CRAN-Runuran 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Functions for non-parametric tests of independence (mutual or serial)
-between some quantitative random vectors.
+Provides triangulations of regular height fields, based on the methods
+described in "Fast Polygonal Approximation of Terrains and Height Fields"
+Michael Garland and Paul S. Heckbert (1995)
+<https://www.mgarland.org/files/papers/scape.pdf> using code from the
+'hmm' library written by Michael Fogleman
+<https://www.github.com/fogleman/hmm>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,11 +45,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/HISTORY
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

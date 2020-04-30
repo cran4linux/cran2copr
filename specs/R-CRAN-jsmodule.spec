@@ -1,9 +1,9 @@
 %global packname  jsmodule
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}
 Summary:          'RStudio' Addins and 'Shiny' Modules for Medical Research
 
@@ -50,6 +50,7 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-CRAN-see 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Cairo 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-data.table 
@@ -85,6 +86,7 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-CRAN-see 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Cairo 
 
 %description
 'RStudio' addins and 'Shiny' modules for descriptive statistics,

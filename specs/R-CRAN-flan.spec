@@ -1,33 +1,29 @@
-%global packname  IndependenceTests
-%global packver   0.4
+%global packname  flan
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.8
 Release:          1%{?dist}
-Summary:          Non-Parametric Tests of Independence Between Random Vectors
+Summary:          FLuctuation ANalysis on Mutation Models
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.3.0
-Requires:         R-core >= 2.3.0
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-Runuran 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-MASS 
-Requires:         R-CRAN-Runuran 
-Requires:         R-parallel 
+BuildRequires:    gsl-devel
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.5
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppGSL 
+Requires:         R-CRAN-Rcpp >= 0.12.5
+Requires:         R-methods 
 
 %description
-Functions for non-parametric tests of independence (mutual or serial)
-between some quantitative random vectors.
+Tools for fluctuations analysis of mutant cells counts.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,7 +49,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/HISTORY
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  respirometry
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Tools for Conducting and Analyzing Respirometry Experiments
 
@@ -17,6 +17,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-seacarb >= 3.1
 BuildRequires:    R-CRAN-measurements >= 1.1.0
+BuildRequires:    R-CRAN-segmented >= 1.0.0
 BuildRequires:    R-CRAN-PKNCA 
 BuildRequires:    R-CRAN-birk 
 BuildRequires:    R-graphics 
@@ -24,11 +25,11 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-marelac 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-segmented 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-seacarb >= 3.1
 Requires:         R-CRAN-measurements >= 1.1.0
+Requires:         R-CRAN-segmented >= 1.0.0
 Requires:         R-CRAN-PKNCA 
 Requires:         R-CRAN-birk 
 Requires:         R-graphics 
@@ -36,7 +37,6 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-marelac 
 Requires:         R-methods 
 Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-segmented 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -51,6 +51,7 @@ respirometry techniques.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

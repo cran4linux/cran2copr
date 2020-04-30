@@ -1,11 +1,11 @@
-%global packname  DJL
-%global packver   3.3
+%global packname  survSens
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Distance Measure Based Judgment and Learning
+Summary:          Sensitivity Analysis with Time-to-Event Outcomes
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,20 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-lpSolveAPI 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-lpSolveAPI 
+BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-directlabels 
+Requires:         R-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-directlabels 
 
 %description
-Implements various decision support tools related to the Econometrics &
-Technometrics. Subroutines include correlation reliability test,
-Mahalanobis distance measure for outlier detection, combinatorial search
-(all possible subset regression), non-parametric efficiency analysis
-measures: DDF (directional distance function), DEA (data envelopment
-analysis), HDF (hyperbolic distance function), SBM (slack-based measure),
-and SF (shortage function), benchmarking, Malmquist productivity analysis,
-risk analysis, technology adoption model, new product target setting, etc.
+Performs a dual-parameter sensitivity analysis of treatment effect to
+unmeasured confounding in observational studies with either survival or
+competing risks outcomes. Huang, R., Xu, R. and Dulai, P.S.(2019)
+<arXiv:1908.01444>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,6 +51,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

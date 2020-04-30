@@ -1,9 +1,9 @@
 %global packname  RAINBOWR
-%global packver   0.1.14
+%global packver   0.1.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.14
+Version:          0.1.17
 Release:          1%{?dist}
 Summary:          Genome-Wide Association Study with SNP-Set Methods
 
@@ -24,6 +24,7 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-pbmcapply 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rrBLUP 
@@ -35,6 +36,7 @@ Requires:         R-MASS
 Requires:         R-CRAN-pbmcapply 
 Requires:         R-CRAN-optimx 
 Requires:         R-methods 
+Requires:         R-CRAN-ape 
 
 %description
 By using 'RAINBOWR' (Reliable Association INference By Optimizing Weights
@@ -42,12 +44,13 @@ with R), users can test multiple SNPs (Single Nucleotide Polymorphisms)
 simultaneously by kernel-based (SNP-set) methods. This package can also be
 applied to haplotype-based GWAS (Genome-Wide Association Study). Users can
 test not only additive effects but also dominance and epistatic effects.
-In detail, please check our preprint on bioRxiv: Kosuke Hamazaki and
-Hiroyoshi Iwata (2019) <doi:10.1101/612028>.
+In detail, please check our paper on PLOS Computational Biology: Kosuke
+Hamazaki and Hiroyoshi Iwata (2020) <doi:10.1371/journal.pcbi.1007663>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -69,6 +72,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

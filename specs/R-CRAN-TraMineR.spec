@@ -1,9 +1,9 @@
 %global packname  TraMineR
-%global packver   2.2-0
+%global packver   2.2-0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.0.1
 Release:          1%{?dist}
 Summary:          Trajectory Miner: a Toolbox for Exploring and RenderingSequences
 
@@ -22,6 +22,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-colorspace 
 Requires:         R-utils 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-boot 
@@ -30,6 +31,7 @@ Requires:         R-grDevices
 Requires:         R-stats 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-cluster 
+Requires:         R-CRAN-colorspace 
 
 %description
 Toolbox for the manipulation, description and rendering of sequences, and

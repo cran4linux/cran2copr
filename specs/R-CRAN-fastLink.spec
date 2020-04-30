@@ -1,9 +1,9 @@
 %global packname  fastLink
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Fast Probabilistic Record Linkage with Missing Data
 
@@ -56,13 +56,14 @@ functionalities to conduct a merge of two datasets under the
 Fellegi-Sunter model using the Expectation-Maximization algorithm. In
 addition, tools for preparing, adjusting, and summarizing data merges are
 included. The package implements methods described in Enamorado, Fifield,
-and Imai (2017) ''Using a Probabilistic Model to Assist Merging of
-Large-scale Administrative Records'', available at
-<http://imai.princeton.edu/research/linkage.html>.
+and Imai (2019) ''Using a Probabilistic Model to Assist Merging of
+Large-scale Administrative Records'', American Political Science Review
+and is available at <http://imai.fas.harvard.edu/research/linkage.html>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

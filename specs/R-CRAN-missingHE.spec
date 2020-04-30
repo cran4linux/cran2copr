@@ -1,9 +1,9 @@
 %global packname  missingHE
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Missing Outcome Data in Health Economic Evaluation
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mcmcplots 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggmcmc 
 BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-BCEA 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-loo
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-mcmcr 
 Requires:         R-CRAN-mcmcplots 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggmcmc 
 Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-BCEA 
@@ -60,6 +62,7 @@ measures and graphs. The methods implemented are described in Mason (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
