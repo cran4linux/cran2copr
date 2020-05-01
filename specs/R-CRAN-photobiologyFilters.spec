@@ -1,9 +1,9 @@
 %global packname  photobiologyFilters
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Spectral Transmittance Data for Filters
 
@@ -12,11 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-photobiology >= 0.9.28
-Requires:         R-CRAN-photobiology >= 0.9.28
+BuildRequires:    R-CRAN-photobiology >= 0.10.2
+Requires:         R-CRAN-photobiology >= 0.10.2
 
 %description
 Spectral 'transmittance' data for frequently used filters and similar
@@ -28,6 +28,7 @@ suite, Aphalo P. J. (2015) <doi:10.19232/uv4pb.2015.1.14>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

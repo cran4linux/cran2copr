@@ -1,9 +1,9 @@
 %global packname  DescTools
-%global packver   0.99.34
+%global packver   0.99.35
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.34
+Version:          0.99.35
 Release:          1%{?dist}
 Summary:          Tools for Descriptive Statistics
 
@@ -25,6 +25,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-base 
@@ -37,6 +38,7 @@ Requires:         R-utils
 Requires:         R-boot 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-expm 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 A collection of miscellaneous basic statistic functions and convenience
@@ -53,8 +55,8 @@ packages (which themselves might depend on other packages which are not
 needed at all), and to provide a common and consistent interface as far as
 function and arguments naming, NA handling, recycling rules etc. are
 concerned. Google style guides were used as naming rules (in absence of
-convincing alternatives). The 'camel style' was consequently applied to
-functions borrowed from contributed R packages as well.
+convincing alternatives). The 'BigCamelCase' style was consequently
+applied to functions borrowed from contributed R packages as well.
 
 %prep
 %setup -q -c -n %{packname}

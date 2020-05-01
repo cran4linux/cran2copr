@@ -1,9 +1,9 @@
 %global packname  naniar
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          Data Structures, Summaries, and Visualisations for Missing Data
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-visdat 
@@ -28,11 +28,11 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-UpSetR 
+Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-CRAN-visdat 

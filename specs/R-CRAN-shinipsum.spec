@@ -1,36 +1,43 @@
-%global packname  sjlabelled
-%global packver   1.1.4
+%global packname  shinipsum
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Labelled Data Utility Functions
+Summary:          Lorem-Ipsum Helper Function for 'shiny' Prototyping
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.7.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-attempt 
+BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-dygraphs 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.7.0
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-attempt 
+Requires:         R-datasets 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-dygraphs 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plotly 
 Requires:         R-stats 
-Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Collection of functions dealing with labelled data, like reading and
-writing data between R and other statistical software packages like
-'SPSS', 'SAS' or 'Stata', and working with labelled data. This includes
-easy ways to get, set or change value and variable label attributes, to
-convert labelled vectors into factors or numeric (and vice versa), or to
-deal with multiple declared missing values.
+Prototype your 'shiny' apps quickly with these Lorem-Ipsum helper
+functions. Generate random elements for 'shiny' outputs that can be used
+as placeholder in your application.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,9 +61,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
+%doc %{rlibdir}/%{packname}/img
 %{rlibdir}/%{packname}/INDEX

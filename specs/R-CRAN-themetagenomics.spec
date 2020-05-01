@@ -1,9 +1,9 @@
 %global packname  themetagenomics
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Exploring Thematic Structure and Predicted Functionality of 16srRNA Amplicon Data
 
@@ -46,7 +46,7 @@ abundance table, sample metadata, and taxonomy information, and
 themetagenomics infers associations between topics and sample features, as
 well as topics and predicted functional content. Functional prediction can
 be accomplished via Tax4Fun (for Silva references) and PICRUSt (for
-GreenGeenes references).
+GreenGeenes references). See <doi:10.1371/journal.pone.0219235>.
 
 %prep
 %setup -q -c -n %{packname}

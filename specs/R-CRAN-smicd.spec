@@ -1,9 +1,9 @@
 %global packname  smicd
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Statistical Methods for Interval Censored Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-laeken 
 BuildRequires:    R-CRAN-weights 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-ineq 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-lme4 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-laeken 
 Requires:         R-CRAN-weights 
+Requires:         R-graphics 
 
 %description
 Functions that provide statistical methods for interval censored (grouped)
@@ -43,12 +45,12 @@ Furthermore, the package enables the direct (without covariates)
 estimation of statistical indicators from interval censored data via an
 iterative kernel density algorithm. Survey and Organisation for Economic
 Co-operation and Development (OECD) weights can be included into the
-direct estimation (see, Groß, M., U. Rendtel, T. Schmid, S. Schmon, and N.
-Tzavidis (2017) <doi:10.1111/rssa.12179>).
+direct estimation (see, Walter, P. (2019) <doi:10.17169/refubium-1621>).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

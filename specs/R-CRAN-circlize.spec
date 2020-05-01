@@ -1,9 +1,9 @@
 %global packname  circlize
-%global packver   0.4.8
+%global packver   0.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.8
+Version:          0.4.9
 Release:          1%{?dist}
 Summary:          Circular Visualization
 
@@ -43,11 +43,14 @@ functions such that self-defined high-level graphics can be easily
 implemented by users for specific purposes. Together with the seamless
 connection between the powerful computational and visual environment in R,
 it gives users more convenience and freedom to design figures for better
-understanding complex patterns behind multiple dimensional data.
+understanding complex patterns behind multiple dimensional data. The
+package is described in Gu et al. 2014
+<doi:10.1093/bioinformatics/btu393>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,6 +58,7 @@ understanding complex patterns behind multiple dimensional data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
