@@ -1,11 +1,11 @@
-%global packname  profile
-%global packver   1.0.1
+%global packname  calcUnique
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Read, Manipulate, and Write Profiler Data
+Summary:          Simple Wrapper for Computationally Expensive Functions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,18 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-withr 
 
 %description
-Defines a data structure for profiler data, and methods to read and write
-from the 'Rprof' and 'pprof' file formats.
+This is a one-function package that will pass only unique values to a
+computationally-expensive function that returns an output of the same
+length as the input. In importing and working with tidy data, it is common
+to have index columns, often including time stamps that are far from
+unique. Some functions to work with these such as text conversion to other
+variable types (e.g. as.POSIXct()), various grep()-based functions, and
+often the cut() function are relatively slow when working with tens of
+millions of rows or more.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,8 +49,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/proto
-%doc %{rlibdir}/%{packname}/samples
 %{rlibdir}/%{packname}/INDEX

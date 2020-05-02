@@ -1,11 +1,11 @@
 %global packname  cheese
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Tools for Intuitive and Flexible Statistical Analysis Workflows
+Summary:          Tools for Working with Data During Statistical Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,39 +16,37 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-methods >= 3.4.1
+BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-tibble >= 1.4.2
 BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-knitr >= 1.20
 BuildRequires:    R-CRAN-kableExtra >= 1.0.1
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.2
 BuildRequires:    R-CRAN-tidyr >= 0.8.1
-BuildRequires:    R-CRAN-dplyr >= 0.7.7
-BuildRequires:    R-CRAN-rlang >= 0.3.0.1
+BuildRequires:    R-CRAN-rlang >= 0.4.3
+BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-forcats >= 0.3.0
-BuildRequires:    R-CRAN-purrr >= 0.2.4
-BuildRequires:    R-CRAN-tidyselect >= 0.2.4
 Requires:         R-methods >= 3.4.1
+Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-tibble >= 1.4.2
 Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-kableExtra >= 1.0.1
+Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.2
 Requires:         R-CRAN-tidyr >= 0.8.1
-Requires:         R-CRAN-dplyr >= 0.7.7
-Requires:         R-CRAN-rlang >= 0.3.0.1
+Requires:         R-CRAN-rlang >= 0.4.3
+Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-forcats >= 0.3.0
-Requires:         R-CRAN-purrr >= 0.2.4
-Requires:         R-CRAN-tidyselect >= 0.2.4
 
 %description
-Contains flexible and intuitive functions to assist in carrying out tasks
-in a statistical analysis and to get from the raw data to
-presentation-ready results. A user-friendly interface is used in
-specialized functions that are aimed at common tasks such as building a
-univariate descriptive table for variables in a dataset. These high-level
-functions are built on a collection of low(er)-level functions that may be
-useful for aspects of a custom statistical analysis workflow or for
-general programming use.
+Contains tools for working with data during statistical analysis,
+promoting flexible, intuitive, and reproducible workflows. There are
+functions designated for specific statistical tasks such building a custom
+univariate descriptive table, computing pairwise association statistics,
+etc. These are built on a collection of data manipulation tools designed
+for general use that are motivated by the functional programming concept.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  QTL.gCIMapping.GUI
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}
 Summary:          QTL Genome-Wide Composite Interval Mapping with Graphical UserInterface
 
@@ -22,7 +22,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-parcor 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-QTL.gCIMapping 
@@ -34,7 +34,7 @@ Requires:         R-methods
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-parcor 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-QTL.gCIMapping 
@@ -53,6 +53,7 @@ test. See Wen et al. (2018) <doi:10.1093/bib/bby058>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

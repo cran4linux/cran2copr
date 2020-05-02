@@ -1,9 +1,9 @@
 %global packname  BoomSpikeSlab
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}
 Summary:          MCMC for Spike and Slab Regression
 
@@ -14,8 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Boom >= 0.9.4
-Requires:         R-CRAN-Boom >= 0.9.4
+BuildRequires:    R-CRAN-Boom >= 0.9.6
+Requires:         R-CRAN-Boom >= 0.9.6
 
 %description
 Spike and slab regression with a variety of residual error distributions

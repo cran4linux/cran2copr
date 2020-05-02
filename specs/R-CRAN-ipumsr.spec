@@ -1,9 +1,9 @@
 %global packname  ipumsr
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}
 Summary:          Read 'IPUMS' Extract Files
 
@@ -14,12 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-haven >= 2.0.0
+BuildRequires:    R-CRAN-haven >= 2.2.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-hipread >= 0.2.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-raster 
@@ -30,12 +27,9 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-haven >= 2.0.0
+Requires:         R-CRAN-haven >= 2.2.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-hipread >= 0.2.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-raster 
@@ -57,6 +51,7 @@ website <https://ipums.org>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

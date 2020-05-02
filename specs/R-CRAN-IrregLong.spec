@@ -1,9 +1,9 @@
 %global packname  IrregLong
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Analysis of Longitudinal Data with Irregular Observation Times
 
@@ -35,6 +35,7 @@ Scharfstein DO, Rosenheck RA (2004)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

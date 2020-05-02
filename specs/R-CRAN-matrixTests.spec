@@ -1,9 +1,9 @@
 %global packname  matrixTests
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}
 Summary:          Fast Statistical Hypothesis Tests on Rows and Columns ofMatrices
 
@@ -27,6 +27,7 @@ is detailed and easy to use, 3) compatibility with tests implemented in R
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

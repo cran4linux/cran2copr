@@ -1,9 +1,9 @@
 %global packname  idiogramFISH
-%global packver   1.14.7
+%global packver   1.14.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14.7
+Version:          1.14.11
 Release:          1%{?dist}
 Summary:          Idiograms with Marks and Karyotype Indices
 
@@ -25,14 +25,14 @@ Requires:         R-CRAN-tidyr
 %description
 Plot idiograms of karyotypes, plasmids, circular chr. having a set of
 data.frames for chromosome data and optionally mark data. Supports
-micrometers, cM and Mb. Four styles of marks are available: square, dots,
-cM, cenStyle, upArrow, downArrow; its legend (label) can be drawn inline
-or to the right of karyotypes. Idiograms can also be plotted in concentric
-circles. It is possible to calculate chromosome indices by Levan et al.
-(1964) <doi:10.1111/j.1601-5223.1964.tb01953.x>, karyotype indices of
-Watanabe et al. (1999) <doi:10.1007/PL00013869> and Romero-Zarco (1986)
-<doi:10.2307/1221906> and classify chromosomes by morphology Guerra (1986)
-and Levan et al. (1964).
+micrometers, cM and Mb. Seven styles of marks are available: square, dots,
+cM, cMLeft, cenStyle, upArrow, downArrow; its legend (label) can be drawn
+inline or to the right of karyotypes. Idiograms can also be plotted in
+concentric circles. It is possible to calculate chromosome indices by
+Levan et al. (1964) <doi:10.1111/j.1601-5223.1964.tb01953.x>, karyotype
+indices of Watanabe et al. (1999) <doi:10.1007/PL00013869> and
+Romero-Zarco (1986) <doi:10.2307/1221906> and classify chromosomes by
+morphology Guerra (1986) and Levan et al. (1964).
 
 %prep
 %setup -q -c -n %{packname}

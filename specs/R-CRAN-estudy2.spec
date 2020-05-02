@@ -1,9 +1,9 @@
 %global packname  estudy2
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}
 Summary:          An Implementation of Parametric and Nonparametric Event Study
 
@@ -51,6 +51,7 @@ are included.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

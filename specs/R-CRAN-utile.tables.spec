@@ -1,9 +1,9 @@
 %global packname  utile.tables
-%global packver   0.1.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Build Tables for Publication
 
@@ -15,28 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-utile.tools >= 0.2.3
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-utile.tools >= 0.2.5
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-survival 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-utile.tools >= 0.2.3
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-utile.tools >= 0.2.5
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-survival 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
 
 %description
 A collection of functions to make building customized ready-to-export
 tables for publication purposes easier and creating summaries of large
-datasets for review a breeze. Includes methods for automatically building
-a table from data or building the table row-by-row.
+datasets for review a breeze.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  GGIR
-%global packver   1.11-0
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Raw Accelerometer Data Analysis
 
@@ -41,21 +41,23 @@ Requires:         R-CRAN-tuneR
 
 %description
 A tool to process and analyse data collected with wearable raw
-acceleration sensors as described in van Hees and colleagues (2014) <doi:
-10.1152/japplphysiol.00421.2014> and (2015) <doi:
+acceleration sensors as described in Migueles and colleagues (2019) <doi:
+10.1123/jmpb.2018-0063>, van Hees and colleagues (2014) <doi:
+10.1152/japplphysiol.00421.2014>, and (2015) <doi:
 10.1371/journal.pone.0142533>. The package has been developed and tested
 for binary data from 'GENEActiv' <https://www.activinsights.com/> and
 GENEA devices (not for sale), .csv-export data from 'Actigraph'
 <http://actigraphcorp.com> devices, and .cwa and .wav-format data from
-'Axivity' <https://axivity.com/product/ax3>. These devices are currently
-widely used in research on human daily physical activity. Further, the
-package can handle accelerometer data file from any other sensor brand
-providing that the data is stored in csv format and has either no header
-or a two column header.
+'Axivity' <https://axivity.com>. These devices are currently widely used
+in research on human daily physical activity. Further, the package can
+handle accelerometer data file from any other sensor brand providing that
+the data is stored in csv format and has either no header or a two column
+header. Also the package allows for external function embedding.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  hsstan
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}
 Summary:          Hierarchical Shrinkage Stan Models for Biomarker Selection
 
@@ -17,8 +17,8 @@ Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.17.2
 BuildRequires:    R-CRAN-loo >= 2.1.0
+BuildRequires:    R-CRAN-rstantools >= 2.0.0
 BuildRequires:    R-CRAN-BH >= 1.66.0.1
-BuildRequires:    R-CRAN-rstantools >= 1.5.1
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.15
 BuildRequires:    R-CRAN-ggplot2 
@@ -29,7 +29,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-loo >= 2.1.0
-Requires:         R-CRAN-rstantools >= 1.5.1
+Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-parallel 
 Requires:         R-CRAN-pROC 
@@ -51,6 +51,7 @@ sparse set of predictive biomarkers (Piironen, Paasiniemi and Vehtari
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -58,6 +59,7 @@ sparse set of predictive biomarkers (Piironen, Paasiniemi and Vehtari
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

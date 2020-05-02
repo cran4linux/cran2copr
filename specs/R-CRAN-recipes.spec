@@ -1,9 +1,9 @@
 %global packname  recipes
-%global packver   0.1.11
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}
 Summary:          Preprocessing Tools to Create Design Matrices
 

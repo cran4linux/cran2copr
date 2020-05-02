@@ -1,35 +1,36 @@
-%global packname  pancor
-%global packver   0.1.0
+%global packname  mokken
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          3.0.2
 Release:          1%{?dist}
-Summary:          Calculation and Plot of Gene Correlationship in TCGA/GTEx/CCLE
+Summary:          Conducts Mokken Scale Analysis
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-poLCA 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-graphics 
+Requires:         R-CRAN-poLCA 
+Requires:         R-CRAN-Rcpp 
 
 %description
-The data of TCGA (The Cancer Genome Atlas), GTEx (Genotype-Tissue
-Expression), and CCLE (Broad Institute Cancer Cell Line Encyclopedia) are
-downloaded and preprocessed. With the help of 'pancor', one can easily
-calculate the correlation of two gene in any cancer type. Reference:
-Huang, H. (2019) <doi:10.1038/s41586-019-1016-7>.
+Contains functions for performing Mokken scale analysis on test and
+questionnaire data (e.g., Sijtsma and Van der Ark, 2017,
+<doi:10.1111/bmsp.12078>). It includes an automated item selection
+algorithm, and various checks of model assumptions.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,4 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

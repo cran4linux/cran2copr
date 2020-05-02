@@ -1,9 +1,9 @@
 %global packname  RBaseX
-%global packver   0.2.4
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          'BaseX' Client
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-openssl
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-dplyr 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-openssl
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-data.table 
 
 %description
 'BaseX' <http://basex.org> is a XML database engine and a compliant
