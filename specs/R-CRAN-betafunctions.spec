@@ -1,13 +1,13 @@
-%global packname  MultiOrd
-%global packver   2.4.2
+%global packname  betafunctions
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Generation of Multivariate Ordinal Variates
+Summary:          Functions for Working with the Beta Probability DensityDistribution
 
-License:          GPL-2
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-psych 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-corpcor 
-Requires:         R-Matrix 
-Requires:         R-CRAN-psych 
 
 %description
-A method for multivariate ordinal data generation given marginal
-distributions and correlation matrix based on the methodology proposed by
-Demirtas (2006) <DOI:10.1080/10629360600569246>.
+Package providing a number of functions for working with the Two- and
+Four- parameter Beta distribution, including alternative parameterizations
+and calculation of moments. Includes functions for estimating
+classification accuracy and diagnostic performance statistics using what's
+known as the Livingston and Lewis approach in the educational-measurement
+literature. Livingston and Lewis (1995)
+<doi:10.1111/j.1745-3984.1995.tb00462.x>. Hanson (1991)
+<https://files.eric.ed.gov/fulltext/ED344945.pdf>. Glas, Lijmer, Prins,
+Bonsel and Bossuyt (2003) <doi:10.1016/S0895-4356(03)00177-X>.
 
 %prep
 %setup -q -c -n %{packname}

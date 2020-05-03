@@ -1,29 +1,37 @@
-%global packname  sasLM
-%global packver   0.1.3
+%global packname  eeptools
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.2.4
 Release:          1%{?dist}
-Summary:          'SAS' Linear Model
+Summary:          Convenience Functions for Education Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.15.1
+Requires:         R-core >= 2.15.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-arm 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-vcd 
+BuildRequires:    R-CRAN-maptools 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-arm 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-vcd 
+Requires:         R-CRAN-maptools 
 
 %description
-This is a core implementation of 'SAS' procedures for linear models - GLM,
-REG, and ANOVA. The well-known 'car' package provides type II and type III
-SS. However, the results of nested and complex designs are often different
-from those of 'SAS.' Different results does not necessarily mean
-incorrectness. However, many wants the same results to SAS. This package
-aims to achieve that. Reference: Littell RC, Stroup WW, Freund RJ (2002,
-ISBN:0-471-22174-0).
+Collection of convenience functions to make working with administrative
+records easier and more consistent. Includes functions to clean strings,
+and identify cut points. Also includes three example data sets of
+administrative education records for learning how to process records with
+errors.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,9 +53,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX

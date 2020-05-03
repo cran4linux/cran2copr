@@ -1,38 +1,40 @@
-%global packname  lqr
-%global packver   2.11
+%global packname  PheCAP
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11
+Version:          1.1.0
 Release:          1%{?dist}
-Summary:          Robust Linear Quantile Regression
+Summary:          High-Throughput Phenotyping with EHR using a Common AutomatedPipeline
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-RMySQL 
 Requires:         R-graphics 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-spatstat 
-Requires:         R-CRAN-numDeriv 
+Requires:         R-utils 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-RMySQL 
 
 %description
-It fits a robust linear quantile regression model using a new family of
-zero-quantile distributions for the error term. This family of
-distribution includes skewed versions of the Normal, Student's t, Laplace,
-Slash and Contaminated Normal distribution. It also performs logistic
-quantile regression for bounded responses as shown in Bottai et.al.(2009)
-<doi:10.1002/sim.3781>. It provides estimates and full inference. It also
-provides envelopes plots for assessing the fit and confidences bands when
-several quantiles are provided simultaneously.
+Implement surrogate-assisted feature extraction (SAFE) and common machine
+learning approaches to train and validate phenotyping models. Background
+and details about the methods can be found at Zhang et al. (2019)
+<doi:10.1038/s41596-019-0227-6>, Yu et al. (2017)
+<doi:10.1093/jamia/ocw135>, and Liao et al. (2015)
+<doi:10.1136/bmj.h1885>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,4 +60,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,11 +1,11 @@
 %global packname  MMDai
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}
-Summary:          Multivariate Multinomial Distribution Approximation andImputation for Incomplete Data
+Summary:          Multivariate Multinomial Distribution Approximation andImputation for Incomplete Categorical Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,31 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DirichletReg 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-DirichletReg 
 Requires:         R-stats 
 
 %description
-Missingness in categorical data is a common problem in various real
-applications. Traditional approaches either utilize only the complete
-observations or impute the missing data by some ad hoc methods rather than
-the true conditional distribution of the missing data, thus losing or
-distorting the rich information in the partial observations. This package
-develops a Bayesian nonparametric approach, the Dirichlet Process Mixture
-of Collapsed Product-Multinomials (DPMCPM, Wang et al. (2017)
-<arXiv:1712.02214v1>), to model the full data jointly and compute the
-model efficiently. By fitting an infinite mixture of product-multinomial
-distributions, DPMCPM is applicable for any categorical data regardless of
-the true distribution, which may contain complex association among
-variables. Under the framework of latent class analysis, we show that
-DPMCPM can model general missing mechanisms by creating an extra category
-to denote missingness, which implicitly integrates out the missing part
-with regard to their true conditional distribution.
+A method to impute the missingness in categorical data. Details see the
+paper <doi:10.4310/SII.2020.v13.n1.a2>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

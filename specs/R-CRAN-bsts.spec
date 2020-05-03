@@ -1,9 +1,9 @@
 %global packname  bsts
-%global packver   0.9.2
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.5
 Release:          1%{?dist}
 Summary:          Bayesian Structural Time Series
 
@@ -14,13 +14,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-BoomSpikeSlab >= 1.2.1
-BuildRequires:    R-CRAN-Boom >= 0.9.2
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-zoo >= 1.8
+BuildRequires:    R-CRAN-BoomSpikeSlab >= 1.2.3
+BuildRequires:    R-CRAN-Boom >= 0.9.6
 BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-BoomSpikeSlab >= 1.2.1
-Requires:         R-CRAN-Boom >= 0.9.2
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-zoo >= 1.8
+Requires:         R-CRAN-BoomSpikeSlab >= 1.2.3
+Requires:         R-CRAN-Boom >= 0.9.6
 Requires:         R-CRAN-xts 
 
 %description
@@ -31,6 +31,7 @@ sources.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +39,7 @@ sources.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

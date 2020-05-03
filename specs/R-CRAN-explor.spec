@@ -1,9 +1,9 @@
 %global packname  explor
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}
 Summary:          Interactive Interfaces for Results Exploration
 
@@ -16,7 +16,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.0
-BuildRequires:    R-CRAN-scatterD3 >= 0.9
+BuildRequires:    R-CRAN-scatterD3 >= 0.9.1
 BuildRequires:    R-CRAN-dplyr >= 0.7
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-tidyr 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-highr
 BuildRequires:    R-CRAN-formatR 
 BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-CRAN-shiny >= 1.0
-Requires:         R-CRAN-scatterD3 >= 0.9
+Requires:         R-CRAN-scatterD3 >= 0.9.1
 Requires:         R-CRAN-dplyr >= 0.7
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-tidyr 
@@ -41,6 +41,7 @@ exploration.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

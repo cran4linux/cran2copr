@@ -1,34 +1,38 @@
-%global packname  climate
-%global packver   0.9.4
+%global packname  mapmisc
+%global packver   1.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          1.7.8
 Release:          1%{?dist}
-Summary:          Interface to Download Meteorological (and Hydrological) Datasets
+Summary:          Utilities for Producing Maps
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-raster 
+Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Automatize downloading of meteorological and hydrological data from
-publicly available repositories: OGIMET
-(<http://ogimet.com/index.phtml.en>), University of Wyoming - atmospheric
-vertical profiling data (<http://weather.uwyo.edu/upperair>), Polish
-Institute of Meterology and Water Management - National Research Institute
-(<https://dane.imgw.pl>), and National Oceanic & Atmospheric
-Administration (NOAA). This package also allows for adding geographical
-coordinates for each observation.
+A minimal, light-weight set of tools for producing nice looking maps in R,
+with support for map projections.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,10 +56,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/extdoc
+%doc %{rlibdir}/%{packname}/extsrc
 %{rlibdir}/%{packname}/INDEX

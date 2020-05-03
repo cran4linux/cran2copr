@@ -1,33 +1,31 @@
-%global packname  Rsomoclu
-%global packver   1.7.5.3
+%global packname  tmuxr
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.5.3
+Version:          0.2.2
 Release:          1%{?dist}
-Summary:          Somoclu
+Summary:          "Manage 'tmux' Sessions, Windows, and Panes"
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-kohonen 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-kohonen 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-processx 
+Requires:         R-CRAN-processx 
 
 %description
-Somoclu is a massively parallel implementation of self-organizing maps.
-It exploits multicore CPUs and it can be accelerated by CUDA. The topology
-of the map can be planar or toroid and the grid of neurons can be
-rectangular or hexagonal . Details refer to (Peter Wittek, et al (2017))
-<doi:10.18637/jss.v078.i09>.
+Create, control, and capture 'tmux' sessions, windows, and panes using a
+pipeable API.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -44,10 +42,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

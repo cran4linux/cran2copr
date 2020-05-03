@@ -1,9 +1,9 @@
 %global packname  optimParallel
-%global packver   1.0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Parallel Version of the L-BFGS-B Optimization Method
 

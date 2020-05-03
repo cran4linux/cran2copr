@@ -1,9 +1,9 @@
 %global packname  Pareto
-%global packver   1.1.5
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          The Pareto and the Piecewise Pareto Distribution
 

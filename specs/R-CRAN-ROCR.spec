@@ -1,9 +1,9 @@
 %global packname  ROCR
-%global packver   1.0-7
+%global packver   1.0-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.11
 Release:          1%{?dist}
 Summary:          Visualizing the Performance of Scoring Classifiers
 
@@ -12,13 +12,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-gplots 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-stats 
 Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-gplots 
+Requires:         R-stats 
 
 %description
 ROC graphs, sensitivity/specificity curves, lift charts, and
@@ -39,6 +45,7 @@ commands and reasonable default values for all optional parameters.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -62,4 +69,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  rtemps
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          R Templates for Reproducible Data Analyses
 
@@ -63,4 +63,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/rmarkdown
+%doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX
