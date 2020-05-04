@@ -1,9 +1,9 @@
 %global packname  nonlinearTseries
-%global packver   0.2.8
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.9
 Release:          1%{?dist}
 Summary:          Nonlinear Time Series Analysis
 
@@ -18,7 +18,6 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-tseries 
-BuildRequires:    R-CRAN-TSA 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
@@ -27,7 +26,6 @@ Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-Matrix 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-tseries 
-Requires:         R-CRAN-TSA 
 Requires:         R-CRAN-zoo 
 Requires:         R-graphics 
 Requires:         R-stats 

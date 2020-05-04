@@ -1,9 +1,9 @@
 %global packname  extRemes
-%global packver   2.0-11
+%global packver   2.0-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.11
+Version:          2.0.12
 Release:          1%{?dist}
 Summary:          Extreme Value Analysis
 
@@ -29,6 +29,7 @@ Functions for performing extreme value analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

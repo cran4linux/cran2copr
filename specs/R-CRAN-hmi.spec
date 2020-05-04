@@ -1,9 +1,9 @@
 %global packname  hmi
-%global packver   0.9.17
+%global packver   0.9.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.17
+Version:          0.9.18
 Release:          1%{?dist}
 Summary:          Hierarchical Multiple Imputation
 
@@ -30,7 +30,6 @@ BuildRequires:    R-Matrix >= 1.2.12
 BuildRequires:    R-CRAN-lme4 >= 1.1.15
 BuildRequires:    R-CRAN-linLIR >= 1.1
 BuildRequires:    R-CRAN-mvtnorm >= 1.0.7
-BuildRequires:    R-CRAN-VGAM >= 1.0.5
 BuildRequires:    R-CRAN-pbivnorm >= 0.6.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0.1
 BuildRequires:    R-CRAN-coda >= 0.19.1
@@ -50,7 +49,6 @@ Requires:         R-Matrix >= 1.2.12
 Requires:         R-CRAN-lme4 >= 1.1.15
 Requires:         R-CRAN-linLIR >= 1.1
 Requires:         R-CRAN-mvtnorm >= 1.0.7
-Requires:         R-CRAN-VGAM >= 1.0.5
 Requires:         R-CRAN-pbivnorm >= 0.6.0
 Requires:         R-CRAN-rlang >= 0.3.0.1
 Requires:         R-CRAN-coda >= 0.19.1
@@ -66,6 +64,7 @@ routines build for this package.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

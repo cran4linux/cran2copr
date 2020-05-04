@@ -1,9 +1,9 @@
 %global packname  xrf
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          eXtreme RuleFit
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet >= 3.0
 BuildRequires:    R-CRAN-xgboost >= 0.71.2
 BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fuzzyjoin 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-glmnet >= 3.0
 Requires:         R-CRAN-xgboost >= 0.71.2
 Requires:         R-Matrix 
-Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fuzzyjoin 
 Requires:         R-CRAN-rlang 
@@ -45,6 +45,7 @@ of thousands of dimensions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -52,6 +53,7 @@ of thousands of dimensions.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

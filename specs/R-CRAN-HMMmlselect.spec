@@ -1,9 +1,9 @@
 %global packname  HMMmlselect
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Determine the Number of States in Hidden Markov Models viaMarginal Likelihood
 
@@ -19,13 +19,13 @@ BuildRequires:    R-CRAN-HiddenMarkov
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DirichletReg 
+BuildRequires:    R-CRAN-MCMCpack 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-CRAN-HiddenMarkov 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
-Requires:         R-CRAN-DirichletReg 
+Requires:         R-CRAN-MCMCpack 
 
 %description
 Provide functions to make estimate the number of states for a hidden
@@ -36,6 +36,7 @@ and a detail tutorial.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

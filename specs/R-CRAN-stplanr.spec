@@ -1,9 +1,9 @@
 %global packname  stplanr
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Sustainable Transport Planning
 
@@ -95,6 +95,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/example-flows-up-hill.R
 %{rlibdir}/%{packname}/extdata
 %doc %{rlibdir}/%{packname}/logo.R
+%doc %{rlibdir}/%{packname}/sfnetwork-routing-test.R
 %doc %{rlibdir}/%{packname}/stplanr-logo-vector-only.svg
+%doc %{rlibdir}/%{packname}/test-SpatialLinesNetwork.R
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

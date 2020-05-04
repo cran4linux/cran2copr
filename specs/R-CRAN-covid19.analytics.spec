@@ -1,9 +1,9 @@
 %global packname  covid19.analytics
-%global packver   1.0.1
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Load and Analyze Live Data from the CoViD-19 Pandemic
 
@@ -15,12 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-pheatmap 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-htmlwidgets 

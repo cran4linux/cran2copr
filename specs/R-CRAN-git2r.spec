@@ -1,9 +1,9 @@
 %global packname  git2r
-%global packver   0.26.1
+%global packver   0.27.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.26.1
+Version:          0.27.1
 Release:          1%{?dist}
 Summary:          Provides Access to Git Repositories
 
@@ -11,14 +11,11 @@ License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
+
 BuildRequires:    libgit2-devel
 BuildRequires:    zlib-devel
 BuildRequires:    openssl-devel
 BuildRequires:    libssh2-devel
-Requires:         libgit2
-Requires:         zlib
-Requires:         openssl
-Requires:         libssh2
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-graphics 
@@ -34,12 +31,15 @@ data and running some basic 'Git' commands.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
