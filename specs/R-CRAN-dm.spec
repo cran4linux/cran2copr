@@ -1,9 +1,9 @@
 %global packname  dm
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Relational Data Models
 
@@ -15,36 +15,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 2.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-DT >= 0.5
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-vctrs >= 0.2.0
 BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-DT >= 0.5
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-vctrs >= 0.2.0
 Requires:         R-CRAN-backports 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-memoise 
 Requires:         R-methods 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 

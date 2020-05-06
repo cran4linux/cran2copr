@@ -1,9 +1,9 @@
 %global packname  foghorn
-%global packver   1.1.5
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Summarize CRAN Check Results in the Terminal
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-httr >= 1.2.1
 BuildRequires:    R-CRAN-tibble >= 1.2
 BuildRequires:    R-CRAN-clisymbols >= 1.0.0
 BuildRequires:    R-CRAN-xml2 >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.3
 BuildRequires:    R-CRAN-rvest >= 0.3.2
 Requires:         R-CRAN-curl >= 2.2
 Requires:         R-CRAN-jsonlite >= 1.5
@@ -30,6 +31,7 @@ Requires:         R-CRAN-httr >= 1.2.1
 Requires:         R-CRAN-tibble >= 1.2
 Requires:         R-CRAN-clisymbols >= 1.0.0
 Requires:         R-CRAN-xml2 >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.3
 Requires:         R-CRAN-rvest >= 0.3.2
 
 %description

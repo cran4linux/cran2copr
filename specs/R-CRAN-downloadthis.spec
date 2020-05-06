@@ -1,9 +1,9 @@
 %global packname  downloadthis
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Implement Download Buttons in 'rmarkdown'
 
@@ -23,8 +23,7 @@ BuildRequires:    R-CRAN-mime
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-writexl 
@@ -33,8 +32,7 @@ Requires:         R-CRAN-mime
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-zip 
 
 %description
 Implement download buttons in HTML output from 'rmarkdown' without the
@@ -65,5 +63,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/assets
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/example
 %{rlibdir}/%{packname}/INDEX

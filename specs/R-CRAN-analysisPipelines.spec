@@ -1,9 +1,9 @@
 %global packname  analysisPipelines
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Compose Interoperable Analysis Pipelines & Put Them inProduction
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-futile.logger
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-proto 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-devtools 
 Requires:         R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pipeR 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-futile.logger
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-proto 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-devtools 
 
 %description
 Enables data scientists to compose pipelines of analysis which consist of
@@ -60,6 +58,7 @@ SPARK_HOME=/path/to/spark/directory && cd $SPARK_HOME/R/lib/SparkR/ && R
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -67,6 +66,7 @@ SPARK_HOME=/path/to/spark/directory && cd $SPARK_HOME/R/lib/SparkR/ && R
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -85,8 +85,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/param-icon.png
 %doc %{rlibdir}/%{packname}/pipelineViz1.png
 %doc %{rlibdir}/%{packname}/pipelineViz2.png
-%doc %{rlibdir}/%{packname}/python
-%doc %{rlibdir}/%{packname}/python-logo.png
+%{rlibdir}/%{packname}/python
+%{rlibdir}/%{packname}/python-logo.png
 %doc %{rlibdir}/%{packname}/r-logo.png
 %doc %{rlibdir}/%{packname}/report.Rmd
 %doc %{rlibdir}/%{packname}/report1.png

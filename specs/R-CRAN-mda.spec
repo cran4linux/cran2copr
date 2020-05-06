@@ -1,9 +1,9 @@
 %global packname  mda
-%global packver   0.4-10
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.5
 Release:          1%{?dist}
 Summary:          Mixture and Flexible Discriminant Analysis
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.9.0
-Requires:         R-core >= 1.9.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-class 
 Requires:         R-stats 
@@ -21,11 +21,14 @@ Requires:         R-class
 
 %description
 Mixture and flexible discriminant analysis, multivariate adaptive
-regression splines (MARS), BRUTO, ...
+regression splines (MARS), BRUTO, and vector-response smoothing splines.
+Hastie, Tibshirani and Friedman (2009) "Elements of Statistical Learning
+(second edition, chap 12)" Springer, New York.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,5 +49,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/mda-source.zip
+%doc %{rlibdir}/%{packname}/ratfor
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

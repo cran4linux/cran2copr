@@ -1,9 +1,9 @@
 %global packname  dispRity
-%global packver   1.3.5
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Measuring Disparity
 
@@ -17,6 +17,7 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ade4 
+BuildRequires:    R-CRAN-castor 
 BuildRequires:    R-CRAN-Claddis 
 BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-CRAN-geometry 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-vegan
 Requires:         R-CRAN-ape 
 Requires:         R-stats 
 Requires:         R-CRAN-ade4 
+Requires:         R-CRAN-castor 
 Requires:         R-CRAN-Claddis 
 Requires:         R-CRAN-geiger 
 Requires:         R-CRAN-geometry 
@@ -46,20 +48,21 @@ Requires:         R-utils
 Requires:         R-CRAN-vegan 
 
 %description
-A modular package for measuring disparity from multidimensional matrices.
-Disparity can be calculated from any matrix defining a multidimensional
-space. The package provides a set of implemented metrics to measure
-properties of the space and allows users to provide and test their own
-metrics (Guillerme (2018) <doi:10.1111/2041-210X.13022>). The package also
-provides functions for looking at disparity in a serial way (e.g.
-disparity through time - Guillerme and Cooper (2018)
+A modular package for measuring disparity (multidimensional space
+occupancy). Disparity can be calculated from any matrix defining a
+multidimensional space. The package provides a set of implemented metrics
+to measure properties of the space and allows users to provide and test
+their own metrics (Guillerme (2018) <doi:10.1111/2041-210X.13022>). The
+package also provides functions for looking at disparity in a serial way
+(e.g. disparity through time - Guillerme and Cooper (2018)
 <doi:10.1111/pala.12364>) or per groups as well as visualising the
-results. Finally, this package provides several basic statistical tests
-for disparity analysis.
+results. Finally, this package provides several statistical tests for
+disparity analysis.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

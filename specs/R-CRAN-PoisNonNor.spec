@@ -1,9 +1,9 @@
 %global packname  PoisNonNor
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}
 Summary:          Simultaneous Generation of Count and Continuous Data
 
@@ -26,11 +26,13 @@ Requires:         R-Matrix
 
 %description
 Generation of count (assuming Poisson distribution) and continuous data
-(using Fleishman polynomials) simultaneously.
+(using Fleishman polynomials) simultaneously. The details of the method
+are explained in Demirtas et al. (2012) <DOI:10.1002/sim.5362>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

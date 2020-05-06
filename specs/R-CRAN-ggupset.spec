@@ -1,9 +1,9 @@
 %global packname  ggupset
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Combination Matrix Axis for 'ggplot2' to Create 'UpSet' Plots
 

@@ -1,9 +1,9 @@
 %global packname  Sim.DiffProc
-%global packver   4.5
+%global packver   4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5
+Version:          4.6
 Release:          1%{?dist}
 Summary:          Simulation of Diffusion Processes
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.1
-Requires:         R-core >= 2.15.1
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildRequires:    R-MASS >= 7.3.30
 BuildRequires:    R-CRAN-Deriv >= 3.8
 BuildRequires:    R-parallel 

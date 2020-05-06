@@ -1,9 +1,9 @@
 %global packname  gss
-%global packver   2.1-12
+%global packver   2.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.12
+Version:          2.2.0
 Release:          1%{?dist}
 Summary:          General Smoothing Splines
 

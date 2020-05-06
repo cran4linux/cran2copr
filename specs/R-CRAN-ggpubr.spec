@@ -1,9 +1,9 @@
 %global packname  ggpubr
-%global packver   0.2.5
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          'ggplot2' Based Publication Ready Plots
 
@@ -16,8 +16,8 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.7.1
+BuildRequires:    R-CRAN-rstatix >= 0.4.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggsci 
@@ -32,9 +32,11 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr >= 0.7.1
+Requires:         R-CRAN-rstatix >= 0.4.0
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 
 Requires:         R-CRAN-ggsci 
@@ -49,6 +51,8 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
 
 %description
 The 'ggplot2' package is excellent and flexible for elegant data

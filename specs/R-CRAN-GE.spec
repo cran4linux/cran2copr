@@ -1,9 +1,9 @@
 %global packname  GE
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}
 Summary:          General Equilibrium Modeling
 
@@ -19,12 +19,10 @@ BuildRequires:    R-CRAN-CGE
 BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-CGE 
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-graphics 
-Requires:         R-CRAN-stringr 
 
 %description
 Some tools for developing general equilibrium models and some general

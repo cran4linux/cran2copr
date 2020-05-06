@@ -1,9 +1,9 @@
 %global packname  unmarked
-%global packver   0.13-2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.2
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Models for Data from Unmarked Animals
 
@@ -18,10 +18,10 @@ Requires:         R-core >= 2.12.0
 BuildRequires:    R-CRAN-Rcpp >= 0.8.0
 BuildRequires:    R-methods 
 BuildRequires:    R-lattice 
-BuildRequires:    R-parallel 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-Matrix 
@@ -30,10 +30,10 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rcpp >= 0.8.0
 Requires:         R-methods 
 Requires:         R-lattice 
-Requires:         R-parallel 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-parallel 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-raster 
 Requires:         R-Matrix 

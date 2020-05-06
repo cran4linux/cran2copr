@@ -1,9 +1,9 @@
 %global packname  RNetCDF
-%global packver   2.1-1
+%global packver   2.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.3.1
 Release:          1%{?dist}
 Summary:          Interface to 'NetCDF' Datasets
 
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    netcdf-devel udunits2-devel
-Requires:         netcdf udunits2
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 
@@ -26,6 +25,7 @@ time units are enabled by 'UDUNITS' version 2, also from Unidata.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

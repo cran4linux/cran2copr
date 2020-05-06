@@ -1,9 +1,9 @@
 %global packname  graph4lg
-%global packver   0.3.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Build Graphs for Landscape Genetics Analysis
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-adegenet 
-BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-Matrix 
@@ -25,23 +24,19 @@ BuildRequires:    R-CRAN-vegan
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pegas 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-doBy 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-Imap 
 BuildRequires:    R-CRAN-diveRsity 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-foreign 
 BuildRequires:    R-CRAN-ecodist 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-adegenet 
-Requires:         R-CRAN-ade4 
 Requires:         R-stats 
 Requires:         R-CRAN-spatstat 
 Requires:         R-Matrix 
@@ -49,19 +44,16 @@ Requires:         R-CRAN-vegan
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-pegas 
-Requires:         R-CRAN-Rdpack 
 Requires:         R-MASS 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-doBy 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-Imap 
 Requires:         R-CRAN-diveRsity 
 Requires:         R-CRAN-raster 
+Requires:         R-foreign 
 Requires:         R-CRAN-ecodist 
 
 %description

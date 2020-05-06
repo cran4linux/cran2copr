@@ -1,9 +1,9 @@
 %global packname  meta
-%global packver   4.11-0
+%global packver   4.12-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.11.0
+Version:          4.12.0
 Release:          1%{?dist}
 Summary:          General Package for Meta-Analysis
 
@@ -31,10 +31,10 @@ and supporting Schwarzer, Carpenter, and Rücker
 effect and random effects meta-analysis; - several plots (forest, funnel,
 Galbraith / radial, L'Abbe, Baujat, bubble); - statistical tests and
 trim-and-fill method to evaluate bias in meta-analysis; - import data from
-'RevMan 5'; - prediction interval, Hartung-Knapp and Paule-Mandel method
-for random effects model; - cumulative meta-analysis and leave-one-out
-meta-analysis; - meta-regression; - generalised linear mixed models; -
-produce forest plot summarising several (subgroup) meta-analyses.
+'RevMan 5'; - prediction interval, Hartung-Knapp method for random effects
+model; - cumulative meta-analysis and leave-one-out meta-analysis; -
+meta-regression; - generalised linear mixed models; - produce forest plot
+summarising several (subgroup) meta-analyses.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,7 +59,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/COPYRIGHTS

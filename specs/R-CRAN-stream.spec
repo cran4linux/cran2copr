@@ -1,9 +1,9 @@
 %global packname  stream
-%global packver   1.3-1
+%global packver   1.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}
 Summary:          Infrastructure for Data Stream Mining
 
@@ -47,11 +47,13 @@ Requires:         R-utils
 %description
 A framework for data stream modeling and associated data mining tasks such
 as clustering and classification. The development of this package was
-supported in part by NSF IIS-0948893 and NIH R21HG005912.
+supported in part by NSF IIS-0948893 and NIH R21HG005912. Hahsler et al
+(2017) <doi:10.18637/jss.v076.i14>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

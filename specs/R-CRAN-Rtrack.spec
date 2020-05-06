@@ -1,9 +1,9 @@
 %global packname  Rtrack
-%global packver   0.9.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Spatial Navigation Strategy Analysis
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-KernSmooth 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-openxlsx 
@@ -35,6 +36,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-crayon 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-Hmisc 
 Requires:         R-KernSmooth 
 Requires:         R-methods 
 Requires:         R-CRAN-openxlsx 
@@ -59,6 +61,7 @@ for path classification.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -78,5 +81,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

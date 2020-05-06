@@ -1,11 +1,11 @@
 %global packname  NHSRdatasets
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          NHS and Healthcare Related Data for Education and Training
+Summary:          NHS and Healthcare-Related Data for Education and Training
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
 Free United Kingdom National Health Service (NHS) and other healthcare, or
@@ -27,6 +29,7 @@ the NHS-R community: <https://nhsrcommunity.com/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

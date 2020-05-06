@@ -1,9 +1,9 @@
 %global packname  npreg
-%global packver   1.0-1
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Nonparametric Regression
 
@@ -18,14 +18,16 @@ BuildArch:        noarch
 
 %description
 Multiple and generalized nonparametric regression using smoothing spline
-ANOVA models and generalized additive models. Includes support for
-Gaussian and non-Gaussian responses, smoothers for multiple types of
-predictors, interactions between smoothers of mixed types, and eight
-different methods for smoothing parameter selection.
+ANOVA models and generalized additive models, as described in Helwig
+(2020) <doi:10.4135/9781526421036885885>. Includes support for Gaussian
+and non-Gaussian responses, smoothers for multiple types of predictors,
+interactions between smoothers of mixed types, and eight different methods
+for smoothing parameter selection.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

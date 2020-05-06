@@ -1,9 +1,9 @@
 %global packname  DescriptiveStats.OBeu
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}
 Summary:          Descriptive Statistics 'OpenBudgets.eu'
 
@@ -39,13 +39,14 @@ statistical measures in budget data of municipalities across Europe,
 according to the 'OpenBudgets.eu' data model. There are functions for
 measuring central tendency and dispersion of amount variables along with
 their distributions and correlations and the frequencies of categorical
-variables for a given dataset. Also, can be used generally to extract
-visualization parameters, convert them to 'JSON' format and use them as
-input in a different graphical interface.
+variables for a given dataset. Also, can be used generally to other
+datasets, to extract visualization parameters, convert them to 'JSON'
+format and use them as input in a different graphical interface.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -53,6 +54,7 @@ input in a different graphical interface.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

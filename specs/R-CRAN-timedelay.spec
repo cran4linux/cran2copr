@@ -1,9 +1,9 @@
 %global packname  timedelay
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}
 Summary:          Time Delay Estimation for Stochastic Time Series ofGravitationally Lensed Quasars
 
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.51.6
+BuildRequires:    R-MASS >= 7.3.51.3
 BuildRequires:    R-CRAN-mvtnorm >= 1.0.11
-Requires:         R-MASS >= 7.3.51.6
+Requires:         R-MASS >= 7.3.51.3
 Requires:         R-CRAN-mvtnorm >= 1.0.11
 
 %description

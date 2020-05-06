@@ -1,9 +1,9 @@
 %global packname  formulaic
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}
 Summary:          Dynamic Generation and Quality Checks of Formula Objects
 
@@ -12,15 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-data.table 
-Requires:         R-stats 
-Requires:         R-CRAN-DT 
 
 %description
 Many statistical models and analyses in R are implemented through formula
@@ -39,6 +35,7 @@ and useful information to guide an investigation of the data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

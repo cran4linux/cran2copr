@@ -1,9 +1,9 @@
 %global packname  importinegi
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}
 Summary:          Download and Manage Open Data from INEGI
 

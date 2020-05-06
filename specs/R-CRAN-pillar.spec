@@ -1,9 +1,9 @@
 %global packname  pillar
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}
 Summary:          Coloured Formatting for Columns
 
@@ -35,6 +35,7 @@ of data using the full range of colours provided by modern terminals.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

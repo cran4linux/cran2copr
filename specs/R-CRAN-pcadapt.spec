@@ -1,9 +1,9 @@
 %global packname  pcadapt
-%global packver   4.3.1
+%global packver   4.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.1
+Version:          4.3.3
 Release:          1%{?dist}
 Summary:          Fast Principal Component Analysis for Outlier Detection
 
@@ -58,10 +58,13 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/shiny-examples
 %{rlibdir}/%{packname}/testdata
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
