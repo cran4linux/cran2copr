@@ -1,39 +1,32 @@
-%global packname  mmabig
-%global packver   2.0-0
+%global packname  dashHtmlComponents
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.3
 Release:          1%{?dist}
-Summary:          Multiple Mediation Analysis for Big Data Sets
+Summary:          Vanilla HTML Components for 'Dash'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.1
-Requires:         R-core >= 2.14.1
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-mma 
-BuildRequires:    R-splines 
-BuildRequires:    R-survival 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-gplots 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-mma 
-Requires:         R-splines 
-Requires:         R-survival 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-gplots 
 
 %description
-Used for general multiple mediation analysis with big data sets.
+'Dash' is a web application framework that provides pure Python and R
+abstraction around HTML, CSS, and JavaScript. Instead of writing HTML or
+using an HTML templating engine, you compose your layout using R functions
+within the 'dashHtmlComponents' package. The source for this package is on
+GitHub: plotly/dash-html-components.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -51,7 +44,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/deps
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  bioacoustics
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Analyse Audio Recordings and Automatically Extract AnimalVocalizations
 
@@ -16,8 +16,6 @@ BuildRequires:    cmake
 BuildRequires:    make
 BuildRequires:    fftw-devel
 BuildRequires:    soxr-devel
-Requires:         fftw
-Requires:         soxr
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-tuneR >= 1.3.0

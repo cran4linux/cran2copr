@@ -1,9 +1,9 @@
 %global packname  ryandexdirect
-%global packver   3.2.2
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.5.0
 Release:          1%{?dist}
 Summary:          Load Data From 'Yandex Direct'
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-bitops 
@@ -24,6 +25,9 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-bitops 
@@ -33,6 +37,8 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
 
 %description
 Load data from 'Yandex Direct' API V5
@@ -46,6 +52,7 @@ keyword bids management.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

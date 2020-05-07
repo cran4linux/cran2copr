@@ -1,35 +1,40 @@
-%global packname  GWAF
-%global packver   2.2
+%global packname  bpDir
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Genome-Wide Association/Interaction Analysis and Rare VariantAnalysis with Family Data
+Summary:          Boxplots for Directional Data
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.1
-Requires:         R-core >= 2.15.1
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-CRAN-coxme 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-geepack 
-Requires:         R-CRAN-coxme 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-MASS 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-circular 
+Requires:         R-CRAN-plotrix 
+Requires:         R-MASS 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Functions for genome-wide association/interaction analysis and rare
-variant analysis on a continuous/dichotomous trait using family data, and
-for making genome-wide p-value plot and QQ plot.
+Functions for drawing boxplots for data on (the boundary of) a unit circle
+(i.e., circular and axial data), from Buttarazzi D., Pandolfo G., Porzio
+G.C. (2018) <doi:10.1111/biom.12889>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,5 +54,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

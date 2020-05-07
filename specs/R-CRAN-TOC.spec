@@ -1,19 +1,19 @@
 %global packname  TOC
-%global packver   0.0-4
+%global packver   0.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          Total Operating Characteristic Curve and ROC Curve
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-bit 
@@ -41,13 +41,13 @@ generates a two-by-two contingency table, which contains four entries:
 hits (H), misses (M), false alarms (FA), and correct rejections (CR).
 While ROC shows for each threshold only two ratios, H/(H + M) and FA/(FA +
 CR), TOC reveals the size of every entry in the contingency table for each
-threshold (Pontius Jr., R.G., Si, K. 2014. The total operating
-characteristic to measure diagnostic ability for multiple thresholds. Int.
-J. Geogr. Inf. Sci. 28 (3), 570-583).
+threshold (Pontius Jr., R.G., Si, K. 2014.
+<doi:10.1080/13658816.2013.862623>).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,6 +55,7 @@ J. Geogr. Inf. Sci. 28 (3), 570-583).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

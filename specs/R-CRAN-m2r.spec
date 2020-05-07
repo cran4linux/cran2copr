@@ -1,11 +1,11 @@
 %global packname  m2r
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Macaulay2 in R
+Summary:          Interface to 'Macaulay2'
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,25 +14,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-mpoly >= 1.0.5
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-mpoly >= 1.0.5
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-pryr 
 Requires:         R-CRAN-gmp 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Persistent interface to Macaulay2 (<http://www.math.uiuc.edu/Macaulay2/>)
-and front-end tools facilitating its use in the R ecosystem.
+Persistent interface to 'Macaulay2' <http://www.math.uiuc.edu/Macaulay2/>
+and front-end tools facilitating its use in the 'R' ecosystem.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -51,6 +53,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/server
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

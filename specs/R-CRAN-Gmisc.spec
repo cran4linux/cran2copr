@@ -1,9 +1,9 @@
 %global packname  Gmisc
-%global packver   1.9.2
+%global packver   1.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.2
+Version:          1.10.0
 Release:          1%{?dist}
 Summary:          Descriptive Statistics, Transition Plots, and More
 
@@ -16,40 +16,46 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-htmlTable >= 1.13
 BuildRequires:    R-CRAN-Rcpp >= 0.11.4
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-forestplot 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-lattice 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-forestplot 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-htmlTable >= 1.13
 Requires:         R-CRAN-Rcpp >= 0.11.4
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-forestplot 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-glue 
 Requires:         R-grid 
 Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-lattice 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-forestplot 
-Requires:         R-CRAN-abind 
-Requires:         R-methods 
 Requires:         R-CRAN-knitr 
+Requires:         R-lattice 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-XML 
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-stringr 
 
 %description
 Tools for making the descriptive "Table 1" used in medical articles, a

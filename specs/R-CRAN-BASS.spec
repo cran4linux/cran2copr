@@ -1,9 +1,9 @@
 %global packname  BASS
-%global packver   0.2.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Bayesian Adaptive Spline Surfaces
 
@@ -14,6 +14,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-truncdist 
+BuildRequires:    R-CRAN-gsl 
+Requires:         R-CRAN-truncdist 
+Requires:         R-CRAN-gsl 
 
 %description
 Bayesian fitting and sensitivity analysis methods for adaptive spline
@@ -24,6 +29,7 @@ Mallick and Smith (1998) <doi:10.1023/A:1008824606259>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -31,6 +37,7 @@ Mallick and Smith (1998) <doi:10.1023/A:1008824606259>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -44,5 +51,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples.R
+%doc %{rlibdir}/%{packname}/examplesPCA.R
+%doc %{rlibdir}/%{packname}/testf1.R
+%doc %{rlibdir}/%{packname}/testf2.R
+%doc %{rlibdir}/%{packname}/testf3.R
+%doc %{rlibdir}/%{packname}/testf4.R
+%doc %{rlibdir}/%{packname}/testf5.R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

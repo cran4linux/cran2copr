@@ -1,9 +1,9 @@
 %global packname  sjstats
-%global packver   0.17.9
+%global packver   0.18.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.9
+Version:          0.18.0
 Release:          1%{?dist}
 Summary:          Collection of Convenient Functions for Common StatisticalComputations
 
@@ -67,6 +67,7 @@ standard error, mean, t-test, correlation, and more.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -89,5 +90,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

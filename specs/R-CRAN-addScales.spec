@@ -1,36 +1,39 @@
-%global packname  nspmix
-%global packver   1.4-0
+%global packname  addScales
+%global packver   0.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.5
 Release:          1%{?dist}
-Summary:          Nonparametric and Semiparametric Mixture Estimation
+Summary:          Adds Labeled Center Line and Scale Lines to Trellis Plots
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lsei 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-lattice >= 0.20.38
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-lsei 
-Requires:         R-graphics 
-Requires:         R-methods 
+BuildRequires:    R-grDevices 
+Requires:         R-lattice >= 0.20.38
+Requires:         R-grid 
 Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-Contains functions for maximum likelihood estimation of nonparametric and
-semiparametric mixture models.
+Modifies trellis objects by adding horizontal and/or vertical reference
+lines that provide visual scaling information. This is mostly useful in
+multi-panel plots that use the relation = 'free' option in their 'scales'
+argument list.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,6 +52,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

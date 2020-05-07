@@ -1,9 +1,9 @@
 %global packname  ioanalysis
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Input Output Analysis
 
@@ -17,8 +17,12 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-utils 
 
 %description
 Calculates fundamental IO matrices (Leontief, Wassily W. (1951)

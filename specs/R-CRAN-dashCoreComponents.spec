@@ -1,28 +1,26 @@
-%global packname  npsurv
-%global packver   0.4-0.1
+%global packname  dashCoreComponents
+%global packver   1.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0.1
+Version:          1.10.0
 Release:          1%{?dist}
-Summary:          Nonparametric Survival Analysis
+Summary:          Core Interactive UI Components for 'Dash'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lsei 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-lsei 
-Requires:         R-methods 
 
 %description
-Contains functions for non-parametric survival analysis of exact and
-interval-censored observations.
+'Dash' ships with supercharged components for interactive user interfaces.
+A core set of components, written and maintained by the 'Dash' team, is
+available in the 'dashCoreComponents' package. The source for this package
+is on GitHub: plotly/dash-core-components.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,8 +42,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/deps
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

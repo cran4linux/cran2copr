@@ -1,9 +1,9 @@
 %global packname  DFA.CANCOR
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}
 Summary:          Linear Discriminant Function and Canonical Correlation Analysis
 
@@ -18,12 +18,10 @@ BuildArch:        noarch
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-MVN 
 BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 Requires:         R-MASS 
 Requires:         R-CRAN-MVN 
 Requires:         R-graphics 
-Requires:         R-utils 
 Requires:         R-stats 
 
 %description
@@ -35,6 +33,7 @@ ISBN-10:0-205-89081-4), and Venables & Ripley (2002, ISBN:0-387-95457-0).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,27 +1,32 @@
-%global packname  lsei
-%global packver   1.2-0.1
+%global packname  presser
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0.1
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Solving Least Squares or Quadratic Programming Problems underEquality/Inequality Constraints
+Summary:          Lightweight Web Server for Testing
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-It contains functions that solve least squares linear regression problems
-under linear equality/inequality constraints. Functions for solving
-quadratic programming problems are also available, which transform such
-problems into least squares ones first. It is developed based on the
-'Fortran' program of Lawson and Hanson (1974, 1995), which is public
-domain and available at <http://www.netlib.org/lawson-hanson>.
+Create a web app that makes it easier to test web clients without using
+the internet. It includes a web app framework with path matching and
+parameters and templates. Can parse various 'HTTP' request bodies. Can
+send 'JSON' data or files from the disk. Includes a web app that
+implements the <https://httpbin.org> web service.
 
 %prep
 %setup -q -c -n %{packname}
@@ -31,7 +36,7 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 
@@ -44,7 +49,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/credits
+%doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

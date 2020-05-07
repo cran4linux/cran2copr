@@ -1,9 +1,9 @@
 %global packname  fplyr
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Apply Functions to Blocks of Files
 
@@ -25,7 +25,8 @@ Requires:         R-CRAN-iotools >= 0.2.5
 %description
 Read and process a large delimited file block by block. A block consists
 of all the contiguous rows that have the same value in the first field.
-The result can be saved as a list or printed to an output file.
+The result can be returned as a list or a data.table, or even directly
+printed to an output file.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,5 +52,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

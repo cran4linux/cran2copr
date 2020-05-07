@@ -1,9 +1,9 @@
 %global packname  renv
-%global packver   0.9.3
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.10.0
 Release:          1%{?dist}
 Summary:          Project Environments
 
@@ -50,6 +50,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/config.yml
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/resources
 %{rlibdir}/%{packname}/INDEX

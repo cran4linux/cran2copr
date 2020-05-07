@@ -1,9 +1,9 @@
 %global packname  backShift
-%global packver   0.1.4.2
+%global packver   0.1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.2
+Version:          0.1.4.3
 Release:          1%{?dist}
 Summary:          Learning Causal Cyclic Graphs from Unknown Shift Interventions
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mvnmle 
 BuildRequires:    R-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-clue 
@@ -28,7 +27,6 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mvnmle 
 Requires:         R-MASS 
 
 %description
@@ -41,6 +39,7 @@ different shift interventions are available. For more details, see
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -48,6 +47,7 @@ different shift interventions are available. For more details, see
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

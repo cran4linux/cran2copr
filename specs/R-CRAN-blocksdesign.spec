@@ -1,11 +1,11 @@
 %global packname  blocksdesign
-%global packver   3.9
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9
+Version:          4.0
 Release:          1%{?dist}
-Summary:          Nested and Crossed Block Designs for Factorial, FractionalFactorial and Unstructured Treatment Sets
+Summary:          Nested and Crossed Block Designs for Factorial and UnstructuredTreatment Sets
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,18 +23,18 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-PolynomF 
 
 %description
-Constructs D-optimal or near D-optimal nested and crossed block designs
-for unstructured or general factorial treatment designs. The treatment
-design, if required, is found from a model matrix design formula and can
-be added sequentially, if required. The block design is found from a
-defined set of block factors and is conditional on the defined treatment
-design. The block factors are added in sequence and each added block
-factor is optimized conditional on all previously added block factors. The
-block design can have repeated nesting down to any required depth of
-nesting with either simple nested blocks or crossed blocks at each level
-of nesting. Outputs include a table showing the allocation of treatments
-to blocks and tables showing the achieved D-efficiency factors for each
-block and treatment design.
+Constructs D-optimal or near D-optimal treatment and block designs for
+linear treatment models with crossed or nested block factors. The
+treatment design can be any arbitrary linear model defined by a treatment
+model formula and the block design can be any feasible combination of
+crossed or nested block factors. The block design factors are optimized
+sequentially and the levels of each successive block factor are optimized
+within the levels of each preceding block factor. Crossed block designs
+with non-singular interaction effects are optimized using a weighting
+scheme that allows for differential weighting of first and second-order
+block effects. Outputs include a table showing the allocation of
+treatments to blocks and tables showing the achieved D-efficiency factors
+for each block and treatment design.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  ds4psy
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Data Science for Psychologists
 
@@ -15,19 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-unikn 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-unikn 
 
 %description
@@ -70,4 +62,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/images
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  AzureContainers
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Interface to 'Container Instances', 'Docker Registry' and'Kubernetes' in 'Azure'
 

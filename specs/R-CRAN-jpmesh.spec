@@ -1,9 +1,9 @@
 %global packname  jpmesh
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Utilities for Japanese Mesh Code
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-tibble >= 1.3.4
 BuildRequires:    R-CRAN-leaflet >= 1.1.0
 BuildRequires:    R-CRAN-shiny >= 1.0.5
 BuildRequires:    R-CRAN-sf >= 0.5.5
@@ -24,8 +24,8 @@ BuildRequires:    R-CRAN-units >= 0.5.1
 BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-rlang >= 0.1.4
 BuildRequires:    R-CRAN-miniUI >= 0.1.1
+Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-tibble >= 1.3.4
 Requires:         R-CRAN-leaflet >= 1.1.0
 Requires:         R-CRAN-shiny >= 1.0.5
 Requires:         R-CRAN-sf >= 0.5.5

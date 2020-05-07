@@ -1,9 +1,9 @@
 %global packname  conquer
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Convolution-Type Smoothed Quantile Regression
 
@@ -15,10 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-Matrix 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-stats 
 

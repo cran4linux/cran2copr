@@ -1,9 +1,9 @@
 %global packname  tracerer
-%global packver   2.0.2
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1
 Release:          1%{?dist}
 Summary:          Tracer from R
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-testit 
 
 %description
-'BEAST2' (<http://www.beast2.org>) is a widely used Bayesian phylogenetic
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
 tool, that uses DNA/RNA/protein data and many model priors to create a
 posterior of jointly estimated phylogenies and parameters. 'Tracer'
 (<http://tree.bio.ed.ac.uk/software/tracer/>) is a GUI tool to parse and
@@ -33,6 +33,7 @@ using R function calls instead.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
