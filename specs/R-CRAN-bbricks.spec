@@ -1,9 +1,9 @@
 %global packname  bbricks
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Bayesian Methods and Graphical Model Structures for StatisticalModeling
 
@@ -17,7 +17,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-A class of frequently used Bayesian parametric and nonparametric model
+A set of frequently used Bayesian parametric and nonparametric model
 structures, as well as a set of tools for common analytical tasks.
 Structures include linear Gaussian systems, Gaussian and
 Normal-Inverse-Wishart conjugate structure, Gaussian and
@@ -27,11 +27,8 @@ Process in general, Hierarchical Dirichlet Process ... Tasks include
 updating posteriors, sampling from posteriors, calculating marginal
 likelihood, calculating posterior predictive densities, sampling from
 posterior predictive distributions, calculating "Maximum A Posteriori"
-(MAP) estimates ... See Murphy (2012, <doi:10.1080/09332480.2014.914768>),
-Koller and Friedman (2009, <doi:10.1017/s0269888910000275>) and Andrieu,
-de Freitas, Doucet and Jordan (2003, <doi:10.1023/A:1020281327116>) for
-more information. See <https://chenhaotian.github.io/Bayesian-Bricks/> to
-get started.
+(MAP) estimates ... See <https://chenhaotian.github.io/Bayesian-Bricks/>
+to get started.
 
 %prep
 %setup -q -c -n %{packname}

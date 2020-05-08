@@ -1,38 +1,31 @@
-%global packname  qCBA
-%global packver   0.4
+%global packname  cfmortality
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.3.0
 Release:          1%{?dist}
-Summary:          Quantitative Classification by Association Rules
+Summary:          Cystic Fibrosis Survival Prediction Model Based on StanojevicModel
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arc >= 1.1
-BuildRequires:    R-CRAN-rJava >= 0.5.0
-BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-arc >= 1.1
-Requires:         R-CRAN-rJava >= 0.5.0
-Requires:         R-CRAN-arules 
-Requires:         R-methods 
 
 %description
-CBA postprocessing algorithm that creates smaller models for datasets
-containing quantitative (numerical) attributes. Article describing QCBA is
-published in Tomas Kliegr (2017) <arXiv:1711.10166>.
+Allows clinicians to predict survival probabilities over the next two
+years for cystic fibrosis patients, based on the clinical prediction
+models published in Stanojevic et al. (2019)
+<doi:10.1183/13993003.00224-2019>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -51,7 +44,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/java
 %{rlibdir}/%{packname}/INDEX

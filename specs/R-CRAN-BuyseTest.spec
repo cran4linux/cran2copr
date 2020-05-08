@@ -1,9 +1,9 @@
 %global packname  BuyseTest
-%global packver   2.1.0
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.3
 Release:          1%{?dist}
 Summary:          Generalized Pairwise Comparisons
 
@@ -80,5 +80,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/testthat2.R
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,26 +1,34 @@
-%global packname  tmuxr
-%global packver   0.2.3
+%global packname  secret
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.1.0
 Release:          1%{?dist}
-Summary:          Manage 'tmux' Sessions, Windows, and Panes
+Summary:          Share Sensitive Information in R Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-processx 
-Requires:         R-CRAN-processx 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Create, control, and capture 'tmux' sessions, windows, and panes using a
-pipeable API.
+Allow sharing sensitive information, for example passwords, 'API' keys,
+etc., in R packages, using public key cryptography.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,4 +55,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
+%doc %{rlibdir}/%{packname}/internals.md
+%doc %{rlibdir}/%{packname}/README.markdown
+%doc %{rlibdir}/%{packname}/README.Rmd
+%doc %{rlibdir}/%{packname}/user_keys
+%doc %{rlibdir}/%{packname}/vignette_child
 %{rlibdir}/%{packname}/INDEX

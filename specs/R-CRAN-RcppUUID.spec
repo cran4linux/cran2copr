@@ -1,32 +1,27 @@
-%global packname  exactextractr
-%global packver   0.3.0
+%global packname  RcppUUID
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Fast Extraction from Raster Datasets using Polygons
+Summary:          Generating Universally Unique Identificators
 
-License:          Apache License (== 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    geos-devel >= 3.5.0
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides a replacement for the 'extract' function from the 'raster'
-package that is suitable for extracting raster values using 'sf' polygons.
+Provides functions to generating a vector of Universally Unique
+Identifiers (UUID). Used implementation from the Boost C++ library.
+Supported random (version 4) and name (version 5) UUIDs.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,5 +47,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  OncoBayes2
-%global packver   0.6-4
+%global packver   0.6-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}
 Summary:          Bayesian Logistic Regression for Oncology Dose-Escalation Trials
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstan >= 2.19.3
+BuildRequires:    R-CRAN-StanHeaders >= 2.19.2
 BuildRequires:    R-CRAN-rstantools >= 2.0.0
-BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-BH >= 1.72.0
 BuildRequires:    R-CRAN-bayesplot >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
@@ -30,9 +30,8 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-RBesT 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstan >= 2.19.3
 Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-bayesplot >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.0.0
@@ -44,7 +43,6 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-RBesT 
 
 %description
 Bayesian logistic regression model with optional

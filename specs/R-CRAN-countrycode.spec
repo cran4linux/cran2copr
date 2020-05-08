@@ -1,9 +1,9 @@
 %global packname  countrycode
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}
 Summary:          Convert Country Names and Country Codes
 
@@ -17,8 +17,8 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Standardize country names, convert them into one of eleven coding schemes,
-convert between coding schemes, and assign region descriptors.
+Standardize country names, convert them into one of 40 different coding
+schemes, convert between coding schemes, and assign region descriptors.
 
 %prep
 %setup -q -c -n %{packname}

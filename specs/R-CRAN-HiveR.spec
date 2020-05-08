@@ -1,9 +1,9 @@
 %global packname  HiveR
-%global packver   0.3.42
+%global packver   0.3.56
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.42
+Version:          0.3.56
 Release:          1%{?dist}
 Summary:          2D and 3D Hive Plots for R
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-tkrgl 
 BuildRequires:    R-tcltk 
 Requires:         R-grid 
 Requires:         R-CRAN-plyr 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-tkrgl 
 Requires:         R-tcltk 
 
 %description
@@ -47,6 +45,7 @@ linnet, systems biology, bioinformatics.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -67,6 +66,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

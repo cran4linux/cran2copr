@@ -1,9 +1,9 @@
 %global packname  carat
-%global packver   0.1.1
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0
 Release:          1%{?dist}
 Summary:          Covariate-Adaptive Randomization for Clinical Trials
 
@@ -26,11 +26,11 @@ Requires:         R-CRAN-Rcpp >= 1.0.4
 
 %description
 Provides functions and command-line user interface to generate allocation
-sequence by covariate-adaptive randomization for clinical trials. It
-currently supports six covariate-adaptive randomization procedures. Three
-hypothesis testing methods that are valid and robust under
-covariate-adaptive randomization are also available in the package to
-facilitate the inference for treatment effect under the included
+sequence by covariate-adaptive randomization for clinical trials. The
+package currently supports six covariate-adaptive randomization
+procedures. Three hypothesis testing methods that are valid and robust
+under covariate-adaptive randomization are also available in the package
+to facilitate the inference for treatment effect under the included
 randomization procedures. Additionally, the package provides comprehensive
 and efficient tools to allow one to evaluate and compare the performance
 of randomization procedures and tests based on various criteria.
@@ -55,8 +55,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

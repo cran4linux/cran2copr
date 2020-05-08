@@ -1,9 +1,9 @@
 %global packname  pdynmc
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Moment Condition Based Estimation of Linear Dynamic Panel DataModels
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-optimx >= 2018.07.10
 BuildRequires:    R-Matrix >= 1.2.17
 BuildRequires:    R-CRAN-data.table >= 1.12.2
 BuildRequires:    R-CRAN-qlcMatrix >= 0.9.7
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-Rdpack >= 0.11.0
 Requires:         R-MASS >= 7.3.51.4
 Requires:         R-stats >= 3.6.0
@@ -29,7 +28,6 @@ Requires:         R-CRAN-optimx >= 2018.07.10
 Requires:         R-Matrix >= 1.2.17
 Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-qlcMatrix >= 0.9.7
-Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-Rdpack >= 0.11.0
 
 %description
@@ -47,6 +45,7 @@ available.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -65,9 +64,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
+%doc %{rlibdir}/%{packname}/tests
 %doc %{rlibdir}/%{packname}/THANKS
 %{rlibdir}/%{packname}/INDEX
