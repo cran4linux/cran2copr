@@ -1,9 +1,9 @@
 %global packname  cenROC
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Estimation of the Time-Dependent ROC Curve and AUC for CensoredSurvival Data
 
@@ -14,16 +14,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-icenReg 
 BuildRequires:    R-CRAN-condSURV 
+BuildRequires:    R-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-icenReg 
 Requires:         R-CRAN-condSURV 
+Requires:         R-survival 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Contains functions to estimate a smoothed and a non-smoothed (empirical)
-time- dependent ROC curve (receiver operating characteristic curve) and
-the corresponding area under the ROC curve (AUC) for the right censored
-survival data, as described in Beyene and El Ghouch (2019)
-<https://dial.uclouvain.be/pr/boreal/object/boreal:219643>.
+time-dependent ROC curve (receiver operating characteristic curve) and the
+corresponding area under the ROC curve (AUC) and the optimal cutoff point
+for the right and interval censored survival data, as described in Beyene
+and El Ghouch
+(2019)<https://dial.uclouvain.be/pr/boreal/object/boreal:219643>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,3 +61,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

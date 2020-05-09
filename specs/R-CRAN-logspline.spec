@@ -1,9 +1,9 @@
 %global packname  logspline
-%global packver   2.1.15
+%global packver   2.1.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.15
+Version:          2.1.16
 Release:          1%{?dist}
 Summary:          Routines for Logspline Density Estimation
 
@@ -29,6 +29,7 @@ Stone et al (1997) <DOI:10.1214/aos/1031594728>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

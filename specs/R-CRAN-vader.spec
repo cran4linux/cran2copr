@@ -1,9 +1,9 @@
 %global packname  vader
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}
 Summary:          Valence Aware Dictionary and sEntiment Reasoner (VADER)
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-tm
 A lexicon and rule-based sentiment analysis tool that is specifically
 attuned to sentiments expressed in social media, and works well on texts
 from other domains. Hutto & Gilbert (2014)
-(<https://www.aaai.org/ocs/index.php/ICWSM/ICWSM14/paper/view/8109/8122>).
+<https://www.aaai.org/ocs/index.php/ICWSM/ICWSM14/paper/view/8109/8122>.
 
 %prep
 %setup -q -c -n %{packname}

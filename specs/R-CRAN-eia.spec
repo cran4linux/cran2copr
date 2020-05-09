@@ -1,9 +1,9 @@
 %global packname  eia
-%global packver   0.3.4
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.6
 Release:          1%{?dist}
 Summary:          API Wrapper for 'US Energy Information Administration' Open Data
 
@@ -44,12 +44,12 @@ by these functions are provided in a tidy format or alternatively in more
 raw form. It also offers helper functions for working with 'EIA' date
 strings and time formats and for inspecting different summaries of series
 metadata. The package also provides control over API key storage and
-caching of API request results. This package has been peer-reviewed by
-rOpenSci (v. 0.3.4).
+caching of API request results.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  ClimMobTools
-%global packver   0.3.2
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          API Client for the 'ClimMob' Platform
 
@@ -16,26 +16,24 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-climatrends 
+BuildRequires:    R-CRAN-PlackettLuce 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-climatrends 
+Requires:         R-CRAN-PlackettLuce 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
 
 %description
 API client for 'ClimMob', an open source software for crowdsourcing
 citizen science in agriculture under the 'tricot' method
-<https://climmob.net/climmob3/>. Developed by van Etten et al. (2019)
+<https://climmob.net/>. Developed by van Etten et al. (2019)
 <doi:10.1017/S0014479716000739>, it turns the research paradigm on its
 head; instead of a few researchers designing complicated trials to compare
 several technologies in search of the best solutions, it enables many

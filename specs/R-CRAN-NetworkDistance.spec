@@ -1,13 +1,13 @@
 %global packname  NetworkDistance
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Distance Measures for Networks
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-graphon 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-igraph 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-graphon 
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-CRAN-igraph 
@@ -51,6 +53,7 @@ inter-graph distance measures.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -69,6 +72,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R

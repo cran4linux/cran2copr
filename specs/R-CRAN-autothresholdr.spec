@@ -1,9 +1,9 @@
 %global packname  autothresholdr
-%global packver   1.3.5
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.6
 Release:          1%{?dist}
 Summary:          An R Port of the 'ImageJ' Plugin 'Auto Threshold'
 
@@ -18,20 +18,20 @@ BuildRequires:    R-CRAN-filesstrings >= 3.1.5
 BuildRequires:    R-CRAN-ijtiff >= 2.0.2
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-glue >= 1.3.0
+BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-rlang >= 0.3.3
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-filesstrings >= 3.1.5
 Requires:         R-CRAN-ijtiff >= 2.0.2
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-glue >= 1.3.0
+Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-rlang >= 0.3.3
-Requires:         R-stats 
 Requires:         R-CRAN-purrr 
+Requires:         R-stats 
 
 %description
 Algorithms for automatically finding appropriate thresholds for numerical
@@ -43,6 +43,7 @@ data, with special functions for thresholding images. Provides the
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +51,7 @@ data, with special functions for thresholding images. Provides the
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

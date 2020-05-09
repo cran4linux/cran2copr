@@ -1,9 +1,9 @@
 %global packname  modelStudio
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Interactive Studio for Explanatory Model Analysis
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-iBreakDown >= 1.0
-BuildRequires:    R-CRAN-ingredients >= 1.0
+BuildRequires:    R-CRAN-iBreakDown >= 1.1.0
+BuildRequires:    R-CRAN-ingredients >= 1.0.0
 BuildRequires:    R-CRAN-r2d3 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-iBreakDown >= 1.0
-Requires:         R-CRAN-ingredients >= 1.0
+Requires:         R-CRAN-iBreakDown >= 1.1.0
+Requires:         R-CRAN-ingredients >= 1.0.0
 Requires:         R-CRAN-r2d3 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-progress 
@@ -35,11 +35,10 @@ of a serverless HTML site with only one line of code. This tool is model
 agnostic, therefore compatible with most of the black box predictive
 models and frameworks. The main function computes various (instance and
 dataset level) model explanations and produces an interactive,
-customizable dashboard made with 'D3.js'. It consists of multiple panels
-for plots with their short descriptions. Easily save and share the
-dashboard with others. Tools for model exploration unite with tools for
-EDA (Exploratory Data Analysis) to give a broad overview of the model
-behavior.
+customisable dashboard. It consists of multiple panels for plots with
+their short descriptions. Easily save and share the dashboard with others.
+Tools for model exploration unite with tools for EDA (Exploratory Data
+Analysis) to give a broad overview of the model behavior.
 
 %prep
 %setup -q -c -n %{packname}

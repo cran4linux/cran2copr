@@ -1,9 +1,9 @@
 %global packname  rasciidoc
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}
 Summary:          Create Reports Using R and 'asciidoc'
 

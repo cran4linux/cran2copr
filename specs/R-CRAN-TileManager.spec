@@ -1,9 +1,9 @@
 %global packname  TileManager
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Tile Manager
 
@@ -15,27 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-APfun 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-APfun 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-APfun 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-sp 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-graphics 
-Requires:         R-CRAN-APfun 
+Requires:         R-stats 
+Requires:         R-CRAN-XML 
 
 %description
-Tools for creating and detecting tiling schemes for raster data sets.
+Tools for creating and detecting tiling schemes for geospatial datasets.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

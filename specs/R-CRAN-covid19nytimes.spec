@@ -1,47 +1,42 @@
-%global packname  covid19us
-%global packver   0.1.4
+%global packname  covid19nytimes
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.3
 Release:          1%{?dist}
-Summary:          Cases of COVID-19 in the United States
+Summary:          Pulls the Covid-19 Data from the New York Times Public DataSource
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.3
 BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-glue >= 1.3.1
+BuildRequires:    R-CRAN-readr >= 1.3.1
 BuildRequires:    R-CRAN-tidyr >= 1.0.2
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-CRAN-snakecase >= 0.11.0
-Requires:         R-CRAN-curl >= 4.3
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-glue >= 1.3.1
+Requires:         R-CRAN-readr >= 1.3.1
 Requires:         R-CRAN-tidyr >= 1.0.2
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-snakecase >= 0.11.0
+Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-rlang >= 0.4.5
 
 %description
-A wrapper around the 'COVID Tracking Project API'
-<https://covidtracking.com/api/> providing data on cases of COVID-19 in
-the US.
+Accesses the NY Times Covid-19 county-level data for the US, described in
+<https://www.nytimes.com/article/coronavirus-county-data-us.html> and
+available at <https://github.com/nytimes/covid-19-data>. It then returns
+the data in a tidy data format according to the Covid19R Project data
+specification. If you plan to use the data or publicly display the data or
+results, please make sure cite the original NY Times source. Please read
+and follow the terms laid out in the data license at
+<https://github.com/nytimes/covid-19-data/blob/master/LICENSE>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -63,8 +58,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

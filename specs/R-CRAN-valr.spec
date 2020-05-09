@@ -1,11 +1,11 @@
 %global packname  valr
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}
-Summary:          Genome Interval Arithmetic in R
+Summary:          Genome Interval Arithmetic
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,7 +33,8 @@ Requires:         R-CRAN-ggplot2
 %description
 Read and manipulate genome intervals and signals. Provides functionality
 similar to command-line tool suites within R, enabling interactive
-analysis and visualization of genome-scale data.
+analysis and visualization of genome-scale data. Riemondy et al. (2017)
+<doi:10.12688/f1000research.11997.1>.
 
 %prep
 %setup -q -c -n %{packname}

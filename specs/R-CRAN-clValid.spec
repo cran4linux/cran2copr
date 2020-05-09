@@ -1,9 +1,9 @@
 %global packname  clValid
-%global packver   0.6-6
+%global packver   0.6-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.6.7
 Release:          1%{?dist}
 Summary:          Validation of Clustering Results
 
@@ -23,11 +23,15 @@ Requires:         R-methods
 Requires:         R-class 
 
 %description
-Statistical and biological validation of clustering results.
+Statistical and biological validation of clustering results. This package
+implements Dunn Index, Silhouette, Connectivity, Stability, BHI and BSI.
+Further information can be found in Brock, G et al. (2008) <doi:
+10.18637/jss.v025.i04>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -35,6 +39,7 @@ Statistical and biological validation of clustering results.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

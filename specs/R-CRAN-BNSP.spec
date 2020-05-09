@@ -1,9 +1,9 @@
 %global packname  BNSP
-%global packver   2.1.3
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.1.4
 Release:          1%{?dist}
 Summary:          Bayesian Non- And Semi-Parametric Model Fitting
 
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel
-Requires:         gsl
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-coda 

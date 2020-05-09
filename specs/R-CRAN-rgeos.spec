@@ -1,9 +1,9 @@
 %global packname  rgeos
-%global packver   0.5-2
+%global packver   0.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}
 Summary:          Interface to Geometry Engine - Open Source ('GEOS')
 
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    geos-devel >= 3.2.0
-Requires:         geos
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-sp >= 1.1.0
@@ -43,7 +42,9 @@ the 'checkValidity=2L' argument, to attempt zero-width buffer repair if
 invalid geometries are found. The previous default (FALSE, now '0L') is
 fastest and used for 'GEOS' < 3.7.2, but will not warn users of possible
 problems before the failure of topological operations that previously
-succeeded.
+succeeded. From 'GEOS' 3.8.0, repair of geometries may also be attempted
+using 'gMakeValid()', which may, however, return a collection of
+geometries of different types.
 
 %prep
 %setup -q -c -n %{packname}

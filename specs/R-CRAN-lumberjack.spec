@@ -1,9 +1,9 @@
 %global packname  lumberjack
-%global packver   1.1.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Track Changes in Data
 
@@ -51,6 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX

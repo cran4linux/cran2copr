@@ -1,9 +1,9 @@
 %global packname  detrendr
-%global packver   0.6.5
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.6
 Release:          1%{?dist}
 Summary:          Detrend Images
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-autothresholdr >= 1.3.3
+BuildRequires:    R-CRAN-arrayhelpers >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-rlang >= 0.3.3
 BuildRequires:    R-CRAN-doParallel 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-autothresholdr >= 1.3.3
+Requires:         R-CRAN-arrayhelpers >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-rlang >= 0.3.3
 Requires:         R-CRAN-doParallel 

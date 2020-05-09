@@ -1,9 +1,9 @@
 %global packname  packageRank
-%global packver   0.3.0
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          Computation and Visualization of Package Download Counts andPercentiles
 
@@ -20,7 +20,9 @@ BuildRequires:    R-CRAN-cranlogs
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-pkgsearch 
 BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-rversions 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-data.table >= 1.12.2
@@ -28,7 +30,9 @@ Requires:         R-CRAN-cranlogs
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-pkgsearch 
 Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-rversions 
 Requires:         R-stats 
 
@@ -39,6 +43,7 @@ percentile of package downloads from RStudio's CRAN mirror.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,9 +60,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  RRRR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Online Robust Reduced-Rank Regression Estimation
 
@@ -18,14 +18,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 

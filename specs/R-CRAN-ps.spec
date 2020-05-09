@@ -1,9 +1,9 @@
 %global packname  ps
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}
 Summary:          List, Query, Manipulate System Processes
 
@@ -51,4 +51,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
-%doc %{rlibdir}/%{packname}/bin
+%{rlibdir}/%{packname}/bin
