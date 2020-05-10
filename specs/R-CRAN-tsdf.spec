@@ -1,34 +1,27 @@
-%global packname  keyholder
-%global packver   0.1.5
+%global packname  tsdf
+%global packver   1.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.1.8
 Release:          1%{?dist}
-Summary:          Store Data About Rows
+Summary:          Two-/Three-Stage Designs for Phase 1&2 Clinical Trials
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-rlang >= 0.1
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-rlang >= 0.1
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
 
 %description
-Tools for keeping track of information, named "keys", about rows of data
-frame like objects. This is done by creating special attribute "keys"
-which is updated after every change in rows (subsetting, ordering, etc.).
-This package is designed to work tightly with 'dplyr' package.
+Calculate optimal Zhong's two-/three-stage Phase II designs (see Zhong
+(2012) <doi:10.1016/j.cct.2012.07.006>). Generate Target Toxicity decision
+table for Phase I dose-finding (two-/three-stage). This package also
+allows users to run dose-finding simulations based on customized decision
+table.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,9 +44,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

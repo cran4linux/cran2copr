@@ -1,9 +1,9 @@
 %global packname  showtext
-%global packver   0.7-1
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8
 Release:          1%{?dist}
 Summary:          Using Fonts More Easily in R Graphs
 
@@ -15,16 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    zlib-devel
 BuildRequires:    libpng-devel
 BuildRequires:    freetype-devel
-Requires:         zlib
-Requires:         libpng
-Requires:         freetype
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-showtextdb >= 2.0
-BuildRequires:    R-CRAN-sysfonts >= 0.7
+BuildRequires:    R-CRAN-sysfonts >= 0.7.1
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-showtextdb >= 2.0
-Requires:         R-CRAN-sysfonts >= 0.7
+Requires:         R-CRAN-sysfonts >= 0.7.1
 Requires:         R-grDevices 
 
 %description
@@ -38,6 +35,7 @@ longer relies on the font files. No external software such as
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

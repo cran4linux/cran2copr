@@ -1,9 +1,9 @@
 %global packname  rsq
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0
 Release:          1%{?dist}
 Summary:          R-Squared and Related Measures
 
@@ -18,18 +18,27 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-Matrix 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-MASS 
+Requires:         R-CRAN-lme4 
+Requires:         R-nlme 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-Matrix 
 
 %description
 Calculate generalized R-squared, partial R-squared, and partial
-correlation coefficients for generalized linear models (including quasi
-models with well defined variance functions).
+correlation coefficients for generalized linear (mixed) models (including
+quasi models with well defined variance functions).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

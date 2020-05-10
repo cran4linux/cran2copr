@@ -1,9 +1,9 @@
 %global packname  movecost
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}
 Summary:          Calculation of Accumulated Cost Surface and Least-Cost PathsRelated to Human Movement Across the Landscape
 
@@ -31,10 +31,12 @@ Provides the facility to calculate non-isotropic accumulated cost surface
 and least-cost paths using a number of human-movement-related cost
 functions that can be selected by the user. It just requires a Digital
 Terrain Model, a start location and (optionally) destination locations.
+See Alberti (2019) <doi:10.1016/j.softx.2019.100331>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  LAM
-%global packver   0.4-17
+%global packver   0.5-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.17
+Version:          0.5.15
 Release:          1%{?dist}
 Summary:          Some Latent Variable Models
 
@@ -40,6 +40,7 @@ Metropolis-Hastings algorithm (amh(); Roberts & Rosenthal, 2001,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

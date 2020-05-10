@@ -1,9 +1,9 @@
 %global packname  tidyquery
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Query 'R' Data Frames with 'SQL'
 
@@ -34,6 +34,7 @@ Use 'SQL' 'SELECT' statements to query 'R' data frames.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

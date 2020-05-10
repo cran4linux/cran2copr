@@ -1,9 +1,9 @@
 %global packname  benchmarkme
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Crowd Sourced System Benchmarks
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-benchmarkmeData >= 1.0.3
+BuildRequires:    R-CRAN-benchmarkmeData >= 1.0.4
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-foreach 
@@ -26,7 +26,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-benchmarkmeData >= 1.0.3
+Requires:         R-CRAN-benchmarkmeData >= 1.0.4
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-foreach 
@@ -45,6 +45,7 @@ for obtaining system specifications, such as RAM, CPU type, and R version.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

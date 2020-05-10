@@ -1,9 +1,9 @@
 %global packname  gibble
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Geometry Decomposition
 
@@ -32,11 +32,12 @@ require a data model with a record of the underlying relationships between
 elements. The gibble() function creates a geometry map, a simple record of
 the underlying structure in path-based hierarchical types. There are
 methods for the planar shape types in the 'sf' and 'sp' packages and for
-types in the 'trip' and in-development 'silicate' packages.
+types in the 'trip' and 'silicate' packages.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

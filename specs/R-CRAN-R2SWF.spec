@@ -1,9 +1,9 @@
 %global packname  R2SWF
-%global packver   0.9-2
+%global packver   0.9-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}
 Summary:          Convert R Graphics to Flash Animations
 
@@ -15,9 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    zlib-devel
 BuildRequires:    libpng-devel
 BuildRequires:    freetype-devel
-Requires:         zlib
-Requires:         libpng
-Requires:         freetype
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-sysfonts 
@@ -36,6 +33,7 @@ convert images of other formats ('SVG', 'PNG', 'JPEG') into 'SWF'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

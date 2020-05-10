@@ -1,9 +1,9 @@
 %global packname  brickr
-%global packver   0.3.2
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.4
 Release:          1%{?dist}
 Summary:          Emulate LEGO Bricks in 2D and 3D
 

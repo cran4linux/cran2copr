@@ -1,9 +1,9 @@
 %global packname  ezplot
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Functions for Common Chart Types
 
@@ -12,17 +12,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tsibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tsibble 
 
 %description
 Wrapper for the 'ggplot2' package that creates a variety of common charts
