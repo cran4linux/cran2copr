@@ -1,9 +1,9 @@
 %global packname  garchx
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Flexible and Robust GARCH-X Modelling
 
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-zoo 
 
@@ -22,10 +21,10 @@ Requires:         R-CRAN-zoo
 Flexible and robust estimation and inference of generalised autoregressive
 conditional heteroscedasticity (GARCH) models with covariates based on the
 results by Francq and Thieu (2018) <doi:10.1017/S0266466617000512>.
-Suitable subsets of the coefficients can be restricted to zero during
-estimation, and quasi maximum likelihood methods ensure estimates are
-generally consistent, even when the standardised innovations are
-non-normal and/or not independent and identically distributed.
+Coefficients can straightforwardly be set to zero by omission, and quasi
+maximum likelihood methods ensure estimates are generally consistent and
+inference valid, even when the standardised innovations are non-normal
+and/or dependent over time.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,3 +51,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

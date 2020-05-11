@@ -1,9 +1,9 @@
 %global packname  neatStats
-%global packver   1.0.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Neat and Painless Statistical Reporting
 

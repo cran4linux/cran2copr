@@ -1,9 +1,9 @@
 %global packname  bootnet
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Bootstrap Methods for Various Network Estimation Routines
 
@@ -70,14 +70,14 @@ Requires:         R-CRAN-glasso
 
 %description
 Bootstrap methods to assess accuracy and stability of estimated network
-structures and centrality indices. Allows for flexible specification of
-any undirected network estimation procedure in R, and offers default sets
-for 'qgraph', 'IsingFit', 'IsingSampler', 'glasso', 'huge' and 'parcor'
-packages.
+structures and centrality indices <doi:10.3758/s13428-017-0862-1>. Allows
+for flexible specification of any undirected network estimation procedure
+in R, and offers default sets for various estimation routines.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

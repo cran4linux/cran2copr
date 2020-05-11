@@ -1,9 +1,9 @@
 %global packname  bpca
-%global packver   1.3-0
+%global packver   1.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.2
 Release:          1%{?dist}
 Summary:          Biplot of Multivariate Data Based on Principal ComponentsAnalysis
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 2.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-xtable 
 
 %description
 Implements biplot (2d and 3d) of multivariate data based on principal
@@ -27,6 +29,7 @@ components analysis and diagnostic tools of the quality of the reduction.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -34,6 +37,7 @@ components analysis and diagnostic tools of the quality of the reduction.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

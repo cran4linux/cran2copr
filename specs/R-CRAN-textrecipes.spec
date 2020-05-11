@@ -1,9 +1,9 @@
 %global packname  textrecipes
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Extra 'Recipes' for Text Processing
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-recipes >= 0.1.4
-BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tokenizers 
@@ -30,9 +29,7 @@ BuildRequires:    R-Matrix
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-modeldata 
 Requires:         R-CRAN-recipes >= 0.1.4
-Requires:         R-CRAN-dials 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tokenizers 
@@ -47,7 +44,6 @@ Requires:         R-Matrix
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-modeldata 
 
 %description
 Converting text to numerical features requires specifically created

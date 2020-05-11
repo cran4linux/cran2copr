@@ -1,9 +1,9 @@
 %global packname  poorman
-%global packver   0.1.11
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          A Poor Man's Base R Copy of 'dplyr' Verbs
 

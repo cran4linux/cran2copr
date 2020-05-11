@@ -1,11 +1,11 @@
 %global packname  svSocket
-%global packver   0.9-57
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.57
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          SciViews GUI API - R Socket Server
+Summary:          'SciViews' - Socket Server
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,11 +17,13 @@ Requires:         R-core >= 2.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-svMisc >= 0.9.68
 BuildRequires:    R-tcltk 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-svMisc >= 0.9.68
 Requires:         R-tcltk 
+Requires:         R-utils 
 
 %description
-Implements a simple socket server allowing to connect GUI clients to R
+Implements a socket server allowing to connect clients to R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,9 +47,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/etc
 %doc %{rlibdir}/%{packname}/testCLI
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
