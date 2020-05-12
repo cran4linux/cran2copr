@@ -1,30 +1,29 @@
-%global packname  RODBCDBI
-%global packver   0.1.1
+%global packname  condmixt
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1
 Release:          1%{?dist}
-Summary:          Provides Access to Databases Through the ODBC Interface
+Summary:          Conditional Density Estimation with Neural Network ConditionalMixtures
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RODBC 
-Requires:         R-methods 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RODBC 
+BuildRequires:    R-CRAN-evd 
+Requires:         R-CRAN-evd 
 
 %description
-An implementation of R's DBI interface using ODBC package as a back-end.
-This allows R to connect to any DBMS that has a ODBC driver.
+Neural network conditional mixtures are mixture models whose parameters
+are predicted by a neural network. The mixture model can thus change its
+parameters in response to changes in predictive covariates. Mixtures
+included are gaussian, log-normal and hybrid Pareto mixtures. The latter
+relies on the generalized Pareto distribution to account for the presence
+of large extreme events. The unconditional mixtures are also available.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,7 +46,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

@@ -1,35 +1,43 @@
-%global packname  concaveman
-%global packver   1.1.0
+%global packname  rgenius
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          A Very Fast 2D Concave Hull Algorithm
+Summary:          Get 'Genius' API Lyrics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-V8 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-tibble 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
-The concaveman function ports the 'concaveman'
-(<https://github.com/mapbox/concaveman>) library from 'mapbox'. It
-computes the concave polygon(s) for one or several set of points.
+Download the lyrics of your favorite songs in text and table formats. Also
+search for related songs or song information. More information:
+<https://docs.genius.com/> .
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,11 +59,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/js
 %{rlibdir}/%{packname}/INDEX

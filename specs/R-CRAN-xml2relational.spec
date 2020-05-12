@@ -1,11 +1,11 @@
-%global packname  stuart
-%global packver   0.9.0
+%global packname  xml2relational
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Subtests Using Algorithmic Rummaging Techniques
+Summary:          Converting XML Documents into Relational Data Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,15 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-fs 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
 
 %description
-Construct subtests from a pool of items by using ant-colony-optimization,
-genetic algorithms, brute force, or random sampling. Schultze (2017)
-<doi:10.17169/refubium-622>.
+Import an XML document with nested object structures and convert it into a
+relational data model. The result is a set of R dataframes with foreign
+key relationships. The data model and the data can be exported as SQL code
+of different SQL flavors.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,8 +58,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/customers.xml
 %{rlibdir}/%{packname}/INDEX

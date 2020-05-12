@@ -1,41 +1,42 @@
-%global packname  ptstem
-%global packver   0.0.6
+%global packname  guiplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Stemming Algorithms for the Portuguese Language
+Summary:          User-Friendly GUI Plotting Tools
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-hunspell 
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-shiny >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.3.1
+BuildRequires:    R-CRAN-svglite 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rslp 
-BuildRequires:    R-CRAN-SnowballC 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tokenizers 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-hunspell 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-shiny >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.3.1
+Requires:         R-CRAN-svglite 
+Requires:         R-CRAN-DT 
+Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rslp 
-Requires:         R-CRAN-SnowballC 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tokenizers 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-R6 
 
 %description
-Wraps a collection of stemming algorithms for the Portuguese Language.
+Create a user-friendly plotting GUI for R. In addition, one purpose of
+creating the R package is to facilitate third-party software to call R for
+drawing, for example, 'Phoenix WinNonlin' software calls R to draw the
+drug concentration versus time curve.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,12 +58,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/dict
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/words_sample.rda
 %{rlibdir}/%{packname}/INDEX

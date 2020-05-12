@@ -1,34 +1,30 @@
-%global packname  mssqlR
-%global packver   1.0.0
+%global packname  stringfish
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1
 Release:          1%{?dist}
-Summary:          MSSQL Querying using R
+Summary:          Alt String Implementation
 
-License:          GPL (>= 3) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-RODBC 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-RODBC 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18.3
+Requires:         R-CRAN-Rcpp >= 0.12.18.3
 
 %description
-Can be used to query data from data from Microsoft SQL Server (MSSQL, see
-<http://www.microsoft.com/sqlserver/> for more information). Based on the
-concepts of Entity Framework, the package allows querying data from MSSQL
-Database.
+Provides an extendable and performant 'alt-string' implementation backed
+by 'C++' vectors and strings.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,7 +42,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/include
+%license %{rlibdir}/%{packname}/PCRE2_LICENSE.txt
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

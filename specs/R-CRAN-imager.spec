@@ -1,9 +1,9 @@
 %global packname  imager
-%global packver   0.42.1
+%global packver   0.42.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.42.1
+Version:          0.42.3
 Release:          1%{?dist}
 Summary:          Image Processing Library Based on 'CImg'
 
@@ -14,8 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    fftw-devel
 BuildRequires:    libtiff-devel
-Requires:         fftw
-Requires:         libtiff
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.5

@@ -1,38 +1,37 @@
-%global packname  stacomirtools
-%global packver   0.5.3
+%global packname  chromseq
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.1.3
 Release:          1%{?dist}
-Summary:          'ODBC' Connection Class for Package stacomiR
+Summary:          Split Chromosome 'Fasta' File
 
-License:          GPL (>= 2)
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RODBC 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-RODBC 
-Requires:         R-methods 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-base 
 Requires:         R-utils 
+Requires:         R-base 
 
 %description
-S4 class wrappers for the 'ODBC' connection, also provides some utilities
-to paste small datasets to clipboard, rename columns. It is used by the
-package 'stacomiR' for connections to the database. Development versions
-of 'stacomiR' are available in R-forge.
+Chromosome files in the 'Fasta' format usually contain large sequences
+like human genome. Sometimes users have to split these chromosomes into
+different files according to their chromosome number. The 'chromseq' can
+help to handle this. So the selected chromosome sequence can be used for
+downstream analysis like motif finding. Howard Y. Chang(2019)
+<doi:10.1038/s41587-019-0206-z>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,8 +48,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/config
 %{rlibdir}/%{packname}/INDEX

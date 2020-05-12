@@ -1,36 +1,41 @@
-%global packname  ROMDB
-%global packver   0.1.0
+%global packname  sistec
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.2
 Release:          1%{?dist}
-Summary:          Get 'OMDB' API Multiple Information
+Summary:          Tools to Analyze 'Sistec' Datasets
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-RODBC 
-BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-RODBC 
-Requires:         R-CRAN-magick 
+Requires:         R-tcltk 
+Requires:         R-utils 
 
 %description
-Load multiple movies, series, actors, directors etc from 'OMDB' API. More
-information in: <http://www.omdbapi.com/> .
+The Brazilian system for diploma registration and validation on technical
+and superior courses are managing by 'Sistec' platform, see
+<https://sistec.mec.gov.br/>. This package provides tools for Brazilian
+institutions to update the student's registration and make data analysis
+about their situation, retention and drop out.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,4 +60,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

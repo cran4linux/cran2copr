@@ -1,32 +1,40 @@
-%global packname  profile
-%global packver   1.0.2
+%global packname  grizbayr
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.1
 Release:          1%{?dist}
-Summary:          Read, Manipulate, and Write Profiler Data
+Summary:          Bayesian Inference for A|B and Bandit Marketing Tests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-rlang 
 
 %description
-Defines a data structure for profiler data, and methods to read and write
-from the 'Rprof' and 'pprof' file formats.
+Uses simple Bayesian conjugate prior update rules to calculate the win
+probability of each option, value remaining in the test, and percent lift
+over the baseline for various marketing objectives. References: Fink,
+Daniel (1997) "A Compendium of Conjugate Priors" <doi:10.1.1.157/5540>.
+Stucchio, Chris (2015) "Bayesian A/B Testing at VWO"
+<http://cdn2.hubspot.net/hubfs/310840/VWO_SmartStats_technical_whitepaper.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,9 +59,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/proto
-%doc %{rlibdir}/%{packname}/samples
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

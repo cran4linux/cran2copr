@@ -1,9 +1,9 @@
 %global packname  CoordinateCleaner
-%global packver   2.0-11
+%global packver   2.0-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.11
+Version:          2.0.15
 Release:          1%{?dist}
 Summary:          Automated Cleaning of Occurrence Records from BiologicalCollections
 
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gdal-devel >= 2.0.1
-Requires:         gdal
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
@@ -63,6 +62,7 @@ doi:10.1111/2041-210X.13152.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

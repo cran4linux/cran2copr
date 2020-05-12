@@ -1,36 +1,31 @@
-%global packname  mixsep
-%global packver   0.2.1-2
+%global packname  norm2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1.2
+Version:          2.0.3
 Release:          1%{?dist}
-Summary:          Forensic Genetics DNA Mixture Separation
+Summary:          Analysis of Incomplete Multivariate Data under a Normal Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.0
-Requires:         R-core >= 2.0.0
-BuildArch:        noarch
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-tcltk2 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-RODBC 
-Requires:         R-tcltk 
-Requires:         R-CRAN-tcltk2 
-Requires:         R-MASS 
-Requires:         R-CRAN-RODBC 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Separates DNA mixtures using a statistical model within a greedy algorithm
-with a useful tcl/tk GUI.
+Functions for parameter estimation, Bayesian posterior simulation and
+multiple imputation from incomplete multivariate data under a normal
+model.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -38,6 +33,7 @@ with a useful tcl/tk GUI.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -49,7 +45,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

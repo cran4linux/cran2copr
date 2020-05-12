@@ -1,9 +1,9 @@
 %global packname  ClustImpute
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          K-means clustering with build-in missing data imputation
 
@@ -28,12 +28,13 @@ Requires:         R-CRAN-rlang
 
 %description
 This clustering algorithm deals with missing data via weights that are
-imposed on missings and succesively increased. See the vignette for
+imposed on missings and successively increased. See the vignette for
 details.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -41,6 +42,7 @@ details.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

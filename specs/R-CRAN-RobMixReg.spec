@@ -1,9 +1,9 @@
 %global packname  RobMixReg
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Robust Mixture Regression
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-robustbase
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-robust 
 Requires:         R-CRAN-flexmix 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-gtools 
 Requires:         R-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-robust 
 
 %description
 Finite mixture models are a popular technique for modelling unobserved
@@ -33,10 +35,10 @@ semi-parametric way. They are used in a lot of different areas such as
 astronomy, biology, economics, marketing or medicine. This package is the
 implementation of popular robust mixture regression methods based on
 different algorithms including: fleximix, finite mixture models and latent
-class regression; CTLE, component-wise adaptive trimming likelihood
+class regression; CTLERob, component-wise adaptive trimming likelihood
 estimation; mixbi, bi-square estimation; mixL, Laplacian distribution;
 mixt, t-distribution; TLE, trimmed likelihood estimation. The implemented
-algorithms includes: CTLE stands for Component-wise adaptive Trimming
+algorithms includes: CTLERob stands for Component-wise adaptive Trimming
 Likelihood Estimation based mixture regression; mixbi stands for mixture
 regression based on bi-square estimation; mixLstands for mixture
 regression based on Laplacian distribution; TLE stands for Trimmed

@@ -1,33 +1,35 @@
-%global packname  diffobj
-%global packver   0.3.0
+%global packname  roptions
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.3
 Release:          1%{?dist}
-Summary:          Diffs for R Objects
+Summary:          Option Strategies and Valuation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-crayon >= 1.3.2
-BuildRequires:    R-tools 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-crayon >= 1.3.2
-Requires:         R-tools 
-Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 Requires:         R-stats 
 
 %description
-Generate a colorized diff of two R objects for an intuitive visualization
-of their differences.
+Collection of tools to develop options strategies, value option contracts
+using the Black-Scholes-Merten option pricing model and calculate the
+option Greeks. Hull, John C. "Options, Futures, and Other Derivatives"
+(1997, ISBN:0-13-601589-1). Fischer Black, Myron Scholes (1973) "The
+Pricing of Options and Corporate Liabilities" <doi:10.1086/260062>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,11 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%doc %{rlibdir}/%{packname}/css
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/script
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

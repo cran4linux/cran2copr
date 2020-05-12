@@ -1,9 +1,9 @@
 %global packname  gllvm
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Generalized Linear Latent Variable Models
 
@@ -37,11 +37,13 @@ Analysis of multivariate data using generalized linear latent variable
 models (gllvm). Estimation is performed using either Laplace approximation
 method or variational approximation method implemented via TMB (Kristensen
 et al., (2016), <doi:10.18637/jss.v070.i05>). For details see Niku et al.
-(2019) <doi:10.1371/journal.pone.0216129>.
+(2019a) <doi:10.1371/journal.pone.0216129> and Niku et al. (2019b)
+<doi:10.1111/2041-210X.13303>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

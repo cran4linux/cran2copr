@@ -1,9 +1,9 @@
 %global packname  factorEx
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Design and Analysis for Factorial Experiments
 
@@ -50,6 +50,7 @@ Egami and Imai (2019) <doi:10.1080/01621459.2018.1476246>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,6 +58,7 @@ Egami and Imai (2019) <doi:10.1080/01621459.2018.1476246>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

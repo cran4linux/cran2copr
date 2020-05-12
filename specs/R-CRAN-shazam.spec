@@ -1,24 +1,24 @@
 %global packname  shazam
-%global packver   0.2.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Immunoglobulin Somatic Hypermutation Analysis
 
-License:          CC BY-SA 4.0
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-stringi >= 1.1.3
+BuildRequires:    R-CRAN-alakazam >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-alakazam >= 0.3.0
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-diptest 
 BuildRequires:    R-CRAN-doParallel 
@@ -39,11 +39,12 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-stringi >= 1.1.3
+Requires:         R-CRAN-alakazam >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-alakazam >= 0.3.0
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-diptest 
 Requires:         R-CRAN-doParallel 
@@ -64,6 +65,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-seqinr 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 
 %description
@@ -81,6 +83,7 @@ both mice and humans. Citations: Gupta and Vander Heiden, et al (2015)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

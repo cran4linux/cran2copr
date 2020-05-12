@@ -1,33 +1,41 @@
-%global packname  diffobj
-%global packver   0.3.0
+%global packname  Andromeda
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.3
 Release:          1%{?dist}
-Summary:          Diffs for R Objects
+Summary:          Asynchronous Disk-Based Representation of Massive Data
 
-License:          GPL (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-crayon >= 1.3.2
-BuildRequires:    R-tools 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-crayon >= 1.3.2
-Requires:         R-tools 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-zip 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Generate a colorized diff of two R objects for an intuitive visualization
-of their differences.
+Storing very large data objects on a local drive, while still making it
+possible to manipulate the data in an efficient manner.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,9 +61,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%doc %{rlibdir}/%{packname}/css
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/script
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

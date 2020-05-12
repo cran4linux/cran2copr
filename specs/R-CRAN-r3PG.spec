@@ -1,33 +1,28 @@
-%global packname  diffobj
-%global packver   0.3.0
+%global packname  r3PG
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Diffs for R Objects
+Summary:          Simulating Forest Growth using the 3-PG Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-crayon >= 1.3.2
-BuildRequires:    R-tools 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-crayon >= 1.3.2
-Requires:         R-tools 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Generate a colorized diff of two R objects for an intuitive visualization
-of their differences.
+Provides a flexible and easy-to-use interface for the Physiological
+Processes Predicting Growth (3-PG) model written in Fortran. The r3PG
+serves as a flexible and easy-to-use interface for the 3-PGpjs
+(monospecific, evenaged and evergreen forests) described in Landsberg &
+Waring (1997) <doi:10.1016/S0378-1127(97)00026-1> and the 3-PGmix
+(deciduous, uneven-aged or mixed-species forests) described in Forrester &
+Tang (2016) <doi:10.1016/j.ecolmodel.2015.07.010>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,13 +44,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%doc %{rlibdir}/%{packname}/css
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/script
+%doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

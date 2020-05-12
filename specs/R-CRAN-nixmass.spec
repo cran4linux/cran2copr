@@ -1,13 +1,13 @@
-%global packname  stuart
-%global packver   0.9.0
+%global packname  nixmass
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Subtests Using Algorithmic Rummaging Techniques
+Summary:          Snow Water Equivalent Modeling with the 'Delta.snow' Model andEmpirical Regression Models
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,15 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-lubridate 
+Requires:         R-grDevices 
 
 %description
-Construct subtests from a pool of items by using ant-colony-optimization,
-genetic algorithms, brute force, or random sampling. Schultze (2017)
-<doi:10.17169/refubium-622>.
+Snow water equivalent is modeled with the process based 'delta.snow' model
+and empirical regression models using relationships between density and
+diverse at-site parameters. The methods are described in Winkler et al.
+(2020) <doi:10.5194/hess-2020-152>, Guyennon et al. (2019)
+<doi:10.1016/j.coldregions.2019.102859>, Pistocchi (2016)
+<doi:10.1016/j.ejrh.2016.03.004>, Jonas et al. (2009)
+<doi:10.1016/j.jhydrol.2009.09.021> and Sturm et al. (2010)
+<doi:10.1175/2010JHM1202.1>.
 
 %prep
 %setup -q -c -n %{packname}

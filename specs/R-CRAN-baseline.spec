@@ -1,9 +1,9 @@
 %global packname  baseline
-%global packver   1.2-3
+%global packver   1.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Baseline Correction of Spectra
 
@@ -30,15 +30,17 @@ Requires:         R-CRAN-limSolve
 
 %description
 Collection of baseline correction algorithms, along with a framework and a
-GUI for optimising baseline algorithm parameters. Typical use of the
-package is for removing background effects from spectra originating from
-various types of spectroscopy and spectrometry, possibly optimizing this
-with regard to regression or classification results. Correction methods
-include polynomial fitting, weighted local smoothers and many more.
+Tcl/Tk enabled GUI for optimising baseline algorithm parameters. Typical
+use of the package is for removing background effects from spectra
+originating from various types of spectroscopy and spectrometry, possibly
+optimizing this with regard to regression or classification results.
+Correction methods include polynomial fitting, weighted local smoothers
+and many more.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

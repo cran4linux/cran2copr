@@ -1,9 +1,9 @@
 %global packname  genpathmox
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}
 Summary:          Generalized Pathmox Approach Segmentation Tree Analysis
 
@@ -22,7 +22,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-diagram 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-plspm 
 BuildRequires:    R-CRAN-quantreg 
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -31,7 +30,6 @@ Requires:         R-utils
 Requires:         R-CRAN-diagram 
 Requires:         R-methods 
 Requires:         R-CRAN-mice 
-Requires:         R-CRAN-plspm 
 Requires:         R-CRAN-quantreg 
 
 %description
@@ -50,6 +48,7 @@ methodologies: linear regression and least absolute regression models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,6 +56,7 @@ methodologies: linear regression and least absolute regression models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

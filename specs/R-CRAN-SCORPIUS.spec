@@ -1,9 +1,9 @@
 %global packname  SCORPIUS
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}
 Summary:          Inferring Developmental Chronologies from Single-Cell RNASequencing Data
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-TSP 
@@ -52,6 +53,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-TSP 

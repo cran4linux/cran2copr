@@ -1,9 +1,9 @@
 %global packname  rslp
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          A Stemming Algorithm for the Portuguese Language
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tokenizers 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tokenizers 
 
 %description
 Implements the "Stemming Algorithm for the Portuguese Language"
