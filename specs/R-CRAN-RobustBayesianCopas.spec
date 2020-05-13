@@ -1,38 +1,33 @@
-%global packname  caschrono
-%global packver   2.2
+%global packname  RobustBayesianCopas
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          1.0
 Release:          1%{?dist}
-Summary:          S<e9>ries Temporelles Avec R
+Summary:          Robust Bayesian Copas Selection Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-methods 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-statip 
+BuildRequires:    R-CRAN-rjags 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-methods 
+Requires:         R-CRAN-statip 
+Requires:         R-CRAN-rjags 
 
 %description
-Functions, data sets and exercises solutions for the book 'S<e9>ries
-Temporelles Avec R' (Yves Aragon, edp sciences, 2016). For all chapters, a
-vignette is available with some additional material and exercises
-solutions.
+Implementation of the robust Bayesian Copas (RBC) selection model for
+correcting and quantifying publication bias, as introduced in Bai et al.
+(2020) <arXiv:2005.02930>. This package also implements standard random
+effects meta-analysis and the Copas-like selection model of Ning et al.
+(2017) <doi:10.1093/biostatistics/kxx004>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,7 +53,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/import
 %{rlibdir}/%{packname}/INDEX

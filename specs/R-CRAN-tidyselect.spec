@@ -1,9 +1,9 @@
 %global packname  tidyselect
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Select from a Set of Strings
 
@@ -16,12 +16,12 @@ BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-rlang >= 0.4.3
+BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-vctrs >= 0.2.2
 BuildRequires:    R-CRAN-ellipsis 
 Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-rlang >= 0.4.3
+Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-vctrs >= 0.2.2
 Requires:         R-CRAN-ellipsis 

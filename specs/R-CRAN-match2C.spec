@@ -1,38 +1,38 @@
-%global packname  caschrono
-%global packver   2.2
+%global packname  match2C
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          S<e9>ries Temporelles Avec R
+Summary:          Match One Sample using Two Criteria
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rcbalance 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-methods 
-Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-mvnfast 
 Requires:         R-stats 
+Requires:         R-CRAN-rcbalance 
 Requires:         R-utils 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-methods 
 
 %description
-Functions, data sets and exercises solutions for the book 'S<e9>ries
-Temporelles Avec R' (Yves Aragon, edp sciences, 2016). For all chapters, a
-vignette is available with some additional material and exercises
-solutions.
+Multivariate matching in observational studies typically has two goals: 1.
+to construct treated and control groups that have similar distribution of
+observed covariates and 2. to produce matched pairs or sets that are
+homogeneous in a few priority variables. This packages implements a
+network-based method built around a tripartite graph that can
+simultaneously achieve both goals. A detailed 'RMarkdown' tutorial can be
+found at <https://github.com/bzhangupenn/match2C/tree/master/tutorial>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,9 +56,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/import
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

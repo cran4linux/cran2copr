@@ -1,37 +1,32 @@
-%global packname  rasciidoc
-%global packver   2.1.2
+%global packname  shinyreforms
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Create Reports Using R and 'asciidoc'
+Summary:          Add Forms to your 'Shiny' App
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         asciidoc
-Requires:         source-highlight
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-document 
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-document 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-shiny >= 1.0.0
+BuildRequires:    R-CRAN-htmltools >= 0.2.6
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-shiny >= 1.0.0
+Requires:         R-CRAN-htmltools >= 0.2.6
+Requires:         R-CRAN-R6 
 
 %description
-Inspired by Karl Broman`s reader on using 'knitr' with 'asciidoc'
-(<http://kbroman.org/knitr_knutshell/pages/asciidoc.html>), this is merely
-a wrapper to 'knitr' and 'asciidoc'.
+Allows to create modular, reusable 'HTML' forms which can be embedded in
+your 'shiny' app with minimal effort. Features include conditional code
+execution on form submission, automatic input validation and input
+tooltips.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,11 +49,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/files
-%doc %{rlibdir}/%{packname}/runit_tests
+%doc %{rlibdir}/%{packname}/shinyreforms.css
 %{rlibdir}/%{packname}/INDEX

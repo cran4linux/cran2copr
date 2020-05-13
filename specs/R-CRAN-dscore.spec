@@ -1,9 +1,9 @@
 %global packname  dscore
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          D-Score for Child Development
 
@@ -19,12 +19,14 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.2
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.2
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 The D-score is a quantitative measure of child development. The D-score

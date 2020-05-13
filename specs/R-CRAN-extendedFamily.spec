@@ -1,31 +1,32 @@
-%global packname  AR1seg
-%global packver   1.0
+%global packname  extendedFamily
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Segmentation of an autoregressive Gaussian process of order 1
+Summary:          Additional Families for Generalized Linear Models
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Segmentor3IsBack 
-Requires:         R-CRAN-Segmentor3IsBack 
+BuildRequires:    R-stats >= 3.5.3
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+Requires:         R-stats >= 3.5.3
+Requires:         R-CRAN-assertthat >= 0.2.1
 
 %description
-This package corresponds to the implementation of the robust approach for
-estimating change-points in the mean of an AR(1) Gaussian process by using
-the methodology described in the paper arXiv 1403.1958
+Creates family objects identical to stats family but for new links.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -33,6 +34,7 @@ the methodology described in the paper arXiv 1403.1958
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -44,5 +46,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

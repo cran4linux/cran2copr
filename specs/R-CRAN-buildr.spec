@@ -1,13 +1,13 @@
-%global packname  caschrono
-%global packver   2.2
+%global packname  buildr
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.0.4
 Release:          1%{?dist}
-Summary:          S<e9>ries Temporelles Avec R
+Summary:          Comfort Way to Run Build Scripts
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,24 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-methods 
 
 %description
-Functions, data sets and exercises solutions for the book 'S<e9>ries
-Temporelles Avec R' (Yves Aragon, edp sciences, 2016). For all chapters, a
-vignette is available with some additional material and exercises
-solutions.
+Working with reproducible reports or any other similar projects often
+requires to run the script that builds the output file in a specified way.
+One can become tired from repeatedly switching to the build script and
+sourcing it. The 'buildr' package does this one simple thing via 'RStudio'
+addin – user can set up the keyboard shortcut and run the build script
+with one keystroke anywhere anytime. The second way is to pass buildr()
+command to console which does the same thing. Both ways source the build.R
+(case insensitive) file present in the current working directory.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,11 +46,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/import
+%doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX

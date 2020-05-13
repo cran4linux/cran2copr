@@ -1,9 +1,9 @@
 %global packname  exuber
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Econometric Analysis of Explosive Time Series
 
@@ -18,7 +18,6 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
 BuildRequires:    R-CRAN-tibble >= 2.1.1
 BuildRequires:    R-CRAN-doRNG >= 1.8.2
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-foreach >= 1.4.4
 BuildRequires:    R-CRAN-glue >= 1.3.1
 BuildRequires:    R-CRAN-cli >= 1.1.0
@@ -36,7 +35,6 @@ Requires:         R-CRAN-ggplot2 >= 3.1.1
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-doRNG >= 1.8.2
 Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-foreach >= 1.4.4
 Requires:         R-CRAN-glue >= 1.3.1
 Requires:         R-CRAN-cli >= 1.1.0

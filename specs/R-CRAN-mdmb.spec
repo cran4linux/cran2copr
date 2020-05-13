@@ -1,9 +1,9 @@
 %global packname  mdmb
-%global packver   1.3-18
+%global packver   1.4-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.18
+Version:          1.4.12
 Release:          1%{?dist}
 Summary:          Model Based Treatment of Missing Data
 
@@ -36,15 +36,17 @@ Requires:         R-utils
 Contains model-based treatment of missing data for regression models with
 missing values in covariates or the dependent variable using maximum
 likelihood or Bayesian estimation (Ibrahim et al., 2005;
-<doi:10.1198/016214504000001844>). The regression model can be nonlinear
-(e.g., interaction effects, quadratic effects or B-spline functions).
-Multilevel models with missing data in predictors are available for
-Bayesian estimation. Substantive-model compatible multiple imputation can
-be also conducted.
+<doi:10.1198/016214504000001844>; Luedtke, Robitzsch, & West, 2019a,
+2019b, <doi:10.1037/met0000233>; <doi:10.1080/00273171.2019.1640104>). The
+regression model can be nonlinear (e.g., interaction effects, quadratic
+effects or B-spline functions). Multilevel models with missing data in
+predictors are available for Bayesian estimation. Substantive-model
+compatible multiple imputation can be also conducted.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  AdhereR
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Adherence to Medications
 
@@ -18,14 +18,12 @@ BuildArch:        noarch
 BuildRequires:    R-parallel >= 3.0
 BuildRequires:    R-CRAN-data.table >= 1.9
 BuildRequires:    R-CRAN-lubridate >= 1.5
-BuildRequires:    R-CRAN-rsvg >= 1.3
 BuildRequires:    R-CRAN-webp >= 1.0
 BuildRequires:    R-CRAN-jpeg >= 0.1
 BuildRequires:    R-CRAN-png >= 0.1
 Requires:         R-parallel >= 3.0
 Requires:         R-CRAN-data.table >= 1.9
 Requires:         R-CRAN-lubridate >= 1.5
-Requires:         R-CRAN-rsvg >= 1.3
 Requires:         R-CRAN-webp >= 1.0
 Requires:         R-CRAN-jpeg >= 0.1
 Requires:         R-CRAN-png >= 0.1

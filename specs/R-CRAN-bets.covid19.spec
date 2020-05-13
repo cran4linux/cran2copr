@@ -1,36 +1,34 @@
-%global packname  bayesCT
-%global packver   0.99.2
+%global packname  bets.covid19
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.2
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Simulation and Analysis of Adaptive Bayesian Clinical Trials
+Summary:          The BETS Model for Early Epidemic Data
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bayesDP 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-survival 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-bayesDP 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-msm 
-Requires:         R-survival 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-parallel 
+Requires:         R-stats 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-parallel 
 
 %description
-Simulation and analysis of Bayesian adaptive clinical trial, incorporates
-historical data and allows early stopping for futility or early success.
+Implements likelihood inference for early epidemic analysis. BETS is short
+for the four key epidemiological events being modeled: Begin of exposure,
+End of exposure, time of Transmission, and time of Symptom onset. The
+package contains a dataset of the trajectory of confirmed cases during the
+coronavirus disease (COVID-19) early outbreak. More detail of the
+statistical methods can be found in Zhao et al. (2020) <arXiv:2004.07743>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,5 +54,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

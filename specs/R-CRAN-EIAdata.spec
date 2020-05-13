@@ -1,9 +1,9 @@
 %global packname  EIAdata
-%global packver   0.0.5
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          R Wrapper for the Energy Information Administration (EIA) API
 
@@ -29,6 +29,7 @@ import data, from the EIA's API <https://www.eia.gov/opendata/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +37,7 @@ import data, from the EIA's API <https://www.eia.gov/opendata/>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

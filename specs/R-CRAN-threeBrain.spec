@@ -1,9 +1,9 @@
 %global packname  threeBrain
-%global packver   0.1.5
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          3D Brain Visualization
 
@@ -21,12 +21,10 @@ BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-htmlwidgets >= 1.3
 BuildRequires:    R-CRAN-shiny >= 1.2.0
-BuildRequires:    R-CRAN-reticulate >= 1.13
 BuildRequires:    R-CRAN-oro.nifti >= 0.9.1
 BuildRequires:    R-CRAN-gifti >= 0.7.5
 BuildRequires:    R-CRAN-digest >= 0.6.22
 BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-startup >= 0.12.0
 BuildRequires:    R-CRAN-freesurferformats >= 0.1.7
 BuildRequires:    R-CRAN-base64enc >= 0.1.3
 BuildRequires:    R-grDevices 
@@ -38,12 +36,10 @@ Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-htmlwidgets >= 1.3
 Requires:         R-CRAN-shiny >= 1.2.0
-Requires:         R-CRAN-reticulate >= 1.13
 Requires:         R-CRAN-oro.nifti >= 0.9.1
 Requires:         R-CRAN-gifti >= 0.7.5
 Requires:         R-CRAN-digest >= 0.6.22
 Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-startup >= 0.12.0
 Requires:         R-CRAN-freesurferformats >= 0.1.7
 Requires:         R-CRAN-base64enc >= 0.1.3
 Requires:         R-grDevices 
@@ -70,6 +66,7 @@ to one template 141 brain.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -90,6 +87,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

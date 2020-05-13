@@ -1,9 +1,9 @@
 %global packname  dipsaus
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
@@ -18,59 +18,58 @@ BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-fastmap 
 BuildRequires:    R-CRAN-base64url 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-txtq 
 BuildRequires:    R-CRAN-synchronicity 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-startup 
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-utils 
 Requires:         R-grDevices 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-stringr 
-Requires:         R-parallel 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-fastmap 
 Requires:         R-CRAN-base64url 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-txtq 
 Requires:         R-CRAN-synchronicity 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-startup 
 
 %description
-Works as "add-ons" to packages like 'shiny', 'future', as well as 'rlang',
-and provides utility functions. Just like dipping sauce adding flavors to
-potato chips or pita bread, 'dipsaus' for data analysis and visualizations
-adds handy functions and enhancements to popular packages. The goal is to
-provide simple solutions that are frequently asked for online, such as how
-to synchronize 'shiny' inputs without freezing the app, or how to get
-memory size on 'Linux' or 'MacOS' system. The enhancements roughly fall
-into these four categories: 1. 'shiny' input widgets; 2. high-performance
-computing using 'RcppParallel' and 'future' package; 3. modify R calls and
-convert among numbers, strings, and other objects. 4. utility functions to
-get system information such like CPU chipset, memory limit, etc.
+Works as an "add-on" to packages like 'shiny', 'future', as well as
+'rlang', and provides utility functions. Just like dipping sauce adding
+flavors to potato chips or pita bread, 'dipsaus' for data analysis and
+visualizations adds handy functions and enhancements to popular packages.
+The goal is to provide simple solutions that are frequently asked for
+online, such as how to synchronize 'shiny' inputs without freezing the
+app, or how to get memory size on 'Linux' or 'MacOS' system. The
+enhancements roughly fall into these four categories: 1. 'shiny' input
+widgets; 2. high-performance computing using 'RcppParallel' and 'future'
+package; 3. modify R calls and convert among numbers, strings, and other
+objects. 4. utility functions to get system information such like CPU
+chip-set, memory limit, etc.
 
 %prep
 %setup -q -c -n %{packname}

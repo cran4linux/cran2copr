@@ -1,38 +1,36 @@
-%global packname  caschrono
-%global packver   2.2
+%global packname  SBdecomp
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          1.0
 Release:          1%{?dist}
-Summary:          S<e9>ries Temporelles Avec R
+Summary:          Estimation of the Proportion of SB Explained by Confounders
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-methods 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-twang 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-survey 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-methods 
+Requires:         R-CRAN-twang 
+Requires:         R-graphics 
+Requires:         R-CRAN-survey 
 
 %description
-Functions, data sets and exercises solutions for the book 'S<e9>ries
-Temporelles Avec R' (Yves Aragon, edp sciences, 2016). For all chapters, a
-vignette is available with some additional material and exercises
-solutions.
+Uses parametric and nonparametric methods to quantify the proportion of
+the estimated selection bias (SB) explained by each observed confounder
+when estimating propensity score weighted treatment effects. Parast, L and
+Griffin, BA (2020). "Quantifying the Bias due to Observed Individual
+Confounders in Causal Treatment Effect Estimates". Statistics in Medicine,
+In press (doi to be added when published).
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,7 +56,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/import
 %{rlibdir}/%{packname}/INDEX

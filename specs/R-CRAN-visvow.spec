@@ -1,9 +1,9 @@
 %global packname  visvow
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Visible Vowels: Visualization of Vowel Variation
 
@@ -19,6 +19,9 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-splitstackshape 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-PBSmapping 
+BuildRequires:    R-CRAN-formattable 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-MASS 
@@ -39,6 +42,9 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-splitstackshape 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-PBSmapping 
+Requires:         R-CRAN-formattable 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plot3D 
 Requires:         R-MASS 
@@ -62,6 +68,7 @@ Visualizes vowel variation in f0, F1, F2, F3 and duration.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -85,7 +92,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/email.png
 %doc %{rlibdir}/%{packname}/example.xlsx
-%doc %{rlibdir}/%{packname}/FA.jpg
+%doc %{rlibdir}/%{packname}/FA1.jpg
+%doc %{rlibdir}/%{packname}/FA2.png
 %doc %{rlibdir}/%{packname}/format.png
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %doc %{rlibdir}/%{packname}/visvow.pdf

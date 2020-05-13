@@ -1,9 +1,9 @@
 %global packname  MedSurvey
-%global packver   1.1.1.1.0
+%global packver   1.1.1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1.1.0
+Version:          1.1.1.2.0
 Release:          1%{?dist}
 Summary:          Mediation Analysis for Complex Surveys
 
@@ -29,15 +29,16 @@ Requires:         R-parallel
 %description
 It is a computer tool to conduct mediation analysis for complex surveys
 using multi-stage sampling. Specifically, the mediation analysis method
-using balanced repeated replications was proposed by Mai, Ha, and
-Soulakova (2019) <DOI:10.1080/10705511.2018.1559065>. The development of
-'MedSurvey' was sponsored by American Lebanese Syrian Associated Charities
-(ALSAC). However, the contents of MedSurvey do not necessarily represent
-the policy of the ALSAC.
+using balanced repeated replication was proposed by Mai, Ha, and Soulakova
+(2019) <DOI:10.1080/10705511.2018.1559065>. The development of 'MedSurvey'
+was sponsored by American Lebanese Syrian Associated Charities (ALSAC).
+However, the contents of MedSurvey do not necessarily represent the policy
+of the ALSAC.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -45,6 +46,7 @@ the policy of the ALSAC.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

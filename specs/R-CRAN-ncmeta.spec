@@ -1,9 +1,9 @@
 %global packname  ncmeta
-%global packver   0.2.0
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.5
 Release:          1%{?dist}
 Summary:          Straightforward 'NetCDF' Metadata
 
@@ -43,6 +43,7 @@ framework for the in-development 'tidync' project
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -63,8 +64,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/eke-speed
 %{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/flowchart
-%doc %{rlibdir}/%{packname}/test-RNetCDF
 %{rlibdir}/%{packname}/INDEX

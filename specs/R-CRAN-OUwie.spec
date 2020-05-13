@@ -1,9 +1,9 @@
 %global packname  OUwie
-%global packver   1.57
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.57
+Version:          2.1
 Release:          1%{?dist}
 Summary:          Analysis of Evolutionary Rates in an OU Framework
 
@@ -16,33 +16,35 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-lattice 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-geiger 
-BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-paleotree 
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-corHMM 
-BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-nloptr 
-Requires:         R-lattice 
-Requires:         R-grDevices 
-Requires:         R-CRAN-geiger 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-geiger 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-paleotree 
 Requires:         R-CRAN-phangorn 
 Requires:         R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-corHMM 
-Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-interp 
+Requires:         R-grDevices 
+Requires:         R-parallel 
 
 %description
 Estimates rates for continuous character evolution under Brownian motion
@@ -53,6 +55,7 @@ regimes. Beaulieu et al (2012) <doi:10.1111/j.1558-5646.2012.01619.x>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -73,4 +76,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

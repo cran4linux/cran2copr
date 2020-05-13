@@ -1,9 +1,9 @@
 %global packname  tidync
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          A Tidy Approach to 'NetCDF' Data Exploration and Extraction
 
@@ -47,6 +47,7 @@ via hyper_tibble() or hyper_array().
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

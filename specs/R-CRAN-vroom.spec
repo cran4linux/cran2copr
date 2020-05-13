@@ -1,9 +1,9 @@
 %global packname  vroom
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Read and Write Rectangular Text Data Quickly
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-tibble >= 2.0.0
@@ -33,6 +34,7 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-withr 
 
@@ -46,6 +48,7 @@ asynchronously from formatting.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

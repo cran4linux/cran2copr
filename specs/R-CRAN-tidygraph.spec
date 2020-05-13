@@ -1,9 +1,9 @@
 %global packname  tidygraph
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          A Tidy API for Graph Manipulation
 
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-dplyr >= 0.8
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
@@ -26,7 +26,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-dplyr >= 0.8
+Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
@@ -49,6 +49,7 @@ common graph algorithms.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -56,6 +57,7 @@ common graph algorithms.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

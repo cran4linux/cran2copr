@@ -1,9 +1,9 @@
 %global packname  scales
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Scale Functions for Visualization
 
@@ -15,20 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-farver >= 2.0.0
+BuildRequires:    R-CRAN-farver >= 2.0.3
 BuildRequires:    R-CRAN-munsell >= 0.5
 BuildRequires:    R-CRAN-labeling 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-farver >= 2.0.0
+Requires:         R-CRAN-farver >= 2.0.3
 Requires:         R-CRAN-munsell >= 0.5
 Requires:         R-CRAN-labeling 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-lifecycle 
 
 %description
 Graphical scales map data to aesthetics, and provide methods for
@@ -37,6 +37,7 @@ automatically determining breaks and labels for axes and legends.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

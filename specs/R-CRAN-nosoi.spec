@@ -1,9 +1,9 @@
 %global packname  nosoi
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}
 Summary:          A Forward Agent-Based Transmission Chain Simulator
 
@@ -18,19 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-stats >= 3.5.2
 BuildRequires:    R-methods >= 3.5.2
 BuildRequires:    R-CRAN-raster >= 2.8.19
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-reshape2 >= 1.4.0
 BuildRequires:    R-CRAN-data.table >= 1.12.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
 Requires:         R-stats >= 3.5.2
 Requires:         R-methods >= 3.5.2
 Requires:         R-CRAN-raster >= 2.8.19
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-reshape2 >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.12.0
-Requires:         R-CRAN-dplyr >= 0.8.0
 
 %description
 The aim of 'nosoi' (pronounced no.si) is to provide a flexible agent-based
