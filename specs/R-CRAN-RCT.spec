@@ -1,9 +1,9 @@
 %global packname  RCT
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Assign Treatments, Power Calculations, Balances, ImpactEvaluation of Experiments
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-utils 
 
 %description
 Assists in the whole process of designing and evaluating Randomized
@@ -81,6 +83,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

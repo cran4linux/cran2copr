@@ -1,9 +1,9 @@
 %global packname  mfGARCH
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Mixed-Frequency GARCH Models
 
@@ -30,16 +30,17 @@ Requires:         R-CRAN-maxLik
 %description
 Estimating GARCH-MIDAS (MIxed-DAta-Sampling) models (Engle, Ghysels, Sohn,
 2013, <doi:10.1162/REST_a_00300>) and related statistical inference,
-accompanying the paper "Two are better than one: volatility forecasting
-using multiplicative component GARCH models" by Conrad and Kleen (2018,
-<doi:10.2139/ssrn.2752354>). The GARCH-MIDAS model decomposes the
-conditional variance of (daily) stock returns into a short- and long-term
-component, where the latter may depend on an exogenous covariate sampled
-at a lower frequency.
+accompanying the paper "Two are better than one: Volatility forecasting
+using multiplicative component GARCH models" by Conrad and Kleen (2020,
+<doi:10.1002/jae.2742>). The GARCH-MIDAS model decomposes the conditional
+variance of (daily) stock returns into a short- and long-term component,
+where the latter may depend on an exogenous covariate sampled at a lower
+frequency.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

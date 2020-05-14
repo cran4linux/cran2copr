@@ -1,9 +1,9 @@
 %global packname  unjoin
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Separate a Data Frame by Normalization
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.2
 Requires:         R-core >= 3.3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 0.5.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 

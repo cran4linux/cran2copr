@@ -1,9 +1,9 @@
 %global packname  teachingApps
-%global packver   1.0.4
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.8
 Release:          1%{?dist}
 Summary:          Apps for Teaching Statistics, R Programming, and Shiny AppDevelopment
 
@@ -18,25 +18,11 @@ BuildRequires:    R-CRAN-BH >= 1.58.0.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-pacman 
-BuildRequires:    R-CRAN-shinyAce 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-radarchart 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-metricsgraphics 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-threejs 
-BuildRequires:    R-CRAN-d3heatmap 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-datasets 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-dygraphs 
-BuildRequires:    R-CRAN-networkD3 
-BuildRequires:    R-CRAN-diagram 
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-actuar 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-stats 
@@ -51,29 +37,16 @@ BuildRequires:    R-CRAN-yaml
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-pacman 
-Requires:         R-CRAN-shinyAce 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-radarchart 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-metricsgraphics 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-threejs 
-Requires:         R-CRAN-d3heatmap 
-Requires:         R-CRAN-tidyr 
 Requires:         R-datasets 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-dygraphs 
-Requires:         R-CRAN-networkD3 
-Requires:         R-CRAN-diagram 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-actuar 
 Requires:         R-CRAN-markdown 
 Requires:         R-stats 
@@ -88,6 +61,7 @@ Requires:         R-CRAN-yaml
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-RcppNumerical 
+Requires:         R-CRAN-miniUI 
 
 %description
 Contains apps and gadgets for teaching data analysis and statistics
@@ -97,6 +71,7 @@ app development easier and faster by nesting apps together.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -117,6 +92,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/apps
+%doc %{rlibdir}/%{packname}/figure
+%doc %{rlibdir}/%{packname}/gadget_test.html
+%doc %{rlibdir}/%{packname}/gadget_test.Rmd
+%{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/teachingApps
+%doc %{rlibdir}/%{packname}/test.html
+%doc %{rlibdir}/%{packname}/test.Rhtml
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

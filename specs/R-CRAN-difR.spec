@@ -1,9 +1,9 @@
 %global packname  difR
-%global packver   5.0
+%global packver   5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0
+Version:          5.1
 Release:          1%{?dist}
 Summary:          Collection of Methods to Detect Dichotomous Differential ItemFunctioning (DIF)
 
@@ -36,6 +36,7 @@ Methods, 42, 2010, 847-862 <doi:10.3758/BRM.42.3.847>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -58,5 +59,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

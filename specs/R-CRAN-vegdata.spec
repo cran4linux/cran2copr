@@ -1,9 +1,9 @@
 %global packname  vegdata
-%global packver   0.9.7
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.8
 Release:          1%{?dist}
 Summary:          Access Vegetation Databases and Treat Taxonomy
 
@@ -34,6 +34,7 @@ list "GermanSL", <http://germansl.infinitenature.org>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

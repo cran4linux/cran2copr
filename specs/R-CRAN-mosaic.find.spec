@@ -1,29 +1,29 @@
-%global packname  bmixture
-%global packver   1.5
+%global packname  mosaic.find
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Bayesian Estimation for Finite Mixture of Distributions
+Summary:          Finding Rhythmic and Non-Rhythmic Trends in Multi-Omics Data(MOSAIC)
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-BDgraph 
-Requires:         R-CRAN-BDgraph 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-minpack.lm >= 1.2.1
+Requires:         R-CRAN-minpack.lm >= 1.2.1
 
 %description
-Provides statistical tools for Bayesian estimation of finite mixture of
-distributions, mainly mixture of Gamma, Normal and t-distributions. The
-package is implemented the Bayesian literature for the finite mixture of
-distributions, including Mohammadi and et al. (2013)
-<doi:10.1007/s00180-012-0323-3> and Mohammadi and Salehi-Rad (2012)
-<doi:10.1080/03610918.2011.588358>.
+Provides a function (mosaic_find()) designed to find rhythmic and
+non-rhythmic trends in multi-omics time course data using model selection
+and joint modeling, a method called MOSAIC (Multi-Omics Selection with
+Amplitude Independent Criteria). For more information, see H. De los
+Santos et al. (2020) <doi:10.1101/2020.04.27.064147>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,9 +47,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

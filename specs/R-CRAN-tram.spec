@@ -1,9 +1,9 @@
 %global packname  tram
-%global packver   0.3-2
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Transformation Models
 
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-mlt >= 1.1.1
+BuildRequires:    R-CRAN-mlt >= 1.2.0
 BuildRequires:    R-CRAN-basefun >= 1.0.5
 BuildRequires:    R-CRAN-variables >= 1.0.2
 BuildRequires:    R-CRAN-Formula 
@@ -25,7 +25,7 @@ BuildRequires:    R-survival
 BuildRequires:    R-graphics 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-mlt >= 1.1.1
+Requires:         R-CRAN-mlt >= 1.2.0
 Requires:         R-CRAN-basefun >= 1.0.5
 Requires:         R-CRAN-variables >= 1.0.2
 Requires:         R-CRAN-Formula 
@@ -51,6 +51,7 @@ transformation models for clustered data is provided (Hothorn, 2019,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

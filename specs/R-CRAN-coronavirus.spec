@@ -1,9 +1,9 @@
 %global packname  coronavirus
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset
 
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-devtools >= 2.2.2
+Requires:         R-CRAN-devtools >= 2.2.2
 
 %description
 Provides a daily summary of the Coronavirus (COVID-19) cases by
@@ -48,4 +50,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

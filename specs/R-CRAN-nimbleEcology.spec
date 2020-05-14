@@ -1,9 +1,9 @@
 %global packname  nimbleEcology
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Distributions for Ecological Models in 'nimble'
 
@@ -22,8 +22,8 @@ Requires:         R-CRAN-nimble
 Common ecological distributions for 'nimble' models in the form of
 nimbleFunction objects. Includes Cormack-Jolly-Seber, occupancy, dynamic
 occupancy, hidden Markov, dynamic hidden Markov, and N-mixture models.
-(Jolly (1965) <doi:10.2307/2333826>, Seber (1965) <10.2307/2333827>, Turek
-et al. (2016) <doi:10.1007/s10651-016-0353-z>).
+(Jolly (1965) <DOI: 10.2307/2333826>, Seber (1965) <DOI: 10.2307/2333827>,
+Turek et al. (2016) <doi:10.1007/s10651-016-0353-z>).
 
 %prep
 %setup -q -c -n %{packname}

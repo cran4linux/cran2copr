@@ -1,9 +1,9 @@
 %global packname  dbflobr
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Read and Write Files to SQLite Databases
 
@@ -15,16 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkr 
+BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-flobr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
-Requires:         R-CRAN-checkr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-chk 
 Requires:         R-CRAN-flobr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-rlang 
 
 %description
 Reads and writes files to SQLite databases
@@ -34,6 +40,7 @@ preserves the file extension).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,4 +62,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  qualmap
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Opinionated Approach for Digitizing Semi-Structured QualitativeGIS Data
 
@@ -38,6 +38,7 @@ polygons can be entered as vectors and transformed using qualmap.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
