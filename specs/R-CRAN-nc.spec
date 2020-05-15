@@ -1,9 +1,9 @@
 %global packname  nc
-%global packver   2020.3.23
+%global packver   2020.5.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.3.23
+Version:          2020.5.13
 Release:          1%{?dist}
 Summary:          Named Capture to Data Tables
 

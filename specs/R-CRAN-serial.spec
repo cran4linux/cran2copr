@@ -1,9 +1,9 @@
 %global packname  serial
-%global packver   2.1.4
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          3.0
 Release:          1%{?dist}
 Summary:          The Serial Interface Package
 
@@ -18,11 +18,12 @@ BuildArch:        noarch
 
 %description
 Enables reading and writing binary and ASCII data to RS232/RS422/RS485 or
-any other virtual serial interfaces of the computer.
+any other virtual serial interface of the computer.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -30,6 +31,7 @@ any other virtual serial interfaces of the computer.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -40,5 +42,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

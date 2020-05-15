@@ -1,9 +1,9 @@
 %global packname  helda
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Preprocess Data and Get Better Insights from Machine LearningModels
 

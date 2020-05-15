@@ -1,31 +1,33 @@
-%global packname  plspm.formula
-%global packver   1.0.1
+%global packname  RSqlParser
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.5
 Release:          1%{?dist}
-Summary:          Formula Based PLS Path Modeling
+Summary:          Parse 'SQL' Statements
 
-License:          GPL (>= 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.1.0
+Requires:         R-core >= 2.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plspm 
-Requires:         R-CRAN-plspm 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 
 %description
-The main objective is to make easy the PLS Path Modeling with R using the
-package 'plspm'. It compute automatically the inner matrix and the outer
-list the 'plspm' function need simply by specify the model using formulas.
+Parser for 'SQL' statements. Currently, it supports parsing of only
+'SELECT' statements.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,8 +44,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

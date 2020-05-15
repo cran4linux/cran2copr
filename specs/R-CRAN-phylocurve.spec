@@ -1,9 +1,9 @@
 %global packname  phylocurve
-%global packver   2.0.10
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          Phylogenetic Comparative Methods for High-Dimensional Traits
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-dtw
 BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-CRAN-GPfit 
 BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-mvnmle 
 BuildRequires:    R-CRAN-phylolm 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-rgl 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-dtw
 Requires:         R-CRAN-geiger 
 Requires:         R-CRAN-GPfit 
 Requires:         R-Matrix 
-Requires:         R-CRAN-mvnmle 
 Requires:         R-CRAN-phylolm 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-rgl 
@@ -63,6 +61,7 @@ Visit <http://www.phylocurve.org> for more information.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

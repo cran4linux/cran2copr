@@ -1,9 +1,9 @@
 %global packname  tramnet
-%global packver   0.0-2
+%global packver   0.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}
 Summary:          Penalized Transformation Models
 
@@ -16,7 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mlrMBO >= 1.1.2
-BuildRequires:    R-CRAN-CVXR >= 0.99
+BuildRequires:    R-CRAN-CVXR >= 0.99.4
 BuildRequires:    R-CRAN-tram >= 0.3.2
 BuildRequires:    R-CRAN-mlt 
 BuildRequires:    R-CRAN-basefun 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-mlr
 BuildRequires:    R-CRAN-smoof 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-mlrMBO >= 1.1.2
-Requires:         R-CRAN-CVXR >= 0.99
+Requires:         R-CRAN-CVXR >= 0.99.4
 Requires:         R-CRAN-tram >= 0.3.2
 Requires:         R-CRAN-mlt 
 Requires:         R-CRAN-basefun 
@@ -48,8 +48,8 @@ logistic regression. Hyperparameter tuning is facilitated through
 model-based optimization functionalities from package 'mlrMBO'. The
 accompanying vignette describes the methodology used in 'tramnet' in
 detail. Transformation models and model-based optimization are described
-here: Hothorn et al. (2019) <doi:10.1007/s11222-019-09870-4>, Horn et al.
-(2016) <doi:10.1007/s11222-019-09870-4>.
+in Hothorn et al. (2019) <doi:10.1111/sjos.12291> and Bischl et al. (2016)
+<arxiv:1703.03373>, respectively.
 
 %prep
 %setup -q -c -n %{packname}
@@ -75,4 +75,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX

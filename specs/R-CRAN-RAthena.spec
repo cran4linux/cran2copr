@@ -1,9 +1,9 @@
 %global packname  RAthena
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}
 Summary:          Connect to 'AWS Athena' using 'Boto3' ('DBI' Interface)
 

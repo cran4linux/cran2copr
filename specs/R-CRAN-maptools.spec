@@ -1,9 +1,9 @@
 %global packname  maptools
-%global packver   0.9-9
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Tools for Handling Spatial Objects
 
@@ -35,11 +35,12 @@ Requires:         R-grDevices
 Set of tools for manipulating geographic data. It includes binary access
 to 'GSHHG' shoreline files. The package also provides interface wrappers
 for exchanging spatial objects with packages such as 'PBSmapping',
-'spatstat', 'maps', 'RArcInfo', and others.
+'spatstat', 'maps', and others.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -66,6 +67,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/grids
 %doc %{rlibdir}/%{packname}/README
 %doc %{rlibdir}/%{packname}/shapes
-%doc %{rlibdir}/%{packname}/share
+%{rlibdir}/%{packname}/share
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  mapdeck
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Interactive Maps Using 'Mapbox GL JS' and 'Deck.gl'
 
@@ -18,8 +18,8 @@ BuildRequires:    R-CRAN-geojsonsf >= 1.3.3
 BuildRequires:    R-CRAN-jsonify >= 1.1.1
 BuildRequires:    R-CRAN-googlePolylines >= 0.7.2
 BuildRequires:    R-CRAN-colourvalues >= 0.3.4
+BuildRequires:    R-CRAN-sfheaders >= 0.2.2
 BuildRequires:    R-CRAN-spatialwidget >= 0.2.2
-BuildRequires:    R-CRAN-sfheaders >= 0.2.1
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Rcpp 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-geojsonsf >= 1.3.3
 Requires:         R-CRAN-jsonify >= 1.1.1
 Requires:         R-CRAN-googlePolylines >= 0.7.2
 Requires:         R-CRAN-colourvalues >= 0.3.4
-Requires:         R-CRAN-sfheaders >= 0.2.1
+Requires:         R-CRAN-sfheaders >= 0.2.2
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Rcpp 

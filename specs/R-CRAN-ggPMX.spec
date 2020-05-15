@@ -1,9 +1,9 @@
 %global packname  ggPMX
-%global packver   1.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          'ggplot2' Based Tool to Facilitate Diagnostic Plots for NLMEModels
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-gtable
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-knitr 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-gtable
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-knitr 

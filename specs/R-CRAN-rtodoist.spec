@@ -1,36 +1,42 @@
-%global packname  rbin
-%global packver   0.2.0
+%global packname  rtodoist
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Tools for Binning Data
+Summary:          Create and Manage Todolist using 'Todoist.com' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-getPass 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-getPass 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-utils 
 
 %description
-Manually bin data using weight of evidence and information value. Includes
-other binning methods such as equal length, quantile and winsorized.
-Options for combining levels of categorical data are also available. Dummy
-variables can be generated based on the bins created using any of the
-available binning methods. References: Siddiqi, N. (2006)
-<doi:10.1002/9781119201731.biblio>.
+Allows you to interact with the API of the "Todoist" platform. 'Todoist'
+<https://todoist.com/> provides an online task manager service for teams.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,12 +58,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX

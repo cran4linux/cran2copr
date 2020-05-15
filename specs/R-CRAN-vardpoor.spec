@@ -1,9 +1,9 @@
 %global packname  vardpoor
-%global packver   0.16.0
+%global packver   0.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.17.0
 Release:          1%{?dist}
 Summary:          Variance Estimation for Sample Surveys by the Ultimate ClusterMethod
 
@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
+BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.11.4
 BuildRequires:    R-CRAN-laeken 
 BuildRequires:    R-CRAN-foreach 
@@ -59,6 +60,7 @@ variation, the margin of error, confidence interval, design effect.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

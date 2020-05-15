@@ -1,9 +1,9 @@
 %global packname  DRHotNet
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Differential Risk Hotspots in a Linear Network
 
@@ -50,6 +50,7 @@ network where the type of event indicated by the user is overrepresented.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

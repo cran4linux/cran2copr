@@ -1,34 +1,28 @@
-%global packname  jmvcore
-%global packver   1.2.19
+%global packname  dashTable
+%global packver   4.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.19
+Version:          4.7.0
 Release:          1%{?dist}
-Summary:          Dependencies for the 'jamovi' Framework
+Summary:          Core Interactive Table Component for 'dash'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.3.0.1
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-R6 >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.3.0.1
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-stringi 
 
 %description
-A framework for creating rich interactive analyses for the jamovi platform
-(see <https://www.jamovi.org> for more information).
+An interactive table component designed for editing and exploring large
+datasets, 'dashDataTable' is rendered with standard, semantic HTML
+<table/> markup, which makes it accessible, responsive, and easy to style.
+This component was written from scratch in 'React.js' specifically for the
+'dash' community. Its API was designed to be ergonomic and its behaviour
+is completely customizable through its properties.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,7 +45,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/jamovi.proto
+%doc %{rlibdir}/%{packname}/deps
 %{rlibdir}/%{packname}/INDEX

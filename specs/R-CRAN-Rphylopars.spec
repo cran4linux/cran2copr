@@ -1,9 +1,9 @@
 %global packname  Rphylopars
-%global packver   0.2.12
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Phylogenetic Comparative Tools for Missing Data andWithin-Species Variation
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-doBy
 BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-CRAN-phylolm 
 BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-CRAN-mvnmle 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-doBy
 Requires:         R-CRAN-geiger 
 Requires:         R-CRAN-phylolm 
 Requires:         R-CRAN-phytools 
-Requires:         R-CRAN-mvnmle 
 Requires:         R-Matrix 
 Requires:         R-MASS 
 

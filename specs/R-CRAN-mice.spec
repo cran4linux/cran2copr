@@ -1,9 +1,9 @@
 %global packname  mice
-%global packver   3.8.0
+%global packver   3.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.0
+Version:          3.9.0
 Release:          1%{?dist}
 Summary:          Multivariate Imputation by Chained Equations
 
@@ -71,6 +71,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

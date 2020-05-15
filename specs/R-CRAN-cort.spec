@@ -1,9 +1,9 @@
 %global packname  cort
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Some Empiric and Nonparametric Copula Models
 
@@ -12,10 +12,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-nloptr 
@@ -23,7 +22,6 @@ BuildRequires:    R-CRAN-osqp
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-furrr 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-nloptr 
@@ -40,10 +38,12 @@ to fit copulas in high dimension with a small number of observations, and
 they are always proper copulas. Some flexibility is added via a
 possibility to differentiate the checkerboard parameter by dimension. The
 last model consist of the implementation of the Copula Recursive Tree
-algorithm, including the localised dimension reduction, which fits a
-copula by recursive splitting of the copula domain. We also provide an
-efficient way of mixing copulas, allowing to bag the algorithm into a
-forest, and a generic way of measuring d-dimensional boxes with a copula.
+algorithm proposed by Laverny, Maume-Deschamps, Masiello and Rullière
+(2020) <arXiv:2005.02912>, including the localised dimension reduction,
+which fits a copula by recursive splitting of the copula domain. We also
+provide an efficient way of mixing copulas, allowing to bag the algorithm
+into a forest, and a generic way of measuring d-dimensional boxes with a
+copula.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,6 +65,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE

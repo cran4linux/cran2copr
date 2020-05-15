@@ -1,9 +1,9 @@
 %global packname  msigdbr
-%global packver   7.0.1
+%global packver   7.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.1
+Version:          7.1.1
 Release:          1%{?dist}
 Summary:          MSigDB Gene Sets for Multiple Organisms in a Tidy Data Format
 
@@ -36,6 +36,7 @@ organisms such as mouse, rat, pig, fly, and yeast.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

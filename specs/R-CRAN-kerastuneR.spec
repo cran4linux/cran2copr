@@ -1,9 +1,9 @@
 %global packname  kerastuneR
-%global packver   0.1.0.1
+%global packver   0.1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.1
+Version:          0.1.0.2
 Release:          1%{?dist}
 Summary:          Interface to 'Keras Tuner'
 
@@ -24,6 +24,10 @@ BuildRequires:    R-CRAN-RJSONIO
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-tidyjson 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-echarts4r 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-keras 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-tensorflow 
 Requires:         R-CRAN-rstudioapi 
@@ -33,6 +37,10 @@ Requires:         R-CRAN-RJSONIO
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-tidyjson 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-echarts4r 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-keras 
 
 %description
 'Keras Tuner' <https://keras-team.github.io/keras-tuner/> is a hypertuning

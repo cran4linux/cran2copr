@@ -1,9 +1,9 @@
 %global packname  MachineShop
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Machine Learning Models and Tools
 
@@ -27,6 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-nnet 
 BuildRequires:    R-CRAN-party 
 BuildRequires:    R-CRAN-polspline 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-Rsolnp 
@@ -45,6 +46,7 @@ Requires:         R-methods
 Requires:         R-nnet 
 Requires:         R-CRAN-party 
 Requires:         R-CRAN-polspline 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-Rsolnp 

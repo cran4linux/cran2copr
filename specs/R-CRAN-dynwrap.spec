@@ -1,9 +1,9 @@
 %global packname  dynwrap
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Representing and Inferring Single-Cell Trajectories
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-babelwhale
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dynparam 
-BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-babelwhale
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dynparam 
-Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 

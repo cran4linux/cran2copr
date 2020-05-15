@@ -1,32 +1,35 @@
-%global packname  PoissonBinomial
-%global packver   1.1.1
+%global packname  wbsd
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Efficient Computation of Ordinary and Generalized PoissonBinomial Distributions
+Summary:          Wild Bootstrap Size Diagnostics
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    fftw-devel >= 3
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Efficient implementations of multiple exact and approximate methods as
-described in Hong (2013) <doi:10.1016/j.csda.2012.10.006>, Biscarri, Zhao
-& Brunner (2018) <doi:10.1016/j.csda.2018.01.007> and Zhang, Hong &
-Balakrishnan (2018) <doi:10.1080/00949655.2018.1440294> for computing the
-probability mass, cumulative distribution and quantile functions, as well
-as generating random numbers for both the ordinary and generalized Poisson
-binomial distribution.
+Implements the diagnostic "theta" developed in Poetscher and
+Preinerstorfer (2020) "How Reliable are Bootstrap-based Heteroskedasticity
+Robust Tests?" <arXiv:2005.04089>. This diagnostic can be used to detect
+and weed out bootstrap-based procedures that provably have size equal to
+one for a given testing problem. The implementation covers a large variety
+of bootstrap-based procedures, cf. the above mentioned article for
+details. A function for computing bootstrap p-values is provided.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,9 +53,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

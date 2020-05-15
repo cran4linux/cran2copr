@@ -1,9 +1,9 @@
 %global packname  probably
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          Tools for Post-Processing Class Probability Estimates
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.2.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-yardstick 
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.2.0
+Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-tidyselect 
@@ -37,6 +37,7 @@ these operations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
