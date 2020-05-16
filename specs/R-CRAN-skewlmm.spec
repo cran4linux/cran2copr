@@ -1,9 +1,9 @@
 %global packname  skewlmm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Scale Mixture of Skew-Normal Linear Mixed Models
 
@@ -16,25 +16,25 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-nlme 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-nlme 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
 
 %description
 It fits scale mixture of skew-normal linear mixed models using an
 expectation–maximization (EM) type algorithm, including some possibilities
 for modeling the within-subject dependence. Details can be found in
-Schumacher, Matos and Lachos (2020) <arXiv:2002.01040>.
+Schumacher, Lachos and Matos (2020) <arXiv:2002.01040>.
 
 %prep
 %setup -q -c -n %{packname}

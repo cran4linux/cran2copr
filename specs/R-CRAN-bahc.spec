@@ -1,9 +1,9 @@
 %global packname  bahc
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Filter Covariance and Correlation Matrices withBootstrapped-Averaged Hierarchical Ansatz
 
@@ -22,9 +22,9 @@ Requires:         R-CRAN-matrixStats
 
 %description
 A method to filter correlation and covariance matrices by averaging
-bootstrapped filtered hierarchical clustering. See Ch. Bongiorno and D.
-Challet, Covariance matrix filtering with bootstrapped hierarchies (2020)
-<arXiv:2003.05807>.
+bootstrapped filtered hierarchical clustering. Now with boosting. See Ch.
+Bongiorno and D. Challet, Covariance matrix filtering with bootstrapped
+hierarchies (2020) <arXiv:2003.05807>.
 
 %prep
 %setup -q -c -n %{packname}

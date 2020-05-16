@@ -1,9 +1,9 @@
 %global packname  likelihoodAsy
-%global packver   0.50
+%global packver   0.51
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.50
+Version:          0.51
 Release:          1%{?dist}
 Summary:          Functions for Likelihood Asymptotics
 
@@ -36,6 +36,7 @@ arbitrary scalar function of model parameters, plus some code for the
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +44,7 @@ arbitrary scalar function of model parameters, plus some code for the
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

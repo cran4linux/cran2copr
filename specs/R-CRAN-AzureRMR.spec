@@ -1,9 +1,9 @@
 %global packname  AzureRMR
-%global packver   2.3.2
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          2.3.3
 Release:          1%{?dist}
 Summary:          Interface to 'Azure Resource Manager'
 

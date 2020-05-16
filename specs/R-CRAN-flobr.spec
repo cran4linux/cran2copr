@@ -1,9 +1,9 @@
 %global packname  flobr
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Convert Files to and from Binary Objects (BLOBs)
 
@@ -12,15 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-blob >= 1.2.0
-BuildRequires:    R-CRAN-checkr 
+BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-blob 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-blob >= 1.2.0
-Requires:         R-CRAN-checkr 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-chk 
+Requires:         R-CRAN-blob 
 Requires:         R-tools 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Converts files to and from flobs. A flob is a file that was read into
@@ -32,6 +34,7 @@ and reading files to and from databases.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  REDCapExporter
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Automated Construction of R Data Packages from REDCap Projects
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-RCurl 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-RCurl 
 
 %description
 Export all data, including metadata, from a REDCap (Research Electronic

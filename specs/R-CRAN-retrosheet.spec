@@ -1,9 +1,9 @@
 %global packname  retrosheet
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}
 Summary:          Import Professional Baseball Data from 'Retrosheet'
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-data.table >= 1.9.4
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-httr >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-stringi >= 0.4.1
 BuildRequires:    R-CRAN-rvest >= 0.3.5
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-data.table >= 1.9.4
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-httr >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4.0

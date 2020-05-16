@@ -1,9 +1,9 @@
 %global packname  resourcer
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Resource Resolver
 
@@ -51,4 +51,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/DATASHIELD
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/resources
 %{rlibdir}/%{packname}/INDEX

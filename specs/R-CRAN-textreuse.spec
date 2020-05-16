@@ -1,9 +1,9 @@
 %global packname  textreuse
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Detect Text Reuse and Document Similarity
 
@@ -14,18 +14,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
+BuildRequires:    R-CRAN-tibble >= 3.0.1
 BuildRequires:    R-CRAN-stringr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-digest >= 0.6.8
-BuildRequires:    R-CRAN-dplyr >= 0.4.3
 BuildRequires:    R-CRAN-tidyr >= 0.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-NLP >= 0.1.8
 BuildRequires:    R-CRAN-assertthat >= 0.1
 BuildRequires:    R-CRAN-RcppProgress >= 0.1
 BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-CRAN-stringr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-digest >= 0.6.8
-Requires:         R-CRAN-dplyr >= 0.4.3
 Requires:         R-CRAN-tidyr >= 0.3.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-NLP >= 0.1.8
@@ -42,6 +44,7 @@ Smith-Waterman local alignment algorithm suitable for natural language.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

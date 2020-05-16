@@ -1,9 +1,9 @@
 %global packname  bookdown
-%global packver   0.18
+%global packver   0.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18
+Version:          0.19
 Release:          1%{?dist}
 Summary:          Authoring Books and Technical Documents with R Markdown
 

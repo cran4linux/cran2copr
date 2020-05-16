@@ -1,9 +1,9 @@
 %global packname  bigrquery
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}
 Summary:          An Interface to Google's 'BigQuery' 'API'
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-gargle >= 0.3.0
+BuildRequires:    R-CRAN-gargle >= 0.5.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-curl 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rapidjsonr 
 Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-gargle >= 0.3.0
+Requires:         R-CRAN-gargle >= 0.5.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-curl 

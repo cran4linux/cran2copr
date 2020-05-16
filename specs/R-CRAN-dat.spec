@@ -1,9 +1,9 @@
 %global packname  dat
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Tools for Data Manipulation
 
@@ -16,31 +16,28 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-aoos 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-aoos 
 Requires:         R-methods 
-Requires:         R-CRAN-aoos 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-aoos 
 
 %description
 An implementation of common higher order functions with syntactic sugar
-for anonymous function. Provides also a link to 'dplyr' for common
-transformations on data frames to work around non standard evaluation by
-default.
+for anonymous function. Provides also a link to 'dplyr' and 'data.table'
+for common transformations on data frames to work around non standard
+evaluation by default.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -48,6 +45,7 @@ default.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

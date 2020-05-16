@@ -1,9 +1,9 @@
 %global packname  leastcostpath
-%global packver   1.2.3
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.6
 Release:          1%{?dist}
 Summary:          Modelling Pathways and Movement Potential Within a Landscape
 

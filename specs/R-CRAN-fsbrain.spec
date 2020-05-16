@@ -1,9 +1,9 @@
 %global packname  fsbrain
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Managing and Visualizing Brain Surface Data
 
@@ -15,18 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 0.1.7
+BuildRequires:    R-CRAN-freesurferformats >= 0.1.10
 BuildRequires:    R-CRAN-pkgfilecache >= 0.1.1
 BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-squash 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-freesurferformats >= 0.1.7
+Requires:         R-CRAN-freesurferformats >= 0.1.10
 Requires:         R-CRAN-pkgfilecache >= 0.1.1
 Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-squash 
 Requires:         R-CRAN-fields 
@@ -36,7 +34,7 @@ Requires:         R-CRAN-data.table
 Provides high-level access to 'FreeSurfer' <http://freesurfer.net/>
 neuroimaging data on the level of subjects and groups. Load morphometry
 data, surfaces and brain parcellations based on atlases. Mask data using
-labels, load data for specific atlas regions only, and visualize the
+labels, load data for specific atlas regions only, and visualize data and
 results directly in 'R'.
 
 %prep

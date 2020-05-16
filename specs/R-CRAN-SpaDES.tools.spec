@@ -1,9 +1,9 @@
 %global packname  SpaDES.tools
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}
 Summary:          Additional Tools for Developing Spatially Explicit DiscreteEvent Simulation (SpaDES) Models
 
@@ -15,16 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-raster >= 2.5.8
-BuildRequires:    R-CRAN-ff >= 2.2.13
 BuildRequires:    R-CRAN-checkmate >= 1.8.2
 BuildRequires:    R-CRAN-sp >= 1.2.4
 BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-CRAN-bit >= 1.1.12
 BuildRequires:    R-CRAN-fastmatch >= 1.1.0
 BuildRequires:    R-CRAN-CircStats >= 0.2.4
 BuildRequires:    R-CRAN-fpCompare >= 0.2.1
 BuildRequires:    R-CRAN-reproducible >= 0.2.0
-BuildRequires:    R-CRAN-ffbase >= 0.12.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-magrittr 
@@ -34,16 +31,13 @@ BuildRequires:    R-CRAN-quickPlot
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-raster >= 2.5.8
-Requires:         R-CRAN-ff >= 2.2.13
 Requires:         R-CRAN-checkmate >= 1.8.2
 Requires:         R-CRAN-sp >= 1.2.4
 Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-CRAN-bit >= 1.1.12
 Requires:         R-CRAN-fastmatch >= 1.1.0
 Requires:         R-CRAN-CircStats >= 0.2.4
 Requires:         R-CRAN-fpCompare >= 0.2.1
 Requires:         R-CRAN-reproducible >= 0.2.0
-Requires:         R-CRAN-ffbase >= 0.12.3
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-magrittr 
@@ -63,6 +57,7 @@ spatial agents, GIS operations, random map generation, and others. See
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

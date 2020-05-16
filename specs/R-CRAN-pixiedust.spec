@@ -1,9 +1,9 @@
 %global packname  pixiedust
-%global packver   0.8.6
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          0.9.0
 Release:          1%{?dist}
 Summary:          Tables so Beautifully Fine-Tuned You Will Believe It's Magic
 
@@ -17,22 +17,20 @@ Requires:         R-core >= 3.1.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 1.8.0
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-labelVector 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-checkmate >= 1.8.0
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-labelVector 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tidyr 
 
 %description
 The introduction of the 'broom' package has made converting model objects
@@ -49,6 +47,7 @@ common markdown formats (markdown, HTML, and LaTeX). With a little
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

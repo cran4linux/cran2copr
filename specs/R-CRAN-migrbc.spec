@@ -1,9 +1,9 @@
 %global packname  migrbc
-%global packver   2.0.8
+%global packver   2.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.8
+Version:          2.0.9
 Release:          1%{?dist}
 Summary:          Production Rules Based Classification of Migration
 

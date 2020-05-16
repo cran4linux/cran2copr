@@ -1,9 +1,9 @@
 %global packname  SARP.moodle
-%global packver   0.7.1
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.1
 Release:          1%{?dist}
 Summary:          XML Output Functions for Easy Creation of Moodle Questions
 

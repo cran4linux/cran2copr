@@ -1,9 +1,9 @@
 %global packname  backbone
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Extracts the Backbone from Weighted Graphs
 
@@ -17,14 +17,18 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-poibin 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-network 
 Requires:         R-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-poibin 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-network 
 
 %description
 Provides methods for extracting from a weighted graph a binary or signed
@@ -40,6 +44,7 @@ as well as a universal threshold method.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -61,5 +66,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

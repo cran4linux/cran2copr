@@ -1,9 +1,9 @@
 %global packname  diverge
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          Evolutionary Trait Divergence Between Sister Species and OtherPaired Lineages
 
@@ -21,15 +21,16 @@ Requires:         R-parallel
 Requires:         R-CRAN-truncnorm 
 
 %description
-Compares alternative models of continuous trait differentiation in sister
-species and other paired lineages. Alternative models include
-approximations of divergent selection, drift, and stabilizing selection,
-plus a variety of extensions to facilitate the testing of
-process-to-pattern hypotheses. Alternative processes are expected to leave
+Compares the fit of alternative models of continuous trait differentiation
+between sister species and other paired lineages. Differences in trait
+means between two lineages arise as they diverge from a common ancestor,
+and alternative processes of evolutionary divergence are expected to leave
 unique signatures in the distribution of trait differentiation in datasets
-comprised of many species pairs. Users supply species pair trait data and
-divergence times. The fit of alternative models is compared in a
-likelihood framework.
+comprised of many lineage pairs. Models include approximations of
+divergent selection, drift, and stabilizing selection. A variety of model
+extensions facilitate the testing of process-to-pattern hypotheses. Users
+supply trait data and divergence times for each lineage pair. The fit of
+alternative models is compared in a likelihood framework.
 
 %prep
 %setup -q -c -n %{packname}

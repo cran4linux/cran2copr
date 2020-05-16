@@ -1,9 +1,9 @@
 %global packname  FLightR
-%global packver   0.4.9
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Reconstruct Animal Paths from Solar Geolocation Loggers Data
 
@@ -67,6 +67,7 @@ of Avian Biology (Rakhimberdiev et al. 2016) <doi:10.1111/jav.00891>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,10 +1,9 @@
-%global debug_package %{nil}
 %global packname  reproducible
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          A Set of Tools that Enhance Reproducibility Beyond PackageManagement
 
@@ -23,10 +22,10 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-fastdigest 
 BuildRequires:    R-CRAN-fpCompare 
-BuildRequires:    R-CRAN-gdalUtils 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-googledrive 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
@@ -36,12 +35,12 @@ BuildRequires:    R-CRAN-R.utils
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-versions 
 Requires:         R-CRAN-data.table >= 1.10.4
@@ -51,10 +50,10 @@ Requires:         R-CRAN-DBI
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-fastdigest 
 Requires:         R-CRAN-fpCompare 
-Requires:         R-CRAN-gdalUtils 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 
@@ -64,12 +63,12 @@ Requires:         R-CRAN-R.utils
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-testthat 
 Requires:         R-tools 
+Requires:         R-CRAN-usethis 
 Requires:         R-utils 
 Requires:         R-CRAN-versions 
 

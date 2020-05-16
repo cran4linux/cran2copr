@@ -1,9 +1,9 @@
 %global packname  icesTAF
-%global packver   3.4-0
+%global packver   3.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.5.0
 Release:          1%{?dist}
 Summary:          Functions to Support the ICES Transparent Assessment Framework
 
