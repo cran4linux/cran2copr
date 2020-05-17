@@ -1,9 +1,9 @@
 %global packname  LPRelevance
-%global packver   3.0
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          3.1
 Release:          1%{?dist}
 Summary:          Relevance-Integrated Statistical Inference Engine
 

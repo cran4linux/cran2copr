@@ -1,9 +1,9 @@
 %global packname  natserv
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          'NatureServe' Interface
 
@@ -16,16 +16,14 @@ BuildRequires:    R-devel >= 3.2.1
 Requires:         R-core >= 3.2.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crul >= 0.7.0
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-crul >= 0.7.0
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
 
 %description
-Interface to 'NatureServe' (<https://www.natureserve.org>). Includes
+Interface to 'NatureServe' (<https://www.natureserve.org/>). Includes
 methods to get data, image metadata, search taxonomic names, and make
 maps.
 

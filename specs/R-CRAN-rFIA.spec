@@ -1,9 +1,9 @@
 %global packname  rFIA
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Space-Time Estimation of Forest Variables using the FIA Database
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-sp 
@@ -27,7 +28,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-sp 
@@ -39,6 +42,7 @@ Requires:         R-methods
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-purrr 
 
 %description
 The goal of 'rFIA' is to increase the accessibility and use of the United

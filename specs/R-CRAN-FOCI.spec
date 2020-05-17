@@ -1,9 +1,9 @@
 %global packname  FOCI
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Feature Ordering by Conditional Independence
 
@@ -15,14 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-gmp 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-proxy 
+Requires:         R-parallel 
+Requires:         R-CRAN-gmp 
 
 %description
 Feature Ordering by Conditional Independence (FOCI) is a variable
@@ -33,6 +35,7 @@ measure of conditional dependence" <arXiv:1910.12327>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

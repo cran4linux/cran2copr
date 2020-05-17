@@ -1,32 +1,33 @@
-%global packname  qiitr
-%global packver   0.1.1
+%global packname  RecurRisk
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0
 Release:          1%{?dist}
-Summary:          R Interface to Qiita API
+Summary:          Recurrence Risk Assessment Tool
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rstudioapi 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-SEER2R 
+BuildRequires:    R-CRAN-flexsurvcure 
+BuildRequires:    R-stats 
+BuildRequires:    R-survival 
+Requires:         R-CRAN-SEER2R 
+Requires:         R-CRAN-flexsurvcure 
+Requires:         R-stats 
+Requires:         R-survival 
 
 %description
-Qiita is a technical knowledge sharing and collaboration platform for
-programmers. See <https://qiita.com/api/v2/docs> for more information.
+Functions to estimate the risk of recurrence using disease-specific
+survival data. Mariotto AB, Zou Z, Zhang F, et al (2018)
+<doi:10.1158/1055-9965.EPI-17-1129>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,9 +49,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

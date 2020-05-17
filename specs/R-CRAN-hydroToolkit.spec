@@ -1,13 +1,13 @@
-%global packname  qiitr
-%global packver   0.1.1
+%global packname  hydroToolkit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          R Interface to Qiita API
+Summary:          Hydrological Tools for Handling Hydro-Meteorological Data fromArgentina and Chile
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rstudioapi 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-lubridate 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-reshape2 
 
 %description
-Qiita is a technical knowledge sharing and collaboration platform for
-programmers. See <https://qiita.com/api/v2/docs> for more information.
+Read, plot, manipulate and process hydro-meteorological data from
+Argentina and Chile.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,8 +55,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
