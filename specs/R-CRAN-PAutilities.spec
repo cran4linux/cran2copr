@@ -1,9 +1,9 @@
 %global packname  PAutilities
-%global packver   0.3.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Streamline Physical Activity Research
 
@@ -14,13 +14,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-matchingMarkets >= 1.0.1
 BuildRequires:    R-CRAN-dplyr >= 0.7
-BuildRequires:    R-CRAN-clues >= 0.6.1
 BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-CRAN-lazyeval >= 0.2
 BuildRequires:    R-CRAN-equivalence 
@@ -28,13 +26,12 @@ BuildRequires:    R-graphics
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-matchingMarkets >= 1.0.1
 Requires:         R-CRAN-dplyr >= 0.7
-Requires:         R-CRAN-clues >= 0.6.1
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-CRAN-lazyeval >= 0.2
 Requires:         R-CRAN-equivalence 
@@ -42,7 +39,7 @@ Requires:         R-graphics
 Requires:         R-methods 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
 A collection of utilities that are useful for a broad range of tasks that
@@ -56,6 +53,7 @@ activity, and analysis of bout detection algorithm performance.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -80,3 +78,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

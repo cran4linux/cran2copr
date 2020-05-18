@@ -1,9 +1,9 @@
 %global packname  jskm
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}
 Summary:          Kaplan-Meier Plot with 'ggplot2'
 
@@ -36,6 +36,7 @@ estimator.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

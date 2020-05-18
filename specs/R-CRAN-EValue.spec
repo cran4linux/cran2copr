@@ -1,9 +1,9 @@
 %global packname  EValue
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Sensitivity Analyses for Unmeasured Confounding or SelectionBias in Observational Studies and Meta-Analyses
 
@@ -60,6 +60,7 @@ study: [<https://evalue.hmdc.harvard.edu>]; for a meta-analysis:
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -67,6 +68,7 @@ study: [<https://evalue.hmdc.harvard.edu>]; for a meta-analysis:
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

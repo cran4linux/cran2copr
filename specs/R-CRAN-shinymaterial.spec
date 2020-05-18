@@ -1,9 +1,9 @@
 %global packname  shinymaterial
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Implement Material Design in Shiny Applications
 
@@ -17,8 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 0.7.0
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sass 
 Requires:         R-CRAN-shiny >= 0.7.0
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sass 
 
 %description
 Allows shiny developers to incorporate UI elements based on Google's
@@ -28,6 +30,7 @@ information.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,7 +52,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/css
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/icons
 %doc %{rlibdir}/%{packname}/img
 %doc %{rlibdir}/%{packname}/js

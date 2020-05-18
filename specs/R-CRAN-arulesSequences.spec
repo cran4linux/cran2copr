@@ -1,9 +1,9 @@
 %global packname  arulesSequences
-%global packver   0.2-24
+%global packver   0.2-25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.24
+Version:          0.2.25
 Release:          1%{?dist}
 Summary:          Mining Frequent Sequences
 
@@ -51,4 +51,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/misc
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
-%doc %{rlibdir}/%{packname}/bin
+%{rlibdir}/%{packname}/bin

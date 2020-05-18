@@ -1,9 +1,9 @@
 %global packname  missDeaths
-%global packver   2.5.1
+%global packver   2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.6
 Release:          1%{?dist}
 Summary:          Simulating and Analyzing Time to Event Data in the Presence ofPopulation Mortality
 
@@ -40,6 +40,7 @@ set of object oriented survival data simulation functions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  DataVisualizations
-%global packver   1.1.11
+%global packver   1.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.11
+Version:          1.1.12
 Release:          1%{?dist}
 Summary:          Visualizations of High-Dimensional Data
 

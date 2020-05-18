@@ -1,9 +1,9 @@
 %global packname  maotai
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Tools for Matrix Algebra, Optimization and Inference
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-RSpectra
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-labdsv 
+BuildRequires:    R-CRAN-nabor 
 BuildRequires:    R-CRAN-shapes 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-RSpectra
 Requires:         R-CRAN-Rtsne 
 Requires:         R-cluster 
 Requires:         R-CRAN-labdsv 
+Requires:         R-CRAN-nabor 
 Requires:         R-CRAN-shapes 
 Requires:         R-stats 
 Requires:         R-utils 

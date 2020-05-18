@@ -1,35 +1,35 @@
 %global packname  terra
-%global packver   0.5-8
+%global packver   0.6-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.8
+Version:          0.6.8
 Release:          1%{?dist}
-Summary:          Classes and Methods for Spatial Data
+Summary:          Spatial Data Analysis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-raster >= 3.0.12
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-raster >= 3.1.5
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-raster >= 3.0.12
+Requires:         R-CRAN-raster >= 3.1.5
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Classes and methods for spatial data, especially raster data. Methods
-allow for low-level data manipulation as well as high-level global, local,
+Methods for spatial data analysis, especially raster data. Methods allow
+for low-level data manipulation as well as high-level global, local,
 zonal, and focal computation. The predict and interpolate methods
 facilitate the use of regression type (interpolation, machine learning)
-models for spatial prediction. The user-interface is very similar to that
-of the 'raster' package; but it is simpler and faster. Processing of very
-large files is supported. See the manual and tutorials on
-<https://rspatial.org/terra/> to get started.
+models for spatial prediction. Processing of very large files is
+supported. See the manual and tutorials on <https://rspatial.org/terra/>
+to get started. The package is similar to the 'raster' package; but it is
+simpler and faster.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,7 +53,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/exdata
+%doc %{rlibdir}/%{packname}/ex
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

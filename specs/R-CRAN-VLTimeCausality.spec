@@ -1,9 +1,9 @@
 %global packname  VLTimeCausality
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Variable-Lag Time Series Causality Inference Framework
 
@@ -36,13 +36,13 @@ A. The fixed-lag assumption is not true in this case. We propose a
 framework that allows variable-lags between cause and effect in Granger
 causality and transfer entropy to allow them to deal with variable-lag
 non-stationary time series. Please see Chainarong Amornbunchornvej, Elena
-Zheleva, and Tanya Berger-Wolf (2019)
-<https://www.cs.uic.edu/~elena/pubs/amornbunchornvej-dsaa19.pdf> when
-referring to this package in publications.
+Zheleva, and Tanya Berger-Wolf (2019) <arXiv:1912.10829> when referring to
+this package in publications.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

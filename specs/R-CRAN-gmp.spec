@@ -1,9 +1,9 @@
 %global packname  gmp
-%global packver   0.5-13.6
+%global packver   0.5-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.13.6
+Version:          0.5.14
 Release:          1%{?dist}
 Summary:          Multiple Precision Arithmetic
 
@@ -13,9 +13,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gmp-devel >= 4.2.3
-Requires:         gmp
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-methods 
 Requires:         R-methods 
 
@@ -27,6 +26,7 @@ library GMP (GNU Multiple Precision Arithmetic).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

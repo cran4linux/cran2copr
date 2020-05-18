@@ -1,9 +1,9 @@
 %global packname  simTool
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}
 Summary:          Conduct Simulation Studies with a Minimal Amount of Source Code
 
@@ -18,12 +18,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.2
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.2
+Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-parallel 
 Requires:         R-methods 

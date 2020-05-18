@@ -1,9 +1,9 @@
 %global packname  TR8
-%global packver   0.9.20
+%global packver   0.9.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.20
+Version:          0.9.21
 Release:          1%{?dist}
 Summary:          A Tool for Downloading Functional Traits Data for Plant Species
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RCurl 
@@ -21,9 +21,8 @@ BuildRequires:    R-CRAN-XML
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-gWidgets 
-BuildRequires:    R-CRAN-gWidgetstcltk 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-taxize 
 Requires:         R-methods 
 Requires:         R-CRAN-RCurl 
@@ -31,9 +30,8 @@ Requires:         R-CRAN-XML
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-gWidgets 
-Requires:         R-CRAN-gWidgetstcltk 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-taxize 
 
 %description
@@ -50,6 +48,7 @@ and is extremely short to type.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -74,4 +73,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/COPYRIGHTS
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/shiny_interface
 %{rlibdir}/%{packname}/INDEX

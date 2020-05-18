@@ -1,9 +1,9 @@
 %global packname  broom.mixed
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}
 Summary:          Tidying Methods for Mixed Models
 
@@ -27,6 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-cubelyr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -39,6 +40,7 @@ Requires:         R-methods
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-TMB 
+Requires:         R-CRAN-cubelyr 
 
 %description
 Convert fitted objects from various R mixed-model packages into tidy data

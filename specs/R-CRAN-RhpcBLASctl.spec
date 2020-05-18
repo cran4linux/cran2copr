@@ -1,9 +1,9 @@
 %global packname  RhpcBLASctl
-%global packver   0.20-17
+%global packver   0.20-137
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.17
+Version:          0.20.137
 Release:          1%{?dist}
 Summary:          Control the Number of Threads on 'BLAS'
 
@@ -23,6 +23,7 @@ in 'OpenMP'. Get a number of logical cores and physical cores if feasible.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

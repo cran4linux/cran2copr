@@ -1,10 +1,10 @@
 %global packname  geoops
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          2%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}
 Summary:          'GeoJSON' Topology Calculations and Operations
 
 License:          MIT + file LICENSE
@@ -25,6 +25,7 @@ Tools for doing calculations and manipulations on 'GeoJSON', a
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -32,6 +33,7 @@ Tools for doing calculations and manipulations on 'GeoJSON', a
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

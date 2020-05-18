@@ -1,9 +1,9 @@
 %global packname  medfate
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Mediterranean Forest Simulation
 

@@ -1,9 +1,9 @@
 %global packname  CornerstoneR
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Collection of Scripts for Interface Between 'Cornerstone' and'R'
 
@@ -17,16 +17,22 @@ Requires:         R-core >= 3.2.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 1.9.1
 BuildRequires:    R-CRAN-data.table >= 1.10
+BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-SpatialTools 
 BuildRequires:    R-CRAN-vcd 
 Requires:         R-CRAN-checkmate >= 1.9.1
 Requires:         R-CRAN-data.table >= 1.10
+Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-SpatialTools 
 Requires:         R-CRAN-vcd 
 
 %description
 Collection of generic 'R' scripts which enable you to use existing 'R'
-routines in 'Cornerstone'. --- The desktop application 'Cornerstone'
+routines in 'Cornerstone'.
+
+The desktop application 'Cornerstone'
 (<https://www.camline.com/en/products/cornerstone/cornerstone-core.html>)
 is a data analysis software provided by 'camLine' that empowers
 engineering teams to find solutions even faster. The engineers incorporate
@@ -34,19 +40,25 @@ intensified hands-on statistics into their projects. They benefit from an
 intuitive and uniquely designed graphical Workmap concept: you design
 experiments (DoE) and explore data, analyze dependencies, and find answers
 you can act upon, immediately, interactively, and without any programming.
---- While 'Cornerstone's' interface to the statistical programming
-language 'R' has been available since version 6.0, the latest interface
-with 'R' is even much more efficient. 'Cornerstone' release 7.1.1 allows
-you to integrate user defined 'R' packages directly into the standard
+
+While 'Cornerstone's' interface to the statistical programming language
+'R' has been available since version 6.0, the latest interface with 'R' is
+even much more efficient. 'Cornerstone' release 7.1.1 allows you to
+integrate user defined 'R' packages directly into the standard
 'Cornerstone' GUI. Your engineering team stays in 'Cornerstone's'
 graphical working environment and can apply 'R' routines, immediately and
-without the need to deal with programming code. --- Learn how to use 'R'
-packages in 'Cornerstone' 7.1.1 on 'camLineTV' YouTube channel
-(<https://www.youtube.com/watch?v=HEQHwq_laXU>) (available in German).
+without the need to deal with programming code. Additionally, your 'R'
+programming team develops corresponding 'R' packages detached from
+'Cornerstone' in their favorite 'R' environment.
+
+Learn how to use 'R' packages in 'Cornerstone' 7.1.1 on 'camLineTV'
+YouTube channel (<https://www.youtube.com/watch?v=HEQHwq_laXU>) (available
+in German).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -54,6 +66,7 @@ packages in 'Cornerstone' 7.1.1 on 'camLineTV' YouTube channel
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -68,5 +81,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/csdata
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/variablesdialog
 %{rlibdir}/%{packname}/INDEX

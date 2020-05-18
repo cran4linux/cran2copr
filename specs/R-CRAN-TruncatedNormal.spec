@@ -1,9 +1,9 @@
 %global packname  TruncatedNormal
-%global packver   2.1.2
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2
 Release:          1%{?dist}
 Summary:          Truncated Multivariate Normal and Student Distributions
 
@@ -17,10 +17,12 @@ Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-alabama 
 
 %description
 A collection of functions to deal with the truncated univariate and
@@ -51,7 +53,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

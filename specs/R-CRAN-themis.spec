@@ -1,9 +1,9 @@
 %global packname  themis
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Extra Recipes Steps for Dealing with Unbalanced Data
 
@@ -15,30 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 BuildRequires:    R-CRAN-recipes >= 0.1.4
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ROSE 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-unbalanced 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-dials 
-Requires:         R-CRAN-tidyselect >= 0.2.5
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-recipes >= 0.1.4
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-generics 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ROSE 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-unbalanced 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-dials 
+Requires:         R-CRAN-withr 
 
 %description
 A dataset with an uneven number of cases in each class is said to be
@@ -54,6 +52,7 @@ removal 1976 <https://ieeexplore.ieee.org/document/4309452>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -74,5 +73,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

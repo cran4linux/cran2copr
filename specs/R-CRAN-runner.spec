@@ -1,9 +1,9 @@
 %global packname  runner
-%global packver   0.3.5
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.7
 Release:          1%{?dist}
 Summary:          Running Operations for Vectors
 
