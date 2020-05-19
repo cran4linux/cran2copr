@@ -1,9 +1,9 @@
 %global packname  Immigrate
-%global packver   0.0.2
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Iterative Max-Min Entropy Margin-Maximization with InteractionTerms for Feature Selection
 
@@ -24,17 +24,16 @@ Requires:         R-stats
 %description
 Based on large margin principle, this package performs feature selection
 methods: "IM4E"(Iterative Margin-Maximization under Max-Min Entropy
-Algorithm); "imIM4E"(imbalance Iterative Margin-Maximization under Max-Min
-Entropy Algorithm); "Immigrate"(Iterative Max-Min Entropy
-Margin-Maximization with Interaction Terms Algorithm); "BIM"(Boosted
-version of IMMIGRATE algorithm); "Simba"(Iterative Search Margin Based
-Algorithm); "LFE"(Local Feature Extraction Algorithm). This package also
-performs prediction for the above feature selection methods. See Zhao et
-al. (2018) <arXiv:1810.02658> for more details.
+Algorithm); "Immigrate"(Iterative Max-Min Entropy Margin-Maximization with
+Interaction Terms Algorithm); "BIM"(Boosted version of IMMIGRATE
+algorithm); "Simba"(Iterative Search Margin Based Algorithm); "LFE"(Local
+Feature Extraction Algorithm). This package also performs prediction for
+the above feature selection methods.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,6 +41,7 @@ al. (2018) <arXiv:1810.02658> for more details.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

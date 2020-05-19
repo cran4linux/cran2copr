@@ -1,30 +1,30 @@
-%global packname  geodist
-%global packver   0.0.4
+%global packname  FeatureImpCluster
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Fast, Dependency-Free Geodesic Distance Calculations
+Summary:          Feature Importance for Partitional Clustering
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Dependency-free, ultra fast calculation of geodesic distances. Includes
-the reference nanometre-accuracy geodesic distances of Karney (2013)
-<doi:10.1007/s00190-012-0578-z>, as used by the 'sf' package, as well as
-Haversine and Vincenty distances. Default distance measure is the "Mapbox
-cheap ruler" which is generally more accurate than Haversine or Vincenty
-for distances out to a few hundred kilometres, and is considerably faster.
-The main function accepts one or two inputs in almost any generic
-rectangular form, and returns either matrices of pairwise distances, or
-vectors of sequential distances.
+Implements a novel approach for measuring feature importance in k-means
+clustering. Importance of a feature is measured by the misclassification
+rate relative to the baseline cluster assignment due to a random
+permutation of feature values.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,10 +47,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

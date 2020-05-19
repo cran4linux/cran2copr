@@ -1,33 +1,35 @@
-%global packname  extremevalues
-%global packver   2.3.3
+%global packname  DRDID
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Univariate Outlier Detection
+Summary:          Doubly Robust Difference-in-Differences Estimators
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.8.0
-Requires:         R-core >= 2.8.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gWidgets2 
-BuildRequires:    R-CRAN-gWidgets2tcltk 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-BMisc >= 1.4.1
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-gWidgets2 
-Requires:         R-CRAN-gWidgets2tcltk 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-trust 
+Requires:         R-CRAN-BMisc >= 1.4.1
 Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-trust 
 
 %description
-Detect outliers in one-dimensional data.
+Implements the locally efficient doubly robust difference-in-differences
+(DiD) estimators for the average treatment effect proposed by Sant'Anna
+and Zhao (2020) <arXiv:1812.01723>. The estimator combines inverse
+probability weighting and outcome regression estimators (also implemented
+in the package) to form estimators with more attractive statistical
+properties. Two different estimation methods can be used to estimate the
+nuisance functions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,10 +51,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

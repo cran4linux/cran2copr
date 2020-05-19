@@ -1,11 +1,11 @@
 %global packname  COVID19
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}
-Summary:          Coronavirus COVID-19 (2019-nCoV) Epidemic Datasets
+Summary:          R Interface to COVID-19 Data Hub
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,20 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-remotes 
+BuildRequires:    R-CRAN-wbstats 
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-wbstats 
 
 %description
-Unified tidy format datasets of the 2019 Novel Coronavirus COVID-19
-(2019-nCoV) epidemic across several sources. The data are downloaded in
-real-time, cleaned and matched with exogenous variables. Vintage databases
-are also supported.
+Unified datasets for a better understanding of COVID-19. The package
+collects COVID-19 data across governmental sources, includes policy
+measures from 'Oxford COVID-19 Government Response Tracker'
+<https://www.bsg.ox.ac.uk/covidtracker>, and extends the dataset via an
+interface to 'World Bank Open Data' <https://data.worldbank.org/>, 'Google
+Mobility Reports' <https://www.google.com/covid19/mobility/>, 'Apple
+Mobility Reports' <https://www.apple.com/covid19/mobility>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +57,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

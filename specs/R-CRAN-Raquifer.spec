@@ -1,30 +1,37 @@
-%global packname  geodist
-%global packver   0.0.4
+%global packname  Raquifer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Fast, Dependency-Free Geodesic Distance Calculations
+Summary:          Estimate the Water Influx into Hydrocarbon Reservoirs
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-gsl 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-gsl 
 
 %description
-Dependency-free, ultra fast calculation of geodesic distances. Includes
-the reference nanometre-accuracy geodesic distances of Karney (2013)
-<doi:10.1007/s00190-012-0578-z>, as used by the 'sf' package, as well as
-Haversine and Vincenty distances. Default distance measure is the "Mapbox
-cheap ruler" which is generally more accurate than Haversine or Vincenty
-for distances out to a few hundred kilometres, and is considerably faster.
-The main function accepts one or two inputs in almost any generic
-rectangular form, and returns either matrices of pairwise distances, or
-vectors of sequential distances.
+Generate a table of cumulative water influx into hydrocarbon reservoirs
+over time using un-steady and pseudo-steady state models. Van Everdingen,
+A. F. and Hurst, W. (1949) <doi:10.2118/949305-G>. Fetkovich, M. J. (1971)
+<doi:10.2118/2603-PA>. Yildiz, T. and Khosravi, A. (2007)
+<doi:10.2118/103283-PA>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,10 +54,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/apa-6th-edition.csl
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,13 +1,13 @@
-%global packname  ComparisonSurv
-%global packver   1.0.8
+%global packname  intcure
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          2.1
 Release:          1%{?dist}
-Summary:          Comparison of Survival Curves Between Two Groups
+Summary:          Mixture Cure Models with Random Effects
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,26 +16,20 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-survival 
-BuildRequires:    R-CRAN-survRM2 
-BuildRequires:    R-CRAN-TSHRC 
-BuildRequires:    R-CRAN-muhaz 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-cubature 
 Requires:         R-survival 
-Requires:         R-CRAN-survRM2 
-Requires:         R-CRAN-TSHRC 
-Requires:         R-CRAN-muhaz 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-cubature 
 
 %description
-Various statistical methods for survival analysis in comparing survival
-curves between two groups, including overall hypothesis tests described in
-Li et al. (2015) <doi:10.1371/journal.pone.0116774>, fixed-point tests in
-Klein et al. (2007) <doi:10.1002/sim.2864>, short-term tests, and
-long-term tests in Logan et al. (2008)
-<doi:10.1111/j.1541-0420.2007.00975.x>. Some commonly used descriptive
-statistics and plots are also included.
+Mixture cure models with random effects to survival data as described in
+Peng and Taylor (2011) <doi:10.1002/sim.4098>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

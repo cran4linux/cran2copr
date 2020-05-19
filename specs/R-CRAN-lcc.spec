@@ -1,10 +1,9 @@
-%global debug_package %{nil}
 %global packname  lcc
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          Longitudinal Concordance Correlation
 
@@ -22,12 +21,18 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-hnp 
 BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-nlme >= 3.1.124
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-hnp 
 Requires:         R-CRAN-gdata 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-foreach 
 
 %description
 Estimates the longitudinal concordance correlation to access the

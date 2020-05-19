@@ -1,9 +1,9 @@
 %global packname  GGUM
-%global packver   0.4
+%global packver   0.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Generalized Graded Unfolding Model
 
@@ -44,6 +44,7 @@ model-fit checking utility, MODFIT(), is also available.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

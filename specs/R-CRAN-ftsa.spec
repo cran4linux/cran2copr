@@ -1,9 +1,9 @@
 %global packname  ftsa
-%global packver   5.6
+%global packver   5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.6
+Version:          5.7
 Release:          1%{?dist}
 Summary:          Functional Time Series Analysis
 
@@ -23,6 +23,9 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-pcaPP 
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-pdfCluster 
+BuildRequires:    R-CRAN-ecp 
+BuildRequires:    R-CRAN-strucchange 
+BuildRequires:    R-CRAN-e1071 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-rainbow 
 Requires:         R-CRAN-sde 
@@ -31,6 +34,9 @@ Requires:         R-MASS
 Requires:         R-CRAN-pcaPP 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-pdfCluster 
+Requires:         R-CRAN-ecp 
+Requires:         R-CRAN-strucchange 
+Requires:         R-CRAN-e1071 
 
 %description
 Functions for visualizing, modeling, forecasting and hypothesis testing of

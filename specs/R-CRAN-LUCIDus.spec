@@ -1,54 +1,48 @@
 %global packname  LUCIDus
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Latent Unknown Clustering with Integrated Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-nnet 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-lbfgs 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-networkD3 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-parallel 
+BuildRequires:    R-boot 
+BuildRequires:    R-CRAN-lbfgs 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-mclust 
 Requires:         R-nnet 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-glasso 
-Requires:         R-Matrix 
-Requires:         R-CRAN-lbfgs 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-boot 
 Requires:         R-CRAN-networkD3 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-boot 
+Requires:         R-CRAN-lbfgs 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-glmnet 
 
 %description
-An implementation for the 'LUCID' method to jointly estimate latent
-unknown clusters/subgroups with integrated data. An EM algorithm is used
-to obtain the latent cluster assignment and model parameter estimates.
-Feature selection is achieved by applying the regularization method.
+An implementation for the 'LUCID' model (Peng (2019)
+<doi:10.1093/bioinformatics/btz667>) to jointly estimate latent unknown
+clusters/subgroups with integrated data. An EM algorithm is used to obtain
+the latent cluster assignment and model parameter estimates. Feature
+selection is achieved by applying the L1 regularization method.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

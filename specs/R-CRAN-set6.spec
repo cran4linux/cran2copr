@@ -1,9 +1,9 @@
 %global packname  set6
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          R6 Mathematical Sets Interface
 
@@ -14,11 +14,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-R6 
 Requires:         R-utils 
 
@@ -58,3 +59,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

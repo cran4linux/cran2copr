@@ -1,9 +1,9 @@
 %global packname  PoisNor
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}
 Summary:          Simultaneous Generation of Multivariate Data with Poisson andNormal Marginals
 
@@ -28,10 +28,13 @@ pre-specified correlation matrix. The count and continuous variables are
 assumed to have Poisson and normal marginals, respectively. The data
 generation mechanism is a combination of the normal to anything principle
 and a connection between Poisson and normal correlations in the mixture.
+The details of the method are explained in Yahav et al. (2012)
+<DOI:10.1002/asmb.901>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

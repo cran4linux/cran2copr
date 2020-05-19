@@ -1,9 +1,9 @@
 %global packname  hdme
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          High-Dimensional Regression with Measurement Error
 
@@ -14,14 +14,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-glmnet >= 3.0.0
+BuildRequires:    R-CRAN-glmnet >= 3.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-Rglpk >= 0.6.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.15
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-glmnet >= 3.0.0
+Requires:         R-CRAN-glmnet >= 3.0
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-Rglpk >= 0.6.1
 Requires:         R-CRAN-Rcpp >= 0.12.15
@@ -40,6 +40,7 @@ et al. (2018) <doi:10.1080/10618600.2018.1425626>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

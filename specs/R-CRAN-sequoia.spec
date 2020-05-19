@@ -1,32 +1,33 @@
-%global packname  smoothSurv
-%global packver   2.2
+%global packname  sequoia
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.0.7
 Release:          1%{?dist}
-Summary:          Survival Regression with Smoothed Error Distribution
+Summary:          Pedigree Inference from SNPs
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-survival 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-plyr >= 1.8.0
 BuildRequires:    R-stats 
-Requires:         R-survival 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-plyr >= 1.8.0
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Contains, as a main contribution, a function to fit a regression model
-with possibly right, left or interval censored observations and with the
-error distribution expressed as a mixture of G-splines. Core part of the
-computation is done in compiled C++ written using the Scythe Statistical
-Library Version 0.3.
+Fast multi-generational pedigree inference from incomplete data on
+hundreds of SNPs, including parentage assignment and sibship clustering.
+See Huisman (2017) (<DOI:10.1111/1755-0998.12665>, citation('sequoia'))
+for more information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,7 +37,7 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 %build
 
 %install
-
+test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 
@@ -48,11 +49,14 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/Fortran
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

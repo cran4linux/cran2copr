@@ -1,9 +1,9 @@
 %global packname  crfsuite
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Conditional Random Fields for Labelling Sequential Data inNatural Language Processing
 

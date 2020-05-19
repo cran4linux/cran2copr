@@ -1,9 +1,9 @@
 %global packname  ConR
-%global packver   1.2.4
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.3.0
 Release:          1%{?dist}
 Summary:          Computation of Parameters Used in Preliminary Assessment ofConservation Status
 
@@ -20,31 +20,31 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-CRAN-spatstat.utils 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-snow 
+BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-rnaturalearth 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-geosphere 
 Requires:         R-grDevices 
-Requires:         R-CRAN-maptools 
 Requires:         R-methods 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-spatstat 
-Requires:         R-CRAN-spatstat.utils 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-snow 
+Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-rnaturalearth 
+Requires:         R-CRAN-sf 
 
 %description
 Multi-species estimation of geographical range parameters for preliminary
@@ -55,6 +55,7 @@ International Union for Conservation of Nature (IUCN, see
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -74,6 +75,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

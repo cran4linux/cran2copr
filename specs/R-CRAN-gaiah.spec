@@ -1,9 +1,9 @@
 %global packname  gaiah
-%global packver   0.0.2
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.4
 Release:          1%{?dist}
 Summary:          Genetic and Isotopic Assignment Accounting for HabitatSuitability
 
@@ -17,26 +17,18 @@ Requires:         R-core >= 3.0.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 
 %description
 Tools for using genetic markers, stable isotope data, and habitat

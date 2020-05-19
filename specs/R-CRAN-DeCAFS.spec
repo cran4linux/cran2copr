@@ -1,9 +1,9 @@
 %global packname  DeCAFS
-%global packver   3.1.4
+%global packver   3.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.4
+Version:          3.1.5
 Release:          1%{?dist}
 Summary:          Detecting Changes in Autocorrelated and Fluctuating Signals
 

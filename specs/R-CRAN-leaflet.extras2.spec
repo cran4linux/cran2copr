@@ -1,30 +1,34 @@
-%global packname  geodist
-%global packver   0.0.4
+%global packname  leaflet.extras2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Fast, Dependency-Free Geodesic Distance Calculations
+Summary:          Extra Functionality for 'leaflet' Package
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-leaflet >= 2.0.0
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-leaflet >= 2.0.0
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-utils 
 
 %description
-Dependency-free, ultra fast calculation of geodesic distances. Includes
-the reference nanometre-accuracy geodesic distances of Karney (2013)
-<doi:10.1007/s00190-012-0578-z>, as used by the 'sf' package, as well as
-Haversine and Vincenty distances. Default distance measure is the "Mapbox
-cheap ruler" which is generally more accurate than Haversine or Vincenty
-for distances out to a few hundred kilometres, and is considerably faster.
-The main function accepts one or two inputs in almost any generic
-rectangular form, and returns either matrices of pairwise distances, or
-vectors of sequential distances.
+Several 'leaflet' plugins are integrated, which are available as extension
+to the 'leaflet' package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,11 +50,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
+%{rlibdir}/%{packname}/htmlwidgets
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

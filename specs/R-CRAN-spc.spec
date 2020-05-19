@@ -1,9 +1,9 @@
 %global packname  spc
-%global packver   0.6.3
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.4
 Release:          1%{?dist}
 Summary:          Statistical Process Control -- Calculation of ARL and OtherControl Chart Performance Measures
 
@@ -28,6 +28,7 @@ provided.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

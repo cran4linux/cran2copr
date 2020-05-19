@@ -1,9 +1,9 @@
 %global packname  porridge
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Ridge-Type Penalized Estimation of a Potpourri of Models
 
@@ -47,6 +47,7 @@ of Gaussian graphical models (Aflakparast et al., 2018,
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

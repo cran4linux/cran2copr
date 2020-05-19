@@ -1,9 +1,9 @@
 %global packname  GroupBN
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Learn Group Bayesian Networks using Hierarchical Clustering
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bnlearn 
 BuildRequires:    R-CRAN-ClustOfVar 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-PRROC
 BuildRequires:    R-CRAN-MLmetrics 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-plyr 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-PRROC
 Requires:         R-CRAN-MLmetrics 
 Requires:         R-CRAN-rlist 
 Requires:         R-stats 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-plyr 
@@ -73,5 +71,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
