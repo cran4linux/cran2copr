@@ -1,9 +1,9 @@
 %global packname  missMDA
-%global packver   1.16
+%global packver   1.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16
+Version:          1.17
 Release:          1%{?dist}
 Summary:          Handling Missing Values with Multivariate Data Analysis
 
@@ -15,7 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-FactoMineR >= 2.3
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-mice 
@@ -25,7 +26,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-FactoMineR >= 2.3
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-mice 
@@ -45,6 +47,7 @@ model; Perform multiple imputation with and in PCA or MCA.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

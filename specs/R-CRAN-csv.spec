@@ -1,9 +1,9 @@
 %global packname  csv
-%global packver   0.5.5
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.8
 Release:          1%{?dist}
 Summary:          Read and Write CSV Files with Selected Conventions
 
@@ -15,6 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringi 
 
 %description
 Reads and writes CSV with selected conventions. Uses the same generic

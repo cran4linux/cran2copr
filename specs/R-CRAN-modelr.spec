@@ -1,9 +1,9 @@
 %global packname  modelr
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}
 Summary:          Modelling Functions that Work with the Pipe
 
@@ -19,18 +19,18 @@ BuildRequires:    R-CRAN-tidyr >= 0.8.0
 BuildRequires:    R-CRAN-purrr >= 0.2.2
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-tidyr >= 0.8.0
 Requires:         R-CRAN-purrr >= 0.2.2
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs 
 
 %description
 Functions for modelling that help you seamlessly integrate modelling into

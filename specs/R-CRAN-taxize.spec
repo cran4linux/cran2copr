@@ -1,9 +1,9 @@
 %global packname  taxize
-%global packver   0.9.95
+%global packver   0.9.96
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.95
+Version:          0.9.96
 Release:          1%{?dist}
 Summary:          Taxonomic Information from Around the Web
 
@@ -18,12 +18,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rotl >= 3.0.0
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
 BuildRequires:    R-CRAN-tibble >= 1.2
+BuildRequires:    R-CRAN-natserv >= 1.0.0
 BuildRequires:    R-CRAN-bold >= 0.8.6
 BuildRequires:    R-CRAN-ritis >= 0.7.6
 BuildRequires:    R-CRAN-crul >= 0.7.0
 BuildRequires:    R-CRAN-rredlist >= 0.5.0
 BuildRequires:    R-CRAN-worrms >= 0.4.0
-BuildRequires:    R-CRAN-natserv >= 0.3.0
 BuildRequires:    R-CRAN-wikitaxa >= 0.3.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
@@ -41,12 +41,12 @@ BuildRequires:    R-CRAN-phangorn
 Requires:         R-CRAN-rotl >= 3.0.0
 Requires:         R-CRAN-xml2 >= 1.2.0
 Requires:         R-CRAN-tibble >= 1.2
+Requires:         R-CRAN-natserv >= 1.0.0
 Requires:         R-CRAN-bold >= 0.8.6
 Requires:         R-CRAN-ritis >= 0.7.6
 Requires:         R-CRAN-crul >= 0.7.0
 Requires:         R-CRAN-rredlist >= 0.5.0
 Requires:         R-CRAN-worrms >= 0.4.0
-Requires:         R-CRAN-natserv >= 0.3.0
 Requires:         R-CRAN-wikitaxa >= 0.3.0
 Requires:         R-graphics 
 Requires:         R-methods 

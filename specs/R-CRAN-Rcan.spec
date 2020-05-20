@@ -1,9 +1,9 @@
 %global packname  Rcan
-%global packver   1.3.81
+%global packver   1.3.82
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.81
+Version:          1.3.82
 Release:          1%{?dist}
 Summary:          Cancer Registry Data Analysis and Visualisation
 

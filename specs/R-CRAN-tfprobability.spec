@@ -1,9 +1,9 @@
 %global packname  tfprobability
-%global packver   0.9.0.0
+%global packver   0.10.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.0
+Version:          0.10.0.0
 Release:          1%{?dist}
 Summary:          Interface to 'TensorFlow Probability'
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tensorflow >= 2.0.0
+BuildRequires:    R-CRAN-tensorflow >= 2.1.0
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-keras 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-tensorflow >= 2.0.0
+Requires:         R-CRAN-tensorflow >= 2.1.0
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-keras 
 Requires:         R-CRAN-magrittr 
@@ -35,6 +35,7 @@ optimizers such as Nelder-Mead, BFGS, and SGLD.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

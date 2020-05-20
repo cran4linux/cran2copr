@@ -1,9 +1,9 @@
 %global packname  sem
-%global packver   3.1-9
+%global packver   3.1-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.9
+Version:          3.1.11
 Release:          1%{?dist}
 Summary:          Structural Equation Models
 
@@ -12,15 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-mi >= 0.9.99
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-mi >= 0.9
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-MASS 
 BuildRequires:    R-boot 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mi >= 0.9.99
+Requires:         R-CRAN-mi >= 0.9
 Requires:         R-stats 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-MASS 
@@ -36,6 +36,7 @@ squares.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +44,7 @@ squares.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

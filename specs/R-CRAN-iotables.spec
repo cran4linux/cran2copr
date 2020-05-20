@@ -1,9 +1,9 @@
 %global packname  iotables
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}
 Summary:          Importing and Manipulating Symmetric Input-Output Tables
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-kableExtra
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-eurostat 
 Requires:         R-CRAN-magrittr 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-kableExtra
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Pre-processing and basic analytical tasks related to working with
@@ -53,6 +55,7 @@ economics calculations. The package is a part of rOpenGov
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

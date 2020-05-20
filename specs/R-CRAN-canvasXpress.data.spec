@@ -1,9 +1,9 @@
 %global packname  canvasXpress.data
-%global packver   1.27.6
+%global packver   1.28.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.27.6
+Version:          1.28.3
 Release:          1%{?dist}
 Summary:          Datasets for the 'canvasXpress' Package
 

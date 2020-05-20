@@ -1,9 +1,9 @@
 %global packname  SensoMineR
-%global packver   1.25
+%global packver   1.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.25
+Version:          1.26
 Release:          1%{?dist}
 Summary:          Sensory Data Analysis
 
@@ -15,20 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FactoMineR >= 1.35
+BuildRequires:    R-CRAN-FactoMineR >= 2.3
 BuildRequires:    R-cluster 
 BuildRequires:    R-KernSmooth 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-AlgDesign 
 BuildRequires:    R-CRAN-gtools 
-Requires:         R-CRAN-FactoMineR >= 1.35
+BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-CRAN-FactoMineR >= 2.3
 Requires:         R-cluster 
 Requires:         R-KernSmooth 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-AlgDesign 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-ggrepel 
 
 %description
 Statistical Methods to Analyse Sensory Data. SensoMineR: A package for

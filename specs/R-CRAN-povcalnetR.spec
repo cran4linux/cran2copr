@@ -1,9 +1,9 @@
 %global packname  povcalnetR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Client for the 'Povcalnet' API
 
@@ -24,10 +24,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-js 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-naniar 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-httr 
@@ -37,10 +35,8 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-js 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-naniar 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-memoise 
 
 %description
 Provides an interface to compute poverty and inequality indicators for
@@ -58,6 +54,7 @@ survey data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

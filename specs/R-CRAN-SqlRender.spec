@@ -1,9 +1,9 @@
 %global packname  SqlRender
-%global packver   1.6.5
+%global packver   1.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.6.6
 Release:          1%{?dist}
 Summary:          Rendering Parameterized SQL and Translation to Dialects
 

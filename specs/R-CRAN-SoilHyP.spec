@@ -1,9 +1,9 @@
 %global packname  SoilHyP
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Soil Hydraulic Properties
 
@@ -12,9 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate >= 1.7.8
+BuildRequires:    R-CRAN-data.table >= 1.12
+Requires:         R-CRAN-lubridate >= 1.7.8
+Requires:         R-CRAN-data.table >= 1.12
 
 %description
 Provides functions for (1) soil water retention (SWC) and unsaturated
@@ -34,6 +38,7 @@ and soil water contents) based on the simplified evaporation method (SEM)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -41,6 +46,7 @@ and soil water contents) based on the simplified evaporation method (SEM)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

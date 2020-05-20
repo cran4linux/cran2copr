@@ -1,9 +1,9 @@
 %global packname  Rdrw
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Univariate and Multivariate Damped Random Walk Processes
 
@@ -34,8 +34,8 @@ evaluate the resulting likelihood function, which leads to a scalable and
 efficient computation in finding maximum likelihood estimates of the model
 parameters or in drawing their posterior samples. Please pay attention to
 loading the data if this package is used for astronomical data analyses;
-see the details in the manual. Also see Gardiner (2009,
-ISBN:978-3-540-70712-7).
+see the details in the manual. Also see Hu and Tak (2020)
+<arXiv:2005.08049>.
 
 %prep
 %setup -q -c -n %{packname}

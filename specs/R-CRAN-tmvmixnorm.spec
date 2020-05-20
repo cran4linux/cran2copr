@@ -1,9 +1,9 @@
 %global packname  tmvmixnorm
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Sampling from Truncated Multivariate Normal and t Distributions
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-MASS 
 Requires:         R-stats 
+Requires:         R-MASS 
 
 %description
 Efficient sampling of truncated multivariate (scale) mixtures of normals
@@ -43,6 +45,7 @@ time).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +53,7 @@ time).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

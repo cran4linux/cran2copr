@@ -1,9 +1,9 @@
 %global packname  keras
-%global packver   2.2.5.0
+%global packver   2.3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.5.0
+Version:          2.3.0.0
 Release:          1%{?dist}
 Summary:          R Interface to 'Keras'
 
@@ -42,6 +42,7 @@ networks (as well as combinations of the two), and runs seamlessly on both
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,6 +50,7 @@ networks (as well as combinations of the two), and runs seamlessly on both
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -63,5 +65,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/python
+%{rlibdir}/%{packname}/python
 %{rlibdir}/%{packname}/INDEX
