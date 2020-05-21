@@ -1,31 +1,37 @@
-%global packname  surveyplanning
-%global packver   4.0
+%global packname  discnorm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Survey Planning Tools
+Summary:          Test for Discretized Normality in Ordinal Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.11.4
-BuildRequires:    R-CRAN-laeken 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table >= 1.11.4
-Requires:         R-CRAN-laeken 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-arules 
+BuildRequires:    R-CRAN-sirt 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-CRAN-psych 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-arules 
+Requires:         R-CRAN-sirt 
+Requires:         R-MASS 
+Requires:         R-CRAN-pbivnorm 
+Requires:         R-CRAN-psych 
 
 %description
-Tools for sample survey planning, including sample size calculation,
-estimation of expected precision for the estimates of totals, and
-calculation of optimal sample size allocation.
+Tests whether multivariate ordinal data may stem from discretizing a
+multivariate normal distribution. The test is described by Foldnes and
+Grønneberg (2019) <doi:10.1080/10705511.2019.1673168>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,10 +55,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/COPYING
-%doc %{rlibdir}/%{packname}/DISCLAIMER
-%doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/README
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

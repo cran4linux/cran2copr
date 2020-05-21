@@ -1,13 +1,13 @@
 %global packname  vardpoor
-%global packver   0.17.0
+%global packver   0.20.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          0.20.0
 Release:          1%{?dist}
 Summary:          Variance Estimation for Sample Surveys by the Ultimate ClusterMethod
 
-License:          GPL (>= 2)
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,30 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.11.4
-BuildRequires:    R-CRAN-laeken 
+BuildRequires:    R-CRAN-data.table >= 1.12.6
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-surveyplanning 
-Requires:         R-CRAN-data.table >= 1.11.4
-Requires:         R-CRAN-laeken 
+BuildRequires:    R-CRAN-laeken 
+Requires:         R-CRAN-data.table >= 1.12.6
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pracma 
-Requires:         R-graphics 
-Requires:         R-CRAN-plyr 
 Requires:         R-MASS 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-surveyplanning 
+Requires:         R-CRAN-laeken 
 
 %description
 Generation of domain variables, linearization of several nonlinear

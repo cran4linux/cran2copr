@@ -1,9 +1,9 @@
 %global packname  bestNormalize
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}
 Summary:          Normalizing Transformation Functions
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-LambertW 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-dplyr 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-tibble 
+Requires:         R-methods 
 
 %description
 Estimate a suite of normalizing transformations, including a new
@@ -44,7 +46,9 @@ to estimate the best normalizing transformation for a vector consistently
 and accurately. It implements the Box-Cox transformation, the Yeo-Johnson
 transformation, three types of Lambert WxF transformations, and the
 ordered quantile normalization transformation. It also estimates the
-normalization efficacy of other commonly used transformations.
+normalization efficacy of other commonly used transformations, and finally
+it allows users to specify custom transformations or normalization
+statistics.
 
 %prep
 %setup -q -c -n %{packname}

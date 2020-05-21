@@ -1,9 +1,9 @@
 %global packname  rdiversity
-%global packver   1.2.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0
 Release:          1%{?dist}
 Summary:          Measurement and Partitioning of Similarity-SensitiveBiodiversity
 
@@ -12,29 +12,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-binaryLogic 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-binaryLogic 
 Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-reshape2 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Provides a framework for the measurement and partitioning of the
@@ -44,6 +34,7 @@ subcommunities. Richard Reeve, et al. (2016) <arXiv:1404.6520v3>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,39 +1,46 @@
-%global packname  ggcharts
-%global packver   0.2.1
+%global packname  rRofex
+%global packver   1.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.6.9
 Release:          1%{?dist}
-Summary:          Shorten the Distance from Data Visualization Idea to Actual Plot
+Summary:          Interface to 'Matba Rofex' Trading API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-colorspace 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-glue 
+Requires:         R-methods 
 
 %description
-Streamline the creation of common charts by taking care of a lot of data
-preprocessing and plot customization for the user. Provides a high-level
-interface to create plots using 'ggplot2'.
+Execute API calls to the 'Matba Rofex' <https://apihub.primary.com.ar>
+trading platform. Functionality includes accessing account data and
+current holdings, retrieving investment quotes, placing and canceling
+orders, and getting reference data for instruments.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,12 +62,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

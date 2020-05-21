@@ -1,9 +1,9 @@
 %global packname  dams
-%global packver   0.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Dams in the United States from the National Inventory of Dams(NID)
 
@@ -15,8 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RCurl 
-Requires:         R-CRAN-RCurl 
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-fauxpas 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-fauxpas 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-readxl 
 
 %description
 The single largest source of dams in the United States is the National
@@ -33,6 +39,7 @@ cleaned NID data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -40,6 +47,7 @@ cleaned NID data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

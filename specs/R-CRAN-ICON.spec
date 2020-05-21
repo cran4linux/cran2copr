@@ -1,9 +1,9 @@
 %global packname  ICON
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Provides Easy Access to Complex Systems Datasets
 
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-utils >= 3.6.1
+Requires:         R-utils >= 3.6.1
 
 %description
 Provides easy-to-use and easy-to-access datasets from the Index of COmplex
@@ -27,6 +29,7 @@ ICON datasets of interest can be requested at the BugReports URL
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  MIMSunit
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Algorithm to Compute Monitor Independent Movement Summary Unit(MIMS-Unit)
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-R.utils >= 2.7.0
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-shiny >= 1.4.0.2
 BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-caTools >= 1.17.1.1
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
@@ -36,6 +37,7 @@ Requires:         R-CRAN-R.utils >= 2.7.0
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-shiny >= 1.4.0.2
 Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-caTools >= 1.17.1.1
 Requires:         R-CRAN-RColorBrewer >= 1.1.2
@@ -80,6 +82,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/app
 %doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

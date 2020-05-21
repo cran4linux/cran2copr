@@ -1,9 +1,9 @@
 %global packname  mdapack
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}
 Summary:          Medical Data Analysis Pack
 
@@ -33,6 +33,11 @@ BuildRequires:    R-CRAN-git2r
 BuildRequires:    R-CRAN-pkgbuild 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-VIM 
+BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 
@@ -51,11 +56,16 @@ Requires:         R-CRAN-git2r
 Requires:         R-CRAN-pkgbuild 
 Requires:         R-utils 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-VIM 
+Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-mice 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-An implementation of two functions for medical data analysis which perform
-basic univariate analysis and plot heatmaps of numeric variables.Kirkwood
-et al. (2003) <doi/abs/10.1002/sim.1961>.
+An implementation of functions for medical data analysis which perform
+basic data pre processing, univariate and bivariate analysis.Kirkwood et
+al. (2003) <doi:10.1002/sim.1961>.
 
 %prep
 %setup -q -c -n %{packname}

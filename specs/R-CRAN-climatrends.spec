@@ -1,11 +1,11 @@
 %global packname  climatrends
-%global packver   0.1.0
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.6
 Release:          1%{?dist}
-Summary:          Precipitation and Temperature Indices for Climate VariabilityAnalysis
+Summary:          Climate Variability Indices for Ecological Modelling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,18 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nasapower 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-nasapower 
+Requires:         R-methods 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 
 %description
-Toolkit for climate variability indices for ecological modelling. The
-indices produced here can be used as explanatory variables for crop
-modelling, trends in climate change and to assess the interactions of
-plants and animals with the environment.
+Supports analysis of trends in climate change, ecological and crop
+modelling.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,4 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/vector
 %{rlibdir}/%{packname}/INDEX

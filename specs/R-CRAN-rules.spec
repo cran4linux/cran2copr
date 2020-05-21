@@ -1,39 +1,40 @@
-%global packname  ggcharts
-%global packver   0.2.1
+%global packname  rules
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Shorten the Distance from Data Visualization Idea to Actual Plot
+Summary:          Model Wrappers for Rule-Based Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-parsnip >= 0.1.0
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-patchwork 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-parsnip >= 0.1.0
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dials 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Streamline the creation of common charts by taking care of a lot of data
-preprocessing and plot customization for the user. Provides a high-level
-interface to create plots using 'ggplot2'.
+Bindings for additional models for use with the 'parsnip' package. Models
+include prediction rule ensembles (Friedman and Popescu, 2008)
+<doi:10.1214/07-AOAS148>, C5.0 rules (Quinlan, 1992 ISBN: 1558602380), and
+Cubist (Kuhn and Johnson, 2013) <doi:10.1007/978-1-4614-6849-3>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,12 +56,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

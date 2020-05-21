@@ -1,9 +1,9 @@
 %global packname  Andromeda
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Asynchronous Disk-Based Representation of Massive Data
 
@@ -14,24 +14,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-zip 
 Requires:         R-methods 
 Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-Rcpp 
 
 %description
 Storing very large data objects on a local drive, while still making it
@@ -63,4 +64,3 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

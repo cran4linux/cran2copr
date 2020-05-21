@@ -1,9 +1,9 @@
 %global packname  VOSONDash
-%global packver   0.5.1
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.4
 Release:          1%{?dist}
 Summary:          User Interface for Collecting and Analysing Social Networks
 
@@ -17,32 +17,30 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.3.2
 BuildRequires:    R-CRAN-igraph >= 1.2.2
-BuildRequires:    R-CRAN-rtweet >= 0.6.8
-BuildRequires:    R-CRAN-vosonSML >= 0.27.0
+BuildRequires:    R-CRAN-vosonSML >= 0.29.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-wordcloud 
 BuildRequires:    R-CRAN-syuzhet 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-lattice 
-BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-CRAN-wordcloud 
 Requires:         R-CRAN-shiny >= 1.3.2
 Requires:         R-CRAN-igraph >= 1.2.2
-Requires:         R-CRAN-rtweet >= 0.6.8
-Requires:         R-CRAN-vosonSML >= 0.27.0
+Requires:         R-CRAN-vosonSML >= 0.29.0
+Requires:         R-graphics 
+Requires:         R-CRAN-httpuv 
+Requires:         R-CRAN-httr 
+Requires:         R-lattice 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-wordcloud 
 Requires:         R-CRAN-syuzhet 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tm 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-lattice 
-Requires:         R-CRAN-httpuv 
+Requires:         R-CRAN-wordcloud 
 
 %description
 A 'Shiny' application for the interactive visualisation and analysis of
@@ -52,6 +50,7 @@ data using 'vosonSML'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

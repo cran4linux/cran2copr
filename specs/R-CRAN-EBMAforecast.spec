@@ -1,40 +1,41 @@
-%global packname  sp
-%global packver   1.4-2
+%global packname  EBMAforecast
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Classes and Methods for Spatial Data
+Summary:          Estimate Ensemble Bayesian Model Averaging Forecasts using GibbsSampling or EM-Algorithms
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-lattice 
-BuildRequires:    R-grid 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-separationplot 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-plyr 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-lattice 
-Requires:         R-grid 
+Requires:         R-CRAN-separationplot 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-gtools 
+Requires:         R-methods 
 
 %description
-Classes and methods for spatial data; the classes document where the
-spatial location information resides, for 2D or 3D data. Utility functions
-are provided, e.g. for plotting data as maps, spatial selection, as well
-as methods for retrieving coordinates, for subsetting, print, summary,
-etc.
+Create forecasts from multiple predictions using ensemble Bayesian model
+averaging (EBMA). EBMA models can be estimated using an expectation
+maximization (EM) algorithm or as fully Bayesian models via Gibbs
+sampling.
 
 %prep
 %setup -q -c -n %{packname}
@@ -61,10 +62,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/external
-%{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

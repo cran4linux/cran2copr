@@ -1,9 +1,9 @@
 %global packname  BOIN
-%global packver   2.6.4
+%global packver   2.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.4
+Version:          2.6.5
 Release:          1%{?dist}
 Summary:          Bayesian Optimal INterval (BOIN) Design for Single-Agent andDrug- Combination Phase I Clinical Trials
 
@@ -36,6 +36,7 @@ of assigning patients to subtherapeutic or overly toxic doses.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +44,7 @@ of assigning patients to subtherapeutic or overly toxic doses.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

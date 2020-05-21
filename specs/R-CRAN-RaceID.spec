@@ -1,9 +1,9 @@
 %global packname  RaceID
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Identification of Cell Types and Inference of Lineage Trees fromSingle-Cell RNA-Seq Data
 
