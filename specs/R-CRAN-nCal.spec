@@ -1,9 +1,9 @@
 %global packname  nCal
-%global packver   2020.5-1
+%global packver   2020.5-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.5.1
+Version:          2020.5.21
 Release:          1%{?dist}
 Summary:          Nonlinear Calibration
 
@@ -26,7 +26,8 @@ Requires:         R-CRAN-gWidgets2
 
 %description
 Performs nonlinear calibration and curve fitting for data from Luminex,
-RT-PCR, ELISA, RPPA etc. Its precursor is Ruminex.
+RT-PCR, ELISA, RPPA etc. Its precursor is Ruminex. This package is
+described in Fong et al. (2013) <DOI:10.1093/bioinformatics/btt456>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  naijR
-%global packver   0.0.7
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Operations to Ease Data Analyses Specific to Nigeria
 
@@ -15,10 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-tools >= 3.6.3
 BuildRequires:    R-CRAN-maps >= 3.3.0
 BuildRequires:    R-CRAN-mapdata >= 2.3.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-rgdal >= 1.4.4
+BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+Requires:         R-tools >= 3.6.3
 Requires:         R-CRAN-maps >= 3.3.0
 Requires:         R-CRAN-mapdata >= 2.3.0
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-rgdal >= 1.4.4
+Requires:         R-CRAN-RColorBrewer >= 1.1.2
+Requires:         R-CRAN-rlang >= 0.4.0
 
 %description
 A set of convenience functions as well as geographical/political data
@@ -49,5 +59,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/ward_data.rda
 %{rlibdir}/%{packname}/INDEX

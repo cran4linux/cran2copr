@@ -1,9 +1,9 @@
 %global packname  krm
-%global packver   2019.12-11
+%global packver   2020.5-20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2019.12.11
+Version:          2020.5.20
 Release:          1%{?dist}
 Summary:          Kernel Based Regression Models
 
@@ -24,11 +24,13 @@ Implements several methods for testing the variance component parameter in
 regression models that contain kernel-based random effects, including a
 maximum of adjusted scores test. Several kernels are supported, including
 a profile hidden Markov model mutual information kernel for protein
-sequence.
+sequence. This package is described in Fong et al. (2015)
+<DOI:10.1093/biostatistics/kxu056>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

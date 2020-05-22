@@ -1,9 +1,9 @@
 %global packname  WeMix
-%global packver   3.1.3
+%global packver   3.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.1.4
 Release:          1%{?dist}
 Summary:          Weighted Mixed-Effects Models Using Multilevel Pseudo MaximumLikelihood Estimation
 
@@ -46,6 +46,7 @@ supported. Models may have up to three levels.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  openSTARS
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          An Open Source Implementation of the 'ArcGIS' Toolbox 'STARS'
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-rgrass7
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-SSN 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-rgrass7
 Requires:         R-methods 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-SSN 
@@ -44,6 +42,7 @@ clean an existing stream network).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
