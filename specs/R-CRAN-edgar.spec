@@ -1,11 +1,11 @@
 %global packname  edgar
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}
-Summary:          Platform for EDGAR Filing Management and Textual Analysis
+Summary:          Tool for the U.S. SEC EDGAR Retrieval and Parsing of CorporateFilings
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,18 +33,19 @@ In the USA, companies file different forms with the U.S. Securities and
 Exchange Commission (SEC) through EDGAR (Electronic Data Gathering,
 Analysis, and Retrieval system). The EDGAR database automated system
 collects all the different necessary filings and makes it publicly
-available. Investors, regulators, and researchers often require these
-forms for various purposes. This package helps in bulk data gathering and
-textual analysis of EDGAR filings. It downloads filings from SEC server in
-bulk with a single query. Additionally, it provides various useful
-functions: extracts 8-K triggering events, extract "Business (Item 1)" and
-"Management's Discussion and Analysis(Item 7)" sections of annual
-statements, search filings for desired words, provides sentiment measures,
-parse filing header information, and provides HTML view of SEC filings.
+available. This package facilitates retrieving, storing, searching, and
+parsing of all the available filings on the EDGAR server. It downloads
+filings from SEC server in bulk with a single query. Additionally, it
+provides various useful functions: extracts 8-K triggering events, extract
+"Business (Item 1)" and "Management's Discussion and Analysis(Item 7)"
+sections of annual statements, searches filings for desired keywords,
+provides sentiment measures, parses filing header information, and
+provides HTML view of SEC filings.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

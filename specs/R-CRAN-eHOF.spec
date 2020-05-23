@@ -1,25 +1,31 @@
-%global packname  overlap
-%global packver   0.3.3
+%global packname  eHOF
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.9
 Release:          1%{?dist}
-Summary:          Estimates of Coefficient of Overlapping for Animal ActivityPatterns
+Summary:          Extended HOF (Huisman-Olff-Fresco) Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.5.0
+Requires:         R-core >= 2.5.0
+BuildArch:        noarch
+BuildRequires:    R-mgcv 
+BuildRequires:    R-lattice 
+Requires:         R-mgcv 
+Requires:         R-lattice 
 
 %description
-Provides functions to fit kernel density functions to data on temporal
-activity patterns of animals; estimate coefficients of overlapping of
-densities for two species; and calculate bootstrap estimates of confidence
-intervals.
+Extended and enhanced hierarchical logistic regression models (called
+Huisman-Olff-Fresco in biology, see Huisman et al. 1993 Journal of
+Vegetation Science <doi:10.1111/jvs.12050>) models. Response curves along
+one-dimensional gradients including no response, monotone, plateau,
+unimodal and bimodal models.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,10 +50,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/ChangeLog
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/tests
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

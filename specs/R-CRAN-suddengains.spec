@@ -1,9 +1,9 @@
 %global packname  suddengains
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}
 Summary:          Identify Sudden Gains in Longitudinal Data
 
@@ -21,20 +21,28 @@ BuildRequires:    R-CRAN-psych >= 1.8.12
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.3.1
+BuildRequires:    R-CRAN-patchwork >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-ggrepel >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.3.4
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-naniar 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 >= 3.1.1
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-psych >= 1.8.12
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.3.1
+Requires:         R-CRAN-patchwork >= 1.0.0
 Requires:         R-CRAN-tidyr >= 0.8.2
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-ggrepel >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.3.4
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-naniar 
+Requires:         R-CRAN-scales 
 
 %description
 Identify sudden gains based on the three criteria outlined by Tang and

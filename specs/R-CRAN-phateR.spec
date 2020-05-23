@@ -1,9 +1,9 @@
 %global packname  phateR
-%global packver   1.0.0
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          PHATE - Potential of Heat-Diffusion for Affinity-BasedTransition Embedding
 
@@ -21,12 +21,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-memoise 
 Requires:         R-CRAN-reticulate >= 1.8
 Requires:         R-Matrix >= 1.2.0
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-memoise 
 
 %description
 PHATE is a tool for visualizing high dimensional single-cell data with
@@ -41,6 +43,7 @@ Biotechnology at <doi:10.1038/s41587-019-0336-3>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

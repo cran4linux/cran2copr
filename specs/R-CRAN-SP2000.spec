@@ -1,9 +1,9 @@
 %global packname  SP2000
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}
 Summary:          Catalogue of Life Toolkit
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-pbmcapply
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-pbmcapply 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-DT 
 
 %description
 A programmatic interface to <http://sp2000.org.cn>, re-written based on an
@@ -35,8 +37,9 @@ Chinese known species of animals, plants, fungi, micro-organisms, and
 more. This package also supports access to catalogue of life global
 <http://catalogueoflife.org> and catalogue of life Taiwan
 <http://taibnet.sinica.edu.tw/home_eng.php?>. The development of 'SP2000'
-package was supported by Yunnan University's Research Innovation Fund for
-Graduate Students.
+package were supported by Biodiversity Survey and Assessment Project of
+the Ministry of Ecology and Environment, China and Yunnan University's
+Research Innovation Fund for Graduate Students.
 
 %prep
 %setup -q -c -n %{packname}

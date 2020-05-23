@@ -1,9 +1,9 @@
 %global packname  periscope
-%global packver   0.4.10
+%global packver   0.4.10-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.4.10.1
 Release:          1%{?dist}
 Summary:          Enterprise Streamlined 'Shiny' Application Framework
 

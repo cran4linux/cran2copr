@@ -1,9 +1,9 @@
 %global packname  pdftools
-%global packver   2.3
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.3.1
 Release:          1%{?dist}
 Summary:          Text Extraction, Rendering and Converting of PDF Documents
 
@@ -30,6 +30,7 @@ further processing in R.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  RolWinMulCor
-%global packver   0.1.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Subroutines to Estimate Rolling Window Multiple Correlation
 
@@ -17,10 +17,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-colorspace 
 Requires:         R-stats 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-colorspace 
 
@@ -32,25 +34,25 @@ emphasis to environmental data (although this can be applied to other
 kinds of data sets). 'RolWinMulCor' is based on the concept of rolling or
 running window and is useful to evaluate the evolution of correlation
 through time and time-scales. 'RolWinMulCor' contains four functions: (1)
-the first two functions are focus on the bi-variate case and one of them
-produces a simple plot of correlation coefficients and p-values
-(<=0.05)for only one window-length (time-scale) and the other function
-produces a heat map for the statistically significant (p-values <=0.05)
-correlation coefficients taking into account all the possible
-window-lengths (which are determined by the number of elements of the time
-series under analysis) or for a band of window-lengths; (2) the second two
-functions are designed to analyse the multi-variate case and follow the
-bi-variate case to display visually the results. The four functions
-contained in 'RolWinMulCor' are highly flexible since this contains a
-great number of parameters to control the estimation of correlation and
-the features of the plot output, e.g. to remove the (linear) trend
-contained in the time series under analysis, to choose different p-value
-correction methods (which are used to address the multiple comparison
-problem) or to personalise the plot output (e.g. this can be displayed in
-the screen or can be saved as PNG, JPEG, EPS or PDF formats). The
-'RolWinMulCor' package also provides examples with synthetic and real
-environmental time series to exemplify its use. Methods derived from H.
-Abdi. (2007)
+the first two functions are focus on the bi-variate case, one of them
+produces a simple plot of correlation coefficients and p-values (<=0.05)
+for only one window-length (time-scale), and the other function produces a
+heat map for the statistically significant (p-values <=0.05) correlation
+coefficients taking into account all the possible window-lengths (which
+are determined by the number of elements of the time series under
+analysis) or for a band of window-lengths; (2) the second two functions
+are designed to analyse the multi-variate case and follow the bi-variate
+case to display visually the results although these two methods are
+different. The four functions contained in 'RolWinMulCor' are highly
+flexible since this contains a great number of parameters to control the
+estimation of correlation and the features of the plot output, e.g. to
+remove the (linear) trend contained in the time series under analysis, to
+choose different p-value correction methods (which are used to address the
+multiple comparison problem) or to personalise the plot output (e.g. this
+can be displayed in the screen or can be saved as PNG, JPEG, EPS or PDF
+formats). The 'RolWinMulCor' package also provides examples with synthetic
+and real environmental time series to exemplify its use. Methods derived
+from H. Abdi. (2007)
 <https://personal.utdallas.edu/~herve/Abdi-MCC2007-pretty.pdf>, J. M.
 Polanco-Martinez (2019) <doi:10.1007/s11071-019-04974-y>, and R. Telford
 (2013)

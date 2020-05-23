@@ -1,9 +1,9 @@
 %global packname  climatrends
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}
 Summary:          Climate Variability Indices for Ecological Modelling
 
@@ -16,10 +16,8 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-sf 
 Requires:         R-stats 
 
 %description
@@ -52,6 +50,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/vector
 %{rlibdir}/%{packname}/INDEX

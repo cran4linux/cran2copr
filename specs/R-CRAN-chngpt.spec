@@ -1,9 +1,9 @@
 %global packname  chngpt
-%global packver   2020.5-13
+%global packver   2020.5-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.5.13
+Version:          2020.5.21
 Release:          1%{?dist}
 Summary:          Estimation and Hypothesis Testing for Threshold Regression
 
@@ -33,9 +33,7 @@ broken-stick regression, split-point regression, structural change models,
 and regression kink models, with and without interaction terms. Methods
 for both continuous and discontinuous threshold models are included, but
 the support for the former is much greater. This package is described in
-Fong, Huang, Gilbert and Permar (2017) chngpt: threshold regression model
-estimation and inference, BMC Bioinformatics, in press,
-DOI:10.1186/s12859-017-1863-x.
+Fong, Huang, Gilbert and Permar (2017) <DOI:10.1186/s12859-017-1863-x>.
 
 %prep
 %setup -q -c -n %{packname}

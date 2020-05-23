@@ -1,9 +1,9 @@
 %global packname  SWIM
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Scenario Weights for Importance Measurement
 
@@ -39,11 +39,12 @@ scenario weights. Scenario weights are selected by constrained
 minimisation of the relative entropy to the baseline model. The 'SWIM'
 package is based on Pesenti S.M, Millossovich P., Tsanakas A. (2019)
 "Reverse Sensitivity Testing: What does it take to break the model",
-<doi:10.1016/j.ejor.2018.10.003>.
+<openaccess.city.ac.uk/id/eprint/18896/>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -65,6 +66,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/REFERENCES.bib
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

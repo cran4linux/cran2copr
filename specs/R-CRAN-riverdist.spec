@@ -1,9 +1,9 @@
 %global packname  riverdist
-%global packver   0.15.0
+%global packver   0.15.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          0.15.1
 Release:          1%{?dist}
 Summary:          River Network Distance Computation and Applications
 
@@ -33,6 +33,7 @@ networks, meaning there is no reliance on external software.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
