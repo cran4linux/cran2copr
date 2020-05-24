@@ -1,9 +1,9 @@
 %global packname  RobinHood
-%global packver   1.2.4
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.4
 Release:          1%{?dist}
 Summary:          Interface for the RobinHood.com No Commission Investing Platform
 

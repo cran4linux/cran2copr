@@ -1,9 +1,9 @@
 %global packname  varImp
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}
 Summary:          RF Variable Importance for Arbitrary Measures
 
@@ -32,6 +32,7 @@ accuracy and AUC two extra functions exist (varImpACC and varImpAUC).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

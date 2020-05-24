@@ -1,9 +1,9 @@
 %global packname  ropenblas
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}
 Summary:          Download, Compile and Link 'OpenBLAS' Library with R
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-getPass
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-cli 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-getPass
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-fs 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-cli 

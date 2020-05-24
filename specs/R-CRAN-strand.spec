@@ -1,9 +1,9 @@
 %global packname  strand
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          A Framework for Investment Strategy Simulation
 
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-Rsymphony 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-feather 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-ggplot2
 Requires:         R-CRAN-R6 
 Requires:         R-Matrix 
 Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-Rsymphony 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-feather 

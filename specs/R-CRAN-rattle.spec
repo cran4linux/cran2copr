@@ -1,9 +1,9 @@
 %global packname  rattle
-%global packver   5.3.0
+%global packver   5.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.0
+Version:          5.4.0
 Release:          1%{?dist}
 Summary:          Graphical User Interface for Data Science in R
 
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
@@ -28,6 +30,8 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-rpart.plot 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-bitops 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
@@ -57,6 +61,7 @@ copy-and-paste directly into R itself.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

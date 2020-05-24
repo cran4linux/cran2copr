@@ -1,9 +1,9 @@
 %global packname  AzureAuth
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}
 Summary:          Authentication Services for Azure Active Directory
 
@@ -44,6 +44,7 @@ for Azure. Part of the 'AzureR' family of packages.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

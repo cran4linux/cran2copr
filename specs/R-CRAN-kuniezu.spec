@@ -1,9 +1,9 @@
 %global packname  kuniezu
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Assistance on the National Geography of Japan
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-leaflet >= 2.0.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-sf >= 0.9.1
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-parzer >= 0.1.4
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-leaflet >= 2.0.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-sf >= 0.9.1

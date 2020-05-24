@@ -1,9 +1,9 @@
 %global packname  textplot
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Text Plots
 
@@ -21,7 +21,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-lattice 
 BuildRequires:    R-stats 
 BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-data.table >= 1.9.6
 Requires:         R-utils 
@@ -29,7 +28,6 @@ Requires:         R-methods
 Requires:         R-lattice 
 Requires:         R-stats 
 Requires:         R-Matrix 
-Requires:         R-CRAN-igraph 
 Requires:         R-graphics 
 
 %description

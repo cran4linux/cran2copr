@@ -1,9 +1,9 @@
 %global packname  gt
-%global packver   0.2.0.5
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0.5
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Easily Create Presentation-Ready Display Tables
 
@@ -45,10 +45,13 @@ Requires:         R-CRAN-htmltools >= 0.4.0
 Requires:         R-CRAN-sass >= 0.1.1
 
 %description
-Build display tables from tabular data using with an easy-to-use API. With
-its progressive approach, we can construct display tables with a clear
-separation of concerns: you don't have to decide how the tabular data gets
-transformed and structured whilst also worrying about aesthetics.
+Build display tables from tabular data with an easy-to-use set of
+functions. With its progressive approach, we can construct display tables
+with a cohesive set of table parts. Table values can be formatted using
+any of the included formatting functions. Footnotes and cell styles can be
+precisely added through a location targeting system. The way in which 'gt'
+handles things for you means that you don't often have to worry about the
+fine details.
 
 %prep
 %setup -q -c -n %{packname}

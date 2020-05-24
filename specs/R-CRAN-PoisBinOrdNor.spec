@@ -1,9 +1,9 @@
 %global packname  PoisBinOrdNor
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}
 Summary:          Data Generation with Poisson, Binary, Ordinal and NormalComponents
 
@@ -29,11 +29,13 @@ Requires:         R-CRAN-GenOrd
 %description
 Generation of multiple count, binary, ordinal and normal variables
 simultaneously given the marginal characteristics and association
-structure.
+structure. The details of the method are explained in Demirtas et al.
+(2012) <DOI:10.1002/sim.5362>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
