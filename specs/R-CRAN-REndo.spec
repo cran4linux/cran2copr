@@ -1,9 +1,9 @@
 %global packname  REndo
-%global packver   2.3.1
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.4.0
 Release:          1%{?dist}
 Summary:          Fitting Linear Models with Endogenous Regressors using LatentInstrumental Variables
 
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
-BuildArch:        noarch
 BuildRequires:    R-methods >= 3.4
 BuildRequires:    R-stats >= 3.4
 BuildRequires:    R-utils >= 3.4
@@ -26,6 +25,9 @@ BuildRequires:    R-CRAN-Formula >= 1.2
 BuildRequires:    R-CRAN-data.table >= 1.11.8
 BuildRequires:    R-CRAN-lme4 >= 1.1.18.1
 BuildRequires:    R-CRAN-mvtnorm >= 1.0.8
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-lmtest >= 0.9.35
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-methods >= 3.4
 Requires:         R-stats >= 3.4
 Requires:         R-utils >= 3.4
@@ -37,6 +39,8 @@ Requires:         R-CRAN-Formula >= 1.2
 Requires:         R-CRAN-data.table >= 1.11.8
 Requires:         R-CRAN-lme4 >= 1.1.18.1
 Requires:         R-CRAN-mvtnorm >= 1.0.8
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-lmtest >= 0.9.35
 
 %description
 Fits linear models with endogenous regressor using latent instrumental
@@ -79,3 +83,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

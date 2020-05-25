@@ -1,9 +1,9 @@
 %global packname  CGE
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          Computing General Equilibrium
 
@@ -21,7 +21,8 @@ Developing general equilibrium models, computing general equilibrium and
 simulating economic dynamics with structural dynamic models in LI (2019,
 ISBN: 9787521804225) "General Equilibrium and Structural Dynamics:
 Perspectives of New Structural Economics. Beijing: Economic Science
-Press".
+Press". When developing complex general equilibrium models, GE package
+should be used in addition to this package.
 
 %prep
 %setup -q -c -n %{packname}

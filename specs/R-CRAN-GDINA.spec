@@ -1,9 +1,9 @@
 %global packname  GDINA
-%global packver   2.7.9
+%global packver   2.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.9
+Version:          2.8.0
 Release:          1%{?dist}
 Summary:          The Generalized DINA Model Framework
 
@@ -51,7 +51,11 @@ polytomous attributes. Joint attribute distribution can be independent,
 saturated, higher-order, loglinear smoothed or structured. Q-matrix
 validation, item and model fit statistics, model comparison at test and
 item level and differential item functioning can also be conducted. A
-graphical user interface is also provided.
+graphical user interface is also provided. For tutorials, please check Ma
+and de la Torre (2020) <DOI:10.18637/jss.v093.i14>, Ma and de la Torre
+(2019) <DOI:10.1111/emip.12262>, Ma (2019)
+<DOI:10.1007/978-3-030-05584-4_29> and de la Torre and Akbay (2019)
+<DOI:10.14689/ejer.2019.80.9>.
 
 %prep
 %setup -q -c -n %{packname}

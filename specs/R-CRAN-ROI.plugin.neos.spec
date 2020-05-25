@@ -1,9 +1,9 @@
 %global packname  ROI.plugin.neos
-%global packver   0.3-1
+%global packver   0.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          'NEOS' Plug-in for the 'R' Optimization Interface
 
@@ -37,6 +37,7 @@ directly be sent to the 'neos' server and solution obtained in the typical
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

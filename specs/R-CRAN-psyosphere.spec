@@ -1,9 +1,9 @@
 %global packname  psyosphere
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Analyse GPS Data
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-geosphere 
@@ -25,7 +24,6 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-RgoogleMaps 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-geosphere 

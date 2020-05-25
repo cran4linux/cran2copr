@@ -1,9 +1,9 @@
 %global packname  sjPlot
-%global packver   2.8.3
+%global packver   2.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.3
+Version:          2.8.4
 Release:          1%{?dist}
 Summary:          Data Visualization for Statistics in Social Science
 
@@ -21,11 +21,11 @@ BuildRequires:    R-CRAN-sjlabelled >= 1.1.2
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-insight >= 0.8.0
-BuildRequires:    R-CRAN-bayestestR >= 0.5.0
+BuildRequires:    R-CRAN-parameters >= 0.7.0
+BuildRequires:    R-CRAN-bayestestR >= 0.6.0
 BuildRequires:    R-CRAN-performance >= 0.4.3
-BuildRequires:    R-CRAN-parameters >= 0.4.0
 BuildRequires:    R-CRAN-sjstats >= 0.17.8
-BuildRequires:    R-CRAN-ggeffects >= 0.14.0
+BuildRequires:    R-CRAN-ggeffects >= 0.14.3
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -42,11 +42,11 @@ Requires:         R-CRAN-sjlabelled >= 1.1.2
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-insight >= 0.8.0
-Requires:         R-CRAN-bayestestR >= 0.5.0
+Requires:         R-CRAN-parameters >= 0.7.0
+Requires:         R-CRAN-bayestestR >= 0.6.0
 Requires:         R-CRAN-performance >= 0.4.3
-Requires:         R-CRAN-parameters >= 0.4.0
 Requires:         R-CRAN-sjstats >= 0.17.8
-Requires:         R-CRAN-ggeffects >= 0.14.0
+Requires:         R-CRAN-ggeffects >= 0.14.3
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 

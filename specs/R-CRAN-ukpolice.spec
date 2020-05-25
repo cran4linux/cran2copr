@@ -1,9 +1,9 @@
 %global packname  ukpolice
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Download Data on UK Police and Crime
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
 
 %description
 Downloads data from the 'UK Police' public data API, the full docs of

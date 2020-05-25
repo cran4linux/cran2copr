@@ -1,9 +1,9 @@
 %global packname  EcoGenetics
-%global packver   1.2.1-5
+%global packver   1.2.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1.5
+Version:          1.2.1.6
 Release:          1%{?dist}
 Summary:          Management and Exploratory Analysis of Spatial Data in LandscapeGenetics
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-d3heatmap 
 BuildRequires:    R-CRAN-edgebundleR 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
@@ -38,7 +37,6 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 Requires:         R-methods 
-Requires:         R-CRAN-d3heatmap 
 Requires:         R-CRAN-edgebundleR 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
@@ -68,6 +66,7 @@ objects.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

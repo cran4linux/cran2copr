@@ -1,9 +1,9 @@
 %global packname  listcomp
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          List Comprehensions
 
@@ -16,9 +16,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-compiler 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-rlang 
-Requires:         R-compiler 
+Requires:         R-CRAN-digest 
 
 %description
 An implementation of list comprehensions as purely syntactic sugar with a

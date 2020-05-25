@@ -1,9 +1,9 @@
 %global packname  eph
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Argentina's Permanent Household Survey Data and ManipulationUtilities
 
@@ -34,7 +34,6 @@ BuildRequires:    R-CRAN-attempt
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
@@ -59,7 +58,6 @@ Requires:         R-CRAN-attempt
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 
@@ -107,5 +105,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

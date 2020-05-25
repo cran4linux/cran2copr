@@ -1,9 +1,9 @@
 %global packname  haven
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}
 Summary:          Import and Export 'SPSS', 'Stata' and 'SAS' Files
 
@@ -16,17 +16,21 @@ BuildRequires:    make
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-forcats >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.4
 BuildRequires:    R-CRAN-readr >= 0.1.0
 BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-forcats >= 0.2.0
 Requires:         R-CRAN-Rcpp >= 0.11.4
 Requires:         R-CRAN-readr >= 0.1.0
 Requires:         R-CRAN-hms 
+Requires:         R-methods 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 
@@ -37,6 +41,7 @@ library, <https://github.com/WizardMac/ReadStat>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
