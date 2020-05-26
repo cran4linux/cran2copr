@@ -1,9 +1,9 @@
 %global packname  bibliometrix
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}
 Summary:          An R-Tool for Comprehensive Science Mapping Analysis
 

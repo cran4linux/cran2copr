@@ -1,32 +1,29 @@
-%global packname  season
-%global packver   0.3.11
+%global packname  upsetjs
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Seasonal Analysis of Health Data
+Summary:          'HTMLWidget' Wrapper of 'UpSet.s' for Exploring Large SetIntersections
 
-License:          GPL (>= 3)
+License:          AGPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.3
-BuildRequires:    R-MASS 
-BuildRequires:    R-survival 
-Requires:         R-CRAN-ggplot2 >= 0.9.3
-Requires:         R-MASS 
-Requires:         R-survival 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-magrittr 
 
 %description
-Routines for the seasonal analysis of health data, including regression
-models, time-stratified case-crossover, plotting functions and residual
-checks, see Barnett and Dobson (2010) ISBN 978-3-642-10748-1. Thanks to
-Yuming Guo for checking the case-crossover code.
+'UpSet.js' is a re-implementation of 'UpSetR' to create interactive set
+visualizations for more than three sets. This is a 'htmlwidget' wrapper
+around the 'JavaScript' library 'UpSet.js'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,8 +47,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/htmlwidgets
 %{rlibdir}/%{packname}/INDEX

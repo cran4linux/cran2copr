@@ -1,13 +1,13 @@
-%global packname  d3r
-%global packver   0.9.0
+%global packname  tidylo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          'd3.js' Utilities for R
+Summary:          Weighted Tidy Log Odds Ratio
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-rlang 
 
 %description
-Provides a suite of functions to help ease the use of 'd3.js' in R. These
-helpers include 'htmltools::htmlDependency' functions, hierarchy builders,
-and conversion tools for 'partykit', 'igraph,' 'table', and 'data.frame' R
-objects into the 'JSON' that 'd3.js' expects.
+How can we measure how the usage or frequency of some feature, such as
+words, differs across some group or set, such as documents? One option is
+to use the log odds ratio, but the log odds ratio alone does not account
+for sampling variability; we haven't counted every feature the same number
+of times so how do we know which differences are meaningful? Enter the
+weighted log odds, which 'tidylo' provides an implementation for, using
+tidy data principles. In particular, here we use the method outlined in
+Monroe, Colaresi, and Quinn (2008) <doi:10.1093/pan/mpn018> to weight the
+log odds ratio by a prior. By default, the prior is estimated from the
+data itself, an empirical Bayes approach, but an uninformative prior is
+also available.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +58,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/www
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

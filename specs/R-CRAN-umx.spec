@@ -1,9 +1,9 @@
 %global packname  umx
-%global packver   3.0.6
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.6
+Version:          4.0.0
 Release:          1%{?dist}
 Summary:          Structural Equation and Twin Modeling in R
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-OpenMx >= 2.11.5
 BuildRequires:    R-CRAN-cowplot 
@@ -57,6 +57,7 @@ Quickly create, run, and report structural equation and twin models. See
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

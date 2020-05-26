@@ -1,32 +1,44 @@
-%global packname  gradeR
-%global packver   1.0.6
+%global packname  sketcher
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.3
 Release:          1%{?dist}
-Summary:          Helps Grade Assignment Submissions that are R Scripts
+Summary:          Pencil Sketch Effect
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-readbitmap 
+BuildRequires:    R-CRAN-downloader 
+BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-testthat 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-readbitmap 
+Requires:         R-CRAN-downloader 
+Requires:         R-CRAN-imager 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
 
 %description
-After being given the location of your students' submissions and a test
-file, the function runs each .R file, and evaluates the results from all
-the given tests. Results are neatly returned in a data frame that has a
-row for each student, and a column for each test.
+An implementation of image processing effects that convert a photo into a
+line drawing image. For details, please refer to Tsuda, H. (2020).
+sketcher: An R package for converting a photo into a sketch style image.
+<doi:10.31234/osf.io/svmw5>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,11 +60,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

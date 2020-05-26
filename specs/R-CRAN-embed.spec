@@ -1,9 +1,9 @@
 %global packname  embed
-%global packver   0.0.6
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Extra Recipes for Encoding Categorical Predictors
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-tensorflow 
 BuildRequires:    R-CRAN-uwot 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-rsample 
 Requires:         R-CRAN-recipes >= 0.1.8
 Requires:         R-CRAN-rstanarm 
 Requires:         R-CRAN-keras 
@@ -45,11 +46,12 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-tensorflow 
 Requires:         R-CRAN-uwot 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-rsample 
 
 %description
 Predictors can be converted to one or more numeric representations using
 simple generalized linear models <arXiv:1611.09477> or nonlinear models
-<arXiv:1604.06737>. All encoding methods are supervised.
+<arXiv:1604.06737>. Most encoding methods are supervised.
 
 %prep
 %setup -q -c -n %{packname}

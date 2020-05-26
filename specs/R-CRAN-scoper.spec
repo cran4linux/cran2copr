@@ -1,9 +1,9 @@
 %global packname  scoper
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Spectral Clustering-Based Method for Identifying B Cell Clones
 
@@ -15,26 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-alakazam >= 1.0.0
+BuildRequires:    R-CRAN-alakazam >= 1.0.1
 BuildRequires:    R-CRAN-shazam >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-alakazam >= 1.0.0
+Requires:         R-CRAN-alakazam >= 1.0.1
 Requires:         R-CRAN-shazam >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 

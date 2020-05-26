@@ -1,9 +1,9 @@
 %global packname  BARIS
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Access and Import Data from the French Open Data Portal
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-data.table 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-checkmate 
 
 %description
 Allows the user to access and import data from the rich French open data

@@ -1,9 +1,9 @@
 %global packname  EHRtemporalVariability
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Delineating Temporal Dataset Shifts in Electronic Health Records
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-lubridate 
@@ -26,10 +25,8 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-methods 
 BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-lubridate 
@@ -38,7 +35,6 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-scales 
 Requires:         R-methods 
 Requires:         R-MASS 
-Requires:         R-CRAN-dbscan 
 
 %description
 Functions to delineate temporal dataset shifts in Electronic Health

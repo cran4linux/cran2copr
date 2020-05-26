@@ -1,32 +1,36 @@
-%global packname  season
-%global packver   0.3.11
+%global packname  BOJ
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          0.2.2
 Release:          1%{?dist}
-Summary:          Seasonal Analysis of Health Data
+Summary:          Interface to Bank of Japan Statistics
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.3
-BuildRequires:    R-MASS 
-BuildRequires:    R-survival 
-Requires:         R-CRAN-ggplot2 >= 0.9.3
-Requires:         R-MASS 
-Requires:         R-survival 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
 
 %description
-Routines for the seasonal analysis of health data, including regression
-models, time-stratified case-crossover, plotting functions and residual
-checks, see Barnett and Dobson (2010) ISBN 978-3-642-10748-1. Thanks to
-Yuming Guo for checking the case-crossover code.
+Provides an interface to data provided by the Bank of Japan
+<https://www.boj.or.jp>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,10 +52,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

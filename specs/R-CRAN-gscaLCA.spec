@@ -1,11 +1,11 @@
 %global packname  gscaLCA
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}
-Summary:          Generalized Structure Component Analysis- Latent Class Analysis
+Summary:          Generalized Structure Component Analysis- Latent Class Analysis& Latent Class Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,6 +26,7 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-nnet 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-stringr 
@@ -37,17 +38,21 @@ Requires:         R-MASS
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doSNOW 
+Requires:         R-nnet 
 
 %description
-Execute Latent Class Analysis (LCA) by using Generalized Structured
-Component Analysis (GSCA). This is explained in Ryoo, Park, and Kim (2009)
-<doi:10.1007/s41237-019-00084-6>. It estimates the parameters of latent
-class prevalence and item response probability in LCA with a single line
-comment. It also provide graphs of item response probabilities.
+Execute Latent Class Analysis (LCA) and Latent Class Regression (LCR) by
+using Generalized Structured Component Analysis (GSCA). This is explained
+in Ryoo, Park, and Kim (2019) <doi:10.1007/s41237-019-00084-6>. It
+estimates the parameters of latent class prevalence and item response
+probability in LCA with a single line comment. It also provides graphs of
+item response probabilities. In addition, the package enables to estimate
+the relationship between the prevalence and covariates.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

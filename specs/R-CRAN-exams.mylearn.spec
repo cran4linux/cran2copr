@@ -1,34 +1,36 @@
-%global packname  designr
-%global packver   0.1.10
+%global packname  exams.mylearn
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          1.1
 Release:          1%{?dist}
-Summary:          Balanced Factorial Designs
+Summary:          Question Generation in the 'MyLearn' XML Format
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-crossdes 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-MASS 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-crossdes 
-Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-exams >= 2.3.4
+BuildRequires:    R-CRAN-stringi >= 1.4.6
+BuildRequires:    R-CRAN-glue >= 1.4.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.2.5
+Requires:         R-CRAN-exams >= 2.3.4
+Requires:         R-CRAN-stringi >= 1.4.6
+Requires:         R-CRAN-glue >= 1.4.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.2.5
 
 %description
-Generate balanced factorial designs with crossed and nested random and
-fixed effects <https://github.com/mmrabe/designr>.
+Randomized multiple-select and single-select question generation for the
+'MyLearn' teaching and learning platform. Question templates in the form
+of the R/exams package (see <http://www.r-exams.org/>) are transformed
+into XML format required by 'MyLearn'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,4 +56,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  joint.Cox
-%global packver   3.7
+%global packver   3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          3.8
 Release:          1%{?dist}
 Summary:          Joint Frailty-Copula Models for Tumour Progression and Death inMeta-Analysis
 
@@ -19,23 +19,25 @@ BuildRequires:    R-survival
 Requires:         R-survival 
 
 %description
-Perform likelihood estimation and dynamic prediction under joint
-frailty-copula models for tumour progression and death in meta-analysis. A
-penalized likelihood method is employed for estimating model parameters,
-where the baseline hazard functions are modeled by smoothing splines. The
-methods are applicable for meta-analytic data combining several studies.
-The methods can analyze data having information on both terminal event
-time (e.g., time-to-death) and non-terminal event time (e.g.,
-time-to-tumour progression). See Emura et al. (2017)
-<doi:10.1177/0962280215604510> for likelihood estimation, and Emura et al.
-(2018) <doi:10.1177/0962280216688032> for dynamic prediction. More details
-on these methods can also be found in a book of Emura et al. (2019)
+Fit survival data and perform dynamic prediction under joint
+frailty-copula models for tumour progression and death. Likelihood-based
+methods are employed for estimating model parameters, where the baseline
+hazard functions are modeled by the cubic M-spline or the Weibull model.
+The methods are applicable for meta-analytic data containing
+individual-patient information from several studies. Survival outcomes
+need information on both terminal event time (e.g., time-to-death) and
+non-terminal event time (e.g., time-to-tumour progression). Methodologies
+were published in Emura et al. (2017) <doi:10.1177/0962280215604510>,
+Emura et al. (2018) <doi:10.1177/0962280216688032>, Emura et al. (2019)
+<doi:10.1177/0962280219892295>, and Wu et al. 2020
+<doi:10.1007/s00180-020-00977-1>. See also the book of Emura et al. (2019)
 <doi:10.1007/978-981-13-3516-7>. Survival data from ovarian cancer
 patients are also available.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

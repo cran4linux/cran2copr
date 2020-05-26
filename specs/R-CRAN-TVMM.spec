@@ -1,9 +1,9 @@
 %global packname  TVMM
-%global packver   2.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.0
 Release:          1%{?dist}
 Summary:          Multivariate Tests for the Vector of Means
 
@@ -15,19 +15,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-MASS 
-BuildRequires:    R-stats 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-robustbase 
-Requires:         R-MASS 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-tcltk2 
+BuildRequires:    R-CRAN-tkrplot 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-stats 
+BuildRequires:    R-base 
+BuildRequires:    R-utils 
+BuildRequires:    R-MASS 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-DescToolsAddIns 
+Requires:         R-tcltk 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-tcltk2 
+Requires:         R-CRAN-tkrplot 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-stats 
+Requires:         R-base 
+Requires:         R-utils 
+Requires:         R-MASS 
+Requires:         R-grDevices 
+Requires:         R-CRAN-DescToolsAddIns 
 
 %description
-This is a statistical tool that provides multivariate statistical tests
-that are more powerful than traditional Hotelling T2 test and LRT
-(likelihood ratio test) for the vector of normal mean populations with and
-without contamination and non-normal populations (Henrique J. P. Alves &
-Daniel F. Ferreira (2019) <DOI: 10.1080/03610918.2019.1693596>).
+This is a statistical tool interactive that provides multivariate
+statistical tests that are more powerful than traditional Hotelling T2
+test and LRT (likelihood ratio test) for the vector of normal mean
+populations with and without contamination and non-normal populations
+(Henrique J. P. Alves & Daniel F. Ferreira (2019) <DOI:
+10.1080/03610918.2019.1693596>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,4 +71,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/etc
 %{rlibdir}/%{packname}/INDEX

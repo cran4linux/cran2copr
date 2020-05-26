@@ -1,9 +1,9 @@
 %global packname  hddtools
-%global packver   0.8.2
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.1
 Release:          1%{?dist}
 Summary:          Hydrological Data Discovery Tools
 
@@ -18,33 +18,30 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-rnrfa 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-rnrfa 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tidyr 
 
 %description
-Facilitates discovery and handling of hydrological data, access to
-catalogues and databases.
+Tools to discover hydrological data, accessing catalogues and databases
+from various data providers.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,6 +61,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

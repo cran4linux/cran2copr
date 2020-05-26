@@ -1,32 +1,35 @@
-%global packname  gradeR
-%global packver   1.0.6
+%global packname  pharmaRTF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Helps Grade Assignment Submissions that are R Scripts
+Summary:          Enhanced RTF Wrapper for Use with Existing Table Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-testthat 
-Requires:         R-methods 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-purrr >= 0.3.3
+Requires:         R-CRAN-assertthat >= 0.2.1
 
 %description
-After being given the location of your students' submissions and a test
-file, the function runs each .R file, and evaluates the results from all
-the given tests. Results are neatly returned in a data frame that has a
-row for each student, and a column for each test.
+Enhanced RTF wrapper written in R for use with existing R tables packages
+such as 'Huxtable' or 'GT'. This package fills a gap where tables in
+certain packages can be written out to RTF, but cannot add certain
+metadata or features to the document that are required/expected in a
+report for a regulatory submission, such as multiple levels of titles and
+footnotes, making the document landscape, and controlling properties such
+as margins.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,8 +54,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
