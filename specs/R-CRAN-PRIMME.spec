@@ -1,9 +1,9 @@
 %global packname  PRIMME
-%global packver   3.0-0
+%global packver   3.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.1
 Release:          1%{?dist}
 Summary:          Eigenvalues and Singular Values and Vectors from Large Matrices
 
@@ -20,16 +20,20 @@ BuildRequires:    R-Matrix
 Requires:         R-CRAN-Rcpp 
 
 %description
-R interface to PRIMME, a C library for computing a few eigenvalues and
-their corresponding eigenvectors of a real symmetric or complex Hermitian
-matrix.  It can also compute singular values and vectors of a square or
-rectangular matrix.  It can find largest, smallest, or interior
-singular/eigenvalues and can use preconditioning to accelerate
-convergence.
+R interface to 'PRIMME' <http://www.cs.wm.edu/~andreas/software>, a C
+library for computing a few eigenvalues and their corresponding
+eigenvectors of a real symmetric or complex Hermitian matrix, or
+generalized Hermitian eigenproblem.  It can also compute singular values
+and vectors of a square or rectangular matrix. 'PRIMME' finds largest,
+smallest, or interior singular/eigenvalues and can use preconditioning to
+accelerate convergence. General description of the methods are provided in
+the papers Stathopoulos (2010, <doi:10.1145/1731022.1731031>) and Wu
+(2017, <doi:10.1137/16M1082214>). See 'citation("PRIMME")' for details.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  rbokeh
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}
 Summary:          R Interface for Bokeh
 
@@ -43,7 +43,7 @@ Requires:         R-CRAN-gistr
 %description
 A native R plotting library that provides a flexible declarative interface
 for creating interactive web-based graphics, backed by the Bokeh
-visualization library <http://bokeh.pydata.org/>.
+visualization library <https://bokeh.pydata.org/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -72,5 +72,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  tibbletime
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Time Aware Tibbles
 
@@ -14,9 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-zoo >= 1.8.0
 BuildRequires:    R-CRAN-lubridate >= 1.6.0
-BuildRequires:    R-CRAN-tibble >= 1.4.1
 BuildRequires:    R-CRAN-glue >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-hms >= 0.4
@@ -27,9 +27,9 @@ BuildRequires:    R-CRAN-vctrs >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-CRAN-rlang >= 0.1.6
 BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-zoo >= 1.8.0
 Requires:         R-CRAN-lubridate >= 1.6.0
-Requires:         R-CRAN-tibble >= 1.4.1
 Requires:         R-CRAN-glue >= 1.1.1
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-hms >= 0.4
@@ -51,6 +51,7 @@ columns that can be used as 'dplyr' time-based groups.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -58,6 +59,7 @@ columns that can be used as 'dplyr' time-based groups.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

@@ -1,9 +1,9 @@
 %global packname  antaresViz
-%global packver   0.15.1
+%global packver   0.15.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.1
+Version:          0.15.2
 Release:          1%{?dist}
 Summary:          Antares Visualizations
 
@@ -95,14 +95,14 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/AntaresViz.xlsx
 %doc %{rlibdir}/%{packname}/application
 %doc %{rlibdir}/%{packname}/color.csv
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/GraphicalCharter.csv
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/js_dates_locales.csv
 %doc %{rlibdir}/%{packname}/language_columns.csv
 %doc %{rlibdir}/%{packname}/language_labels.csv

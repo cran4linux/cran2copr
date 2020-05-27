@@ -1,38 +1,38 @@
-%global packname  ArfimaMLM
-%global packver   1.3
+%global packname  SoupX
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4.5
 Release:          1%{?dist}
-Summary:          Arfima-MLM Estimation For Repeated Cross-Sectional Data
+Summary:          Single Cell mRNA Soup eXterminator
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-fractal 
-BuildRequires:    R-CRAN-fracdiff 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-fractal 
-Requires:         R-CRAN-fracdiff 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Seurat 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-Seurat 
 
 %description
-Functions to facilitate the estimation of Arfima-MLM models for repeated
-cross-sectional data and pooled cross-sectional time-series data (see Lebo
-and Weber 2015). The estimation procedure uses double filtering with
-Arfima methods to account for autocorrelation in repeated cross-sectional
-data followed by multilevel modeling (MLM) to estimate aggregate as well
-as individual-level parameters simultaneously.
+Quantify, profile and remove ambient mRNA contamination (the "soup") from
+droplet based single cell RNA-seq experiments.  Implements the method
+described in Young et al. (2018) <doi:10.1101/303727>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -40,6 +40,7 @@ as individual-level parameters simultaneously.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -48,9 +49,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

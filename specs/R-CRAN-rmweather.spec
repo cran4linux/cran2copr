@@ -1,9 +1,9 @@
 %global packname  rmweather
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          Tools to Conduct Meteorological Normalisation on Air QualityData
 
@@ -50,6 +50,7 @@ robust way. For examples, see Grange et al. (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

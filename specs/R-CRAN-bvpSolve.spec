@@ -1,37 +1,37 @@
-%global packname  sperrorest
-%global packver   3.0.1
+%global packname  bvpSolve
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          1.4
 Release:          1%{?dist}
-Summary:          Perform Spatial Error Estimation and Variable Importance inParallel
+Summary:          Solvers for Boundary Value Problems of Differential Equations
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-devel >= 2.01
+Requires:         R-core >= 2.01
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-graphics 
-Requires:         R-CRAN-ROCR 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Implements spatial error estimation and permutation-based variable
-importance measures for predictive models using spatial cross-validation
-and spatial block bootstrap.
+Functions that solve boundary value problems ('BVP') of systems of
+ordinary differential equations ('ODE') and differential algebraic
+equations ('DAE'). The functions provide an interface to the FORTRAN
+functions 'twpbvpC', 'colnew/colsys', and an R-implementation of the
+shooting method. 'Mazzia, F., J.R. Cash and K. Soetaert, 2014.
+<DOI:10.7494/OpMath.2014.34.2.387>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,11 +53,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

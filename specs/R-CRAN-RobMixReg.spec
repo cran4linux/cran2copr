@@ -1,9 +1,9 @@
 %global packname  RobMixReg
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Robust Mixture Regression
 
@@ -46,8 +46,8 @@ Likelihood Estimation based mixture regression. For more detail of the
 algorithms, please refer to below references. Reference: Chun Yu, Weixin
 Yao, Kun Chen (2017) <doi:10.1002/cjs.11310>. NeyKov N, Filzmoser P,
 Dimova R et al. (2007) <doi:10.1016/j.csda.2006.12.024>. Bai X, Yao W.
-Boyer JE (2012) <doi:10.1016/j.csda.2012.01.016>. Wennen Chang, Sha Cao,
-Chi Zhang (2019) <doi:10.1101/426593>.
+Boyer JE (2012) <doi:10.1016/j.csda.2012.01.016>. Wennan Chang, Xinyu
+Zhou, Yong Zang, Chi Zhang, Sha Cao (2020) <arXiv:2005.11599>.
 
 %prep
 %setup -q -c -n %{packname}

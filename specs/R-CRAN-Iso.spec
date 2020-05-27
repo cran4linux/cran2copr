@@ -1,9 +1,9 @@
 %global packname  Iso
-%global packver   0.0-18
+%global packver   0.0-18.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.18
+Version:          0.0.18.1
 Release:          1%{?dist}
 Summary:          Functions to Perform Isotonic Regression
 
@@ -22,6 +22,7 @@ bivariate isotonic regression with linear order on both variables.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -29,6 +30,7 @@ bivariate isotonic regression with linear order on both variables.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

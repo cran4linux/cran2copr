@@ -1,9 +1,9 @@
 %global packname  sn
-%global packver   1.6-1
+%global packver   1.6-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}
 Summary:          The Skew-Normal and Related Distributions Such as the Skew-t
 

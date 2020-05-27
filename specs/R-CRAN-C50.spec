@@ -1,9 +1,9 @@
 %global packname  C50
-%global packver   0.1.3
+%global packver   0.1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.3.1
 Release:          1%{?dist}
 Summary:          C5.0 Decision Trees and Rule-Based Models
 
@@ -26,6 +26,7 @@ extend the work of Quinlan (1993, ISBN:1-55860-238-0).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

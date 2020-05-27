@@ -1,37 +1,36 @@
-%global packname  sperrorest
-%global packver   3.0.1
+%global packname  eventr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Perform Spatial Error Estimation and Variable Importance inParallel
+Summary:          Create Event Based Data Architectures
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-graphics 
-Requires:         R-CRAN-ROCR 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Implements spatial error estimation and permutation-based variable
-importance measures for predictive models using spatial cross-validation
-and spatial block bootstrap.
+Event-driven programming is a programming paradigm where the flow of
+execution is defined by event. In this paradigm an event can be defined as
+"a change in the state" of an object. This package offers a set of
+functions for creating event-based architectures using three basic
+functions: events, dispatchers, and handlers. The handlers manage the
+events, the dispatchers are in charge of redirecting the events to each of
+the handlers, finally the events are the objects that carry the
+information about the change of state.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,11 +52,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

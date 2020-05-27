@@ -1,45 +1,38 @@
-%global packname  strand
-%global packver   0.1.3
+%global packname  BayesSenMC
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          A Framework for Investment Strategy Simulation
+Summary:          Different Models of Posterior Distributions of Adjusted OddsRatio
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-rstan >= 2.16.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.19
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-feather 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-R6 
-Requires:         R-Matrix 
-Requires:         R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-lme4 
+Requires:         R-CRAN-rstan >= 2.16.2
+Requires:         R-CRAN-Rcpp >= 0.12.19
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-feather 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lme4 
 
 %description
-Provides a framework for performing discrete (share-level) simulations of
-investment strategies. Simulated portfolios optimize exposure to an input
-signal subject to constraints such as position size and factor exposure.
+Generates different posterior distributions of adjusted odds ratio under
+different priors of sensitivity and specificity, and plots the models for
+comparison. It also provides estimations for the specifications of the
+models using diagnostics of exposure status with a non-linear mixed
+effects model. It implements the methods that are first proposed in
+<doi:10.1016/j.annepidem.2006.04.001> and <doi:10.1177/0272989X09353452>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -64,8 +57,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/application
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

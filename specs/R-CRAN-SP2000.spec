@@ -1,9 +1,9 @@
 %global packname  SP2000
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}
 Summary:          Catalogue of Life Toolkit
 
@@ -38,8 +38,9 @@ more. This package also supports access to catalogue of life global
 <http://catalogueoflife.org> and catalogue of life Taiwan
 <http://taibnet.sinica.edu.tw/home_eng.php?>. The development of 'SP2000'
 package were supported by Biodiversity Survey and Assessment Project of
-the Ministry of Ecology and Environment, China and Yunnan University's
-Research Innovation Fund for Graduate Students.
+the Ministry of Ecology and Environment, China <No.2019HJ2096001006> and
+Yunnan University's Research Innovation Fund for Graduate Students
+<No.2019227>.
 
 %prep
 %setup -q -c -n %{packname}

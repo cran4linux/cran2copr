@@ -1,9 +1,9 @@
 %global packname  geofacet
-%global packver   0.1.10
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          'ggplot2' Faceting Utilities for Geographical Data
 
@@ -15,24 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-rnaturalearth 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-imguR 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-geogrid 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-ggplot2 >= 3.2.1
 Requires:         R-CRAN-gtable 
 Requires:         R-graphics 
 Requires:         R-CRAN-rnaturalearth 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-imguR 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-geogrid 
+Requires:         R-methods 
 
 %description
 Provides geofaceting functionality for 'ggplot2'. Geofaceting arranges a
@@ -42,6 +46,7 @@ that preserves some of the geographical orientation.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

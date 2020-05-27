@@ -1,13 +1,13 @@
 %global packname  NACHO
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          NanoString Quality Control Dashboard
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -59,15 +59,15 @@ Requires:         R-utils
 %description
 NanoString nCounter data are gene expression assays where there is no need
 for the use of enzymes or amplification protocols and work with
-fluorescent barcodes (Geiss et al. (2018) <doi:10.1038/nbt1385>).  Each
+fluorescent barcodes (Geiss et al. (2018) <doi:10.1038/nbt1385>). Each
 barcode is assigned a messenger-RNA/micro-RNA (mRNA/miRNA) which after
-bonding with its target can be counted.  As a result each count of a
-specific barcode represents the presence of its target mRNA/miRNA.
-'NACHO' (NAnoString quality Control dasHbOard) is able to analyse the
-exported NanoString nCounter data and facilitates the user in performing a
-quality control.  'NACHO' does this by visualising quality control
-metrics, expression of control genes, principal components and sample
-specific size factors in an interactive web application.
+bonding with its target can be counted. As a result each count of a
+specific barcode represents the presence of its target mRNA/miRNA. 'NACHO'
+(NAnoString quality Control dasHbOard) is able to analyse the exported
+NanoString nCounter data and facilitates the user in performing a quality
+control. 'NACHO' does this by visualising quality control metrics,
+expression of control genes, principal components and sample specific size
+factors in an interactive web application.
 
 %prep
 %setup -q -c -n %{packname}
@@ -91,7 +91,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R

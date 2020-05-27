@@ -1,29 +1,35 @@
-%global packname  bmixture
-%global packver   1.6
+%global packname  treeman
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.1.4
 Release:          1%{?dist}
-Summary:          Bayesian Estimation for Finite Mixture of Distributions
+Summary:          Phylogenetic Tree Manipulation Class and Methods
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-BDgraph 
-Requires:         R-CRAN-BDgraph 
+BuildRequires:    R-devel >= 3.2.4
+Requires:         R-core >= 3.2.4
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-bigmemory 
+Requires:         R-methods 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-RJSONIO 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-bigmemory 
 
 %description
-Provides statistical tools for Bayesian estimation of finite mixture of
-distributions, mainly mixture of Gamma, Normal and t-distributions. The
-package is implemented the Bayesian literature for the finite mixture of
-distributions, including Mohammadi and et al. (2013)
-<doi:10.1007/s00180-012-0323-3> and Mohammadi and Salehi-Rad (2012)
-<doi:10.1080/03610918.2011.588358>.
+S4 class and methods for intuitive and efficient phylogenetic tree
+manipulation.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,8 +54,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  mlogit
-%global packver   1.0-3.1
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3.1
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Multinomial Logit Models
 
@@ -15,12 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dfidx 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-dfidx 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-lmtest 

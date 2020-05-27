@@ -1,9 +1,9 @@
 %global packname  rRofex
-%global packver   1.6.9
+%global packver   1.6.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.9
+Version:          1.6.11
 Release:          1%{?dist}
 Summary:          Interface to 'Matba Rofex' Trading API
 
