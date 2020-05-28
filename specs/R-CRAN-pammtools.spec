@@ -1,9 +1,9 @@
 %global packname  pammtools
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Piece-Wise Exponential Additive Mixed Modeling Tools forSurvival Analysis
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-lazyeval
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-pec 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-survival >= 2.39.5
 Requires:         R-CRAN-tidyr >= 1.0.0
@@ -43,6 +44,7 @@ Requires:         R-CRAN-lazyeval
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-pec 
+Requires:         R-CRAN-vctrs 
 
 %description
 The Piece-wise exponential (Additive Mixed) Model (PAMM; Bender and

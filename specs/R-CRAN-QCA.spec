@@ -1,29 +1,27 @@
 %global packname  QCA
-%global packver   3.7
+%global packver   3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          3.8
 Release:          1%{?dist}
 Summary:          Qualitative Comparative Analysis
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-admisc >= 0.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-admisc >= 0.8
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-venn 
-BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-admisc >= 0.6
+Requires:         R-CRAN-admisc >= 0.8
 Requires:         R-methods 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-venn 
-Requires:         R-CRAN-lpSolve 
 
 %description
 An extensive set of functions to perform Qualitative Comparative Analysis:

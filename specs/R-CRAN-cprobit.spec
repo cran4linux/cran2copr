@@ -1,35 +1,34 @@
-%global packname  yhat
-%global packver   2.0-2
+%global packname  cprobit
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Interpreting Regression Effects
+Summary:          Conditional Probit Model for Analysing Continuous Outcomes
 
-License:          GPL (>= 2)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yacca 
-BuildRequires:    R-CRAN-miscTools 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-boot 
-Requires:         R-CRAN-yacca 
-Requires:         R-CRAN-miscTools 
-Requires:         R-CRAN-plotrix 
-Requires:         R-boot 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-The purpose of this package is to provide methods to interpret multiple
-linear regression and canonical correlation results including beta
-weights,structure coefficients, validity coefficients, product measures,
-relative weights, all-possible-subsets regression, dominance analysis,
-commonality analysis, and adjusted effect sizes.
+Implements the three-step workflow for robust analysis of change in two
+repeated measurements of continuous outcomes, described in Ning et al. (in
+press), "Robust estimation of the effect of an exposure on the change in a
+continuous outcome", BMC Medical Research Methodology.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +50,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

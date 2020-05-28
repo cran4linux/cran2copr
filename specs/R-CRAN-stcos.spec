@@ -1,9 +1,9 @@
 %global packname  stcos
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Space-Time Change of Support
 
@@ -18,13 +18,11 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-Matrix 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-R6 
 
 %description
 Spatio-temporal change of support (STCOS) methods are designed for
@@ -37,6 +35,7 @@ which facilitate use of STCOS models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,6 +56,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/columbia
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

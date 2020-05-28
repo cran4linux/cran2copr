@@ -1,9 +1,9 @@
 %global packname  CGPfunctions
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Powell Miscellaneous Functions for Teaching and LearningStatistics
 
@@ -18,13 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-DescTools >= 0.99.32
-BuildRequires:    R-CRAN-ggmosaic >= 0.2.0
 BuildRequires:    R-CRAN-sjstats >= 0.17.9
 BuildRequires:    R-CRAN-BayesFactor 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggmosaic 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
 BuildRequires:    R-methods 
@@ -38,13 +38,13 @@ BuildRequires:    R-CRAN-tidyr
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-DescTools >= 0.99.32
-Requires:         R-CRAN-ggmosaic >= 0.2.0
 Requires:         R-CRAN-sjstats >= 0.17.9
 Requires:         R-CRAN-BayesFactor 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggmosaic 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 
 Requires:         R-methods 

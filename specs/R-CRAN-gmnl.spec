@@ -1,9 +1,9 @@
 %global packname  gmnl
-%global packver   1.1-3.1
+%global packver   1.1-3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3.1
+Version:          1.1.3.2
 Release:          1%{?dist}
 Summary:          Multinomial Logit Models with Random Parameters
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-Formula 
@@ -36,7 +36,8 @@ Requires:         R-utils
 
 %description
 An implementation of maximum simulated likelihood method for the
-estimation of multinomial logit models with random coefficients.
+estimation of multinomial logit models with random coefficients as
+presented by Sarrias and Daziano (2017) <doi:10.18637/jss.v079.i02>.
 Specifically, it allows estimating models with continuous heterogeneity
 such as the mixed multinomial logit and the generalized multinomial logit.
 It also allows estimating models with discrete heterogeneity such as the
@@ -45,6 +46,7 @@ latent class and the mixed-mixed multinomial logit model.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,35 +1,27 @@
-%global packname  yhat
-%global packver   2.0-2
+%global packname  geodaData
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Interpreting Regression Effects
+Summary:          Spatial Analysis Datasets for Teaching
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yacca 
-BuildRequires:    R-CRAN-miscTools 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-boot 
-Requires:         R-CRAN-yacca 
-Requires:         R-CRAN-miscTools 
-Requires:         R-CRAN-plotrix 
-Requires:         R-boot 
 
 %description
-The purpose of this package is to provide methods to interpret multiple
-linear regression and canonical correlation results including beta
-weights,structure coefficients, validity coefficients, product measures,
-relative weights, all-possible-subsets regression, dominance analysis,
-commonality analysis, and adjusted effect sizes.
+Stores small spatial datasets used to teach basic spatial analysis
+concepts. Datasets are based off of the 'GeoDa' software workbook and data
+site <https://geodacenter.github.io/data-and-lab/> developed by Luc
+Anselin and team at the University of Chicago. Datasets are stored as 'sf'
+objects.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,7 +43,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

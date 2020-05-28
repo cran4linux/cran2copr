@@ -1,9 +1,9 @@
 %global packname  dbplyr
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}
 Summary:          A 'dplyr' Back End for Databases
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.2.2
 BuildRequires:    R-CRAN-tibble >= 1.4.2
 BuildRequires:    R-CRAN-glue >= 1.2.0
+BuildRequires:    R-CRAN-blob >= 1.2.0
 BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-purrr >= 0.2.5
@@ -25,11 +26,13 @@ BuildRequires:    R-CRAN-tidyselect >= 0.2.4
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-R6 >= 2.2.2
 Requires:         R-CRAN-tibble >= 1.4.2
 Requires:         R-CRAN-glue >= 1.2.0
+Requires:         R-CRAN-blob >= 1.2.0
 Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-purrr >= 0.2.5
@@ -37,6 +40,7 @@ Requires:         R-CRAN-tidyselect >= 0.2.4
 Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-utils 
 

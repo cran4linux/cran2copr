@@ -1,9 +1,9 @@
 %global packname  reticulate
-%global packver   1.15
+%global packver   1.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15
+Version:          1.16
 Release:          1%{?dist}
 Summary:          Interface to 'Python'
 

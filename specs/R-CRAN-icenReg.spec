@@ -1,9 +1,9 @@
 %global packname  icenReg
-%global packver   2.0.13
+%global packver   2.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.13
+Version:          2.0.14
 Release:          1%{?dist}
 Summary:          Regression Models for Interval Censored Data
 
@@ -38,6 +38,7 @@ diagnostics of model fits and imputation of censored data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

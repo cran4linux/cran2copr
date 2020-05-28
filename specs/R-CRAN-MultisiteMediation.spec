@@ -1,9 +1,9 @@
 %global packname  MultisiteMediation
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}
 Summary:          Causal Mediation Analysis in Multisite Trials
 
@@ -27,9 +27,9 @@ Requires:         R-MASS
 Requires:         R-CRAN-ggplot2 
 
 %description
-We implement multisite causal mediation analysis using the methods
-proposed by Qin and Hong (2017) <doi:10.3102/1076998617694879> and Qin,
-Hong, Deutsch, and Bein (under review). It enables causal mediation
+Multisite causal mediation analysis using the methods proposed by Qin and
+Hong (2017) <doi:10.3102/1076998617694879> and Qin, Hong, Deutsch, and
+Bein (2019) <doi: 10.1111/rssa.12446>. It enables causal mediation
 analysis in multisite trials, in which individuals are assigned to a
 treatment or a control group at each site. It allows for estimation and
 hypothesis testing for not only the population average but also the
@@ -50,6 +50,7 @@ confounding or to propensity score model misspecification.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

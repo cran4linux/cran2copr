@@ -1,35 +1,40 @@
-%global packname  yhat
-%global packver   2.0-2
+%global packname  Rchoice
+%global packver   0.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.3.2
 Release:          1%{?dist}
-Summary:          Interpreting Regression Effects
+Summary:          Discrete Choice (Binary, Poisson and Ordered) Models with RandomParameters
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yacca 
-BuildRequires:    R-CRAN-miscTools 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-plm 
 BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-boot 
-Requires:         R-CRAN-yacca 
-Requires:         R-CRAN-miscTools 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-plm 
 Requires:         R-CRAN-plotrix 
-Requires:         R-boot 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-The purpose of this package is to provide methods to interpret multiple
-linear regression and canonical correlation results including beta
-weights,structure coefficients, validity coefficients, product measures,
-relative weights, all-possible-subsets regression, dominance analysis,
-commonality analysis, and adjusted effect sizes.
+An implementation of simulated maximum likelihood method for the
+estimation of Binary (Probit and Logit), Ordered (Probit and Logit) and
+Poisson models with random parameters for cross-sectional and longitudinal
+data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,7 +56,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX
