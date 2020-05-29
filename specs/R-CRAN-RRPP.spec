@@ -1,9 +1,9 @@
 %global packname  RRPP
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Linear Model Evaluation with Randomized Residuals in aPermutation Procedure
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ape 
 Requires:         R-parallel 
+Requires:         R-CRAN-ape 
 
 %description
 Linear model calculations are made for many random versions of data. Using
@@ -34,6 +36,7 @@ fields, as well.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

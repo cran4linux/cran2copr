@@ -1,9 +1,9 @@
 %global packname  gtfs2gps
-%global packver   1.1-0
+%global packver   1.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Converting Transport Data from GTFS Format to GPS-Like Records
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-units
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-utils 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-units
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-sfheaders 
 Requires:         R-CRAN-lwgeom 
 Requires:         R-utils 

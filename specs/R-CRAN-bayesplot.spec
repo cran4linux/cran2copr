@@ -1,9 +1,9 @@
 %global packname  bayesplot
-%global packver   1.7.1
+%global packver   1.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.7.2
 Release:          1%{?dist}
 Summary:          Plotting for Bayesian Models
 
@@ -17,7 +17,7 @@ Requires:         pandoc-citeproc
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 BuildRequires:    R-CRAN-ggridges 
@@ -27,7 +27,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-ggridges 
@@ -51,6 +51,7 @@ exclusively) packages interfacing with 'Stan'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

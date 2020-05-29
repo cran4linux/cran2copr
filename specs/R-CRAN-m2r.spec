@@ -1,9 +1,9 @@
 %global packname  m2r
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Interface to 'Macaulay2'
 
@@ -29,7 +29,8 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Persistent interface to 'Macaulay2' <http://www.math.uiuc.edu/Macaulay2/>
-and front-end tools facilitating its use in the 'R' ecosystem.
+and front-end tools facilitating its use in the 'R' ecosystem. For details
+see Kahle et. al. (2020) <doi:10.18637/jss.v093.i09>.
 
 %prep
 %setup -q -c -n %{packname}

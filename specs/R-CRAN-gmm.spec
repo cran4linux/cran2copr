@@ -1,9 +1,9 @@
 %global packname  gmm
-%global packver   1.6-4
+%global packver   1.6-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.5
 Release:          1%{?dist}
 Summary:          Generalized Method of Moments and Generalized EmpiricalLikelihood
 
@@ -39,6 +39,7 @@ that belong to the Generalized Empirical Likelihood family of estimators
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

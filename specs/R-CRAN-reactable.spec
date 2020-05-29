@@ -1,9 +1,9 @@
 %global packname  reactable
-%global packver   0.1.0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.1
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Interactive Data Tables Based on 'React Table'
 
@@ -54,6 +54,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/htmlwidgets

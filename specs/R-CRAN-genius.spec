@@ -1,36 +1,43 @@
-%global packname  implicitMeasures
-%global packver   0.1.3
+%global packname  genius
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          2.2.2
 Release:          1%{?dist}
-Summary:          Computes the Scores for Different Implicit Measures
+Summary:          Easily Access Song Lyrics from Genius.com
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 
 %description
-A tool for computing the scores for the Implicit Association Test (IAT;
-Greenwald, McGhee & Schwartz (1998) <doi:10.1037/0022-3514.74.6.1464>) and
-the Single Category-IAT (SC-IAT: Karpinski & Steinman (2006)
-<doi:10.1037/0022-3514.91.1.16>). Functions for preparing the data (both
-for the IAT and the SC-IAT), plotting the results, and obtaining a table
-with the scores of implicit measures descriptive statistics are provided.
+Easily access song lyrics in a tidy way.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,13 +59,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/joss
-%doc %{rlibdir}/%{packname}/paper.bib
+%doc %{rlibdir}/%{packname}/tutorials
 %{rlibdir}/%{packname}/INDEX

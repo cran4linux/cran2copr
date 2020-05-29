@@ -1,9 +1,9 @@
 %global packname  WeightSVM
-%global packver   1.7-4
+%global packver   1.7-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
+Version:          1.7.5
 Release:          1%{?dist}
 Summary:          Subject Weighted Support Vector Machines
 
@@ -53,5 +53,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

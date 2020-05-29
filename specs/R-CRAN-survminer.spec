@@ -1,9 +1,9 @@
 %global packname  survminer
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}
 Summary:          Drawing Survival Curves using 'ggplot2'
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-survMisc 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-gridExtra >= 2.0
 Requires:         R-CRAN-ggpubr >= 0.1.6
 Requires:         R-CRAN-ggplot2 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-survMisc 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
 Contains the function 'ggsurvplot()' for drawing easily beautiful and
@@ -58,6 +60,7 @@ assumptions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -65,6 +68,7 @@ assumptions.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

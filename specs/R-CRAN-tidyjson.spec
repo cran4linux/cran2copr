@@ -1,9 +1,9 @@
 %global packname  tidyjson
-%global packver   0.2.4
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Tidy Complex 'JSON'
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-assertthat 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
 Turn complex 'JSON' data into tidy data frames.
@@ -36,6 +38,7 @@ Turn complex 'JSON' data into tidy data frames.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -60,4 +63,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/json_array.gif
+%doc %{rlibdir}/%{packname}/json_object.gif
+%doc %{rlibdir}/%{packname}/json_value.gif
 %{rlibdir}/%{packname}/INDEX

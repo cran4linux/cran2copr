@@ -1,9 +1,9 @@
 %global packname  MALDIrppa
-%global packver   1.0.1-2
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1.2
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          MALDI Mass Spectrometry Data Robust Pre-Processing and Analysis
 
@@ -18,12 +18,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MALDIquant 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-wmtsa 
 BuildRequires:    R-lattice 
 Requires:         R-CRAN-MALDIquant 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-wmtsa 
 Requires:         R-lattice 
 
 %description
@@ -33,6 +31,7 @@ analysis of MALDI mass spectrometry data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  PRSim
-%global packver   1.2-1
+%global packver   1.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}
 Summary:          Stochastic Simulation of Streamflow Time Series using PhaseRandomization
 
@@ -16,12 +16,16 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-homtest 
 BuildRequires:    R-CRAN-goftest 
-BuildRequires:    R-CRAN-wmtsa 
+BuildRequires:    R-CRAN-wavScalogram 
+BuildRequires:    R-CRAN-splus2R 
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-homtest 
 Requires:         R-CRAN-goftest 
-Requires:         R-CRAN-wmtsa 
+Requires:         R-CRAN-wavScalogram 
+Requires:         R-CRAN-splus2R 
 Requires:         R-stats 
+Requires:         R-methods 
 
 %description
 Provides a simulation framework to simulate streamflow time series with
@@ -37,11 +41,14 @@ Kappa distribution, which allows for the extrapolation to yet unobserved
 low and high flows. Alternatively, the empirical or any other distribution
 can be used. A detailed description of the simulation approach for single
 sites and an application example can be found in
-<https://www.hydrol-earth-syst-sci-discuss.net/hess-2019-142/>.
+<https://www.hydrol-earth-syst-sci.net/23/3175/2019/>. A detailed
+description and evaluation of the wavelet-based multi-site approach can be
+found in <https://www.hydrol-earth-syst-sci-discuss.net/hess-2019-658/>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

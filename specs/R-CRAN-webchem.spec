@@ -1,9 +1,9 @@
 %global packname  webchem
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Chemical Information from the Web
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rvest 
@@ -33,10 +35,16 @@ Requires:         R-CRAN-stringr
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-tibble 
 
 %description
 Chemical information from around the web. This package interacts with a
-suite of web APIs for chemical information.
+suite of web services for chemical information. Sources include: Alan
+Wood's Compendium of Pesticide Common Names, Chemical Identifier Resolver,
+ChEBI, Chemical Translation Service, ChemIDplus, ChemSpider, ETOX,
+Flavornet, NIST Chemistry WebBook, OPSIN, PAN Pesticide Database, PubChem,
+SRS, Wikidata.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,7 +70,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

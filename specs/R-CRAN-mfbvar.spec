@@ -1,9 +1,9 @@
 %global packname  mfbvar
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}
 Summary:          Mixed-Frequency Bayesian VAR Models
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-RcppParallel
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
@@ -36,6 +37,7 @@ Requires:         R-CRAN-RcppParallel
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-zoo 
 
 %description
 Estimation of mixed-frequency Bayesian vector autoregressive (VAR) models.
