@@ -1,37 +1,33 @@
-%global packname  StagedChoiceSplineMix
-%global packver   1.0.0
+%global packname  newscatcheR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Mixture of Two-Stage Logistic Regressions with Fixed CandidateKnots
+Summary:          Programmatically Collect Normalized News from (Almost) AnyWebsite
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-base 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-base 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-tidyRSS 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tidyRSS 
+Requires:         R-utils 
 
 %description
-Analyzing a mixture of two-stage logistic regressions with fixed candidate
-knots. See Bruch, E., F. Feinberg, K. Lee (in
-press)<DOI:10.1073/pnas.1522494113>.
+Programmatically collect normalized news from (almost) any website. An 'R'
+clone of the <https://github.com/kotartemiy/newscatcher> 'Python' module.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -48,7 +44,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/external-data
 %{rlibdir}/%{packname}/INDEX

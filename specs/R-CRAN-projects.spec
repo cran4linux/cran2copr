@@ -1,9 +1,9 @@
 %global packname  projects
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}
 Summary:          A Project Infrastructure for Researchers
 
@@ -15,33 +15,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zip >= 2.0.2
-BuildRequires:    R-CRAN-tibble >= 2.0.1
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-tibble >= 3.0.1
+BuildRequires:    R-CRAN-zip >= 2.0.4
+BuildRequires:    R-CRAN-lubridate >= 1.7.8
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringr >= 1.3.1
-BuildRequires:    R-CRAN-fs >= 1.2.6
-BuildRequires:    R-CRAN-readr >= 1.1.1
+BuildRequires:    R-CRAN-fs >= 1.4.1
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-readr >= 1.3.1
 BuildRequires:    R-CRAN-sessioninfo >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
-BuildRequires:    R-CRAN-rstudioapi >= 0.7
-BuildRequires:    R-CRAN-rlang >= 0.3.4
-BuildRequires:    R-CRAN-purrr >= 0.2.5
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-rlang >= 0.4.6
+BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-vctrs >= 0.2.4
+BuildRequires:    R-CRAN-rstudioapi >= 0.11
 BuildRequires:    R-methods 
-Requires:         R-CRAN-zip >= 2.0.2
-Requires:         R-CRAN-tibble >= 2.0.1
-Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-tibble >= 3.0.1
+Requires:         R-CRAN-zip >= 2.0.4
+Requires:         R-CRAN-lubridate >= 1.7.8
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringr >= 1.3.1
-Requires:         R-CRAN-fs >= 1.2.6
-Requires:         R-CRAN-readr >= 1.1.1
+Requires:         R-CRAN-fs >= 1.4.1
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-readr >= 1.3.1
 Requires:         R-CRAN-sessioninfo >= 1.1.1
-Requires:         R-CRAN-dplyr >= 0.8.0.1
-Requires:         R-CRAN-rstudioapi >= 0.7
-Requires:         R-CRAN-rlang >= 0.3.4
-Requires:         R-CRAN-purrr >= 0.2.5
+Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-rlang >= 0.4.6
+Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-vctrs >= 0.2.4
+Requires:         R-CRAN-rstudioapi >= 0.11
 Requires:         R-methods 
 
 %description

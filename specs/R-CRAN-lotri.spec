@@ -1,9 +1,9 @@
 %global packname  lotri
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          A Simple Way to Specify Symmetric, Block Diagonal Matrices
 
@@ -14,12 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-Matrix 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-stats 
@@ -56,3 +53,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

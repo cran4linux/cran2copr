@@ -1,9 +1,9 @@
 %global packname  groupedstats
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Grouped Statistical Analyses in a Tidy Way
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-broomExtra 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-haven 
@@ -29,8 +29,8 @@ BuildRequires:    R-CRAN-skimr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-broomExtra 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-haven 
@@ -68,7 +68,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE

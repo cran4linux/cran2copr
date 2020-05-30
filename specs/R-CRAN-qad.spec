@@ -1,9 +1,9 @@
 %global packname  qad
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Quantification of Asymmetric Dependence
 
@@ -12,25 +12,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-ggExtra 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-copula 
-Requires:         R-CRAN-plyr 
 Requires:         R-parallel 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-ggExtra 
+Requires:         R-CRAN-dplyr 
 
 %description
 A copula-based measure for quantifying asymmetry in dependence and

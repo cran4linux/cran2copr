@@ -1,9 +1,9 @@
 %global packname  microseq
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}
 Summary:          Basic Biological Sequence Handling
 
@@ -18,11 +18,13 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rlang 
 
 %description
@@ -33,6 +35,7 @@ possible also for sequence data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

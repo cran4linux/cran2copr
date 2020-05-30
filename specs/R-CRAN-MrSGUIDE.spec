@@ -1,11 +1,11 @@
-%global packname  valetr
+%global packname  MrSGUIDE
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Interface to Bank of Canada's 'Valet' API
+Summary:          Multiple Responses Subgroup Identification using 'GUIDE'Algorithm
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,20 +14,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 0.9
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-jsonlite >= 0.9
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-magrittr 
 
 %description
-Interface to Bank of Canada's 'Valet' API
-(<https://www.bankofcanada.ca/valet/docs>). Please read the API terms and
-conditions: <https://www.bankofcanada.ca/terms/>.
+An R implementation of 'GUIDE' style algorithm focusing on subgroup
+identification problem under multiple responses of Loh et al. (2019)
+<doi:10.1002/widm.1326>. This package is intended for use for randomized
+trials and observational studies.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,6 +51,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/dev.md
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

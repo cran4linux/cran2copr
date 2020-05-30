@@ -1,33 +1,31 @@
-%global packname  mds
-%global packver   0.3.1
+%global packname  glca
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Medical Devices Surveillance
+Summary:          Latent Class Analysis with Grouped Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-parsedate 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-stats 
-Requires:         R-CRAN-parsedate 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-MASS 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-MASS 
 
 %description
-A set of core functions for handling medical device event data in the
-context of post-market surveillance, pharmacovigilance, signal detection
-and trending, and regulatory reporting. Primary inputs are data on events
-by device and data on exposures by device. Outputs include: standardized
-device-event and exposure datasets, defined analyses, and time series.
+Fits latent class analysis (LCA) including group variable and covariates.
+The group variable can be handled either by multilevel LCA described in
+Vermunt (2003) <DOI:10.1111/j.0081-1750.2003.t01-1-00131.x> or standard
+LCA at each level of group variable. The covariates can be incorporated in
+the form of logistic regression (Bandeen-Roche et al. (1997)
+<DOI:10.1080/01621459.1997.10473658>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,7 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

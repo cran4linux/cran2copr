@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  beam
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Fast Bayesian Inference in Large Gaussian Graphical Models
 
@@ -40,11 +40,13 @@ Requires:         R-CRAN-assertthat
 
 %description
 Fast Bayesian inference of marginal and conditional independence
-structures from high-dimensional data.
+structures from high-dimensional data. Leday and Richardson (2019),
+Biometrics, <doi:10.1111/biom.13064>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

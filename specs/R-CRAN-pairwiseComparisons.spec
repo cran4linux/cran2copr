@@ -1,9 +1,9 @@
 %global packname  pairwiseComparisons
-%global packver   0.3.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Multiple Pairwise Comparison Tests
 
@@ -17,9 +17,11 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broomExtra 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dunn.test 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ipmisc 
-BuildRequires:    R-CRAN-jmv 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-PMCMRplus 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
@@ -29,9 +31,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-WRS2 
 Requires:         R-CRAN-broomExtra 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dunn.test 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ipmisc 
-Requires:         R-CRAN-jmv 
+Requires:         R-Matrix 
+Requires:         R-CRAN-PMCMRplus 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
@@ -45,8 +49,8 @@ Multiple pairwise comparison tests on tidy data for one-way analysis of
 variance for both between-subjects and within-subjects designs. Currently,
 it supports only the most common types of statistical analyses and tests:
 parametric (Welch's and Student's t-test), nonparametric (Durbin-Conover
-test Dwass-Steel-Crichtlow-Fligner test), robust (Yuen’s trimmed means
-test), and Bayes Factor (Student's t-test).
+test Dunn test), robust (Yuen’s trimmed means test), and Bayes Factor
+(Student's t-test).
 
 %prep
 %setup -q -c -n %{packname}

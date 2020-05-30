@@ -1,9 +1,9 @@
 %global packname  hyperSpec
-%global packver   0.99-20200213.1
+%global packver   0.99-20200527
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.20200213.1
+Version:          0.99.20200527
 Release:          1%{?dist}
 Summary:          Work with Hyperspectral Data, i.e. Spectra + Meta Information(Spatial, Time, Concentration, ...)
 

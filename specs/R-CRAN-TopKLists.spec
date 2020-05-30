@@ -1,9 +1,9 @@
 %global packname  TopKLists
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}
 Summary:          Inference, Aggregation and Visualization for Top-K Ranked Lists
 
@@ -32,6 +32,7 @@ results.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  copula
-%global packver   0.999-20
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.999.20
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Multivariate Dependence with Copulas
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-stabledist >= 0.6.4
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -60,6 +60,7 @@ dependence function.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

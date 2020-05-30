@@ -1,9 +1,9 @@
 %global packname  synthACS
-%global packver   1.5.7
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.6.0
 Release:          1%{?dist}
 Summary:          Synthetic Microdata and Spatial MicroSimulation Modeling for ACSData
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-acs >= 2.1
 BuildRequires:    R-CRAN-data.table >= 1.9.6
 BuildRequires:    R-CRAN-Rcpp 
@@ -56,5 +56,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/testdata
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
