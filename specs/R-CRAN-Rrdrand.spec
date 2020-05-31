@@ -23,6 +23,7 @@ instruction in recent Intel CPUs (Ivy Bridge and later). 'DRNG' is
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

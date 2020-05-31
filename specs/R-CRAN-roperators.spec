@@ -27,6 +27,7 @@ experience to new R users from other language backgrounds (such as
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

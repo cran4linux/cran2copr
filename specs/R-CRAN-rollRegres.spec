@@ -30,6 +30,7 @@ Dongarra, Moler, Bunch, and Stewart (1979) <doi:10.1137/1.9781611971811>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

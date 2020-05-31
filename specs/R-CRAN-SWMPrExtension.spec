@@ -1,9 +1,9 @@
 %global packname  SWMPrExtension
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}
 Summary:          Functions for Analyzing and Plotting Estuary Monitoring Data
 
@@ -29,13 +29,14 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-SWMPr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
@@ -50,13 +51,14 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-maptools 
 Requires:         R-methods 
 Requires:         R-CRAN-officer 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-tidyr 
 
 %description
 Tools for performing routine analysis and plotting tasks with

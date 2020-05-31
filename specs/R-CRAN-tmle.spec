@@ -41,6 +41,7 @@ values or a user-supplied regression function are passed in as arguments.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

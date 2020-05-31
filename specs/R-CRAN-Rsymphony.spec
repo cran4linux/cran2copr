@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    coin-or-SYMPHONY-devel
-Requires:         coin-or-SYMPHONY
 BuildRequires:    R-devel >= 2.6.0
 Requires:         R-core >= 2.6.0
 

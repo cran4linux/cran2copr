@@ -1,9 +1,9 @@
 %global packname  spiderbar
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Parse and Test Robots Exclusion Protocol Files and Rules
 
@@ -27,6 +27,7 @@ processing these 'robots.txt' files.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,5 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

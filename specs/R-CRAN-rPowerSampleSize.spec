@@ -44,6 +44,7 @@ Lafaye de Micheaux et al. (2014) <doi:10.1080/10543406.2013.860156>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

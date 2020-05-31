@@ -28,6 +28,7 @@ Learn more about the 'Datamuse' API here <http://www.datamuse.com/api/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

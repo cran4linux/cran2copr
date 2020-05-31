@@ -36,6 +36,7 @@ different methods for background subtraction.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +44,7 @@ different methods for background subtraction.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -55,5 +57,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %{rlibdir}/%{packname}/INDEX

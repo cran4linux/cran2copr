@@ -53,5 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %{rlibdir}/%{packname}/INDEX

@@ -36,6 +36,7 @@ sensitivity analysis strategy was proposed by Hong, Qin, and Yang (2018)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

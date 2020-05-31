@@ -56,5 +56,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %{rlibdir}/%{packname}/INDEX

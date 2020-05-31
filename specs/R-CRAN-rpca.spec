@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-compiler 
+Requires:         R-compiler 
 
 %description
 Suppose we have a data matrix, which is the superposition of a low-rank

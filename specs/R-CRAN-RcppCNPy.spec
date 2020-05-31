@@ -30,6 +30,7 @@ the default on all platforms since the release of R 3.3.0.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

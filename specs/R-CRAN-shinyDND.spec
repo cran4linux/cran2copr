@@ -26,6 +26,7 @@ Add functionality to create drag and drop div elements in shiny.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

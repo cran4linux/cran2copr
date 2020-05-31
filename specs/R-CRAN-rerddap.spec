@@ -45,6 +45,7 @@ search for 'datasets', get summary information on 'datasets', and fetch
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

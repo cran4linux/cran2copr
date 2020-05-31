@@ -64,6 +64,7 @@ directories of raw text files, as well as from 'Dow Jones Factiva',
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -38,6 +38,7 @@ functions for adding 'silhouettes' to both base plots and ggplot2 plots.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

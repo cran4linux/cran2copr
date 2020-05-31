@@ -19,7 +19,7 @@ BuildRequires:    R-CRAN-R6 >= 2.1.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-httr >= 1.0.0
 BuildRequires:    R-CRAN-curl >= 0.9
-BuildRequires:    R-CRAN-jsonlite >= 0.9
+BuildRequires:    R-CRAN-jsonlite >= 0.9.19
 BuildRequires:    R-CRAN-whisker >= 0.3
 BuildRequires:    R-CRAN-lazyeval >= 0.1.10
 BuildRequires:    R-methods 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-R6 >= 2.1.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-httr >= 1.0.0
 Requires:         R-CRAN-curl >= 0.9
-Requires:         R-CRAN-jsonlite >= 0.9
+Requires:         R-CRAN-jsonlite >= 0.9.19
 Requires:         R-CRAN-whisker >= 0.3
 Requires:         R-CRAN-lazyeval >= 0.1.10
 Requires:         R-methods 
@@ -44,6 +44,7 @@ authentication, and more.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

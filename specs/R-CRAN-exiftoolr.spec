@@ -1,9 +1,9 @@
 %global packname  exiftoolr
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          ExifTool Functionality from R
 
@@ -19,23 +19,25 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-zip 
 
 %description
 Reads, writes, and edits EXIF and other file metadata using ExifTool
-<http://www.sno.phy.queensu.ca/~phil/exiftool/>, returning read results as
-a data frame. ExifTool supports many different metadata formats including
-EXIF, GPS, IPTC, XMP, JFIF, GeoTIFF, ICC Profile, Photoshop IRB, FlashPix,
-AFCP and ID3, as well as the maker notes of many digital cameras by Canon,
-Casio, DJI, FLIR, FujiFilm, GE, GoPro, HP, JVC/Victor, Kodak, Leaf,
-Minolta/Konica-Minolta, Motorola, Nikon, Nintendo, Olympus/Epson,
-Panasonic/Leica, Pentax/Asahi, Phase One, Reconyx, Ricoh, Samsung, Sanyo,
-Sigma/Foveon and Sony.
+<https://exiftool.org/>, returning read results as a data frame. ExifTool
+supports many different metadata formats including EXIF, GPS, IPTC, XMP,
+JFIF, GeoTIFF, ICC Profile, Photoshop IRB, FlashPix, AFCP and ID3, as well
+as the maker notes of many digital cameras by Canon, Casio, DJI, FLIR,
+FujiFilm, GE, GoPro, HP, JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta,
+Motorola, Nikon, Nintendo, Olympus/Epson, Panasonic/Leica, Pentax/Asahi,
+Phase One, Reconyx, Ricoh, Samsung, Sanyo, Sigma/Foveon and Sony.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -43,6 +45,7 @@ Sigma/Foveon and Sony.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

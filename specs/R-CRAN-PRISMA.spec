@@ -35,7 +35,7 @@ the processing of very big data sets even on desktop machines.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build

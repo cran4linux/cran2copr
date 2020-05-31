@@ -24,6 +24,7 @@ Provides a generic infrastructure for creating and using registries.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

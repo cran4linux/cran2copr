@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel
-Requires:         gsl
 BuildRequires:    R-devel
 Requires:         R-core
 

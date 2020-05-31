@@ -29,6 +29,7 @@ Get information (boards, pins and users) from the Pinterest
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

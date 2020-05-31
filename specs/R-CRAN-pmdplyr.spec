@@ -1,9 +1,9 @@
 %global packname  pmdplyr
-%global packver   0.3.1.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1.1
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          'dplyr' Extension for Common Panel Data Maneuvers
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 

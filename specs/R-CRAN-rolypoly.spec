@@ -16,7 +16,7 @@ BuildRequires:    R-devel >= 3.1.3
 Requires:         R-core >= 3.1.3
 BuildArch:        noarch
 BuildRequires:    R-MASS >= 7.3.45
-BuildRequires:    R-CRAN-glmnet >= 2.0.5
+BuildRequires:    R-CRAN-glmnet >= 2.0
 BuildRequires:    R-CRAN-data.table >= 1.9.6
 BuildRequires:    R-CRAN-foreach >= 1.4.3
 BuildRequires:    R-Matrix >= 1.2.6
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-matrixcalc >= 1.0.3
 BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
 BuildRequires:    R-CRAN-dplyr >= 0.4.3
 Requires:         R-MASS >= 7.3.45
-Requires:         R-CRAN-glmnet >= 2.0.5
+Requires:         R-CRAN-glmnet >= 2.0
 Requires:         R-CRAN-data.table >= 1.9.6
 Requires:         R-CRAN-foreach >= 1.4.3
 Requires:         R-Matrix >= 1.2.6

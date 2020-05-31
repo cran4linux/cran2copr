@@ -1,4 +1,3 @@
-%global debug_package %{nil}
 %global packname  robustsae
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library

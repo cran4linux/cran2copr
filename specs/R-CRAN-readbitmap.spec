@@ -14,8 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    libjpeg-turbo-devel
 BuildRequires:    libpng-devel
-Requires:         libjpeg-turbo
-Requires:         libpng
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch

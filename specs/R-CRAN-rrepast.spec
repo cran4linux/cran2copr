@@ -72,5 +72,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %{rlibdir}/%{packname}/INDEX

@@ -31,6 +31,7 @@ applications to show the user that the server is busy.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -54,5 +55,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/assets
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %{rlibdir}/%{packname}/INDEX

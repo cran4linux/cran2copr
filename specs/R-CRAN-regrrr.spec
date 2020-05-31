@@ -48,6 +48,7 @@ of X on Y becomes stronger/weaker as Z increases).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

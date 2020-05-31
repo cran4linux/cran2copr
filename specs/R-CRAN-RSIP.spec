@@ -35,6 +35,7 @@ variables distributed in the space (maps 2D) and the time (time series).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

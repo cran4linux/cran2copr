@@ -70,5 +70,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/old_R
 %doc %{rlibdir}/%{packname}/old_tests
 %doc %{rlibdir}/%{packname}/old_vignettes
-%doc %{rlibdir}/%{packname}/python
+%{rlibdir}/%{packname}/python
 %{rlibdir}/%{packname}/INDEX

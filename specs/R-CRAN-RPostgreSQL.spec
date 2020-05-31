@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libpq-devel
-Requires:         libpq
 BuildRequires:    R-devel >= 2.9.0
 Requires:         R-core >= 2.9.0
 BuildRequires:    R-CRAN-DBI >= 0.3

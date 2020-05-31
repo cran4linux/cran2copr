@@ -1,4 +1,3 @@
-%global debug_package %{nil}
 %global packname  reshape
 %global packver   0.8.8
 %global rlibdir   /usr/local/lib/R/library

@@ -30,6 +30,7 @@ execution. For more information about 'KEEL', see <http://www.keel.es/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

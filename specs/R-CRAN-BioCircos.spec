@@ -60,5 +60,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %{rlibdir}/%{packname}/INDEX

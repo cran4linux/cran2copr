@@ -44,6 +44,7 @@ usage of Normal-Gamma priors on the factor loading matrix
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

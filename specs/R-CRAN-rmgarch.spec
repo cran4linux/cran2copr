@@ -62,6 +62,7 @@ multivariate GARCH models <doi:10.1016/bs.host.2019.01.001>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

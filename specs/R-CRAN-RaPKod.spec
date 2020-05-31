@@ -34,6 +34,7 @@ false alarm error. See Kellner J., "Gaussian models and kernel methods"
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

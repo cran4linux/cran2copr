@@ -28,6 +28,7 @@ Ramon et al. (2016) <doi:10.1111/ecog.01848>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
