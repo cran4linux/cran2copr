@@ -26,7 +26,6 @@ jobs:
         TOKEN: ${{ secrets.COPR_TOKEN }}
     - name: Sync with CRAN
       run: |
-        echo "options(copr.bflags='')" >> config.r
         Rscript copr-sync.r
         git add specs
         git diff-index --quiet HEAD || git commit -m "sync"
