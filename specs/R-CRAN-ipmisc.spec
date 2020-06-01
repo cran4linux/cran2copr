@@ -1,9 +1,9 @@
 %global packname  ipmisc
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}
 Summary:          Miscellaneous Functions for Data Cleaning and Analysis
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-zeallot 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 

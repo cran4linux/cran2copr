@@ -1,9 +1,9 @@
 %global packname  BGGM
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Bayesian Gaussian Graphical Models
 
@@ -14,47 +14,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-MASS >= 7.3.51.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
 BuildRequires:    R-CRAN-sna >= 2.5
-BuildRequires:    R-CRAN-pracma >= 2.2.5
-BuildRequires:    R-CRAN-bayesplot >= 1.7.1
-BuildRequires:    R-CRAN-foreach >= 1.4.7
-BuildRequires:    R-CRAN-reshape2 >= 1.4.3
-BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-GGally >= 1.4.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
 BuildRequires:    R-CRAN-network >= 1.15
-BuildRequires:    R-CRAN-doParallel >= 1.0.15
-BuildRequires:    R-CRAN-mvtnorm >= 1.0.11
-BuildRequires:    R-CRAN-cowplot >= 1.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
+BuildRequires:    R-CRAN-reshape >= 0.8.8
 BuildRequires:    R-CRAN-ggridges >= 0.5.1
 BuildRequires:    R-CRAN-mvnfast >= 0.2.5
+BuildRequires:    R-CRAN-BFpack >= 0.2.1
+BuildRequires:    R-CRAN-Rdpack >= 0.11.1
+BuildRequires:    R-CRAN-RcppProgress >= 0.1
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-MASS 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+Requires:         R-MASS >= 7.3.51.5
 Requires:         R-CRAN-ggplot2 >= 3.2.1
 Requires:         R-CRAN-sna >= 2.5
-Requires:         R-CRAN-pracma >= 2.2.5
-Requires:         R-CRAN-bayesplot >= 1.7.1
-Requires:         R-CRAN-foreach >= 1.4.7
-Requires:         R-CRAN-reshape2 >= 1.4.3
-Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-GGally >= 1.4.0
-Requires:         R-CRAN-shiny >= 1.4.0
 Requires:         R-CRAN-network >= 1.15
-Requires:         R-CRAN-doParallel >= 1.0.15
-Requires:         R-CRAN-mvtnorm >= 1.0.11
-Requires:         R-CRAN-cowplot >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.4.6
+Requires:         R-CRAN-reshape >= 0.8.8
 Requires:         R-CRAN-ggridges >= 0.5.1
 Requires:         R-CRAN-mvnfast >= 0.2.5
+Requires:         R-CRAN-BFpack >= 0.2.1
+Requires:         R-CRAN-Rdpack >= 0.11.1
+Requires:         R-CRAN-RcppProgress >= 0.1
+Requires:         R-grDevices 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-parallel 
-Requires:         R-Matrix 
-Requires:         R-CRAN-reshape 
-Requires:         R-MASS 
+Requires:         R-utils 
 
 %description
 Fit Bayesian Gaussian graphical models. The methods are separated into two
@@ -69,6 +62,7 @@ including Williams (2019) <doi:10.31234/osf.io/x8dpr>, Williams and Mulder
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -88,6 +82,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

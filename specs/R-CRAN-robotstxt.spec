@@ -1,9 +1,9 @@
 %global packname  robotstxt
-%global packver   0.6.2
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.4
 Release:          1%{?dist}
 Summary:          A 'robots.txt' Parser and 'Webbot'/'Spider'/'Crawler'Permissions Checker
 
@@ -61,6 +61,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/http_requests
 %doc %{rlibdir}/%{packname}/robotstxts
 %doc %{rlibdir}/%{packname}/urls.txt
 %{rlibdir}/%{packname}/INDEX

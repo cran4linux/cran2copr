@@ -1,9 +1,9 @@
 %global packname  smoothedLasso
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Smoothed LASSO Regression via Nesterov Smoothing
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-Matrix 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-Matrix 
 
 %description
 We provide full functionality to compute smoothed LASSO regression

@@ -1,9 +1,9 @@
 %global packname  volesti
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Volume Approximation and Sampling of Convex Polytopes
 
@@ -16,24 +16,25 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.17
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.12.17
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
 Provides an R interface for 'volesti' C++ package. 'volesti' computes
-estimations of volume of polytopes given by a set of points or linear
-inequalities or Minkowski sum of segments (zonotopes). There are two
-algorithms for volume estimation (I.Z. Emiris and V. Fisikopoulos (2014)
-<arXiv:1312.2873> and B. Cousins, S. Vempala (2016) <arXiv:1409.6011>) as
-well as algorithms for sampling, rounding and rotating polytopes.
-Moreover, 'volesti' provides algorithms for estimating copulas (L. Cales,
-A. Chalkis, I.Z. Emiris, V. Fisikopoulos (2018) <arXiv:1803.05861>).
+estimations of volume of polytopes given by (i) a set of points, (ii)
+linear inequalities or (iii) Minkowski sum of segments (a.k.a. zonotopes).
+There are three algorithms for volume estimation as well as algorithms for
+sampling, rounding and rotating polytopes. Moreover, 'volesti' provides
+algorithms for estimating copulas useful in computational finance.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

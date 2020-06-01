@@ -1,34 +1,26 @@
-%global packname  ukpolice
-%global packver   0.2.1
+%global packname  universals
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Download Data on UK Police and Crime
+Summary:          S3 Generics for Bayesian Analyses
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr 
 
 %description
-Downloads data from the 'UK Police' public data API, the full docs of
-which are available at <https://data.police.uk/docs/>. Includes data on
-police forces and police force areas, crime reports, and the use of
-stop-and-search powers.
+Provides S3 generic methods and some default implementations for Bayesian
+analyses that generate Markov Chain Monte Carlo (MCMC) samples. The
+purpose of 'universals' is to reduce package dependencies and conflicts.
+The 'nlist' package implements all the methods for its 'nlists' class.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +47,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

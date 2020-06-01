@@ -1,9 +1,9 @@
 %global packname  gratia
-%global packver   0.3.1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Graceful 'ggplot'-Based Graphics and Other Functions for GAMsFitted Using 'mgcv'
 
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-purrr 
@@ -35,6 +37,8 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-vctrs 
 Requires:         R-grid 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-purrr 

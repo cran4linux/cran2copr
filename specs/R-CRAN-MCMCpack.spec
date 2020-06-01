@@ -1,9 +1,9 @@
 %global packname  MCMCpack
-%global packver   1.4-7
+%global packver   1.4-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          1.4.8
 Release:          1%{?dist}
 Summary:          Markov Chain Monte Carlo (MCMC) Package
 

@@ -1,9 +1,9 @@
 %global packname  lessR
-%global packver   3.9.4
+%global packver   3.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.4
+Version:          3.9.5
 Release:          1%{?dist}
 Summary:          Less Code, More Results
 

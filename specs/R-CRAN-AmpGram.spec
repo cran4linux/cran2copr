@@ -1,13 +1,13 @@
-%global packname  loon.data
-%global packver   0.1.0
+%global packname  AmpGram
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Data Used to Illustrate 'Loon' Functionality
+Summary:          Prediction of Antimicrobial Peptides
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,9 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-biogram 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-biogram 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringi 
 
 %description
-Data used as examples in the 'loon' package.
+Predicts antimicrobial peptides using random forests trained on the n-gram
+encoded peptides. The implemented algorithm can be accessed from both the
+command line and shiny-based GUI. The AmpGram model is too large for CRAN
+and it has to be downloaded separately from the repository:
+<https://github.com/michbur/AmpGramModel>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/AmpGram
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

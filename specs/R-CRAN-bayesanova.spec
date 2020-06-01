@@ -1,11 +1,11 @@
 %global packname  bayesanova
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}
-Summary:          Bayesian ANOVA
+Summary:          Bayesian Inference in the Analysis of Variance via Markov ChainMonte Carlo in Gaussian Mixture Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
