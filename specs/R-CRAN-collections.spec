@@ -1,9 +1,9 @@
 %global packname  collections
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          High Performance Container Data Types
 
@@ -14,6 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-digest >= 0.6.25
+Requires:         R-CRAN-digest >= 0.6.25
 
 %description
 Provides high performance container data types such as queues, stacks,

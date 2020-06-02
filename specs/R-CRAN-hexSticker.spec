@@ -1,9 +1,9 @@
 %global packname  hexSticker
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}
 Summary:          Create Hexagon Sticker in R
 
@@ -36,6 +36,7 @@ Helper functions for creating reproducible hexagon sticker purely in R.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

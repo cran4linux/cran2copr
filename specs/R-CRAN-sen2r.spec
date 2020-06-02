@@ -1,9 +1,9 @@
 %global packname  sen2r
-%global packver   1.3.4
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}
 Summary:          Find, Download and Process Sentinel-2 Data
 
@@ -24,14 +24,6 @@ BuildRequires:    R-CRAN-rgdal
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-geojsonio 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-mapedit 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyFiles 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
@@ -46,14 +38,6 @@ Requires:         R-CRAN-rgdal
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-geojsonio 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-mapedit 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyFiles 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 

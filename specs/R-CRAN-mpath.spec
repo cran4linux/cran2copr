@@ -1,9 +1,9 @@
 %global packname  mpath
-%global packver   0.3-25
+%global packver   0.3-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.25
+Version:          0.3.26
 Release:          1%{?dist}
 Summary:          Regularized Linear Models
 

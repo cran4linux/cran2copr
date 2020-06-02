@@ -1,9 +1,9 @@
 %global packname  tidyRSS
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Tidy RSS for R
 
@@ -15,24 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.6.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-tibble >= 1.4.0
-BuildRequires:    R-CRAN-httr >= 1.3.0
-BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-purrr >= 0.3.0
-BuildRequires:    R-CRAN-anytime >= 0.3.0
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-glue >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.6
+BuildRequires:    R-CRAN-anytime >= 0.3.7
+BuildRequires:    R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-jsonlite >= 1.6.1
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-tibble >= 1.4.0
-Requires:         R-CRAN-httr >= 1.3.0
-Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-dplyr >= 0.8.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-anytime >= 0.3.0
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-glue >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.3.1
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.6
+Requires:         R-CRAN-anytime >= 0.3.7
+Requires:         R-CRAN-purrr >= 0.3.3
+Requires:         R-CRAN-vctrs >= 0.3.0
 
 %description
 With the objective of including data from RSS feeds into your analysis,
@@ -63,4 +67,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/figures
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  shinyWidgets
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}
 Summary:          Custom Inputs Widgets for Shiny
 
@@ -19,12 +19,10 @@ BuildRequires:    R-CRAN-shiny >= 0.14
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-shiny >= 0.14
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
 
 %description
 Collection of custom input controls and user interface components for

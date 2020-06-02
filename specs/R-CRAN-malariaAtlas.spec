@@ -1,9 +1,9 @@
 %global packname  malariaAtlas
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          An R Interface to Open-Access Malaria Data, Hosted by the'Malaria Atlas Project'
 

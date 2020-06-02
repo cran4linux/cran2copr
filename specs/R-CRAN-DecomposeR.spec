@@ -1,9 +1,9 @@
 %global packname  DecomposeR
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Empirical Mode Decomposition for Cyclostratigraphy
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-StratigrapheR >= 1.0.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -23,8 +24,8 @@ BuildRequires:    R-CRAN-hht
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-hexbin 
 BuildRequires:    R-CRAN-colorRamps 
-BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-StratigrapheR >= 1.0.1
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -32,7 +33,6 @@ Requires:         R-CRAN-hht
 Requires:         R-grid 
 Requires:         R-CRAN-hexbin 
 Requires:         R-CRAN-colorRamps 
-Requires:         R-CRAN-dplyr 
 
 %description
 Tools to apply Ensemble Empirical Mode Decomposition (EEMD) for

@@ -1,9 +1,9 @@
 %global packname  tadaatoolbox
-%global packver   0.16.1
+%global packver   0.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.1
+Version:          0.17.0
 Release:          1%{?dist}
 Summary:          Helpers for Data Analysis and Presentation Focused on UndergradPsychology
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-car 
@@ -21,10 +21,9 @@ BuildRequires:    R-CRAN-DescTools
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-pixiedust 
-BuildRequires:    R-CRAN-pwr 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-car 
@@ -32,23 +31,23 @@ Requires:         R-CRAN-DescTools
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-pixiedust 
-Requires:         R-CRAN-pwr 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-viridis 
 
 %description
-Contains functions for the easy display of statistical tests as well as
-some convenience functions for data cleanup. It is meant to ease existing
-workflows with packages like 'sjPlot', 'dplyr', and 'ggplot2'. The primary
-components are the functions prefixed with 'tadaa_', which are built to
-work in an interactive environment, but also print tidy markdown tables
-powered by 'pixiedust' for the creation of 'RMarkdown' reports.
+A teaching project for the display of statistical tests as well as some
+convenience functions for data cleanup. The primary components are the
+functions prefixed with 'tadaa_', which are built to work in an
+interactive environment, but also print markdown tables powered by
+'pixiedust' for the creation of 'RMarkdown' reports. This package is no
+longer actively developed.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

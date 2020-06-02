@@ -1,9 +1,9 @@
 %global packname  rstantools
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Tools for Developing R Packages Interfacing with 'Stan'
 
@@ -16,14 +16,16 @@ Requires:         pandoc
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
+BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-desc 
+Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-Rcpp >= 0.12.16
+Requires:         R-CRAN-desc 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-desc 
 
 %description
 Provides various tools for developers of R packages interfacing with
@@ -35,6 +37,7 @@ for developers.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,6 +45,7 @@ for developers.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

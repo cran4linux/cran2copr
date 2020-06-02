@@ -1,9 +1,9 @@
 %global packname  haven
-%global packver   2.3.0
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.3.1
 Release:          1%{?dist}
 Summary:          Import and Export 'SPSS', 'Stata' and 'SAS' Files
 
