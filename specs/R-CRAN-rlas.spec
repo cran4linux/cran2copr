@@ -1,9 +1,9 @@
 %global packname  rlas
-%global packver   1.3.5
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.6
 Release:          1%{?dist}
 Summary:          Read and Write 'las' and 'laz' Binary File Formats Used forRemote Sensing Data
 
@@ -32,6 +32,7 @@ LAS format versions 1.0 to 1.3 <https://laszip.org/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

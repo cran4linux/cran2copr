@@ -1,9 +1,9 @@
 %global packname  metaBMA
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}
 Summary:          Bayesian Model Averaging for Random and Fixed EffectsMeta-Analysis
 
@@ -50,11 +50,14 @@ heterogeneity coefficient. Moreover, using pre-compiled Stan models,
 meta-analysis with continuous and discrete moderators with
 Jeffreys-Zellner-Siow (JZS) priors can be fitted and tested. This allows
 to compute Bayes factors and perform Bayesian model averaging across
-random- and fixed-effects meta-analysis with and without moderators.
+random- and fixed-effects meta-analysis with and without moderators. For a
+primer on Bayesian model-averaged meta-analysis, see Gronau, Heck,
+Berkhout, Haaf, & Wagenmakers (2020, <doi:10.31234/osf.io/97qup>).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -62,6 +65,7 @@ random- and fixed-effects meta-analysis with and without moderators.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -75,6 +79,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX

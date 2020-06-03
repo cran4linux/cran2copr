@@ -1,9 +1,9 @@
 %global packname  rollmatch
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Rolling Entry Matching
 
@@ -25,13 +25,13 @@ Requires:         R-stats
 %description
 Functions to perform propensity score matching on rolling entry
 interventions for which a suitable "entry" date is not observed for
-nonparticipants. For more details, please reference Witman, Beadles, Liu,
-Larsen, Kafali, Gandhi, Amico, and Hoerger (2018)
+nonparticipants. For more details, please reference Witman et al. (2018)
 <https://onlinelibrary.wiley.com/doi/abs/10.1111/1475-6773.13086>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -39,6 +39,7 @@ Larsen, Kafali, Gandhi, Amico, and Hoerger (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

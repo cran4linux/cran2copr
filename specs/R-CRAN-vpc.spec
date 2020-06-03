@@ -1,9 +1,9 @@
 %global packname  vpc
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Create Visual Predictive Checks
 
@@ -17,18 +17,20 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-MASS 
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-reshape2 
 Requires:         R-MASS 
 Requires:         R-survival 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Visual predictive checks are a commonly used diagnostic plot in

@@ -1,9 +1,9 @@
 %global packname  spTDyn
-%global packver   2.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Spatially Varying and Spatio-Temporal Dynamic Linear Models
 
@@ -41,6 +41,7 @@ and (2) spatio-temporal dynamic linear models. Bakar et al., (2016)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

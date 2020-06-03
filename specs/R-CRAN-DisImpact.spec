@@ -1,9 +1,9 @@
 %global packname  DisImpact
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}
 Summary:          Calculates Disproportionate Impact When Binary Success Data areDisaggregated by Subgroups
 
@@ -33,7 +33,7 @@ Colleges Chancellor's Office (2017).  Percentage Point Gap Method.
 <https://www.cccco.edu/-/media/CCCCO-Website/About-Us/Divisions/Digital-Innovation-and-Infrastructure/Research/Files/PercentagePointGapMethod2017.ashx>.
 California Community Colleges Chancellor's Office (2014).  Guidelines for
 Measuring Disproportionate Impact in Equity Plans.
-<https://www.cccco.edu/-/media/CCCCO-Website/About-Us/Divisions/Digital-Innovation-and-Infrastructure/Network-Operations/Accountability/Files/GUIDELINES-FOR-MEASURING-DISPROPORTIONATE-IMPACT-IN-EQUITY-PLANS.ashx>.
+<https://www.cccco.edu/-/media/CCCCO-Website/Files/DII/guidelines-for-measuring-disproportionate-impact-in-equity-plans-tfa-ada.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

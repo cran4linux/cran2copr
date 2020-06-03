@@ -1,9 +1,9 @@
 %global packname  skynet
-%global packver   1.3.0
+%global packver   1.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.8
 Release:          1%{?dist}
 Summary:          Generates Networks from BTS Data
 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-leaflet 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-dplyr 
@@ -31,6 +33,8 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-leaflet 
 
 %description
 A flexible tool that allows generating bespoke air transport statistics
@@ -41,6 +45,7 @@ Transport Statistics (BTS) in the United States
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

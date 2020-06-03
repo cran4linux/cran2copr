@@ -1,9 +1,9 @@
 %global packname  postHoc
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Tools for Post-Hoc Analysis
 
@@ -25,8 +25,9 @@ Implements a range of facilities for post-hoc analysis and summarizing
 linear models, generalized linear models and generalized linear mixed
 models, including grouping and clustering via pairwise comparisons using
 graph representations and efficient algorithms for finding maximal cliques
-of a graph. It has S3 methods for printing summarizing, and producing
-plots, line and barplots suitable for post-hoc analyses.
+of a graph. Includes also non-parametric toos for post-hoc analysis. It
+has S3 methods for printing summarizing, and producing plots, line and
+barplots suitable for post-hoc analyses.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,4 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

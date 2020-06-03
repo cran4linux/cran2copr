@@ -1,9 +1,9 @@
 %global packname  geoknife
-%global packver   1.6.3
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.6.4
 Release:          1%{?dist}
 Summary:          Web-Processing of Large Gridded Datasets
 
@@ -38,11 +38,12 @@ Portal web application or elsewhere, using a web-enabled workflow that
 eliminates the need to download and store large datasets that are reliably
 hosted on the Internet. The package provides access to several data subset
 and summarization algorithms that are available on remote web processing
-servers.
+servers (Read et al. (2015) <doi:10.1111/ecog.01880>).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,6 +51,7 @@ servers.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

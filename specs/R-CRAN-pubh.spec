@@ -1,9 +1,9 @@
 %global packname  pubh
-%global packver   1.1.12
+%global packver   1.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.1.14
 Release:          1%{?dist}
 Summary:          A Toolbox for Public Health and Epidemiology
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-epitools
 BuildRequires:    R-CRAN-finalfit 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-huxtable 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-sjlabelled 
@@ -48,7 +47,6 @@ Requires:         R-CRAN-epitools
 Requires:         R-CRAN-finalfit 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-huxtable 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-sjlabelled 

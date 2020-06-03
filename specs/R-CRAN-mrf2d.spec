@@ -1,9 +1,9 @@
 %global packname  mrf2d
-%global packver   0.2.0
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3
 Release:          1%{?dist}
 Summary:          Markov Random Field Models for Image Analysis
 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-Rdpack
 %description
 Model fitting, sampling and visualization for the (Hidden) Markov Random
 Field model with pairwise interactions and general interaction structure
-from Freguglia, Garcia & Bicas (2019) <doi:10.1002/env.2613>, which has
+from Freguglia, Garcia & Bicas (2020) <doi:10.1002/env.2613>, which has
 many popular models used in 2-dimensional lattices as particular cases,
 like the Ising Model and Potts Model.
 

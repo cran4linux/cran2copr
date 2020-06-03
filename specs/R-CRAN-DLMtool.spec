@@ -1,9 +1,9 @@
 %global packname  DLMtool
-%global packver   5.4.3
+%global packver   5.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.3
+Version:          5.4.4
 Release:          1%{?dist}
 Summary:          Data-Limited Methods Toolkit
 
@@ -21,9 +21,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-snowfall 
 Requires:         R-CRAN-abind 
@@ -32,6 +32,7 @@ Requires:         R-methods
 Requires:         R-grDevices 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
 

@@ -1,9 +1,9 @@
 %global packname  Pade
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Padé Approximant Coefficients
 
@@ -21,11 +21,13 @@ Requires:         R-utils
 %description
 Given a vector of Taylor series coefficients of sufficient length as
 input, the function returns the numerator and denominator coefficients for
-the Padé approximant of appropriate order.
+the Padé approximant of appropriate order (Baker, 1975)
+<ISBN:9780120748556>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -46,5 +48,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX

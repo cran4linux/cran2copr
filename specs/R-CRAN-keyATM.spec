@@ -1,9 +1,9 @@
 %global packname  keyATM
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Keyword Assisted Topic Model
 
@@ -14,9 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fastmap 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
@@ -31,9 +31,9 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fastmap 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 

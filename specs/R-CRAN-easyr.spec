@@ -1,9 +1,9 @@
 %global packname  easyr
-%global packver   0.3-1
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Helpful Functions from Oliver Wyman Actuarial Consulting
 
@@ -15,34 +15,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-foreign 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-qs 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-qs 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
 Requires:         R-foreign 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-qs 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-XML 
-Requires:         R-CRAN-qs 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
 
 %description
 Makes difficult operations easy. Includes these types of functions:

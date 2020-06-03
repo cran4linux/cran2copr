@@ -1,9 +1,9 @@
 %global packname  LHD
-%global packver   0.1.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Latin Hypercube Designs (LHDs) Algorithms
 
@@ -19,23 +19,13 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Contains functions for finding space-filling Latin Hypercube Designs
-(LHDs), e.g. maximin distance LHDs. Unlike other packages, our package is
-particularly useful in the area of Design and Analysis of Experiments
-(DAE). More specifically, it is very useful in design of computer
-experiments. One advantage of our package is its comprehensiveness. It
-contains a variety of heuristic algorithms (and their modifications) for
-searching maximin distance LHDs. In addition to that, it also contains
-other useful tools for developing and constructing maximin distance LHDs.
-Please refer to the function documentations for the detailed references of
-each function. Among all the references we used, one reference should be
-highlighted here, which is Ruichen Jin, Wei Chen, Agus Sudjianto (2005)
-<doi:10.1016/j.jspi.2004.02.014>. They provided a new form of phi_p
-criterion, which does not lose the space-filling property and
-simultaneously reduces the computational complexity when evaluating (or
-re-evaluating) an LHD. Their new phi_p criterion is a fundamental
-component of our many functions. Besides, the computation nature of the
-new phi_p criterion enables our functions to have less CPU time.
+Contains different algorithms for efficient Latin Hypercube Designs (LHDs)
+with flexible sizes. Our package is comprehensive since it is capable of
+generating nearly orthogonal LHDs, maximin distance LHDs, and maximum
+projection LHDs. Documentation for each algorithm includes useful
+information and explanation along with corresponding references. This
+package is particularly useful in the area of Design and Analysis of
+Experiments (DAE). More specifically, design of computer experiments.
 
 %prep
 %setup -q -c -n %{packname}

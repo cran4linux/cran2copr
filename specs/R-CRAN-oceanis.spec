@@ -1,9 +1,9 @@
 %global packname  oceanis
-%global packver   1.0.7
+%global packver   1.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.7.3
 Release:          1%{?dist}
 Summary:          Cartography for Statistical Analysis
 
@@ -12,13 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.5.0
-BuildRequires:    R-grDevices >= 3.5.0
-BuildRequires:    R-graphics >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
+BuildRequires:    R-utils >= 3.3.3
+BuildRequires:    R-grDevices >= 3.3.3
+BuildRequires:    R-graphics >= 3.3.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-mapview >= 2.7.0
 BuildRequires:    R-CRAN-leaflet >= 2.0.3
 BuildRequires:    R-CRAN-shiny >= 1.4.0.2
@@ -33,10 +33,10 @@ BuildRequires:    R-CRAN-units >= 0.6.5
 BuildRequires:    R-CRAN-classInt >= 0.4.2
 BuildRequires:    R-CRAN-lwgeom >= 0.2.1
 BuildRequires:    R-CRAN-DT >= 0.12
-Requires:         R-utils >= 3.5.0
-Requires:         R-grDevices >= 3.5.0
-Requires:         R-graphics >= 3.5.0
-Requires:         R-CRAN-ggplot2 >= 3.2.1
+Requires:         R-utils >= 3.3.3
+Requires:         R-grDevices >= 3.3.3
+Requires:         R-graphics >= 3.3.3
+Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-mapview >= 2.7.0
 Requires:         R-CRAN-leaflet >= 2.0.3
 Requires:         R-CRAN-shiny >= 1.4.0.2

@@ -1,9 +1,9 @@
 %global packname  jstable
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}
 Summary:          Create Tables from Different Types of Regression
 

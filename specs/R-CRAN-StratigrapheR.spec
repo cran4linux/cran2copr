@@ -1,9 +1,9 @@
 %global packname  StratigrapheR
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Integrated Stratigraphy
 
@@ -15,21 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-diagram 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-XML 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-diagram 
@@ -77,5 +77,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

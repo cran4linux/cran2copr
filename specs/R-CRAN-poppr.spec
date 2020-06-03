@@ -1,9 +1,9 @@
 %global packname  poppr
-%global packver   2.8.5
+%global packver   2.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.5
+Version:          2.8.6
 Release:          1%{?dist}
 Summary:          Genetic Analysis of Populations with Mixed Reproduction
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-progressr 
 Requires:         R-CRAN-ape >= 3.1
 Requires:         R-CRAN-adegenet >= 2.0.0
 Requires:         R-CRAN-igraph >= 1.0.0
@@ -52,6 +53,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-boot 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-progressr 
 
 %description
 Population genetic analyses for hierarchical analysis of partially clonal

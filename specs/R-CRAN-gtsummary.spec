@@ -1,9 +1,9 @@
 %global packname  gtsummary
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}
 Summary:          Presentation-Ready Data Summary and Analytic Result Tables
 
@@ -15,40 +15,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-usethis >= 1.5.1
+BuildRequires:    R-CRAN-huxtable >= 4.7.1
+BuildRequires:    R-CRAN-tibble >= 3.0.1
+BuildRequires:    R-CRAN-usethis >= 1.6.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-glue >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-knitr >= 1.28
-BuildRequires:    R-CRAN-tidyr >= 1.0.2
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-tidyselect >= 1.1.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-broom >= 0.5.5
+BuildRequires:    R-CRAN-broom >= 0.5.6
 BuildRequires:    R-CRAN-forcats >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-CRAN-broom.mixed >= 0.2.4
-BuildRequires:    R-CRAN-gt >= 0.2.0.5
+BuildRequires:    R-CRAN-rlang >= 0.4.6
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-broom.mixed >= 0.2.6
+BuildRequires:    R-CRAN-gt >= 0.2.1
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-survival 
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-usethis >= 1.5.1
+Requires:         R-CRAN-huxtable >= 4.7.1
+Requires:         R-CRAN-tibble >= 3.0.1
+Requires:         R-CRAN-usethis >= 1.6.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-glue >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-knitr >= 1.28
-Requires:         R-CRAN-tidyr >= 1.0.2
-Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-tidyselect >= 1.1.0
+Requires:         R-CRAN-tidyr >= 1.0.3
 Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-broom >= 0.5.5
+Requires:         R-CRAN-broom >= 0.5.6
 Requires:         R-CRAN-forcats >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-broom.mixed >= 0.2.4
-Requires:         R-CRAN-gt >= 0.2.0.5
+Requires:         R-CRAN-rlang >= 0.4.6
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-broom.mixed >= 0.2.6
+Requires:         R-CRAN-gt >= 0.2.1
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-survival 
 

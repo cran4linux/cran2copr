@@ -1,9 +1,9 @@
 %global packname  CIMTx
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Causal Inference for Multiple Treatments with a Binary Outcome
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-stats 
 BuildRequires:    R-class 
 BuildRequires:    R-CRAN-gam 
+BuildRequires:    R-CRAN-dbarts 
 Requires:         R-nnet 
 Requires:         R-CRAN-BART 
 Requires:         R-CRAN-twang 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-stats 
 Requires:         R-class 
 Requires:         R-CRAN-gam 
+Requires:         R-CRAN-dbarts 
 
 %description
 Different methods to conduct causal inference for multiple treatments with
@@ -53,8 +55,7 @@ Bayesian additive regression trees, targeted maximum likelihood and
 inverse probability of treatment weighting using different generalized
 propensity score models such as multinomial logistic regression,
 generalized boosted models and super learner. For more details, see the
-paper by Liangyuan Hu (2020) <arXiv:2001.06483> and Jennifer L. Hill
-(2011) <doi:10.1198/jcgs.2010.08162>.
+paper by Liangyuan Hu (2020) <doi:10.1177/0962280220921909>.
 
 %prep
 %setup -q -c -n %{packname}

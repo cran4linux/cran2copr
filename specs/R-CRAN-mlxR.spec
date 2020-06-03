@@ -1,9 +1,9 @@
 %global packname  mlxR
-%global packver   4.1.0
+%global packver   4.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          4.1.3
 Release:          1%{?dist}
 Summary:          Simulation of Longitudinal Data
 
@@ -41,6 +41,7 @@ time-to-event data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

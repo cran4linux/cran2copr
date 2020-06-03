@@ -1,9 +1,9 @@
 %global packname  multinet
-%global packver   3.3
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3
+Version:          3.3.1
 Release:          1%{?dist}
 Summary:          Analysis and Mining of Multilayer Social Networks
 
