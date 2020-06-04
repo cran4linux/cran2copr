@@ -1,9 +1,9 @@
 %global packname  rsMove
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}
 Summary:          Guidelines for the use of Remote Sensing in Movement Ecology
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-caret 
@@ -38,8 +38,8 @@ Requires:         R-CRAN-RCurl
 %description
 Tools for the guided selection of satellite data and environmental
 predictors, the combination of remote sensing and animal movement data and
-the mapping of resource suitabilitz. Based on the paper by Remelgado et
-al. (2015) <doi:10.1002/rse2.70>.
+the mapping of resource suitability. Based on the paper by Remelgado et
+al. (2015) <doi:10.1111/2041-210X.13199>.
 
 %prep
 %setup -q -c -n %{packname}

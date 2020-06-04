@@ -1,38 +1,40 @@
-%global packname  docxtools
-%global packver   0.2.2
+%global packname  macleish
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.6
 Release:          1%{?dist}
-Summary:          Tools for R Markdown to Docx Documents
+Summary:          Retrieve Data from MacLeish Field Station
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-etl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-etl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sf 
 
 %description
-A set of helper functions for using R Markdown to create documents in docx
-format, especially documents for use in a classroom or workshop setting.
+Download data from the Ada and Archibald MacLeish Field Station in
+Whately, MA. The Ada and Archibald MacLeish Field Station is a 260-acre
+patchwork of forest and farmland located in West Whately, MA that provides
+opportunities for faculty and students to pursue environmental research,
+outdoor education, and low-impact recreation (see
+<http://www.smith.edu/ceeds/macleish.php> for more information). This
+package contains weather data over several years, and spatial data on
+various man-made and natural structures.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,10 +58,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/WORDLIST
+%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/sql
 %{rlibdir}/%{packname}/INDEX

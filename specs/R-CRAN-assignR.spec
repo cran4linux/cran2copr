@@ -1,9 +1,9 @@
 %global packname  assignR
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Infer Geographic Origin from Isotopic Data
 
@@ -28,8 +28,9 @@ Requires:         R-CRAN-maptools
 Routines for re-scaling isotope maps using known-origin tissue isotope
 data, assigning origin of unknown samples, and summarizing and assessing
 assignment results. Methods are adapted from Wunder (2010, in
-ISBN:9789048133536) and Vander Zanden, H. B. et. al (2014)
-<doi:10.1111/2041-210X.12229>.
+ISBN:9789048133536) and Vander Zanden, H. B. et al. (2014)
+<doi:10.1111/2041-210X.12229> as described in Ma, C. et al. (2020)
+<doi:10.1111/2041-210X.13426>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,5 +57,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

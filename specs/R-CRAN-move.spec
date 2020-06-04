@@ -1,9 +1,9 @@
 %global packname  move
-%global packver   3.3.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          4.0.0
 Release:          1%{?dist}
 Summary:          Visualizing and Analyzing Animal Track Data
 

@@ -1,9 +1,9 @@
 %global packname  QCA
-%global packver   3.8.1
+%global packver   3.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1
+Version:          3.8.2
 Release:          1%{?dist}
 Summary:          Qualitative Comparative Analysis
 

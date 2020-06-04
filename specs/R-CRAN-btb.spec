@@ -1,9 +1,9 @@
 %global packname  btb
-%global packver   0.1.30.1
+%global packver   0.1.30.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.30.1
+Version:          0.1.30.3
 Release:          1%{?dist}
 Summary:          Beyond the Border - Kernel Density Estimation for UrbanGeography
 

@@ -1,9 +1,9 @@
 %global packname  dmm
-%global packver   2.1-5
+%global packver   2.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          2.1.6
 Release:          1%{?dist}
 Summary:          Dyadic Mixed Model for Pedigree Data
 
@@ -35,11 +35,14 @@ Requires:         R-grDevices
 %description
 Dyadic mixed model analysis with multi-trait responses and pedigree-based
 partitioning of individual variation into a range of environmental and
-genetic variance components for individual and maternal effects.
+genetic variance components for individual and maternal effects. Method
+documented in dmmOverview.pdf; it is an implementation of dispersion mean
+model described by Searle et al. (1992) "Variance Components", Wiley, NY.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -47,6 +50,7 @@ genetic variance components for individual and maternal effects.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

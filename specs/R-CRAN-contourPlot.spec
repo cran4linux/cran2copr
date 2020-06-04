@@ -1,26 +1,33 @@
-%global packname  pinfsc50
-%global packver   1.2.0
+%global packname  contourPlot
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.4
 Release:          1%{?dist}
-Summary:          Sequence ('FASTA'), Annotation ('GFF') and Variants ('VCF') for17 Samples of 'P. Infestans" and 1 'P. Mirabilis'
+Summary:          Plots x,y,z Co-Ordinates in a Contour Map
 
-License:          GPL
+License:          MIT +file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-grDevices 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Genomic data for the plant pathogen "Phytophthora infestans." It includes
-a variant file ('VCF'), a sequence file ('FASTA') and an annotation file
-('GFF'). This package is intended to be used as example data for packages
-that work with genomic data.
+Plots a set of x,y,z co-ordinates in a contour map. Designed to be similar
+to plots in base R so additional elements can be added using lines(),
+points() etc. This package is intended to be better suited, than existing
+packages, to displaying circular shaped plots such as those often seen in
+the semi-conductor industry.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,8 +50,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

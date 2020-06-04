@@ -1,30 +1,27 @@
-%global packname  lcmm
-%global packver   1.9.1
+%global packname  revss
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.1
+Version:          0.0.2
 Release:          1%{?dist}
-Summary:          Extended Mixed Models Using Latent Classes and Latent Processes
+Summary:          Robust Estimation in Very Small Samples
 
-License:          GPL (>= 2.0)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-survival >= 2.37.2
-BuildRequires:    R-parallel 
-Requires:         R-survival >= 2.37.2
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Estimation of various extensions of the mixed models including latent
-class mixed models, joint latent latent class mixed models and mixed
-models for curvilinear univariate or multivariate longitudinal outcomes
-using a maximum likelihood estimation method (Proust-Lima, Philipps,
-Liquet (2017) <doi:10.18637/jss.v078.i02>).
+Implements the estimation techniques described in Rousseeuw & Verboven
+(2002) <doi:10.1016/S0167-9473(02)00078-6> for the location and scale of
+very small samples.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,12 +43,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

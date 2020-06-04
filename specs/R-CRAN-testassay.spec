@@ -1,9 +1,9 @@
 %global packname  testassay
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          A Hypothesis Testing Framework for Validating an Assay forPrecision
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
@@ -33,11 +33,13 @@ plus or minus r, which is a 68% confidence interval on log(mu), where mu
 is the expected value of the assay output for that sample. Further, the
 m:n:q procedure can be straightforwardly applied to constant standard
 deviation assays. We illustrate these tools by applying them to a growth
-inhibition assay.
+inhibition assay. This is an implementation of the methods described in
+Fay, Sachs, and Miura (2018) <doi:10.1002/sim.7528>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -60,5 +62,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

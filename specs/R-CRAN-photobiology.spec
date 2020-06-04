@@ -1,9 +1,9 @@
 %global packname  photobiology
-%global packver   0.10.2
+%global packver   0.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.10.3
 Release:          1%{?dist}
 Summary:          Photobiological Calculations
 
@@ -15,25 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-tibble >= 3.0.1
 BuildRequires:    R-CRAN-zoo >= 1.8.7
 BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-lubridate >= 1.7.8
 BuildRequires:    R-CRAN-polynom >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-splus2R >= 1.2.2
-BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-memoise >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-stats 
-Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-CRAN-zoo >= 1.8.7
 Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-lubridate >= 1.7.8
 Requires:         R-CRAN-polynom >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-splus2R >= 1.2.2
-Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-memoise >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-stats 
 
 %description

@@ -1,26 +1,33 @@
-%global packname  pinfsc50
-%global packver   1.2.0
+%global packname  ibmAcousticR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Sequence ('FASTA'), Annotation ('GFF') and Variants ('VCF') for17 Samples of 'P. Infestans" and 1 'P. Mirabilis'
+Summary:          Connect to Your IBM 'Acoustic' Data with 'R'
 
-License:          GPL
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-XML >= 3.99.0.3
+BuildRequires:    R-CRAN-jsonlite >= 1.6.1
+BuildRequires:    R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-XML >= 3.99.0.3
+Requires:         R-CRAN-jsonlite >= 1.6.1
+Requires:         R-CRAN-httr >= 1.4.1
 
 %description
-Genomic data for the plant pathogen "Phytophthora infestans." It includes
-a variant file ('VCF'), a sequence file ('FASTA') and an annotation file
-('GFF'). This package is intended to be used as example data for packages
-that work with genomic data.
+Authentication can be the most difficult part about working with a new
+API. 'ibmAcousticR' facilitates making a connection to the IBM 'Acoustic'
+email campaign management API and executing various queries. The IBM
+'Acoustic' API documentation is available at
+<https://developer.ibm.com/customer-engagement/docs/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +52,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

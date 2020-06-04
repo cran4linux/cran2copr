@@ -1,13 +1,13 @@
-%global packname  geomorph
-%global packver   3.3.0
+%global packname  synthesisr
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          0.3.0
 Release:          1%{?dist}
-Summary:          Geometric Morphometric Analyses of 2D/3D Landmark Data
+Summary:          Import, Assemble, and Deduplicate Bibliographic Datasets
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,28 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RRPP 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-ape 
-Requires:         R-CRAN-RRPP 
-Requires:         R-CRAN-rgl 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-ape 
+BuildRequires:    R-CRAN-stringdist 
+Requires:         R-CRAN-stringdist 
 
 %description
-Read, manipulate, and digitize landmark data, generate shape variables via
-Procrustes analysis for points, curves and surfaces, perform shape
-analyses, and provide graphical depictions of shapes and patterns of shape
-variation.
+A critical first step in systematic literature reviews and mining of
+academic texts is to identify relevant texts from a range of sources,
+particularly databases such as 'Web of Science' or 'Scopus'. These
+databases often export in different formats or with different metadata
+tags. 'synthesisr' expands on the tools outlined by Westgate (2019)
+<doi:10.1002/jrsm.1374> to import bibliographic data from a range of
+formats (such as 'bibtex', 'ris', or 'ciw') in a standard way, and allows
+merging and deduplication of the resulting dataset.
 
 %prep
 %setup -q -c -n %{packname}
@@ -61,8 +51,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
+%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/ris_tags
 %{rlibdir}/%{packname}/INDEX

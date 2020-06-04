@@ -1,9 +1,9 @@
 %global packname  pivmet
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Pivotal Methods for Bayesian Relabelling and k-Means Clustering
 
@@ -12,31 +12,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc >= 1.12.3
+Requires:         pandoc
 Requires:         pandoc-citeproc
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bayesmix 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-RcmdrMisc 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-runjags 
 BuildRequires:    R-CRAN-rstan 
-Requires:         R-CRAN-bayesmix 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-RcmdrMisc 
+BuildRequires:    R-CRAN-bayesmix 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcmdrMisc 
+BuildRequires:    R-CRAN-bayesplot 
 Requires:         R-cluster 
 Requires:         R-CRAN-mclust 
 Requires:         R-MASS 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-runjags 
 Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-bayesmix 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-RcmdrMisc 
+Requires:         R-CRAN-bayesplot 
 
 %description
 Collection of pivotal algorithms for: relabelling the MCMC chains in order
@@ -50,6 +52,7 @@ solution. For further details see Egidi, Pappadà, Pauli and Torelli
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,6 +60,7 @@ solution. For further details see Egidi, Pappadà, Pauli and Torelli
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

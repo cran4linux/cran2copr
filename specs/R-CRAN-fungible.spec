@@ -1,9 +1,9 @@
 %global packname  fungible
-%global packver   1.95.2
+%global packver   1.96.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.95.2
+Version:          1.96.3
 Release:          1%{?dist}
 Summary:          Psychometric Functions from the Waller Lab
 
@@ -60,6 +60,7 @@ matrices.  Psychometrika, 83, 858-870. <DOI:10.1007/s11336-017-9599-0>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

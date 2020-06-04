@@ -1,9 +1,9 @@
 %global packname  rsleep
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}
 Summary:          Analysis of Sleep Data
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-phonTools 
+BuildRequires:    R-CRAN-psd 
 Requires:         R-CRAN-edfReader 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-phonTools 
+Requires:         R-CRAN-psd 
 
 %description
 Provides users functions for sleep data management and analysis such as

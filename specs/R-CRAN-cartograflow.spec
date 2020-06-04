@@ -1,9 +1,9 @@
 %global packname  cartograflow
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Filtering Matrix for Flow Mapping
 
@@ -16,12 +16,10 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-g.data 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
@@ -30,12 +28,10 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-g.data 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 

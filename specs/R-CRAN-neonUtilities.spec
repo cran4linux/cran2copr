@@ -1,9 +1,9 @@
 %global packname  neonUtilities
-%global packver   1.3.4
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}
 Summary:          Utilities for Working with NEON Data
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-gdata >= 2.18
 Requires:         R-CRAN-dplyr >= 0.7.1
 Requires:         R-CRAN-httr 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-pbapply 
 Requires:         R-parallel 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-curl 
 
 %description
 NEON data packages can be accessed through the NEON Data Portal

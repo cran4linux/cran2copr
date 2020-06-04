@@ -1,9 +1,9 @@
 %global packname  UCSCXenaShiny
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          A Shiny App for UCSC Xena Database
 
@@ -57,6 +57,7 @@ others.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

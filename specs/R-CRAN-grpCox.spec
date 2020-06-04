@@ -1,11 +1,11 @@
-%global packname  littler
-%global packver   0.3.10
+%global packname  grpCox
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          1.0
 Release:          1%{?dist}
-Summary:          R at the Command-Line via 'r'
+Summary:          Penalized Cox Model for High-Dimensional Data with GroupedPredictors
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,15 +14,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-Matrix >= 1.2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-Matrix >= 1.2.10
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-MASS 
+Requires:         R-CRAN-colorspace 
 
 %description
-A scripting and command-line front-end is provided by 'r' (aka 'littler')
-as a lightweight binary wrapper around the GNU R language and environment
-for statistical computing and graphics. While R can be used in batch mode,
-the r binary adds full support for both 'shebang'-style scripting (i.e.
-using a hash-mark-exclamation-path expression as the first line in
-scripts) as well as command-line use in standard Unix pipelines. In other
-words, r provides the R language without the environment.
+Fit the penalized Cox models with both non-overlapping and overlapping
+grouped penalties including the group lasso, group smoothly clipped
+absolute deviation (SCAD), and group minimax concave penalty (MCP). The
+algorithms combine the Majorization Minimization (MM) approach and
+group-wise descent with some computational tricks including the screening,
+active set, and warm-start. Different tuning regularization parameter
+methods are provided.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,11 +56,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/man-page
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/script-tests
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
-%{rlibdir}/%{packname}/bin

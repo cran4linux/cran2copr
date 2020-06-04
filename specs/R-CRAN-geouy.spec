@@ -1,9 +1,9 @@
 %global packname  geouy
-%global packver   0.1.9
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          Geographic Information of Uruguay
 
@@ -15,36 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp >= 1.4
+BuildRequires:    R-CRAN-testthat >= 2.1.0
 BuildRequires:    R-CRAN-sf >= 0.9
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-ggsn 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rgdal 
-Requires:         R-CRAN-sp >= 1.4
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-testthat >= 2.1.0
 Requires:         R-CRAN-sf >= 0.9
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-ggsn 
 Requires:         R-methods 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-viridis 
 
 %description
 The toolbox have functions to load and process geographic information for

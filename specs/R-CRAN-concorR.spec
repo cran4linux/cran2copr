@@ -1,42 +1,39 @@
-%global packname  geomorph
-%global packver   3.3.0
+%global packname  concorR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Geometric Morphometric Analyses of 2D/3D Landmark Data
+Summary:          CONCOR and Supplemental Functions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RRPP 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-ape 
-Requires:         R-CRAN-RRPP 
-Requires:         R-CRAN-rgl 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-sna 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-ape 
+Requires:         R-graphics 
 
 %description
-Read, manipulate, and digitize landmark data, generate shape variables via
-Procrustes analysis for points, curves and surfaces, perform shape
-analyses, and provide graphical depictions of shapes and patterns of shape
-variation.
+Contains the CONCOR (CONvergence of iterated CORrelations) algorithm and a
+series of supplemental functions for easy running, plotting, and
+blockmodeling. The CONCOR algorithm is used on social network data to
+identify network positions based off a definition of structural
+equivalence; see Breiger, Boorman, and Arabie (1975)
+<doi:10.1016/0022-2496(75)90028-0> and Wasserman and Faust's book Social
+Network Analysis: Methods and Applications (1994). This version allows
+multiple relationships for the same set of nodes and uses both incoming
+and outgoing ties to find positions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -61,8 +58,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

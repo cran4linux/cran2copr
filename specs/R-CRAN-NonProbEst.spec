@@ -1,9 +1,9 @@
 %global packname  NonProbEst
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}
 Summary:          Estimation in Nonprobability Sampling
 
@@ -18,9 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-sampling 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-Matrix 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-sampling 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-glmnet 
+Requires:         R-Matrix 
 
 %description
 Different inference procedures are proposed in the literature to correct
@@ -45,6 +49,7 @@ options to work with data coming from a non-probabilistic sample.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

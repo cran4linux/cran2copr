@@ -1,30 +1,32 @@
-%global packname  lcmm
-%global packver   1.9.1
+%global packname  labsimplex
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.1
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Extended Mixed Models Using Latent Classes and Latent Processes
+Summary:          Simplex Optimization Algorithms for Laboratory and ManufacturingProcesses
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-survival >= 2.37.2
-BuildRequires:    R-parallel 
-Requires:         R-survival >= 2.37.2
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-scatterplot3d >= 0.3.41
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-scatterplot3d >= 0.3.41
+Requires:         R-CRAN-ggplot2 
 
 %description
-Estimation of various extensions of the mixed models including latent
-class mixed models, joint latent latent class mixed models and mixed
-models for curvilinear univariate or multivariate longitudinal outcomes
-using a maximum likelihood estimation method (Proust-Lima, Philipps,
-Liquet (2017) <doi:10.18637/jss.v078.i02>).
+Simplex optimization algorithms as firstly proposed by Spendley et al.
+(1962) <doi:10.1080/00401706.1962.10490033> and later modified by Nelder
+and Mead (1965) <doi:10.1093/comjnl/7.4.308> for laboratory and
+manufacturing processes. The package also provides tools for graphical
+representation of the simplexes and some example response surfaces that
+are useful in illustrating the optimization process.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,12 +48,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  LexisNexisTools
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Working with Files from 'LexisNexis'
 
@@ -41,13 +41,14 @@ My PhD supervisor once told me that everyone doing newspaper analysis
 starts by writing code to read in files from the 'LexisNexis' newspaper
 archive (retrieved e.g., from <http://www.nexis.com/> or any of the
 partner sites). However, while this is a nice exercise I do recommend, not
-everyone has the time. This package takes TXT files downloaded from the
+everyone has the time. This package takes files downloaded from the
 newspaper archive of 'LexisNexis', reads them into R and offers functions
 for further processing.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

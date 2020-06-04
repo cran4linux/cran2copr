@@ -1,30 +1,32 @@
-%global packname  lcmm
-%global packver   1.9.1
+%global packname  MMRcaseselection
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Extended Mixed Models Using Latent Classes and Latent Processes
+Summary:          Case Classification and Selection Based on Regression Results
 
-License:          GPL (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-survival >= 2.37.2
-BuildRequires:    R-parallel 
-Requires:         R-survival >= 2.37.2
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Estimation of various extensions of the mixed models including latent
-class mixed models, joint latent latent class mixed models and mixed
-models for curvilinear univariate or multivariate longitudinal outcomes
-using a maximum likelihood estimation method (Proust-Lima, Philipps,
-Liquet (2017) <doi:10.18637/jss.v078.i02>).
+Researchers doing a mixed-methods analysis (nested analysis as developed
+by Lieberman (2005) <doi:10.1017/S0003055405051762>) can use the package
+for the classification of cases and case selection using results of a
+linear regression. One can designate cases as typical, deviant, extreme
+and pathway case and use different case selection strategies for the
+choice of a case belonging to one of these types.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,12 +48,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
