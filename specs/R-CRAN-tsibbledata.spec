@@ -1,9 +1,9 @@
 %global packname  tsibbledata
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Diverse Datasets for 'tsibble'
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.3
 Requires:         R-core >= 3.1.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tsibble >= 0.8.0
-Requires:         R-CRAN-tsibble >= 0.8.0
+BuildRequires:    R-CRAN-tsibble >= 0.9.0
+Requires:         R-CRAN-tsibble >= 0.9.0
 
 %description
 Provides diverse datasets in the 'tsibble' data structure. These datasets
@@ -26,6 +26,7 @@ tidied, visualised, and forecasted.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

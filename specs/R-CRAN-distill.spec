@@ -1,9 +1,9 @@
 %global packname  distill
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}
 Summary:          'R Markdown' Format for Scientific and Technical Writing
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-openssl 
 Requires:         R-CRAN-jsonlite >= 1.3
 Requires:         R-CRAN-knitr >= 1.15
 Requires:         R-CRAN-rmarkdown >= 1.10
@@ -59,6 +60,7 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-openssl 
 
 %description
 Scientific and technical article format for the web. 'Distill' articles
@@ -68,6 +70,7 @@ for visualizations, and full support for footnotes and citations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

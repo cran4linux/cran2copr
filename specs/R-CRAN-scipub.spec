@@ -1,9 +1,9 @@
 %global packname  scipub
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Summarize Data for Scientific Publication
 
@@ -33,12 +33,12 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tidyselect 
 
 %description
-Create and format tables and APA statistics for for scientific
-publication. This includes making a 'Table 1' to summarize demographics
-across groups, correlation tables with significance indicated by stars,
-and extracting formatted statistical summarizes from simple tests for
-in-text notation. The package also includes functions for Winsorizing data
-based on a Z-statistic cutoff.
+Create and format tables and APA statistics for scientific publication.
+This includes making a 'Table 1' to summarize demographics across groups,
+correlation tables with significance indicated by stars, and extracting
+formatted statistical summarizes from simple tests for in-text notation.
+The package also includes functions for Winsorizing data based on a
+Z-statistic cutoff.
 
 %prep
 %setup -q -c -n %{packname}

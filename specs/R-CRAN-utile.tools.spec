@@ -1,9 +1,9 @@
 %global packname  utile.tools
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}
 Summary:          Summarize Data for Publication
 
@@ -15,14 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
 
 %description
 A set of tools for preparing and summarizing data for publication

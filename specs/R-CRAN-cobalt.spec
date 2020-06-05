@@ -1,9 +1,9 @@
 %global packname  cobalt
-%global packver   4.1.0
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          4.2.0
 Release:          1%{?dist}
 Summary:          Covariate Balance Tables and Plots
 
@@ -17,13 +17,15 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-backports >= 1.1.5
+BuildRequires:    R-CRAN-backports >= 1.1.7
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-gtable >= 0.3.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-backports >= 1.1.5
+Requires:         R-CRAN-backports >= 1.1.7
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-gtable >= 0.3.0
 Requires:         R-grid 
 Requires:         R-CRAN-crayon 
@@ -32,12 +34,12 @@ Requires:         R-CRAN-crayon
 Generate balance tables and plots for covariates of groups preprocessed
 through matching, weighting or subclassification, for example, using
 propensity scores. Includes integration with 'MatchIt', 'twang',
-'Matching', 'optmatch', 'CBPS', 'ebal', 'WeightIt', and 'designmatch' for
-assessing balance on the output of their preprocessing functions. Users
-can also specify data for balance assessment not generated through the
-above packages. Also included are methods for assessing balance in
-clustered or multiply imputed data sets or data sets with longitudinal
-treatments.
+'Matching', 'optmatch', 'CBPS', 'ebal', 'WeightIt', 'cem', 'sbw', and
+'designmatch' for assessing balance on the output of their preprocessing
+functions. Users can also specify data for balance assessment not
+generated through the above packages. Also included are methods for
+assessing balance in clustered or multiply imputed data sets or data sets
+with longitudinal treatments.
 
 %prep
 %setup -q -c -n %{packname}

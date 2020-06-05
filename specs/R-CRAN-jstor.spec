@@ -1,9 +1,9 @@
 %global packname  jstor
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}
 Summary:          Read Data from JSTOR/DfR
 
@@ -19,7 +19,7 @@ BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-readr >= 1.3.0
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 0.7.2
 BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-rlang >= 0.2.0
@@ -32,7 +32,7 @@ Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-readr >= 1.3.0
 Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-dplyr >= 0.7.4
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 0.7.2
 Requires:         R-CRAN-purrr >= 0.2.4
 Requires:         R-CRAN-rlang >= 0.2.0

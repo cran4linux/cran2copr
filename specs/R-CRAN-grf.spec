@@ -1,9 +1,9 @@
 %global packname  grf
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Generalized Random Forests
 
@@ -32,8 +32,9 @@ Requires:         R-methods
 %description
 A pluggable package for forest-based statistical estimation and inference.
 GRF currently provides methods for non-parametric least-squares
-regression, quantile regression, and treatment effect estimation
-(optionally using instrumental variables).
+regression, quantile regression, survival regression and treatment effect
+estimation (optionally using instrumental variables), with support for
+missing values.
 
 %prep
 %setup -q -c -n %{packname}

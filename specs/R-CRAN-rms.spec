@@ -1,9 +1,9 @@
 %global packname  rms
-%global packver   5.1-4
+%global packver   6.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.4
+Version:          6.0.0
 Release:          1%{?dist}
 Summary:          Regression Modeling Strategies
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Hmisc >= 4.3.0
-BuildRequires:    R-survival >= 3.1.6
 BuildRequires:    R-nlme >= 3.1.123
+BuildRequires:    R-survival >= 3.1.12
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-htmlTable >= 1.11.0
 BuildRequires:    R-lattice 
@@ -27,9 +27,12 @@ BuildRequires:    R-rpart
 BuildRequires:    R-CRAN-polspline 
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-MASS 
+BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-Hmisc >= 4.3.0
-Requires:         R-survival >= 3.1.6
 Requires:         R-nlme >= 3.1.123
+Requires:         R-survival >= 3.1.12
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-htmlTable >= 1.11.0
 Requires:         R-lattice 
@@ -40,6 +43,9 @@ Requires:         R-rpart
 Requires:         R-CRAN-polspline 
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-htmltools 
+Requires:         R-MASS 
+Requires:         R-cluster 
+Requires:         R-CRAN-digest 
 
 %description
 Regression modeling, testing, estimation, validation, graphics,
@@ -54,11 +60,14 @@ almost any regression model, but it was especially written to work with
 binary or ordinal regression models, Cox regression, accelerated failure
 time models, ordinary linear models, the Buckley-James model, generalized
 least squares for serially or spatially correlated observations,
-generalized linear models, and quantile regression.
+generalized linear models, and quantile regression.  Bayesian methods are
+implemented for binary and ordinal logistic regression with or without
+random effects.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

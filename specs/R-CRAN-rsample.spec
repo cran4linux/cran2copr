@@ -1,9 +1,9 @@
 %global packname  rsample
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}
 Summary:          General Resampling Infrastructure
 
@@ -12,11 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-methods 
@@ -25,8 +26,9 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-methods 
@@ -60,7 +62,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md

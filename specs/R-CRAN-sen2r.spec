@@ -1,9 +1,9 @@
 %global packname  sen2r
-%global packver   1.3.5
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.6
 Release:          1%{?dist}
 Summary:          Find, Download and Process Sentinel-2 Data
 
@@ -49,7 +49,9 @@ Functions to download Sentinel-2 optical images and perform preliminary
 processing operations. 'sen2r' provides the instruments required to easily
 perform (and eventually automate) the steps necessary to build a complete
 Sentinel-2 processing chain. A Graphical User Interface to facilitate data
-processing is also provided.
+processing is also provided. For additional documentation refer to the
+following article: Ranghetti et al. (2020)
+<doi:10.1016/j.cageo.2020.104473>.
 
 %prep
 %setup -q -c -n %{packname}

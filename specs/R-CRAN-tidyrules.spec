@@ -1,9 +1,9 @@
 %global packname  tidyrules
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Obtain Rules from Rule Based Models as Tidy Dataframe
 
@@ -37,6 +37,7 @@ supported: 'C5.0', 'rpart' and 'Cubist'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

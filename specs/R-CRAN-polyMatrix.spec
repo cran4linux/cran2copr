@@ -1,9 +1,9 @@
 %global packname  polyMatrix
-%global packver   0.2.5
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.1
 Release:          1%{?dist}
 Summary:          Infrastructure for Manipulation Polynomial Matrices
 
@@ -26,11 +26,12 @@ Requires:         R-CRAN-polynom
 Implementation of class "polyMatrix" for storing a matrix of polynomials
 and implements basic matrix operations; including a determinant and
 characteristic polynomial. It is based on the package 'polynom' and uses a
-lot of its methods to implement matrix operations. This package includes 2
+lot of its methods to implement matrix operations. This package includes 3
 methods of triangularization of polynomial matrices: Extended Euclidean
 algorithm which is most classical but numerically unstable; Sylvester
-algorithm based on LQ decomposition. Both methods are described in D.
-Henrion & M. Sebek, Reliable numerical methods for polynomial matrix
+algorithm based on LQ decomposition; Interpolation algorithm is based on
+LQ decomposition and Newton interpolation. Both methods are described in
+D. Henrion & M. Sebek, Reliable numerical methods for polynomial matrix
 triangularization, IEEE Transactions on Automatic Control (Volume 44,
 Issue 3, Mar 1999, Pages 497-508) <doi:10.1109/9.751344> and in Salah
 Labhalla, Henri Lombardi & Roger Marlin, Algorithmes de calcule de la
@@ -41,6 +42,7 @@ Computer Science (Volume 161, Issue 1-2, July 1996, Pages 69-92)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

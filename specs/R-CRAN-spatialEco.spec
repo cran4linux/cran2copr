@@ -1,9 +1,9 @@
 %global packname  spatialEco
-%global packver   1.3-1
+%global packver   1.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}
 Summary:          Spatial Analysis and Modelling Utilities
 
@@ -15,45 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SpatialPack >= 0.3
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-exactextractr 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-yaImpute 
 BuildRequires:    R-MASS 
-BuildRequires:    R-mgcv 
-BuildRequires:    R-CRAN-EnvStats 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-SpatialPack >= 0.3
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-exactextractr 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-spatstat 
-Requires:         R-cluster 
 Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-yaImpute 
 Requires:         R-MASS 
-Requires:         R-mgcv 
-Requires:         R-CRAN-EnvStats 
-Requires:         R-CRAN-maptools 
 Requires:         R-methods 
 
 %description

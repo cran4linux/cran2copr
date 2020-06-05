@@ -1,11 +1,11 @@
-%global packname  econetwork
-%global packver   0.4
+%global packname  raincin
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          1.0.3
 Release:          1%{?dist}
-Summary:          Analyzing Ecological Networks
+Summary:          Ranking with Incomplete Information
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,27 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-popdemo 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-rdiversity 
-BuildRequires:    R-CRAN-Matrix.utils 
-BuildRequires:    R-CRAN-blockmodels 
-BuildRequires:    R-CRAN-bipartite 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-popdemo 
 Requires:         R-stats 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-rdiversity 
-Requires:         R-CRAN-Matrix.utils 
-Requires:         R-CRAN-blockmodels 
-Requires:         R-CRAN-bipartite 
 
 %description
-A collection of advanced tools, methods and models specifically designed
-for analyzing different types of ecological networks - especially
-antagonistic (food webs, host-parasite), mutualistic (plant-pollinator,
-plant-fungus, etc) and competitive networks, as well as their variability
-in time and space. Statistical models are developed to describe and
-understand the mechanisms that determine species interactions, and to
-decipher the organization of these (multi-layer) ecological networks.
+Various statistical and mathematical ranking and rating methods with
+incomplete information are included. This package is initially designed
+for the scoring system in a high school project showcase to rank student
+research projects, where each judge can only evaluate a set of projects in
+a limited time period. See Langville, A. N. and Meyer, C. D. (2012), Who
+is Number 1: The Science of Rating and Ranking, Princeton University Press
+<doi:10.1515/9781400841677>, and Gou, J. and Wu, S. (2020), A Judging
+System for Project Showcase: Rating and Ranking with Incomplete
+Information, Technical Report.
 
 %prep
 %setup -q -c -n %{packname}

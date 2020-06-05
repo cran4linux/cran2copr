@@ -1,9 +1,9 @@
 %global packname  envirem
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}
 Summary:          Generation of ENVIREM Variables
 
@@ -18,15 +18,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-palinsol 
 BuildRequires:    R-CRAN-RSAGA 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-huxtable 
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-palinsol 
 Requires:         R-CRAN-RSAGA 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-methods 
-Requires:         R-CRAN-huxtable 
+Requires:         R-CRAN-knitr 
 
 %description
 Generation of bioclimatic rasters that are complementary to the typical 19

@@ -1,9 +1,9 @@
 %global packname  rRofex
-%global packver   1.6.11
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.11
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Interface to 'Matba Rofex' Trading API
 
@@ -25,6 +25,9 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-websocket 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -35,6 +38,9 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
+Requires:         R-CRAN-websocket 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Execute API calls to the 'Matba Rofex' <https://apihub.primary.com.ar>

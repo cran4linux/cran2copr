@@ -1,9 +1,9 @@
 %global packname  fastlogranktest
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}
 Summary:          A Fast Way to Calculate the p-Value of One or MultipleLog-Rank-Tests
 
@@ -19,15 +19,15 @@ BuildRequires:    R-CRAN-BH
 Requires:         R-CRAN-Rcpp 
 
 %description
-It is for all people who have to compute many Log-Rank-Tests and the
-'survival' package is not fast enough for their purpose. Therefore this
-small package provides two functions, one for a single Log-Rank-Test and
-another which calculates many Log-Rank-Tests at a time using threading.
-Both runs very fast because it uses C++ code with 'Rcpp'.
+A very fast Log-Rank-Test implementation that is several orders of
+magnitude faster than the implementation in the 'survival' package.
+Log-Rank-Tests can be computed individually or concurrently using
+threading.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

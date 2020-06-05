@@ -1,9 +1,9 @@
 %global packname  iSTATS
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}
 Summary:          A Graphical Interface to Perform STOCSY Analyses on NMR Data
 
@@ -35,13 +35,14 @@ Requires:         R-CRAN-rstudioapi
 Requires:         R-CRAN-data.table 
 
 %description
-Launches a 'shiny' based application for Nuclear Magnetic Resonance (NMR)
-data importation and Statistical TOtal Correlation SpectroscopY (STOCSY)
-analyses in a full interactive approach. The theoretical background and
-applications of STOCSY method could be found at Cloarec, O., Dumas, M. E.,
-Craig, A., Barton, R. H., Trygg, J., Hudson, J., Blancher, C., Gauguier,
-D., Lindon, J. C., Holmes, E. & Nicholson, J. (2005)
-<doi:10.1021/ac048630x>.
+Launches a 'shiny' based application for Nuclear Magnetic Resonance
+(NMR)data importation and Statistical TOtal Correlation SpectroscopY
+(STOCSY) analyses in a full interactive approach. The theoretical
+background and applications of STOCSY method could be found at Cloarec,
+O., Dumas, M. E., Craig, A., Barton, R. H., Trygg, J., Hudson, J.,
+Blancher, C., Gauguier, D., Lindon, J. C., Holmes, E. & Nicholson, J.
+(2005) <doi:10.1021/ac048630x>. The packeage is also available on github
+<https://github.com/LaCiDIAUFG/iSTATS>.
 
 %prep
 %setup -q -c -n %{packname}
