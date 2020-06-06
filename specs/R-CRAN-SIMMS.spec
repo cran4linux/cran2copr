@@ -1,38 +1,36 @@
-%global packname  DynTxRegime
-%global packver   4.4
+%global packname  SIMMS
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4
+Version:          1.3.0
 Release:          1%{?dist}
-Summary:          Methods for Estimating Optimal Dynamic Treatment Regimes
+Summary:          Subnetwork Integration for Multi-Modal Signatures
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-modelObj 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-rgenoud 
-BuildRequires:    R-CRAN-dfoptim 
-Requires:         R-methods 
-Requires:         R-CRAN-modelObj 
-Requires:         R-stats 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-rgenoud 
-Requires:         R-CRAN-dfoptim 
+BuildRequires:    R-MASS >= 7.3.12
+BuildRequires:    R-CRAN-randomForestSRC >= 2.9.1
+BuildRequires:    R-survival >= 2.36.2
+BuildRequires:    R-CRAN-glmnet >= 1.9
+BuildRequires:    R-CRAN-foreach >= 1.4.3
+BuildRequires:    R-CRAN-doParallel >= 1.0.10
+Requires:         R-MASS >= 7.3.12
+Requires:         R-CRAN-randomForestSRC >= 2.9.1
+Requires:         R-survival >= 2.36.2
+Requires:         R-CRAN-glmnet >= 1.9
+Requires:         R-CRAN-foreach >= 1.4.3
+Requires:         R-CRAN-doParallel >= 1.0.10
 
 %description
-Methods to estimate dynamic treatment regimes using Interactive
-Q-Learning, Q-Learning, weighted learning, and value-search methods based
-on Augmented Inverse Probability Weighted Estimators and Inverse
-Probability Weighted Estimators.
+Algorithms to create prognostic biomarkers using biological genesets or
+networks.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,9 +52,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/programdata
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  rskey
-%global packver   0.4.1
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.4
 Release:          1%{?dist}
 Summary:          Create Custom 'Rstudio' Keyboard Shortcuts
 
@@ -17,14 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-berryFunctions >= 1.17.21
 BuildRequires:    R-CRAN-rstudioapi >= 0.5
-BuildRequires:    R-CRAN-shiny >= 0.13
-BuildRequires:    R-CRAN-miniUI >= 0.1.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-berryFunctions >= 1.17.21
 Requires:         R-CRAN-rstudioapi >= 0.5
-Requires:         R-CRAN-shiny >= 0.13
-Requires:         R-CRAN-miniUI >= 0.1.1
 Requires:         R-graphics 
 Requires:         R-utils 
 
@@ -36,6 +32,7 @@ code of CRAN and base package functions on 'github'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

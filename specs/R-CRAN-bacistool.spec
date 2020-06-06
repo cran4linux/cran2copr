@@ -1,9 +1,9 @@
 %global packname  bacistool
-%global packver   0.9.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Bayesian Classification and Information Sharing (BaCIS) Tool forthe Design of Multi-Group Phase II Clinical Trials
 
@@ -32,6 +32,7 @@ outcomes. Reference: Nan Chen and J. Jack Lee (2019)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

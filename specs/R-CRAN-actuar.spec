@@ -1,9 +1,9 @@
 %global packname  actuar
-%global packver   2.3-3
+%global packver   3.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          3.0.0
 Release:          1%{?dist}
 Summary:          Actuarial Functions and Heavy Tailed Distributions
 
@@ -26,14 +26,15 @@ Functions and data sets for actuarial science: modeling of loss
 distributions; risk theory and ruin theory; simulation of compound models,
 discrete mixtures and compound hierarchical models; credibility theory.
 Support for many additional probability distributions to model insurance
-loss amounts and loss frequency: 19 continuous heavy tailed distributions;
-the Poisson-inverse Gaussian discrete distribution; zero-truncated and
+loss size and frequency: 23 continuous heavy tailed distributions; the
+Poisson-inverse Gaussian discrete distribution; zero-truncated and
 zero-modified extensions of the standard discrete distributions. Support
 for phase-type distributions commonly used to compute ruin probabilities.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,8 +58,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/include
 %doc %{rlibdir}/%{packname}/NEWS.0.Rd
 %doc %{rlibdir}/%{packname}/NEWS.1.Rd
+%doc %{rlibdir}/%{packname}/NEWS.2.Rd
 %doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/po
 %{rlibdir}/%{packname}/INDEX

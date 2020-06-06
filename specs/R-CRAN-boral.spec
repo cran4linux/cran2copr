@@ -1,9 +1,9 @@
 %global packname  boral
-%global packver   1.8
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.8.1
 Release:          1%{?dist}
 Summary:          Bayesian Ordination and Regression AnaLysis
 
@@ -52,6 +52,7 @@ columns of the response matrix.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

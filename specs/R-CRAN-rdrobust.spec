@@ -1,9 +1,9 @@
 %global packname  rdrobust
-%global packver   0.99.7
+%global packver   0.99.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.7
+Version:          0.99.8
 Release:          1%{?dist}
 Summary:          Robust Data-Driven Statistical Inference inRegression-Discontinuity Designs
 

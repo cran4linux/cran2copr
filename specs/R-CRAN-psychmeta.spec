@@ -1,9 +1,9 @@
 %global packname  psychmeta
-%global packver   2.3.8
+%global packver   2.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.8
+Version:          2.3.9
 Release:          1%{?dist}
 Summary:          Psychometric Meta-Analysis Toolkit
 
@@ -34,8 +34,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
@@ -55,8 +53,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
 
 %description
 Tools for computing bare-bones and psychometric meta-analyses and for

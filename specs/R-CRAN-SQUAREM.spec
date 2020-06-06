@@ -1,9 +1,9 @@
 %global packname  SQUAREM
-%global packver   2020.2
+%global packver   2020.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.2
+Version:          2020.3
 Release:          1%{?dist}
 Summary:          Squared Extrapolation Methods for Accelerating EM-Like MonotoneAlgorithms
 

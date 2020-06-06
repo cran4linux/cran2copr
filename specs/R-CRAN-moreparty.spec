@@ -1,9 +1,9 @@
 %global packname  moreparty
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          A Toolbox for Conditional Inference Random Forests
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-party 
 BuildRequires:    R-CRAN-partykit 
@@ -24,6 +24,10 @@ BuildRequires:    R-CRAN-measures
 BuildRequires:    R-methods 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-iml 
+BuildRequires:    R-CRAN-pdp 
+BuildRequires:    R-CRAN-vip 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-party 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-varImp 
@@ -33,6 +37,10 @@ Requires:         R-CRAN-measures
 Requires:         R-methods 
 Requires:         R-MASS 
 Requires:         R-CRAN-iml 
+Requires:         R-CRAN-pdp 
+Requires:         R-CRAN-vip 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
 Additions to 'party' package : tools for the interpretation of forests
@@ -62,7 +70,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

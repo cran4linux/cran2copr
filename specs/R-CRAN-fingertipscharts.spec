@@ -1,9 +1,9 @@
 %global packname  fingertipscharts
-%global packver   0.0.10
+%global packver   0.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10
+Version:          0.0.11
 Release:          1%{?dist}
 Summary:          Produce Charts that you See on the Fingertips Website
 
@@ -15,16 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.7
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-geojsonio 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-lemon 
-BuildRequires:    R-CRAN-mapproj 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
@@ -32,16 +29,13 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.0
+Requires:         R-CRAN-ggplot2 >= 3.3
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-sf >= 0.7
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geojsonio 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-lemon 
-Requires:         R-CRAN-mapproj 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
@@ -57,6 +51,7 @@ the Fingertips website (<http://fingertips.phe.org.uk/>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -64,6 +59,7 @@ the Fingertips website (<http://fingertips.phe.org.uk/>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

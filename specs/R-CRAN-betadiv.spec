@@ -1,35 +1,31 @@
-%global packname  DIFtree
-%global packver   3.1.6
+%global packname  betadiv
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.6
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Item Focussed Trees for the Identification of Items inDifferential Item Functioning
+Summary:          Estimators of Multiple-Site Dissimilarity Indices for theAssessment of Beta Diversity
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-penalized 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridBase 
-BuildRequires:    R-CRAN-plotrix 
-Requires:         R-CRAN-penalized 
-Requires:         R-CRAN-VGAM 
-Requires:         R-grid 
-Requires:         R-CRAN-gridBase 
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-CRAN-J4R >= 1.0.7
+Requires:         R-CRAN-J4R >= 1.0.7
 
 %description
-Item focussed recursive partitioning for simultaneous selection of items
-and variables that induce Differential Item Functioning (DIF) in
-dichotomous or polytomous items.
+Implement the multiple-site dissimilarity indices of Simpson, Sorensen and
+nestedness, which can be used to assess the beta diversity of a
+population. These indices were adapted from those developed by Baselga
+(2010) <doi:10.1111/j.1466-8238.2009.00490.x> in order to have them
+population size-independent. All the details behind the calculation and
+estimation of these adapted indices can be found in Fortin et al. (2020)
+<doi:10.1111/geb.13080>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,4 +51,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/betadiversityindices.jar
+%doc %{rlibdir}/%{packname}/repicea.jar
 %{rlibdir}/%{packname}/INDEX

@@ -1,33 +1,36 @@
-%global packname  vctrs
-%global packver   0.3.1
+%global packname  Require
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.4
 Release:          1%{?dist}
-Summary:          Vector Helpers
+Summary:          Installing and Loading R Packages for Reproducible Workflows
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-ellipsis >= 0.2.0
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-ellipsis >= 0.2.0
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table >= 1.10.4
+Requires:         R-methods 
+Requires:         R-CRAN-remotes 
+Requires:         R-utils 
 
 %description
-Defines new notions of prototype and size that are used to provide tools
-for consistent and well-founded type-coercion and size-recycling, and are
-in turn connected to ideas of type- and size-stability useful for
-analysing function interfaces.
+A single key function, 'Require' that wraps 'install.packages',
+'remotes::install_github', 'versions::install.versions', and
+'base::require' that allows for reproducible workflows. As with other
+functions in a reproducible workflow, this package emphasizes functions
+that return the same result whether it is the first or subsequent times
+running the function.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,7 +40,7 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "CFLAGS=$(R CMD config CFLAGS) -fcommon" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 
@@ -53,8 +56,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/include
+%doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

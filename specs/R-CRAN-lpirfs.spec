@@ -1,9 +1,9 @@
 %global packname  lpirfs
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}
 Summary:          Local Projections Impulse Response Functions
 
@@ -14,25 +14,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
-BuildRequires:    R-CRAN-sandwich >= 2.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-sandwich >= 2.5.1
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-plm >= 1.6.6
-BuildRequires:    R-CRAN-foreach >= 1.4.3
-BuildRequires:    R-CRAN-doParallel >= 1.0.11
+BuildRequires:    R-CRAN-plm >= 2.2.3
+BuildRequires:    R-CRAN-foreach >= 1.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
+BuildRequires:    R-CRAN-doParallel >= 1.0.15
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-lmtest >= 0.9.36
-BuildRequires:    R-CRAN-dplyr >= 0.7.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-CRAN-ggpubr >= 0.3.0
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-sandwich >= 2.5.0
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-sandwich >= 2.5.1
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-plm >= 1.6.6
-Requires:         R-CRAN-foreach >= 1.4.3
-Requires:         R-CRAN-doParallel >= 1.0.11
+Requires:         R-CRAN-plm >= 2.2.3
+Requires:         R-CRAN-foreach >= 1.5.0
+Requires:         R-CRAN-Rcpp >= 1.0.4.6
+Requires:         R-CRAN-doParallel >= 1.0.15
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-lmtest >= 0.9.36
-Requires:         R-CRAN-dplyr >= 0.7.4
-Requires:         R-CRAN-Rcpp >= 0.12.17
+Requires:         R-CRAN-ggpubr >= 0.3.0
 
 %description
 Provides functions to estimate and plot linear as well as nonlinear
@@ -42,6 +44,7 @@ impulse responses based on local projections by Jordà (2005)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,11 +1,11 @@
-%global packname  gWidgets
-%global packver   0.0-54.2
+%global packname  corels
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.54.2
+Version:          0.0.2
 Release:          1%{?dist}
-Summary:          gWidgets API for Building Toolkit-Independent, Interactive GUIs
+Summary:          R Binding for the 'Certifiably Optimal RulE ListS (Corels)'Learner
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,17 +14,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-Rcpp >= 1.0.2
 
 %description
-Provides a toolkit-independent API for building interactive GUIs. At least
-one of the 'gWidgetsXXX packages', such as gWidgetstcltk, needs to be
-installed. Some icons are on loan from the scigraphica project
-<http://scigraphica.sourceforge.net>.
+The 'Certifiably Optimal RulE ListS (Corels)' learner by Angelino et al
+described in <arXiv:1704.01701> provides interpretable decision rules with
+an optimality guarantee, and is made available to R with this package. See
+the file 'AUTHORS' for a list of copyright holders and contributors.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,11 +45,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/images
-%doc %{rlibdir}/%{packname}/install
-%doc %{rlibdir}/%{packname}/src
-%doc %{rlibdir}/%{packname}/tests
+%doc %{rlibdir}/%{packname}/AUTHORS
+%{rlibdir}/%{packname}/sample_data
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

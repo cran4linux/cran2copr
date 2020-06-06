@@ -1,9 +1,9 @@
 %global packname  stringfish
-%global packver   0.12
+%global packver   0.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12
+Version:          0.12.1
 Release:          1%{?dist}
 Summary:          Alt String Implementation
 

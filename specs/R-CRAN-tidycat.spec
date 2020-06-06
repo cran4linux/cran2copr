@@ -1,11 +1,11 @@
 %global packname  tidycat
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Expand broom::tidy() Output for Categorical Parameter Estimates
+Summary:          Expand Tidy Output for Categorical Parameter Estimates
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -34,7 +34,7 @@ Requires:         R-CRAN-forcats
 
 %description
 Create additional rows and columns on broom::tidy() output to allow for
-easier control of plotting categorical parameter estimates.
+easier control on categorical parameter estimates.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

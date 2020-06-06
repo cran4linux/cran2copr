@@ -1,9 +1,9 @@
 %global packname  BCHM
-%global packver   0.99
+%global packver   1.00
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99
+Version:          1.00
 Release:          1%{?dist}
 Summary:          Clinical Trial Calculation Based on BCHM Design
 

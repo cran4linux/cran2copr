@@ -1,9 +1,9 @@
 %global packname  TSVC
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Tree-Structured Modelling of Varying Coefficients
 
@@ -21,13 +21,15 @@ Requires:         R-CRAN-plotrix
 Requires:         R-mgcv 
 
 %description
-Fitting tree-structured varying coefficient models. Simultaneous detection
-of covariates with varying coefficients and effect modifiers that induce
-varying coefficients if they are present.
+Fitting tree-structured varying coefficient models (Berger et al. (2018),
+<doi:10.1007/s11222-018-9804-8>). Simultaneous detection of covariates
+with varying coefficients and effect modifiers that induce varying
+coefficients if they are present.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

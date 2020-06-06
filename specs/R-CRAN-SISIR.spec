@@ -1,9 +1,9 @@
 %global packname  SISIR
-%global packver   0.1
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Sparse Interval Sliced Inverse Regression
 
@@ -30,12 +30,13 @@ Requires:         R-CRAN-glmnet
 
 %description
 An interval fusion procedure for functional data in the semiparametric
-framework of SIR. Standard ridge and sparse SIR are also included in the
-package.
+framework of SIR, as described in <doi:10.1007/s11222-018-9806-6>.
+Standard ridge and sparse SIR are also included in the package.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

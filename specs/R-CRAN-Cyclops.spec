@@ -1,9 +1,9 @@
 %global packname  Cyclops
-%global packver   2.0.3
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          3.0.0
 Release:          1%{?dist}
 Summary:          Cyclic Coordinate Descent for Logistic, Poisson and SurvivalAnalysis
 
@@ -16,22 +16,22 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-BH >= 1.51.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.2
+BuildRequires:    R-CRAN-Andromeda >= 0.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-bit 
-BuildRequires:    R-CRAN-ff 
-BuildRequires:    R-CRAN-ffbase 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-survival 
-BuildRequires:    R-MASS 
+Requires:         R-CRAN-Andromeda >= 0.3.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-rlang 
 Requires:         R-Matrix 
-Requires:         R-CRAN-bit 
-Requires:         R-CRAN-ff 
-Requires:         R-CRAN-ffbase 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dbplyr 
 Requires:         R-methods 
 Requires:         R-survival 
-Requires:         R-MASS 
 
 %description
 This model fitting tool incorporates cyclic coordinate descent and

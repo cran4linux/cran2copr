@@ -1,9 +1,9 @@
 %global packname  fxtract
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}
 Summary:          Feature Extraction from Grouped Data
 
@@ -21,14 +21,12 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-fs 
 
 %description
 An R6 implementation for calculating features from grouped data. The

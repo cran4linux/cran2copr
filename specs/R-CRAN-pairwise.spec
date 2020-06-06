@@ -1,9 +1,9 @@
 %global packname  pairwise
-%global packver   0.4.4-7
+%global packver   0.4.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4.7
+Version:          0.4.5.1
 Release:          1%{?dist}
 Summary:          Rasch Model Parameters by Pairwise Algorithm
 
@@ -31,6 +31,7 @@ Warm's weighted likelihood approach.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

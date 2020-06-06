@@ -1,9 +1,9 @@
 %global packname  structree
-%global packver   1.1.6
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.7
 Release:          1%{?dist}
 Summary:          Tree-Structured Clustering
 
@@ -30,6 +30,7 @@ Tutz (2018), <doi:10.1080/10618600.2017.1371030>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

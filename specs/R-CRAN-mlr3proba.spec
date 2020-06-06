@@ -1,13 +1,13 @@
 %global packname  mlr3proba
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          Probabilistic Supervised Learning for 'mlr3'
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-distr6 >= 1.3.6
-BuildRequires:    R-CRAN-mlr3 >= 0.1.8
+BuildRequires:    R-CRAN-mlr3 >= 0.3.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.1.7
 BuildRequires:    R-CRAN-paradox >= 0.1.0
 BuildRequires:    R-CRAN-checkmate 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-mlr3pipelines
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-survival 
 Requires:         R-CRAN-distr6 >= 1.3.6
-Requires:         R-CRAN-mlr3 >= 0.1.8
+Requires:         R-CRAN-mlr3 >= 0.3.0
 Requires:         R-CRAN-mlr3misc >= 0.1.7
 Requires:         R-CRAN-paradox >= 0.1.0
 Requires:         R-CRAN-checkmate 
@@ -60,7 +60,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R

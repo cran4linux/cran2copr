@@ -1,9 +1,9 @@
 %global packname  autoTS
-%global packver   0.9.1
+%global packver   0.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.11
 Release:          1%{?dist}
 Summary:          Automatic Model Selection and Prediction for Univariate TimeSeries
 
