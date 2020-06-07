@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  ROpenCVLite
-%global packver   0.4.430
+%global packver   4.30.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.430
+Version:          4.30.1
 Release:          1%{?dist}
 Summary:          Install 'OpenCV'
 

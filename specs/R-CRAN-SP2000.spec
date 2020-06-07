@@ -1,9 +1,9 @@
 %global packname  SP2000
-%global packver   0.0.8
+%global packver   0.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.10
 Release:          1%{?dist}
 Summary:          Catalogue of Life Toolkit
 

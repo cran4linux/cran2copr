@@ -1,9 +1,9 @@
 %global packname  berryFunctions
-%global packver   1.18.2
+%global packver   1.19.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.18.2
+Version:          1.19.1
 Release:          1%{?dist}
 Summary:          Function Collection Related to Plotting and Hydrology
 
@@ -35,6 +35,7 @@ lists to data.frames and arrays, fit multiple functions.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -42,6 +43,7 @@ lists to data.frames and arrays, fit multiple functions.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

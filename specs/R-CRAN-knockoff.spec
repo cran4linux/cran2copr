@@ -1,9 +1,9 @@
 %global packname  knockoff
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}
 Summary:          The Knockoff Filter for Controlled Variable Selection
 
@@ -38,12 +38,13 @@ Requires:         R-utils
 The knockoff filter is a general procedure for controlling the false
 discovery rate (FDR) when performing variable selection. For more
 information, see the website below and the accompanying paper: Candes et
-al., "Panning for Gold: Model-X Knockoffs for High-dimensional Controlled
-Variable Selection", 2016, <arXiv:1610.02351>.
+al., "Panning for gold: model-X knockoffs for high-dimensional controlled
+variable selection", J. R. Statist. Soc. B (2018) 80, 3, pp. 551-577.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -51,6 +52,7 @@ Variable Selection", 2016, <arXiv:1610.02351>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

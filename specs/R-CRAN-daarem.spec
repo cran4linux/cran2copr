@@ -1,9 +1,9 @@
 %global packname  daarem
-%global packver   0.4.1
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5
 Release:          1%{?dist}
 Summary:          Damped Anderson Acceleration with Epsilon Monotonicity forAccelerating EM-Like Monotone Algorithms
 
@@ -23,12 +23,13 @@ Requires:         R-utils
 %description
 Implements the DAAREM method for accelerating the convergence of slow,
 monotone sequences from smooth, fixed-point iterations such as the EM
-algorithm. For further details about the DAAREM method. see Henderson,
-N.C. and Varadhan, R. (2018) <arXiv:1803.06673>.
+algorithm. For further details about the DAAREM method, see Henderson,
+N.C. and Varadhan, R. (2019) <doi:10.1080/10618600.2019.1594835>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

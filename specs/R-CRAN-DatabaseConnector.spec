@@ -1,9 +1,9 @@
 %global packname  DatabaseConnector
-%global packver   2.4.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          3.0.0
 Release:          1%{?dist}
 Summary:          Connecting to Various Database Platforms
 
@@ -12,27 +12,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SqlRender >= 1.6.3
 BuildRequires:    R-CRAN-DBI >= 1.0.0
-BuildRequires:    R-CRAN-ffbase >= 0.12.1
 BuildRequires:    R-CRAN-DatabaseConnectorJars 
 BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-bit 
-BuildRequires:    R-CRAN-ff 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-urltools 
 Requires:         R-CRAN-SqlRender >= 1.6.3
 Requires:         R-CRAN-DBI >= 1.0.0
-Requires:         R-CRAN-ffbase >= 0.12.1
 Requires:         R-CRAN-DatabaseConnectorJars 
 Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-bit 
-Requires:         R-CRAN-ff 
 Requires:         R-methods 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 Requires:         R-CRAN-urltools 
 
@@ -41,12 +37,13 @@ An R 'DataBase Interface' ('DBI') compatible interface to various database
 platforms ('PostgreSQL', 'Oracle', 'Microsoft SQL Server', 'Amazon
 Redshift', 'Microsoft Parallel Database Warehouse', 'IBM Netezza', 'Apache
 Impala', 'Google BigQuery', and 'SQLite'). Also includes support for
-fetching data as 'ffdf' objects. Uses 'Java Database Connectivity'
+fetching data as 'Andromeda' objects. Uses 'Java Database Connectivity'
 ('JDBC') to connect to databases (except SQLite).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -68,7 +65,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/COPYRIGHTS
+%doc %{rlibdir}/%{packname}/csv
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/java
+%{rlibdir}/%{packname}/java
 %doc %{rlibdir}/%{packname}/sql
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  phenopix
-%global packver   2.4
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.4.1
 Release:          1%{?dist}
 Summary:          Process Digital Images of a Vegetation Cover
 
@@ -49,6 +49,7 @@ index trajectories and extract relevant phenological stages.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

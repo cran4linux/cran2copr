@@ -1,9 +1,9 @@
 %global packname  GGally
-%global packver   1.5.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Extension to 'ggplot2'
 
@@ -16,26 +16,30 @@ BuildRequires:    openssl-devel
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-plyr >= 1.8.3
+BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-reshape >= 0.8.5
 BuildRequires:    R-CRAN-gtable >= 0.2.0
-BuildRequires:    R-CRAN-ggplot2 > 2.2.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-plyr >= 1.8.3
+Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-reshape >= 0.8.5
 Requires:         R-CRAN-gtable >= 0.2.0
-Requires:         R-CRAN-ggplot2 > 2.2.0
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
 
 %description
 The R package 'ggplot2' is a plotting system based on the grammar of
@@ -70,5 +74,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

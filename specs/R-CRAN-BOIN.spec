@@ -1,9 +1,9 @@
 %global packname  BOIN
-%global packver   2.6.6
+%global packver   2.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.6
+Version:          2.6.7
 Release:          1%{?dist}
 Summary:          Bayesian Optimal INterval (BOIN) Design for Single-Agent andDrug- Combination Phase I Clinical Trials
 
