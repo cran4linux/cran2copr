@@ -67,7 +67,7 @@ Cannoodt et al. (2016) <doi:10.1101/079509>.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname} -type f -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build

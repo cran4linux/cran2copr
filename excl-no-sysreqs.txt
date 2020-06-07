@@ -26,3 +26,4 @@ wrswoR.benchmark
 GeneBook
 rLindo
 salso
+XLConnect

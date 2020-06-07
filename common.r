@@ -345,7 +345,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
     rhli = "rm -f %{packname}/src/Makevars*",
     spcosa = "sed -i '/Sexpr/d' %{packname}/man/spcosa-package.Rd",
     rgexf = "sed -i '/system.file/d' %{packname}/man/plot.gexf.Rd",
-    TexExamRandomizer = paste(
+    TexExamRandomizer=, SCORPIUS = paste(
       "find %{packname} -type f -exec",
       "sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \\;"),
     svSocket = paste(
