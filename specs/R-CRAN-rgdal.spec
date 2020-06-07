@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    gdal-devel >= 1.11.4
 BuildRequires:    proj-devel >= 4.8.0
+BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-sp >= 1.1.0
