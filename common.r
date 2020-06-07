@@ -440,10 +440,9 @@ get_url_build <- function(id, pkg, chroot) {
 }
 
 get_chroots <- function() {
-  stopifnot(requireNamespace("XML", quietly=TRUE))
-  html <- readLines(get_url_back(), warn=FALSE)
-  df <- XML::readHTMLTable(html)[[1]]
-  sort(sub("/$", "", subset(df, !grepl("\\.\\.|srpm|praiskup|gpg", Name))$Name))
+  repo <- paste0(copr_call("whoami"), "/", getOption("copr.repo"))
+  out <- grep(repo, copr_call("list"), value=TRUE)
+  trimws(sapply(strsplit(out, ":"), "[", 1))
 }
 
 get_monitor <- function() {
