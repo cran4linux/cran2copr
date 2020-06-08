@@ -1,9 +1,9 @@
 %global packname  ParallelLogger
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}
 Summary:          Support for Parallel Computation, Logging, and FunctionAutomation
 

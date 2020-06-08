@@ -1,9 +1,9 @@
 %global packname  paletteer
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Comprehensive Collection of Color Palettes
 
@@ -15,32 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggthemes >= 4.0.0
-BuildRequires:    R-CRAN-harrypotter >= 2.1.0
-BuildRequires:    R-CRAN-gameofthrones >= 1.0.0
-BuildRequires:    R-CRAN-jcolors 
-BuildRequires:    R-CRAN-oompaBase 
-BuildRequires:    R-CRAN-palr 
-BuildRequires:    R-CRAN-pals 
-BuildRequires:    R-CRAN-scico 
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rematch2 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-prismatic 
-Requires:         R-CRAN-ggthemes >= 4.0.0
-Requires:         R-CRAN-harrypotter >= 2.1.0
-Requires:         R-CRAN-gameofthrones >= 1.0.0
-Requires:         R-CRAN-jcolors 
-Requires:         R-CRAN-oompaBase 
-Requires:         R-CRAN-palr 
-Requires:         R-CRAN-pals 
-Requires:         R-CRAN-scico 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rematch2 
-Requires:         R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-rematch2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-prismatic 
+Requires:         R-CRAN-rematch2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 The choices of color palettes in R can be quite overwhelming with palettes

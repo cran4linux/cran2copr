@@ -1,9 +1,9 @@
 %global packname  fpp3
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}
 Summary:          Data for "Forecasting: Principles and Practice" (3rd Edition)
 
@@ -20,9 +20,10 @@ BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-tibble >= 1.4.2
 BuildRequires:    R-CRAN-crayon >= 1.3.4
+BuildRequires:    R-CRAN-urca >= 1.3.0
 BuildRequires:    R-CRAN-cli >= 1.0.0
+BuildRequires:    R-CRAN-tsibble >= 0.8.9.9000
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
-BuildRequires:    R-CRAN-tsibble >= 0.8.2
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-rstudioapi >= 0.7
 BuildRequires:    R-CRAN-purrr >= 0.2.4
@@ -35,9 +36,10 @@ Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-tibble >= 1.4.2
 Requires:         R-CRAN-crayon >= 1.3.4
+Requires:         R-CRAN-urca >= 1.3.0
 Requires:         R-CRAN-cli >= 1.0.0
+Requires:         R-CRAN-tsibble >= 0.8.9.9000
 Requires:         R-CRAN-tidyr >= 0.8.3
-Requires:         R-CRAN-tsibble >= 0.8.2
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-rstudioapi >= 0.7
 Requires:         R-CRAN-purrr >= 0.2.4

@@ -1,9 +1,9 @@
 %global packname  OpenMx
-%global packver   2.17.3
+%global packver   2.17.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.17.3
+Version:          2.17.4
 Release:          1%{?dist}
 Summary:          Extended Structural Equation Modelling
 

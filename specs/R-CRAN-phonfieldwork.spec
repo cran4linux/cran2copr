@@ -1,9 +1,9 @@
 %global packname  phonfieldwork
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}
 Summary:          Linguistic Phonetic Fieldwork Tools
 
@@ -21,12 +21,14 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-phonTools 
 Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-xml2 
 
 %description
 There are a lot of different typical tasks that have to be solved during
@@ -36,13 +38,14 @@ files recorded during a session, automatic annotation in 'Praat' TextGrids
 (this is one of the sound annotation standards provided by 'Praat'
 software, see Boersma & Weenink 2018 <http://www.fon.hum.uva.nl/praat/>),
 creating an html table with annotations and spectrograms, and converting
-multiple formats ('Praat' TextGrid, 'EXMARaLDA' and 'ELAN'). All of these
-tasks can be solved by a mixture of different tools (any programming
-language has programs for automatic renaming, and Praat contains scripts
-for concatenating and renaming files, etc.). `phonfieldwork` provides a
-functionality that will make it easier to solve those tasks independently
-of any additional tools. You can also compare the functionality with other
-packages: 'rPraat' <https://CRAN.R-project.org/package=rPraat>, 'textgRid'
+multiple formats ('Praat' TextGrid, 'EXMARaLDA', 'ELAN', and 'FLEx'
+flextext). All of these tasks can be solved by a mixture of different
+tools (any programming language has programs for automatic renaming, and
+Praat contains scripts for concatenating and renaming files, etc.).
+'phonfieldwork' provides a functionality that will make it easier to solve
+those tasks independently of any additional tools. You can also compare
+the functionality with other packages: 'rPraat'
+<https://CRAN.R-project.org/package=rPraat>, 'textgRid'
 <https://CRAN.R-project.org/package=textgRid>.
 
 %prep

@@ -1,9 +1,9 @@
 %global packname  psychmeta
-%global packver   2.3.9
+%global packver   2.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.9
+Version:          2.3.10
 Release:          1%{?dist}
 Summary:          Psychometric Meta-Analysis Toolkit
 
@@ -18,15 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-MASS 
 BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-tmvtnorm 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-nor1mix 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
@@ -37,15 +33,11 @@ BuildRequires:    R-CRAN-data.table
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-MASS 
 Requires:         R-boot 
-Requires:         R-CRAN-tmvtnorm 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-nor1mix 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 

@@ -1,9 +1,9 @@
 %global packname  RKorAPClient
-%global packver   0.5.7
+%global packver   0.5.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.5.9
 Release:          1%{?dist}
 Summary:          'KorAP' Web Service Client Package
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-highcharter 
 BuildRequires:    R-CRAN-jsonlite 
@@ -40,7 +39,6 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-highcharter 
 Requires:         R-CRAN-jsonlite 
