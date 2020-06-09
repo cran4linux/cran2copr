@@ -1,9 +1,9 @@
 %global packname  clustEff
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Clusters of Effects Curves in Quantile Regression Models
 
@@ -18,19 +18,23 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-qrcm 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-qrcm 
 Requires:         R-cluster 
 Requires:         R-CRAN-fda 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Clustering method to cluster both effects curves, through quantile
 regression coefficient modeling, and curves in functional data analysis.
-Sottile G. and Adelfio G. (2017)
-<https://iwsm2017.webhosting.rug.nl/IWSM_2017_V2.pdf>.
+Sottile G. and Adelfio G. (2019) <doi:10.1007/s00180-018-0817-8>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,5 +53,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

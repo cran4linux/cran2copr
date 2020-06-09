@@ -1,9 +1,9 @@
 %global packname  dreamerr
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Error Handling Made Easy
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-Formula 
+Requires:         R-utils 
 
 %description
 Set of tools to facilitate package development and make R a more

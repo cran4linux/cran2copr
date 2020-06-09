@@ -1,9 +1,9 @@
 %global packname  lubridate
-%global packver   1.7.8
+%global packver   1.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.8
+Version:          1.7.9
 Release:          1%{?dist}
 Summary:          Make Dealing with Dates a Little Easier
 

@@ -1,9 +1,9 @@
 %global packname  LambertW
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}
 Summary:          Probabilistic Models to Analyze and Gaussianize Heavy-Tailed,Skewed Data
 
@@ -14,7 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-lamW >= 1.0.0
+BuildRequires:    R-CRAN-lamW >= 1.3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
@@ -22,8 +23,9 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-lamW >= 1.0.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-lamW >= 1.3.0
+Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-MASS 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
@@ -31,7 +33,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
 Lambert W x F distributions are a generalized framework to analyze skewed,
@@ -50,6 +52,7 @@ analysis right away.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,6 +60,7 @@ analysis right away.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -68,9 +72,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

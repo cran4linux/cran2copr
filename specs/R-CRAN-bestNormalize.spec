@@ -1,9 +1,9 @@
 %global packname  bestNormalize
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}
 Summary:          Normalizing Transformation Functions
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LambertW 
+BuildRequires:    R-CRAN-LambertW >= 0.6.5
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-doParallel 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-doRNG
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-LambertW 
+Requires:         R-CRAN-LambertW >= 0.6.5
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-doParallel 

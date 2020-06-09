@@ -1,9 +1,9 @@
 %global packname  oro.nifti
-%global packver   0.10.1
+%global packver   0.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.3
 Release:          1%{?dist}
 Summary:          Rigorous - 'NIfTI' + 'ANALYZE' + 'AFNI' : Input / Output
 
@@ -24,6 +24,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-rticles 
 Requires:         R-CRAN-RNifti >= 0.9.0
 Requires:         R-stats 
 Requires:         R-CRAN-bitops 
@@ -33,6 +34,7 @@ Requires:         R-grDevices
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-rticles 
 
 %description
 Functions for the input/output and visualization of medical imaging data
@@ -42,6 +44,7 @@ is part of the Rigorous Analytics bundle.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

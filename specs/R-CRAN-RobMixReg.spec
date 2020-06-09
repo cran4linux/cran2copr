@@ -1,9 +1,9 @@
 %global packname  RobMixReg
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Robust Mixture Regression
 
@@ -21,12 +21,30 @@ BuildRequires:    R-CRAN-gtools
 BuildRequires:    R-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-robust 
+BuildRequires:    R-CRAN-lars 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-flexmix 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-gtools 
 Requires:         R-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-robust 
+Requires:         R-CRAN-lars 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-gplots 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-stats 
 
 %description
 Finite mixture models are a popular technique for modelling unobserved

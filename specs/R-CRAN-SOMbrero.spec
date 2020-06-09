@@ -1,9 +1,9 @@
 %global packname  SOMbrero
-%global packver   1.2-5
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.3
 Release:          1%{?dist}
 Summary:          SOM Bound to Realize Euclidean and Relational Outputs
 
@@ -16,21 +16,25 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph >= 1.0
-BuildRequires:    R-CRAN-wordcloud 
 BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggwordcloud 
+BuildRequires:    R-CRAN-metR 
+BuildRequires:    R-CRAN-interp 
 Requires:         R-CRAN-igraph >= 1.0
-Requires:         R-CRAN-wordcloud 
 Requires:         R-CRAN-scatterplot3d 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-shiny 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggwordcloud 
+Requires:         R-CRAN-metR 
+Requires:         R-CRAN-interp 
 
 %description
 The stochastic (also called on-line) version of the Self-Organising Map

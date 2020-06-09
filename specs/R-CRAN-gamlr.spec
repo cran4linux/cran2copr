@@ -1,9 +1,9 @@
 %global packname  gamlr
-%global packver   1.13-5
+%global packver   1.13-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.5
+Version:          1.13.6
 Release:          1%{?dist}
 Summary:          Gamma Lasso Regression
 
@@ -28,8 +28,8 @@ The gamma lasso algorithm provides regularization paths corresponding to a
 range of non-convex cost functions between L0 and L1 norms.  As much as
 possible, usage for this package is analogous to that for the glmnet
 package (which does the same thing for penalization between L1 and L2
-norms).  For details see: Taddy (2017 JCGS), One-Step Estimator Paths for
-Concave Regularization, <arXiv:1308.5623>.
+norms).  For details see: Taddy (2017 JCGS), 'One-Step Estimator Paths for
+Concave Regularization', <arXiv:1308.5623>.
 
 %prep
 %setup -q -c -n %{packname}

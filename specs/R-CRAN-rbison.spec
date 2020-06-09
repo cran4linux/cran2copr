@@ -1,9 +1,9 @@
 %global packname  rbison
-%global packver   0.8.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Interface to the 'USGS' 'BISON' API
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-mapproj
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-jsonlite >= 1.1
 Requires:         R-CRAN-crul >= 0.7.4
 Requires:         R-CRAN-dplyr >= 0.5.0
@@ -33,6 +34,7 @@ Requires:         R-CRAN-mapproj
 Requires:         R-grid 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tibble 
 
 %description
 Interface to the 'USGS' 'BISON' (<https://bison.usgs.gov/>) API, a

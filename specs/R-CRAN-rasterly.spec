@@ -1,9 +1,9 @@
 %global packname  rasterly
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Easily and Rapidly Generate Raster Image Data with Support for'Plotly.js'
 
@@ -21,6 +21,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-data.table 
@@ -28,14 +30,16 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
+Requires:         R-grid 
+Requires:         R-stats 
 
 %description
-Easily and rapidly generate raster data in R, even for very large
-datasets, with an aesthetics-based mapping syntax that should be familiar
-to users of the 'ggplot2' package. While 'rasterly' does not attempt to
-reproduce the full functionality of the 'Datashader' graphics pipeline
-system for Python, the 'rasterly' API has several core elements in common
-with that software package.
+It aims to easily and rapidly generate raster data in R, even for very
+large datasets, with an aesthetics-based mapping syntax that should be
+familiar to users of the 'ggplot2' package. While 'rasterly' does not
+attempt to reproduce the full functionality of the 'Datashader' graphics
+pipeline system for Python, the 'rasterly' API has several core elements
+in common with that software package.
 
 %prep
 %setup -q -c -n %{packname}

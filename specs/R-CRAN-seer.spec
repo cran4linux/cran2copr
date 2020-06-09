@@ -1,9 +1,9 @@
 %global packname  seer
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}
 Summary:          Feature-Based Forecast Model Selection
 
@@ -18,37 +18,33 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast >= 8.3
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-urca 
-BuildRequires:    R-CRAN-tsfeatures 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-Mcomp 
 BuildRequires:    R-CRAN-forecTheta 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ForeCA 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-repmis 
+BuildRequires:    R-CRAN-tsfeatures 
+BuildRequires:    R-MASS 
 Requires:         R-CRAN-forecast >= 8.3
 Requires:         R-stats 
 Requires:         R-CRAN-urca 
-Requires:         R-CRAN-tsfeatures 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-Mcomp 
 Requires:         R-CRAN-forecTheta 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ForeCA 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
 Requires:         R-utils 
-Requires:         R-CRAN-repmis 
+Requires:         R-CRAN-tsfeatures 
+Requires:         R-MASS 
 
 %description
 A novel meta-learning framework for forecast model selection using time

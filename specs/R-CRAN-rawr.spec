@@ -1,9 +1,9 @@
 %global packname  rawr
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Retrieve Raw R Code from Popular Tutorials and Websites
 
@@ -19,10 +19,14 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-clipr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-clipr 
 
 %description
 Retrieves pure R code from popular R websites, including github

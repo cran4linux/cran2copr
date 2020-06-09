@@ -1,29 +1,33 @@
-%global packname  spatgraphs
-%global packver   3.2-2
+%global packname  ncdf4.helpers
+%global packver   0.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          0.3.5
 Release:          1%{?dist}
-Summary:          Graph Edge Computations for Spatial Point Patterns
+Summary:          Helper Functions for Use with the 'ncdf4' Package
 
-License:          GPL (>= 2)
+License:          LGPL-2.1
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.6
-BuildRequires:    R-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.11.6
-Requires:         R-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.12.0
+Requires:         R-core >= 2.12.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-PCICt 
+BuildRequires:    R-CRAN-abind 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-PCICt 
+Requires:         R-CRAN-abind 
 
 %description
-Graphs (or networks) and graph component calculations for spatial
-locations in 1D, 2D, 3D etc.
+Contains a collection of helper functions for dealing with 'NetCDF' files
+<https://www.unidata.ucar.edu/software/netcdf/> opened using 'ncdf4',
+particularly 'NetCDF' files that conform to the Climate and Forecast (CF)
+Metadata Conventions
+<http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,7 +51,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

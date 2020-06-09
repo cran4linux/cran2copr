@@ -1,9 +1,9 @@
 %global packname  Lahman
-%global packver   7.0-1
+%global packver   8.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.1
+Version:          8.0.0
 Release:          1%{?dist}
 Summary:          Sean 'Lahman' Baseball Database
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-dplyr 
@@ -28,6 +28,7 @@ baseball questions can be investigated.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -35,6 +36,7 @@ baseball questions can be investigated.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -51,6 +53,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/DESC-temp-change-maintainer.txt
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/hex
 %doc %{rlibdir}/%{packname}/scripts
 %{rlibdir}/%{packname}/INDEX

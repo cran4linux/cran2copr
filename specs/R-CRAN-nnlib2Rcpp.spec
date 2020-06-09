@@ -1,9 +1,9 @@
 %global packname  nnlib2Rcpp
-%global packver   0.1.2
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}
 Summary:          A Collection of Neural Networks
 
@@ -20,8 +20,8 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-methods 
 
 %description
-Another collection of neural networks. Includes versions of 'BP',
-'Autoencoder', 'LVQ' (supervised and unsupervised), 'MAM'.
+Contains versions of Autoencoder, BP, LVQ, MAM NN and a module to define
+custom neural networks.
 
 %prep
 %setup -q -c -n %{packname}

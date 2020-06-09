@@ -1,9 +1,9 @@
 %global packname  TreeTools
-%global packver   0.1.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Create, Modify and Analyse Phylogenetic Trees
 
@@ -16,11 +16,13 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-ape >= 5.0
 BuildRequires:    R-CRAN-phangorn >= 2.2.1
+BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-R.cache 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-phangorn >= 2.2.1
+Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-R.cache 
 
@@ -32,7 +34,7 @@ calculation and depiction of node support; calculation of
 ancestor-descendant relationships; import and export of trees from Newick,
 Nexus (Maddison et al. 1997) <doi:10.1093/sysbio/46.4.590>, and TNT
 <http://www.lillo.org.ar/phylogeny/tnt/> formats; and analysis of
-partitions and partition information.
+partitions and cladistic information.
 
 %prep
 %setup -q -c -n %{packname}

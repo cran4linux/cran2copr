@@ -1,9 +1,9 @@
 %global packname  lemon
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}
 Summary:          Freshing Up your 'ggplot2' Plots
 

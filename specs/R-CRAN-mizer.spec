@@ -1,9 +1,9 @@
 %global packname  mizer
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Multi-Species sIZE Spectrum Modelling in R
 
@@ -69,7 +69,11 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/examples
+%doc %{rlibdir}/%{packname}/PredationKernelTest.R
+%doc %{rlibdir}/%{packname}/script.R
 %doc %{rlibdir}/%{packname}/shiny
+%doc %{rlibdir}/%{packname}/Tasm_Inter.csv
+%doc %{rlibdir}/%{packname}/Tasm_Params.csv
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs
