@@ -1,33 +1,33 @@
-%global packname  santoku
-%global packver   0.4.0
+%global packname  HPLB
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          A Versatile Cutting Tool
+Summary:          High-Probability Lower Bounds for the Total Variance Distance
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-vctrs 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-data.table 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-A tool for cutting data into intervals. Allows singleton intervals. Always
-includes the whole range of data by default. Flexible labelling.
-Convenience functions for cutting by quantiles etc. Handles dates and
-times.
+An implementation of high-probability lower bounds for the total variance
+distance as introduced in Michel & Naef & Meinshausen (2020)
+<arXiv:2005.06006>. An estimated lower-bound (with high-probability) on
+the total variation distance between two probability distributions from
+which samples are observed can be obtained with the function HPLB.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,10 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

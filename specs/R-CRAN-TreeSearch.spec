@@ -1,9 +1,9 @@
 %global packname  TreeSearch
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}
 Summary:          Phylogenetic Tree Search Using Custom Optimality Criteria
 
@@ -16,16 +16,16 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape >= 5.0
 BuildRequires:    R-CRAN-phangorn >= 2.2.1
+BuildRequires:    R-CRAN-TreeTools >= 1.0.0
 BuildRequires:    R-CRAN-R.cache 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TreeTools 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-phangorn >= 2.2.1
+Requires:         R-CRAN-TreeTools >= 1.0.0
 Requires:         R-CRAN-R.cache 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
-Requires:         R-CRAN-TreeTools 
 
 %description
 Searches for phylogenetic trees that are optimal using a user-defined
@@ -37,6 +37,7 @@ Successive Approximations (Farris, 1969) <doi:10.2307/2412182>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

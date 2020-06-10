@@ -1,13 +1,13 @@
 %global packname  gmp
-%global packver   0.5-14
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.14
+Version:          0.6.0
 Release:          1%{?dist}
 Summary:          Multiple Precision Arithmetic
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

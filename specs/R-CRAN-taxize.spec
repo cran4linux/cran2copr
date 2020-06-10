@@ -1,9 +1,9 @@
 %global packname  taxize
-%global packver   0.9.96
+%global packver   0.9.97
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.96
+Version:          0.9.97
 Release:          1%{?dist}
 Summary:          Taxonomic Information from Around the Web
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-conditionz 
 Requires:         R-CRAN-rotl >= 3.0.0
 Requires:         R-CRAN-xml2 >= 1.2.0
 Requires:         R-CRAN-tibble >= 1.2
@@ -61,6 +62,7 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-conditionz 
 
 %description
 Interacts with a suite of web 'APIs' for taxonomic tasks, such as getting

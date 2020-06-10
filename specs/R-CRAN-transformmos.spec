@@ -1,33 +1,33 @@
-%global packname  sapa
-%global packver   2.0-2
+%global packname  transformmos
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Spectral Analysis for Physical Applications
+Summary:          Transform MOS Values to be Robust for using Rank BasedStatistics
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-ifultools >= 2.0.0
-BuildRequires:    R-CRAN-splus2R >= 1.2.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ifultools >= 2.0.0
-Requires:         R-CRAN-splus2R >= 1.2.0
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Software for the book Spectral Analysis for Physical Applications, Donald
-B. Percival and Andrew T. Walden, Cambridge University Press, 1993.
+Implementation of the transformation of the Mean Opinion Scores (MOS) to
+be used before applying the rank based statistical techniques. The method
+and its necessity is described in: Babak Naderi, Sebastian Möller (2020)
+<arXiv:2004.11490>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -35,6 +35,7 @@ B. Percival and Andrew T. Walden, Cambridge University Press, 1993.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -44,8 +45,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/sapa.chm
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

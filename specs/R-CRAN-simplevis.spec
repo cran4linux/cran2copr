@@ -1,9 +1,9 @@
 %global packname  simplevis
-%global packver   1.1.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Simple Visualisation with 'ggplot2' and 'leaflet' Wrappers
 
@@ -16,10 +16,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-leaflet >= 2.0.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-sf >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-stars >= 0.4.0
@@ -39,13 +40,13 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-leaflet >= 2.0.0
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-sf >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-stars >= 0.4.0
@@ -65,7 +66,6 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-viridis 
 
 %description

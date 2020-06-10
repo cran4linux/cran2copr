@@ -1,9 +1,9 @@
 %global packname  SemNetCleaner
-%global packver   1.1.5
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          An Automated Cleaning Tool for Semantic and Linguistic Data
 
@@ -12,32 +12,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SemNetDictionaries >= 0.1.5
+BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-hunspell 
 BuildRequires:    R-CRAN-searcher 
-BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-foreign 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-R.matlab 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-htmlTable 
 BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-SemNetDictionaries >= 0.1.5
+Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-hunspell 
 Requires:         R-CRAN-searcher 
-Requires:         R-CRAN-stringdist 
 Requires:         R-tcltk 
 Requires:         R-foreign 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-R.matlab 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-htmlTable 
 Requires:         R-CRAN-stringi 
 
 %description

@@ -1,46 +1,45 @@
-%global packname  HiveR
-%global packver   0.3.63
+%global packname  spectrolab
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.63
+Version:          0.0.9
 Release:          1%{?dist}
-Summary:          2D and 3D Hive Plots for R
+Summary:          Class and Methods for Hyperspectral Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-tcltk 
-Requires:         R-grid 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-prospectr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-usethis 
 Requires:         R-stats 
-Requires:         R-CRAN-rgl 
-Requires:         R-tcltk 
+Requires:         R-CRAN-prospectr 
+Requires:         R-grDevices 
+Requires:         R-parallel 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-usethis 
 
 %description
-Creates and plots 2D and 3D hive plots. Hive plots are a unique method of
-displaying networks of many types in which node properties are mapped to
-axes using meaningful properties rather than being arbitrarily positioned.
-The hive plot concept was invented by Martin Krzywinski at the Genome
-Science Center (www.hiveplot.net/).  Keywords: networks, food webs,
-linnet, systems biology, bioinformatics.
+Input/Output, processing and visualization of spectra taken with different
+spectrometers, including SVC (Spectra Vista), ASD and PSR (Spectral
+Evolution). Implements an S3 class 'spectra' that other packages can build
+on. Provides methods to access, plot, manipulate, splice sensor overlap,
+vector normalize and smooth spectra.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,7 +64,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION

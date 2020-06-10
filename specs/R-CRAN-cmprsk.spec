@@ -1,9 +1,9 @@
 %global packname  cmprsk
-%global packver   2.2-9
+%global packver   2.2-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.9
+Version:          2.2.10
 Release:          1%{?dist}
 Summary:          Subdistribution Analysis of Competing Risks
 
@@ -28,6 +28,7 @@ JASA, 94:496-509, <DOI:10.1080/01621459.1999.10474144>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -35,6 +36,7 @@ JASA, 94:496-509, <DOI:10.1080/01621459.1999.10474144>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

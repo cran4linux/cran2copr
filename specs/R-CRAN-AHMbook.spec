@@ -1,11 +1,11 @@
 %global packname  AHMbook
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Functions and Data for the Book 'Applied Hierarchical Modelingin Ecology'
+Summary:          Functions and Data for the Book "Applied Hierarchical Modelingin Ecology" Vols 1 and 2
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-RandomFields 
 BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-spdep 
 Requires:         R-CRAN-unmarked >= 0.12.2
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -37,19 +39,21 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-RandomFields 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-spdep 
 
 %description
-Provides functions and data sets to accompany the book 'Applied
-Hierarchical Modeling in Ecology: Analysis of distribution, abundance and
-species richness in R and BUGS' by Marc Kery and Andy Royle. The first
-volume appeared early in 2016 (ISBN: 978-0-12-801378-6,
-<https://www.mbr-pwrc.usgs.gov/pubanalysis/keryroylebook>); the second
-volume is in preparation and additional functions will be added to this
-package.
+Provides functions and data sets to accompany the two volume publication
+"Applied Hierarchical Modeling in Ecology: Analysis of distribution,
+abundance and species richness in R and BUGS" by Marc Kéry and Andy Royle:
+volume 1 (2016, ISBN: 978-0-12-801378-6) and volume 2 (2020, ISBN:
+978-0-12-809585-0),
+<https://www.mbr-pwrc.usgs.gov/pubanalysis/keryroylebook>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,6 +61,7 @@ package.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -70,5 +75,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/COPYRIGHTS
 %{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

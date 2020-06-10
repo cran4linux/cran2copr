@@ -1,13 +1,13 @@
-%global packname  shinybrms
-%global packver   1.1.0
+%global packname  nhs.predict
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
-Summary:          Graphical User Interface (Shiny App) for Package 'brms'
+Summary:          Breast Cancer Survival and Therapy Benefits
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brms >= 2.12.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-brms >= 2.12.0
-Requires:         R-CRAN-shiny >= 1.4.0
 
 %description
-A graphical user interface (GUI) for the package 'brms' which allows to
-fit Bayesian regression models using 'Stan' (<https://mc-stan.org/>) (more
-specifically, using its R interface, the package 'rstan'). The GUI is a
-'Shiny' (<https://shiny.rstudio.com/>) app, i.e. it was created using the
-package 'shiny'.
+Calculate Overall Survival or Recurrence-Free Survival for breast cancer
+patients, using 'NHS Predict'. The time interval for the estimation can be
+set up to 15 years, with default at 10. Incremental therapy benefits are
+estimated for hormone therapy, chemotherapy, trastuzumab, and
+bisphosphonates. This work is not affiliated with the development of 'NHS
+Predict' and its underlying statistical model. Details on 'NHS Predict'
+can be found at: <doi:10.1186/bcr2464>. The web version of 'NHS Predict':
+<https://breast.predict.nhs.uk/>. A small dataset of 50 fictional patient
+observations is provided for the purpose of running examples.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,9 +47,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/shinybrms_app
 %{rlibdir}/%{packname}/INDEX

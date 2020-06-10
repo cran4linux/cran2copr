@@ -1,38 +1,31 @@
-%global packname  wmtsa
-%global packver   2.0-3
+%global packname  plu
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Wavelet Methods for Time Series Analysis
+Summary:          Pluralize Phrases
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ifultools >= 2.0.0
-BuildRequires:    R-CRAN-splus2R >= 1.2.0
-BuildRequires:    R-MASS 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ifultools >= 2.0.0
-Requires:         R-CRAN-splus2R >= 1.2.0
-Requires:         R-MASS 
-Requires:         R-graphics 
-Requires:         R-methods 
 
 %description
-Software to book Wavelet Methods for Time Series Analysis, Donald B.
-Percival and Andrew T. Walden, Cambridge University Press, 2000.
+Converts English phrases to singular or plural form based on the length of
+an associated vector.  Contains helper functions to create natural
+language lists from vectors and to include the length of a vector in
+natural language.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -40,6 +33,7 @@ Percival and Andrew T. Walden, Cambridge University Press, 2000.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -49,6 +43,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

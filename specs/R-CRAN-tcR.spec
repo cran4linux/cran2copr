@@ -1,9 +1,9 @@
 %global packname  tcR
-%global packver   2.2.4.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.4.1
+Version:          2.3.2
 Release:          1%{?dist}
 Summary:          Advanced Data Analysis of Immune Receptor Repertoires
 
@@ -41,7 +41,8 @@ Requires:         R-CRAN-gtable >= 0.1.2
 
 %description
 Platform for the advanced analysis of T cell receptor and Immunoglobulin
-repertoires data and visualisation of the analysis results.
+repertoires data and visualisation of the analysis results. Publication:
+Nazarov et al. (2015) <doi:10.1186/s12859-015-0613-1>.
 
 %prep
 %setup -q -c -n %{packname}

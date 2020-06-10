@@ -1,11 +1,11 @@
-%global packname  santoku
-%global packver   0.4.0
+%global packname  neo4jshell
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          A Versatile Cutting Tool
+Summary:          Querying and Managing 'Neo4J' Databases in 'R'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,20 +14,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-vctrs 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ssh 
+BuildRequires:    R-CRAN-sys 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-R.utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ssh 
+Requires:         R-CRAN-sys 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-R.utils 
 
 %description
-A tool for cutting data into intervals. Allows singleton intervals. Always
-includes the whole range of data by default. Flexible labelling.
-Convenience functions for cutting by quantiles etc. Handles dates and
-times.
+Sends queries to a specified 'Neo4J' graph database, capturing results in
+a dataframe where appropriate. Other useful functions for the importing
+and management of data on the 'Neo4J' server and basic local server admin.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,8 +54,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

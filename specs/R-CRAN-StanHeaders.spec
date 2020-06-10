@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  StanHeaders
-%global packver   2.21.0-3
+%global packver   2.21.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.21.0.3
+Version:          2.21.0.5
 Release:          1%{?dist}
 Summary:          C++ Header Files for Stan
 
@@ -16,8 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 Requires:         pandoc
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppParallel 
+Requires:         R-CRAN-RcppParallel >= 5.0.1
 
 %description
 The C++ header files of the Stan project are provided by this package, but

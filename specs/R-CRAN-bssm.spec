@@ -1,11 +1,11 @@
 %global packname  bssm
-%global packver   0.1.11
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Bayesian Inference of Non-Linear and Non-Gaussian State SpaceModels
+Summary:          Bayesian Inference of Non-Gaussian State Space Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,27 +14,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.3
 Requires:         R-core >= 3.1.3
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-coda >= 0.18.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-diagis 
-BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-ramcmc 
 BuildRequires:    R-CRAN-sitmo 
-Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-coda >= 0.18.1
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-diagis 
 
 %description
 Efficient methods for Bayesian inference of state space models via
-particle Markov chain Monte Carlo and parallel importance sampling type
-weighted Markov chain Monte Carlo (Vihola, Helske, and Franks, 2017,
-<arXiv:1609.02541>). Gaussian, Poisson, binomial, or negative binomial
-observation densities and basic stochastic volatility models with Gaussian
-state dynamics, as well as general non-linear Gaussian models and
-discretised diffusion models are supported.
+particle Markov chain Monte Carlo (MCMC) and MCMC based on parallel
+importance sampling type weighted estimators (Vihola, Helske, and Franks,
+2020, <arXiv:1609.02541>). Gaussian, Poisson, binomial, negative binomial,
+and Gamma observation densities and basic stochastic volatility models
+with Gaussian state dynamics, as well as general non-linear Gaussian
+models and discretised diffusion models are supported.
 
 %prep
 %setup -q -c -n %{packname}

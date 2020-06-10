@@ -1,9 +1,9 @@
 %global packname  sindyr
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}
 Summary:          Sparse Identification of Nonlinear Dynamics
 
@@ -15,20 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-arrangements 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-crqa 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-igraph 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-crqa 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-pracma 
 
 %description
 This implements the Brunton et al (2016; PNAS
@@ -41,6 +43,7 @@ Bhat, in press <doi:10.1016/j.cogsys.2018.06.020>).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

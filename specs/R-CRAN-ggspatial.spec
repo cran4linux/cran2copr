@@ -1,9 +1,9 @@
 %global packname  ggspatial
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}
 Summary:          Spatial Data Framework for ggplot2
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lwgeom 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-rosm >= 0.2
 Requires:         R-CRAN-sf 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-rlang 
 Requires:         R-grid 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lwgeom 
 
 %description
 Spatial data plus the power of the ggplot2 framework means easier mapping

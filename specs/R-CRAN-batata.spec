@@ -1,32 +1,34 @@
-%global packname  MALDIrppa
-%global packver   1.0.2
+%global packname  batata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          MALDI Mass Spectrometry Data Robust Pre-Processing and Analysis
+Summary:          Managing Packages Removal
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.5
-Requires:         R-core >= 3.2.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MALDIquant 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-lattice 
-Requires:         R-CRAN-MALDIquant 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-robustbase 
-Requires:         R-lattice 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-fs 
+Requires:         R-utils 
+Requires:         R-CRAN-glue 
 
 %description
-Provides methods for quality control and robust pre-processing and
-analysis of MALDI mass spectrometry data.
+Allows the user to manage easily R packages removal. It offers many
+functions to display installed packages according to specific dates and
+removes them if needed. The user is always prompted when running the
+removal functions in order to confirm the required action. It offers also
+a function that removes all the installed packages in case one wants to
+switch from one R version to another and start fresh.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,11 +50,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

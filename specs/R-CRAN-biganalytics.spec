@@ -1,9 +1,9 @@
 %global packname  biganalytics
-%global packver   1.1.20
+%global packver   1.1.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.20
+Version:          1.1.21
 Release:          1%{?dist}
 Summary:          Utilities for 'big.matrix' Objects from Package 'bigmemory'
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-bigmemory >= 4.0.0
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-foreach 
@@ -23,7 +22,6 @@ BuildRequires:    R-CRAN-biglm
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-bigmemory >= 4.0.0
-Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-foreach 

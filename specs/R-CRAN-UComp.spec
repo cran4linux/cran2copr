@@ -1,35 +1,36 @@
-%global packname  WaveLetLongMemory
-%global packver   0.1.2
+%global packname  UComp
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Estimating Long Memory Parameter using Wavelet
+Summary:          Automatic Unobserved Components Models
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-fracdiff 
-BuildRequires:    R-CRAN-wmtsa 
-Requires:         R-CRAN-fracdiff 
-Requires:         R-CRAN-wmtsa 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-stats 
 
 %description
-Estimation of the long memory parameter using wavelets. Other estimation
-techniques like GPH (Geweke and Porter-Hudak,1983,
-<DOI:10.1111/j.1467-9892.1983.tb00371.x>) and Semiparametric
-methods(Robinson, P. M.,1995, <DOI:10.1214/aos/1176324317>) also have
-included.
+Comprehensive analysis and forecasting of univariate time series using
+automatic unobserved components models and algorithms. Harvey, AC (1989)
+<doi:10.1017/CBO9781107049994>. Pedregal, DJ and Young PC (2002)
+<doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
+<doi:10.1093/acprof:oso/9780199641178.001.0001>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -37,6 +38,7 @@ included.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -49,3 +51,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

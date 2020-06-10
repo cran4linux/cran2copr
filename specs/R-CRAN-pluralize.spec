@@ -1,33 +1,28 @@
-%global packname  santoku
-%global packver   0.4.0
+%global packname  pluralize
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          A Versatile Cutting Tool
+Summary:          Pluralize and 'Singularize' Any (English) Word
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-V8 
+Requires:         R-CRAN-V8 
 
 %description
-A tool for cutting data into intervals. Allows singleton intervals. Always
-includes the whole range of data by default. Flexible labelling.
-Convenience functions for cutting by quantiles etc. Handles dates and
-times.
+Tools are provided to create plural, singular and regular forms of English
+words along with tools to augment the built-in rules to fit specialized
+needs. Core functionality is based on a JavaScript library,
+<https://github.com/blakeembrey/pluralize>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,5 +50,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/js
+%doc %{rlibdir}/%{packname}/tinytest
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

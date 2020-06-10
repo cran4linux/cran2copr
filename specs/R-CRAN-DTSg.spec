@@ -1,9 +1,9 @@
 %global packname  DTSg
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          A Class for Working with Time Series Based on 'data.table' and'R6' with Largely Optional Reference Semantics
 
@@ -26,12 +26,12 @@ Requires:         R-CRAN-R6
 
 %description
 Basic time series functionalities such as listing of missing values,
-application of arbitrary aggregation as well as rolling window functions
-and automatic detection of periodicity. As it is mainly based on
-'data.table', it is fast and - in combination with the 'R6' package -
-offers reference semantics. In addition to its native R6 interface, it
-provides an S3 interface inclusive an S3 wrapper method generator for
-those who prefer the latter.
+application of arbitrary aggregation as well as rolling (asymmetric)
+window functions and automatic detection of periodicity. As it is mainly
+based on 'data.table', it is fast and - in combination with the 'R6'
+package - offers reference semantics. In addition to its native R6
+interface, it provides an S3 interface inclusive an S3 wrapper method
+generator for those who prefer the latter.
 
 %prep
 %setup -q -c -n %{packname}

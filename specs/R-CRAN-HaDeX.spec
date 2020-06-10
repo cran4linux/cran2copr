@@ -1,9 +1,9 @@
 %global packname  HaDeX
-%global packver   1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2.1
 Release:          1%{?dist}
 Summary:          Analysis and Visualisation of Hydrogen/Deuterium Exchange MassSpectrometry Data
 
@@ -52,6 +52,7 @@ in-built 'Shiny' app.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
