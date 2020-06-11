@@ -1,9 +1,9 @@
 %global packname  grpreg
-%global packver   3.2.2
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.3.0
 Release:          1%{?dist}
 Summary:          Regularization Paths for Regression Models with GroupedCovariates
 
@@ -51,7 +51,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/testing-functions.R
 %doc %{rlibdir}/%{packname}/tests
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  rje
-%global packver   1.10.15
+%global packver   1.10.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.15
+Version:          1.10.16
 Release:          1%{?dist}
 Summary:          Miscellaneous Useful Functions for Statistics
 

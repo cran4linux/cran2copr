@@ -1,9 +1,9 @@
 %global packname  convergEU
-%global packver   0.4.2
+%global packver   0.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.6
 Release:          1%{?dist}
 Summary:          Monitoring Convergence of EU Countries
 
@@ -17,48 +17,30 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-eurostat 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-formattable 
-BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-eurostat 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-formattable 
-Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
 
 %description
 Indicators and measures by country and time describe what happens at

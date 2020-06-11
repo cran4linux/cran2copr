@@ -1,9 +1,9 @@
 %global packname  StratifiedMedicine
-%global packver   0.2.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Stratified Medicine
 
@@ -41,7 +41,7 @@ identification models (find subsets of patients with similar treatment
 effects), and (4) parameter estimation and inference (for the overall
 population and discovered subgroups). These tools can directly feed into
 stratified medicine algorithms including PRISM (patient response
-identifiers for stratified medicine; Jemielita and Mehrotra (2019)
+identifiers for stratified medicine; Jemielita and Mehrotra 2019
 <arXiv:1912.03337>. PRISM is a flexible and general framework which
 accepts user-created models/functions. This package is in beta and will be
 continually updated.
@@ -68,6 +68,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  tidycensus
-%global packver   0.9.9.2
+%global packver   0.9.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9.2
+Version:          0.9.9.5
 Release:          1%{?dist}
 Summary:          Load US Census Boundary and Attribute Data as 'tidyverse' and'sf'-Ready Data Frames
 

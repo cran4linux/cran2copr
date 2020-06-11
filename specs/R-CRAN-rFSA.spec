@@ -1,13 +1,13 @@
-%global packname  rules
-%global packver   0.0.2
+%global packname  rFSA
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.9.6
 Release:          1%{?dist}
-Summary:          Model Wrappers for Rule-Based Models
+Summary:          Feasible Solution Algorithm for Finding Best Subsets andInteractions
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,26 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 0.1.0
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-rPref 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-parsnip >= 0.1.0
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-hash 
+Requires:         R-parallel 
+Requires:         R-methods 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dials 
+Requires:         R-CRAN-rPref 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-hash 
 
 %description
-Bindings for additional models for use with the 'parsnip' package. Models
-include prediction rule ensembles (Friedman and Popescu, 2008)
-<doi:10.1214/07-AOAS148>, C5.0 rules (Quinlan, 1992 ISBN: 1558602380), and
-Cubist (Kuhn and Johnson, 2013) <doi:10.1007/978-1-4614-6849-3>.
+Assists in statistical model building to find optimal and semi-optimal
+higher order interactions and best subsets. Uses the lm(), glm(), and
+other R functions to fit models generated from a feasible solution
+algorithm. Discussed in Subset Selection in Regression, A Miller (2002).
+Applied and explained for least median of squares in Hawkins (1993)
+<doi:10.1016/0167-9473(93)90246-P>. The feasible solution algorithm comes
+up with model forms of a specific type that can have fixed variables,
+higher order interactions and their lower order terms.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,9 +59,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

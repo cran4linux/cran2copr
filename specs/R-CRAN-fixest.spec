@@ -1,9 +1,9 @@
 %global packname  fixest
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Fast Fixed-Effects Estimations
 
@@ -14,21 +14,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-dreamerr >= 1.2.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-nlme 
 BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-dreamerr >= 1.2.0
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-CRAN-Formula 
-Requires:         R-MASS 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-nlme 
 Requires:         R-CRAN-Rcpp 
@@ -68,6 +68,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc

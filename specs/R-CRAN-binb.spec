@@ -1,9 +1,9 @@
 %global packname  binb
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}
 Summary:          'binb' is not 'Beamer'
 
@@ -32,6 +32,7 @@ Hyndman. Additional (free) fonts may be needed: 'Metropolis' prefers
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

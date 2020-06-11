@@ -1,11 +1,11 @@
 %global packname  GetoptLong
-%global packver   0.1.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Parsing Command-Line Arguments and Variable Interpolation
+Summary:          Parsing Command-Line Arguments and Simple Variable Interpolation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -13,24 +13,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         perl(Getopt::Long)
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-GlobalOptions >= 0.1.0
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-GlobalOptions >= 0.1.0
 Requires:         R-CRAN-rjson 
 Requires:         R-methods 
+Requires:         R-CRAN-crayon 
 
 %description
-This is yet another command-line argument parser which wraps the powerful
-Perl module Getopt::Long and with some adaptation for easier use in R. It
-also provides a simple way for variable interpolation in R.
+This is a command-line argument parser which wraps the powerful Perl
+module Getopt::Long and with some adaptations for easier use in R. It also
+provides a simple way for variable interpolation in R.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

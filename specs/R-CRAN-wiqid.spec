@@ -1,9 +1,9 @@
 %global packname  wiqid
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}
 Summary:          Quick and Dirty Estimates for Wildlife Populations
 
@@ -16,15 +16,19 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-mcmcOutput 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-plotrix 
 Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-mcmcOutput 
 Requires:         R-stats 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-MASS 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-plotrix 
 
 %description
 Provides simple, fast functions for maximum likelihood and Bayesian
@@ -37,6 +41,7 @@ population estimation, survival, species richness and distance measures.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -60,4 +65,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/shiny
 %doc %{rlibdir}/%{packname}/tests
+%doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX

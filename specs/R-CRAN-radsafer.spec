@@ -1,9 +1,9 @@
 %global packname  radsafer
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}
 Summary:          Radiation Safety
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-CRAN-ggthemes 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-readr 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-ggthemes 
 
 %description

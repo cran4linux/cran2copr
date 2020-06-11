@@ -1,9 +1,9 @@
 %global packname  picante
-%global packver   1.8.1
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          1.8.2
 Release:          1%{?dist}
 Summary:          Integrating Phylogenies and Ecology
 

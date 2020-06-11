@@ -1,9 +1,9 @@
 %global packname  DIFlasso
-%global packver   1.0-3
+%global packver   1.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}
 Summary:          A Penalty Approach to Differential Item Functioning in RaschModels
 
@@ -23,13 +23,15 @@ Requires:         R-CRAN-penalized
 Requires:         R-CRAN-miscTools 
 
 %description
-Performs DIFlasso, a method to detect DIF (Differential Item Functioning)
-in Rasch Models. It can handle settings with many variables and also
-metric variables.
+Performs DIFlasso as proposed by Tutz and Schauberger (2015)
+<doi:10.1007/s11336-013-9377-6>, a method to detect DIF (Differential Item
+Functioning) in Rasch Models. It can handle settings with many variables
+and also metric variables.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -37,6 +39,7 @@ metric variables.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
