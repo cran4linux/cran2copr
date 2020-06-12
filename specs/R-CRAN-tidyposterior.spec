@@ -1,9 +1,9 @@
 %global packname  tidyposterior
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}
 Summary:          Bayesian Analysis to Compare Models using Resampling Statistics
 
@@ -17,6 +17,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rstanarm >= 2.15.3
 BuildRequires:    R-CRAN-tidyr >= 0.7.1
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-rsample >= 0.0.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
@@ -25,8 +26,10 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-rstanarm >= 2.15.3
 Requires:         R-CRAN-tidyr >= 0.7.1
+Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-rsample >= 0.0.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
@@ -35,6 +38,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Bayesian analysis used here to answer the question: "when looking at
@@ -49,6 +53,7 @@ Benavoli et al (2017) <http://jmlr.org/papers/v18/16-305.html>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -56,6 +61,7 @@ Benavoli et al (2017) <http://jmlr.org/papers/v18/16-305.html>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

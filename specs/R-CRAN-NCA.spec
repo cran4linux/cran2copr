@@ -1,9 +1,9 @@
 %global packname  NCA
-%global packver   3.0.2
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.3
 Release:          1%{?dist}
 Summary:          Necessary Condition Analysis
 
@@ -57,6 +57,7 @@ using this package can be found here: <http://repub.eur.nl/pub/78323/> or
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

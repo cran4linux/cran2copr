@@ -1,9 +1,9 @@
 %global packname  lessR
-%global packver   3.9.5
+%global packver   3.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.5
+Version:          3.9.6
 Release:          1%{?dist}
 Summary:          Less Code, More Results
 
@@ -19,7 +19,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-foreign 
 BuildRequires:    R-methods 
 BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-latticeExtra 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-ellipse
 BuildRequires:    R-CRAN-leaps 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-knitr 
@@ -36,7 +34,6 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-foreign 
 Requires:         R-methods 
 Requires:         R-lattice 
 Requires:         R-CRAN-latticeExtra 
@@ -45,7 +42,6 @@ Requires:         R-CRAN-ellipse
 Requires:         R-CRAN-leaps 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-triangle 
-Requires:         R-CRAN-png 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-knitr 

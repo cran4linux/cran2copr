@@ -1,9 +1,9 @@
 %global packname  TTAinterfaceTrendAnalysis
-%global packver   1.5.5
+%global packver   1.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          1.5.6
 Release:          1%{?dist}
 Summary:          Temporal Trend Analysis Graphical Interface
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-e1071
 BuildRequires:    R-CRAN-relimp 
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-rkt 
+BuildRequires:    R-CRAN-stlplus 
 BuildRequires:    R-nlme 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-tcltk 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-e1071
 Requires:         R-CRAN-relimp 
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-rkt 
+Requires:         R-CRAN-stlplus 
 Requires:         R-nlme 
 Requires:         R-CRAN-lubridate 
 Requires:         R-tcltk 
@@ -61,6 +63,7 @@ cusum() function.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

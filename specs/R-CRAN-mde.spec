@@ -1,9 +1,9 @@
 %global packname  mde
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Missing Data Explorer
 
@@ -15,12 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-tidyr >= 1.0.3
+BuildRequires:    R-CRAN-dplyr >= 0.8.9
+Requires:         R-CRAN-tidyr >= 1.0.3
+Requires:         R-CRAN-dplyr >= 0.8.9
 
 %description
 Correct identification and handling of missing data is one of the most

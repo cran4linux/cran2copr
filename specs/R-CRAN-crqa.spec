@@ -1,11 +1,11 @@
 %global packname  crqa
-%global packver   1.0.9
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          2.0
 Release:          1%{?dist}
-Summary:          Cross-Recurrence Quantification Analysis for Categorical andContinuous Time-Series
+Summary:          Recurrence Quantification Analysis for Categorical andContinuous Time-Series
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,27 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-tseriesChaos 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-tseriesChaos 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-rdist 
 Requires:         R-Matrix 
-Requires:         R-CRAN-tseriesChaos 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-tseriesChaos 
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-rdist 
 
 %description
-Cross-recurrence quantification analysis of two time-series, of either
-categorical or continuous values. It provides different methods for
-profiling cross-recurrence, i.e., only looking at the diagonal recurrent
-points, as well as more in-depth measures of the whole cross-recurrence
-plot, e.g., recurrence rate. Please refer to by Coco and Dale (2014)
-<doi:10.3389/fpsyg.2014.00510> for further details about the method.
+Auto, Cross and Multi-dimensional recurrence quantification analysis.
+Different methods for computing recurrence, cross vs. multidimensional or
+profile iti.e., only looking at the diagonal recurrent points, as well as
+functions for optimization and plotting are proposed. in-depth measures of
+the whole cross-recurrence plot, Please refer to by Coco and Dale (2014)
+<doi:10.3389/fpsyg.2014.00510> and Wallot (2018)
+<doi:10.1080/00273171.2018.1512846> for further details about the method.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -55,6 +59,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

@@ -1,9 +1,9 @@
 %global packname  DIFboost
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}
 Summary:          Detection of Differential Item Functioning (DIF) in Rasch Modelsby Boosting Techniques
 
@@ -24,13 +24,13 @@ Requires:         R-CRAN-stabs
 
 %description
 Performs detection of Differential Item Functioning using the method
-DIFboost as proposed in Schauberger and Tutz (2015): Detection of
-Differential item functioning in Rasch models by boosting techniques,
-British Journal of Mathematical and Statistical Psychology.
+DIFboost as proposed by Schauberger and Tutz (2016)
+<doi:10.1111/bmsp.12060>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

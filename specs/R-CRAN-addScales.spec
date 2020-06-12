@@ -1,11 +1,11 @@
 %global packname  addScales
-%global packver   0.1-5
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Adds Labeled Center Line and Scale Lines to Trellis Plots
+Summary:          Adds Labeled Center Line and Scale Lines/Regions to TrellisPlots
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,9 +26,9 @@ Requires:         R-grDevices
 
 %description
 Modifies trellis objects by adding horizontal and/or vertical reference
-lines that provide visual scaling information. This is mostly useful in
-multi-panel plots that use the relation = 'free' option in their 'scales'
-argument list.
+lines or shaded regions that provide visual scaling information. This is
+mostly useful in multi-panel plots that use the relation = 'free' option
+in their 'scales' argument list.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,4 +55,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

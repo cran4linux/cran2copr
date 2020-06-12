@@ -1,9 +1,9 @@
 %global packname  PCMRS
-%global packver   0.1-1
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Model Response Styles in Partial Credit Models
 
@@ -30,16 +30,17 @@ Requires:         R-parallel
 
 %description
 Implementation of PCMRS (Partial Credit Model with Response Styles) as
-proposed in by Tutz, Schauberger and Berger (2016)
-<https://epub.ub.uni-muenchen.de/29373/> .  PCMRS is an extension of the
-regular partial credit model. PCMRS allows for an additional person
-parameter that characterizes the response style of the person. By taking
-the response style into account, the estimates of the item parameters are
-less biased than in partial credit models.
+proposed in by Tutz, Schauberger and Berger (2018)
+<doi:10.1177/0146621617748322> .  PCMRS is an extension of the regular
+partial credit model. PCMRS allows for an additional person parameter that
+characterizes the response style of the person. By taking the response
+style into account, the estimates of the item parameters are less biased
+than in partial credit models.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

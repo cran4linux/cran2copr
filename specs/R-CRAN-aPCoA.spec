@@ -1,9 +1,9 @@
 %global packname  aPCoA
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}
 Summary:          Covariate Adjusted PCoA Plot
 
@@ -12,18 +12,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-mvabund 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-cluster 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-mvabund 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-car 
 Requires:         R-cluster 
@@ -60,6 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

@@ -1,9 +1,9 @@
 %global packname  vein
-%global packver   0.8.8
+%global packver   0.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.8.9
 Release:          1%{?dist}
 Summary:          Vehicular Emissions Inventories
 
@@ -34,8 +34,8 @@ emissions and post-processing of emissions in maps and databases. More
 details in Ibarra-Espinosa et al (2018) <doi:10.5194/gmd-11-2209-2018>.
 Before using VEIN you need to know the vehicular composition of your study
 area, in other words, the combination of of type of vehicles, size and
-fuel of the fleet. Then, it is recommended to start with the function
-inventory to create a structure of directories and template scripts.
+fuel of the fleet. Then, it is recommended to start with the project to
+download a template to create a structure of directories and scripts.
 
 %prep
 %setup -q -c -n %{packname}

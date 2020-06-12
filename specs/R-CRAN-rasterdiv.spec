@@ -1,9 +1,9 @@
 %global packname  rasterdiv
-%global packver   0.1-0
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Diversity Indices for Numerical Matrices
 
@@ -22,6 +22,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-svMisc 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pbmcapply 
 Requires:         R-CRAN-raster 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
@@ -29,6 +31,8 @@ Requires:         R-methods
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-svMisc 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pbmcapply 
 
 %description
 Providing functions to calculate indices of diversity on numerical
@@ -59,6 +63,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,9 +1,9 @@
 %global packname  stoRy
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}
 Summary:          Functions for the Analysis of Star Trek Thematic Data
 
