@@ -1,9 +1,9 @@
 %global packname  dmdScheme
-%global packver   1.1.3.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3.1
+Version:          1.2
 Release:          1%{?dist}
 Summary:          Domain Specific MetaData Scheme
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-writexl
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-EML 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-readxl >= 1.2.0
 Requires:         R-CRAN-digest >= 0.6
@@ -45,6 +46,7 @@ Requires:         R-CRAN-writexl
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-EML 
+Requires:         R-CRAN-stringr 
 
 %description
 Forms the core for developing own domain specific metadata schemes. It
@@ -79,6 +81,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/aaa.R
 %doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/index.md
 %doc %{rlibdir}/%{packname}/reports
 %doc %{rlibdir}/%{packname}/shiny_apps
 %{rlibdir}/%{packname}/INDEX

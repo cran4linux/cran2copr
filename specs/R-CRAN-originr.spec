@@ -1,9 +1,9 @@
 %global packname  originr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Fetch Species Origin Data from the Web
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-taxize >= 0.9.0
-BuildRequires:    R-CRAN-crul >= 0.5.2
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-taxize >= 0.9.0
-Requires:         R-CRAN-crul >= 0.5.2
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-xml2 
 
@@ -31,14 +31,15 @@ Get species origin data (whether species is native/invasive) from the
 following sources on the web: Encyclopedia of Life (<http://eol.org>),
 Flora 'Europaea' (<http://rbg-web2.rbge.org.uk/FE/fe.html>), Global
 Invasive Species Database (<http://www.iucngisd.org/gisd>), the Native
-Species Resolver (<http://bien.nceas.ucsb.edu/bien/tools/nsr/nsr-ws/>),
-Integrated Taxonomic Information Service (<http://www.itis.gov/>), and
+Species Resolver (<https://bien.nceas.ucsb.edu/bien/tools/nsr/>),
+Integrated Taxonomic Information Service (<https://www.itis.gov/>), and
 Global Register of Introduced and Invasive Species
 (<http://www.griis.org/>).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

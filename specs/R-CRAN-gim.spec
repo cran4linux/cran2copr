@@ -1,9 +1,9 @@
 %global packname  gim
-%global packver   0.28.0
+%global packver   0.33.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.28.0
+Version:          0.33.1
 Release:          1%{?dist}
 Summary:          Generalized Integration Model
 
@@ -24,10 +24,12 @@ individual-level data and summary statistics under a generalized linear
 model framework. It supports continuous and binary outcomes to be modeled
 by the linear and logistic regression models. For binary outcome, data can
 be sampled in prospective cohort studies or case-control studies.
+Described in Zhang et al. (2020)<doi:10.1093/biomet/asaa014>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -49,4 +51,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

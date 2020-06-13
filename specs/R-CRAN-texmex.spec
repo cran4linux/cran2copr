@@ -1,9 +1,9 @@
 %global packname  texmex
-%global packver   2.4.5
+%global packver   2.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          2.4.7
 Release:          1%{?dist}
 Summary:          Statistical Modelling of Extreme Values
 

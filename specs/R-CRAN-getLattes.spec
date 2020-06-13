@@ -1,13 +1,13 @@
-%global packname  egor
-%global packver   0.20.06
+%global packname  getLattes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.06
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Import and Analyse Ego-Centered Network Data
+Summary:          Import and Process Data from the 'Lattes' Curriculum Platform
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,38 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-network 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-srvyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-pipeR 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-XML 
+Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-network 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-srvyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-pipeR 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 
 %description
-Tools for importing, analyzing and visualizing ego-centered network data.
-Supports several data formats, including the export formats of 'EgoNet',
-'EgoWeb 2.0' and 'openeddi'. An interactive (shiny) app for the intuitive
-visualization of ego-centered networks is provided. Also included are
-procedures for creating and visualizing Clustered Graphs (Lerner 2008
-<DOI:10.1109/PACIFICVIS.2008.4475458>).
+Tool for import and process data from 'Lattes' curriculum platform
+(<http://lattes.cnpq.br/>). The Brazilian government keeps an extensive
+base of curricula for academics from all over the country, with over 5
+million registrations. The academic life of the Brazilian researcher, or
+related to Brazilian universities, is documented in 'Lattes'. Some
+information that can be obtained: professional formation, research area,
+publications, academics advisories, projects, etc. 'getLattes' package
+allows work with 'Lattes' data exported to XML format.
 
 %prep
 %setup -q -c -n %{packname}
@@ -74,6 +70,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

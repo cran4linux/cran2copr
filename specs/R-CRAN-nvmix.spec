@@ -1,9 +1,9 @@
 %global packname  nvmix
-%global packver   0.0-3
+%global packver   0.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}
 Summary:          Multivariate Normal Variance Mixtures
 
@@ -24,14 +24,17 @@ Requires:         R-CRAN-qrng
 Requires:         R-Matrix 
 
 %description
-Functions for working with multivariate normal variance mixture
-distributions (evaluation of distribution functions and densities, random
-number generation and parameter estimation), including Student's t
-distribution for non-integer degrees of freedom.
+Functions for working with grouped and ungrouped multivariate normal
+variance mixture distributions (evaluation of distribution functions and
+densities, random number generation and parameter estimation), including
+Student's t distribution for non-integer degrees-of-freedom as well as the
+grouped t distribution and copula with multiple degrees-of-freedom
+parameters.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

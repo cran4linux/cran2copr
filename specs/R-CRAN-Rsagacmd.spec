@@ -1,9 +1,9 @@
 %global packname  Rsagacmd
-%global packver   0.0.5
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.9
 Release:          1%{?dist}
 Summary:          Linking R with the Open-Source 'SAGA-GIS' Software
 
@@ -22,7 +22,6 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-foreign 
 BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
@@ -34,7 +33,6 @@ Requires:         R-tools
 Requires:         R-CRAN-rgdal 
 Requires:         R-foreign 
 Requires:         R-CRAN-minpack.lm 
-Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
@@ -89,5 +87,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/INDEX

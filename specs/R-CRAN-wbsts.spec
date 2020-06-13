@@ -1,28 +1,31 @@
-%global packname  calibrate
-%global packver   1.7.6
+%global packname  wbsts
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.6
+Version:          2.1
 Release:          1%{?dist}
-Summary:          Calibration of Scatterplot and Biplot Axes
+Summary:          Multiple Change-Point Detection for Nonstationary Time Series
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-MASS 
-Requires:         R-MASS 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-wavelets 
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-wavelets 
 
 %description
-Package for drawing calibrated scales with tick marks on (non-orthogonal)
-variable vectors in scatterplots and biplots. Also provides some functions
-for biplot creation and for multivariate analysis such as principal
-coordinate analysis.
+Implements detection for the number and locations of the change-points in
+a time series using the Wild Binary Segmentation and the Locally
+Stationary Wavelet model of Korkas and Fryzlewicz (2017)
+<doi:10.5705/ss.202015.0262>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,9 +47,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

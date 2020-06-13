@@ -1,45 +1,39 @@
-%global packname  priceR
+%global packname  QGameTheory
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Microeconomics and Pricing Tools
+Summary:          Quantum Game Theory Simulator
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gsubfn 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-R.utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gsubfn 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-R.utils 
 
 %description
-Functions to aid in microeconomic analysis and handling of price and
-currency data. This includes extraction of relevant data (e.g. from World
-Bank API, and other sources), data cleaning/parsing, and standardisation.
-Inflation adjustment calculations as found in Principles of Macroeconomics
-by Gregory Mankiw et al (2014).
+General purpose toolbox for simulating quantum versions of game theoretic
+models (Flitney and Abbott 2002) <arXiv:quant-ph/0208069>. Quantum
+(Nielsen and Chuang 2010, ISBN:978-1-107-00217-3) versions of models that
+have been handled are: Penny Flip Game (David A. Meyer 1998)
+<arXiv:quant-ph/9804010>, Prisoner's Dilemma (J. Orlin Grabbe 2005)
+<arXiv:quant-ph/0506219>, Two Person Duel (Flitney and Abbott 2004)
+<arXiv:quant-ph/0305058>, Battle of the Sexes (Nawaz and Toor 2004)
+<arXiv:quant-ph/0110096>, Hawk and Dove Game (Nawaz and Toor 2010)
+<arXiv:quant-ph/0108075>, Newcomb's Paradox (Piotrowski and Sladkowski
+2002) <arXiv:quant-ph/0202074> and Monty Hall Problem (Flitney and Abbott
+2002) <arXiv:quant-ph/0109035>.
 
 %prep
 %setup -q -c -n %{packname}

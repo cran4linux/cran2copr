@@ -1,13 +1,13 @@
-%global packname  priceR
-%global packver   0.1.2
+%global packname  IPDFileCheck
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.6.3
 Release:          1%{?dist}
-Summary:          Microeconomics and Pricing Tools
+Summary:          Basic Functions to Check Readability, Consistency, and Contentof an Individual Participant Data File
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,31 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-testthat >= 1.0.2
+BuildRequires:    R-CRAN-GlobalOptions >= 0.1.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gsubfn 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-eeptools 
+Requires:         R-CRAN-testthat >= 1.0.2
+Requires:         R-CRAN-GlobalOptions >= 0.1.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gsubfn 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-stats 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringi 
+Requires:         R-methods 
+Requires:         R-CRAN-eeptools 
 
 %description
-Functions to aid in microeconomic analysis and handling of price and
-currency data. This includes extraction of relevant data (e.g. from World
-Bank API, and other sources), data cleaning/parsing, and standardisation.
-Inflation adjustment calculations as found in Principles of Macroeconomics
-by Gregory Mankiw et al (2014).
+Basic checks needed with an individual level participant data from
+randomised controlled trial. This checks files for existence, read access
+and individual columns for formats. The checks on format is currently
+implemented for gender and age formats.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,7 +55,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX

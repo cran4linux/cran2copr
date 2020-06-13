@@ -1,28 +1,30 @@
-%global packname  calibrate
-%global packver   1.7.6
+%global packname  BayesGWQS
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.6
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Calibration of Scatterplot and Biplot Axes
+Summary:          Bayesian Grouped Weighted Quantile Sum Regression
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-MASS 
-Requires:         R-MASS 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-coda 
+Requires:         R-stats 
 
 %description
-Package for drawing calibrated scales with tick marks on (non-orthogonal)
-variable vectors in scatterplots and biplots. Also provides some functions
-for biplot creation and for multivariate analysis such as principal
-coordinate analysis.
+Fits Bayesian grouped weighted quantile sum (BGWQS) regressions for one or
+more chemical groups with binary outcomes. Wheeler DC et al. (2019)
+<doi:10.1016/j.sste.2019.100286>. Wheeler DC et al. (2020)
+<doi:10.3390/ijerph17082864>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,5 +50,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

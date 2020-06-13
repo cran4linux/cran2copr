@@ -1,9 +1,9 @@
 %global packname  jpndistrict
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}
 Summary:          Create Japanese Administration Area and Office Maps
 
@@ -15,27 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 4.3
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-leaflet >= 2.0.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-shiny >= 1.4.0.2
 BuildRequires:    R-CRAN-jpmesh >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-googlePolylines >= 0.7.2
 BuildRequires:    R-CRAN-rlang >= 0.4.5
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 BuildRequires:    R-CRAN-miniUI >= 0.1.1
+Requires:         R-CRAN-curl >= 4.3
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-leaflet >= 2.0.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-shiny >= 1.4.0.2
 Requires:         R-CRAN-jpmesh >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-googlePolylines >= 0.7.2
 Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-purrr >= 0.3.3

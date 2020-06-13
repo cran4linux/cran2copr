@@ -1,9 +1,9 @@
 %global packname  nlraa
-%global packver   0.65
+%global packver   0.73
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.65
+Version:          0.73
 Release:          1%{?dist}
 Summary:          Nonlinear Regression for Agricultural Applications
 
@@ -18,11 +18,15 @@ BuildArch:        noarch
 BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-MASS 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-mgcv 
 BuildRequires:    R-nlme 
 BuildRequires:    R-stats 
 Requires:         R-boot 
 Requires:         R-CRAN-knitr 
 Requires:         R-MASS 
+Requires:         R-Matrix 
+Requires:         R-mgcv 
 Requires:         R-nlme 
 Requires:         R-stats 
 

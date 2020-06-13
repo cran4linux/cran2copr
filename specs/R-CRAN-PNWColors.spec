@@ -1,28 +1,26 @@
-%global packname  calibrate
-%global packver   1.7.6
+%global packname  PNWColors
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.6
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Calibration of Scatterplot and Biplot Axes
+Summary:          Color Palettes Inspired by Nature in the US Pacific Northwest
 
-License:          GPL-2
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-MASS 
-Requires:         R-MASS 
 
 %description
-Package for drawing calibrated scales with tick marks on (non-orthogonal)
-variable vectors in scatterplots and biplots. Also provides some functions
-for biplot creation and for multivariate analysis such as principal
-coordinate analysis.
+PNW-Inspired Palettes for 'R' data visualizations. Palettes are variable
+in length and checked for colorblind accessibility from hue, saturation,
+and lightness value scaling using the 'Chroma.js Color Palette Helper'
+<https://gka.github.io/palettes/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,9 +42,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

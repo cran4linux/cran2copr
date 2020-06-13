@@ -1,28 +1,35 @@
-%global packname  calibrate
-%global packver   1.7.6
+%global packname  rportfolio
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.6
+Version:          0.0.3
 Release:          1%{?dist}
-Summary:          Calibration of Scatterplot and Biplot Axes
+Summary:          Portfolio Theory
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-MASS 
-Requires:         R-MASS 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-stats 
 
 %description
-Package for drawing calibrated scales with tick marks on (non-orthogonal)
-variable vectors in scatterplots and biplots. Also provides some functions
-for biplot creation and for multivariate analysis such as principal
-coordinate analysis.
+Collection of tools to calculate portfolio performance metrics. Portfolio
+performance is a key measure for investors. These metrics are important to
+analyse how effectively their money has been invested. This package uses
+portfolio theories to give investor tools to evaluate their portfolio
+performance. For more information see, Markowitz, H.M. (1952),
+<doi:10.2307/2975974>. Analysis of Investments & Management of Portfolios
+[2012, ISBN:978-8131518748].
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,5 +55,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
