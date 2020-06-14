@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generating and Testing DNA Sequences
 
 License:          GPL-2

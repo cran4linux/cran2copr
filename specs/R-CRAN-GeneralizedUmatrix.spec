@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Credible Visualization for Two-Dimensional Projections of Data
 
 License:          GPL-3

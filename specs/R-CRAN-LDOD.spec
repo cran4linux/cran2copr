@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Finding Locally D-optimal optimal designs for some nonlinear andgeneralized linear models.
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.74
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Quality Assurance Toolkit
 
 License:          GPL-2

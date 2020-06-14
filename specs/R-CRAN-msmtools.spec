@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Building Augmented Data to Run Multi-State Models with 'msm'Package
 
 License:          GPL-3

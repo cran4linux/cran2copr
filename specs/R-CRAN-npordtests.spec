@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonparametric Tests for Equality of Location Against OrderedAlternatives
 
 License:          GPL (>= 2)

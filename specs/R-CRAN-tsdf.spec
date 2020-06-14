@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Two-/Three-Stage Designs for Phase 1&2 Clinical Trials
 
 License:          GPL-2

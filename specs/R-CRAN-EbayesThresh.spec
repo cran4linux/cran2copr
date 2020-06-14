@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Empirical Bayes Thresholding and Related Methods
 
 License:          GPL (>= 2)

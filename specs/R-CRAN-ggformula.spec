@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Formula Interface to the Grammar of Graphics
 
 License:          MIT + file LICENSE

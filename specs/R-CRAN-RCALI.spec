@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculation of the Integrated Flow of Particles Between Polygons
 
 License:          GPL-3

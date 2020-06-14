@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.30
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Censored Regression (Tobit) Models
 
 License:          GPL (>= 2)

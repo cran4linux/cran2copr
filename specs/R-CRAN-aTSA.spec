@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Alternative Time Series Analysis
 
 License:          GPL-2 | GPL-3

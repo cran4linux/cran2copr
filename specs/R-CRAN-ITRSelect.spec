@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Variable Selection for Optimal Individualized Dynamic TreatmentRegime
 
 License:          GPL-2

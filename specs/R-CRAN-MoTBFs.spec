@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Learning Hybrid Bayesian Networks using Mixtures of TruncatedBasis Functions
 
 License:          LGPL-3

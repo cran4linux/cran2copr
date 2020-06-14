@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Probability Plot Correlation Coefficient Test
 
 License:          GPL-3

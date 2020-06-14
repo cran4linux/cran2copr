@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Interface to the 'PostgreSQL' Database System
 
 License:          GPL-2 | file LICENSE

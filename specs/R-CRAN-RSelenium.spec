@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Bindings for 'Selenium WebDriver'
 
 License:          AGPL-3

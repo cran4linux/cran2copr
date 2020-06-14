@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Density Estimation with a Penalized Mixture Approach
 
 License:          GPL (>= 2)

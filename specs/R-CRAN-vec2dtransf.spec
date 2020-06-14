@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          2D Cartesian Coordinate Transformation
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Wrapper for the API of the Danish Parliament
 
 License:          MIT + file LICENSE

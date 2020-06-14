@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Companion to Tsay (2005) Analysis of Financial Time Series
 
 License:          GPL (>= 2)

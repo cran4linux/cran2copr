@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.27.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Visualization Package for CanvasXpress in R
 
 License:          GPL-3

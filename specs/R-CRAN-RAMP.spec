@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regularized Generalized Linear Models with Interaction Effects
 
 License:          GPL-2

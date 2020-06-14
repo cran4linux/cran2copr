@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions and datasets to accompany the book "Le logiciel R:Maitriser le langage, Effectuer des analyses statistiques"(French)
 
 License:          GPL (>= 2)

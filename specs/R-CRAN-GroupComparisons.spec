@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Paired/Unpaired Parametric/Non-Parametric Group Comparisons
 
 License:          MIT + file LICENSE

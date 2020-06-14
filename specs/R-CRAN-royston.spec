@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Royston's H Test: Multivariate Normality Test
 
 License:          GPL (>= 2)

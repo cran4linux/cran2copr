@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gabriel Graph Based Large-Margin Classifiers
 
 License:          GPL (>= 2)

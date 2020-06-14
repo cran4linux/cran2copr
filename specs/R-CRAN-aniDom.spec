@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Inferring Dominance Hierarchies and Estimating Uncertainty
 
 License:          GPL-2

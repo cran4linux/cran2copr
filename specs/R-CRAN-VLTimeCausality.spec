@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Variable-Lag Time Series Causality Inference Framework
 
 License:          GPL-3

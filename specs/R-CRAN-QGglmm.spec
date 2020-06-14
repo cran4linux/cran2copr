@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimate Quantitative Genetics Parameters from GeneralisedLinear Mixed Models
 
 License:          GPL-2

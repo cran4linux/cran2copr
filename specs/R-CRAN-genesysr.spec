@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Genesys PGR Client
 
 License:          Apache License 2.0

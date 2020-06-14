@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Excerpt Structuring Comments from Your Code File and Set a Tableof Contents
 
 License:          BSD_2_clause + file LICENSE

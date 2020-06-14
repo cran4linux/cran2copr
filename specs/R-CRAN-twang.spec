@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Toolkit for Weighting and Analysis of Nonequivalent Groups
 
 License:          GPL-3 | file LICENSE

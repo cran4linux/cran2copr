@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          SODA: Main and Interaction Effects Selection for LogisticRegression, Quadratic Discriminant and General Index Models
 
 License:          GPL-2

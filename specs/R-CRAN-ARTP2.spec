@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.45
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Pathway and Gene-Level Association Test
 
 License:          GPL-2 | GPL-3

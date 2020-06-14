@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analyze Shot Group Data
 
 License:          GPL (>= 2)

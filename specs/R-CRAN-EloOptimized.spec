@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Optimized Elo Rating Method for Obtaining Dominance Ranks
 
 License:          GPL-3

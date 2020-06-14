@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Analysis of Amplicon Data of the Same Sample toIdentify Artefacts
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Single Arm Sample Size Calculation Software
 
 License:          GPL-2

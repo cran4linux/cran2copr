@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          High-Dimensional Undirected Graph Estimation
 
 License:          GPL-2

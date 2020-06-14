@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.19
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Interface for H2O Sparkling Water
 
 License:          Apache License 2.0 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Numerical Methods and Optimization in Finance
 
 License:          GPL-3

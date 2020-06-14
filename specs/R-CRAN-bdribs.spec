@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Detection of Potential Risk Using Inference on BlindedSafety Data
 
 License:          GPL-2

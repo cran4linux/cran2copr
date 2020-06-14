@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Scientific Graphing Functions for Factorial Designs
 
 License:          GPL (>= 2)

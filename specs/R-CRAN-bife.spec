@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Binary Choice Models with Fixed Effects
 
 License:          GPL (>= 2)

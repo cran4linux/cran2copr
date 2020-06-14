@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Smoothed Bootstrap and Random Generation from Kernel Densities
 
 License:          GPL-2

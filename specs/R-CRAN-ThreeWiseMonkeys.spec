@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Japanese Pictorial Maxim "See No Evil, Hear No Evil, SpeakNo Evil"
 
 License:          MIT + file LICENSE

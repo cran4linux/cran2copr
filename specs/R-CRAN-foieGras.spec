@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fit Continuous-Time State-Space and Latent Variable Models forFiltering Argos Satellite (and Other) Telemetry Data andEstimating Movement Behaviour
 
 License:          MIT + file LICENSE

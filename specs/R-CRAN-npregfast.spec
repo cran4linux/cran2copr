@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonparametric Estimation of Regression Models withFactor-by-Curve Interactions
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Survival Regression with Flexible Error and RandomEffects Distributions
 
 License:          GPL (>= 2)

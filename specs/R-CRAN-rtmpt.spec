@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.19
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fitting RT-MPT Models
 
 License:          GPL (>= 2)

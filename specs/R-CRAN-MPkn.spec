@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculations of One Discrete Model in Several Time Steps
 
 License:          GPL (>= 3)

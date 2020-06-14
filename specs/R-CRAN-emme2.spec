@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read and Write to an EMME/2 databank
 
 License:          GPL

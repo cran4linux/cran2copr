@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.01.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Implementation of optimal hierarchical clustering
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.25
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mining Frequent Sequences
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interacting with the PhenoCam Data and API
 
 License:          AGPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A framework for working in a functional programming paradigm inR
 
 License:          LGPL-3

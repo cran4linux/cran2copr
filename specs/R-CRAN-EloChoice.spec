@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.29.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Preference Rating for Visual Stimuli Based on Elo Ratings
 
 License:          GPL (>= 3)

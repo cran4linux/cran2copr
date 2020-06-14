@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Thurstonian Models for Sensory Discrimination
 
 License:          GPL-2 | GPL-3

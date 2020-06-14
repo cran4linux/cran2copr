@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to the 'Open Science Framework' ('OSF')
 
 License:          MIT + file LICENSE

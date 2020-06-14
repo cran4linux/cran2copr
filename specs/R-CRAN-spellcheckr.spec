@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Correct the Spelling of a Given Word in the English Language
 
 License:          GPL-2 | GPL-3

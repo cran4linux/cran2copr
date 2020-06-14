@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bibliographic Network Analysis
 
 License:          GPL (>= 2)

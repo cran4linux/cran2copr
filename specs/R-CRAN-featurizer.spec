@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Some Helper Functions that Help Create Features from Data
 
 License:          GPL (>= 2)

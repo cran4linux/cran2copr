@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Dealing with Several Images of a Same Object Constituted ofDifferent Zones
 
 License:          GPL-3

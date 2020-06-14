@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mutivariate Bernoulli log-linear model
 
 License:          GPL (>= 2.0)

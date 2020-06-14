@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculates the Bidimensional Regression Between Two 2DConfigurations
 
 License:          GPL-3

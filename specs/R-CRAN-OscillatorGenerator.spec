@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generation of Customizable, Discretized Time Series ofOscillating Species
 
 License:          GPL (>= 3)

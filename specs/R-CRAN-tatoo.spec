@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Combine and Export Data Frames
 
 License:          MIT + file LICENSE

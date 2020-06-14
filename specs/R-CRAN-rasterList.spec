@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Raster Where Cells are Generic Objects
 
 License:          GPL (>= 3)

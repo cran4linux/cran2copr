@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonlinear Mixed Effects Models in Population Pharmacokineticsand Pharmacodynamics
 
 License:          GPL (>= 2)

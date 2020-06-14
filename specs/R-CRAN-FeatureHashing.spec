@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Creates a Model Matrix via Feature Hashing with a FormulaInterface
 
 License:          GPL (>= 3) | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          High Frequency Portfolio Analytics by PortfolioEffect
 
 License:          GPL-3

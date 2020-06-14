@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Maximum Likelihood method in estimating effective populationsize from genetic data
 
 License:          GPL (>= 2)

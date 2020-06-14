@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Evaluation Metrics for Machine Learning
 
 License:          BSD_3_clause + file LICENSE

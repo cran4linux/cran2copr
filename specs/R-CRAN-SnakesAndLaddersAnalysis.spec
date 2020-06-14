@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Play and Analyse the Game of Snakes and Ladders
 
 License:          GPL-2

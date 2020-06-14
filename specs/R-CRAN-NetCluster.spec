@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Clustering for networks
 
 License:          GPL-2

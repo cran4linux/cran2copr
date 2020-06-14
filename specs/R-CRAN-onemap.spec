@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Construction of Genetic Maps in Experimental Crosses: Full-Sib,RILs, F2 and Backcrosses
 
 License:          GPL-3

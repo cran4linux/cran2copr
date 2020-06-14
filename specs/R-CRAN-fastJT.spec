@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Efficient Jonckheere-Terpstra Test Statistics for Robust MachineLearning and Genome-Wide Association Studies
 
 License:          GPL (>= 2)

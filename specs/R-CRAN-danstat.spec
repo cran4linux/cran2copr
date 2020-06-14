@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Client for the Statistics Denmark Databank API
 
 License:          MIT + file LICENSE

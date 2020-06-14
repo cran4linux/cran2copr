@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Time-Varying (Right-Truncated) Geometric Distribution
 
 License:          MIT + file LICENSE

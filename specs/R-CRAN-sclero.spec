@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Measure Growth Patterns and Align Sampling Spots in Photographs
 
 License:          GPL-3

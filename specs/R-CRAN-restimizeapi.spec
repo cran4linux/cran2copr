@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Working with the 'www.estimize.com' Web Services
 
 License:          LGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computation of the WHO Child Growth Standards
 
 License:          GPL-3

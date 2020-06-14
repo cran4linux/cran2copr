@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Clients to the 'Web of Science' and 'InCites' APIs
 
 License:          MIT + file LICENSE

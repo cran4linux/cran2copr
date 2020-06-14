@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gromov-Hausdorff Type Distances for Labeled Metric Spaces
 
 License:          GPL (>= 2)

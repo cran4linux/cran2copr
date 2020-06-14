@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Microbial Pan-Genome Analysis
 
 License:          GPL-2

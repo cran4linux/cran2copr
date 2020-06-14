@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Detection of Univariate Outliers
 
 License:          GPL (>= 2)

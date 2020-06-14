@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Descriptive Statistics, Transition Plots, and More
 
 License:          GPL (>= 3)

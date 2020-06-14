@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Persistent Fast Amortized Stack and Queue Data Structures
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Determination of K Using Peak Counts of Features for Clustering
 
 License:          GPL (>= 2)

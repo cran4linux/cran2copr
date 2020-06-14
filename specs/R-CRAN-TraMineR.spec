@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Trajectory Miner: a Toolbox for Exploring and RenderingSequences
 
 License:          GPL (>= 2)

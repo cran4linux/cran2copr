@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.40
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Elementary Bayesian Inference
 
 License:          GPL (>= 2)

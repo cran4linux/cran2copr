@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Easily Access Song Lyrics from Genius.com
 
 License:          MIT + file LICENSE

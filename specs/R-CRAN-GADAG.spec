@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Genetic Algorithm for Learning Directed Acyclic Graphs
 
 License:          GPL-2

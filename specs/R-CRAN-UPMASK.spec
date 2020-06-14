@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Unsupervised Photometric Membership Assignment in StellarClusters
 
 License:          GPL (>= 3)

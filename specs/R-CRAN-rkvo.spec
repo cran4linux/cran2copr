@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read Key/Value Pair Observations
 
 License:          GPL-3

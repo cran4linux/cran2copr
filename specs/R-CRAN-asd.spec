@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulations for Adaptive Seamless Designs
 
 License:          GPL-3

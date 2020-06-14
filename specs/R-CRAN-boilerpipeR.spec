@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to the Boilerpipe Java Library
 
 License:          Apache License (== 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.29
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fits Poisson-Sum-of-Gammas GLMs, Tweedie GLMs, and DeltaLog-Normal Models
 
 License:          GPL

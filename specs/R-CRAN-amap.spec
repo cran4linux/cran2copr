@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.18
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Another Multidimensional Analysis Package
 
 License:          GPL

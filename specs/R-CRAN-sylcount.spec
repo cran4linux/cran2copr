@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Syllable Counting and Readability Measurements
 
 License:          BSD 2-clause License + file LICENSE

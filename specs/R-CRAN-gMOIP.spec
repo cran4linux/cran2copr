@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for 2D and 3D Plots of Single and Multi-ObjectiveLinear/Integer Programming Models
 
 License:          GPL (>= 3.3.2)

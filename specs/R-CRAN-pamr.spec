@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.56.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Pam: Prediction Analysis for Microarrays
 
 License:          GPL-2

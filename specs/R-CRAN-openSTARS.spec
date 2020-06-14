@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Open Source Implementation of the 'ArcGIS' Toolbox 'STARS'
 
 License:          MIT + file LICENSE

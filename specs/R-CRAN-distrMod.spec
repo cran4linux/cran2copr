@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Object Oriented Implementation of Probability Models
 
 License:          LGPL-3

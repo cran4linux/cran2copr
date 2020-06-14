@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Sets for Copula Modeling
 
 License:          GPL (>= 3) | file LICENCE

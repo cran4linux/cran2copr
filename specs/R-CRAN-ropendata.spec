@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Query and Download 'Rapid7' 'Cybersecurity' Data Sets
 
 License:          MIT + file LICENSE

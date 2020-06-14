@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation for MVN and Student-t Data with Monotone Missingness
 
 License:          LGPL

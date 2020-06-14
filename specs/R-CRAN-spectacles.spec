@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Storing, Manipulating and Analysis Spectroscopy and AssociatedData
 
 License:          GPL-3

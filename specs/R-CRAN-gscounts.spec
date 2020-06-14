@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Group Sequential Designs with Negative Binomial Outcomes
 
 License:          GPL (>= 2)

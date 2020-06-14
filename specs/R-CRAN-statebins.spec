@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          U.S. State Cartogram Heatmaps in R; an Alternative to ChoroplethMaps for USA States
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Genome and Transcriptome Wide Association Study
 
 License:          GPL (>= 2)

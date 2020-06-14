@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Supervised Clustering of Predictor Variables such as Genes
 
 License:          GPL-2

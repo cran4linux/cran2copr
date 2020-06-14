@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.40
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Feature Set Enrichment Analysis for Metabolomics andTranscriptomics
 
 License:          GPL (>= 2.0)

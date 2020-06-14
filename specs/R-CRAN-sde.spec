@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.15
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation and Inference for Stochastic Differential Equations
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          General Frailty Models: Shared, Joint and Nested Frailty Modelswith Prediction; Evaluation of Failure-Time Surrogate Endpoints
 
 License:          GPL (>= 2.0)

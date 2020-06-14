@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Scroll Back to Top Icon in R Markdown and Shiny
 
 License:          MIT + file LICENSE

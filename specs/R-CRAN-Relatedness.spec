@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Maximum Likelihood Estimation of Relatedness using EM Algorithm
 
 License:          AGPL-3

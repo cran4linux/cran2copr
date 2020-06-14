@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Tabular Reporting
 
 License:          GPL-3

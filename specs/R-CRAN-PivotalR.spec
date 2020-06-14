@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.18.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Fast, Easy-to-Use Tool for Manipulating Tables in Databasesand a Wrapper of MADlib
 
 License:          GPL (>= 2)

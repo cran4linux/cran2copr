@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Patterns in Genomic Sequences
 
 License:          GPL (>= 2)

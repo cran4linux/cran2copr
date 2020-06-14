@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Programmatic Utilities for Manipulating Formulas, Expressions,Calls, Assignments and Other R Objects
 
 License:          GPL-2 | file LICENSE

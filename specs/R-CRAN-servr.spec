@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
 
 License:          GPL

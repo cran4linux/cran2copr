@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation of Real and Complex Numbers and Small ProgrammingUtilities
 
 License:          GPL (>= 2)

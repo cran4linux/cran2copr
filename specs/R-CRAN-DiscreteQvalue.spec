@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Improved q-Values for Discrete Uniform and Homogeneous Tests
 
 License:          GPL-2

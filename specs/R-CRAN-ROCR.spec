@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Visualizing the Performance of Scoring Classifiers
 
 License:          GPL (>= 2)

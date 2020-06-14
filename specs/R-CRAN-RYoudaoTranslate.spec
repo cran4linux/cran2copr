@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R package provide functions to translate English words intoChinese.
 
 License:          GPL (>= 2)

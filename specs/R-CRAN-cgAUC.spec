@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate AUC-type measure when gold standard is continuous andthe corresponding optimal linear combination of variables withrespect to it.
 
 License:          GPL (>= 2)

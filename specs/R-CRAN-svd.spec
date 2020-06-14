@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interfaces to Various State-of-Art SVD and Eigensolvers
 
 License:          BSD_3_clause + file LICENSE

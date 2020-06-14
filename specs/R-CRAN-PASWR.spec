@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          PROBABILITY and STATISTICS WITH R
 
 License:          GPL (>= 2)

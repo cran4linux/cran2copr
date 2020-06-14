@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Toolkit for Year-Quarter, Year-Month and Year-Isoweek Dates
 
 License:          MIT + file LICENSE

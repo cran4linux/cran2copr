@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Track R Package Downloads from RStudio's CRAN Mirror
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Beautiful Graphical Representation of Multiplication Tables on aModular Circle
 
 License:          GPL-3

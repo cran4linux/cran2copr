@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Client Package for the U.S. Federal Register API
 
 License:          GPL-2

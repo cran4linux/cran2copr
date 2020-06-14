@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multidimensional Iterative Proportional Fitting and AlternativeModels
 
 License:          GPL-2

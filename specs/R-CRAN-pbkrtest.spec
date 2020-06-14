@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.8.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Parametric Bootstrap and Kenward Roger Based Methods for MixedModel Comparison
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Summarizing OTU Table Regarding the Composition, Abundance andBeta Diversity of Abundant and Rare Biospheres
 
 License:          GPL (>= 3)

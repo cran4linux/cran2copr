@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Visualisation of Oceanographic Data and Model Output
 
 License:          GPL (>= 3.0)

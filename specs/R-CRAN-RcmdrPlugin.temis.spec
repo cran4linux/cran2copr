@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Graphical Integrated Text Mining Solution
 
 License:          GPL (>= 2)

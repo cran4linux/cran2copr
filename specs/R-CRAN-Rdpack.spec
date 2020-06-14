@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Update and Manipulate Rd Documentation Objects
 
 License:          GPL (>= 2)

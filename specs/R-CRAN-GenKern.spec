@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.60
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for generating and manipulating binned kernel densityestimates
 
 License:          GPL-2

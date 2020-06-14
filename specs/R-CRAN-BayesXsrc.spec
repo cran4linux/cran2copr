@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Package Distribution of the BayesX C++ Sources
 
 License:          GPL-2 | GPL-3

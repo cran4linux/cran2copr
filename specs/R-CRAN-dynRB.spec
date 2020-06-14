@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Dynamic Range Boxes
 
 License:          GPL-2

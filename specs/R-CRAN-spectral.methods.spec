@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.2.133
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Singular Spectrum Analysis (SSA) Tools for Time Series Analysis
 
 License:          GPL-2

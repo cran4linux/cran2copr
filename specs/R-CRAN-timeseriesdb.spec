@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Manage Time Series for Official Statistics with R and PostgreSQL
 
 License:          GPL-2

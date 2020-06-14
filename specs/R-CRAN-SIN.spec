@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A SINful Approach to Selection of Gaussian Graphical MarkovModels
 
 License:          GPL (>= 2)

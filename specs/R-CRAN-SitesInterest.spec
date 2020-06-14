@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Inferring an Animal's Sites of Interest from High ResolutionData
 
 License:          MIT + file LICENSE

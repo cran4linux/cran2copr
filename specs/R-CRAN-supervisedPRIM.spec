@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Supervised Classification Learning and Prediction using PatientRule Induction Method (PRIM)
 
 License:          GPL-3

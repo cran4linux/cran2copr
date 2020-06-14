@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Age-Depth Modelling of '210Pb'-Dated Cores
 
 License:          GPL (>= 2)

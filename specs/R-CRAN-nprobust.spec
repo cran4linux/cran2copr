@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonparametric Robust Estimation and Inference Methods usingLocal Polynomial Regression and Kernel Density Estimation
 
 License:          GPL-2

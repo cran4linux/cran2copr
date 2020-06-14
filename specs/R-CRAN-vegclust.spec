@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fuzzy Clustering of Vegetation Data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions and C++ Header Files for Computation on Manifolds
 
 License:          GPL-3

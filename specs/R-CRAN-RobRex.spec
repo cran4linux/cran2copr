@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Optimally Robust Influence Curves for Regression and Scale
 
 License:          LGPL-3

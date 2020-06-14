@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Generalized Hyperbolic Distribution, Related Distributionsand Their Applications in Finance
 
 License:          GPL (>= 2)

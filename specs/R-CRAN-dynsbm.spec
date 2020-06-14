@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Dynamic Stochastic Block Models
 
 License:          GPL-3

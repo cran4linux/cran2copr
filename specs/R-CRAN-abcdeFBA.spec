@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          ABCDE_FBA: A-Biologist-Can-Do-Everything of Flux BalanceAnalysis with this package.
 
 License:          GPL-2

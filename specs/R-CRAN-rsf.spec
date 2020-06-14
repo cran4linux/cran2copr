@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Report of Statistical Findings in 'bookdown'
 
 License:          MIT + file LICENSE

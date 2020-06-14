@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimates Pseudotimes for Single Cell Expression Data
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Interface to the PubChem Collection
 
 License:          GPL (>= 2)

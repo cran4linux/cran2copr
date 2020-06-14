@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Profile Output Processing Tools for R
 
 License:          GPL

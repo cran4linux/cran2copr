@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generates Multivariate Nonnormal Data and Determines How ManyFactors to Retain
 
 License:          MIT + file LICENSE

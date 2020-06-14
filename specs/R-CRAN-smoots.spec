@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonparametric Estimation of the Trend and Its Derivatives in TS
 
 License:          GPL-3

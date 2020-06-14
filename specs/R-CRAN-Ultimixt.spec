@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Analysis of Location-Scale Mixture Models using aWeakly Informative Prior
 
 License:          GPL (>= 2.0)

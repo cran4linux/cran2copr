@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analyze Clustered Data with Generalized Linear Models using theCluster Bootstrap
 
 License:          GPL-3 | file LICENSE

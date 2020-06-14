@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          8.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Lookup for IP Address Information
 
 License:          MIT + file LICENSE

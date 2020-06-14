@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Learn Computer and Data Science using Algorithmic Trading
 
 License:          MIT + file LICENSE

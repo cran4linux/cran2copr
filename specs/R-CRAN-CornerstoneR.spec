@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Collection of Scripts for Interface Between 'Cornerstone' and'R'
 
 License:          GPL-3

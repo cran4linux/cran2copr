@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8.69
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Teaching Hydrological Modelling with the GR Rainfall-RunoffModels ('Shiny' Interface Included)
 
 License:          GPL-2

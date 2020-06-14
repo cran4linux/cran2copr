@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multivariate Adaptive Regression Splines
 
 License:          GPL-3

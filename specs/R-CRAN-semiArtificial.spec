@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generator of Semi-Artificial Data
 
 License:          GPL-3

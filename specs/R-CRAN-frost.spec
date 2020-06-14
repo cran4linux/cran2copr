@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Prediction of Minimum Temperature for Frost Forecasting inAgriculture
 
 License:          MIT + file LICENSE

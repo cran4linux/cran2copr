@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data and Functions Used in Linear Models and Regression with R:An Integrated Approach
 
 License:          GPL (>= 2)

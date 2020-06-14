@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Access Data and Statistics from the ABS and RBA Websites
 
 License:          GPL-3

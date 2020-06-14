@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Metadata Processing for the German Modification of the ICD-10Coding System
 
 License:          MIT + file LICENSE

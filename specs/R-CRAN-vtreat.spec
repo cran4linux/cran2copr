@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Statistically Sound 'data.frame' Processor/Conditioner
 
 License:          GPL-2 | GPL-3

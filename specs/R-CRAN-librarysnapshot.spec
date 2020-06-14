@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Library Snapshot for Packages and Dependencies in Use by CurrentSession
 
 License:          MIT + file LICENSE

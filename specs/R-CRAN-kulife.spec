@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Datasets and functions from the (now non-existing) Faculty ofLife Sciences, University of Copenhagen
 
 License:          GPL-2

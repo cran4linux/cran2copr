@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Identification of Impulse-Like Gene Expression Changes in ShortGenomic Series Data
 
 License:          GPL (>= 2)

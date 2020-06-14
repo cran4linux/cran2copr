@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Demonstrations for Teaching and Learning
 
 License:          Artistic-2.0

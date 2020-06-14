@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          I/O Operations with Sparse Matrices
 
 License:          GPL (>= 2) | file LICENSE

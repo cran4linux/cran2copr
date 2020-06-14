@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Thermal Image Analysis
 
 License:          GPL (>= 2)

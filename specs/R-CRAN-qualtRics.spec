@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Download 'Qualtrics' Survey Data
 
 License:          MIT + file LICENSE

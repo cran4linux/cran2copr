@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation and visualization of restriction enzyme cuttingpattern from DNA sequences.
 
 License:          GPL-2

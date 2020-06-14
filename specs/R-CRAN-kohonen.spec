@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Supervised and Unsupervised Self-Organising Maps
 
 License:          GPL (>= 2)

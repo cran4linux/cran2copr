@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonlinear least squares examples from NIST
 
 License:          GPL (>= 2)

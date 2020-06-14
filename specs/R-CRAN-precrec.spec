@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate Accurate Precision-Recall and ROC (Receiver OperatorCharacteristics) Curves
 
 License:          GPL-3

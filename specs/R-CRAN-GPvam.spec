@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Maximum Likelihood Estimation of Multiple Membership MixedModels Used in Value-Added Modeling
 
 License:          GPL-2

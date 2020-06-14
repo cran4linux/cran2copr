@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extended Rosenbrock-Type Densities for Markov Chain Monte Carlo(MCMC) Sampler Benchmarking
 
 License:          GPL-2

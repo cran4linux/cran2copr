@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Target Equivalence Range Design
 
 License:          GPL-2

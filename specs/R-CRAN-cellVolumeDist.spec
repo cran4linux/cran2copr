@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions to fit cell volume distributions and thereby estimatecell growth rates and division times
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generalized Tensor Regression with Covariates on Multiple Modes
 
 License:          GPL (>= 2)

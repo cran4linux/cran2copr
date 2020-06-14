@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Compile and Preview Snippets of 'LaTeX'
 
 License:          GPL-2 | GPL-3

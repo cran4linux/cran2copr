@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Reading SDMX Data and Metadata
 
 License:          GPL (>= 2)

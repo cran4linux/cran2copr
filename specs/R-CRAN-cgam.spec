@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.15
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Constrained Generalized Additive Model
 
 License:          GPL (>= 2)

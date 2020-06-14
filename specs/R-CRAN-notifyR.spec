@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.02
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Send push notifications to your smartphone via pushover.net(ACCOUNT REQUIRED!)
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.21
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Analysis of fMRI Datasets Stored in the ANALYZE orNIFTI Format
 
 License:          GPL (>= 2)

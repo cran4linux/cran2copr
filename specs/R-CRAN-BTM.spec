@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Biterm Topic Models for Short Text
 
 License:          Apache License 2.0

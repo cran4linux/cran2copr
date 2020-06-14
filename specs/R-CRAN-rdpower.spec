@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Power Calculations for RD Designs
 
 License:          GPL-2

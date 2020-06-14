@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Examples using 'Rcpp' to Interface R and C++
 
 License:          GPL (>= 2)

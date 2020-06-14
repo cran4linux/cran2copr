@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.23
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Exploratory Analysis with the Singular Value Decomposition
 
 License:          GPL-2

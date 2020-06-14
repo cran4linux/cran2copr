@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Exponential Multivariate Hawkes Model
 
 License:          GPL (>= 2)

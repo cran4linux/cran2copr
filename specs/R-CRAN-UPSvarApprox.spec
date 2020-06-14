@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Approximate the Variance of the Horvitz-Thompson Total Estimator
 
 License:          GPL-3

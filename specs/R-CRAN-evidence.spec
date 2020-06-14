@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of Scientific Evidence Using Bayesian and LikelihoodMethods
 
 License:          GPL (>= 2)

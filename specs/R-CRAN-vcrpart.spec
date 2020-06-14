@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tree-Based Varying Coefficient Regression for Generalized Linearand Ordinal Mixed Models
 
 License:          GPL (>= 2)

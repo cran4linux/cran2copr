@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.3.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fitting Mixture Distributions with GAMLSS
 
 License:          GPL-2 | GPL-3

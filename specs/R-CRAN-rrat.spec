@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Regression with Asymmetric Heavy-Tail Noise Distributions
 
 License:          GPL (>= 2)

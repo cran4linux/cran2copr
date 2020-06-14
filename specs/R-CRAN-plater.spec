@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read, Tidy, and Display Data from Microtiter Plates
 
 License:          GPL-3

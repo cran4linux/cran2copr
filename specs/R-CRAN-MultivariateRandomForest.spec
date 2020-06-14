@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Models Multivariate Cases Using Random Forests
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          List Comprehensions
 
 License:          GPL-2

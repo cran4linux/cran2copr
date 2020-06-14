@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.28
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Solvers for Initial Value Problems of Differential Equations('ODE', 'DAE', 'DDE')
 
 License:          GPL (>= 2)

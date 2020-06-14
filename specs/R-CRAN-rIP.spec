@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Detects Fraud in Online Surveys by Tracing, Scoring, andVisualizing IP Addresses
 
 License:          MIT + file LICENSE

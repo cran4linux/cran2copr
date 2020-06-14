@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Generalized Pairs Plot
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.62
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Structure Learning in Graphical Models usingBirth-Death MCMC
 
 License:          GPL (>= 2)

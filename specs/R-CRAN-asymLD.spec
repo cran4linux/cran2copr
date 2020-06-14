@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Asymmetric Linkage Disequilibrium (ALD) for Polymorphic GeneticData
 
 License:          GPL-2

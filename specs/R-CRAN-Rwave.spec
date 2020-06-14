@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Time-Frequency Analysis of 1-D Signals
 
 License:          GPL (>= 2)

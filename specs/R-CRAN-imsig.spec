@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Immune Cell Gene Signatures for Profiling the Microenvironmentof Solid Tumours
 
 License:          GPL-3

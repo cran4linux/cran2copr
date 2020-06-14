@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.21
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Interface to Global Biotic Interactions
 
 License:          MIT + file LICENSE

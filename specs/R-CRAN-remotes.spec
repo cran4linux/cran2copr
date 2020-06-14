@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Package Installation from Remote Repositories, Including'GitHub'
 
 License:          GPL (>= 2)

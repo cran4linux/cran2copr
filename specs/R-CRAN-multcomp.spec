@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simultaneous Inference in General Parametric Models
 
 License:          GPL-2

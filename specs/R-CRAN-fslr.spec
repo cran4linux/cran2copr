@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.24.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Wrapper Functions for 'FSL' ('FMRIB' Software Library) fromFunctional MRI of the Brain ('FMRIB')
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Mapping of Quantitative Traits of Genetically RelatedIndividuals and Calculating Identity Coefficients fromPedigrees
 
 License:          GPL (>= 2)

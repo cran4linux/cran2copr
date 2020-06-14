@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Uncertainty Propagation for R Vectors
 
 License:          MIT + file LICENSE

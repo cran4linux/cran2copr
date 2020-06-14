@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Visualisation on Maps
 
 License:          GPL (>= 2)

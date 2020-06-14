@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Conditional Probability Function of a Competing Event
 
 License:          GPL (>= 2)

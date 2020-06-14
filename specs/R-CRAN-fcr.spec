@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functional Concurrent Regression for Sparse Data
 
 License:          GPL (>= 3)

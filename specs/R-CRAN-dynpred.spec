@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Companion Package to "Dynamic Prediction in Clinical SurvivalAnalysis"
 
 License:          GPL (>= 2)

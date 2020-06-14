@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Paws Low-Level Amazon Web Services API
 
 License:          Apache License (>= 2.0)

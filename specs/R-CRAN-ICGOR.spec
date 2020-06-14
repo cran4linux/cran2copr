@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fit Generalized Odds Rate Hazards Model with Interval CensoredData
 
 License:          GPL (>= 2)

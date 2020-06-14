@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.38.19
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Routines for L1 Estimation
 
 License:          GPL (>= 2.0)

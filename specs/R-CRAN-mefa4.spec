@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multivariate Data Handling with S4 Classes and Sparse Matrices
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Distance Measure Based Judgment and Learning
 
 License:          GPL-2

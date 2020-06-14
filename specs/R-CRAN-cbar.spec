@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Contextual Bayesian Anomaly Detection in R
 
 License:          Apache License 2.0 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extending the Newman Studentized Range Statistic toTranscriptomics
 
 License:          Apache License (== 2.0)

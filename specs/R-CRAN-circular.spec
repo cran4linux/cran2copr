@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.93
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Circular Statistics
 
 License:          GPL-2

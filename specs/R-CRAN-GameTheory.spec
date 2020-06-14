@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Cooperative Game Theory
 
 License:          GPL (>= 2)

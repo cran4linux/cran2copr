@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Downloads and Organizes Financial Data for Multiple Tickers
 
 License:          GPL-2

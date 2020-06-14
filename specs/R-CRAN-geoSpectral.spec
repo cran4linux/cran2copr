@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Classes and Methods for Working with Spectral Data withSpace-Time Attributes
 
 License:          GPL

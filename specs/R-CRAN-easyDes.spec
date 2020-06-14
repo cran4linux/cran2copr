@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Easy Way to Descriptive Analysis
 
 License:          GPL-3

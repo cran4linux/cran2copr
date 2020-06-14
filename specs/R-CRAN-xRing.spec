@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Visualization and Correction of X-Ray Micro-Density Profiles
 
 License:          GPL (>= 2)

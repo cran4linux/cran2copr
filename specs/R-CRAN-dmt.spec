@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.20
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Dependency Modeling Toolkit
 
 License:          BSD_2_clause + file LICENSE

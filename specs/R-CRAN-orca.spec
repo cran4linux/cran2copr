@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computation of Graphlet Orbit Counts in Sparse Graphs
 
 License:          LGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A 'ggplot2' and 'gganimate' Version of Pac-Man
 
 License:          GPL-3

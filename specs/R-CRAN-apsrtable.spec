@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          apsrtable model-output formatter for social science
 
 License:          GPL (>= 2)

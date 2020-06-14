@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.9.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Create Interactive Web Graphics via 'plotly.js'
 
 License:          MIT + file LICENSE

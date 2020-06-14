@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sample Size Adjusted for Nonadherence or Variability of InputParameters
 
 License:          GPL-3

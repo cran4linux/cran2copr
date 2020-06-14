@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Rank Aggregation: Inference, Evaluation, andVisualization
 
 License:          GPL (>= 2)

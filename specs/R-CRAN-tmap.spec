@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Thematic Maps
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Perform Polynomial Evaluation of Linearity
 
 License:          MIT + file LICENSE

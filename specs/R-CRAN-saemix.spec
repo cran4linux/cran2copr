@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Stochastic Approximation Expectation Maximization (SAEM)Algorithm
 
 License:          GPL (>= 2)

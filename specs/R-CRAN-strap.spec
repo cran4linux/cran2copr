@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Stratigraphic Tree Analysis for Palaeontology
 
 License:          GPL (>= 2)

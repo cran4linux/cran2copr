@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Individual Conditional Expectation Plot Toolbox
 
 License:          GPL-2 | GPL-3

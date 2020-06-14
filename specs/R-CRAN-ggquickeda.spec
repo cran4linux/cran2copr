@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Quickly Explore Your Data Using 'ggplot2' and 'table1' SummaryTables
 
 License:          MIT + file LICENSE

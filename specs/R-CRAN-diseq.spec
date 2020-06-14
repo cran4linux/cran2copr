@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation Methods for Markets in Disequilibrium
 
 License:          MIT + file LICENSE

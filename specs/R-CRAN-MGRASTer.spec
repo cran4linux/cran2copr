@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          API Client for the MG-RAST Server of the US DOE KBase
 
 License:          BSD_2_clause + file LICENSE

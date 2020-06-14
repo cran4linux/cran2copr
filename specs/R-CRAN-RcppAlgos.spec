@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          High Performance Tools for Combinatorics and ComputationalMathematics
 
 License:          GPL (>= 2)

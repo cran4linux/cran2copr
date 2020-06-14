@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Peak Picking Methods Inspired by Biological Data
 
 License:          MIT + file LICENSE

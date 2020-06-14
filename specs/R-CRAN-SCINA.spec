@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Semi-Supervised Category Identification and Assignment Tool
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Easy Plotting of Periodic Data with 'ggplot2'
 
 License:          GPL-3

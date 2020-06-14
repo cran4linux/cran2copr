@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.64.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          May All Data be Reproducible and Transparent (MADRaT) *
 
 License:          BSD_2_clause + file LICENSE

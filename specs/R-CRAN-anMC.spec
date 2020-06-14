@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Compute High Dimensional Orthant Probabilities
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Monitoring Convergence of EU Countries
 
 License:          GPL-3

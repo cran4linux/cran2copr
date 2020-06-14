@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Centre of Mass Assessment and Consolidation of Trees
 
 License:          GPL-2

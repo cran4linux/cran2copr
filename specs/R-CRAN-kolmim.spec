@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Improved Evaluation of Kolmogorov's Distribution
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.24.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rank-Based Estimation for Linear Models
 
 License:          GPL (>= 2)

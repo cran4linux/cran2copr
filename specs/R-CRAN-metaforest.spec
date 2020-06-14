@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Exploring Heterogeneity in Meta-Analysis using Random Forests
 
 License:          GPL-3

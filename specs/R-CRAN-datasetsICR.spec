@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Datasets from the Book "An Introduction to Clustering with R"
 
 License:          GPL (>= 2)

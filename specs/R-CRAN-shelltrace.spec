@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bivalve Growth and Trace Element Accumulation Model
 
 License:          GPL-3

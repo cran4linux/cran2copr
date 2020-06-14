@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.21
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          ML Estimator for Baseline-Placebo-Treatment (Three-Group)Experiments
 
 License:          GPL-2

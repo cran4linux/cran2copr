@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Genetic-Based Assay for the Identification of Cell Lines
 
 License:          GPL (>= 2)

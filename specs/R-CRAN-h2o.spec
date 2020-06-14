@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.30.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Interface for the 'H2O' Scalable Machine Learning Platform
 
 License:          Apache License (== 2.0)

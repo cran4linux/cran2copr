@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Create, Read, Write, and Work with 'iCalander' Files, Calendarsand Scheduling Data
 
 License:          Apache License (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data on Base Packages for Current and Previous Versions of R
 
 License:          CC0

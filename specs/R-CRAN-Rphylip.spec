@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.23
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An R interface for PHYLIP
 
 License:          GPL (>= 2)

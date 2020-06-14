@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fitting Single and Mixture of Generalised Lambda Distributions(RS and FMKL) using Various Methods
 
 License:          GPL (>= 3)

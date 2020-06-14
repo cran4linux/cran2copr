@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Enhanced Help to Enable "Docstring"-Comments in Users Functions
 
 License:          GPL (>= 2)

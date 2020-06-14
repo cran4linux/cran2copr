@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions to compute the biweight mean vector and covariance &correlation matrices
 
 License:          GPL-2

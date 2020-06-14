@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Get Landsat 8 Data from Amazon Public Data Sets
 
 License:          MIT + file LICENSE

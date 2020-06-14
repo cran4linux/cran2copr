@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Class Unions, Matrix Operations, and Color Schemes for OOMPA
 
 License:          Apache License (== 2.0)

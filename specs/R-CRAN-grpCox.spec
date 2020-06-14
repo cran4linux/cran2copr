@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Penalized Cox Model for High-Dimensional Data with GroupedPredictors
 
 License:          GPL (>= 2)

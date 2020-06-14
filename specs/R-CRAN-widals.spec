@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Weighting by Inverse Distance with Adaptive Least Squares
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functional Summary and Meta-Analysis of Gene Expression Data
 
 License:          GPL-3

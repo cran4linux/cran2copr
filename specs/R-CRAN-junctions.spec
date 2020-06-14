@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Breakdown of Genomic Ancestry Blocks in Hybrid Lineages
 
 License:          GPL (>= 2)

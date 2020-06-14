@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Client for the 'Civis Platform API'
 
 License:          BSD_3_clause + file LICENSE

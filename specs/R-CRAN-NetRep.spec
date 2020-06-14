@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Permutation Testing Network Module Preservation Across Datasets
 
 License:          GPL-2

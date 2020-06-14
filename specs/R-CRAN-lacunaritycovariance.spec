@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gliding Box Lacunarity and Other Metrics for 2D Random ClosedSets
 
 License:          GPL (>= 2)

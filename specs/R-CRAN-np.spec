@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.60.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonparametric Kernel Smoothing Methods for Mixed Data Types
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fitting a Bayesian Sparse Latent Factor Model in Gene ExpressionAnalysis
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.28.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Datasets for the 'canvasXpress' Package
 
 License:          GPL-3

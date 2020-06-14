@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Kumaraswamy Complementary Weibull Geometric (Kw-CWG) ProbabilityDistribution
 
 License:          MIT + file LICENSE

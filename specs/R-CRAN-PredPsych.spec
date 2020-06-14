@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Predictive Approaches in Psychology
 
 License:          GPL-3

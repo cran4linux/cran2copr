@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Render SVG Images into PDF, PNG, PostScript, or Bitmap Arrays
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Arsenal of 'R' Functions for Large-Scale StatisticalSummaries
 
 License:          GPL (>= 2)

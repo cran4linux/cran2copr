@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Utility Functions to Execute Standard Extract/Transform/LoadOperations (using Package 'ff') on Large Data
 
 License:          GPL-2

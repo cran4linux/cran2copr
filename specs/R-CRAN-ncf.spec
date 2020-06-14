@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Spatial Covariance Functions
 
 License:          GPL-3

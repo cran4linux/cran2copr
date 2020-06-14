@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Preconditioned Conjugate Gradient Algorithm for solving Ax=b
 
 License:          GPL (>= 2)

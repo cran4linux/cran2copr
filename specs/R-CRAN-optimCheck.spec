@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Graphical and Numerical Checks for Mode-Finding Routines
 
 License:          GPL-3

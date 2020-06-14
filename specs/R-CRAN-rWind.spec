@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Download, Edit and Include Wind and Sea Currents Data inEcological and Evolutionary Analysis
 
 License:          GPL (>= 3)

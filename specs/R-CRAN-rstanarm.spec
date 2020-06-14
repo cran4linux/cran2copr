@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.19.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Applied Regression Modeling via Stan
 
 License:          GPL (>= 3)

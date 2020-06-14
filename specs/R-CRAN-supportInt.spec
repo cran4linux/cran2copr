@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculates Likelihood Support Intervals for Common Data Types
 
 License:          GPL-2

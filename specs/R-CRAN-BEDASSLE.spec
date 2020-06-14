@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Quantifies effects of geo/eco distance on geneticdifferentiation
 
 License:          GPL (>= 2)

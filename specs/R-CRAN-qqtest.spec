@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Self Calibrating Quantile-Quantile Plots for Visual Testing
 
 License:          GPL-3

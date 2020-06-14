@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.46.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          River Visualisation Tool
 
 License:          GPL (>= 2)

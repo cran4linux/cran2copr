@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Graphical Lasso: Estimation of Gaussian Graphical Models
 
 License:          GPL-2

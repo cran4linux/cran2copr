@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Analysis of a Vector Autoregressive Model withStochastic Volatility and Time-Varying Parameters
 
 License:          GPL (>= 2)

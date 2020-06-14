@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Half-Normal Plots with Simulation Envelopes
 
 License:          GPL (>= 2)

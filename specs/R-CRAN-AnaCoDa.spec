@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of Codon Data under Stationarity using a BayesianFramework
 
 License:          GPL (>= 2)

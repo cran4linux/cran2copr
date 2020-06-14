@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation of the Local False Discovery Rates by Type II MaximumLikelihood Estimation
 
 License:          GPL-3

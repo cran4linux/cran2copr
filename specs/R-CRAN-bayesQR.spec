@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Quantile Regression
 
 License:          GPL (>= 2)

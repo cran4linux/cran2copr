@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Beta Random Number and Dirichlet Random Vector GeneratingFunctions
 
 License:          GPL-2

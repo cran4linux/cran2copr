@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions to Support the ICES Transparent Assessment Framework
 
 License:          GPL (>= 2)

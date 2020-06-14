@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Parameter Inference and Optimal Designs for Grouped and/orRight-Censored Count Data
 
 License:          GPL (>= 3)

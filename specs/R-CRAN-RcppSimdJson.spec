@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'Rcpp' Bindings for the 'simdjson' Header-Only Library for'JSON' Parsing
 
 License:          GPL (>= 2)

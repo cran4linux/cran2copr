@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Flexible Univariate Count Models Based on Renewal Processes
 
 License:          GPL (>= 2)

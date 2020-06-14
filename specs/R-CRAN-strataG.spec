@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.905
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Summaries and Population Structure Analyses of Genetic Data
 
 License:          GNU General Public License

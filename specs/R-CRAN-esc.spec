@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Effect Size Computation for Meta Analysis
 
 License:          GPL-3

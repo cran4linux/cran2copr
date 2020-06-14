@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Automatic Method Generation from R6
 
 License:          MIT + file LICENSE

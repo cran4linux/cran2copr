@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Surrogate variable analysis using partial least squares in agene expression study.
 
 License:          GPL-3

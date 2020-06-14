@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Policy Learning via Doubly Robust Empirical Welfare Maximizationover Trees
 
 License:          GPL-3

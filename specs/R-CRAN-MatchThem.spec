@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Matching and Weighting Multiply Imputed Datasets
 
 License:          GPL (>= 2)

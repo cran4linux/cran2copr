@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Empirical Mode Decomposition for Cyclostratigraphy
 
 License:          GPL-3

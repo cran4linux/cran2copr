@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.84.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Various Coefficients of Interrater Reliability and Agreement
 
 License:          GPL (>= 2)

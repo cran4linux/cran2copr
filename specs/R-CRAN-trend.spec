@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Non-Parametric Trend Tests and Change-Point Detection
 
 License:          GPL-3

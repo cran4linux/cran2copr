@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generalized and Classical Blockmodeling of Valued Networks
 
 License:          GPL (>= 2)

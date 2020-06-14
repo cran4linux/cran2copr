@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.61
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Binary Search Tools
 
 License:          GPL (>= 2)

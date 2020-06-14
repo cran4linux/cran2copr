@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Phase I Control Charts (with Emphasis on Distribution-FreeMethods)
 
 License:          LGPL (>= 2)

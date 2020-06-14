@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Trace Plots, Density Plots and Chain Comparisons for MCMCSamples
 
 License:          GPL-3

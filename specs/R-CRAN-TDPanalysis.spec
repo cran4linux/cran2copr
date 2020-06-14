@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Granier's Sap Flow Sensors (TDP) Analysis
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Integrated Code Chunk Anchoring and Referencing for R MarkdownDocuments
 
 License:          GPL (>= 3)

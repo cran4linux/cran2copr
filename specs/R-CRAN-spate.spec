@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Spatio-Temporal Modeling of Large Data Using a Spectral SPDEApproach
 
 License:          GPL-2

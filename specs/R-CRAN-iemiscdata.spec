@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Irucka Embry's Miscellaneous Data Collection
 
 License:          GPL (>= 3)

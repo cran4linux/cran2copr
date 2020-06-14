@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.43
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sequential Quadratic Programming for Fast Maximum-LikelihoodEstimation of Mixture Proportions
 
 License:          MIT + file LICENSE

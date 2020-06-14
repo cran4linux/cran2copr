@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis and Visualisation of Hydrogen/Deuterium Exchange MassSpectrometry Data
 
 License:          GPL-3

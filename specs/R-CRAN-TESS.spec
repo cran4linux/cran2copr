@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Diversification Rate Estimation and Fast Simulation ofReconstructed Phylogenetic Trees under Tree-WideTime-Heterogeneous Birth-Death Processes IncludingMass-Extinction Events
 
 License:          GPL-3

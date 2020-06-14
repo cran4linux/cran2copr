@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Report Functions to Create HTML and PDF Files
 
 License:          GPL (>= 2)

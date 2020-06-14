@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fit the Gambin Model to Species Abundance Distributions
 
 License:          GPL-3

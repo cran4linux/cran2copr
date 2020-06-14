@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Retrieving Information of Proteins from Uniprot
 
 License:          GPL-3

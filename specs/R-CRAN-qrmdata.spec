@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.12.03.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Sets for Quantitative Risk Management Practice
 
 License:          GPL-2 | GPL-3

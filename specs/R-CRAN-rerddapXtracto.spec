@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extracts Environmental Data from 'ERDDAP' Web Services
 
 License:          CC0

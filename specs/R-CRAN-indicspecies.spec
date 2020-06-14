@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Relationship Between Species and Groups of Sites
 
 License:          GPL (>= 2)

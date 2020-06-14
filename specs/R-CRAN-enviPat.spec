@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Isotope Pattern, Profile and Centroid Calculation for MassSpectrometry
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2.18
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Augments 'ASReml-R' in Fitting Mixed Models and PackagesGenerally in Exploring Prediction Differences
 
 License:          MIT + file LICENSE

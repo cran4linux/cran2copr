@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Diving Calculations and Decompression Models
 
 License:          GPL (>= 2)

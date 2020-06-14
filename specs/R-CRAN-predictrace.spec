@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Predict the Race of a Given Surname Using Census Data
 
 License:          MIT + file LICENSE

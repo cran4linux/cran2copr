@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Relative survival, AER and SMR based on French death rates
 
 License:          GPL (>= 2)

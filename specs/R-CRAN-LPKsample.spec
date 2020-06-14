@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          LP Nonparametric High Dimensional K-Sample Comparison
 
 License:          GPL-2

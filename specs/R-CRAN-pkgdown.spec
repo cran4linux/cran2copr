@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Make Static HTML Documentation for a Package
 
 License:          MIT + file LICENSE

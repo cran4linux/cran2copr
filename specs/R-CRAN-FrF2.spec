@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fractional Factorial Designs with 2-Level Factors
 
 License:          GPL (>= 2)

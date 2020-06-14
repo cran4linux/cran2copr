@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.9.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Algebraic Tools for the Analysis of Multiple Social Networks
 
 License:          GPL-3

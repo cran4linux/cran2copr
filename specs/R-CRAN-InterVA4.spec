@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Replicate and Analyse 'InterVA4'
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Migration and Range Change Estimation in R
 
 License:          GPL-2

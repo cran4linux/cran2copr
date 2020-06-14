@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Partition-Assisted Clustering and Multiple Alignments ofNetworks
 
 License:          GPL-3

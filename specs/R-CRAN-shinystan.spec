@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interactive Visual and Numerical Diagnostics and PosteriorAnalysis for Bayesian Models
 
 License:          GPL (>= 3)

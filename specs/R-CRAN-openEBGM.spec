@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          EBGM Disproportionality Scores for Adverse Event Data Mining
 
 License:          GPL-2 | GPL-3

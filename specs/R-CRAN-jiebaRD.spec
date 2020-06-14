@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Chinese Text Segmentation Data for jiebaR Package
 
 License:          MIT + file LICENSE

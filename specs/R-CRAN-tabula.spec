@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis, Seriation and Visualization of Archaeological CountData
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Densitometric Analysis of Thin-Layer Chromatography Plates
 
 License:          GPL-2

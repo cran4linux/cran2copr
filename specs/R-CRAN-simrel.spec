@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation of Multivariate Linear Model Data
 
 License:          GPL-3 | file LICENSE

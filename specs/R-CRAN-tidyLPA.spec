@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Easily Carry Out Latent Profile Analysis (LPA) Using Open-Sourceor Commercial Software
 
 License:          MIT + file LICENSE

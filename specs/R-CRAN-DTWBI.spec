@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Imputation of Time Series Based on Dynamic Time Warping
 
 License:          GPL (>= 2)

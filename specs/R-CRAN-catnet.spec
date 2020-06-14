@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.15.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Categorical Bayesian Network Inference
 
 License:          GPL (>= 2)

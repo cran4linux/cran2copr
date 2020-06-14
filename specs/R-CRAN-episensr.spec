@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Basic Sensitivity Analysis of Epidemiological Results
 
 License:          GPL-2

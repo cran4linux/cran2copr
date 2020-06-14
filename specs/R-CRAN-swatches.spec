@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read, Inspect, and Manipulate Color Swatch Files
 
 License:          MIT + file LICENSE

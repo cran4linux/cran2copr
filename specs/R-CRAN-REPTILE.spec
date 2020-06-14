@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regulatory DNA Element Prediction
 
 License:          BSD_2_clause + file LICENSE

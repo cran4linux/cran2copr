@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Necessary Condition Analysis
 
 License:          GPL (>= 3)

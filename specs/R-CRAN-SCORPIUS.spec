@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Inferring Developmental Chronologies from Single-Cell RNASequencing Data
 
 License:          GPL-3

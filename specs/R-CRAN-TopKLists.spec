@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Inference, Aggregation and Visualization for Top-K Ranked Lists
 
 License:          LGPL-3

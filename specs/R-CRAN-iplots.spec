@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          iPlots - interactive graphics for R
 
 License:          GPL-2

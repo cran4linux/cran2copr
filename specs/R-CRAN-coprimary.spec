@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sample Size Calculation for Two Primary Time-to-Event Endpointsin Clinical Trials
 
 License:          GPL (>= 3.3.2)

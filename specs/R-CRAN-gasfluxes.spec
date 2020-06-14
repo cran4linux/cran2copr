@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Greenhouse Gas Flux Calculation from Chamber Measurements
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate Indices and Theoretical Physicochemical Properties ofProtein Sequences
 
 License:          GPL-2

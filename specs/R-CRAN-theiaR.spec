@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Download and Manage Data from Theia
 
 License:          GPL (>= 3.0)

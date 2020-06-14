@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Performing Local FDR Estimation when Null andAlternative are Poisson
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Squared Extrapolation Methods for Accelerating EM-Like MonotoneAlgorithms
 
 License:          GPL (>= 2)

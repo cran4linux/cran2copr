@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Adaptive Enrichment Designs with Sample Size Re-Estimation
 
 License:          GPL-2

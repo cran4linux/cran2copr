@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Confidence intervals for the ratio of locations and for theratio of scales of two paired samples
 
 License:          GPL-2

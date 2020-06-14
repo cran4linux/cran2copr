@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculation for Single Arm Group Sequential Test with BinaryEndpoint
 
 License:          GPL-3

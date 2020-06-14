@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.15.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions and Datasets Required for ST370 class
 
 License:          GPL (>= 2)

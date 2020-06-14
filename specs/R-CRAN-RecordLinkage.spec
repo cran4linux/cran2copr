@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Record Linkage Functions for Linking and Deduplicating Data Sets
 
 License:          GPL (>= 2)

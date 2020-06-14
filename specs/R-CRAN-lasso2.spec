@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.20
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          L1 Constrained Estimation aka `lasso'
 
 License:          GPL (>= 2)

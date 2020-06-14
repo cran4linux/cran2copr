@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generate PDFs and CDFs from Binned Data
 
 License:          MIT + file LICENSE

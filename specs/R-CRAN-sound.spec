@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Sound Interface for R
 
 License:          GPL (>= 2)

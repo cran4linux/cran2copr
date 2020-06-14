@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Univariate Stratification of Survey Populations
 
 License:          GPL-2

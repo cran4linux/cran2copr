@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Memory-Efficient, Visualize-Enhanced, Parallel-Accelerated GWASTool
 
 License:          Apache License 2.0

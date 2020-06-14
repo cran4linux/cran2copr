@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regularization Paths for Lasso or Elastic-Net Penalized HuberLoss Regression and Quantile Regression
 
 License:          GPL-3

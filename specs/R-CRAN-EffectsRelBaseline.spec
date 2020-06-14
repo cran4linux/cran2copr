@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Test changes of a grouped response relative to baseline.
 
 License:          GPL (>= 3)

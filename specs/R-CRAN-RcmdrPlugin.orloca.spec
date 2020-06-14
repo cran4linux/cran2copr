@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A GUI for Planar Location Problems
 
 License:          GPL (>= 3)

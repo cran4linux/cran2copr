@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Ranking Color Scheme for Multiple PairwiseComparisons
 
 License:          LGPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Download and Process Public Domain Works from Project Gutenberg
 
 License:          GPL-2

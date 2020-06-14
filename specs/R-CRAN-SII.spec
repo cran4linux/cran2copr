@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate ANSI S3.5-1997 Speech Intelligibility Index
 
 License:          GPL-2

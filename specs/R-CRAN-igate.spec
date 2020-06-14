@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Guided Analytics for Testing Manufacturing Parameters
 
 License:          GPL-3

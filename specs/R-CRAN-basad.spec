@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Variable Selection with Shrinking and Diffusing Priors
 
 License:          GPL (>= 3)

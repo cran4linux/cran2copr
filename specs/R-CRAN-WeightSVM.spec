@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Subject Weighted Support Vector Machines
 
 License:          GPL-2 | GPL-3

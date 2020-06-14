@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read, Manipulate and Visualise Magnetic Resonance Images
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Converts ISCO-08 to Job Prestige Scores, ISCO-88 and Job Name
 
 License:          GPL (>= 2)

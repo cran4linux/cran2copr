@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Approximately Optimal Fine Balance Matching with Multiple Groups
 
 License:          MIT + file LICENSE

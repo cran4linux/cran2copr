@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mixed Effect Model with the Box-Cox Transformation
 
 License:          GPL (>= 2)

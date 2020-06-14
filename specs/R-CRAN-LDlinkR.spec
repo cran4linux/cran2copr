@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An R Package for Calculating Linkage Disequilibrium
 
 License:          GPL (>= 2)

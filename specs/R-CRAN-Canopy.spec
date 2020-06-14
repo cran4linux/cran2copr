@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Accessing Intra-Tumor Heterogeneity and Tracking Longitudinaland Spatial Clonal Evolutionary History by Next-GenerationSequencing
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Causal Inference for a Binary Treatment and Continuous Outcomeusing Bayesian Causal Forests
 
 License:          GPL-3

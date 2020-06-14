@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.90.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regression Trees with Random Effects for Longitudinal (Panel)Data
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tests Controlling the FDR / FWER under Certain Copula Models
 
 License:          GPL-3

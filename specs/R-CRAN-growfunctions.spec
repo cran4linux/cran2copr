@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Non-Parametric Dependent Models for Time-IndexedFunctional Data
 
 License:          GPL (>= 3)

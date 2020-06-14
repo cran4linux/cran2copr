@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Implementation of POSIXct Work-Alike for 365 and 360 DayCalendars
 
 License:          GPL-2

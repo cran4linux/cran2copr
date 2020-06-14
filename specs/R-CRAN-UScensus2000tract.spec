@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.03
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          US Census 2000 Tract Level Shapefiles and Additional DemographicData
 
 License:          GPL (>= 2)

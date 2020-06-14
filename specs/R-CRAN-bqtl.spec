@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.32
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian QTL Mapping Toolkit
 
 License:          GPL (>= 2)

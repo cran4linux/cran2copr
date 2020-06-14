@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Inference about the standardized mortality ratio when evaluatingthe effect of a screening program on survival.
 
 License:          GPL (>= 2)

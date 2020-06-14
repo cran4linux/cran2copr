@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Performs Common Linear Algebra Operations Used in QuantumComputing and Implements Quantum Algorithms
 
 License:          GPL-3

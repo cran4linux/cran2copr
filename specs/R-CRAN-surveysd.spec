@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Survey Standard Error Estimation for Cumulated Estimates andtheir Differences in Complex Panel Designs
 
 License:          GPL (>= 2)

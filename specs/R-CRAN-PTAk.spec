@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.34
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Principal Tensor Analysis on k Modes
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.18
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Segmentation and Classification of Accelerometer Data
 
 License:          GPL

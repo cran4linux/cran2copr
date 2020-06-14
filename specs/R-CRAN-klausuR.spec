@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multiple Choice Test Evaluation
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.35
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Item Response Models for Multiple Ratings
 
 License:          GPL (>= 2)

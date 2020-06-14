@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimators of Multiple-Site Dissimilarity Indices for theAssessment of Beta Diversity
 
 License:          GPL-3

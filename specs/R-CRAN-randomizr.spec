@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.20.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Easy-to-Use Tools for Common Forms of Random Assignment andSampling
 
 License:          MIT + file LICENSE

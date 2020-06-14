@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Basic Wavelet Routines for One-, Two-, and Three-DimensionalSignal Processing
 
 License:          BSD_3_clause + file LICENSE

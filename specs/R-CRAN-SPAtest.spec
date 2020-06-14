@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Score Test and Meta-Analysis Based on Saddlepoint Approximation
 
 License:          GPL (>= 2)

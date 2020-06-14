@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for the Book "An Introduction to the Bootstrap"
 
 License:          BSD_3_clause + file LICENSE

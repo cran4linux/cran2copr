@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interactive Color Gradient Picker Using 'htmlwidgets' and theModified JS Script 'jquery-gradient-picker'
 
 License:          GPL-3

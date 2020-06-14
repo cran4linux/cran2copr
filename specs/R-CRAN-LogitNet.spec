@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Infer network based on binary arrays using regularized logisticregression
 
 License:          GPL (>= 2)

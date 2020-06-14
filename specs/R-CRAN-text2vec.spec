@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Modern Text Mining Framework for R
 
 License:          GPL (>= 2) | file LICENSE

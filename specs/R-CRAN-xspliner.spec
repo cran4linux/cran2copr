@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Assisted Model Building, using Surrogate Black-Box Models toTrain Interpretable Spline Based Additive Models
 
 License:          GPL

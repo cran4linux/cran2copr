@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Connect to 'AWS Athena' using 'Boto3' ('DBI' Interface)
 
 License:          MIT + file LICENSE

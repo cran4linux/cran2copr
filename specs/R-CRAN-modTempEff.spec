@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Modelling temperature effects using time series data
 
 License:          GPL

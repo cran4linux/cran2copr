@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Shiny Module for Taking Free-Form Notes
 
 License:          MIT + file LICENSE

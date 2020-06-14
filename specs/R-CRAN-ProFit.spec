@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fit Projected 2D Profiles to Galaxy Images
 
 License:          LGPL-3

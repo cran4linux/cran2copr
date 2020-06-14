@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Production Rules Based Classification of Migration
 
 License:          MIT + file LICENSE

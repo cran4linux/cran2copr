@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Abstractions for Promise-Based Asynchronous Programming
 
 License:          MIT + file LICENSE

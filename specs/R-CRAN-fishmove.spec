@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Prediction of Fish Movement Parameters
 
 License:          GPL (>= 2)

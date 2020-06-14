@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Spatial Inference using Integrated Nested Laplace Approximation
 
 License:          GPL (>= 2)

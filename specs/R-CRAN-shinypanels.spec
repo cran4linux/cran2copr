@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Shiny Layout with Collapsible Panels
 
 License:          MIT + file LICENSE

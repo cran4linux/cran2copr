@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Linked Micromap Plots for General U. S. and Other GeographicAreas
 
 License:          GPL (>= 2)

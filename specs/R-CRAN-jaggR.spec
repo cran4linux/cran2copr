@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Supporting Files and Functions for the Book Bayesian Modellingwith 'JAGS'
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Algorithms for Fitting Circles, Ellipses and Conics Based on theWork by Prof. Nikolai Chernov
 
 License:          GPL (>= 3)

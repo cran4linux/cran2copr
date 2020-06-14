@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Distance-Based Measures of Spatial Structures
 
 License:          GNU General Public License

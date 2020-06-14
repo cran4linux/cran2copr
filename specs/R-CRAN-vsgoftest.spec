@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Goodness-of-Fit Tests Based on Kullback-Leibler Divergence
 
 License:          GPL (>= 2)

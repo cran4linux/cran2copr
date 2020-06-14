@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Private Configuration for 'R' Packages
 
 License:          MIT + file LICENSE

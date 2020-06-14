@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.23
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Helper Functions to Install and Maintain 'TeX Live', and Compile'LaTeX' Documents
 
 License:          MIT + file LICENSE

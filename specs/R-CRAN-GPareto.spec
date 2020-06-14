@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gaussian Processes for Pareto Front Estimation and Optimization
 
 License:          GPL-3

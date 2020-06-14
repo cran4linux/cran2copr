@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Inference on the Ratio of Two Poisson Rates
 
 License:          GPL-2

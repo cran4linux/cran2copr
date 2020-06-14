@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Utilities for Official Spanish Microdata
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.41
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Transmissions and Receptions in a Hop by Hop Network
 
 License:          GPL (>= 2)

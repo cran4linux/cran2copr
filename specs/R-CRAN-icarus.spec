@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calibrates and Reweights Units in Samples
 
 License:          GPL-3

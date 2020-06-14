@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Unsampled Data in R for Google Analytics Premium Accounts
 
 License:          Apache License 2.0

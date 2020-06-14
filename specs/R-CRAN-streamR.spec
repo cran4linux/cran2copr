@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Access to Twitter Streaming API via R
 
 License:          GPL-2

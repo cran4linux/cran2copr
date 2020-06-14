@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          World Vector Map Data from Natural Earth Used in 'rnaturalearth'
 
 License:          CC0

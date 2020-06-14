@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Feature Selection (Including Multiple Solutions) and BayesianNetworks
 
 License:          GPL-2

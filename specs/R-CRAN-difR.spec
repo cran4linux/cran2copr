@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Collection of Methods to Detect Dichotomous Differential ItemFunctioning (DIF)
 
 License:          GPL (>= 2)

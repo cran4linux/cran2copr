@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation of Discrete Random Variables with Given CorrelationMatrix and Marginal Distributions
 
 License:          GPL

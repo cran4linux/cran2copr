@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extreme Value Theory for Open Set Classification - GPD and GEVClassifiers
 
 License:          GPL-3

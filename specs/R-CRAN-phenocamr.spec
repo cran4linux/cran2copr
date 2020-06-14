@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Facilitates 'PhenoCam' Data Access and Time SeriesPost-Processing
 
 License:          AGPL-3

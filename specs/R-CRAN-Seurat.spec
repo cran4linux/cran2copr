@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Single Cell Genomics
 
 License:          GPL-3 | file LICENSE

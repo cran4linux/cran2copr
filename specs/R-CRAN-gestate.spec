@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generalised Survival Trial Assessment Tool Environment
 
 License:          GPL-3

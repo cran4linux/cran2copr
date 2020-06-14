@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gaussian Process Based Design and Analysis for the ActiveSubspace Method
 
 License:          BSD_3_clause + file LICENSE

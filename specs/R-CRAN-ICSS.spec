@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          ICSS Algorithm by Inclan/Tiao (1994)
 
 License:          GPL-2

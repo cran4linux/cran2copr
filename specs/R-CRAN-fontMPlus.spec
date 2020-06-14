@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Additional 'ggplot2' Themes Using 'M+' Fonts
 
 License:          MIT + file LICENSE

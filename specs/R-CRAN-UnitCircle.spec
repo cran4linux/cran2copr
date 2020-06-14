@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Check if Roots of a Polynomial Lie Outside the Unit Circle
 
 License:          GPL-3

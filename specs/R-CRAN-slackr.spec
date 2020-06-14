@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Send Messages, Images, R Objects and Files to 'Slack'Channels/Users
 
 License:          MIT + file LICENSE

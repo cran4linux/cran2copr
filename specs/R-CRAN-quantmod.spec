@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.17
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Quantitative Financial Modelling Framework
 
 License:          GPL-3

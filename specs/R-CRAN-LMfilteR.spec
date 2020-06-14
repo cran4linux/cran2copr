@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Filter Methods for Parameter Estimation in Linear RegressionModels
 
 License:          GPL (>= 2)

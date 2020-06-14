@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Performs Bayesian Variable Selection on the Covariates in aSemi-Competing Risks Model
 
 License:          GPL-2

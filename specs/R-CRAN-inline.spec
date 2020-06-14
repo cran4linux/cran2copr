@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.15
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions to Inline C, C++, Fortran Function Calls from R
 
 License:          LGPL

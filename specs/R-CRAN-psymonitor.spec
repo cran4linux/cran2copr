@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Real Time Monitoring of Asset Markets: Bubbles and Crisis
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Reproducible Reports in Psychology
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Tests and Graphics for Hardy-Weinberg Equilibrium
 
 License:          GPL (>= 2)

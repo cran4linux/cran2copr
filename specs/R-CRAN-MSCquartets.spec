@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analyzing Gene Tree Quartets under the Multi-Species Coalescent
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for colors in a Hue-Saturation-Value (HSV) color model
 
 License:          GPL-3

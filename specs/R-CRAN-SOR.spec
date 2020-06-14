@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.23.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation using Sequential Offsetted Regression
 
 License:          GPL-3

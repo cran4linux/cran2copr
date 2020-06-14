@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Evaluation and Experimental Design for Binomial Group Testing
 
 License:          GPL (>= 3)

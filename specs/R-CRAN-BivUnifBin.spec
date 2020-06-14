@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generation of Bivariate Uniform Data and Its Relation toBivariate Binary Data
 
 License:          GPL-2 | GPL-3

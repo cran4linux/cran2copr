@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation and Analysis of Random Fields
 
 License:          GPL (>= 3)

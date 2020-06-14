@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Animate Shiny and R Markdown Content when it Comes into View
 
 License:          MIT + file LICENSE

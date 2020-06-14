@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Download, Manipulate, and Present American Community Survey andDecennial Data from the US Census
 
 License:          GPL-3

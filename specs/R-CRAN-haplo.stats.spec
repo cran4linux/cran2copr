@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Analysis of Haplotypes with Traits and Covariateswhen Linkage Phase is Ambiguous
 
 License:          GPL (>= 2)

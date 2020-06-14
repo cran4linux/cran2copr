@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Miscellaneous Functions Used at 'Numeract LLC'
 
 License:          MIT + file LICENCE

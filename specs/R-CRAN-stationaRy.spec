@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Detailed Meteorological Data from Stations All Over the World
 
 License:          MIT + file LICENSE

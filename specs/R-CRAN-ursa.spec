@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.8.20
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Non-Interactive Spatial Tools for Raster Processing andVisualization
 
 License:          GPL (>= 2)

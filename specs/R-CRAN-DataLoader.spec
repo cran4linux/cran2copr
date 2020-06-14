@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Import Multiple File Types
 
 License:          GPL (>= 2)

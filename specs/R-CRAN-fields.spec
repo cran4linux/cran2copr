@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          10.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Spatial Data
 
 License:          GPL (>= 2)

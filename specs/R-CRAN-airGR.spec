@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.3.65
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Suite of GR Hydrological Models for Precipitation-RunoffModelling
 
 License:          GPL-2

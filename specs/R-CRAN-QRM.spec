@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.31
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Provides R-Language Code to Examine Quantitative Risk ManagementConcepts
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Accesses Google Maps APIs to Retrieve Data and Plot Maps
 
 License:          GPL-3

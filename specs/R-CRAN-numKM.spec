@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Create a Kaplan-Meier Plot with Numbers at Risk
 
 License:          GPL-3

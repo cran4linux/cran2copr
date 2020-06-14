@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Tidy Interface for Simulating Multivariate Data
 
 License:          MIT + file LICENSE

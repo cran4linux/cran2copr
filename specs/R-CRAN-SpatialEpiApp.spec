@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Shiny Web Application for the Analysis of Spatial andSpatio-Temporal Disease Data
 
 License:          GPL-3

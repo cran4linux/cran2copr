@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Raw Accelerometer Data Analysis
 
 License:          LGPL (>= 2.0, < 3) | file LICENSE

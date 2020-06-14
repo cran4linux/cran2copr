@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Spatially- and Temporally-Explicit Population Simulator
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Model Selection and Averaging for Non-Local and LocalPriors
 
 License:          GPL (>= 2) | file LICENSE

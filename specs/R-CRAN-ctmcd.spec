@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimating the Parameters of a Continuous-Time Markov Chain fromDiscrete-Time Data
 
 License:          GPL-3

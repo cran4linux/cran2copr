@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.19
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to the arXiv API
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Create Interactive Web Maps with the JavaScript 'Leaflet'Library
 
 License:          GPL-3

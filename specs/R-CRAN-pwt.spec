@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          7.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Penn World Table (Versions 5.6, 6.x, 7.x)
 
 License:          GPL-2

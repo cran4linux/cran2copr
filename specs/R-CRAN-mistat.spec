@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Sets, Functions and Examples from the Book: "ModernIndustrial Statistics" by Kenett, Zacks and Amberti
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.105.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Quantitative Support of Decision Making under Uncertainty
 
 License:          GPL-3

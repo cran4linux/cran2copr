@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.3.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Benthic Multi-Metric Index
 
 License:          GPL (>= 3)

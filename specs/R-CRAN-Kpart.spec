@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Cubic Spline Fitting with Knot Selection
 
 License:          GPL (>= 2)

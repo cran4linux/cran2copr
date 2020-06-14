@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculation and Application of p-Variation
 
 License:          GPL-2

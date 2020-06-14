@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Minimal Protein Set Explaining Peptide Spectrum Matches
 
 License:          GPL-3

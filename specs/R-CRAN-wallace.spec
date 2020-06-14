@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Modular Platform for Reproducible Modeling of Species Nichesand Distributions
 
 License:          GPL-3

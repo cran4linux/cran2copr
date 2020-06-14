@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Vertical and Horizontal Inheritance Consistence Analysis
 
 License:          GPL-2

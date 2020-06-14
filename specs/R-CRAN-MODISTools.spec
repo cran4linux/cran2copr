@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to the 'MODIS Land Products Subsets' Web Services
 
 License:          AGPL-3

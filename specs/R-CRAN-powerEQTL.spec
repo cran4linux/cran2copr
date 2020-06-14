@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Power and Sample Size Calculation for eQTL Analysis
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Unit Root Tests for Seasonal Time Series
 
 License:          GPL-2

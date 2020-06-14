@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          National Hospital Discharge Survey 2010 Data
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Political Science Computational Laboratory
 
 License:          GPL-2

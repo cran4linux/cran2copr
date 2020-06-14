@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read, Validate, Analyze, and Map Files in the General TransitFeed Specification
 
 License:          GPL

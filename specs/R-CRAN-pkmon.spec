@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Least-Squares Estimator under k-Monotony Constraint for DiscreteFunctions
 
 License:          CC BY 4.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.27
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Confidence Intervals for Two Sample Comparisons
 
 License:          GPL-2

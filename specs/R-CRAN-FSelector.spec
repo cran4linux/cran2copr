@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.31
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Selecting Attributes
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Software for Analyzing Limiting Dilution Assays
 
 License:          GPL-3

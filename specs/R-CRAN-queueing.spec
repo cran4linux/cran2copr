@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of Queueing Networks and Models
 
 License:          GPL-2

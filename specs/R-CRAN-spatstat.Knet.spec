@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.12.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extension to 'spatstat' for Large Datasets on a Linear Network
 
 License:          GPL (>= 2)

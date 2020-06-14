@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Variable Selection using Random Forests
 
 License:          GPL (>= 2)

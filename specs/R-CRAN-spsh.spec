@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation and Prediction of Parameters of Various SoilHydraulic Property Models
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast Adaptive Spectral Clustering for Single and Multi-View Data
 
 License:          AGPL-3

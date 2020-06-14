@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Inference and Design for Predictive Values in Diagnostic Tests
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Query 'Team Cymru' 'IP' Address, Autonomous System Number('ASN'), Border Gateway Protocol ('BGP'), Bogon and 'Malware'Hash Data Services
 
 License:          MIT + file LICENSE

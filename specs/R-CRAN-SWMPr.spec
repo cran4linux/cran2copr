@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Retrieving, Organizing, and Analyzing Estuary Monitoring Data
 
 License:          CC0

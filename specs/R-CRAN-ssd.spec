@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sample Size Determination (SSD) for Unordered Categorical Data
 
 License:          GPL-2

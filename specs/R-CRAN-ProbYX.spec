@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Inference for the Stress-Strength Model R = P(Y<X)
 
 License:          GPL-2

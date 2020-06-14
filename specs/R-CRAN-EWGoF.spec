@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Goodness-of-Fit Tests for the Exponential and Two-ParameterWeibull Distributions
 
 License:          GPL (>= 2.0)

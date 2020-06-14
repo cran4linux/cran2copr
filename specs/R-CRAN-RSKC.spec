@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Sparse K-Means
 
 License:          GPL (>= 2)

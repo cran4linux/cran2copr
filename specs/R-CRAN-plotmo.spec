@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Plot a Model's Residuals, Response, and Partial Dependence Plots
 
 License:          GPL-3

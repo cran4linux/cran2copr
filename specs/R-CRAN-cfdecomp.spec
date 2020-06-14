@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Counterfactual Decomposition: MC Integration of the G-Formula
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multi-State Markov and Hidden Markov Models in Continuous Time
 
 License:          GPL (>= 2)

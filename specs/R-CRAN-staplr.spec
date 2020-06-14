@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.9.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Toolkit for PDF Files
 
 License:          GPL-3

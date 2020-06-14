@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast, Exact Bootstrap Principal Component Analysis for HighDimensional Data
 
 License:          GPL-2

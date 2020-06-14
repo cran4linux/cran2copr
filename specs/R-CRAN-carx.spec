@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Censored Autoregressive Model with Exogenous Covariates
 
 License:          GPL-3

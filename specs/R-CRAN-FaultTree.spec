@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fault Trees for Risk and Reliability Analysis
 
 License:          GPL (>= 3)

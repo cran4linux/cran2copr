@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Active Set and Generalized PAVA for Isotone Optimization
 
 License:          GPL-2

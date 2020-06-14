@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read and Write from the System Clipboard
 
 License:          GPL-3

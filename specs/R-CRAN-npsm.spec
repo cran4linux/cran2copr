@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Package for Nonparametric Statistical Methods using R
 
 License:          GPL (>= 2)

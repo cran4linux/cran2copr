@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R tools for integrating with the www.clinicalcodes.orgrepository
 
 License:          GPL-2

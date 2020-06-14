@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Neyman-Pearson (NP) Classification Algorithms and NP ReceiverOperating Characteristic (NP-ROC) Curves
 
 License:          GPL-2

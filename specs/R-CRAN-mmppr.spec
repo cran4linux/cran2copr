@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Markov Modulated Poisson Process for Unsupervised EventDetection in Time Series of Counts
 
 License:          GPL (>= 2)

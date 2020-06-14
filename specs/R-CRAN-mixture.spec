@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Finite Gaussian Mixture Models for Clustering and Classification
 
 License:          GPL (>= 2)

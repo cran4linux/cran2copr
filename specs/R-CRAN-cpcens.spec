@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Changepoint Analysis using Censored Time Series Data
 
 License:          GPL (>= 2)

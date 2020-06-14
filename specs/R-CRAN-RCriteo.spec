@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Loading Criteo Data into R
 
 License:          GPL (>= 2) | MIT + file LICENSE

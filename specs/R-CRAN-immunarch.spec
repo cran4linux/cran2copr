@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bioinformatics Analysis of T-Cell and B-Cell Immune Repertoires
 
 License:          AGPL-3

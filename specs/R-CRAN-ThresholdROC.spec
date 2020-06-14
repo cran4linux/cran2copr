@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Optimum Threshold Estimation
 
 License:          GPL (>= 2)

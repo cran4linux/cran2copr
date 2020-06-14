@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to 'Kusto'/'Azure Data Explorer'
 
 License:          MIT + file LICENSE

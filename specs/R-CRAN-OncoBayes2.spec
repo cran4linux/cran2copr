@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Logistic Regression for Oncology Dose-Escalation Trials
 
 License:          GPL (>= 3)

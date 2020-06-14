@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mean and Variance of Truncated Normal Distribution
 
 License:          LGPL (>= 2.0, < 3) | Mozilla Public License

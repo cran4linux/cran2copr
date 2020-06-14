@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Privacy-Protecting Hazard Ratio Estimation in Distributed DataNetworks
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          GUI to Analyse qPCR Results after PMA Treatment or not
 
 License:          GPL-2

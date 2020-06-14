@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Smoothed LASSO Regression via Nesterov Smoothing
 
 License:          GPL (>= 2)

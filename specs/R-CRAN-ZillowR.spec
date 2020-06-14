@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Interface to Zillow Real Estate and Mortgage Data API
 
 License:          GPL-3

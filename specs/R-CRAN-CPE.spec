@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Concordance Probability Estimates in Survival Analysis
 
 License:          GPL (>= 2)

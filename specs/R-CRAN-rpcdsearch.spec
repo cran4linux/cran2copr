@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for the Construction of Clinical Code Lists for PrimaryCare Database Studies
 
 License:          GPL (>= 2)

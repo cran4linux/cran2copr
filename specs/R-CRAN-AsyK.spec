@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Kernel Density Estimation and Selection of Optimum Bandwidth
 
 License:          GPL-2

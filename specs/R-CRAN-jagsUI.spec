@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Wrapper Around 'rjags' to Streamline 'JAGS' Analyses
 
 License:          GPL-3

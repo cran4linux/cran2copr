@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonparametric Partially-Balanced Incomplete Block DesignAnalysis
 
 License:          GPL (>= 2)

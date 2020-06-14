@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Implements Indices of Qualitative Variation Proposed by Wilcox(1973)
 
 License:          GPL-3

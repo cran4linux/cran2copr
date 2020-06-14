@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.22
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of Binary Character Evolution
 
 License:          GPL (>= 2)

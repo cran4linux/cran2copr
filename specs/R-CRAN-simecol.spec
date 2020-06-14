@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation of Ecological (and Other) Dynamic Systems
 
 License:          GPL (>= 2)

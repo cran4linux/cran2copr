@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Portfolio Analysis, Including Numerical Methods for Optimizationof Portfolios
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Signal Processing
 
 License:          GPL-2

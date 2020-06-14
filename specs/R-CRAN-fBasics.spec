@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.89.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rmetrics - Markets and Basic Statistics
 
 License:          GPL (>= 2)

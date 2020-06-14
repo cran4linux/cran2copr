@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Download and Explore Datasets from UCSC Xena Data Hubs
 
 License:          GPL-3

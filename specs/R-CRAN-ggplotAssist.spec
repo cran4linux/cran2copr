@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'RStudio' Addin for Teaching and Learning 'ggplot2'
 
 License:          GPL-3

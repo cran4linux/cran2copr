@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Easy Nonlinear Model
 
 License:          GPL-2

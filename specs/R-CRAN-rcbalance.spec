@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Large, Sparse Optimal Matching with Refined Covariate Balance
 
 License:          MIT + file LICENSE

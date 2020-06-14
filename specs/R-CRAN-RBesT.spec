@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Bayesian Evidence Synthesis Tools
 
 License:          GPL (>= 3)

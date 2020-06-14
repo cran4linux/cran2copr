@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computing P-Values of the K-S Test for (Dis)Continuous NullDistribution
 
 License:          GPL (>= 2.0)

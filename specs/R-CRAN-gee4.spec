@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generalised Estimating Equations (GEE/WGEE) using 'Armadillo'and S4
 
 License:          GPL (>= 2)

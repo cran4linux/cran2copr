@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Partial Least Squares and Principal Component Regression
 
 License:          GPL-2

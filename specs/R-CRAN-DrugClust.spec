@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Implementation of a Machine Learning Framework for PredictingDrugs Side Effects
 
 License:          GPL-2

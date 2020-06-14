@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Optimal INterval (BOIN) Design for Single-Agent andDrug- Combination Phase I Clinical Trials
 
 License:          GPL-2

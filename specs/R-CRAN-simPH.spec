@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Simulating and Plotting Quantities of InterestEstimated from Cox Proportional Hazards Models
 
 License:          GPL-3

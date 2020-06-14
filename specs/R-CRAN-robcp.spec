@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Change-Point Tests
 
 License:          GPL-3

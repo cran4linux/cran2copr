@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Residual Diagnostics for Hierarchical (Multi-Level / Mixed)Regression Models
 
 License:          GPL (>= 3)

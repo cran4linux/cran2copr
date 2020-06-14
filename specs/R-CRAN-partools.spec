@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for the 'Parallel' Package
 
 License:          GPL (>= 2)

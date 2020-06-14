@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rasch Model Parameters by Pairwise Algorithm
 
 License:          GPL-3

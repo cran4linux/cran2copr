@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Add a Scale Bar to 'OpenStreetMap' Plots
 
 License:          GPL (>= 2)

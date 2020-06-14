@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          LTPD and AOQL Plans for Acceptance Sampling Inspection byVariables
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.88
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Features and Strings for Nonparametric Regression
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Reactive Transport Modelling in 1d, 2d and 3d
 
 License:          GPL (>= 3)

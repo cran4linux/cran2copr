@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tensor-Train Decomposition
 
 License:          Artistic-2.0

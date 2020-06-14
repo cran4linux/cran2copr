@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to Climatic Research Unit Time-Series Version 3.21Data
 
 License:          GPL-3

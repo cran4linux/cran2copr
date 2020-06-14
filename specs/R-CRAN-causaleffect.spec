@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Deriving Expressions of Joint Interventional Distributions andTransport Formulas in Causal Models
 
 License:          GPL-2

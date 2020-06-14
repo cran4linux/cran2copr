@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.9.27
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Disk-Based Constrained Change-Point Detection
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Toolbox for Systemic Risk
 
 License:          GPL-3

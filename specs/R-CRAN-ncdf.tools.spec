@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1.295
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Easier 'NetCDF' File Handling
 
 License:          GPL-2

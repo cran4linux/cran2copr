@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Basic Functions for Drawing Path Diagrams
 
 License:          GPL-3

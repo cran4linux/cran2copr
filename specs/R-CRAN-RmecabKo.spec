@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An 'Rcpp' Interface for Eunjeon Project
 
 License:          GPL (>= 2)

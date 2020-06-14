@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.3.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Rank-Based Tests
 
 License:          GPL-2

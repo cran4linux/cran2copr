@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Epidemiological Analysis using Population Data
 
 License:          GPL-3

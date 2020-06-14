@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Combined Total and Allele Specific Reads Sequencing Study
 
 License:          GPL (>= 2)

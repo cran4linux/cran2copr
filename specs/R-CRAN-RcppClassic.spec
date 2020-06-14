@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Deprecated 'classic' 'Rcpp' 'API'
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Routines for Performing Empirical Calibration of ObservationalStudy Estimates
 
 License:          Apache License 2.0

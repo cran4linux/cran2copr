@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Maximum Likelihood Inference for the Pearson VII Distributionwith Shape Parameter 3/2
 
 License:          GPL (>= 2)

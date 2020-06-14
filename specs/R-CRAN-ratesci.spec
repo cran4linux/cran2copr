@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Confidence Intervals for Comparisons of Binomial or PoissonRates
 
 License:          GPL-3

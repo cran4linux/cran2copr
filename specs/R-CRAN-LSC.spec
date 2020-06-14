@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Local Statistical Complexity - Automatic Pattern Discovery inSpatio-Temporal Data
 
 License:          GPL-2

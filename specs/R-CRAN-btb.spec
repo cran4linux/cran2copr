@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.30.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Beyond the Border - Kernel Density Estimation for UrbanGeography
 
 License:          GPL (>= 2)

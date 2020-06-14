@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.20
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Linkage Analysis in Outcrossing Polyploids
 
 License:          GPL

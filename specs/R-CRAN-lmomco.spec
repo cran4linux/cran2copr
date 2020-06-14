@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          L-Moments, Censored L-Moments, Trimmed L-Moments, L-Comoments,and Many Distributions
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          General Cross Validation Engine
 
 License:          GPL (>= 2)

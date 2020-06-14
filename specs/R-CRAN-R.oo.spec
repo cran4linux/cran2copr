@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.23.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Object-Oriented Programming with or without References
 
 License:          LGPL (>= 2.1)

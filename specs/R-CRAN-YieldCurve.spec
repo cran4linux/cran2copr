@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Modelling and estimation of the yield curve
 
 License:          GPL (>= 2)

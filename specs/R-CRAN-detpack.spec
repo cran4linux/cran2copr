@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Density Estimation and Random Number Generation withDistribution Element Trees
 
 License:          GPL-2

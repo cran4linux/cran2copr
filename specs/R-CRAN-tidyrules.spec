@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Obtain Rules from Rule Based Models as Tidy Dataframe
 
 License:          GPL-3

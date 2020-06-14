@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation and Prediction with Seasonal ARIMA Models
 
 License:          GPL (>= 2)

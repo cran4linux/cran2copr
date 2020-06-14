@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Principal Component Analysis-Based Data StructureComparisons
 
 License:          GPL-2

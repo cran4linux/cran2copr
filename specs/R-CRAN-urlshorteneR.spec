@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Wrapper for the 'Bit.ly' and 'Is.gd'/'v.gd' URL ShorteningServices
 
 License:          Apache License 2.0

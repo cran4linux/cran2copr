@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.19
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bridge Between 'R' and 'Scala' with Callbacks
 
 License:          Apache License 2.0 | file LICENSE

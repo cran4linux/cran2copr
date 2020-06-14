@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          CamelUp Board Game as a Teaching Aid for Introductory Statistics
 
 License:          GPL-3

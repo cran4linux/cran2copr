@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Prais-Winsten Estimator for AR(1) Serial Correlation
 
 License:          GPL-2

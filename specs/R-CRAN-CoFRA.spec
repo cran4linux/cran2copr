@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1002
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Complete Functional Regulation Analysis
 
 License:          GPL-2 | file LICENSE

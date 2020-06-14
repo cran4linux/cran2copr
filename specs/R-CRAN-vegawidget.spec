@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'Htmlwidget' for 'Vega' and 'Vega-Lite'
 
 License:          MIT + file LICENSE

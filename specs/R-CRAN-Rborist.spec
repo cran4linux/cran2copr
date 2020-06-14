@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extensible, Parallelizable Implementation of the Random ForestAlgorithm
 
 License:          MPL (>= 2) | GPL (>= 2) | file LICENSE

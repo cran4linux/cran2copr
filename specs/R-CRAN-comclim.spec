@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Community Climate Statistics
 
 License:          GPL-3

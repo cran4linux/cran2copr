@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Plotting N-T Plane for Decision on Performing an InterimAnalysis
 
 License:          GPL (>= 2)

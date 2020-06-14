@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation, Estimation, Model Selection and Forecasting for MARXModels
 
 License:          GPL-2

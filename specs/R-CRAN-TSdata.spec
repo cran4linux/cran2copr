@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2016.8.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'TSdbi' Illustration
 
 License:          GPL-2

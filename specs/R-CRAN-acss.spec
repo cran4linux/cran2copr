@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Algorithmic Complexity for Short Strings
 
 License:          GPL (>= 2)

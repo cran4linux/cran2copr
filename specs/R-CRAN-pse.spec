@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Parameter Space Exploration with Latin Hypercubes
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Kiener Distributions and Fat Tails in Finance
 
 License:          GPL-2

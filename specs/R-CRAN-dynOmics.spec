@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast Fourier Transform to Identify Associations Between TimeCourse Omics Data
 
 License:          GPL (>= 2) | file LICENSE

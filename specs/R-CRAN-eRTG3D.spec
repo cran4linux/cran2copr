@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Empirically Informed Random Trajectory Generation in 3-D
 
 License:          GPL (>= 3)

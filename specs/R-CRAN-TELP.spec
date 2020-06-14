@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Social Representation Theory Application: The Free Evocation ofWords Technique
 
 License:          GPL (> 2)

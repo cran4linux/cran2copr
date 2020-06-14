@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Profile Likelihood for a Parameter in Commonly Used StatisticalModels
 
 License:          GPL (>= 3)

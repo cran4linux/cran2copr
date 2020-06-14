@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Shiny App to Aid Interpretation of Geometrically-WeightedDegree Estimates in Exponential Random Graph Models
 
 License:          MIT + file LICENSE

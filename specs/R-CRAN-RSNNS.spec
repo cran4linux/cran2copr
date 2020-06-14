@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Neural Networks using the Stuttgart Neural Network Simulator(SNNS)
 
 License:          LGPL (>= 2) | file LICENSE

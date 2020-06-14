@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          HTTP and WebSocket Server Library
 
 License:          GPL (>= 2) | file LICENSE

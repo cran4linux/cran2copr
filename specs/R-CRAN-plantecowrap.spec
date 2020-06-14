@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Enhancing Capabilities of 'plantecophys'
 
 License:          MIT + file LICENSE

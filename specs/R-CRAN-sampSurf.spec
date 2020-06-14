@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sampling Surface Simulation for Areal Sampling Methods
 
 License:          GPL (>= 3)

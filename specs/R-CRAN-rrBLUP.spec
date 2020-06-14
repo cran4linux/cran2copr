@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Ridge Regression and Other Kernels for Genomic Selection
 
 License:          GPL-3

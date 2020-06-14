@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of Charcoal Records from the Global Charcoal Database
 
 License:          GPL (>= 2)

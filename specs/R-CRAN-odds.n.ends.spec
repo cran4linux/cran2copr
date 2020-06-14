@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Odds Ratios, Contingency Table, and Model Significance from aGeneralized Linear Model Object
 
 License:          CC0

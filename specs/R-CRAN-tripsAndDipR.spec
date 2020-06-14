@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Identification of 2n and 3n Samples from Amplicon SequencingData
 
 License:          MIT + file LICENSE

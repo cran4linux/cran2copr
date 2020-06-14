@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Semi-Parametric Test for Specifying Functional Form
 
 License:          GPL (>= 2)

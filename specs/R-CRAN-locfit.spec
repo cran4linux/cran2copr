@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.9.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Local Regression, Likelihood and Density Estimation
 
 License:          GPL (>= 2)

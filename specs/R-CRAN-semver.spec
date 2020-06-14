@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'Semantic Versioning V2.0.0' Parser
 
 License:          MIT + file LICENSE

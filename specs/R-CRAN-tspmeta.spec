@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Instance Feature Calculation and Evolutionary InstanceGeneration for the Traveling Salesman Problem
 
 License:          BSD_3_clause + file LICENSE

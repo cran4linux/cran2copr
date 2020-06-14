@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Custom Searches / Subsets / Slices of Named R Objects
 
 License:          GPL-2

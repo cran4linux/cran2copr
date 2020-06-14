@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Additional Univariate and Multivariate Distributions
 
 License:          GPL-2

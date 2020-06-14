@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Implementing Buy 'Til You Die Models
 
 License:          GPL-3

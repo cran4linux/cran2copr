@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fit GLM's with High-Dimensional k-Way Fixed Effects
 
 License:          GPL-3

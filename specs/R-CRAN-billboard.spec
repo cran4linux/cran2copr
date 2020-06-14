@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Contains Data of Billboard Hot 100 Songs
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.10.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Linear Predictive Models Based on the 'LIBLINEAR' C/C++ Library
 
 License:          GPL-2

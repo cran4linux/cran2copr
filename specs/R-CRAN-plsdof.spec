@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Degrees of Freedom and Statistical Inference for Partial LeastSquares Regression
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.22
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Forecasting Mortality, Fertility, Migration and Population Data
 
 License:          GPL (>= 2)

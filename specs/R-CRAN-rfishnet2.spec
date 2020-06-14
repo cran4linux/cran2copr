@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Exploratory Data Analysis for FishNet2 Data
 
 License:          MIT + file LICENSE

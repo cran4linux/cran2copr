@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Weighted Regression for Water Quality Evaluation in Tidal Waters
 
 License:          CC0

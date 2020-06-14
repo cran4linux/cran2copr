@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Censored Regression with Conditional Heteroscedasticity
 
 License:          GPL-2 | GPL-3

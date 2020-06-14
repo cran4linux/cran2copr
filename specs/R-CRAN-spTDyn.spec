@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Spatially Varying and Spatio-Temporal Dynamic Linear Models
 
 License:          GPL (>= 2)

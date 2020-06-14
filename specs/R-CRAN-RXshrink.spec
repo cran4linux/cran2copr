@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or LeastAngle Regression Methods
 
 License:          GPL-2

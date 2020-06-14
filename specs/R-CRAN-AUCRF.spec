@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Variable Selection with Random Forest and the Area Under theCurve
 
 License:          GPL (>= 2)

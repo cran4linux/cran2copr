@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Programmatic Interface to the 'Dropbox' API
 
 License:          MIT + file LICENSE

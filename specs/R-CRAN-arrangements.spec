@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast Generators and Iterators for Permutations, Combinations,Integer Partitions and Compositions
 
 License:          MIT + file LICENSE

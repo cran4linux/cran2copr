@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Shrinkage t Statistic and Correlation-Adjusted t-Score
 
 License:          GPL (>= 3)

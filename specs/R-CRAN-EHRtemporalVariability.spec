@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Delineating Temporal Dataset Shifts in Electronic Health Records
 
 License:          Apache License 2.0 | file LICENSE

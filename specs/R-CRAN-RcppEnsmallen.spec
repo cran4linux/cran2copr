@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.12.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Header-Only C++ Mathematical Optimization Library for'Armadillo'
 
 License:          GPL (>= 2)

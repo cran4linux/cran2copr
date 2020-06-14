@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.93
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          L2 Penalized Logistic Regression with Stepwise VariableSelection
 
 License:          GPL (>= 2)

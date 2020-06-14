@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Retrieval, Analysis, and Anomaly Calculation of Daily HydrologicTime Series Data
 
 License:          Unlimited | file LICENSE

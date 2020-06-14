@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Generating, Visualizing, and Analysing LinkCommunities in Networks
 
 License:          GPL (>= 2)

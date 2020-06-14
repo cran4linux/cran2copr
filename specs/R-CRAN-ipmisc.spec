@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Miscellaneous Functions for Data Cleaning and Analysis
 
 License:          GPL-3 | file LICENSE

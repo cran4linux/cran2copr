@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data to Accompany Applied Linear Regression 4th Edition
 
 License:          GPL (>= 2)

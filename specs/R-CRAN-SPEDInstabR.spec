@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation of the Relative Importance of Factors AffectingSpecies Distribution Based on Stability Concept
 
 License:          GPL (>= 2)

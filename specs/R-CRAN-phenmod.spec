@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Auxiliary functions for phenological data processing, modellingand result handling
 
 License:          GPL (>= 2)

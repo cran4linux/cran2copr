@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          World Development Indicators (World Bank)
 
 License:          GPL-3

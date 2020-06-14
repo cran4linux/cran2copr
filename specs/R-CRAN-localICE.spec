@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Local Individual Conditional Expectation
 
 License:          BSD_3_clause + file LICENSE

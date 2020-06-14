@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read, Write, Format Excel 2007 and Excel 97/2000/XP/2003 Files
 
 License:          GPL-3

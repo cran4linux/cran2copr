@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Adaptive Estimation in the Linear Random Coefficients Models
 
 License:          GPL-3

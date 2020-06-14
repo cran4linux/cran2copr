@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Dimension Reduction of Non-Normally Distributed Data
 
 License:          Artistic-2.0

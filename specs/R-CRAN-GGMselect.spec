@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.12.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gaussian Graphs Models Selection
 
 License:          GPL (>= 3)

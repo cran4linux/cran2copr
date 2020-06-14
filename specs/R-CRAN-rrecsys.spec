@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.7.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Environment for Evaluating Recommender Systems
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Visualize Data for Host and Viral Population from 'SMITIDstruct'using HTMLwidgets
 
 License:          GPL (>= 3) | file LICENSE

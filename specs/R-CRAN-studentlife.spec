@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tidy Handling and Navigation of the Student-Life Dataset
 
 License:          GPL-3

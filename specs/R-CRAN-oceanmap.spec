@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Plotting Toolbox for 2D Oceanographic Data
 
 License:          GPL (>= 3)

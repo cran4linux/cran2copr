@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Class of Adaptive Elastic Net Methods for Censored Data
 
 License:          GPL-2

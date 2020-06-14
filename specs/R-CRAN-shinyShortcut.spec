@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Creates an Executable Shortcut for Shiny Applications
 
 License:          GPL (>= 3) | file LICENSE

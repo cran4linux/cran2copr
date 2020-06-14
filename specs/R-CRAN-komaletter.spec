@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simple yet Flexible Letters via the 'KOMA-Script LaTeX Bundle'
 
 License:          GPL-3

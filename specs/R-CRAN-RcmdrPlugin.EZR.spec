@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.42
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Commander Plug-in for the EZR (Easy R) Package
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Geostatistical Modelling with Likelihood and Bayes
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.941
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Design of QTL experiments
 
 License:          GPL

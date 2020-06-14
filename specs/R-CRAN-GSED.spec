@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Group Sequential Enrichment Design
 
 License:          GPL-3

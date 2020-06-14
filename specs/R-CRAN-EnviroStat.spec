@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Analysis of Environmental Space-Time Processes
 
 License:          AGPL (>= 3)

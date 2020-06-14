@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Experiments on Batch Computing Clusters
 
 License:          BSD_3_clause + file LICENSE

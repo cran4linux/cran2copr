@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions to Simulate and Conduct Dose-Escalation Phase IStudies
 
 License:          GPL (>= 2)

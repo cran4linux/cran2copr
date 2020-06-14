@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Vector Binary Tree to Make Your Data Management More Efficient
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Inference for Beta Regression and Zero-or-One InflatedBeta Regression
 
 License:          GPL (>= 3)

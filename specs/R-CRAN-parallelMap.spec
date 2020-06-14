@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Unified Interface to Parallelization Back-Ends
 
 License:          BSD_2_clause + file LICENSE

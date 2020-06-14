@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.01
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Package for some probability distributions.
 
 License:          GPL-2

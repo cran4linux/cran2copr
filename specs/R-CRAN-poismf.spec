@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Factorization of Sparse Counts Matrices Through PoissonLikelihood
 
 License:          BSD_2_clause + file LICENSE

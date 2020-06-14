@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Test Overlapping of Polygons Against Random Rotation
 
 License:          GPL (>= 2)

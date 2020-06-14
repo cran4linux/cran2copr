@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Estimation of the GARCH(1,1) Model with Student-tInnovations
 
 License:          GPL (>= 2)

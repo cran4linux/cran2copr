@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bivariate Linear Errors-In-Variables Estimation
 
 License:          GPL (>= 2)

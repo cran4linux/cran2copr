@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          SPArse Matrix
 
 License:          LGPL-2 | BSD_3_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Creates and Plots P-Value Functions, S-Value Functions,Confidence Distributions and Confidence Densities
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0.75
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Time Series from S-PLUS
 
 License:          BSD_3_clause + file LICENSE

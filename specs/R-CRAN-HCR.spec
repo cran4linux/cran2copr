@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Causal Discovery from Discrete Data using Hidden CompactRepresentation
 
 License:          GPL (>= 2)

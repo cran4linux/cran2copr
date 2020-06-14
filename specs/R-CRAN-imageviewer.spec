@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simple 'htmlwidgets' Image Viewer with WebGL Brightness/Contrast
 
 License:          MIT + file LICENSE

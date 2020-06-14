@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.8.27
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Structural Data for Norway
 
 License:          GPL-3

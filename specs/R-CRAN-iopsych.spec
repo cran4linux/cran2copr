@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.90.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Methods for Industrial/Organizational Psychology
 
 License:          BSD_3_clause + file LICENSE

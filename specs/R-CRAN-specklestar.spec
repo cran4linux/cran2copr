@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Reduction of Speckle Data from BTA 6-m Telescope
 
 License:          GPL-2

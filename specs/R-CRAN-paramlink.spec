@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Parametric Linkage and Other Pedigree Analysis in R
 
 License:          GPL (>= 2)

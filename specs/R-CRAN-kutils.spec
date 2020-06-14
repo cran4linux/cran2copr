@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.70
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Project Management Tools
 
 License:          GPL-2

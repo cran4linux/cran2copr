@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.23
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Simplifying the Population and Querying of SQLiteDatabases
 
 License:          GPL-3

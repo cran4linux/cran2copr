@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimator Augmentation and Simulation-Based Inference
 
 License:          GPL (>= 2)

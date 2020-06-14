@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Test, Identify, Select and Mutate Categorical or ContinuousValues
 
 License:          GPL-2 | file LICENSE

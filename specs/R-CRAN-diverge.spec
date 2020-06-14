@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Evolutionary Trait Divergence Between Sister Species and OtherPaired Lineages
 
 License:          GPL (>= 2)

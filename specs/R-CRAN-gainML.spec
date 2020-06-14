@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Machine Learning-Based Analysis of Potential Power Gain fromPassive Device Installation on Wind Turbine Generators
 
 License:          GPL-3

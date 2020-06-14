@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Nondecimated Lifting Transform for Signal Denoising
 
 License:          GPL

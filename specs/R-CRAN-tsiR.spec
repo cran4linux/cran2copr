@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Implementation of the TSIR Model
 
 License:          GPL-3

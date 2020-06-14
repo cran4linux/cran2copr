@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.6.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Wavelets Statistics and Transforms
 
 License:          GPL (>= 2)

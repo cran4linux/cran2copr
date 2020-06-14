@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Implements the Forest-R.K. Algorithm for Classification Problems
 
 License:          GPL (>= 3) | file LICENSE

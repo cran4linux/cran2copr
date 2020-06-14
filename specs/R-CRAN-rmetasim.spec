@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Individual-Based Population Genetic Simulation Environment
 
 License:          GPL

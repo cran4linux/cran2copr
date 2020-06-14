@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.9.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Interface to 'tslib' (a Time Series Library in C++)
 
 License:          GPL-3

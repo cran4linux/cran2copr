@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Kvantitatiivsete meetodite praktikumi asjad / Functions used inthe course "Quantitative methods in behavioural sciences"(SHPH.00.004), University of Tartu
 
 License:          GPL (>= 2)

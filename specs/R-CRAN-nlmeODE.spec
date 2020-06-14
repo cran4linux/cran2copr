@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Non-linear mixed-effects modelling in nlme using differentialequations
 
 License:          LGPL (>= 2.1)

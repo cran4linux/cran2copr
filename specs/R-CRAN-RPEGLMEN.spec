@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gamma and Exponential Generalized Linear Models with Elastic NetPenalty
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Database Agnostic Package to Generate and Process 'SQL' Queriesin R
 
 License:          MIT + file LICENSE

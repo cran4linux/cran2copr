@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Drag and Drop Elements in 'Shiny' using 'Dragula JavascriptLibrary'
 
 License:          GPL-2

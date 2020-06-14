@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Alignment of Phonetic Sequences Using the 'ALINE' Algorithm
 
 License:          GPL-3

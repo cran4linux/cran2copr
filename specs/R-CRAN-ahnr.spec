@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Implementation of the Artificial Hydrocarbon Networks
 
 License:          GPL-3 | file LICENSE

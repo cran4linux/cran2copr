@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Confidence or Prediction Intervals, Quantiles, and Probabilitiesfor Statistical Models
 
 License:          GPL (>= 3)

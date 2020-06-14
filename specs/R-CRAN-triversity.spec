@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Diversity Measures on Tripartite Graphs
 
 License:          GPL-3 | file LICENSE

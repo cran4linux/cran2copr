@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Check if the Title of a Package is Available, Appropriate andInteresting
 
 License:          MIT + file LICENSE

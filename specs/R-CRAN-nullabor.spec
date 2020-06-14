@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Graphical Inference
 
 License:          GPL (>= 2)

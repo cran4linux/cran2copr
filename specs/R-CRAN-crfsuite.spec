@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Conditional Random Fields for Labelling Sequential Data inNatural Language Processing
 
 License:          BSD_3_clause + file LICENSE

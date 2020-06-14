@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analyze Lines of R Code the Tidy Way
 
 License:          MIT + file LICENSE

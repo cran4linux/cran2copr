@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Graph-Based Change-Point Detection (g-Segmentation)
 
 License:          GPL (>= 2)

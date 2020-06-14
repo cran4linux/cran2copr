@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust M-Estimators Based on Transformations for Poisson Model
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface for the RobinHood.com No Commission Investing Platform
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Useful Libraries for Building a Java Based GUI under R
 
 License:          GPL-2

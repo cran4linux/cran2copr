@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculating sample size requirements when estimating thedifference between two binomial proportions
 
 License:          GPL (>= 2)

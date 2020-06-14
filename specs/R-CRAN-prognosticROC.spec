@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Prognostic ROC curves for evaluating the predictive capacity ofa binary test
 
 License:          GPL (>= 2)

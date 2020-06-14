@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multiple Aggregation Prediction Algorithm
 
 License:          GPL (>= 2)

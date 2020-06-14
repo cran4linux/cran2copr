@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to the Global 'Biodiversity' Information Facility API
 
 License:          MIT + file LICENSE

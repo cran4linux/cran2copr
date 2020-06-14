@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Average Bioequivalence with Expanding Limits (ABEL)
 
 License:          GPL (>= 3)

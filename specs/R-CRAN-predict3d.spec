@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Draw Three Dimensional Predict Plot Using Package 'rgl'
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Ordinary Differential Equation (ODE) Solvers Written in R UsingS4 Classes
 
 License:          GPL-2

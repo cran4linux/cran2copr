@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculates the Distance Between Voter and Multiple PollingLocations
 
 License:          GPL (>= 2)

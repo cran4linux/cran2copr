@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Portfolio Allocation and Risk Management Applications
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Lightweight Iterative Geneset Enrichment
 
 License:          GPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Iterative Solvers for (Sparse) Linear System of Equations
 
 License:          GPL (>= 3)

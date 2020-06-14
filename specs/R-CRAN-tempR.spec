@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.9.16
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Temporal Sensory Data Analysis
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Transformation or Simulation with Empirical CovarianceMatrix
 
 License:          GPL (>= 2)

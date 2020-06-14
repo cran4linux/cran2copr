@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Global Sensitivity Analysis in Physiologically Based KineticModeling
 
 License:          GPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Enhanced Seasonal Decomposition of Time Series by Loess
 
 License:          BSD_3_clause + file LICENSE

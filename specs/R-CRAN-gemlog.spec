@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.40
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          File Conversion for 'Gem Infrasound Logger'
 
 License:          GPL

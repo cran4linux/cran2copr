@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mixture Hidden Markov Models for Social Sequence Data and OtherMultivariate, Multichannel Categorical Time Series
 
 License:          GPL (>= 2)

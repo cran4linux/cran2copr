@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Continuous Confidence Interval Plots using t-Distribution
 
 License:          GPL (>= 2)

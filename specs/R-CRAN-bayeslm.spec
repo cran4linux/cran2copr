@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Efficient Sampling for Gaussian Linear Regression with ArbitraryPriors
 
 License:          LGPL (>= 2)

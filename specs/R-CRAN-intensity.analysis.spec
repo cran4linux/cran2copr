@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Intensity of Change for Comparing Categorical Maps fromSequential Intervals
 
 License:          GPL (>= 2)

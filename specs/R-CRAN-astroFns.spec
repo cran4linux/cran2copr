@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Astronomy: time and position functions, misc. utilities
 
 License:          GPL (>= 2)

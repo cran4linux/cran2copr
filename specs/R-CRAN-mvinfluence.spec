@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Influence Measures and Diagnostic Plots for Multivariate LinearModels
 
 License:          GPL-2

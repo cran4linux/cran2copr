@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Permutation Tests for Regression, (Repeated Measures)ANOVA/ANCOVA and Comparison of Signals
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Graphics Output in LaTeX Format
 
 License:          GPL (>= 2)

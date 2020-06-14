@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          8.12.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Required 'libphonenumber' jars for the 'dialr' Package
 
 License:          GPL-3

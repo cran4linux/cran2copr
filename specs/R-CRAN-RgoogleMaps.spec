@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.5.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Overlays on Static Maps
 
 License:          GPL

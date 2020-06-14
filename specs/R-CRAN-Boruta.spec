@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          7.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Wrapper Algorithm for All Relevant Feature Selection
 
 License:          GPL (>= 2)

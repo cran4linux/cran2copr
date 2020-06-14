@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gene Network Inference from Time-Series Transcriptomic Data
 
 License:          GPL (>= 2)

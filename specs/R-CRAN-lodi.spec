@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Limit of Detection Imputation for Single-Pollutant Models
 
 License:          GPL-3

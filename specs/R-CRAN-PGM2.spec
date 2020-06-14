@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nested Resolvable Designs and their Associated Uniform Designs
 
 License:          GPL-3

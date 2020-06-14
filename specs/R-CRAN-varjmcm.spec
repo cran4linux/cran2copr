@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimations for the Covariance of Estimated Parameters in JointMean-Covariance Models
 
 License:          GPL (>= 2)

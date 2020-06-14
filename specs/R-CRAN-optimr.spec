@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.12.16
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Replacement and Extension of the 'optim' Function
 
 License:          GPL-2

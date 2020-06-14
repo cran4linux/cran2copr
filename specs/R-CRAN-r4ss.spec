@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.36.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Code for Stock Synthesis
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.56.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions that Apply to Rows and Columns of Matrices (and toVectors)
 
 License:          Artistic-2.0

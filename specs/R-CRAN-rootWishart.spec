@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Distribution of Largest Root for Single and Double WishartSettings
 
 License:          GPL (>= 2)

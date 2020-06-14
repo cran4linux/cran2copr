@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Meth27QC: sample quality analysis, and sample control analysis
 
 License:          GPL-2

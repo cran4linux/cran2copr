@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Methods for Image Segmentation using a Potts Model
 
 License:          GPL (>= 2) | file LICENSE

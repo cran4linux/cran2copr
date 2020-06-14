@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Inference on Causal Genetic Variants using AffectedSib-Pairs Data
 
 License:          GPL-2

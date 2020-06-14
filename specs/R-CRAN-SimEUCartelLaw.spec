@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation of Legal Exemption System for European Cartel Law
 
 License:          GPL (>= 2)

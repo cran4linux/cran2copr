@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          (M)ultiple-site (B)iodiversity (I)ndices Calculator
 
 License:          GPL-2

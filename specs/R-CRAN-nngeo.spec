@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          k-Nearest Neighbor Join for Spatial Data
 
 License:          MIT + file LICENSE

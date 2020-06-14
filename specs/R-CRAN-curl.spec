@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Modern and Flexible Web Client for R
 
 License:          MIT + file LICENSE

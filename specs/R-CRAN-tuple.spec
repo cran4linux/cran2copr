@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.02
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Find every match, or orphan, duplicate, triplicate, or otherreplicated values
 
 License:          LGPL-3

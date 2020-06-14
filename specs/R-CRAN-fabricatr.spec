@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Imagine Your Data Before You Collect It
 
 License:          MIT + file LICENSE

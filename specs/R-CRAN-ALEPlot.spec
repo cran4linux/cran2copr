@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Accumulated Local Effects (ALE) Plots and Partial Dependence(PD) Plots
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Estimation of Mixtures of Multivariate BernoulliDistributions
 
 License:          GPL-2

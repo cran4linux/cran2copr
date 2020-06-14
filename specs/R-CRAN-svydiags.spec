@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Linear Regression Model Diagnostics for Survey Data
 
 License:          GPL (>= 2)

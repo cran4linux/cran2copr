@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read Data from European Data Format (EDF and EDF+) Files
 
 License:          MIT + file LICENSE

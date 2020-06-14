@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Miscellaneous (stats) helper functions with sane defaults forreporting
 
 License:          AGPL-3

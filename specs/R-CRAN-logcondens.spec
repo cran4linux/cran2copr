@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimate a Log-Concave Probability Density from Iid Observations
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonparametric Change Detection in Multivariate LinearRelationships
 
 License:          GPL (>= 2)

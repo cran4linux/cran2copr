@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Time Value of Money, Time Series Analysis and ComputationalFinance
 
 License:          GPL (>= 2)

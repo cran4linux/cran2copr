@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data related to the book "R Statistical Application Developmentby Example"
 
 License:          GPL-2

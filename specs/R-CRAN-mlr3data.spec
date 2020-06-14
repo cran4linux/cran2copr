@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Collection of Machine Learning Data Sets for 'mlr3'
 
 License:          LGPL (>= 2.1)

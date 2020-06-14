@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.8.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Average Positive Predictive Values (AP) for Binary Outcomes andCensored Event Times
 
 License:          LGPL-3

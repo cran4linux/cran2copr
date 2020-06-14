@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions to Fit Monotone Polynomials
 
 License:          GPL (>= 2)

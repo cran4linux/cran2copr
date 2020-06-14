@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generic and Biological Sequences
 
 License:          GPL-3

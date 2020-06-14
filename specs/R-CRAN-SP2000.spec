@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Catalogue of Life Toolkit
 
 License:          Artistic-2.0

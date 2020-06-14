@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          High Dimensional Hypothesis Testing for Mean Vectors, CovarianceMatrices, and White Noise of Vector Time Series
 
 License:          Apache License (== 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Search 'Vertnet', a 'Database' of Vertebrate Specimen Records
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculating Ratios Between Two Data Sets and Correction forAdhering Particles on Plants
 
 License:          GPL-3

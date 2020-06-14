@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          JSON for Linking Data
 
 License:          BSD_3_clause + file LICENSE

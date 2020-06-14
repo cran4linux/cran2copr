@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Graph Probability Distributions with User Supplied Parametersand Statistics
 
 License:          MIT + file LICENSE

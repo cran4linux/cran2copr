@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Travel Smoothly Between Country Name and Code Formats
 
 License:          GPL-3 | file LICENSE

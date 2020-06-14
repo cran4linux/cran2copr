@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2015.12.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Time Frame User Utilities
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Relational Query Generator for Data Manipulation at Scale
 
 License:          GPL-2 | GPL-3

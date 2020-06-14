@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          7.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools to Manage a Parametric Function that Describes Phenology
 
 License:          GPL-2

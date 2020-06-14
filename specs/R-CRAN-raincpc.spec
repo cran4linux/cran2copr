@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Obtain and Analyze Daily Rainfall Data from the USA ClimatePrediction Center (CPC)
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.11.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fishery Science Methods and Models
 
 License:          GPL (>= 2)

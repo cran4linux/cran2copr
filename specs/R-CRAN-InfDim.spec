@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Infine-dimensional model (IDM) to analyse phenotypic variationin growth trajectories.
 
 License:          GPL (>= 2)

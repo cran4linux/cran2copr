@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data About the Victims of the Pinochet Regime, 1973-1990
 
 License:          MIT + file LICENSE

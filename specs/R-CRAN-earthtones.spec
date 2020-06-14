@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Derive a Color Palette from a Particular Location on Earth
 
 License:          MIT + file LICENSE

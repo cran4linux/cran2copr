@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rare Variant Association Test Based on Position DensityEstimation
 
 License:          GPL (>= 2)

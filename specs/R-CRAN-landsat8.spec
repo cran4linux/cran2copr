@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Landsat 8 Imagery Rescaled to Reflectance, Radiance and/orTemperature
 
 License:          GPL-2

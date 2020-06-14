@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Number Needed to Treat (NNT) for Survival Endpoint
 
 License:          GPL-3

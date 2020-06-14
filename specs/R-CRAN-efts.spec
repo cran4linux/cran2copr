@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          High-Level Functions to Read and Write Ensemble Forecast TimeSeries in netCDF
 
 License:          GPL-2

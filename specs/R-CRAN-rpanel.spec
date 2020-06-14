@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simple Interactive Controls for R using the 'tcltk' Package
 
 License:          GPL (>= 2)

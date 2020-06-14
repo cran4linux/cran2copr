@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.67
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Adaptive Semiparametric Additive Regression with SimultaneousConfidence Bands and Specification Tests
 
 License:          GPL (>= 2)

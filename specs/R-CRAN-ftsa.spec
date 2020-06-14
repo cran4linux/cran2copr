@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functional Time Series Analysis
 
 License:          GPL-3

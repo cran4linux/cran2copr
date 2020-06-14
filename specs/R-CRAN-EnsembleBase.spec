@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extensible Package for Parallel, Batch Training of Base Learnersfor Ensemble Modeling
 
 License:          GPL (>= 2)

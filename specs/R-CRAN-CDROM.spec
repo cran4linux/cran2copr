@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Phylogenetically Classifies Retention Mechanisms of DuplicateGenes from Gene Expression Data
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simultaneous Enrichment Analysis
 
 License:          GPL (>= 2)

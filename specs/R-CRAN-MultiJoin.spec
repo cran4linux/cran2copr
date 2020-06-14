@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Enables Efficient Joining of Data File on Common Fields usingthe Unix Utility Join
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The All-Configurations, Maximum-Interaction F-Test for HiddenAdditivity
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Wrapper Functions for 'ODAM' (Open Data for Access and Mining)Web Services
 
 License:          LGPL (>= 3)

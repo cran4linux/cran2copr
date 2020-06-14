@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.11.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Product-Limit Estimation for Censored Event History Analysis
 
 License:          GPL (>= 2)

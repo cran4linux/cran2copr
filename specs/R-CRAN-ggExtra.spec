@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Add Marginal Histograms to 'ggplot2', and More 'ggplot2'Enhancements
 
 License:          MIT + file LICENSE

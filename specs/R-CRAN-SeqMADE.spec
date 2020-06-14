@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Network Module-Based Model in the Differential ExpressionAnalysis for RNA-Seq
 
 License:          GPL (>= 2)

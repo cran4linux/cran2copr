@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A 'dplyr' Back End for Databases
 
 License:          MIT + file LICENSE

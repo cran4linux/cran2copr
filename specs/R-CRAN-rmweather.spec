@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools to Conduct Meteorological Normalisation on Air QualityData
 
 License:          GPL-3 | file LICENSE

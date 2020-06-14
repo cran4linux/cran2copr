@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Psychometric Meta-Analysis Toolkit
 
 License:          GPL (>= 3)

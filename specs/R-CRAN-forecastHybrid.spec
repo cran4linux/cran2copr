@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0.18
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Convenient Functions for Ensemble Time Series Forecasts
 
 License:          GPL-3

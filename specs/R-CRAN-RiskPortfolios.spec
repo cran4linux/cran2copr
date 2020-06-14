@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computation of Risk-Based Portfolios
 
 License:          GPL (>= 2)

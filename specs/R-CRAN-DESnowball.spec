@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bagging with Distance-based Regression for Differential GeneExpression Analyses
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Three methods to identify differentially expressed gene sets,ordinary least square test, Multivariate Analysis Of Variancetest with n contrasts and Random forest.
 
 License:          GPL-2

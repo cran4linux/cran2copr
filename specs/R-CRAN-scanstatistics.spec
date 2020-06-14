@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Space-Time Anomaly Detection using Scan Statistics
 
 License:          GPL (>= 3)

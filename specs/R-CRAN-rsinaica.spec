@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Download Data from Mexico's Air Quality Information System
 
 License:          MIT + file LICENSE

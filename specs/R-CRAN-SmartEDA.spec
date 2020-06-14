@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Summarize and Explore the Data
 
 License:          MIT + file LICENSE

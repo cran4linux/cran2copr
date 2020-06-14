@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functional Data Analysis: K-Mean Alignment
 
 License:          GPL (>= 3)

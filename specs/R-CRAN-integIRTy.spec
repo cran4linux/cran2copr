@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Integrating Multiple Modalities of High Throughput Assays UsingItem Response Theory
 
 License:          Apache License (== 2.0)

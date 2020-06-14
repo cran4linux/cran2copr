@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.12.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools to Support Optimization Possibly with Bounds and Masks
 
 License:          GPL-2

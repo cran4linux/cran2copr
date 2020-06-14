@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Matching Algorithms for Causal Inference with Clustered Data
 
 License:          GPL-2

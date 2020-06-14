@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.6.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Load Data From 'Yandex Direct'
 
 License:          GPL-2

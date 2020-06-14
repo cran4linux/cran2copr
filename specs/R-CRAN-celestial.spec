@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Collection of Common Astronomical Conversion Routines andFunctions
 
 License:          GPL-3

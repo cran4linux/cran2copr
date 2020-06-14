@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Quotes on Statistics, Data Visualization and Science
 
 License:          GPL (>= 2)

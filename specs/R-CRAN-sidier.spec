@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Substitution and Indel Distances to Infer EvolutionaryRelationships
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Medical Risk and Comorbidity Tools for ICD-9-CM Data
 
 License:          GPL-3 | file LICENSE

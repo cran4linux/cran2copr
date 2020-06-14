@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Equipment for Logarithmic and Linear Time Stepwise MultipleHypothesis Testing
 
 License:          GPL-3

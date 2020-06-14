@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Flexible Optimization of Complex Loss Functions with State andParameter Space Constraints
 
 License:          GPL (>= 2)

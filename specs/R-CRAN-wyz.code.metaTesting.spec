@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Wizardry Code Meta Testing
 
 License:          GPL-3

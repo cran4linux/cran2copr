@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.76
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Import and Handling for Plain and Formatted Text Files
 
 License:          GPL-3

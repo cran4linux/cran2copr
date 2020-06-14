@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.7.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Core Interactive Table Component for 'dash'
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Time Dependent Point Process Modelling
 
 License:          GPL (>= 2)

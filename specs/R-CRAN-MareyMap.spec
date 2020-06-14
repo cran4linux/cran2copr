@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation of Meiotic Recombination Rates Using Marey Maps
 
 License:          GPL (>= 2)

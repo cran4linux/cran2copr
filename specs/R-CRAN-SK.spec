@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Segment-Based Ordinary Kriging and Segment-Based RegressionKriging for Spatial Prediction
 
 License:          GPL-2

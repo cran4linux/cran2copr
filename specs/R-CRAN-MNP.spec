@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Package for Fitting the Multinomial Probit Model
 
 License:          GPL (>= 2)

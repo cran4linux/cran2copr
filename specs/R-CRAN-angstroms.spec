@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for 'ROMS' the Regional Ocean Modeling System
 
 License:          GPL-3

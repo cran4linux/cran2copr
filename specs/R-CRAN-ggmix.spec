@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Variable Selection in Linear Mixed Models for SNP Data
 
 License:          MIT + file LICENSE

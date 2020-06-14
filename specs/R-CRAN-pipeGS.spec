@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Permutation p-Value Estimation for Gene Set Tests
 
 License:          GPL-2

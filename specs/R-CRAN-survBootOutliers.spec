@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Concordance Based Bootstrap Methods for Outlier Detection inSurvival Analysis
 
 License:          GPL-2

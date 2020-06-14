@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Non-Negative Conjugate-Gradient Minimizer
 
 License:          BSD_2_clause + file LICENSE

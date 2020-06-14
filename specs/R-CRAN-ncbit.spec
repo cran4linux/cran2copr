@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2013.03.29
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          retrieve and build NBCI taxonomic data
 
 License:          GPL (>= 2)

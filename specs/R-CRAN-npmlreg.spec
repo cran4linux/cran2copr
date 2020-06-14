@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.46.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonparametric Maximum Likelihood Estimation for Random EffectModels
 
 License:          GPL (>= 2)

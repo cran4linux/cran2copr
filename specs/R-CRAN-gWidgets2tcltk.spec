@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Toolkit Implementation of gWidgets2 for tcltk
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Turn Geospatial Polygons into Regular or Hexagonal Grids
 
 License:          MIT + file LICENSE

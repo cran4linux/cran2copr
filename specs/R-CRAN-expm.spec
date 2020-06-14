@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.999.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Matrix Exponential, Log, 'etc'
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.5.21
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonlinear Calibration
 
 License:          GPL (>= 2)

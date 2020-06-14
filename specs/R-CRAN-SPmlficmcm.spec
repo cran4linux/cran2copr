@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Semiparametric Maximum Likelihood Method for InteractionsGene-Environment in Case-Mother Control-Mother Designs
 
 License:          GPL-2

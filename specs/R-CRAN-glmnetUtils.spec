@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Utilities for 'Glmnet'
 
 License:          GPL-2

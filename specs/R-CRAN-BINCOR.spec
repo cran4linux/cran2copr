@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimate the Correlation Between Two Irregular Time Series
 
 License:          GPL (>= 2)

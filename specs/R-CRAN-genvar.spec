@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Imperative Library for Data Manipulation
 
 License:          GPL-3

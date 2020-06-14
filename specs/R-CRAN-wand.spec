@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Retrieve 'Magic' Attributes from Files and Directories
 
 License:          MIT + file LICENSE

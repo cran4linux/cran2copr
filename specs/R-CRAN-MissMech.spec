@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Testing Homoscedasticity, Multivariate Normality, and MissingCompletely at Random
 
 License:          GPL (>= 2)

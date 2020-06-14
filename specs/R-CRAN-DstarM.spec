@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analyze Two Choice Reaction Time Data with the D*M Method
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Creates the MCC-F1 Curve and Calculates the MCC-F1 Metric andthe Best Threshold
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Functionally Oriented Interface for Integrating 'Julia' with R
 
 License:          MIT + file LICENCE

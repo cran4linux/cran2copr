@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.21
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Collection of Tools for the Analysis of Remote AcousticTelemetry Data
 
 License:          GPL (>= 2)

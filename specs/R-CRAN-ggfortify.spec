@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Visualization Tools for Statistical Analysis Results
 
 License:          GPL-2

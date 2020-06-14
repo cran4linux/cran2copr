@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.900
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions to Select and Rename Data
 
 License:          GPL (>= 2)

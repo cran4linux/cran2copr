@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate Power and Sample Size with Beta Regression
 
 License:          GPL (>= 2)

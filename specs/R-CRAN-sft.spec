@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Systems Factorial Technology Analysis of Data
 
 License:          GPL (>= 2)

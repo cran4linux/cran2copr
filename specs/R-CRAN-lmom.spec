@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          L-Moments
 
 License:          Common Public License Version 1.0

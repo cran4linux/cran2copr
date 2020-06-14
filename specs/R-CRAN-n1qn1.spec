@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.0.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Port of the 'Scilab' 'n1qn1' and 'qnbd' Modules for(Un)constrained BFGS Optimization
 
 License:          CeCILL-2

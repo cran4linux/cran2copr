@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multiple Comparisons and Simultaneous Confidence Intervals
 
 License:          GPL

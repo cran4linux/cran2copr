@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Latent Environmental & Genetic InTeraction (LEGIT) Model
 
 License:          GPL-3

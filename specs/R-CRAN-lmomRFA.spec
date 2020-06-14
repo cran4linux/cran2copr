@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regional Frequency Analysis using L-Moments
 
 License:          Common Public License Version 1.0

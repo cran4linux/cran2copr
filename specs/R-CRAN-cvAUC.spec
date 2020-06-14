@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Cross-Validated Area Under the ROC Curve Confidence Intervals
 
 License:          Apache License (== 2.0)

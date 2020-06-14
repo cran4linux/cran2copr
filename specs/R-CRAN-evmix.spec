@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extreme Value Mixture Modelling, Threshold Estimation andBoundary Corrected Kernel Density Estimation
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'Rcpp' Integration for 'GNU GSL' Vectors and Matrices
 
 License:          GPL (>= 2)

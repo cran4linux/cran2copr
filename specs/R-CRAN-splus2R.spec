@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Supplemental S-PLUS Functionality in R
 
 License:          GPL-2

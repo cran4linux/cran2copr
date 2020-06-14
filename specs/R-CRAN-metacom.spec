@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of the 'Elements of Metacommunity Structure'
 
 License:          GPL-2

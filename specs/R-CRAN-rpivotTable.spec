@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Build Powerful Pivot Tables and Dynamically Slice & Dice yourData
 
 License:          MIT + file LICENSE

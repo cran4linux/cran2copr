@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools to Format Numbers for Publication
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Chinese Text Segmentation
 
 License:          MIT + file LICENSE

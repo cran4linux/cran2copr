@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Exact P-Values and Matching Confidence Intervals for SimpleDiscrete Parametric Cases
 
 License:          GPL-3

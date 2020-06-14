@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Electronic Health Record (EHR) Data Processing and Analysis Tool
 
 License:          GPL (>= 3)

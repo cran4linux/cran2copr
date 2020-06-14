@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate TL-Moments and Convert Them to Distribution Parameters
 
 License:          GPL (>= 2)

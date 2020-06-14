@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Quantize Floating-Point Numbers for Improved Compressibility
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Chronological Bayesian Models Integrating Optically StimulatedLuminescence and Radiocarbon Age Dating
 
 License:          GPL-3

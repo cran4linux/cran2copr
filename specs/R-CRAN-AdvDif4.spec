@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.18
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Solving 1D Advection Bi-Flux Diffusion Equation
 
 License:          GPL-3

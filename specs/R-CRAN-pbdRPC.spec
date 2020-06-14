@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Programming with Big Data -- Remote Procedure Call
 
 License:          Mozilla Public License 2.0

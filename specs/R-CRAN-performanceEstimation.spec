@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Infra-Structure for Performance Estimation of PredictiveModels
 
 License:          GPL (>= 2)

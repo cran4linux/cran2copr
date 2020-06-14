@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Correcting the Coverage of Credible Sets from Bayesian GeneticFine Mapping
 
 License:          MIT + file LICENSE

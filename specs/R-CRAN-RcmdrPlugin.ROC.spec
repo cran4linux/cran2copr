@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.18
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rcmdr Receiver Operator Characteristic Plug-In PACKAGE
 
 License:          GPL (>= 2)

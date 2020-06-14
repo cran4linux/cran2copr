@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Get Free Proxy IP and Port
 
 License:          GPL-2

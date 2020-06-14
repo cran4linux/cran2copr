@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Outlier Detection Using Statistical and Machine Learning Methods
 
 License:          GPL-2

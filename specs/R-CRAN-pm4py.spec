@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to the 'PM4py' Process Mining Library
 
 License:          GPL-3

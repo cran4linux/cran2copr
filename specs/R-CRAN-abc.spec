@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Approximate Bayesian Computation (ABC)
 
 License:          GPL (>= 3)

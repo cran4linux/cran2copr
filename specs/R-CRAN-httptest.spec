@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Test Environment for HTTP Requests
 
 License:          MIT + file LICENSE

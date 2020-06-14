@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Learned Pattern Similarity and Representation for Time Series
 
 License:          GPL (>= 2)

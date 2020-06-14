@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for calculation of texture metrics for Grey LevelCo-occurrence Matrices
 
 License:          GPL (>= 2)

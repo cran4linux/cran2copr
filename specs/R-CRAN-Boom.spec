@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Object Oriented Modeling
 
 License:          LGPL-2.1 | file LICENSE

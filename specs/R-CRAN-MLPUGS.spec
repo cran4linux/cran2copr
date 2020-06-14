@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multi-Label Prediction Using Gibbs Sampling (and ClassifierChains)
 
 License:          MIT + file LICENSE

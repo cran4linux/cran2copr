@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Matrices in Data Frames
 
 License:          MIT + file LICENSE

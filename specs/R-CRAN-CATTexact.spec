@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computation of the p-Value for the Exact ConditionalCochran-Armitage Trend Test
 
 License:          GPL-2 | GPL-3

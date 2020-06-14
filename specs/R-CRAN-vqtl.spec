@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Genome Scans to Accommodate and Target Genetic and Non-GeneticEffects on Trait Variance in Test Crosses
 
 License:          GPL-3

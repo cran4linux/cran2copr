@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.13.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Network Dynamic Temporal Visualizations
 
 License:          GPL-3 + file LICENSE

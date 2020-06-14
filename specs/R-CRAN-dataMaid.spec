@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Suite of Checks for Identification of Potential Errors in aData Frame as Part of the Data Screening Process
 
 License:          GPL-2

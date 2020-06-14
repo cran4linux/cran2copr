@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Process Control and Internal Validation of Forensic STR Kits
 
 License:          GPL-2

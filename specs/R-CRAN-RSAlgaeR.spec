@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Builds Empirical Remote Sensing Models of Water QualityVariables and Analyzes Long-Term Trends
 
 License:          GPL-2

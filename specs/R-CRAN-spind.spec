@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Spatial Methods and Indices
 
 License:          GPL-3

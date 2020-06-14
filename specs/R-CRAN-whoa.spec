@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Evaluation of Genotyping Error in Genotype-by-Sequencing Data
 
 License:          CC0

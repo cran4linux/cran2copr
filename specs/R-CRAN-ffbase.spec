@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Basic Statistical Functions for Package 'ff'
 
 License:          GPL-3

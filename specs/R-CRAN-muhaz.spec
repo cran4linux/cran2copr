@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Hazard Function Estimation in Survival Analysis
 
 License:          GPL

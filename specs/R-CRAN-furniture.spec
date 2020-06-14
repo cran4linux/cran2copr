@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Furniture for Quantitative Scientists
 
 License:          GPL-3

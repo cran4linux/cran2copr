@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Pretty Scientific Plotting with Minor-Tick and Log Minor-TickSupport
 
 License:          GPL-3

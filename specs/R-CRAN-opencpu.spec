@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Producing and Reproducing Results
 
 License:          Apache License 2.0

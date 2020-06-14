@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.6.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extension to 'spatstat' for Local Composite Likelihood
 
 License:          GPL (>= 2)

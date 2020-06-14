@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Power Analysis to Detect Spatial Relative Clusters
 
 License:          Apache License (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Evaluates complex erf, erfc, Faddeeva, and density of sum ofGaussian and Student's t
 
 License:          GPL-2

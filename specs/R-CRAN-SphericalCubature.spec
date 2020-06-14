@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Numerical Integration over Spheres and Balls in n-Dimensions;Multivariate Polar Coordinates
 
 License:          GPL (>= 2)

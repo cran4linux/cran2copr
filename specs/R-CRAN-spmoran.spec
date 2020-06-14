@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Moran Eigenvector-Based Scalable Spatial Additive Mixed Modeling
 
 License:          GPL (>= 2)

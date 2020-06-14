@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Scelestial: Steiner Tree Based Single-Cell Lineage TreeInference
 
 License:          GPL (>= 2)

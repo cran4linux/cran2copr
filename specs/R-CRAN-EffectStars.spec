@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Visualization of Categorical Response Models
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Magic Functions to Obtain Results from for Loops
 
 License:          MIT + file LICENSE

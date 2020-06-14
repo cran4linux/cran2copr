@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gaussian Mixture Models, K-Means, Mini-Batch-Kmeans, K-Medoidsand Affinity Propagation Clustering
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analyze Download Logs from the CRAN RStudio Mirror
 
 License:          GPL-2

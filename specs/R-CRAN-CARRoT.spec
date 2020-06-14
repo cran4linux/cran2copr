@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Predicting Categorical and Continuous Outcomes Using One in TenRule
 
 License:          GPL-2

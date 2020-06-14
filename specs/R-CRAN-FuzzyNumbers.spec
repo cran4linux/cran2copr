@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools to Deal with Fuzzy Numbers
 
 License:          LGPL (>= 3)

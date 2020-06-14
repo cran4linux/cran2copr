@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Access Tools for the Soil and Landscape Grid of Australia
 
 License:          MIT + file LICENSE

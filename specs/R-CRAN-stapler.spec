@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simultaneous Truth and Performance Level Estimation
 
 License:          GPL-3

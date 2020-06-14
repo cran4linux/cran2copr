@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Approach for MTAR Models with Missing Data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Inference of Parameters of Normal Distributions from a Mixtureof Normals
 
 License:          MIT + file LICENSE

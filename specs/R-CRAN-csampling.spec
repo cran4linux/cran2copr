@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Conditional Simulation in Regression-Scale Models
 
 License:          GPL (>= 2) | file LICENCE

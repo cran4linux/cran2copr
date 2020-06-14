@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.3.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Ferguson-Klass Type Algorithm for Posterior Normalized RandomMeasures
 
 License:          GPL (>= 2)

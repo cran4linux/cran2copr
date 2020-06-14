@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Ports the Workflow of "Resampling Stats" Add-in to R
 
 License:          GPL-2

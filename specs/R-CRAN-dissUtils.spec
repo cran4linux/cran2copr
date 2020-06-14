@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Utilities for making pairwise comparisons of multivariate data
 
 License:          GPL (>= 2) | file LICENSE

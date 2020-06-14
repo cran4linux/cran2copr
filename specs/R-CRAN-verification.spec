@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.42
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Weather Forecast Verification Utilities
 
 License:          GPL (>= 2)

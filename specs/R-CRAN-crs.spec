@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15.31.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Categorical Regression Splines
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.70.24
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Methods for Phenology Analysis in Temperate FruitTrees
 
 License:          GPL-3

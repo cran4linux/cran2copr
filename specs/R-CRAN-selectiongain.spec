@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.591
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Tool for Calculation and Optimization of the Expected Gainfrom Multi-Stage Selection
 
 License:          GPL-2

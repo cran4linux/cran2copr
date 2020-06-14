@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation of Multivariate Densities Using Adaptive Partitions
 
 License:          GPL (>= 2)

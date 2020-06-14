@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Joint Approximate Diagonalization of a Set of Square Matrices
 
 License:          GPL (>= 2)

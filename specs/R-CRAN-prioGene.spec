@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Prioritize Diseases Candidate Genes with the Network and onFunctional Information
 
 License:          Artistic-2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Modelling Interactions in High-Dimensional Data withBacktracking
 
 License:          GPL (>= 2)

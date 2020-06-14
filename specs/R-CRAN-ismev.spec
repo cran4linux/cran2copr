@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.42
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Introduction to Statistical Modeling of Extreme Values
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nondetects and Data Analysis for Environmental Data
 
 License:          GPL (>= 2)

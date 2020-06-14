@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.29
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Import Data in the JCAMP-DX Format
 
 License:          GPL (>= 3)

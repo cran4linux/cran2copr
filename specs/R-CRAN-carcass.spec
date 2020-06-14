@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation of the Number of Fatalities from Carcass Searches
 
 License:          GPL-2

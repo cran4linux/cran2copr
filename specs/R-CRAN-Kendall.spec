@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Kendall rank correlation and Mann-Kendall trend test
 
 License:          GPL (>= 2)

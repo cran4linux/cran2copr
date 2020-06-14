@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.20.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Advanced and Parallel Random Number Generation via 'TRNG'
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sensitivity Analysis for Publication Bias in Meta-Analyses
 
 License:          GPL-2

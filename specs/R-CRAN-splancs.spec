@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.01.40
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Spatial and Space-Time Point Pattern Analysis
 
 License:          GPL (>= 2)

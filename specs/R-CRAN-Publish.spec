@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.12.04
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Format Output of Various Routines in a Suitable Way for Reportsand Publication
 
 License:          GPL (>= 2)

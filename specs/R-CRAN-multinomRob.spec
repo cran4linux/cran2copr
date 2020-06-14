@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Estimation of Overdispersed Multinomial Regression Models
 
 License:          GPL (>= 2)

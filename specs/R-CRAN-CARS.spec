@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Covariate Assisted Ranking and Screening for Large-ScaleTwo-Sample Inference
 
 License:          MIT + file LICENSE

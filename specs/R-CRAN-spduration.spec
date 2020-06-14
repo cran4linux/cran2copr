@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Split-Population Duration (Cure) Regression
 
 License:          GPL-3

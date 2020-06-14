@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calibration and Analysis of Radiocarbon Dates
 
 License:          GPL (>= 2)

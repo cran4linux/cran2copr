@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.65
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Survival Analysis in Health Economic Evaluation
 
 License:          GPL (>= 3)

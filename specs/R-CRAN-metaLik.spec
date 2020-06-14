@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.43.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Likelihood Inference in Meta-Analysis and Meta-Regression Models
 
 License:          GPL (>= 2)

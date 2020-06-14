@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Common S3 Generics not Provided by Base R Methods Related toModel Fitting
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Maximum Likelihood Analysis of Animal Movement Behavior UsingMultivariate Hidden Markov Models
 
 License:          GPL-3

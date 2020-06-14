@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Hive Plots of R Package Function Calls
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2013.2.4.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Binomial linear and linear-expit regression
 
 License:          GPL (>= 2)

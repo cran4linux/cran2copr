@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Interface to Specify Causal Graphs and Compute Bounds onCausal Effects
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast n-Gram 'Tokenization'
 
 License:          BSD 2-clause License + file LICENSE

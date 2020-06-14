@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Confounding Robust Independent Component Analysis for Noisy andGrouped Data
 
 License:          AGPL-3

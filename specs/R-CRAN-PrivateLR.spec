@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.22
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Differentially Private Regularized Logistic Regression
 
 License:          GPL (>= 2)

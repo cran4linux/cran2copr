@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regularization for semiparametric additive hazards regression
 
 License:          GPL-2

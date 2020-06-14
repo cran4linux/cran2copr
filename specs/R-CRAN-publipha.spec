@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Meta-Analysis with Publications Bias and P-Hacking
 
 License:          GPL-3

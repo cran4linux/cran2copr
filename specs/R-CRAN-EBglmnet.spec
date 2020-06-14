@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Empirical Bayesian Lasso and Elastic Net Methods for GeneralizedLinear Models
 
 License:          GPL

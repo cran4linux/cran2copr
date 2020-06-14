@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.16.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Future API for Parallel and Distributed Processing usingBatchJobs
 
 License:          LGPL (>= 2.1)

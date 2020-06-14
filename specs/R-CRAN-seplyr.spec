@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Improved Standard Evaluation Interfaces for Common DataManipulation Tasks
 
 License:          GPL-2 | GPL-3

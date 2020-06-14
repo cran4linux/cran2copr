@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Jaccard Index for Population Structure Identification
 
 License:          GPL-3

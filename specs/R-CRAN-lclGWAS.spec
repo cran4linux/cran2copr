@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Efficient Estimation of Discrete-Time Multivariate Frailty ModelUsing Exact Likelihood Function for Grouped Survival Data
 
 License:          GPL (>= 2)

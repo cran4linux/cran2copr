@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Tidy Data Model for Natural Language Processing
 
 License:          LGPL-2

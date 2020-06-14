@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          CoWords Method
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Download and Manage Data from Tehran Stock Exchange
 
 License:          BSD_2_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Semiparametic Regression
 
 License:          GPL (>= 2)

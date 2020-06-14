@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interval estimation for the parameters of linear models withheteroskedasticity (Wild Bootstrap)
 
 License:          GPL (>= 2)

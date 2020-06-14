@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.16
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'Rcpp' Bindings for 'Annoy', a Library for Approximate NearestNeighbors
 
 License:          GPL (>= 2)

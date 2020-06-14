@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.12.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Variant Selection: Bayesian Model UncertaintyTechniques for Genetic Association Studies
 
 License:          Unlimited

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Handy File and String Manipulation
 
 License:          GPL-3

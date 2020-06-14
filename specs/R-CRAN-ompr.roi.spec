@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Solver for 'ompr' that Uses the R Optimization Infrastructure('ROI')
 
 License:          GPL-3

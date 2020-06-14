@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'sf'-Based Interface to the 'HERE' REST APIs
 
 License:          GPL-3

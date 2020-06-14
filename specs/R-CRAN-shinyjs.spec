@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Easily Improve the User Experience of Your Shiny Apps in Seconds
 
 License:          AGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fit Generalized Odds Rate Mixture Cure Model with IntervalCensored Data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Who are You? Bayesian Prediction of Racial Category UsingSurname and Geolocation
 
 License:          GPL (>= 3)

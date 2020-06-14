@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computes Pdf, Cdf, Quantile and Random Numbers, Measures ofInference for 19 General Families of Distributions
 
 License:          GPL (>= 2)

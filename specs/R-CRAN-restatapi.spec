@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Search and Retrieve Data from Eurostat Database
 
 License:          EUPL-1.1

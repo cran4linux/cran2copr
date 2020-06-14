@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read and Write ODS Files
 
 License:          GPL-3

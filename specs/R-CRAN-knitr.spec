@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.28
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A General-Purpose Package for Dynamic Report Generation in R
 
 License:          GPL

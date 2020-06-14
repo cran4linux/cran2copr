@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Blind Source Separation Methods Based on Joint Diagonalizationand Some BSS Performance Criteria
 
 License:          GPL (>= 2)

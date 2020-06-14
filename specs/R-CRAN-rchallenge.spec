@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Simple Data Science Challenge System
 
 License:          GPL-2

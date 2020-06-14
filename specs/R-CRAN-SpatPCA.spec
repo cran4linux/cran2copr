@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regularized Principal Component Analysis for Spatial Data
 
 License:          GPL-3

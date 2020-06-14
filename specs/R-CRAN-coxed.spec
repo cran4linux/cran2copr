@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Duration-Based Quantities of Interest for the Cox ProportionalHazards Model
 
 License:          GPL-2

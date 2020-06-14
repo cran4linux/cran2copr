@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Asymptotic Covariance Matrices of Some BSS Mixing and UnmixingMatrix Estimates
 
 License:          GPL (>= 2)

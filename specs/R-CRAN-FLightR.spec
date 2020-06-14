@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Reconstruct Animal Paths from Solar Geolocation Loggers Data
 
 License:          GPL-3

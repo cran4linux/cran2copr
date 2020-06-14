@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Client for the Comprehensive Knowledge Archive Network ('CKAN')API
 
 License:          MIT + file LICENSE

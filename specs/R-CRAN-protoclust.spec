@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Hierarchical Clustering with Prototypes
 
 License:          GPL-2

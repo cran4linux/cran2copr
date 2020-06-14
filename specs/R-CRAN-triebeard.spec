@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'Radix' Trees in 'Rcpp'
 
 License:          MIT + file LICENSE

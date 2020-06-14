@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computes Moments of Univariate Truncated t Distribution
 
 License:          MIT + file LICENSE

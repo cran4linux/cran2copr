@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.23
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Models of Soil Organic Matter Decomposition
 
 License:          GPL-3

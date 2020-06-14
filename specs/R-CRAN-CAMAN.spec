@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.74
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Finite Mixture Models and Meta-Analysis Tools - Based on C.A.MAN
 
 License:          GPL (>= 2)

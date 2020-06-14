@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Open Perimetry Interface
 
 License:          GPL-3

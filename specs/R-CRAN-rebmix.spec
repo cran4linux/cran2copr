@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.12.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Finite Mixture Modeling, Clustering & Classification
 
 License:          GPL (>= 2)

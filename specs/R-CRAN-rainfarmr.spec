@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Stochastic Precipitation Downscaling with the RainFARM Method
 
 License:          Apache License 2.0

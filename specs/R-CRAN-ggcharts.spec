@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Shorten the Distance from Data Visualization Idea to Actual Plot
 
 License:          MIT + file LICENSE

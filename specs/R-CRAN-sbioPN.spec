@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          sbioPN: Simulation of deterministic and stochastic spatialbiochemical reaction networks using Petri Nets
 
 License:          GPL (>= 2)

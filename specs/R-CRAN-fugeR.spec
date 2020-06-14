@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          FUzzy GEnetic, a machine learning algorithm to constructprediction model based on fuzzy logic.
 
 License:          GPL (>= 2.0)

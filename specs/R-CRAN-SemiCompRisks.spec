@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Hierarchical Models for Parametric and Semi-Parametric Analysesof Semi-Competing Risks Data
 
 License:          GPL (>= 2)

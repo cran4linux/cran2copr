@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools to Score Patient-Reported Outcome (PRO) and OtherPsychometric Measures
 
 License:          MIT + file LICENSE

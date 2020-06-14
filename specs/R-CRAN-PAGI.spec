@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The package can identify the dysregulated KEGG pathways based onglobal influence from the internal effect of pathways andcrosstalk between pathways.
 
 License:          GPL (>= 2)

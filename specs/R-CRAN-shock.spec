@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Slope Heuristic for Block-Diagonal Covariance Selection in HighDimensional Gaussian Graphical Models
 
 License:          GPL (>= 3)

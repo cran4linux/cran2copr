@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bootstrap goodness-of-fit test for the generalized Paretodistribution
 
 License:          GPL (>= 2)

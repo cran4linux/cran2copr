@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Merging of Satellite Datasets with Ground Observations usingRandom Forests
 
 License:          GPL (>= 3)

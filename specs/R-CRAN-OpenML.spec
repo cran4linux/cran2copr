@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Open Machine Learning and Open Data Platform
 
 License:          BSD_3_clause + file LICENSE

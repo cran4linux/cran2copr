@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Modelling and Analysis of Real-Time PCR Data
 
 License:          GPL (>= 2)

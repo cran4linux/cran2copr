@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.16.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mark-Recapture Analysis
 
 License:          GNU General Public License

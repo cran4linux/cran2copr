@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.16.8.25
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gene Enrichment Analysis from ACSN Maps or GMT Files
 
 License:          GPL-2

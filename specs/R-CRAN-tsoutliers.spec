@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Detection of Outliers in Time Series
 
 License:          GPL-2

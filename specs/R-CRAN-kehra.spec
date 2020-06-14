@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Collect, Assemble and Model Air Pollution, Weather and HealthData
 
 License:          GPL-3

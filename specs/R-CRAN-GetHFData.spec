@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Download and Aggregate High Frequency Trading Data from Bovespa
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The DALY Calculator - Graphical User Interface for ProbabilisticDALY Calculation in R
 
 License:          GPL (>= 2)

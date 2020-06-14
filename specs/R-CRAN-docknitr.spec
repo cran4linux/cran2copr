@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Use Docker Images to Process Rmarkdown Blocks
 
 License:          MIT + file LICENSE

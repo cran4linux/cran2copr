@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.15
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Visualising Bipartite Networks and Calculating Some (Ecological)Indices
 
 License:          GPL

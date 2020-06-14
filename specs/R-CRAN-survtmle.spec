@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Compute Targeted Minimum Loss-Based Estimates in Right-CensoredSurvival Settings
 
 License:          MIT + file LICENSE

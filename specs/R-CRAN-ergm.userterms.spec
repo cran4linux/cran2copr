@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.10.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          User-specified Terms for the statnet Suite of Packages
 
 License:          GPL-3 + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          No-U-Turn MCMC Sampling for 'ADMB' and 'TMB' Models
 
 License:          GPL-3

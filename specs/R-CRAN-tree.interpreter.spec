@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Random Forest Prediction Decomposition and Feature ImportanceMeasure
 
 License:          MIT + file LICENSE

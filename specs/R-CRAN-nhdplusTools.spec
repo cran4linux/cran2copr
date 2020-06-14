@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          NHDPlus Tools
 
 License:          CC0

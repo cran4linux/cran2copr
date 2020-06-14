@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate Cluster-Robust p-Values and Confidence Intervals
 
 License:          GPL (>= 2)

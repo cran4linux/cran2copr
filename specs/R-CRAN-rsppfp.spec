@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R's Shortest Path Problem with Forbidden Subpaths
 
 License:          GPL-3

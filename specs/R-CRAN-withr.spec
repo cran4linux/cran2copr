@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Run Code 'With' Temporarily Modified Global State
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Optimal Equal-HR Method to Find Two Cutpoints for U-ShapedRelationships in Cox Model
 
 License:          GPL-3

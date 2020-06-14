@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Data Analysis Through Monitoring and DynamicVisualization
 
 License:          GPL (>= 2)

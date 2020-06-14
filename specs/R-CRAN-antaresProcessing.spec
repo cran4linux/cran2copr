@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.18.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'Antares' Results Processing
 
 License:          GPL (>= 2) | file LICENSE

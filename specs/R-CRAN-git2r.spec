@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.27.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Provides Access to Git Repositories
 
 License:          GPL-2

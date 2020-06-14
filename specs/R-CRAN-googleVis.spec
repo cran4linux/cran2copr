@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Interface to Google Charts
 
 License:          GPL (>= 2)

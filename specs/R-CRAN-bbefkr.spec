@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian bandwidth estimation and semi-metric selection for thefunctional kernel regression with unknown error density
 
 License:          GPL (>= 2)

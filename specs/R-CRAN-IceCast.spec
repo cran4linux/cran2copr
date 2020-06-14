@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Apply Statistical Post-Processing to Improve Sea Ice Predictions
 
 License:          GPL (>= 2)

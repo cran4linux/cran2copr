@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bivariate (Two-Dimensional) Confidence Region and FrequencyDistribution
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sample Size and Power Calculation for Common Non-ParametricTests in Survival Analysis
 
 License:          GPL-2

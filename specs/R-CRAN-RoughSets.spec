@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Analysis Using Rough Set and Fuzzy Rough Set Theories
 
 License:          GPL (>= 2)

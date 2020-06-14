@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          LncRNA Identification and Analysis Using Heterologous Features
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Manipulation of Microsoft Word and PowerPoint Documents
 
 License:          GPL-3

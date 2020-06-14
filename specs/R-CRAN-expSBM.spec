@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Exponential Stochastic Block Model for Interaction Lengths
 
 License:          GPL-3

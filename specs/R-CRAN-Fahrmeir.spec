@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2016.5.31
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data from the Book "Multivariate Statistical Modelling Based onGeneralized Linear Models", First Edition, by Ludwig Fahrmeirand Gerhard Tutz
 
 License:          GPL (>= 2)

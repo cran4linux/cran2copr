@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Variable Selection in Clustering by Mixture Models for DiscreteData
 
 License:          GPL (>= 2)

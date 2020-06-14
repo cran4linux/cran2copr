@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Variable Selection and Model Averaging using BayesianAdaptive Sampling
 
 License:          GPL (>= 3)

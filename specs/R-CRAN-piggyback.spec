@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Managing Larger Data on a GitHub Repository
 
 License:          GPL-3

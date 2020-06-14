@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Incremental Decomposition Methods
 
 License:          GPL (>= 2)

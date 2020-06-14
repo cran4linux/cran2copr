@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Hierarchical Bayesian Analysis of Recognition Memory
 
 License:          LGPL (>= 2.0)

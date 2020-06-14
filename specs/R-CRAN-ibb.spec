@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Wrapper for Istanbul Municipality Open Data Portal
 
 License:          MIT + file LICENSE

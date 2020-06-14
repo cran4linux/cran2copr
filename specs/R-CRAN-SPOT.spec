@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sequential Parameter Optimization Toolbox
 
 License:          GPL (>= 2)

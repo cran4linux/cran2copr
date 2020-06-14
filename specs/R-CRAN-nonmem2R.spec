@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Loading NONMEM Output Files with Functions for Visual PredictiveChecks (VPC) and Goodness of Fit (GOF) Plots
 
 License:          Unlimited

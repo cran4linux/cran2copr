@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Censoring Data and Likelihood-Based Correlation Estimation
 
 License:          GPL (>= 2)

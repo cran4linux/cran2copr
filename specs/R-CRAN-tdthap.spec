@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          TDT Tests for Extended Haplotypes
 
 License:          Artistic-2.0

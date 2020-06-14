@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Isomorphism Check for Multi-Stage Factorial Designs withRandomization Restrictions
 
 License:          GPL-2

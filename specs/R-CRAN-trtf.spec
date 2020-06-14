@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Transformation Trees and Forests
 
 License:          GPL-2

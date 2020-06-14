@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multivariate Multinomial Distribution Approximation andImputation for Incomplete Categorical Data
 
 License:          GPL (>= 2)

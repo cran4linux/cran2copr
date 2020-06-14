@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Determining and Evaluating High-Risk Zones
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multiple Kernel Learning for Classification or RegressionProblems
 
 License:          GPL-3

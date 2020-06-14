@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An R Interface to Brazilian Central Bank and Sidra APIs and theIPEA Data
 
 License:          GPL-3

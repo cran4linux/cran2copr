@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.54
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions to Ease Interactions Between R and IDE or Code Editors
 
 License:          GPL-2

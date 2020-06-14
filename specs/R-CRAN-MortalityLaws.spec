@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Parametric Mortality Models, Life Tables and HMD
 
 License:          MIT + file LICENSE

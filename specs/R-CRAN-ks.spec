@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.11.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Kernel Smoothing
 
 License:          GPL-2 | GPL-3

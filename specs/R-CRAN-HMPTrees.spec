@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Object Oriented Data Analysis of RDP-Based TaxonomicTrees from Human Microbiome Data
 
 License:          Apache License (== 2.0)

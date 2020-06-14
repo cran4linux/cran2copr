@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to Colombos Compendia using the Exposed REST API
 
 License:          GPL-3

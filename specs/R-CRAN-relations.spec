@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Structures and Algorithms for Relations
 
 License:          GPL-2

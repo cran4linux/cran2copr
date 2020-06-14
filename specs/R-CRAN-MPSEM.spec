@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Modeling Phylogenetic Signals using Eigenvector Maps
 
 License:          GPL (>= 2)

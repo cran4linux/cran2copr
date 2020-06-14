@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Relevant Component Analysis for Supervised Distance MetricLearning
 
 License:          GPL-3 | file LICENSE

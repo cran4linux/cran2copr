@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.02.05
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Risk Regression Models and Prediction Scores for SurvivalAnalysis with Competing Risks
 
 License:          GPL (>= 2)

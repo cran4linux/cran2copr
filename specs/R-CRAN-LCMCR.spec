@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Non-Parametric Latent-Class Capture-Recapture
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nonparametric Simulation of RNA-Seq Data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Class of Mixture Models for Ordinal Data
 
 License:          GPL-2 | GPL-3

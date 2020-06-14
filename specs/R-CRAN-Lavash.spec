@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Lava Estimation for the Sum of Sparse and Dense Signals
 
 License:          GPL-2

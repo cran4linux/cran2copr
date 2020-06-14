@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Web Crawler and Scraper
 
 License:          GPL (>= 2)

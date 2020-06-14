@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation of Causal Effects with Outcomes Truncated by Death
 
 License:          GPL (>= 2)

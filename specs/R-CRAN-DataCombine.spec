@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.21
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Easily Combining and Cleaning Data Sets
 
 License:          GPL (>= 3)

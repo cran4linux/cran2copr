@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Interface to the Europe PubMed Central RESTful Web Service
 
 License:          GPL-3

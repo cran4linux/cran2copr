@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Assemble Data Frames from HTML Tables
 
 License:          MIT + file LICENSE

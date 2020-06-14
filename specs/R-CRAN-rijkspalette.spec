@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Create Colour Palettes Based on Famous Artworks from theRijksmuseum
 
 License:          MIT + file LICENCE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Trio Model with a Combination of Lasso and Group LassoRegularization
 
 License:          GPL

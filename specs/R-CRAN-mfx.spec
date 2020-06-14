@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Marginal Effects, Odds Ratios and Incidence Rate Ratios for GLMs
 
 License:          GPL-2 | GPL-3

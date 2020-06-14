@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generalized Partial Linear Models (GPLM)
 
 License:          GPL (>= 2)

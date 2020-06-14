@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Double Bootstrap Method for Analyzing Linear Models withAutoregressive Errors
 
 License:          GPL (>= 2)

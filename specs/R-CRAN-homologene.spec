@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.68.19.3.27
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Quick Access to Homologene and Gene Annotation Updates
 
 License:          MIT + file LICENSE

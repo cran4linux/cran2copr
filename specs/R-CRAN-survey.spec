@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of Complex Survey Samples
 
 License:          GPL-2 | GPL-3

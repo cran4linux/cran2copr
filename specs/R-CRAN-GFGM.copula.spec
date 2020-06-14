@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generalized Farlie-Gumbel-Morgenstern Copula
 
 License:          GPL-2

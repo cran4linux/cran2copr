@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Installing, Managing, and Switching Between Distinct Sets ofInstalled Packages
 
 License:          Artistic-2.0

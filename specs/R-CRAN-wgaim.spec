@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Whole Genome Average Interval Mapping for QTL Detection andEstimation using ASReml-R
 
 License:          GPL (>= 2)

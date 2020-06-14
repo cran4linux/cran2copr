@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Measurement Models for Analyzing EndorsementExperiments
 
 License:          GPL (>= 2)

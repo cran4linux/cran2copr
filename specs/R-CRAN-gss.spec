@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          General Smoothing Splines
 
 License:          GPL (>= 2)

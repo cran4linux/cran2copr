@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculating Solar Radiation and Related Variables Based onLocation, Time and Topographical Conditions
 
 License:          AGPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.6
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Wrapper for the Gnu Scientific Library
 
 License:          GPL-3

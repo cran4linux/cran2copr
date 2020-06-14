@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Maximum-Likelihood Cultural Consensus Analysis with Sub-Cultures
 
 License:          GPL-2 | GPL-3

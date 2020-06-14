@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          8.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Efficiently Read Sequence Data (VCF Format, BCF Format, METALFormat and BGEN Format) into R
 
 License:          GPL | file LICENSE

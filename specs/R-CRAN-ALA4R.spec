@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Atlas of Living Australia (ALA) Data and Resources in R
 
 License:          MPL-2.0

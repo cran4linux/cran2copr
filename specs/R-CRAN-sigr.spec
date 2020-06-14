@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Succinct and Correct Statistical Summaries for Reports
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3043.102
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rmetrics - Chronological and Calendar Objects
 
 License:          GPL (>= 2)

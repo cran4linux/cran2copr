@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          bPeaks: an intuitive peak-calling strategy to detecttranscription factor binding sites from ChIP-seq data in smalleukaryotic genomes
 
 License:          GPL

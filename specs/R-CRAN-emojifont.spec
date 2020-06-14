@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Emoji and Font Awesome in Graphics
 
 License:          Artistic-2.0

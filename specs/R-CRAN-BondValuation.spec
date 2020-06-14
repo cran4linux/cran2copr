@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fixed Coupon Bond Valuation Allowing for Odd Coupon Periods andVarious Day Count Conventions
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Learn R, in R
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Load Census TIGER/Line Shapefiles
 
 License:          MIT + file LICENSE

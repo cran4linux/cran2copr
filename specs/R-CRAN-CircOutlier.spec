@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Detection of Outliers in Circular-Circular Regression
 
 License:          GPL (>= 2)

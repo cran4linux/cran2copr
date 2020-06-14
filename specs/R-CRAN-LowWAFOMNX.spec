@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Low WAFOM Niederreiter-Xing Sequence
 
 License:          BSD_3_clause + file LICENSE

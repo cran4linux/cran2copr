@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Easy Linguistics Document Writing with R Markdown
 
 License:          MIT + file LICENCE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Public Key Infrastucture for R Based on the X.509 Standard
 
 License:          GPL-2 | GPL-3 | file LICENSE

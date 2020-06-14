@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Explore and Visualize Your Data Interactively
 
 License:          GPL-3 | file LICENSE

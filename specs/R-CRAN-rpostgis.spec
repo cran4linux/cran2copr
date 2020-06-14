@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Interface to a 'PostGIS' Database
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          HTML Writer - Outputs R objects in HTML format
 
 License:          LGPL-2.1

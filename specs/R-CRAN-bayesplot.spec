@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Plotting for Bayesian Models
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gradient and Vesselness Tools for Arrays and NIfTI Images
 
 License:          GPL-2

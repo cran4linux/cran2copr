@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Recursive Partitioning for Longitudinal Data and Right CensoredData Using Baseline Covariates
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate Generalized Eigenvalues, the Generalized SchurDecomposition and the Generalized Singular Value Decompositionof a Matrix Pair with Lapack
 
 License:          GPL (>= 2)

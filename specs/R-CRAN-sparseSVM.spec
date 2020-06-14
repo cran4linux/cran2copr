@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Solution Paths of Sparse High-Dimensional Support Vector Machinewith Lasso or Elastic-Net Regularization
 
 License:          GPL-3

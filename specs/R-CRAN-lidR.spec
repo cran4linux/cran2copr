@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Airborne LiDAR Data Manipulation and Visualization for ForestryApplications
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Clustering of Micro Panel Data
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Reading, Extracting, and Converting an Mbox File into a Tibble
 
 License:          GPL-3

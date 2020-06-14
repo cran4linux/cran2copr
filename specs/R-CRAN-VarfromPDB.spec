@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Disease-Gene-Variant Relations Mining from the Public Databasesand Literature
 
 License:          GPL-2

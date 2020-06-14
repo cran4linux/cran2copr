@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Cross-Platform Perl Based R Function to Create Excel 2003 (XLS)and Excel 2007 (XLSX) Files
 
 License:          GPL (>= 2)

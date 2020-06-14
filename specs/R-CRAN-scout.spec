@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Implements the Scout Method for Covariance-RegularizedRegression
 
 License:          GPL (>= 2)

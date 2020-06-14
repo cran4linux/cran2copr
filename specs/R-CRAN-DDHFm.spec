@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Variance Stabilization by Data-Driven Haar-Fisz (forMicroarrays)
 
 License:          GPL-2

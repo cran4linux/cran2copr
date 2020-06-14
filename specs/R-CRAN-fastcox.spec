@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Lasso and Elastic-Net Penalized Cox's Regression in HighDimensions Models using the Cocktail Algorithm
 
 License:          GPL-2

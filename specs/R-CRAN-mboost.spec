@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.9.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Model-Based Boosting
 
 License:          GPL-2

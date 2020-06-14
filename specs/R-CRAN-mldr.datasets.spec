@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Ultimate Multilabel Dataset Repository
 
 License:          LGPL (>= 3) | file LICENSE

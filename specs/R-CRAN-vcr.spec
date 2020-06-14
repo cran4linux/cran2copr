@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Record 'HTTP' Calls to Disk
 
 License:          MIT + file LICENSE

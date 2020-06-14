@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Modular Multi-Step Graph Generator
 
 License:          BSD_2_clause + file LICENSE

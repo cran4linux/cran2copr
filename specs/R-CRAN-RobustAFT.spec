@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Truncated Maximum Likelihood Fit and Robust Accelerated FailureTime Regression for Gaussian and Log-Weibull Case
 
 License:          GPL (>= 2)

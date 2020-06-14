@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regularized Estimators of Covariance Matrices with CV Tuning
 
 License:          GPL-2

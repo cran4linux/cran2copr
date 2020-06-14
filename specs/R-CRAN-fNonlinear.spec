@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.79
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rmetrics - Nonlinear and Chaotic Time Series Modelling
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rapid and Accurate Genetic Prediction Modeling for Genome-WideAssociation or Whole-Genome Sequencing Study Data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.22
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Collection of Contrast Methods
 
 License:          GPL-2

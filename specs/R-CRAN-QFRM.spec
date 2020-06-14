@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Pricing of Vanilla and Exotic Option Contracts
 
 License:          GPL (>= 2)

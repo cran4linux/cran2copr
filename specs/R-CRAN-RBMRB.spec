@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          BMRB Data Access and Visualization
 
 License:          GPL-2

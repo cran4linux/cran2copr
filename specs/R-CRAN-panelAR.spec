@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation of Linear AR(1) Panel Data Models withCross-Sectional Heteroskedasticity and/or Correlation
 
 License:          GPL (>= 2)

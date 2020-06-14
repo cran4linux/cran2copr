@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Animal track reconstruction for high frequency 2-dimensional(2D) or 3-dimensional (3D) movement data.
 
 License:          GPL (>= 2)

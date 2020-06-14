@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Lilliefors-Corrected Kolmogorov-Smirnov Goodness-of-Fit Tests
 
 License:          CC0

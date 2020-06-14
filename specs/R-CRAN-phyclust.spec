@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.29
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Phylogenetic Clustering (Phyloclustering)
 
 License:          GPL (>= 2)

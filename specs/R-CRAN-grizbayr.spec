@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Inference for A|B and Bandit Marketing Tests
 
 License:          MIT + file LICENSE

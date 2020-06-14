@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generalized Additive Mixed Model Analysis via Slice Sampling
 
 License:          GPL (>= 2)

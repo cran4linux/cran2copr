@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Toolbox for Public Health and Epidemiology
 
 License:          GPL-2

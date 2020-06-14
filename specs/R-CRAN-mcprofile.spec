@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Testing Generalized Linear Hypotheses for Generalized LinearModel Parameters by Profile Deviance
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.41
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Variable Selection Using Simplified Shotgun StochasticSearch with Screening (S5)
 
 License:          GPL (>= 2)

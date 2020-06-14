@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fluid Data Transformations
 
 License:          GPL-2 | GPL-3

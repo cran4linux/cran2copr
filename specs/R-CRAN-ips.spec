@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interfaces to Phylogenetic Software in R
 
 License:          GPL-3

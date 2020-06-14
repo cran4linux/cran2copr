@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimating Preferential Attachment from a Single NetworkSnapshot by Markov Chain Monte Carlo
 
 License:          GPL-3

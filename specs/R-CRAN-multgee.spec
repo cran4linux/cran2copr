@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          GEE Solver for Correlated Nominal or Ordinal MultinomialResponses
 
 License:          GPL-2 | GPL-3

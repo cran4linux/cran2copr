@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Install Packages from Snapshots on the Checkpoint Server forReproducibility
 
 License:          GPL-2

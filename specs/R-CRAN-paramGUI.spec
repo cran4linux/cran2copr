@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Shiny GUI for some Parameter Estimation Examples
 
 License:          GPL (>= 2)

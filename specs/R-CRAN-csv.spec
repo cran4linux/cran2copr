@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read and Write CSV Files with Selected Conventions
 
 License:          GPL-3

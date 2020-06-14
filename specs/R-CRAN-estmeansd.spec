@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimating the Sample Mean and Standard Deviation from CommonlyReported Quantiles in Meta-Analysis
 
 License:          GPL (>= 3)

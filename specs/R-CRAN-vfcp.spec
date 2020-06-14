@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computation of v Values for U and Copula C(U, v)
 
 License:          GPL (>= 3)

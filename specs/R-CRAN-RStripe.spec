@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Convenience Interface for the Stripe Payment API
 
 License:          MIT + file LICENSE

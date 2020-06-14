@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Retrieving Acceptance Sampling Schemes
 
 License:          GPL-2

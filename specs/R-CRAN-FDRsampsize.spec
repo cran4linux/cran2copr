@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Compute Sample Size that Meets Requirements for Average Powerand FDR
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generic Sparse Group Lasso Solver
 
 License:          GPL (>= 2)

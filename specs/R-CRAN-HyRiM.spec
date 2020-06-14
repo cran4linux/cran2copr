@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multicriteria Risk Management using Zero-Sum Games withVector-Valued Payoffs that are Probability Distributions
 
 License:          GPL-3

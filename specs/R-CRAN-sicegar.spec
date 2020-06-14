@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of Single-Cell Viral Growth Curves
 
 License:          GPL-2 | GPL-3

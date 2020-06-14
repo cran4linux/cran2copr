@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Support for Parallel Computation, Logging, and FunctionAutomation
 
 License:          Apache License 2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Encoding of Sequences Based on Frequency Matrix Chaos GameRepresentation
 
 License:          GPL (>= 2)

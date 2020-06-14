@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          VAR Modelling
 
 License:          GPL (>= 2)

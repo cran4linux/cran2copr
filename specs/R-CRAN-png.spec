@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read and write PNG images
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Transport Data and Commands Across the 'FAME' / 'R' Border
 
 License:          AGPL

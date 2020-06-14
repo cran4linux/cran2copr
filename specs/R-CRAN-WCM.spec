@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Water Cloud Model (WCM) for the Simulation of Leaf Area Index(LAI) and Soil Moisture (SM) from Microwave Backscattering
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Modelling and Validation of Non Homogeneous Poisson Processes
 
 License:          GPL (>= 2)

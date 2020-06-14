@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A-Optimal Block Designs for Comparing Test Treatments withControls
 
 License:          GPL (>= 2)

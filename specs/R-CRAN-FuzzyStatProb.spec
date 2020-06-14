@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fuzzy Stationary Probabilities from a Sequence of Observationsof an Unknown Markov Chain
 
 License:          LGPL (>= 3)

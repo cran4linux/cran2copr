@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Find Biomarkers in Two-Class Discrimination Problems
 
 License:          GPL (>= 2)

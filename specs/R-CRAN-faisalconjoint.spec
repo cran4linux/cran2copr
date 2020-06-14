@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.15
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Faisal Conjoint Model: A New Approach to Conjoint Analysis
 
 License:          GPL-3

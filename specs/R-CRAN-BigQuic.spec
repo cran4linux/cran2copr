@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Big Quadratic Inverse Covariance Estimation
 
 License:          GPL (>= 3) | file LICENSE

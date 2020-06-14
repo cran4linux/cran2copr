@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Single Cell mRNA Soup eXterminator
 
 License:          GPL-2

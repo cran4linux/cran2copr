@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generates a Visualization of Classifier Performance as a Grid ofDiagnostic Plots
 
 License:          BSD 3-clause License + file LICENSE

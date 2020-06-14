@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Sets and Functions Used in Multivariate Statistics: OldSchool by John Marden
 
 License:          MIT + file LICENSE

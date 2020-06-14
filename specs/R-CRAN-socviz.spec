@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Utility Functions and Data Sets for Data Visualization
 
 License:          MIT + file LICENSE

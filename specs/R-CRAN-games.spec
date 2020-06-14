@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Estimation of Game-Theoretic Models
 
 License:          GPL (>= 2)

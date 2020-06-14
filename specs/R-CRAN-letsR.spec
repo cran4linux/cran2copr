@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Handling and Analysis in Macroecology
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.07
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Biased Urn Model Distributions
 
 License:          GPL-3

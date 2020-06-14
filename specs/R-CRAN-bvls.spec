@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Stark-Parker algorithm for bounded-variable least squares
 
 License:          GPL (>= 2)

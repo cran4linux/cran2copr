@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Randomized Response Techniques for Complex Surveys
 
 License:          GPL (>= 2)

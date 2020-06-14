@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimating Conditional Auto-Regressive (CAR) Models using MonteCarlo Likelihood Methods
 
 License:          GPL (>= 2)

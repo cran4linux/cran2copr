@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Chart Generation for 'Microsoft Word' and 'Microsoft PowerPoint'Documents
 
 License:          MIT + file LICENSE

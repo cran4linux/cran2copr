@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.47
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sparse Lightweight Arrays and Matrices
 
 License:          GPL-2

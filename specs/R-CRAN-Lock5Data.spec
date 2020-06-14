@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Datasets for "Statistics: UnLocking the Power of Data"
 
 License:          GPL-2

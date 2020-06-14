@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mixed-Frequency Bayesian VAR Models
 
 License:          GPL-3

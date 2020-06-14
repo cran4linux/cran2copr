@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Analysis of Misreporting on Sensitive SurveyQuestions
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Utilities for Importing Data from Plain Text Accounting Files
 
 License:          MIT + file LICENSE

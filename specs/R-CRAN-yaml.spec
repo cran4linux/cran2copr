@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Methods to Convert R Data to YAML and Back
 
 License:          BSD_3_clause + file LICENSE

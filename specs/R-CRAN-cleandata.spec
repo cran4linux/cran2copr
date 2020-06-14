@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          To Inspect and Manipulate Data; and to Keep Track of ThisProcess
 
 License:          MIT + file LICENSE

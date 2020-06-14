@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generate a Survey that can be Completed by Survey Respondents
 
 License:          GPL (>= 2)

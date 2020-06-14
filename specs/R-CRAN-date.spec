@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.39
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Handling Dates
 
 License:          GPL-2

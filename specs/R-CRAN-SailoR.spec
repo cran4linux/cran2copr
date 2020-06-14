@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Extension of the Taylor Diagram to Two-Dimensional VectorData
 
 License:          GPL-3

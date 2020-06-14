@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Draws Overview of Outliers (O3) Plots
 
 License:          GPL (>= 2)

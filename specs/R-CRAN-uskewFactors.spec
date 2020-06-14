@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Model-Based Clustering via Mixtures of Unrestricted Skew-tSactor Analyzer Models
 
 License:          GPL (>= 2)

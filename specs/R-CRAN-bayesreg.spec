@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Regression Models with Global-Local Shrinkage Priors
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Recategorization of Factor Variables by Decision Tree Leaves
 
 License:          GPL-2

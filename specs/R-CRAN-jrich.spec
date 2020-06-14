@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.60.35
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Jack-Knife Support for Evolutionary Distinctiveness Indices Iand W
 
 License:          GPL-3

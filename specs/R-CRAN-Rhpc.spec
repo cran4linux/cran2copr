@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.19.276
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Permits *apply() Style Dispatch for 'HPC'
 
 License:          AGPL-3

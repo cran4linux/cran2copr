@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The CODEX (Comorbidity, Obstruction, Dyspnea, and PreviousSevere Exacerbations) Index: Short and Medium-Term Prognosis inPatients Hospitalized for Chronic Obstructive Pulmonary Disease(COPD) Exacerbations
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gene by Environment Interaction and Conditional Gene Tests forNuclear Families
 
 License:          GPL

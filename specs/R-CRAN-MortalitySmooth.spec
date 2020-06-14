@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Smoothing and Forecasting Poisson Counts with P-Splines
 
 License:          GPL (>= 2)

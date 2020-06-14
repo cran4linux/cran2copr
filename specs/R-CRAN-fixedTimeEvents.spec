@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Distribution of Distances Between Discrete Events in FixedTime
 
 License:          GPL (>= 2)

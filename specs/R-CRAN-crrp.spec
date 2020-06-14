@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Penalized Variable Selection in Competing Risks Regression
 
 License:          GPL (>= 2)

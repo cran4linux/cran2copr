@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.10.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Latent Position and Cluster Models for Statistical Networks
 
 License:          GPL-3 + file LICENSE

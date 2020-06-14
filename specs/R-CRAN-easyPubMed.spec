@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Search and Retrieve Scientific Publication Records from PubMed
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multiple Indicator Cluster Survey (MICS) 2014 HouseholdQuestionnaire Data for Punjab, Pakistan
 
 License:          GPL-2

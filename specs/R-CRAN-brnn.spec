@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Regularization for Feed-Forward Neural Networks
 
 License:          GPL-2

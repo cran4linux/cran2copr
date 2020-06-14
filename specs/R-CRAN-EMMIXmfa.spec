@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mixture Models with Component-Wise Factor Analyzers
 
 License:          GPL (>= 2)

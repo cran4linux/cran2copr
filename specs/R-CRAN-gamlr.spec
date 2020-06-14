@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.13.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gamma Lasso Regression
 
 License:          GPL-3

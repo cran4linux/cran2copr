@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast and Stable Fitting of Generalized Linear Models using'RcppEigen'
 
 License:          GPL (>= 2)

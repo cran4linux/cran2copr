@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Legacy 'Ryacas' (Interface to 'Yacas' Computer Algebra System)
 
 License:          GPL-2

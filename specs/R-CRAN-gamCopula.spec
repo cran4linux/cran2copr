@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generalized Additive Models for Bivariate Conditional DependenceStructures and Vine Copulas
 
 License:          GPL-3

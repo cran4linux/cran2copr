@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Add Standardized Regression Coefficients to lm-Objects
 
 License:          GPL (>= 2)

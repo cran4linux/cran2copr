@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation Extrapolation Inverse Probability WeightedGeneralized Estimating Equations
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Wavelet Analysis of Genomic Data from Admixed Populations
 
 License:          GPL (>= 2)

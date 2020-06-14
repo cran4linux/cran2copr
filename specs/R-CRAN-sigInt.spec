@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimate the Parameters of a Discrete Crisis-Bargaining Game
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.15
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Incidence Estimation Tools
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Google's S2 Library for Geometry on the Sphere
 
 License:          Apache License (== 2.0)

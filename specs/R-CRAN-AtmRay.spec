@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.31
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Acoustic Traveltime Calculations for 1-D Atmospheric Models
 
 License:          GPL

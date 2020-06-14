@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Datetimes as Integers for Discrete-Event Simulations
 
 License:          GPL-3

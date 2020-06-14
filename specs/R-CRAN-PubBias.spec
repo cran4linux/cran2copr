@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Performs simulation study to look for publication bias, using atechnique described by Ioannidis and Trikalinos; Clin Trials.2007;4(3):245-53.
 
 License:          GPL-3

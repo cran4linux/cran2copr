@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Irregular-lattice based ensemble empirical mode decomposition
 
 License:          GPL (>= 2.0)

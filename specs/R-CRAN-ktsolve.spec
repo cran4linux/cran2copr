@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Configurable Function for Solving Families of NonlinearEquations
 
 License:          LGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Cardiovascular Safety Exposure-Response Modeling in Early-PhaseClinical Studies
 
 License:          GPL-3

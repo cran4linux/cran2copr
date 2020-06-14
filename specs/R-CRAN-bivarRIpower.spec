@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sample size calculations for bivariate longitudinal data
 
 License:          GPL (>= 2)

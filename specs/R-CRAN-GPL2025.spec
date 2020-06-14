@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Convert Chip ID of the GPL2015 into GeneBank Accession andENTREZID
 
 License:          Artistic-2.0

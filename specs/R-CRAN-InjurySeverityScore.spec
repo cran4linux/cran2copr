@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Translate ICD-9 into Injury Severity Score
 
 License:          GPL-3

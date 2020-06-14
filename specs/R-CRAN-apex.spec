@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Phylogenetic Methods for Multiple Gene Data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulating Multistate Movements in River/HeterogeneousLandscapes
 
 License:          GPL (>= 2)

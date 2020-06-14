@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.22
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multivariate Projection Methods
 
 License:          GPL (>= 2)

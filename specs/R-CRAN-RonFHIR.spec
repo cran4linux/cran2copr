@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read and Search Interface to the 'HL7 FHIR' REST API
 
 License:          BSD 3-clause License + file LICENSE

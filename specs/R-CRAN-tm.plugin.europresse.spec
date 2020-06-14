@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Import Articles from 'Europresse' Using the 'tm' Text MiningFramework
 
 License:          GPL (>= 2)

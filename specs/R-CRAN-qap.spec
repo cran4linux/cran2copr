@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Heuristics for the Quadratic Assignment Problem (QAP)
 
 License:          GPL-3

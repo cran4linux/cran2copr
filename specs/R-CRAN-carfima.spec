@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Continuous-Time Fractionally Integrated ARMA Process forIrregularly Spaced Long-Memory Time Series Data
 
 License:          GPL-2

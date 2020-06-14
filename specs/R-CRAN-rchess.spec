@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Chess Move, Generation/Validation, Piece Placement/ Movement,and Check/Checkmate/Stalemate Detection
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Horn's Test of Principal Components/Factors
 
 License:          GPL-2

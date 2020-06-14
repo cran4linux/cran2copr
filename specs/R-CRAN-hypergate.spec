@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Machine Learning of Hyperrectangular Gating Strategies forHigh-Dimensional Cytometry
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Plot 'rpart' Models: An Enhanced Version of 'plot.rpart'
 
 License:          GPL-3

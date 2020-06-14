@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Scaffolding Interfaces to Packages in Other ProgrammingLanguages
 
 License:          Apache License 2.0

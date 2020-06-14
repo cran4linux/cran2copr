@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Precision of Discrete Parameters in Transdimensional MCMC
 
 License:          GPL-3

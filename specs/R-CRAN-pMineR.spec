@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.31
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Processes Mining in Medicine
 
 License:          GPL-3

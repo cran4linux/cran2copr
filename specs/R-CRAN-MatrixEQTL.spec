@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Matrix eQTL: Ultra Fast eQTL Analysis via Large MatrixOperations
 
 License:          LGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.18
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Uncertainty Analysis for Species Distribution Models
 
 License:          GPL (>= 3)

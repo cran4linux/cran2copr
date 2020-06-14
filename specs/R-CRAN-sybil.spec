@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Efficient Constrained Based Modelling
 
 License:          GPL-3 | file LICENSE

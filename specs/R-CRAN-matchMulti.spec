@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Optimal Multilevel Matching using a Network Algorithm
 
 License:          MIT + file LICENSE

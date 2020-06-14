@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Stratified-Petersen Analysis System
 
 License:          GPL (>= 2)

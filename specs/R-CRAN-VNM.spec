@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Finding Multiple-Objective Optimal Designs for the 4-ParameterLogistic Model
 
 License:          GPL (>= 2)

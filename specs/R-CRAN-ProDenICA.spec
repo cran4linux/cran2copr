@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Product Density Estimation for ICA using tilted Gaussian densityestimates
 
 License:          GPL-2

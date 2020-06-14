@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Gaussian Stochastic Process Emulation
 
 License:          GPL-2 | GPL-3

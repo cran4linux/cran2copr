@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Objective Bayesian Model Discrimination in Follow-Up Designs
 
 License:          GPL (>= 2)

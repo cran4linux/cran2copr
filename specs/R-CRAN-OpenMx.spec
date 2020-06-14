@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.17.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extended Structural Equation Modelling
 
 License:          Apache License (== 2.0)

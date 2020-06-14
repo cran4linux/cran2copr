@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generate Random Given and Surnames
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.4.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Co-Clustering Package for Binary, Categorical, Contingency andContinuous Data-Sets
 
 License:          GPL (>= 3)

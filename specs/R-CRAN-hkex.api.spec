@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          API to Retrieve Data from Hong Kong Stock Exchange
 
 License:          GPL-3

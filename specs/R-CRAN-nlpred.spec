@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimators of Non-Linear Cross-Validated Risks Optimized forSmall Samples
 
 License:          MIT + file LICENSE

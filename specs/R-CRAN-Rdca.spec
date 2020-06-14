@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          DCA Tools for Decline Rate Analysis and EUR Forecast
 
 License:          GPL-3

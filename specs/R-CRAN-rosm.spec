@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Plot Raster Map Tiles from Open Street Map and Other Sources
 
 License:          GPL-2

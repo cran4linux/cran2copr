@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Image Registration Using the 'NiftyReg' Library
 
 License:          GPL-2

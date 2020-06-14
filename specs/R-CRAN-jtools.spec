@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis and Presentation of Social Scientific Data
 
 License:          MIT + file LICENSE

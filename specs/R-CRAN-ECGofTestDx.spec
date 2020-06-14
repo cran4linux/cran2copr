@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Goodness-of-Fit Test for Elliptical Distributions withDiagnostic Capabilities
 
 License:          GPL (>= 2)

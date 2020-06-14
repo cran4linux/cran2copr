@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.94
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Probabilistic Suffix Trees and Variable Length Markov Chains
 
 License:          GPL (>= 2)

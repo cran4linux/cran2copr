@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Creates a Data Frame of US Zip Codes in a Given Radius from aGiven US Zip Code
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation and Group Sequential Monitoring of RandomizedTwo-Stage Treatment Efficacy Trials with Time-to-EventEndpoints
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Odds Ratio Estimation and Power Calculation for the Trend inTrend Model
 
 License:          GPL (>= 2)

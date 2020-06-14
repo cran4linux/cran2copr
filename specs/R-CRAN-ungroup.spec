@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Penalized Composite Link Model for Efficient Estimation ofSmooth Distributions from Coarsely Binned Data
 
 License:          MIT + file LICENSE

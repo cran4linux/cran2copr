@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation of deterministic and stochastic biochemical reactionnetworks using Petri Nets
 
 License:          GPL (>= 2)

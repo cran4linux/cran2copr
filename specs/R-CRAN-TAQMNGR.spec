@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2018.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Manage Tick-by-Tick Transaction Data
 
 License:          GPL (>= 2)

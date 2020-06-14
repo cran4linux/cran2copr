@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Visualization of Spatial and Spatio-Temporal Objects in GoogleEarth
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis Of The Interpopulation Difference In Degree of SexualDimorphism Using Summary Statistics
 
 License:          GPL-3

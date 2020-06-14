@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Estimation in Very Small Samples
 
 License:          BSD_2_clause + file LICENSE

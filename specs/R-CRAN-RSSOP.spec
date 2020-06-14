@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation of Supply Reservoir Systems using Standard OperationPolicy
 
 License:          GPL-2

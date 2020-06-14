@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Chemometrics with R - Multivariate Data Analysis in the NaturalSciences and Life Sciences
 
 License:          GPL (>= 2)

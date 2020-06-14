@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gradient Descent for Regression Tasks
 
 License:          GPL (>= 2) | file LICENSE

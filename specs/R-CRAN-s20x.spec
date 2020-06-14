@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.28
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for University of Auckland Course STATS 201/208 DataAnalysis
 
 License:          GPL-2 | file LICENSE

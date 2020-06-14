@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.19
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Java Executable .jar Files for 'RKEEL'
 
 License:          GPL-3

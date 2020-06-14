@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2017.06.19
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Compute the Annotation Error of Peak Calls
 
 License:          GPL-3

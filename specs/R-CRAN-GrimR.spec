@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate Optical Parameters from Spindle Stage Measurements
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Sample Size and Power Calculations using the APPLE and SEPPLEMethods
 
 License:          GPL-2

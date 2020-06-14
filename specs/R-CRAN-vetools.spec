@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.28
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Venezuelan Environmental Data
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Stack Overflow's Greatest Hits
 
 License:          CC BY-SA 4.0

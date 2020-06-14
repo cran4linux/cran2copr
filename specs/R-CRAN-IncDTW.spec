@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Incremental Calculation of Dynamic Time Warping
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R and C++11
 
 License:          MIT + file LICENSE

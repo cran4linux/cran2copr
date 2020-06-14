@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimate Univariate Gaussian or Student's t MixtureAutoregressive Model
 
 License:          GPL-3

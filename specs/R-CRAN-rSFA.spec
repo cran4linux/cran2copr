@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.04
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Slow Feature Analysis in R
 
 License:          GPL (>= 2)

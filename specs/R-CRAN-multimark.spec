@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Capture-Mark-Recapture Analysis using Multiple Non-InvasiveMarks
 
 License:          GPL-2

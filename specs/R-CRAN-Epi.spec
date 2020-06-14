@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.40
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Package for Statistical Analysis in Epidemiology
 
 License:          GPL-2

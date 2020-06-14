@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mixed effects Score Test for continuous outcomes
 
 License:          LGPL (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Side Effect Risks in Hospital : Simulation and Estimation
 
 License:          GPL (>= 2)

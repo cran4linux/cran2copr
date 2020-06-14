@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bias-Corrected Methods for Estimating the ROC Surface ofContinuous Diagnostic Tests
 
 License:          GPL (>= 2)

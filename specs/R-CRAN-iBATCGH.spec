@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Integrative Bayesian Analysis of Transcriptomic and CGH Data
 
 License:          GPL-2

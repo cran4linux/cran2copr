@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Common Functionality for the 'dynverse' Packages
 
 License:          MIT + file LICENSE

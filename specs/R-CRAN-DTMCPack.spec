@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Suite of functions related to discrete-time discrete-stateMarkov Chains
 
 License:          GPL (>= 2)

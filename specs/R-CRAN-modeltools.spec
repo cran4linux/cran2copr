@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.23
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools and Classes for Statistical Models
 
 License:          GPL-2

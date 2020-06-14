@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Static and Dynamic 3D Plots for the 'vegan' Package
 
 License:          GPL-2

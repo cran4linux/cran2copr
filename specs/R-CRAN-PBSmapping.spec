@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.72.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mapping Fisheries Data and Spatial Analysis Tools
 
 License:          GPL (>= 2)

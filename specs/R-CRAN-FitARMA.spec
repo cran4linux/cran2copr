@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fit ARMA or ARIMA Using Fast MLE Algorithm
 
 License:          GPL (>= 2)

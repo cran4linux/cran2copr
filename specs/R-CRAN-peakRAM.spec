@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Monitor the Total and Peak RAM Used by an Expression or Function
 
 License:          GPL-2

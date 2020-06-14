@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.7.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Various Plotting Functions
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Artificial Neural Networks for Anomaly Detection
 
 License:          GPL (>= 3) | file LICENSE

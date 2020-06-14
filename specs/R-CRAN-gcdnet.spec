@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          LASSO and Elastic Net (Adaptive) Penalized Least Squares,Logistic Regression, HHSVM, Squared Hinge SVM and ExpectileRegression using a Fast GCD Algorithm
 
 License:          GPL-2

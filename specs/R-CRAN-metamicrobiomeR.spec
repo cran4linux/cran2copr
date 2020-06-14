@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of Microbiome Relative Abundance Data using ZeroInflated Beta GAMLSS and Meta-Analysis Across Studies usingRandom Effects Model
 
 License:          GPL-2

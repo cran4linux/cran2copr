@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation and Estimation of the Neyman-Scott Type SpatialCluster Models
 
 License:          GPL (>= 2)

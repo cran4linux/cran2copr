@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Kalman Filter and Smoother for Exponential Family State SpaceModels
 
 License:          GPL (>= 2)

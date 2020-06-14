@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computation of the Probability of Ruin Within a Finite TimeHorizon
 
 License:          AGPL-3

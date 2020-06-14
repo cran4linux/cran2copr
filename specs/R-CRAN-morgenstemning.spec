@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Color schemes compatible with red-green color perceptiondifficulties
 
 License:          GPL-3

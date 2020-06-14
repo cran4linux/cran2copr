@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Advanced Statistical Methods to Model and Adjust for Bias inMeta-Analysis
 
 License:          GPL (>= 2)

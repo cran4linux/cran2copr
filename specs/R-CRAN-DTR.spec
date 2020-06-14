@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation and Comparison of Dynamic Treatment Regimes
 
 License:          GPL (>= 2)

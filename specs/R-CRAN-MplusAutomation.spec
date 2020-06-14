@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An R Package for Facilitating Large-Scale Latent VariableAnalyses in Mplus
 
 License:          LGPL-3

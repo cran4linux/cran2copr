@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Linear Algorithm for Simulating Quantiles in MultiscaleChange-Point Segmentation Problem
 
 License:          GPL (>= 2)

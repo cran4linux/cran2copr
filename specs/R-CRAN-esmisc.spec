@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Misc Functions of Eduard Szöcs
 
 License:          MIT + file LICENSE

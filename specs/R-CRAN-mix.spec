@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation/Multiple Imputation for Mixed Categorical andContinuous Data
 
 License:          Unlimited

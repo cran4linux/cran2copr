@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Retrieve Network Statistics Including Available TCP Ports
 
 License:          MIT + file LICENSE

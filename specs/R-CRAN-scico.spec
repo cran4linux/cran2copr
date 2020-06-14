@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Colour Palettes Based on the Scientific Colour-Maps
 
 License:          MIT + file LICENSE

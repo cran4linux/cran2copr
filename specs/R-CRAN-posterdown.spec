@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generate PDF Conference Posters Using R Markdown
 
 License:          MIT + file LICENSE

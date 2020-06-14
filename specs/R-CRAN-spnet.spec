@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Plotting (Social) Networks on Maps
 
 License:          GPL-3

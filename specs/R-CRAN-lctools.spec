@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Local Correlation, Spatial Inequalities, Geographically WeightedRegression and Other Tools
 
 License:          GPL (>= 2)

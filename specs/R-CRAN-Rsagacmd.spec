@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Linking R with the Open-Source 'SAGA-GIS' Software
 
 License:          GPL-3

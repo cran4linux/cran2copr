@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Binary Classification via GMDH-Type Neural Network Algorithms
 
 License:          GPL (>= 2)

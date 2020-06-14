@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Population Assignment using Genetic, Non-Genetic or IntegratedData in a Machine Learning Framework
 
 License:          GPL (>= 2)

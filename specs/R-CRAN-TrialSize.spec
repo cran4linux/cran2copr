@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R functions in Chapter 3,4,6,7,9,10,11,12,14,15
 
 License:          GPL (>= 2.15.1)

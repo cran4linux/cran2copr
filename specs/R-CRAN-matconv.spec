@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Code Converter from the Matlab/Octave Language to R
 
 License:          GPL (>= 2)

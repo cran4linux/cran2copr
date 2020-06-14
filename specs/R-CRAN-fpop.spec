@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.08.26
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Segmentation using Optimal Partitioning and Function Pruning
 
 License:          LGPL (>= 2.1)

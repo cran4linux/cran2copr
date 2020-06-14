@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tool for the U.S. SEC EDGAR Retrieval and Parsing of CorporateFilings
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Compact and Flexible Summaries of Data
 
 License:          GPL-3

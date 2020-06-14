@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Converting Transport Data from GTFS Format to GPS-Like Records
 
 License:          MIT + file LICENSE

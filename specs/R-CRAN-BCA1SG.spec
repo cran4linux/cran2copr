@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Block Coordinate Ascent with One-Step Generalized RosenAlgorithm
 
 License:          GPL-2

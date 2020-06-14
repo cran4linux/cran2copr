@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Create 'roxygen2' Skeleton with Information from Function Script
 
 License:          GPL-2 | GPL-3

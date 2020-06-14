@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Efficient Computation of Ordinary and Generalized PoissonBinomial Distributions
 
 License:          GPL (>= 2)

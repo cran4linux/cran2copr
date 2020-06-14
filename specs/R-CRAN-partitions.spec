@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.22
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Additive Partitions of Integers
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Anonymization of Spatial Point Patterns and Raster Objects
 
 License:          GPL-2

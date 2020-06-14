@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gaines and Kuklinski (2011) Estimators for Hybrid Experiments
 
 License:          GPL (>= 2)

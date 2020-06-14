@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Instrumental Variables Estimator
 
 License:          GPL-2

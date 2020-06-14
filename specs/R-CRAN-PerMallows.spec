@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Permutations and Mallows Distributions
 
 License:          GPL (>= 2)

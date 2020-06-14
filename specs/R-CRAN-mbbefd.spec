@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.8.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Maxwell Boltzmann Bose Einstein Fermi Dirac Distribution andDestruction Rate Modelling
 
 License:          GPL-2

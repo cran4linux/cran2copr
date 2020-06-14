@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          K-Sample Rank Tests and their Combinations
 
 License:          GPL (>= 2)

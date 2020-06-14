@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          CCR, Entropy-Based Correlation Estimates & Dynamic Beta
 
 License:          GPL-3

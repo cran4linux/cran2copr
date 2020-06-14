@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Standard Distribution Functions for the 3D NFW Profile
 
 License:          GPL-3

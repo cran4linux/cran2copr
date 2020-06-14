@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themesand Color Palettes for 'ggplot2'
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extended Inference for Lasso and Elastic-Net Regularized Cox andGeneralized Linear Models
 
 License:          GPL-2

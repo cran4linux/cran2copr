@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Targeted Maximum Likelihood Estimation
 
 License:          BSD_3_clause + file LICENSE | GPL-2

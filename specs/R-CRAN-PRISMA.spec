@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Protocol Inspection and State Machine Analysis
 
 License:          GPL (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Shiny Application for Automatic Measurements of Tree-RingWidths on Digital Images
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.16.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Build, Import and Export GEXF Graph Files
 
 License:          MIT + file LICENSE

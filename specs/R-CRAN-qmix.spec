@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Finite Quantile Mixture Models
 
 License:          MIT + file LICENSE

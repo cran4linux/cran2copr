@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Compiles 'C++' Code using 'Rcpp', 'Eigen' and 'CppAD' to ProduceFirst and Second Order Partial Derivatives
 
 License:          GPL (>= 2)

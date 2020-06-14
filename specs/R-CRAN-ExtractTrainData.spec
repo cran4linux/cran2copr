@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extract Values from Raster
 
 License:          GPL-3

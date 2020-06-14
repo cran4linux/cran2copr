@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Access to the Neotoma Paleoecological Database Through R
 
 License:          MIT + file LICENSE

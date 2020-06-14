@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Synchronized Tausworthe RNG for R and Python
 
 License:          GPL-2

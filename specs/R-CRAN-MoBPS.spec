@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.87
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Modular Breeding Program Simulator
 
 License:          GPL (>= 3)

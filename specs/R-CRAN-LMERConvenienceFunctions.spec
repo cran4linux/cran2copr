@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Model Selection and Post-hoc Analysis for (G)LMER Models
 
 License:          GPL-2

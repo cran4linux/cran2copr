@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Best Split Selection Modeling for Low-Dimensional Data
 
 License:          GPL (>= 2)

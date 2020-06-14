@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multivariate Data Handling in Ecology and Biogeography
 
 License:          GPL-2

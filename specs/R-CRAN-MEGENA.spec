@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multiscale Clustering of Geometrical Network
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.21.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Global Sensitivity Analysis of Model Outputs
 
 License:          GPL-2

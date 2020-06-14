@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Landscape Connectivity, Habitat, and Protected Area Networks
 
 License:          GPL (>= 2)

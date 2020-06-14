@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data and Functions from the Book R Graphics, Third Edition
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Utility Sparse Matrix Functions for Quantitative LanguageComparison
 
 License:          GPL-3

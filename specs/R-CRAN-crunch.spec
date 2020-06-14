@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.26.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Crunch.io Data Tools
 
 License:          LGPL (>= 3)

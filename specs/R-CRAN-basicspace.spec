@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.24
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Recovering a Basic Space from Issue Scales
 
 License:          GPL-2

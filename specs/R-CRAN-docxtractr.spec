@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extract Data Tables and Comments from 'Microsoft' 'Word'Documents
 
 License:          MIT + file LICENSE

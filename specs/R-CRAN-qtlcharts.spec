@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interactive Graphics for QTL Experiments
 
 License:          GPL-3 | file LICENSE

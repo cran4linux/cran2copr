@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Analysis of Non-Stationary Gaussian Process Models
 
 License:          GPL-3

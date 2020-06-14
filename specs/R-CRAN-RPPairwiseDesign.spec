@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Resolvable partially pairwise balanced design and Space-fillingdesign via association scheme
 
 License:          GPL-3

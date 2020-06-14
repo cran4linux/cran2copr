@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimated Marginal Means, aka Least-Squares Means
 
 License:          GPL-2 | GPL-3

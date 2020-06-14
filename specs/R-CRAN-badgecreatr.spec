@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Create Badges for 'Travis', 'Repostatus' 'Codecov.io' Etc inGithub Readme
 
 License:          GPL-3

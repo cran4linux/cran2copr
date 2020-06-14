@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Unified Framework for Random Forest Prediction ErrorEstimation
 
 License:          GPL-3

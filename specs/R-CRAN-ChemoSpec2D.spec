@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.147
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Exploratory Chemometrics for 2D Spectroscopy
 
 License:          GPL-3

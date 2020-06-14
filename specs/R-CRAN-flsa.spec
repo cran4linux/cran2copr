@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Path Algorithm for the General Fused Lasso Signal Approximator
 
 License:          GPL-2

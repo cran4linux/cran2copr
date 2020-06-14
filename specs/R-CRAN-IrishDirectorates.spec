@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Dynamic Bipartite Latent Space Model to Analyse IrishCompanies' Boards from 2003 to 2013
 
 License:          GPL-3

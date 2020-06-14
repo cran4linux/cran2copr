@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Tools for Topological Data Analysis
 
 License:          GPL-3

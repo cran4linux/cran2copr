@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Maximum Approximate Bernstein/Beta Likelihood Estimation
 
 License:          LGPL (>= 2.0, < 3)

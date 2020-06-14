@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast and Versatile Argument Checks
 
 License:          BSD_3_clause + file LICENSE

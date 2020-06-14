@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions and Datasets to Accompany the Book "The R Software:Fundamentals of Programming and Statistical Analysis"
 
 License:          GPL (>= 2)

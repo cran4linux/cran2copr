@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.9.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Nonlinear Least Squares Solutions
 
 License:          GPL-2

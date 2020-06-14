@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Render a Twitter Status in R Markdown Pages
 
 License:          MIT + file LICENSE

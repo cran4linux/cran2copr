@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bootstrap Tests for Equality of 2, 3, or 4 Population Variances
 
 License:          GPL (>= 3)

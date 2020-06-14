@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Composite Likelihood Inference and Diagnostics for ReplicatedSpatial Ordinal Data
 
 License:          GPL-2

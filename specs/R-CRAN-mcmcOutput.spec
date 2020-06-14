@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions to Store, Manipulate and Display Markov Chain MonteCarlo (MCMC) Output
 
 License:          GPL (>= 3)

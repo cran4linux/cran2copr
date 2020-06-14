@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0.2374
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis the output of Apsim software
 
 License:          GPL-3

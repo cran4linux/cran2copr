@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Consistent Batch Means Estimation of Monte Carlo Standard Errors
 
 License:          GPL (>= 2)

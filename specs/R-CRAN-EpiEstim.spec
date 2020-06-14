@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimate Time Varying Reproduction Numbers from Epidemic Curves
 
 License:          GPL (>= 2)

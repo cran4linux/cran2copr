@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Weighted Mixed-Effects Models Using Multilevel Pseudo MaximumLikelihood Estimation
 
 License:          GPL-2

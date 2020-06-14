@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Querying and Managing 'Neo4J' Databases in 'R'
 
 License:          MIT + file LICENSE

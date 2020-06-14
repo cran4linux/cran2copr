@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Exploration with Multiple Machine Learning Algorithms
 
 License:          GPL (>= 2)

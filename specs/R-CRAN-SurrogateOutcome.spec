@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation of the Proportion of Treatment Effect Explained bySurrogate Outcome Information
 
 License:          GPL

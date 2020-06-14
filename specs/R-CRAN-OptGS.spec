@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Near-Optimal and Balanced Group-Sequential Designs for ClinicalTrials with Continuous Outcomes
 
 License:          GPL-2

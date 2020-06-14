@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Metagenome Coverage Estimation and Projections for 'Nonpareil'
 
 License:          Artistic-2.0

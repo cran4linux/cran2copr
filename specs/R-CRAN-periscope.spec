@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.10.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Enterprise Streamlined 'Shiny' Application Framework
 
 License:          GPL-3

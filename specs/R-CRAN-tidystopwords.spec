@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Customizable Lists of Stopwords in 53 Languages
 
 License:          GPL (>= 3)

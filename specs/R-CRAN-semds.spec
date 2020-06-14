@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Structural Equation Multidimensional Scaling
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computation of Spatial Covariance Matrices for Data onRectangles
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Two-Locus Family-Based Association Test with Polytomous Outcome
 
 License:          GPL

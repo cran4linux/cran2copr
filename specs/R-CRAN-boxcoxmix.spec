@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.21
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Box-Cox-Type Transformations for Linear and Logistic Models withRandom Effects
 
 License:          GPL (>= 3)

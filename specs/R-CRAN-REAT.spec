@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regional Economic Analysis Toolbox
 
 License:          GPL (>= 2)

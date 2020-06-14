@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rename and Encode Data Frames Using External Crosswalk Files
 
 License:          MIT + file LICENSE

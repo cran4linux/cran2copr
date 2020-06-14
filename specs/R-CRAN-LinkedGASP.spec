@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Linked Emulator of a Coupled System of Simulators
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extreme Values in R
 
 License:          GPL (>= 2)

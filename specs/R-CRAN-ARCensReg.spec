@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fitting Univariate Censored Linear Regression Model withAutoregressive Errors
 
 License:          GPL (>= 2)

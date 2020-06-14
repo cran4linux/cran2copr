@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Ensemble Partial Least Squares Regression
 
 License:          GPL-3 | file LICENSE

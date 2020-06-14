@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculation of Average Population Attributable Fractions andConfidence Intervals
 
 License:          CC0

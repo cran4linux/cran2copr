@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Benchmarking and Visualization Toolkit for Penalized Cox Models
 
 License:          GPL-3 | file LICENSE

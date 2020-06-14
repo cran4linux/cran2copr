@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          PDQ Functions via Gram Charlier, Edgeworth, and Cornish FisherApproximations
 
 License:          LGPL-3

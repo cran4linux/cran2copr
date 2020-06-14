@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Ordered Homogeneity Pursuit Lasso for Group Variable Selection
 
 License:          GPL-3 | file LICENSE

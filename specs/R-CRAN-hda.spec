@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Heteroscedastic Discriminant Analysis
 
 License:          GPL (>= 2)

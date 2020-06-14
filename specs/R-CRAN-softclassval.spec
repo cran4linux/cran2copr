@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.20160527
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Soft Classification Performance Measures
 
 License:          GPL

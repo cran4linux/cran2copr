@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Methods for Quantitative Magnetic Resonance Imaging ('qMRI')
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10.16
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Miscellaneous Useful Functions for Statistics
 
 License:          GPL (>= 2)

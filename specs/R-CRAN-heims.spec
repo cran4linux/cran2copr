@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Decode and Validate HEIMS Data from Department of Education,Australia
 
 License:          GPL-3

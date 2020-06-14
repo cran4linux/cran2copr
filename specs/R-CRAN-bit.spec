@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.15.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Class for Vectors of 1-Bit Booleans
 
 License:          GPL-2

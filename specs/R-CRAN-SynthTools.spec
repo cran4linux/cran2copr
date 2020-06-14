@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools and Tests for Experiments with Partially Synthetic DataSets
 
 License:          GPL (>= 2)

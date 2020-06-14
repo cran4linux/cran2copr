@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast Drawing and Shading of Graphs of Statistical Distributions
 
 License:          GPL-3

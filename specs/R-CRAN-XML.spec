@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.99.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Parsing and Generating XML Within R and S-Plus
 
 License:          BSD_3_clause + file LICENSE

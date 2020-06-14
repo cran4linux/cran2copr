@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.22.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast Estimators for Design-Based Inference
 
 License:          MIT + file LICENSE

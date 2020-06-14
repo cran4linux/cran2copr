@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Study Design and Data Analysis in the Presence of Error-ProneDiagnostic Tests and Self-Reported Outcomes
 
 License:          GPL (>= 2)

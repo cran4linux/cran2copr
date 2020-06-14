@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate Pairwise Multiple Comparisons of Mean Rank SumsExtended
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An R Interface to the NOAA Operational Model Archive andDistribution System
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Implementation of 'Salesforce' APIs Using Tidy Principles
 
 License:          MIT + file LICENSE

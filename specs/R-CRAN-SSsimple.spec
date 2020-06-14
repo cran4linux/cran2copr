@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          State Space Models
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Read and Write 'Excel' Sheets into and from List of Data Frames
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Commander Plug-in for Repeated-Measures ANOVA
 
 License:          GPL (>= 2)

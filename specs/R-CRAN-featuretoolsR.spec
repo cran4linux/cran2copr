@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interact with the 'Python' Module 'Featuretools'
 
 License:          MIT + file LICENSE

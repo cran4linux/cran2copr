@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Interface for International Monetary Fund(IMF) Data API
 
 License:          MIT + file LICENSE

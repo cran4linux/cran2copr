@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Importing Interlinearized Corpora and Dictionaries as Producedby Descriptive Linguistics Software
 
 License:          BSD_3_clause + file LICENSE

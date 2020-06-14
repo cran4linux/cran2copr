@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Set of Methods for Longitudinal Data Objects
 
 License:          GPL (>= 2)

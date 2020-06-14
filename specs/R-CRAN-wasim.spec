@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Visualisation and analysis of output files of the hydrologicalmodel WASIM
 
 License:          GPL-2

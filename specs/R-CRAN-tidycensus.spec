@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.9.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Load US Census Boundary and Attribute Data as 'tidyverse' and'sf'-Ready Data Frames
 
 License:          MIT + file LICENSE

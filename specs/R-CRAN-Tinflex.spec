@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Universal Non-Uniform Random Number Generator
 
 License:          GPL (>= 2)

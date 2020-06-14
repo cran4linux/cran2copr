@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Silhouette to Area Ratio of Tilted Surfaces
 
 License:          AGPL-3

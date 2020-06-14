@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Variable Selection Deviation Measures and Instability Tests forHigh-Dimensional Generalized Linear Models
 
 License:          GPL-2

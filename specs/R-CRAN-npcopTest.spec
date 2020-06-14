@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.03
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Non Parametric Test for Detecting Changes in the Copula
 
 License:          GPL (>= 3)

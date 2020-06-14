@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Modified Versions of Mann Kendall and Spearman's Rho Trend Tests
 
 License:          AGPL-3

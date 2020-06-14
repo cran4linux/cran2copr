@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.53
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Deciphering Central Informative Nodes in Network Analysis
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast and Exact Computation of Gaussian Stochastic Process
 
 License:          GPL (>= 2)

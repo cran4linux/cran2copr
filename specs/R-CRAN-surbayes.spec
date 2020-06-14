@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Analysis of Seemingly Unrelated Regression Models
 
 License:          GPL (>= 2)

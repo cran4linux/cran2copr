@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Inference and Sensitivity Analysis for Causal Effectsfrom 2 x 2 and 2 x 2 x K Tables in the Presence of UnmeasuredConfounding
 
 License:          GPL-2

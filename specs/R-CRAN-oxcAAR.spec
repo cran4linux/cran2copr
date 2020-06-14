@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to 'OxCal' Radiocarbon Calibration
 
 License:          GPL-2 | file LICENSE

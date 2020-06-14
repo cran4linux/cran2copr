@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'C' and 'Java' Source Code Generator for Fitted Glm Objects
 
 License:          GPL (>= 3) | file LICENSE

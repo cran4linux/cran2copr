@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Normal aka Gaussian (1-d) Mixture Models (S3 Classes andMethods)
 
 License:          GPL (>= 2)

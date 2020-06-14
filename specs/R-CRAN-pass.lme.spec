@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Power and Sample Size for Linear Mixed Effect Models
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.22
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Plotting, Smoothing and Growth Trait Extraction for LongitudinalData
 
 License:          GPL (>= 2)

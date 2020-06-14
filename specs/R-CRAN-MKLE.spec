@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.05
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Maximum kernel likelihood estimation.
 
 License:          GPL

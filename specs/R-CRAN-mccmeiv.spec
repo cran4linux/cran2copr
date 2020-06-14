@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of Matched Case Control Data with a MismeasuredExposure that is Accompanied by Instrumental Variables
 
 License:          GPL-2

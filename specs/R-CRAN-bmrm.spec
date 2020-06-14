@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bundle Methods for Regularized Risk Minimization Package
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions for Visualising Simple Graphs (Networks), PlottingFlow Diagrams
 
 License:          GPL (>= 2)

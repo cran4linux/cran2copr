@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fit Sparse Linear Regression Models via Nonconvex Optimization
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          PogromcyDanych / DataCrunchers is the Masive Online Open Coursethat Brings R and Statistics to the People
 
 License:          GPL-3

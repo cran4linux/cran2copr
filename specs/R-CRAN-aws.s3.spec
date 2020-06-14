@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.21
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'AWS S3' Client Package
 
 License:          GPL (>= 2)

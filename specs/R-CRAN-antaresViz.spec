@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Antares Visualizations
 
 License:          GPL (>= 2) | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculates Disproportionate Impact When Binary Success Data areDisaggregated by Subgroups
 
 License:          GPL-3

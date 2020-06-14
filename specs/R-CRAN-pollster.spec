@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate Crosstab and Topline Tables of Weighted Survey Data
 
 License:          CC0

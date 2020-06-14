@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Sets, Etc. for the Text "Using R for IntroductoryStatistics", Second Edition
 
 License:          GPL (>= 2)

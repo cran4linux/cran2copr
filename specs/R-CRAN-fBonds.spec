@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.78
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rmetrics - Pricing and Evaluating Bonds
 
 License:          GPL (>= 2)

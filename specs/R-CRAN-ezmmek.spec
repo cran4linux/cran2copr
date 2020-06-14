@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analysis of Enzyme Activities on Synthetic Substrates usingMichaelis-Menten Kinetics
 
 License:          AGPL-3

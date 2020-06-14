@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.20
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Creating Continuously Integrated Package Repositories fromManifests
 
 License:          Artistic-2.0

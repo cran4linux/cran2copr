@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Extreme Machine Learning (ELM)
 
 License:          GPL-2 | GPL-3

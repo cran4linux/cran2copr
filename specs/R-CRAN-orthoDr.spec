@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Semi-Parametric Dimension Reduction Models Using OrthogonalityConstrained Optimization
 
 License:          GPL (>= 2)

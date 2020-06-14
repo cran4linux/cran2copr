@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regularized Hotelling's T-square Test for Pathway (Gene Set)Analysis
 
 License:          GPL

@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Configural Frequency Analysis (CFA)
 
 License:          GPL (>= 2)

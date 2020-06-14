@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast Algorithms for Frequency-Preserving Null Models in Ecology
 
 License:          GPL-3

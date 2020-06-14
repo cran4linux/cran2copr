@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Padé Approximant Coefficients
 
 License:          GPL (>= 2) | BSD_2_clause + file LICENSE

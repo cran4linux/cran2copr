@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.2.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Misc Small Tools and Helper Functions for Other Code of J.Buttlar
 
 License:          GPL-2

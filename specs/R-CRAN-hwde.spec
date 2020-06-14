@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.67
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Models and Tests for Departure from Hardy-Weinberg Equilibriumand Independence Between Loci
 
 License:          GPL (>= 2)

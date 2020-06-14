@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mixed Computerized Adaptive Multistage Testing
 
 License:          LGPL (>= 2.0, < 3) | Mozilla Public License

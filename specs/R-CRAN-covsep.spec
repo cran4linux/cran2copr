@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tests for Determining if the Covariance Structure of2-Dimensional Data is Separable
 
 License:          GPL-2

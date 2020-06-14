@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Measuring Inequality, Concentration, and Poverty
 
 License:          GPL-2 | GPL-3

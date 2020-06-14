@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Parse and Test Robots Exclusion Protocol Files and Rules
 
 License:          MIT + file LICENSE

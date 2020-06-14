@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Flexible Modeling of Multivariate Count Data via theMultivariate Conway-Maxwell-Poisson Distribution
 
 License:          GPL-3

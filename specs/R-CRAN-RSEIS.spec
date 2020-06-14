@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.9.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Seismic Time Series Analysis Tools
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Multiscale Test of Spatial Stationarity for LS2W Processes
 
 License:          GPL-2

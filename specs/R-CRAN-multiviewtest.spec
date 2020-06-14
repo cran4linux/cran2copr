@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Hypothesis Tests for Association Between Subgroups in Two DataViews
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Prevalence to Incidence Calculations for Point-PrevalenceStudies in a Nosocomial Setting
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Modelling Functions that Work with the Pipe
 
 License:          GPL-3

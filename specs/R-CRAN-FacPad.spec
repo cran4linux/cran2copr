@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Sparse Factor Analysis model for the inference ofpathways responsive to drug treatment
 
 License:          GPL (>= 2)

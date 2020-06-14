@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Analytic Hierarchy Process
 
 License:          GPL (>= 2)

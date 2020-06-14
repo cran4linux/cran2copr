@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Optimal Stratification in Stratified Sampling OptimizationAlgorithm
 
 License:          GPL-2

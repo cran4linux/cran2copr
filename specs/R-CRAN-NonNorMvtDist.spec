@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multivariate Lomax (Pareto Type II) and Its RelatedDistributions
 
 License:          GPL-3

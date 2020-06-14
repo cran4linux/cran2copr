@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Imports Datasets from BCB (Central Bank of Brazil) using ItsOfficial API
 
 License:          GPL-2

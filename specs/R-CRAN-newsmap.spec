@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Semi-Supervised Model for Geographical Document Classification
 
 License:          MIT + file LICENSE

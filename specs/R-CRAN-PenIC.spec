@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Semiparametric Regression Analysis of Interval-Censored Datausing Penalized Splines
 
 License:          GPL (>= 2)

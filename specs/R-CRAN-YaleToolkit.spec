@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data exploration tools from Yale University.
 
 License:          LGPL-3

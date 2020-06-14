@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generate Random Samples from the Polya-Gamma Distribution
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimate the Four Parameters of Stable Laws using DifferentMethods
 
 License:          GPL (>= 2)

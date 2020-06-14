@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Exploratory Analyses for the Phylogenetic Comparative Method
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Text to Speech
 
 License:          GPL-3

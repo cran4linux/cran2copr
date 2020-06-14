@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Open Data of Agricultural Production of Crops of Peru
 
 License:          MIT + file LICENSE

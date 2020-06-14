@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.09
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Supervised principal components
 
 License:          GPL-2

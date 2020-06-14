@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.21
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Subgroup Discovery with Evolutionary Fuzzy Systems
 
 License:          LGPL (>= 3)

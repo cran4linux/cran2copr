@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tidy Verbs for Fast Data Manipulation
 
 License:          MIT + file LICENSE

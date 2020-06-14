@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Spline Based Window Boundaries for Genomic Analyses
 
 License:          MIT + file LICENSE

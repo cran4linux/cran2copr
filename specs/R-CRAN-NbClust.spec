@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Determining the Best Number of Clusters in a Data Set
 
 License:          GPL-2

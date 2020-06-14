@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate the Assortativity Coefficient of Weighted and BinaryNetworks
 
 License:          GPL-2

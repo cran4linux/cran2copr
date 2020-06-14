@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Biological Sequences Retrieval and Analysis
 
 License:          GPL (>= 2)

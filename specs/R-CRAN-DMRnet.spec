@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Delete or Merge Regressors Algorithms for Linear and LogisticModel Selection and High-Dimensional Data
 
 License:          GPL-2

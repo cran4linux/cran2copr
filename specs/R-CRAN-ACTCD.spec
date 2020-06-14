@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Asymptotic Classification Theory for Cognitive Diagnosis
 
 License:          GPL (>= 2)

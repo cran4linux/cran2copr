@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to 'D3' Visualizations
 
 License:          BSD_3_clause + file LICENSE

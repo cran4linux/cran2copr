@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Structure for Organizing Monte Carlo Simulation Designs
 
 License:          GPL (>= 2)

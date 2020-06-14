@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Ensemble Forecast Verification for Large Data Sets
 
 License:          GPL-3

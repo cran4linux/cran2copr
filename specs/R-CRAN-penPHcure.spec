@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Variable Selection in PH Cure Model with Time-Varying Covariates
 
 License:          GPL-2 | GPL-3

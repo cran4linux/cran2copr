@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Tests for Differential Dispersion and DifferentialExpression in RNA-Sequencing Data
 
 License:          GPL-3

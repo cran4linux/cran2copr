@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          API for UK Gas Market Information
 
 License:          GPL-2

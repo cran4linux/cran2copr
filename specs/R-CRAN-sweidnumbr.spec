@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Handling of Swedish Identity Numbers
 
 License:          BSD_2_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data from the M-Competitions
 
 License:          GPL-3

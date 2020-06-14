@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.16
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multi-Locus Geno-Typing
 
 License:          GPL (>= 2)

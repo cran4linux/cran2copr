@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.200
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Authentication Management for 'Shiny' Applications
 
 License:          GPL-3

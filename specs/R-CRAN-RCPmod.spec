@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.190
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regions of Common Profiles Modelling with Mixtures-of-Experts
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Feature Selection Algorithms for Computer Aided Diagnosis
 
 License:          LGPL (>= 2)

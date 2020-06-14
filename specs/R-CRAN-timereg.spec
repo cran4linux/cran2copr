@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Flexible Regression Models for Survival Data
 
 License:          GPL (>= 2)

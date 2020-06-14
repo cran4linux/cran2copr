@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Package for Environmental Statistics, Including US EPA Guidance
 
 License:          GPL (>= 3)

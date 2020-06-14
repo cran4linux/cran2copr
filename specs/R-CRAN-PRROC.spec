@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Precision-Recall and ROC Curves for Weighted and Unweighted Data
 
 License:          GPL-3

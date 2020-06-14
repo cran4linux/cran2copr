@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Get Seismic Data from the International Federation of DigitalSeismograph Networks
 
 License:          GPL (>= 3)

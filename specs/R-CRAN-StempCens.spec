@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Spatio-Temporal Estimation and Prediction for Censored/MissingResponses
 
 License:          GPL (>= 2)

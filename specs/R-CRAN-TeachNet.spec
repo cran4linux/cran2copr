@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fits Neural Networks to Learn About Backpropagation
 
 License:          GPL (>= 2)

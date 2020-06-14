@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Topological Analysis of Knotted Proteins, Biopolymers and 3DStructures
 
 License:          GPL-2

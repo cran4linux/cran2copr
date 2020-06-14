@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Penalized Elastic Net S/MM-Estimator of Regression
 
 License:          GPL (>= 2)

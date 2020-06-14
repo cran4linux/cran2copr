@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Highest Density Regions and Conditional Density Estimation
 
 License:          GPL-3

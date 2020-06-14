@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Example T1 Structural Data from the Multi-Modal MRI'Reproducibility' Resource
 
 License:          GPL-2

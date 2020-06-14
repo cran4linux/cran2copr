@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Temperature Measurement with Thermocouples, RTD and IC Sensors
 
 License:          GPL (>= 3)

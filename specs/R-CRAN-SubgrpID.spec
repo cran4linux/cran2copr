@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Patient Subgroup Identification for Clinical Drug Development
 
 License:          GPL-3

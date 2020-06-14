@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fitting non linear parametric GAMLSS models
 
 License:          GPL-2 | GPL-3

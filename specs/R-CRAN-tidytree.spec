@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
 
 License:          Artistic-2.0

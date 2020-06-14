@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Seasonal/Sequential (Instants/Durations, Even or not) TimeSeries
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regularized Spatial Maximum Covariance Analysis
 
 License:          GPL-2

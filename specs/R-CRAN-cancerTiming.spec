@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation of Temporal Ordering of Cancer Abnormalities
 
 License:          GPL (>= 2)

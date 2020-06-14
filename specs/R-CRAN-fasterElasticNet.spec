@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An Amazing Fast Way to Fit Elastic Net
 
 License:          GPL (>= 2)

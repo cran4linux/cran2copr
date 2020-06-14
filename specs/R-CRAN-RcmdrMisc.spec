@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Commander Miscellaneous Functions
 
 License:          GPL (>= 2)

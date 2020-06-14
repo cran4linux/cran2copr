@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.17.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Utility Functions for 'spatstat'
 
 License:          GPL (>= 2)

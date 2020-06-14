@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Stratified Heterogeneity Measure, Dominant Driving ForceDetection, Interaction Relationship Investigation
 
 License:          GPL (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R codes for estimating water retention and infiltration modelparameters using experimental data
 
 License:          GPL (>= 2)

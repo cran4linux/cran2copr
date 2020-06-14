@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Optimal Pricing of Assets with Fixed Expiry Date
 
 License:          GPL (>= 2)

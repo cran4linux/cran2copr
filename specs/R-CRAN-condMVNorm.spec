@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Conditional Multivariate Normal Distribution
 
 License:          GPL-2

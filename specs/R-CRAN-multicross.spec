@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Graph-Based Test for Comparing Multivariate Distributions inthe Multi Sample Framework
 
 License:          GPL (>= 2)

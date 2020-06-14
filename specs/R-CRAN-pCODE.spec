@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation of an Ordinary Differential Equation Model byParameter Cascade Method
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fast Data Aggregation, Modification, and Filtering with Pipesand 'data.table'
 
 License:          GPL-2

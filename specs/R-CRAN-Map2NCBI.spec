@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mapping Markers to the Nearest Genomic Feature
 
 License:          GPL (>= 2)

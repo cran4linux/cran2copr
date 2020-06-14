@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimating and Testing the Number of Interesting Components inLinear Dimension Reduction
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.60
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Association Between Methylation and a Phenotype of Interest
 
 License:          GPL (>= 2)

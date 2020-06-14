@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Separate Metabolites into Likely Measurement Artifacts and TrueMetabolites
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Genome-Wide Association Analysis of a Biomarker Accounting forLimit of Detection
 
 License:          GPL (>= 3)

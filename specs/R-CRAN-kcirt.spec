@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          k-Cube Thurstonian IRT Models
 
 License:          GPL (>= 2)

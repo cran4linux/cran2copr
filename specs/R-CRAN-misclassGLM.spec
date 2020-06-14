@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computation of Generalized Linear Models with MisclassifiedCovariates Using Side Information
 
 License:          GPL-3

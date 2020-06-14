@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Gadget is the Globally-Applicable Area Disaggregated GeneralEcosystem Toolbox
 
 License:          GPL-2

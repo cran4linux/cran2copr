@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Checks if a Number is Valid Using the Luhn Algorithm
 
 License:          GPL-2

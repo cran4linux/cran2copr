@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Nearly Exact Sample Size Calculation for Exact PowerfulNonrandomized Tests for Differences Between BinomialProportions
 
 License:          CC0

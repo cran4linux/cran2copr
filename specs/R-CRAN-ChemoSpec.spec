@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.2.12
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Exploratory Chemometrics for Spectroscopy
 
 License:          GPL-3

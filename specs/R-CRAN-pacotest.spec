@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Testing for Partial Copulas and the Simplifying Assumption inVine Copulas
 
 License:          MIT + file LICENSE

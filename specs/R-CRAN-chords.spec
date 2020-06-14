@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.95.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation in Respondent Driven Samples
 
 License:          GPL-2

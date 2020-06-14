@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generate Codes to Uniquely and Robustly Identify Individuals forAnimal Behavior Studies
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Hierarchical Independent Component Analysis: a Multi-ScaleSparse Non-Orthogonal Data-Driven Basis
 
 License:          GPL (>= 2)

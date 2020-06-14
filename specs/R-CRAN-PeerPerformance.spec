@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Luck-Corrected Peer Performance Analysis in R
 
 License:          GPL (>= 2)

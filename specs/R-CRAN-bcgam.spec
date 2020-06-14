@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Constrained Generalised Linear Models
 
 License:          GPL (>= 2)

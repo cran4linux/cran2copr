@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Age-Specific Survival Analysis from IncompleteCapture-Recapture/Recovery Data
 
 License:          GPL

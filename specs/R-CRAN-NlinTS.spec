@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Models for Non Linear Causality Detection in Time Series
 
 License:          GNU General Public License

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          EXIF Image Data in R
 
 License:          GPL-2

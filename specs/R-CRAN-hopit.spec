@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Hierarchical Ordered Probit Models with Application to ReportingHeterogeneity
 
 License:          GPL-3

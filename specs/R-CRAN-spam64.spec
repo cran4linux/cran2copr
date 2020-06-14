@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          64-Bit Extension of the SPArse Matrix R Package 'spam'
 
 License:          LGPL-2 | BSD_3_clause + file LICENSE

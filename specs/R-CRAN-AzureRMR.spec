@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface to 'Azure Resource Manager'
 
 License:          MIT + file LICENSE

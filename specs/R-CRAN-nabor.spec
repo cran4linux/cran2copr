@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Wraps 'libnabo', a Fast K Nearest Neighbour Library for LowDimensions
 
 License:          BSD_3_clause + file LICENSE

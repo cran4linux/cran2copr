@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.11
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Mixing Models in R
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimation and Inference Methods for Sorted Causal Effects andClassification Analysis
 
 License:          MIT + file LICENSE

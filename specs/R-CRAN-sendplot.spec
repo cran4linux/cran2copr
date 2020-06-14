@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tool for sending interactive plots with tool-tip content.
 
 License:          GPL (>= 2)

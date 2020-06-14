@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Seasonal Analysis and Graphics, Especially for Climatology
 
 License:          GPL (>= 2)

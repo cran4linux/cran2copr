@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Cluster Detection with Hypothesis Free Scan Statistic
 
 License:          GPL-2 | GPL-3

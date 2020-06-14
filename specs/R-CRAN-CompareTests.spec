@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Correct for Verification Bias in Diagnostic Accuracy & Agreement
 
 License:          GPL-3

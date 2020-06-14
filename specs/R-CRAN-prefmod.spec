@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.34
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Utilities to Fit Paired Comparison Models for Preferences
 
 License:          GPL (>= 2)

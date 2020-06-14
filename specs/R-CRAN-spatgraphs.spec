@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Graph Edge Computations for Spatial Point Patterns
 
 License:          GPL (>= 2)

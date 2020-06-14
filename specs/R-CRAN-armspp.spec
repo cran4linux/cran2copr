@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Adaptive Rejection Metropolis Sampling (ARMS) via 'Rcpp'
 
 License:          MIT + file LICENSE

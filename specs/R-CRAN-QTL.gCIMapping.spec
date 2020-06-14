@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          QTL Genome-Wide Composite Interval Mapping
 
 License:          GPL (>= 2)

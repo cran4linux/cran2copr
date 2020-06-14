@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Create R Markdown Text for Results in the Style of the AmericanPsychological Association (APA)
 
 License:          MIT License + file LICENSE
