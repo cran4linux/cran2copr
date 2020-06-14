@@ -5,7 +5,7 @@ options(
   copr.subdir      = "specs",
   copr.prefix      = "R-CRAN-",
   copr.tpl         = "specfile.tpl",
-  copr.bflags      = "--background",
+  copr.bflags      = "",
   copr.chroots     = c("fedora-31-x86_64", "fedora-32-x86_64"),
   copr.watch       = FALSE,
   repos            = "https://cran.r-project.org",
