@@ -1,9 +1,9 @@
 %global packname  npsf
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}
 Summary:          Nonparametric and Stochastic Efficiency and ProductivityAnalysis
 
@@ -15,16 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-sfsmisc 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-sfsmisc 
 
 %description
-Provides a variety of tools for nonparametric and parametric efficiency
-measurement.
+Nonparametric efficiency measurement and statistical inference via DEA
+type of estimators (see e.g., Kneip, Simar, and Wilson (2008)
+<doi:10.1017/S0266466608080651> and Badunenko and Mozharovskyi (2020)
+<doi:10.1080/01605682.2019.1599778>) as well as Stochastic Frontier
+estimators for both cross-sectional data and 1st, 2nd, and 4th generation
+models for panel data (see e.g., Kumbhakar and Lovell (2003), Badunenko
+and Kumbhakar (2016) <doi:10.1016/j.ejor.2016.04.049>). The stochastic
+frontier estimators can handle both half-normal and truncated normal
+models with conditional mean and heteroskedasticity. The marginal effects
+of determinants can be obtained.
 
 %prep
 %setup -q -c -n %{packname}

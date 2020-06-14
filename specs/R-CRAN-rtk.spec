@@ -1,9 +1,9 @@
 %global packname  rtk
-%global packver   0.2.5.8
+%global packver   0.2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5.8
+Version:          0.2.6.1
 Release:          1%{?dist}
 Summary:          Rarefaction Tool Kit
 
@@ -25,6 +25,7 @@ Rarefy data, calculate diversity and plot the results.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

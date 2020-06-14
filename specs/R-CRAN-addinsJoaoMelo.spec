@@ -1,28 +1,34 @@
-%global packname  openblender
-%global packver   0.5.80
+%global packname  addinsJoaoMelo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.80
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Request <https://openblender.io> API Services
+Summary:          Addins Made of Joao Melo
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.3
-Requires:         R-core >= 3.3.3
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-purrr 
 
 %description
-Interface to make HTTP requests to 'OpenBlender' API services. Go to
-<https://openblender.io> for more information.
+Provide addins for 'RStudio'. It currently contains 3 addins. The first to
+add a shortcut for the double pipe. The second is to add a shortcut for
+the same operator. And the third to simplify the creation of vectors from
+texts pasted from the computer transfer area.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,7 +51,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/rstudio
 %{rlibdir}/%{packname}/INDEX

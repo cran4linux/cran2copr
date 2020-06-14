@@ -1,9 +1,9 @@
 %global packname  diyar
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Multistage Record Linkage and Case Definition forEpidemiological Analysis
 
@@ -15,18 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-tidyr >= 0.8.2
 BuildRequires:    R-CRAN-dplyr >= 0.7.5
 BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-tidyr >= 0.8.2
 Requires:         R-CRAN-dplyr >= 0.7.5
 Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-rlang 
 
 %description
 Perform multistage deterministic linkages, apply case definitions to
@@ -46,6 +44,7 @@ sub-analysis within these groups.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

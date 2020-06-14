@@ -1,9 +1,9 @@
 %global packname  Distributacalcul
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}
 Summary:          Probability Distribution Functions
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-shinyWidgets
 BuildRequires:    R-CRAN-shinydashboardPlus 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-statmod 
 Requires:         R-stats 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-dplyr 
@@ -45,8 +45,8 @@ Value-at-Risk (TVaR) as well as some density and cumulative (survival)
 functions of continuous, discrete and compound distributions. This package
 also includes a visual 'Shiny' component to enable students to visualize
 distributions and understand the impact of their parameters. This package
-is intended to expand the 'stats' and 'actuar' packages so as to enable
-students to develop an intuition for probability.
+is intended to expand the 'stats' package so as to enable students to
+develop an intuition for probability.
 
 %prep
 %setup -q -c -n %{packname}

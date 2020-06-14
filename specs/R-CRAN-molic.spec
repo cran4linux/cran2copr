@@ -1,27 +1,35 @@
-%global packname  multDM
-%global packver   1.1.3
+%global packname  molic
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.0.0
 Release:          1%{?dist}
-Summary:          Multivariate Version of the Diebold-Mariano Test
+Summary:          Multivariate Outlier Detection in Contingency Tables
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MTS 
-Requires:         R-CRAN-MTS 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-ess 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-ess 
 
 %description
-Allows to perform the multivariate version of the Diebold-Mariano test for
-equal predictive ability of multiple forecast comparison. Main reference:
-Mariano, R.S., Preve, D. (2012) <doi:10.1016/j.jeconom.2012.01.014>.
+Outlier detection in, possibly high-dimensional, categorical data
+following Mads Lindskou et al. (2019) <doi:10.1111/sjos.12407>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,7 +54,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

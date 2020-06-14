@@ -1,9 +1,9 @@
 %global packname  shadow
-%global packver   0.6.4.1
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4.1
+Version:          0.6.7
 Release:          1%{?dist}
 Summary:          Geometric Shadow Calculations
 
@@ -17,13 +17,11 @@ Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-parallel >= 3.4.0
 BuildRequires:    R-CRAN-raster >= 2.4.15
-BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-sp >= 1.1.1
 BuildRequires:    R-CRAN-rgeos >= 0.3
 BuildRequires:    R-methods 
 Requires:         R-parallel >= 3.4.0
 Requires:         R-CRAN-raster >= 2.4.15
-Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-sp >= 1.1.1
 Requires:         R-CRAN-rgeos >= 0.3
 Requires:         R-methods 

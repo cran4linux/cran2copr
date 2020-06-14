@@ -1,9 +1,9 @@
 %global packname  SuperpixelImageSegmentation
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}
 Summary:          Superpixel Image Segmentation
 
@@ -18,10 +18,14 @@ BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-OpenImageR 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-ClusterR 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-OpenImageR 
+Requires:         R-grDevices 
+Requires:         R-lattice 
 
 %description
 Image Segmentation using Superpixels, Affinity Propagation and Kmeans
@@ -33,6 +37,7 @@ Bao Zhou, International Journal of Science and Research (IJSR), 2013"
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,9 +1,9 @@
 %global packname  modelsummary
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}
 Summary:          Summary Tables for Statistical Models: Beautiful, Customizable,and Publication-Ready
 
@@ -15,38 +15,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 1.8.5
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-tibble >= 1.4.2
-BuildRequires:    R-CRAN-stringr >= 1.3.0
-BuildRequires:    R-CRAN-knitr >= 1.20
-BuildRequires:    R-CRAN-kableExtra >= 1.1.0
+BuildRequires:    R-CRAN-rmarkdown >= 1.6
+BuildRequires:    R-CRAN-knitr >= 1.16
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-broom >= 0.5.1
-BuildRequires:    R-CRAN-purrr >= 0.2.1
 BuildRequires:    R-CRAN-gt >= 0.2.0
-BuildRequires:    R-CRAN-generics >= 0.0.2
-Requires:         R-CRAN-checkmate >= 1.8.5
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-tibble >= 1.4.2
-Requires:         R-CRAN-stringr >= 1.3.0
-Requires:         R-CRAN-knitr >= 1.20
-Requires:         R-CRAN-kableExtra >= 1.1.0
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-rmarkdown >= 1.6
+Requires:         R-CRAN-knitr >= 1.16
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-broom >= 0.5.1
-Requires:         R-CRAN-purrr >= 0.2.1
 Requires:         R-CRAN-gt >= 0.2.0
-Requires:         R-CRAN-generics >= 0.0.2
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Create beautiful and customizable summary tables for statistical models.
-'modelsummary' leverages the power of the 'gt', 'kableExtra' and 'broom'
-packages. It supports dozens of model types, and can produce tables in
-HTML, LaTeX, RTF, Text/Markdown, JPG, PNG, and LaTeX formats. The tables
-can also be integrated in 'Rmarkdown', 'knitr', or 'Sweave' dynamic
-documents.
+Create beautiful and customizable tables to summarize several statistical
+models side-by-side. This package supports dozens of model types and can
+produce tables in HTML, LaTeX, Markdown, Word, PowerPoint, Excel, RTF,
+JPG, or PNG. Tables can easily be embedded in 'Rmarkdown' or 'knitr'
+dynamic documents.
 
 %prep
 %setup -q -c -n %{packname}

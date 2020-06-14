@@ -1,9 +1,9 @@
 %global packname  rnoaa
-%global packver   0.9.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          'NOAA' Weather Data from R
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-rappdirs
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-geonames 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-crul >= 0.7.0
 Requires:         R-CRAN-hoardr >= 0.5.2
 Requires:         R-CRAN-isdparser >= 0.2.0
@@ -49,6 +50,7 @@ Requires:         R-CRAN-rappdirs
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-geonames 
+Requires:         R-CRAN-data.table 
 
 %description
 Client for many 'NOAA' data sources including the 'NCDC' climate 'API' at

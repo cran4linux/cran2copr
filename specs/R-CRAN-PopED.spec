@@ -1,9 +1,9 @@
 %global packname  PopED
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}
 Summary:          Population (and Individual) Optimal Experimental Design
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.14
 Requires:         R-core >= 2.14
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-codetools 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -27,11 +27,11 @@ BuildRequires:    R-boot
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-MASS 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-dplyr 
 Requires:         R-codetools 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -40,7 +40,7 @@ Requires:         R-boot
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-gtools 
 
 %description
 Optimal experimental designs for both population and individual studies
@@ -54,6 +54,7 @@ et al. (2012) <doi:10.1016/j.cmpb.2012.05.005>, and Foracchia et al.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -61,6 +62,7 @@ et al. (2012) <doi:10.1016/j.cmpb.2012.05.005>, and Foracchia et al.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
@@ -77,4 +79,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/examples
 %doc %{rlibdir}/%{packname}/shinyapp
+%doc %{rlibdir}/%{packname}/test
 %{rlibdir}/%{packname}/INDEX
