@@ -1,10 +1,10 @@
 %global packname  lpSolveAPI
-%global packver   5.5.2.0-17.6
+%global packver   5.5.2.0-17.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.2.0.17.6
-Release:          2%{?dist}
+Version:          5.5.2.0.17.7
+Release:          1%{?dist}
 Summary:          R Interface to 'lp_solve' Version 5.5.2.0
 
 License:          LGPL-2
@@ -24,6 +24,7 @@ models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

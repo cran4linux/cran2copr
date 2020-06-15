@@ -1,10 +1,10 @@
 %global packname  FunChisq
-%global packver   2.5.0
+%global packver   2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
-Release:          2%{?dist}
+Version:          2.5.1
+Release:          1%{?dist}
 Summary:          Model-Free Functional Chi-Squared and Exact Tests
 
 License:          LGPL (>= 3)

@@ -1,10 +1,10 @@
 %global packname  mediationsens
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
-Release:          2%{?dist}
+Version:          0.0.2
+Release:          1%{?dist}
 Summary:          Simulation-Based Sensitivity Analysis for Causal MediationStudies
 
 License:          GPL-2
@@ -21,8 +21,7 @@ Requires:         R-CRAN-mediation
 Requires:         R-CRAN-distr 
 
 %description
-We implement the simulation-based sensitivity analysis for causal
-mediation studies using the methods proposed by Qin and Yang (2020). It
+Simulation-based sensitivity analysis for causal mediation studies. It
 numerically and graphically evaluates the sensitivity of causal mediation
 analysis results to the presence of unmeasured pretreatment confounding.
 The proposed method has primary advantages over existing methods. First,

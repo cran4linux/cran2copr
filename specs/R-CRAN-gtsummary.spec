@@ -1,10 +1,10 @@
 %global packname  gtsummary
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
-Release:          2%{?dist}
+Version:          1.3.2
+Release:          1%{?dist}
 Summary:          Presentation-Ready Data Summary and Analytic Result Tables
 
 License:          MIT + file LICENSE
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-huxtable >= 4.7.1
 BuildRequires:    R-CRAN-tibble >= 3.0.1
 BuildRequires:    R-CRAN-usethis >= 1.6.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-broom.mixed >= 0.2.6
 BuildRequires:    R-CRAN-gt >= 0.2.1
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-survival 
-Requires:         R-CRAN-huxtable >= 4.7.1
 Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-CRAN-usethis >= 1.6.1
 Requires:         R-CRAN-magrittr >= 1.5

@@ -1,13 +1,13 @@
-%global packname  wikifacts
-%global packver   0.3.0
+%global packname  asciichartr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Generates Facts Sourced from the Wikipedia Main Page
+Summary:          Lightweight ASCII Line Graphs
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Displays random facts from the Wikipedia homepage.
+Create ASCII line graphs of a time series directly on your terminal in an
+easy way. There are some configurations you can add to make the plot the
+way you like. This project was inspired by the original 'asciichart'
+package by Igor Kroitor.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +45,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
+%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R

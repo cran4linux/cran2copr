@@ -1,10 +1,10 @@
 %global packname  quantities
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
-Release:          2%{?dist}
+Version:          0.1.5
+Release:          1%{?dist}
 Summary:          Quantity Calculus for R Vectors
 
 License:          MIT + file LICENSE
@@ -14,14 +14,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-units >= 0.6.1
-BuildRequires:    R-CRAN-errors >= 0.3.0
+BuildRequires:    R-CRAN-units >= 0.6.7
+BuildRequires:    R-CRAN-errors >= 0.3.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
-BuildRequires:    R-utils 
-Requires:         R-CRAN-units >= 0.6.1
-Requires:         R-CRAN-errors >= 0.3.0
+Requires:         R-CRAN-units >= 0.6.7
+Requires:         R-CRAN-errors >= 0.3.4
 Requires:         R-CRAN-Rcpp >= 0.12.10
-Requires:         R-utils 
 
 %description
 Integration of the 'units' and 'errors' packages for a complete quantity

@@ -1,10 +1,10 @@
 %global packname  morphomap
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
-Release:          2%{?dist}
+Version:          1.2
+Release:          1%{?dist}
 Summary:          Morphometric Maps, Bone Landmarking and Cross Sectional Geometry
 
 License:          GPL-2
@@ -55,6 +55,7 @@ and endosteal contours of each cross section.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

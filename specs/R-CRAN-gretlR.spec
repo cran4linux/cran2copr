@@ -1,31 +1,29 @@
-%global packname  wikifacts
-%global packver   0.3.0
+%global packname  gretlR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Generates Facts Sourced from the Wikipedia Main Page
+Summary:          Knit-Engine for 'Gretl'
 
-License:          CC0
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-knitr >= 1.20
+Requires:         R-CRAN-knitr >= 1.20
 
 %description
-Displays random facts from the Wikipedia homepage.
+It allows running 'gretl' (<http://gretl.sourceforge.net/index.html>)
+program from R Markdown. 'gretl' ('Gnu' Regression, 'Econometrics', and
+Time-series Library) is a statistical software for Econometric analysis.
+This package serves as a 'gretl' Knit-Engine for 'knitr' package. Write
+all your 'gretl' commands in R Markdown chunk.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +47,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/INDEX

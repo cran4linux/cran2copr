@@ -1,10 +1,10 @@
 %global packname  rayimage
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
-Release:          2%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}
 Summary:          Image Processing for Simulated Cameras
 
 License:          GPL-3

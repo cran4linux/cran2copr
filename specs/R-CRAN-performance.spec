@@ -1,10 +1,10 @@
 %global packname  performance
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
-Release:          2%{?dist}
+Version:          0.4.7
+Release:          1%{?dist}
 Summary:          Assessment of Regression Models Performance
 
 License:          GPL-3

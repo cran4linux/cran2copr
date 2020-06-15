@@ -1,10 +1,10 @@
 %global packname  infer
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
-Release:          2%{?dist}
+Version:          0.5.2
+Release:          1%{?dist}
 Summary:          Tidy Statistical Inference
 
 License:          CC0
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-rlang >= 0.2.0
@@ -34,7 +33,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-magrittr 
 Requires:         R-grDevices 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-lifecycle 
 
 %description
 The objective of this package is to perform inference using an expressive
@@ -43,6 +41,7 @@ statistical grammar that coheres with the tidy design framework.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

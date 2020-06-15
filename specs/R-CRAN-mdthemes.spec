@@ -1,28 +1,37 @@
-%global packname  iq
-%global packver   1.8
+%global packname  mdthemes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Protein Quantification in Mass Spectrometry-Based Proteomics
+Summary:          Markdown Themes for 'ggplot2'
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-hrbrthemes 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-tvthemes 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-hrbrthemes 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-tvthemes 
 
 %description
-An implementation of the maximal peptide ratio extraction module of the
-MaxLFQ algorithm by Cox et al. (2014) <doi:10.1074/mcp.M113.031591> in a
-complete pipeline for processing proteomics data in data-independent
-acquisition mode (Pham et al. 2020 <doi:10.1093/bioinformatics/btz961>).
-It offers additional options for protein quantification using the N most
-intense fragment ions, using all fragment ions, and a wrapper for the
-median polish algorithm by Tukey (1977, ISBN:0201076160).
+A collection of 'ggplot2' themes that render text as markdown/HTML. This
+enables the creation of complex formatted plot labels, e.g. titles with
+individual words highlighted in different colors.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,12 +53,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs

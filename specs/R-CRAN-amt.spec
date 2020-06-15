@@ -1,10 +1,10 @@
 %global packname  amt
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          2%{?dist}
+Version:          0.1.2
+Release:          1%{?dist}
 Summary:          Animal Movement Tools
 
 License:          GPL-3
@@ -24,11 +24,7 @@ BuildRequires:    R-CRAN-ctmm
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-KernSmooth 
-BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -41,9 +37,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-survival 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-Rcpp >= 0.12.7
@@ -54,11 +48,7 @@ Requires:         R-CRAN-ctmm
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-glue 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-KernSmooth 
-Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
@@ -71,9 +61,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-survival 
-Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
 
 %description
 Manage and analyze animal movement data. The functionality of 'amt'

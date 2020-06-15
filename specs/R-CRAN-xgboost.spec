@@ -1,10 +1,10 @@
 %global packname  xgboost
-%global packver   1.0.0.2
+%global packver   1.1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.2
-Release:          2%{?dist}
+Version:          1.1.1.1
+Release:          1%{?dist}
 Summary:          Extreme Gradient Boosting
 
 License:          Apache License (== 2.0) | file LICENSE

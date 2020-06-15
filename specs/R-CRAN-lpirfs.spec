@@ -1,10 +1,10 @@
 %global packname  lpirfs
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
-Release:          2%{?dist}
+Version:          0.1.9
+Release:          1%{?dist}
 Summary:          Local Projections Impulse Response Functions
 
 License:          GPL (>= 2)

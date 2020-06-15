@@ -1,10 +1,10 @@
 %global packname  RVowpalWabbit
-%global packver   0.0.13
+%global packver   0.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.13
-Release:          2%{?dist}
+Version:          0.0.14
+Release:          1%{?dist}
 Summary:          R Interface to the Vowpal Wabbit
 
 License:          GPL (>= 2)
@@ -34,6 +34,7 @@ alternative using an external 'Vowpal Wabbit' library installation.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

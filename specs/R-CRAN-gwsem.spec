@@ -1,10 +1,10 @@
 %global packname  gwsem
-%global packver   0.1.17
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.17
-Release:          2%{?dist}
+Version:          2.0.5
+Release:          1%{?dist}
 Summary:          Genome-Wide Structural Equation Modeling
 
 License:          GPL (>= 3)

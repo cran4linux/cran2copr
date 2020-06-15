@@ -1,10 +1,10 @@
 %global packname  ROCit
-%global packver   1.1.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
-Release:          2%{?dist}
+Version:          2.1.1
+Release:          1%{?dist}
 Summary:          Performance Assessment of Binary Classifier with Visualization
 
 License:          GPL-3
@@ -17,8 +17,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-methods 
 
 %description
 Sensitivity (or recall or true positive rate), false positive rate,
@@ -45,6 +49,7 @@ offering a range of things, yet it is very easy to use.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -52,6 +57,7 @@ offering a range of things, yet it is very easy to use.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

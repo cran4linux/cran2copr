@@ -1,10 +1,10 @@
 %global packname  utile.tables
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          2%{?dist}
+Version:          0.2.1
+Release:          1%{?dist}
 Summary:          Build Tables for Publication
 
 License:          LGPL (>= 2)
@@ -17,13 +17,11 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-utile.tools >= 0.2.5
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-utile.tools >= 0.2.5
 Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 

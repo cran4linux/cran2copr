@@ -1,10 +1,10 @@
 %global packname  GeneNet
-%global packver   1.2.14
+%global packver   1.2.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.14
-Release:          2%{?dist}
+Version:          1.2.15
+Release:          1%{?dist}
 Summary:          Modeling and Inferring Gene Networks
 
 License:          GPL (>= 3)
@@ -36,6 +36,7 @@ putative directions).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

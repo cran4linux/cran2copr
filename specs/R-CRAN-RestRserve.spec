@@ -1,10 +1,10 @@
 %global packname  RestRserve
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
-Release:          2%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}
 Summary:          A Framework for Building HTTP API
 
 License:          GPL (>= 2)

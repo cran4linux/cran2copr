@@ -1,10 +1,10 @@
 %global packname  immunarch
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
-Release:          2%{?dist}
+Version:          0.6.5
+Release:          1%{?dist}
 Summary:          Bioinformatics Analysis of T-Cell and B-Cell Immune Repertoires
 
 License:          AGPL-3
@@ -16,11 +16,10 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-MASS >= 7.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-gridExtra >= 2.2
 BuildRequires:    R-CRAN-tibble >= 2.0
 BuildRequires:    R-CRAN-reshape2 >= 1.4.2
-BuildRequires:    R-CRAN-shiny >= 1.4.0
 BuildRequires:    R-CRAN-UpSetR >= 1.4.0
+BuildRequires:    R-CRAN-shiny >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-dbplyr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.3.1
@@ -36,10 +35,10 @@ BuildRequires:    R-CRAN-rlang >= 0.4
 BuildRequires:    R-CRAN-ggpubr >= 0.2
 BuildRequires:    R-CRAN-Rtsne >= 0.15
 BuildRequires:    R-CRAN-ggalluvial >= 0.10.0
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-circlize 
 BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-treemap 
 BuildRequires:    R-CRAN-airr 
 BuildRequires:    R-CRAN-ggseqlogo 
 BuildRequires:    R-CRAN-magrittr 
@@ -48,11 +47,10 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-plyr 
 Requires:         R-MASS >= 7.3
 Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-gridExtra >= 2.2
 Requires:         R-CRAN-tibble >= 2.0
 Requires:         R-CRAN-reshape2 >= 1.4.2
-Requires:         R-CRAN-shiny >= 1.4.0
 Requires:         R-CRAN-UpSetR >= 1.4.0
+Requires:         R-CRAN-shiny >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-dbplyr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.3.1
@@ -68,10 +66,10 @@ Requires:         R-CRAN-rlang >= 0.4
 Requires:         R-CRAN-ggpubr >= 0.2
 Requires:         R-CRAN-Rtsne >= 0.15
 Requires:         R-CRAN-ggalluvial >= 0.10.0
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-circlize 
 Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-treemap 
 Requires:         R-CRAN-airr 
 Requires:         R-CRAN-ggseqlogo 
 Requires:         R-CRAN-magrittr 
@@ -80,10 +78,10 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-plyr 
 
 %description
-A comprehensive framework for bioinformatics analysis of bulk and
-single-cell T-cell receptor and antibody repertoires. It provides seamless
-data loading, analysis and visualisation for AIRR (Adaptive Immune
-Receptor Repertoire) data, both bulk immunosequencing (RepSeq) and
+A comprehensive framework for bioinformatics exploratory analysis of bulk
+and single-cell T-cell receptor and antibody repertoires. It provides
+seamless data loading, analysis and visualisation for AIRR (Adaptive
+Immune Receptor Repertoire) data, both bulk immunosequencing (RepSeq) and
 single-cell sequencing (scRNAseq). It implements most of the widely used
 AIRR analysis methods, such as: clonality analysis, estimation of
 repertoire similarities in distribution of clonotypes and gene segments,

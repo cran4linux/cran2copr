@@ -1,10 +1,10 @@
 %global packname  circlize
-%global packver   0.4.9
+%global packver   0.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
-Release:          2%{?dist}
+Version:          0.4.10
+Release:          1%{?dist}
 Summary:          Circular Visualization
 
 License:          MIT + file LICENSE
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.0
+BuildRequires:    R-CRAN-GlobalOptions >= 0.1.2
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-shape 
 BuildRequires:    R-grDevices 
@@ -24,7 +24,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-methods 
 BuildRequires:    R-grid 
-Requires:         R-CRAN-GlobalOptions >= 0.1.0
+Requires:         R-CRAN-GlobalOptions >= 0.1.2
 Requires:         R-graphics 
 Requires:         R-CRAN-shape 
 Requires:         R-grDevices 
