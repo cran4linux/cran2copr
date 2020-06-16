@@ -1,10 +1,10 @@
 %global packname  abn
-%global packver   2.2
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
-Release:          2%{?dist}
+Version:          2.2.1
+Release:          1%{?dist}
 Summary:          Modelling Multivariate Data with Additive Bayesian Networks
 
 License:          GPL (>= 2)
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel >= 1.12
-Requires:         gsl
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-nnet 
@@ -21,6 +20,10 @@ BuildRequires:    R-MASS
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-boot 
+BuildRequires:    R-CRAN-entropy 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-brglm 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-nnet 
@@ -28,6 +31,10 @@ Requires:         R-MASS
 Requires:         R-CRAN-lme4 
 Requires:         R-methods 
 Requires:         R-CRAN-rjags 
+Requires:         R-boot 
+Requires:         R-CRAN-entropy 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-brglm 
 
 %description
 Bayesian network analysis is a form of probabilistic graphical models
@@ -56,6 +63,7 @@ documentation are available from the 'abn' website
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

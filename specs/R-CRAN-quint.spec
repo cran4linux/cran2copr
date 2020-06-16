@@ -1,10 +1,10 @@
 %global packname  quint
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
-Release:          2%{?dist}
+Version:          2.1.0
+Release:          1%{?dist}
 Summary:          Qualitative Interaction Trees
 
 License:          GPL-2
@@ -19,10 +19,16 @@ BuildRequires:    R-CRAN-partykit
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-rpart 
 BuildRequires:    R-stats 
+BuildRequires:    R-grid 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-Formula 
 Requires:         R-rpart 
 Requires:         R-stats 
+Requires:         R-grid 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
 Grows a qualitative interaction tree. Quint is a tool for subgroup
@@ -31,6 +37,7 @@ analysis, suitable for data from a two-arm randomized controlled trial.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

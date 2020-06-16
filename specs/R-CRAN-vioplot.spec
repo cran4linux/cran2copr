@@ -1,10 +1,10 @@
 %global packname  vioplot
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
-Release:          2%{?dist}
+Version:          0.3.5
+Release:          1%{?dist}
 Summary:          Violin Plot
 
 License:          BSD_3_clause + file LICENSE
@@ -27,6 +27,7 @@ This package allows extensive customisation of violin plots.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

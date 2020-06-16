@@ -1,10 +1,10 @@
 %global packname  funModeling
-%global packver   1.9.3
+%global packver   1.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.3
-Release:          2%{?dist}
+Version:          1.9.4
+Release:          1%{?dist}
 Summary:          Exploratory Data Analysis and Data Preparation Tool-Box
 
 License:          GPL-2
@@ -56,6 +56,7 @@ remaining 90%: data preparation, profiling, selecting best variables
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

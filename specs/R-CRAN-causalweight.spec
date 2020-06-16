@@ -1,11 +1,11 @@
 %global packname  causalweight
-%global packver   0.1.3
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          2%{?dist}
-Summary:          Estimation Methods for Causal Inference Based on InverseProbability Weighting
+Version:          0.2.1
+Release:          1%{?dist}
+Summary:          Causal Inference Based on Inverse Probability Weighting, DoublyRobust Estimation, and Double Machine Learning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,24 +19,37 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-LARF 
 BuildRequires:    R-CRAN-hdm 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-e1071 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-LARF 
 Requires:         R-CRAN-hdm 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-e1071 
 
 %description
-Various estimation methods for causal inference based on inverse
-probability weighting. Specifically, the package includes methods for
-estimating average treatment effects as well as direct and indirect
-effects in causal mediation analysis. The models refer to the studies of
+Various estimators of causal effects based on inverse probability
+weighting, doubly robust estimation, and double machine learning.
+Specifically, the package includes methods for estimating average
+treatment effects, direct and indirect effects in causal mediation
+analysis, and dynamic treatment effects. The models refer to studies of
 Froelich (2007) <doi:10.1016/j.jeconom.2006.06.004>, Huber (2012)
 <doi:10.3102/1076998611411917>, Huber (2014)
 <doi:10.1080/07474938.2013.806197>, Huber (2014) <doi:10.1002/jae.2341>,
-and Froelich and Huber (2017) <doi:10.1111/rssb.12232>.
+Froelich and Huber (2017) <doi:10.1111/rssb.12232>, Hsu, Huber, Lee, and
+Lettry (2020) <doi:10.1002/jae.2765>, and others.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

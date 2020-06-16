@@ -1,10 +1,10 @@
 %global packname  pct
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
-Release:          2%{?dist}
+Version:          0.4.1
+Release:          1%{?dist}
 Summary:          Propensity to Cycle Tool
 
 License:          GPL-3
@@ -58,8 +58,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/cycling-potential-to-specific-zones.R
 %doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/estimate-cycling-potential-rnet-leeds-simple-example.R
 %doc %{rlibdir}/%{packname}/pct_training_solutions.Rmd
 %doc %{rlibdir}/%{packname}/pct_training.R
 %doc %{rlibdir}/%{packname}/pct-wy.R
 %doc %{rlibdir}/%{packname}/rmd
+%doc %{rlibdir}/%{packname}/uptake-model.R
 %{rlibdir}/%{packname}/INDEX

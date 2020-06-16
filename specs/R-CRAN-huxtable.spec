@@ -1,10 +1,10 @@
 %global packname  huxtable
-%global packver   4.7.1
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7.1
-Release:          2%{?dist}
+Version:          5.0.0
+Release:          1%{?dist}
 Summary:          Easily Create and Style Tables for LaTeX, HTML and Other Formats
 
 License:          MIT + file LICENSE
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr >= 1.2.0
 BuildRequires:    R-CRAN-assertthat 
@@ -22,9 +22,9 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-commonmark 
 Requires:         R-CRAN-stringr >= 1.2.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-generics 
@@ -32,13 +32,13 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
+Requires:         R-CRAN-commonmark 
 
 %description
-Like 'xtable', creates styled tables. Export to HTML, LaTeX, 'Word',
-'Excel', 'PowerPoint' and RTF. Simple, modern interface to manipulate
+Creates styled tables for data presentation. Export to HTML, LaTeX, RTF,
+'Word', 'Excel', and 'PowerPoint'. Simple, modern interface to manipulate
 borders, size, position, captions, colours, text styles and number
 formatting. Table cells can span multiple rows and/or columns. Includes a
 'huxreg' function for creation of regression tables, and 'quick_*'
@@ -47,6 +47,7 @@ one-liners to print data to a new document.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

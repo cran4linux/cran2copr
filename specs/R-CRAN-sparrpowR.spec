@@ -1,10 +1,10 @@
 %global packname  sparrpowR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          2%{?dist}
+Version:          0.1.2
+Release:          1%{?dist}
 Summary:          Power Analysis to Detect Spatial Relative Clusters
 
 License:          Apache License (>= 2.0)
@@ -36,7 +36,7 @@ spatial relative risk functions that are estimated using the 'sparr'
 package. Details about the 'sparr' package methods can be found in the
 tutorial: Davies et al. (2018) <doi:10.1002/sim.7577>.  Details about
 kernel density estimation can be found in J. F. Bethell (1990)
-<doi:10.1002/sim.4780090616>.  For more information about relative risk
+<doi:10.1002/sim.4780090616>.  More information about relative risk
 functions using kernel-density estimation can be found in J. F. Bithell
 (1991) <doi:10.1002/sim.4780101112>.
 

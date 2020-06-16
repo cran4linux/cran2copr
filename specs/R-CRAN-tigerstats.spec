@@ -1,10 +1,10 @@
 %global packname  tigerstats
-%global packver   0.3
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
-Release:          2%{?dist}
+Version:          0.3.2
+Release:          1%{?dist}
 Summary:          R Functions for Elementary Statistics
 
 License:          GPL (>= 3)
@@ -23,6 +23,7 @@ BuildRequires:    R-lattice
 BuildRequires:    R-CRAN-manipulate 
 BuildRequires:    R-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-abd 
 Requires:         R-CRAN-mosaic 
 Requires:         R-CRAN-mosaicData 
@@ -31,6 +32,7 @@ Requires:         R-lattice
 Requires:         R-CRAN-manipulate 
 Requires:         R-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
 A collection of data sets and functions that are useful in the teaching of
@@ -46,6 +48,7 @@ locally. In teaching the package is used alongside of package 'mosaic',
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -65,12 +68,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CentralLimit
 %doc %{rlibdir}/%{packname}/CIMean
 %doc %{rlibdir}/%{packname}/CoinFlip
 %doc %{rlibdir}/%{packname}/FindRegLine
-%doc %{rlibdir}/%{packname}/NEWS.Rd
 %doc %{rlibdir}/%{packname}/RandomExpBinom
 %doc %{rlibdir}/%{packname}/SamplingMethods
 %doc %{rlibdir}/%{packname}/ShallowReg

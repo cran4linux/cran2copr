@@ -1,10 +1,10 @@
 %global packname  cattonum
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
-Release:          2%{?dist}
+Version:          0.0.5
+Release:          1%{?dist}
 Summary:          Encode Categorical Features
 
 License:          MIT + file LICENSE
@@ -12,27 +12,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.8
-BuildRequires:    R-CRAN-rlang >= 0.4.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-tidyselect >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.8
-Requires:         R-CRAN-rlang >= 0.4.2
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-tidyselect >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Functions for aggregate encoding, dummy encoding, frequency encoding,
-label encoding, leave-one-out encoding, mean encoding, median encoding,
-and one-hot encoding.
+Functions and S3 classes for the following methods of encoding categorical
+features as numerics: aggregate, dummy, frequency, label, leave-one-out,
+mean, median, and one-hot.
 
 %prep
 %setup -q -c -n %{packname}

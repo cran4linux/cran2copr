@@ -1,10 +1,10 @@
 %global packname  pksensi
-%global packver   1.1.7
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
-Release:          2%{?dist}
+Version:          1.2.0
+Release:          1%{?dist}
 Summary:          Global Sensitivity Analysis in Physiologically Based KineticModeling
 
 License:          GPL-3 | file LICENSE
@@ -42,7 +42,7 @@ parameter uncertainty and sensitivity in physiologically based kinetic
 (PK) models, especially the physiologically based
 pharmacokinetic/toxicokinetic model with multivariate outputs. The package
 also provides some functions to check the convergence and sensitivity of
-model parameters.
+model parameters (Hsieh et al., 2018 <doi:10.3389/fphar.2018.00588>).
 
 %prep
 %setup -q -c -n %{packname}

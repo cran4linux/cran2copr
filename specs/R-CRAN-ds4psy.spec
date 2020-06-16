@@ -1,10 +1,10 @@
 %global packname  ds4psy
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
-Release:          2%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}
 Summary:          Data Science for Psychologists
 
 License:          CC BY-SA 4.0
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cowplot 

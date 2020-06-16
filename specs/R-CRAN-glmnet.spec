@@ -1,10 +1,10 @@
 %global packname  glmnet
-%global packver   4.0
+%global packver   4.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
-Release:          2%{?dist}
+Version:          4.0.2
+Release:          1%{?dist}
 Summary:          Lasso and Elastic-Net Regularized Generalized Linear Models
 
 License:          GPL-2
@@ -19,11 +19,13 @@ BuildRequires:    R-methods
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-shape 
+BuildRequires:    R-survival 
 Requires:         R-Matrix >= 1.0.6
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-shape 
+Requires:         R-survival 
 
 %description
 Extremely efficient procedures for fitting the entire lasso or elastic-net

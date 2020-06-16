@@ -1,10 +1,10 @@
 %global packname  simplevis
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
-Release:          2%{?dist}
+Version:          1.3.0
+Release:          1%{?dist}
 Summary:          Simple Visualisation with 'ggplot2' and 'leaflet' Wrappers
 
 License:          MIT + file LICENSE

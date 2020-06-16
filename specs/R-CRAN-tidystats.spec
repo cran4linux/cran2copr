@@ -1,11 +1,11 @@
 %global packname  tidystats
-%global packver   0.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
-Release:          2%{?dist}
-Summary:          Combine Output of Statistical Tests
+Version:          0.4.1
+Release:          1%{?dist}
+Summary:          Save Output of Statistical Tests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,6 +37,7 @@ shared or used to report statistics in scientific papers.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -59,6 +60,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/hex.png
+%doc %{rlibdir}/%{packname}/_pkgdown.yml
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/results.json
+%{rlibdir}/%{packname}/test_data
 %{rlibdir}/%{packname}/INDEX

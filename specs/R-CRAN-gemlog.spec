@@ -1,10 +1,10 @@
 %global packname  gemlog
-%global packver   0.40
+%global packver   0.41
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.40
-Release:          2%{?dist}
+Version:          0.41
+Release:          1%{?dist}
 Summary:          File Conversion for 'Gem Infrasound Logger'
 
 License:          GPL
