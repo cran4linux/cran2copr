@@ -1,10 +1,10 @@
 %global packname  funLBM
-%global packver   1.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
-Release:          2%{?dist}
+Version:          2.1
+Release:          1%{?dist}
 Summary:          Model-Based Co-Clustering of Functional Data
 
 License:          GPL (>= 2)
@@ -12,15 +12,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-funFEM 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-fda 
 Requires:         R-parallel 
 Requires:         R-CRAN-funFEM 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-ggplot2 
 
 %description
 The funLBM algorithm allows to simultaneously cluster the rows and the
@@ -30,6 +34,7 @@ time series.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -50,4 +55,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

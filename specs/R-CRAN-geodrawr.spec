@@ -1,29 +1,33 @@
-%global packname  BayesianPower
-%global packver   0.2.2
+%global packname  geodrawr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Sample Size and Power for Comparing Inequality ConstrainedHypotheses
+Summary:          Making Geospatial Objects
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-leaflet >= 2.0.0
+BuildRequires:    R-CRAN-shiny >= 1.4.0
+BuildRequires:    R-CRAN-sf >= 0.9.0
+BuildRequires:    R-CRAN-shinydashboard >= 0.7.0
+Requires:         R-CRAN-leaflet >= 2.0.0
+Requires:         R-CRAN-shiny >= 1.4.0
+Requires:         R-CRAN-sf >= 0.9.0
+Requires:         R-CRAN-shinydashboard >= 0.7.0
 
 %description
-A collection of methods to determine the required sample size for the
-evaluation of inequality constrained hypotheses by means of a Bayes
-factor. Alternatively, for a given sample size, the unconditional error
-probabilities or the expected conditional error probabilities can be
-determined. Additional material on the methods in this package is
-available in Klaassen, F., Hoijtink, H. & Gu, X. (2019)
-<doi:10.31219/osf.io/d5kf3>.
+Draw geospatial objects by clicks on the map. This packages can help data
+analyst who want to check their own geospatial hypothesis but has no
+ready-made geospatial objects.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,7 +51,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

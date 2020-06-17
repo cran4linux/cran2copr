@@ -1,10 +1,10 @@
 %global packname  rpql
-%global packver   0.7.1
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
-Release:          2%{?dist}
+Version:          0.8
+Release:          1%{?dist}
 Summary:          Regularized PQL for Joint Selection in GLMMs
 
 License:          GPL-2
@@ -61,5 +61,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/NEWS.Rd
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

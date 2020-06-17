@@ -1,10 +1,10 @@
 %global packname  fuel
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
-Release:          2%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          Framework for Unified Estimation in Lognormal Models
 
 License:          GPL-3
@@ -29,6 +29,7 @@ A unified framework for estimation in lognormal models, Technical report.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

@@ -1,10 +1,10 @@
 %global packname  wrMisc
-%global packver   1.2.0
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
-Release:          2%{?dist}
+Version:          1.2.3
+Release:          1%{?dist}
 Summary:          Analyze Experimental High-Throughput (Omics) Data
 
 License:          GPL-3

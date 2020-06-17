@@ -1,10 +1,10 @@
 %global packname  provParseR
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
-Release:          2%{?dist}
+Version:          0.3
+Release:          1%{?dist}
 Summary:          Pulls Information from Prov.Json Files
 
 License:          GPL-3 | file LICENSE
@@ -31,6 +31,7 @@ requested data. The exact format of the JSON created by 'rdt' and
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

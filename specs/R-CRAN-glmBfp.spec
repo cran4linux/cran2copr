@@ -1,10 +1,10 @@
 %global packname  glmBfp
-%global packver   0.0-51
+%global packver   0.0-60
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.51
-Release:          2%{?dist}
+Version:          0.0.60
+Release:          1%{?dist}
 Summary:          Bayesian Fractional Polynomials for GLMs
 
 License:          GPL (>= 2)

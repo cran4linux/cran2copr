@@ -1,10 +1,10 @@
 %global packname  pivottabler
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
-Release:          2%{?dist}
+Version:          1.5.0
+Release:          1%{?dist}
 Summary:          Create Pivot Tables
 
 License:          GPL-3
@@ -17,13 +17,11 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.2.0
 BuildRequires:    R-CRAN-data.table >= 1.10.0
-BuildRequires:    R-CRAN-jsonlite >= 1.1
 BuildRequires:    R-CRAN-htmlwidgets >= 0.8
 BuildRequires:    R-CRAN-dplyr >= 0.5.0
 BuildRequires:    R-CRAN-htmltools >= 0.3.5
 Requires:         R-CRAN-R6 >= 2.2.0
 Requires:         R-CRAN-data.table >= 1.10.0
-Requires:         R-CRAN-jsonlite >= 1.1
 Requires:         R-CRAN-htmlwidgets >= 0.8
 Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-htmltools >= 0.3.5

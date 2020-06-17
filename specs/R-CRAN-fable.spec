@@ -1,10 +1,10 @@
 %global packname  fable
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          2%{?dist}
+Version:          0.2.1
+Release:          1%{?dist}
 Summary:          Forecasting Models for Tidy Time Series
 
 License:          GPL-3
@@ -14,24 +14,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
-BuildRequires:    R-CRAN-tsibble >= 0.8.0
-BuildRequires:    R-CRAN-rlang >= 0.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tsibble >= 0.9.0
+BuildRequires:    R-CRAN-rlang >= 0.4.6
+BuildRequires:    R-CRAN-fabletools >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-fabletools >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr >= 0.8.0
-Requires:         R-CRAN-tsibble >= 0.8.0
-Requires:         R-CRAN-rlang >= 0.2.0
+BuildRequires:    R-CRAN-distributional 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tsibble >= 0.9.0
+Requires:         R-CRAN-rlang >= 0.4.6
+Requires:         R-CRAN-fabletools >= 0.2.0
 Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-fabletools >= 0.1.2
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-distributional 
 
 %description
 Provides a collection of commonly used univariate and multivariate time

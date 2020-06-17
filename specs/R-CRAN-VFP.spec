@@ -1,10 +1,10 @@
 %global packname  VFP
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
-Release:          2%{?dist}
+Version:          1.3
+Release:          1%{?dist}
 Summary:          Variance Function Program
 
 License:          GPL (>= 2)
@@ -43,6 +43,7 @@ follow-up treatment of patients.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

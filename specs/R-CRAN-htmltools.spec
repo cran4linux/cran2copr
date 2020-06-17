@@ -1,10 +1,10 @@
 %global packname  htmltools
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
-Release:          2%{?dist}
+Version:          0.5.0
+Release:          1%{?dist}
 Summary:          Tools for HTML
 
 License:          GPL (>= 2)
@@ -16,11 +16,13 @@ BuildRequires:    R-devel >= 2.14.1
 Requires:         R-core >= 2.14.1
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-grDevices 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-rlang 
 
 %description
@@ -29,6 +31,7 @@ Tools for HTML generation and output.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -36,6 +39,7 @@ Tools for HTML generation and output.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

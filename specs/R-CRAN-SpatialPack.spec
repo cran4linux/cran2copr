@@ -1,13 +1,13 @@
 %global packname  SpatialPack
-%global packver   0.3-8
+%global packver   0.3-81
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
-Release:          2%{?dist}
+Version:          0.3.81
+Release:          1%{?dist}
 Summary:          Tools for Assessment the Association Between Two SpatialProcesses
 
-License:          GPL (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -27,12 +27,11 @@ suitable nonparametric correlation coefficient, the codispersion
 coefficient, and an F test for assessing the multiple correlation between
 one spatial process and several others. Functions for image processing and
 computing the spatial association between images are also provided.
-SpatialPack gives methods to complement methodologies that are available
-in geoR for one spatial process.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

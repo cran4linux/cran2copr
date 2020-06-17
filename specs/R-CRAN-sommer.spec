@@ -1,10 +1,10 @@
 %global packname  sommer
-%global packver   4.0.9
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.9
-Release:          2%{?dist}
+Version:          4.1.0
+Release:          1%{?dist}
 Summary:          Solving Mixed Model Equations in R
 
 License:          GPL (>= 2)
@@ -46,6 +46,7 @@ using i.e. the two-dimensional spline functionality available in sommer.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

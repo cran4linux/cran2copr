@@ -1,36 +1,41 @@
-%global packname  batata
-%global packver   0.1.1
+%global packname  docinfeR
+%global packver   2020.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2020.1.0
 Release:          1%{?dist}
-Summary:          Managing Packages Removal
+Summary:          Automatic Reporter for Inference Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-fs 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-tictoc 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Allows the user to manage easily R packages removal. It offers many
-functions to display installed packages according to specific dates and
-removes them if needed. The user is always prompted when running the
-removal functions in order to confirm the required action. It offers also
-a function that removes all the installed packages in case one wants to
-switch from one R version to another and start fresh.
+Generation of a document (.docx file) with inference analysis reporting of
+a selected dataset. REFERENCE: R. Sarmento, V. Costa (2017)
+<DOI:10.4018/978-1-68318-016-6>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,9 +58,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/REFERENCES.bib
 %{rlibdir}/%{packname}/INDEX

@@ -1,10 +1,10 @@
 %global packname  edbuildr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          2%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}
 Summary:          Automated School District Data Download and Processing
 
 License:          CC0
@@ -38,13 +38,13 @@ Census, Small Area Income and Poverty Estimates; and the US Census,
 Education Demographic and Geographic Estimates. We apply 'EdBuild'
 standard processing to the dataset and provide the option to select from
 four different exclusion criteria - see the masterpull() help file for
-more details. The master dataset is available for any school year
-2013-2017 or longitudinally for 2013-2017. Additional functions in the
-package use 'EdBuild' master data to analyze the difference between
-neighboring school districts and create formatted excel tables of school
-district data. For full details about 'EdBuild' data processing please see
-'EdBuild' (2019)
-<https://edbuild.org/content/dividing-lines/main/methodology>.
+more details. The master dataset is available for any school year from
+2013 to 2018 or longitudinally for all years 2013-2018. School year is
+identified by the end year. For example, the 2017-18 school year is 2018.
+Additional functions in the package use 'EdBuild' master data to analyze
+the difference between neighboring school districts and create formatted
+excel tables of school district data. For full details about 'EdBuild'
+data processing please see 'EdBuild' (2020) <https://data.edbuild.org>.
 
 %prep
 %setup -q -c -n %{packname}

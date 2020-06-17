@@ -1,29 +1,32 @@
-%global packname  BayesianPower
-%global packver   0.2.2
+%global packname  bcfrailph
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Sample Size and Power for Comparing Inequality ConstrainedHypotheses
+Summary:          Semiparametric Bivariate Correlated Frailty Model
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-survival 
+BuildRequires:    R-stats 
+Requires:         R-survival 
+Requires:         R-stats 
 
 %description
-A collection of methods to determine the required sample size for the
-evaluation of inequality constrained hypotheses by means of a Bayes
-factor. Alternatively, for a given sample size, the unconditional error
-probabilities or the expected conditional error probabilities can be
-determined. Additional material on the methods in this package is
-available in Klaassen, F., Hoijtink, H. & Gu, X. (2019)
-<doi:10.31219/osf.io/d5kf3>.
+Fit and simulate a semiparametric bivariate correlated frailty models with
+proportional hazard structure. Frailty distributions, such as gamma and
+lognormal models are supported. Bivariate gamma fit is obtained using the
+approach given in Iachine (1995) and lognormal fit is based on the
+approach by Ripatti and Palmgren (2000)
+<doi:10.1111/j.0006-341X.2000.01016.x>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,7 +50,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

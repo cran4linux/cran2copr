@@ -1,10 +1,10 @@
 %global packname  EValue
-%global packver   2.1.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
-Release:          2%{?dist}
+Version:          3.0.0
+Release:          1%{?dist}
 Summary:          Sensitivity Analyses for Unmeasured Confounding or SelectionBias in Observational Studies and Meta-Analyses
 
 License:          GPL-2
@@ -21,12 +21,14 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-devtools 
+Requires:         R-methods 
 
 %description
 Conducts sensitivity analyses for unmeasured confounding for either an
@@ -82,4 +84,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/CITATION
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

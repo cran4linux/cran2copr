@@ -1,10 +1,10 @@
 %global packname  GlmSimulatoR
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
-Release:          2%{?dist}
+Version:          0.2.3
+Release:          1%{?dist}
 Summary:          Creates Ideal Data for Generalized Linear Models
 
 License:          GPL-3
@@ -22,10 +22,9 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-tweedie 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cplm 
 Requires:         R-CRAN-assertthat 
 Requires:         R-stats 
@@ -34,10 +33,9 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-MASS 
 Requires:         R-CRAN-tweedie 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cplm 
 
 %description

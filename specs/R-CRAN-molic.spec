@@ -1,10 +1,10 @@
 %global packname  molic
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
-Release:          2%{?dist}
+Version:          2.0.1
+Release:          1%{?dist}
 Summary:          Multivariate Outlier Detection in Contingency Tables
 
 License:          GPL-3

@@ -1,10 +1,10 @@
 %global packname  randomLCA
-%global packver   1.0-15
+%global packver   1.0-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
-Release:          2%{?dist}
+Version:          1.0.16
+Release:          1%{?dist}
 Summary:          Random Effects Latent Class Analysis
 
 License:          GPL (>= 2)
@@ -18,10 +18,14 @@ BuildRequires:    R-lattice
 BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-fastGHQuad 
 BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-parallel 
 Requires:         R-lattice 
 Requires:         R-boot 
 Requires:         R-CRAN-fastGHQuad 
 Requires:         R-Matrix 
+Requires:         R-CRAN-Rfast 
+Requires:         R-parallel 
 
 %description
 Fits standard and random effects latent class models. The single level
@@ -33,6 +37,7 @@ diagnostic testing.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

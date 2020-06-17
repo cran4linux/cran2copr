@@ -1,9 +1,9 @@
 %global packname  sparrpowR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Power Analysis to Detect Spatial Relative Clusters
 
@@ -19,16 +19,26 @@ BuildRequires:    R-CRAN-spatstat
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sparr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-foreach 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-parallel 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sparr 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Calculate the statistical power to detect clusters using kernel-based

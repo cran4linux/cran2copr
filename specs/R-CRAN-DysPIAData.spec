@@ -1,29 +1,24 @@
-%global packname  BayesianPower
-%global packver   0.2.2
+%global packname  DysPIAData
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Sample Size and Power for Comparing Inequality ConstrainedHypotheses
+Summary:          Background and Pathway Data Used in 'DysPIA'
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 
 %description
-A collection of methods to determine the required sample size for the
-evaluation of inequality constrained hypotheses by means of a Bayes
-factor. Alternatively, for a given sample size, the unconditional error
-probabilities or the expected conditional error probabilities can be
-determined. Additional material on the methods in this package is
-available in Klaassen, F., Hoijtink, H. & Gu, X. (2019)
-<doi:10.31219/osf.io/d5kf3>.
+This dataset includes Background and Pathway data used in package
+'DysPIA'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,9 +40,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

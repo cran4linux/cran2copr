@@ -1,10 +1,10 @@
 %global packname  edbuildmapr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          2%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}
 Summary:          Download School District Geospatial Data, Perform SpatialAnalysis, and Create Formatted Exportable Maps
 
 License:          CC0
@@ -32,7 +32,7 @@ Requires:         R-CRAN-stringr
 
 %description
 Import US Census Bureau, Education Demographic and Geographic Estimates
-Program, Composite School District Boundaries Files for 2013-2017 with the
+Program, Composite School District Boundaries Files for 2013-2018 with the
 option to attach the 'EdBuild' master dataset of school district finance,
 student demographics, and community economic indicators for every school
 district in the United States. The master dataset is built from the US
@@ -44,8 +44,7 @@ the package create a dataset of all pairs of school district neighbors as
 either a dataframe or a shapefile and create formatted maps of selected
 districts at the state or neighbor level, symbolized by a selected
 variable in the 'EdBuild' master dataset. For full details about 'EdBuild'
-data processing please see 'EdBuild' (2019)
-<https://edbuild.org/content/dividing-lines/main/methodology>.
+data processing please see 'EdBuild' (2020) <https://data.edbuild.org/>.
 
 %prep
 %setup -q -c -n %{packname}

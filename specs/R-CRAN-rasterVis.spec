@@ -1,10 +1,10 @@
 %global packname  rasterVis
-%global packver   0.47
+%global packver   0.48
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.47
-Release:          2%{?dist}
+Version:          0.48
+Release:          1%{?dist}
 Summary:          Visualization Methods for Raster Data
 
 License:          GPL-3
@@ -17,8 +17,8 @@ Requires:         R-core >= 2.14.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster >= 2.0.12
 BuildRequires:    R-CRAN-sp >= 1.0.6
+BuildRequires:    R-lattice >= 0.20.41
 BuildRequires:    R-methods 
-BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -31,8 +31,8 @@ BuildRequires:    R-CRAN-zoo
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-raster >= 2.0.12
 Requires:         R-CRAN-sp >= 1.0.6
+Requires:         R-lattice >= 0.20.41
 Requires:         R-methods 
-Requires:         R-lattice 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-stats 
 Requires:         R-utils 

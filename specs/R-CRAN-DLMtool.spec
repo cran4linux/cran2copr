@@ -1,10 +1,10 @@
 %global packname  DLMtool
-%global packver   5.4.4
+%global packver   5.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.4
-Release:          2%{?dist}
+Version:          5.4.5
+Release:          1%{?dist}
 Summary:          Data-Limited Methods Toolkit
 
 License:          GPL-2

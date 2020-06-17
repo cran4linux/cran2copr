@@ -1,10 +1,10 @@
 %global packname  BNPmix
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
-Release:          2%{?dist}
+Version:          0.2.6
+Release:          1%{?dist}
 Summary:          Bayesian Nonparametric Mixture Models
 
 License:          LGPL-3 | file LICENSE
@@ -16,13 +16,17 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-Rcpp >= 0.12.13
+Requires:         R-CRAN-ggpubr 
 
 %description
 Functions to perform Bayesian nonparametric univariate and multivariate
@@ -32,6 +36,7 @@ dependent Dirichlet process mixtures for partially exchangeable data.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
