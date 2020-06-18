@@ -72,7 +72,7 @@ add_pkg_scm <- function(pkg) {
   message("  New package ", pkg, " added")
 }
 
-del_pkg_scm <- function(pkg) {
+delete_pkg_scm <- function(pkg) {
   out <- copr_call("delete-package", getOption("copr.repo"), "--name", pkg)
   message("  Package ", pkg, " removed")
 }
