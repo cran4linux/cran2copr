@@ -457,16 +457,7 @@ get_chroots <- function() {
   trimws(sapply(strsplit(out, ":"), "[", 1))
 }
 
-get_monitor <- function() {
-  stopifnot(requireNamespace("XML", quietly=TRUE))
-  html <- readLines(paste(get_url_copr(), "monitor", "detailed", sep="/"), warn=FALSE)
-  df <- XML::readHTMLTable(html)[[1]]
-  colnames(df) <- c("Package", get_chroots())
-  na.omit(df)
-}
-
-get_builds <- function() {
-  stopifnot(requireNamespace("XML", quietly=TRUE))
+.read_url <- function(url) {
   tmp <- tempfile()
   timeout <- getOption("timeout")
   on.exit({
@@ -474,8 +465,22 @@ get_builds <- function() {
     options(timeout=timeout)
   })
   options(timeout=3600L)
-  download.file(paste(get_url_copr(), "builds", sep="/"), tmp)
-  XML::readHTMLTable(tmp)[[1]]
+  download.file(url, tmp)
+  readLines(tmp, warn=FALSE)
+}
+
+get_monitor <- function() {
+  stopifnot(requireNamespace("XML", quietly=TRUE))
+  url <- paste(get_url_copr(), "monitor", "detailed", sep="/")
+  df <- XML::readHTMLTable(.read_url(url))[[1]]
+  colnames(df) <- c("Package", get_chroots())
+  na.omit(df)
+}
+
+get_builds <- function() {
+  stopifnot(requireNamespace("XML", quietly=TRUE))
+  url <- paste(get_url_copr(), "builds", sep="/")
+  XML::readHTMLTable(.read_url(url))[[1]]
 }
 
 subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
