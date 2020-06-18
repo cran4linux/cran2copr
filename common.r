@@ -455,8 +455,10 @@ get_monitor <- function() {
 
 get_builds <- function() {
   stopifnot(requireNamespace("XML", quietly=TRUE))
-  html <- readLines(paste(get_url_copr(), "builds", sep="/"), warn=FALSE)
-  XML::readHTMLTable(html)[[1]]
+  tmp <- tempfile()
+  on.exit(unlink(tmp))
+  download.file(paste(get_url_copr(), "builds", sep="/"), tmp)
+  XML::readHTMLTable(tmp)[[1]]
 }
 
 subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
