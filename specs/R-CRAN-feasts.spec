@@ -1,10 +1,10 @@
 %global packname  feasts
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          2%{?dist}
+Version:          0.1.4
+Release:          1%{?dist}
 Summary:          Feature Extraction and Statistics for Time Series
 
 License:          GPL-3
@@ -18,11 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 1.4.1
 BuildRequires:    R-CRAN-scales >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tsibble >= 0.9.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
-BuildRequires:    R-CRAN-tsibble >= 0.8.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
+BuildRequires:    R-CRAN-fabletools >= 0.2.0
 BuildRequires:    R-CRAN-rlang >= 0.2.0
-BuildRequires:    R-CRAN-fabletools >= 0.1.2
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-grid 
@@ -31,11 +31,11 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-tibble >= 1.4.1
 Requires:         R-CRAN-scales >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tsibble >= 0.9.0
 Requires:         R-CRAN-tidyr >= 0.8.3
-Requires:         R-CRAN-tsibble >= 0.8.0
-Requires:         R-CRAN-dplyr >= 0.8.0
+Requires:         R-CRAN-fabletools >= 0.2.0
 Requires:         R-CRAN-rlang >= 0.2.0
-Requires:         R-CRAN-fabletools >= 0.1.2
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-lubridate 
 Requires:         R-grid 

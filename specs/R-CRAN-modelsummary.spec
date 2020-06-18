@@ -1,10 +1,10 @@
 %global packname  modelsummary
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
-Release:          2%{?dist}
+Version:          0.4.1
+Release:          1%{?dist}
 Summary:          Summary Tables for Statistical Models: Beautiful, Customizable,and Publication-Ready
 
 License:          GPL-3

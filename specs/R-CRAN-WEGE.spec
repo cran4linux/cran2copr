@@ -1,11 +1,11 @@
-%global packname  brm
-%global packver   1.1.1
+%global packname  WEGE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Binary Regression Model
+Summary:          A Metric to Rank Locations for Biodiversity Conservation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,12 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-raster 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Fits novel models for the conditional relative risk, risk difference and
-odds ratio <doi:10.1080/01621459.2016.1192546>.
+Calculates the WEGE (Weighted Endemism including Global Endangerment
+index) index for a particular area. Additionally it also calculates
+rasters of KBA's (Key Biodiversity Area) criteria (A1a, A1b, A1e, and B1),
+Weighted endemism (WE), the EDGE (Evolutionarily Distinct and Globally
+Endangered) score, Evolutionary Distinctiveness (ED) and Extinction risk
+(ER). Farooq, H., Azevedo, J., Belluardo F., Nanvonamuquitxo, C., Bennett,
+D., Moat, J., Soares, A., Faurby, S. & Antonelli, A. (2020)
+<doi:10.1101/2020.01.17.910299>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,7 +59,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

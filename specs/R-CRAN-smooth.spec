@@ -1,10 +1,10 @@
 %global packname  smooth
-%global packver   2.5.6
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.6
-Release:          2%{?dist}
+Version:          2.6.0
+Release:          1%{?dist}
 Summary:          Forecasting Using State Space Models
 
 License:          GPL (>= 2)

@@ -1,10 +1,10 @@
 %global packname  edeaR
-%global packver   0.8.4
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
-Release:          2%{?dist}
+Version:          0.8.5
+Release:          1%{?dist}
 Summary:          Exploratory and Descriptive Event-Based Data Analysis
 
 License:          MIT + file LICENSE
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-forcats 
 Requires:         R-CRAN-bupaR >= 0.4.1
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-data.table 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-hms 
+Requires:         R-CRAN-forcats 
 
 %description
 Exploratory and descriptive analysis of event based data. Provides methods

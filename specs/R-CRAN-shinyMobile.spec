@@ -1,10 +1,10 @@
 %global packname  shinyMobile
-%global packver   0.1.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}
+Version:          0.7.0
+Release:          1%{?dist}
 Summary:          Mobile Ready 'shiny' Apps with Standalone Capabilities
 
 License:          GPL-2
@@ -38,6 +38,7 @@ layouts (single, tabs and split).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -60,6 +61,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/framework7-5.1.3
+%doc %{rlibdir}/%{packname}/framework7-5.5.0
 %doc %{rlibdir}/%{packname}/tests
 %{rlibdir}/%{packname}/INDEX

@@ -1,36 +1,32 @@
-%global packname  rcv
-%global packver   0.2.1
+%global packname  ggrastr
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
-Release:          2%{?dist}
-Summary:          Ranked Choice Voting
+Version:          0.1.8
+Release:          1%{?dist}
+Summary:          Raster Layers for 'ggplot2'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.3
-Requires:         R-core >= 3.3.3
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
+BuildRequires:    R-CRAN-Cairo >= 1.5.9
+BuildRequires:    R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-ggplot2 >= 2.1.0
+Requires:         R-CRAN-Cairo >= 1.5.9
+Requires:         R-CRAN-ggbeeswarm 
 
 %description
-A collection of ranked choice voting data and functions to manipulate, run
-elections with, and visualize this data and others. It can bring in raw
-data, transform it into a ballot you can read, and return election results
-for an RCV contest.
+Provides a set of geoms to rasterize only specific layers of the plot
+while simultaneously keeping all labels and text in vector format. This
+allows users to keep plots within the reasonable size limit without
+loosing vector properties of the scale-sensitive information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,10 +48,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

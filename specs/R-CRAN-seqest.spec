@@ -1,10 +1,10 @@
 %global packname  seqest
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}
+Version:          1.0.1
+Release:          1%{?dist}
 Summary:          Sequential Method for Classification and Generalized EstimatingEquations Problem
 
 License:          GPL (>= 2)
@@ -34,8 +34,8 @@ Requires:         R-stats
 
 %description
 Sequential method to solve the the binary classification problem by Wang
-(2013) <doi:10.1007/s00184-012-0426-4>, multi-class classification problem
-by Li (2020) <doi:10.1016/j.csda.2020.106911> and the highly stratified
+(2019) <arXiv:arXiv:1901.10079>, multi-class classification problem by Li
+(2020) <doi:10.1016/j.csda.2020.106911> and the highly stratified
 multiple-response problem by Chen (2019) <doi:10.1111/biom.13160>.
 
 %prep

@@ -1,10 +1,10 @@
 %global packname  irtplay
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
-Release:          2%{?dist}
+Version:          1.5.1
+Release:          1%{?dist}
 Summary:          Unidimensional Item Response Theory Modeling
 
 License:          GPL (>= 2)
@@ -69,7 +69,7 @@ variance-covariance matrices of item parameter estimates (Li & Lissitz
 ability parameters from popular IRT software, running 'flexMIRT' (Cai,
 2017) through R, generating simulated data, computing the conditional
 distribution of observed scores using the Lord-Wingersky recursion formula
-(Lord & Wingersky (1984) <doi:10.1207/s15324818ame1002_1>), computing the
+(Lord & Wingersky (1984) <doi:10.1177/014662168400800409>), computing the
 loglikelihood of individual items, computing the loglikelihood of
 abilities, computing item and test information functions, computing item
 and test characteristic curve functions, and plotting item and test

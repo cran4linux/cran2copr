@@ -1,10 +1,10 @@
 %global packname  labelled
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
-Release:          2%{?dist}
+Version:          2.5.0
+Release:          1%{?dist}
 Summary:          Manipulating Labelled Data
 
 License:          GPL-3
@@ -15,12 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.1.0
+BuildRequires:    R-CRAN-haven >= 2.3.1
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-haven >= 2.1.0
+Requires:         R-CRAN-haven >= 2.3.1
 Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
 
 %description
 Work with labelled data imported from 'SPSS' or 'Stata' with 'haven' or

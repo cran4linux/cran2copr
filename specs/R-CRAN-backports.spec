@@ -1,10 +1,10 @@
 %global packname  backports
-%global packver   1.1.7
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
-Release:          2%{?dist}
+Version:          1.1.8
+Release:          1%{?dist}
 Summary:          Reimplementations of Functions Introduced Since R-3.0.0
 
 License:          GPL-2 | GPL-3

@@ -1,10 +1,10 @@
 %global packname  VCA
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
-Release:          2%{?dist}
+Version:          1.4.3
+Release:          1%{?dist}
 Summary:          Variance Component Analysis
 
 License:          GPL (>= 3)
@@ -48,6 +48,7 @@ description of the features.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

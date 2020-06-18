@@ -1,10 +1,10 @@
 %global packname  RPESE
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
-Release:          2%{?dist}
+Version:          1.0.4
+Release:          1%{?dist}
 Summary:          Estimates of Standard Errors for Risk and Performance Measures
 
 License:          GPL (>= 2)
@@ -15,20 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RPEIF 
-BuildRequires:    R-CRAN-RPEGLMEN 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-RPEIF 
-Requires:         R-CRAN-RPEGLMEN 
-Requires:         R-CRAN-PerformanceAnalytics 
+BuildRequires:    R-CRAN-RPEIF 
+BuildRequires:    R-CRAN-RPEGLMEN 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 Requires:         R-boot 
 Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-RPEIF 
+Requires:         R-CRAN-RPEGLMEN 
+Requires:         R-CRAN-PerformanceAnalytics 
 
 %description
 Estimates of standard errors of popular risk and performance measures for

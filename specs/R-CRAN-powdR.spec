@@ -1,10 +1,10 @@
 %global packname  powdR
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
-Release:          2%{?dist}
+Version:          1.2.2
+Release:          1%{?dist}
 Summary:          Full Pattern Summation of X-Ray Powder Diffraction Data
 
 License:          GPL-2 | file LICENSE
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.9.2.1
 BuildRequires:    R-stats >= 3.4.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-utils >= 2.5.0
 BuildRequires:    R-CRAN-plyr >= 1.8.6
 BuildRequires:    R-CRAN-shiny >= 1.4.0.2
 BuildRequires:    R-CRAN-nnls >= 1.4
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-DT >= 0.13
 Requires:         R-CRAN-plotly >= 4.9.2.1
 Requires:         R-stats >= 3.4.3
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-utils >= 2.5.0
 Requires:         R-CRAN-plyr >= 1.8.6
 Requires:         R-CRAN-shiny >= 1.4.0.2
 Requires:         R-CRAN-nnls >= 1.4

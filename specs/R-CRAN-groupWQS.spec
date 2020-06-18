@@ -1,11 +1,11 @@
 %global packname  groupWQS
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
-Release:          2%{?dist}
-Summary:          Group Weighted Quantile Sum Regression
+Version:          0.0.2
+Release:          1%{?dist}
+Summary:          Grouped Weighted Quantile Sum Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,9 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-CRAN-glm2 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-MASS 
 Requires:         R-CRAN-Rsolnp 
 Requires:         R-CRAN-glm2 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-MASS 
 
 %description
 Fits weighted quantile sum (WQS) regressions for one or more chemical
@@ -51,4 +55,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

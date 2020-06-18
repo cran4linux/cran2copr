@@ -1,10 +1,10 @@
 %global packname  recommenderlab
-%global packver   0.2-5
+%global packver   0.2-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
-Release:          2%{?dist}
+Version:          0.2.6
+Release:          1%{?dist}
 Summary:          Lab for Developing and Testing Recommender Algorithms
 
 License:          GPL-2

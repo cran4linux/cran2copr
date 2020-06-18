@@ -1,10 +1,10 @@
 %global packname  SPOT
-%global packver   2.0.5
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
-Release:          2%{?dist}
+Version:          2.0.6
+Release:          1%{?dist}
 Summary:          Sequential Parameter Optimization Toolbox
 
 License:          GPL (>= 2)
@@ -53,6 +53,7 @@ requires a significant amount of resources.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

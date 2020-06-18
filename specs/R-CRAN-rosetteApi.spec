@@ -1,10 +1,10 @@
 %global packname  rosetteApi
-%global packver   1.14.3
+%global packver   1.14.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14.3
-Release:          2%{?dist}
+Version:          1.14.4
+Release:          1%{?dist}
 Summary:          'Rosette' API
 
 License:          Apache License 2.0 | file LICENSE
@@ -28,6 +28,7 @@ extraction. More information can be found at
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

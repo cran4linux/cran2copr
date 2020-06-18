@@ -1,10 +1,10 @@
 %global packname  bupaR
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
-Release:          2%{?dist}
+Version:          0.4.4
+Release:          1%{?dist}
 Summary:          Business Process Analysis in R
 
 License:          MIT + file LICENSE
@@ -52,6 +52,7 @@ packages 'edeaR','processmapR', 'eventdataR' and 'processmonitR'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
