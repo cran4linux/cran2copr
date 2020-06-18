@@ -468,7 +468,12 @@ get_monitor <- function() {
 get_builds <- function() {
   stopifnot(requireNamespace("XML", quietly=TRUE))
   tmp <- tempfile()
-  on.exit(unlink(tmp))
+  timeout <- getOption("timeout")
+  on.exit({
+    unlink(tmp)
+    options(timeout=timeout)
+  })
+  options(timeout=3600L)
   download.file(paste(get_url_copr(), "builds", sep="/"), tmp)
   XML::readHTMLTable(tmp)[[1]]
 }
