@@ -27,3 +27,12 @@
   inspection (i.e., when the failure is due to a server error, because the
   builder wasn't able to fetch the repo metadata or some packages; aparently,
   this is quite common))
+
+# System integration
+
+- implement system service that exports a method to request package installation
+- hook into install.packages and talk to the service via dbus
+- install non-available packages directly from CRAN
+
+dbus-send --dest=com.example.SampleService --print-reply /SomeObject com.example.SampleInterface.HelloWorld string:hello
+
