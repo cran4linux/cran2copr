@@ -446,9 +446,12 @@ get_url_back <- function() paste(
   "https://copr-be.cloud.fedoraproject.org/results",
   copr_call("whoami"), getOption("copr.repo"), sep="/")
 
-get_url_build <- function(id, pkg, chroot) {
-  id <- ifelse(nchar(id) == 7, paste0(0, id), id)
-  paste0(get_url_back(), "/", chroot, "/", id, "-", pkg)
+get_url_builds <- function(ids, chroots) {
+  stopifnot(is.list(ids))
+  pkgs <- ids[[2]]
+  ids <- ids[[1]]
+  ids <- ifelse(nchar(ids) == 7, paste0(0, ids), ids)
+  paste0(get_url_back(), "/", chroots, "/", ids, "-", pkgs)
 }
 
 get_chroots <- function() {
@@ -492,15 +495,13 @@ subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
   subset(x, apply(cbind(x.fail, x.succ), 1, all))
 }
 
-have_build_msg <- function(ids, pkgs, chroot, msg, bytes=NULL) {
+have_build_msg <- function(ids, chroots, msg, bytes=NULL) {
   stopifnot(requireNamespace("httr", quietly=TRUE))
-  stopifnot(length(ids) == length(pkgs))
-  stopifnot(length(chroot) == 1)
 
-  sapply(seq_along(ids), function(i) {
-    message("Inspecting build ", i, "/", length(ids))
-    url <- get_url_build(ids[i], pkgs[i], chroot)
-    res <- httr::GET(url)
+  urls <- get_url_builds(ids, chroots)
+  sapply(seq_along(urls), function(i) {
+    message("Inspecting build ", i, "/", length(urls))
+    res <- httr::GET(urls[i])
     if (res$status_code == 200) {
       url <- paste0(url, "/builder-live.log.gz")
       headers <- list()
