@@ -21,6 +21,11 @@ copr_call <- function(...) {
   out
 }
 
+copr_version <- function() {
+  vstr <- strsplit(copr_call("--version"), " ")[[1]]
+  package_version(vstr[length(vstr)])
+}
+
 check_copr <- function() {
   tryCatch(invisible(copr_call("whoami")), error=function(e)
     stop("file '~/.config/copr' not found or outdated", call.=FALSE))
@@ -41,6 +46,13 @@ watch_builds <- function(ids) {
     status <- grep(paste0(build, "(succeeded|failed)"), out, value=TRUE)
     ifelse(sub(build, "", status) == "failed", TRUE, FALSE)
   })
+}
+
+delete_builds <- function(ids) {
+  if (copr_version() >= "1.87")
+    copr_call("delete-build", ids)
+  else for (id in ids)
+    copr_call("delete-build", id)
 }
 
 build_spec <- function(spec, chroots=getOption("copr.chroots")) {
