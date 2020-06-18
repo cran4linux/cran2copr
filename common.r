@@ -460,22 +460,28 @@ get_chroots <- function() {
   trimws(sapply(strsplit(out, ":"), "[", 1))
 }
 
-.read_url <- function(url) {
-  tmp <- tempfile()
+.read_urls <- function(urls, bytes=NULL) {
+  tmp <- tempfile(rep("file", length(urls)))
+  file.create(tmp)
   timeout <- getOption("timeout")
   on.exit({
     unlink(tmp)
     options(timeout=timeout)
   })
   options(timeout=3600L)
-  download.file(url, tmp)
-  readLines(tmp, warn=FALSE)
+
+  headers <- character(0)
+  if (!is.null(bytes))
+    headers <- c(headers, range=paste0("bytes=0-", bytes-1))
+  try(suppressWarnings(
+    download.file(urls, tmp, mode="a", headers=headers)), silent=TRUE)
+  lapply(tmp, readLines, warn=FALSE)
 }
 
 get_monitor <- function() {
   stopifnot(requireNamespace("XML", quietly=TRUE))
   url <- paste(get_url_copr(), "monitor", "detailed", sep="/")
-  df <- XML::readHTMLTable(.read_url(url))[[1]]
+  df <- XML::readHTMLTable(.read_urls(url)[[1]])[[1]]
   colnames(df) <- c("Package", get_chroots())
   na.omit(df)
 }
@@ -483,7 +489,7 @@ get_monitor <- function() {
 get_builds <- function() {
   stopifnot(requireNamespace("XML", quietly=TRUE))
   url <- paste(get_url_copr(), "builds", sep="/")
-  XML::readHTMLTable(.read_url(url))[[1]]
+  XML::readHTMLTable(.read_urls(url)[[1]])[[1]]
 }
 
 subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
@@ -496,22 +502,7 @@ subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
 }
 
 have_build_msg <- function(ids, chroots, msg, bytes=NULL) {
-  stopifnot(requireNamespace("httr", quietly=TRUE))
-
-  urls <- get_url_builds(ids, chroots)
-  sapply(seq_along(urls), function(i) {
-    message("Inspecting build ", i, "/", length(urls))
-    res <- httr::GET(urls[i])
-    if (res$status_code == 200) {
-      url <- paste0(url, "/builder-live.log.gz")
-      headers <- list()
-      if (!is.null(bytes))
-        headers$range <- paste0("bytes=0-", bytes-1)
-      res <- httr::GET(url, do.call(httr::add_headers, headers))
-      content <- strsplit(httr::content(res, encoding="UTF-8"), "\n")[[1]]
-      if (any(grepl(msg, content)))
-        return(TRUE)
-    }
-    FALSE
-  })
+  urls <- paste0(get_url_builds(ids, chroots), "/builder-live.log.gz")
+  contents <- .read_urls(urls, bytes=bytes)
+  grepl(msg, contents)
 }
