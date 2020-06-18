@@ -34,5 +34,5 @@
 - hook into install.packages and talk to the service via dbus
 - install non-available packages directly from CRAN
 
-dbus-send --dest=com.example.SampleService --print-reply /SomeObject com.example.SampleInterface.HelloWorld string:hello
+busctl --user call com.example.SampleService /SomeObject com.example.SampleInterface HelloWorld "s" hello
 
