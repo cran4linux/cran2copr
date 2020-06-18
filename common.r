@@ -482,21 +482,25 @@ subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
   subset(x, apply(cbind(x.fail, x.succ), 1, all))
 }
 
-which_build_msg <- function(ids, pkgs, chroot, msg) {
+have_build_msg <- function(ids, pkgs, chroot, msg, bytes=NULL) {
   stopifnot(requireNamespace("httr", quietly=TRUE))
   stopifnot(length(ids) == length(pkgs))
   stopifnot(length(chroot) == 1)
 
-  unlist(lapply(seq_along(ids), function(i) {
+  sapply(seq_along(ids), function(i) {
     message("Inspecting build ", i, "/", length(ids))
-    URL <- get_url_build(ids[i], pkgs[i], chroot)
-    res <- httr::GET(URL)
+    url <- get_url_build(ids[i], pkgs[i], chroot)
+    res <- httr::GET(url)
     if (res$status_code == 200) {
-      res <- httr::GET(paste0(URL, "/builder-live.log.gz"))
-      content <- strsplit(httr::content(res), "\n")[[1]]
+      url <- paste0(url, "/builder-live.log.gz")
+      headers <- list()
+      if (!is.null(bytes))
+        headers$range <- paste0("bytes=0-", bytes-1)
+      res <- httr::GET(url, do.call(httr::add_headers, headers))
+      content <- strsplit(httr::content(res, encoding="UTF-8"), "\n")[[1]]
       if (any(grepl(msg, content)))
-        return(i)
+        return(TRUE)
     }
-    NULL
-  }))
+    FALSE
+  })
 }
