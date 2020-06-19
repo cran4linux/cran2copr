@@ -1,10 +1,10 @@
 %global packname  shinytest
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
-Release:          2%{?dist}
+Version:          1.4.0
+Release:          1%{?dist}
 Summary:          Test Shiny Apps
 
 License:          MIT + file LICENSE
@@ -16,8 +16,8 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-callr >= 2.0.3
+BuildRequires:    R-CRAN-shiny >= 1.3.2
 BuildRequires:    R-CRAN-webdriver >= 1.0.5
-BuildRequires:    R-CRAN-shiny >= 1.0.4
 BuildRequires:    R-CRAN-testthat >= 1.0.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.8.9002
 BuildRequires:    R-CRAN-assertthat 
@@ -35,8 +35,8 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-httpuv 
 Requires:         R-CRAN-callr >= 2.0.3
+Requires:         R-CRAN-shiny >= 1.3.2
 Requires:         R-CRAN-webdriver >= 1.0.5
-Requires:         R-CRAN-shiny >= 1.0.4
 Requires:         R-CRAN-testthat >= 1.0.0
 Requires:         R-CRAN-rstudioapi >= 0.8.9002
 Requires:         R-CRAN-assertthat 
@@ -61,6 +61,7 @@ driven through 'WebDriver'.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -83,7 +84,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/diffviewerapp
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
 %doc %{rlibdir}/%{packname}/js
 %doc %{rlibdir}/%{packname}/recorder
 %{rlibdir}/%{packname}/INDEX

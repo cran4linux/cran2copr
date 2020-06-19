@@ -1,10 +1,10 @@
 %global packname  lidR
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
-Release:          2%{?dist}
+Version:          3.0.1
+Release:          1%{?dist}
 Summary:          Airborne LiDAR Data Manipulation and Visualization for ForestryApplications
 
 License:          GPL-3
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-BH >= 1.72.0
-BuildRequires:    R-CRAN-sp >= 1.4.1
+BuildRequires:    R-CRAN-sp >= 1.4.2
 BuildRequires:    R-CRAN-rlas >= 1.3.5
 BuildRequires:    R-CRAN-data.table >= 1.12.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
@@ -35,7 +35,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-sp >= 1.4.1
+Requires:         R-CRAN-sp >= 1.4.2
 Requires:         R-CRAN-rlas >= 1.3.5
 Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-CRAN-Rcpp >= 1.0.3

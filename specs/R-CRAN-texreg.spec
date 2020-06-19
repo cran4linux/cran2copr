@@ -1,9 +1,9 @@
 %global packname  texreg
-%global packver   1.37.4
+%global packver   1.37.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.37.4
+Version:          1.37.5
 Release:          1%{?dist}
 Summary:          Conversion of R Regression Output to LaTeX or HTML Tables
 

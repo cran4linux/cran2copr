@@ -1,9 +1,9 @@
 %global packname  fuel
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}
 Summary:          Framework for Unified Estimation in Lognormal Models
 
@@ -22,9 +22,9 @@ Requires:         R-stats
 Lognormal models have broad applications in various research areas such as
 economics, actuarial science, biology, environmental science and
 psychology. The estimation problem in lognormal models has been
-extensively studied. This R package 'fuel' implements thirty-eight the
-existing and newly proposed estimators. See Zhang, F., and Gou, J. (2020),
-A unified framework for estimation in lognormal models, Technical report.
+extensively studied. This R package 'fuel' implements thirty-nine existing
+and newly proposed estimators. See Zhang, F., and Gou, J. (2020), A
+unified framework for estimation in lognormal models, Technical report.
 
 %prep
 %setup -q -c -n %{packname}

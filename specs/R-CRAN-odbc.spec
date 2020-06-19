@@ -1,10 +1,10 @@
 %global packname  odbc
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
-Release:          2%{?dist}
+Version:          1.2.3
+Release:          1%{?dist}
 Summary:          Connect to ODBC Compatible Databases (using the DBI Interface)
 
 License:          MIT + file LICENSE
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    make
 BuildRequires:    unixODBC-devel
-Requires:         unixODBC
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-blob >= 1.2.0
@@ -24,7 +23,6 @@ BuildRequires:    R-CRAN-bit64
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-blob >= 1.2.0
 Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.11
@@ -39,6 +37,7 @@ A DBI-compatible interface to ODBC databases.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

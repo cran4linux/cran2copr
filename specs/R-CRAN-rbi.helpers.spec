@@ -1,11 +1,11 @@
-%global packname  pedtools
-%global packver   0.9.4
+%global packname  rbi.helpers
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.3.2
 Release:          1%{?dist}
-Summary:          Creating and Working with Pedigrees and Marker Data
+Summary:          'RBi' Helper Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,16 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kinship2 
-Requires:         R-CRAN-kinship2 
+BuildRequires:    R-CRAN-rbi >= 0.10.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-Matrix 
+Requires:         R-CRAN-rbi >= 0.10.0
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-reshape2 
+Requires:         R-Matrix 
 
 %description
-A lightweight, but comprehensive collection of tools for creating,
-manipulating and visualising pedigrees and genetic marker data. Pedigrees
-can be read from text files or created on the fly with built-in functions.
-A range of utilities enable modifications like adding or removing
-individuals, breaking loops, and merging pedigrees. Pedigree plots are
-produced by wrapping the plotting functionality of the 'kinship2' package.
+Contains a collection of helper functions to use with 'RBi', the R
+interface to 'LibBi', described in Murray et al. (2015)
+<doi:10.18637/jss.v067.i10>. It contains functions to adapt the proposal
+distribution and number of particles in particle Markov-Chain Monte Carlo,
+as well as calculating the Deviance Information Criterion (DIC) and
+converting between times in 'LibBi' results and R time/dates.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,5 +59,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/WORDLIST
+%doc %{rlibdir}/%{packname}/example_run.nc
 %{rlibdir}/%{packname}/INDEX

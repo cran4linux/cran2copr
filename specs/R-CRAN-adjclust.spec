@@ -1,48 +1,46 @@
-%global packname  fixest
-%global packver   0.5.1
+%global packname  adjclust
+%global packver   0.5.99
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.99
 Release:          1%{?dist}
-Summary:          Fast Fixed-Effects Estimations
+Summary:          Adjacency-Constrained Clustering of a Block-Diagonal SimilarityMatrix
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-dreamerr >= 1.2.0
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-dreamerr >= 1.2.0
+BuildRequires:    R-CRAN-capushe 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-Matrix 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-nlme 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-capushe 
 
 %description
-Fast and user-friendly estimation of econometric models with multiple
-fixed-effects. Includes ordinary least squares (OLS), generalized linear
-models (GLM) and the negative binomial. The core of the package is based
-on optimized parallel C++ code, scaling especially well for large data
-sets. The method to obtain the fixed-effects coefficients is based on
-Berge (2018)
-<https://wwwen.uni.lu/content/download/110162/1299525/file/2018_13>.
-Further provides tools to export and view the results of several
-estimations with intuitive design to cluster the standard-errors.
+Implements a constrained version of hierarchical agglomerative clustering,
+in which each observation is associated to a position, and only adjacent
+clusters can be merged. Typical application fields in bioinformatics
+include Genome-Wide Association Studies or Hi-C data analysis, where the
+similarity between items is a decreasing function of their genomic
+distance. Taking advantage of this feature, the implemented algorithm is
+time and memory efficient. This algorithm is described in Ambroise et al
+(2019)
+<https://almob.biomedcentral.com/articles/10.1186/s13015-019-0157-4>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,12 +63,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
+%doc %{rlibdir}/%{packname}/system
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

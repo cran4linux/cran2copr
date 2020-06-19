@@ -1,10 +1,10 @@
 %global packname  SimInf
-%global packver   7.0.0
+%global packver   7.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.0
-Release:          2%{?dist}
+Version:          7.0.1
+Release:          1%{?dist}
 Summary:          A Framework for Data-Driven Stochastic Disease SpreadSimulations
 
 License:          GPL-3

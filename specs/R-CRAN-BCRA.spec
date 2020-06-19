@@ -1,10 +1,10 @@
 %global packname  BCRA
-%global packver   2.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
-Release:          2%{?dist}
+Version:          2.1.1
+Release:          1%{?dist}
 Summary:          Breast Cancer Risk Assessment
 
 License:          GPL (>= 2)
@@ -25,6 +25,7 @@ intervals.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -32,6 +33,7 @@ intervals.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

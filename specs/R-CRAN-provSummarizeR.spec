@@ -1,10 +1,10 @@
 %global packname  provSummarizeR
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
-Release:          2%{?dist}
+Version:          1.4
+Release:          1%{?dist}
 Summary:          Summarizes Provenance Related to Inputs and Outputs of a Scriptor Console Commands
 
 License:          GPL-3 | file LICENSE
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-provParseR >= 0.2
+BuildRequires:    R-CRAN-provParseR >= 0.3
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-provParseR >= 0.2
+Requires:         R-CRAN-provParseR >= 0.3
 Requires:         R-CRAN-dplyr 
 
 %description
@@ -37,6 +37,7 @@ R, Informatics, <doi: 10.3390/informatics5010012>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

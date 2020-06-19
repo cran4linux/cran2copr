@@ -1,10 +1,10 @@
 %global packname  RNeXML
-%global packver   2.4.4
+%global packver   2.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
-Release:          2%{?dist}
+Version:          2.4.5
+Release:          1%{?dist}
 Summary:          Semantically Rich I/O for the 'NeXML' Format
 
 License:          BSD_3_clause + file LICENSE

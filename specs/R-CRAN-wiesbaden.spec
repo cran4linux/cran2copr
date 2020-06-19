@@ -1,10 +1,10 @@
 %global packname  wiesbaden
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
-Release:          2%{?dist}
+Version:          1.2.3
+Release:          1%{?dist}
 Summary:          Access Databases from the Federal Statistical Office of Germany
 
 License:          GPL-3
@@ -32,7 +32,8 @@ Requires:         R-CRAN-readr >= 1.0.0
 
 %description
 Retrieve and import data from different databases of the Federal
-Statistical Office of Germany (DESTATIS) using their SOAP XML web service.
+Statistical Office of Germany (DESTATIS) using their SOAP XML web service
+<https://www-genesis.destatis.de/>.
 
 %prep
 %setup -q -c -n %{packname}

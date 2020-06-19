@@ -1,10 +1,10 @@
 %global packname  tealeaves
-%global packver   1.0.3
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
-Release:          2%{?dist}
+Version:          1.0.5
+Release:          1%{?dist}
 Summary:          Solve for Leaf Temperature Using Energy Balance
 
 License:          MIT + file LICENSE
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods >= 3.5.0
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-crayon >= 1.3.0
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-furrr >= 0.1.0
 Requires:         R-methods >= 3.5.0
+Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-crayon >= 1.3.0

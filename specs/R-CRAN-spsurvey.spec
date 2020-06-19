@@ -1,10 +1,10 @@
 %global packname  spsurvey
-%global packver   4.1.2
+%global packver   4.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.2
-Release:          2%{?dist}
+Version:          4.1.3
+Release:          1%{?dist}
 Summary:          Spatial Survey Design and Analysis
 
 License:          GPL (>= 3)
@@ -16,8 +16,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-crossdes 
 BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-foreign 
@@ -28,9 +26,9 @@ BuildRequires:    R-MASS
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
 Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-crossdes 
 Requires:         R-CRAN-deldir 
 Requires:         R-foreign 
@@ -41,6 +39,8 @@ Requires:         R-MASS
 Requires:         R-parallel 
 Requires:         R-CRAN-rgeos 
 Requires:         R-stats 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
 
 %description
 These functions provide procedures for selecting sites for spatial surveys

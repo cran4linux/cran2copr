@@ -1,10 +1,10 @@
 %global packname  MPsychoR
-%global packver   0.10-7
+%global packver   0.10-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
-Release:          2%{?dist}
+Version:          0.10.8
+Release:          1%{?dist}
 Summary:          Modern Psychometrics with R
 
 License:          GPL-2
@@ -27,6 +27,7 @@ With R" (Mair, 2018, Springer useR! series).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -34,6 +35,7 @@ With R" (Mair, 2018, Springer useR! series).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

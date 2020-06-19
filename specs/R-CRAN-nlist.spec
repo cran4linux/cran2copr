@@ -1,10 +1,10 @@
 %global packname  nlist
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}
+Version:          0.1.1
+Release:          1%{?dist}
 Summary:          Lists of Numeric Atomic Objects
 
 License:          MIT + file LICENSE
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-chk
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-universals 
 Requires:         R-CRAN-term >= 0.1.0
 Requires:         R-stats 
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-universals 
 
 %description
 Create and manipulate numeric list (nlist) objects. An nlist is an S3 list
@@ -42,6 +44,7 @@ objects.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

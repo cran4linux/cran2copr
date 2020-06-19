@@ -1,10 +1,10 @@
 %global packname  echarts4r
-%global packver   0.2.3
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
-Release:          2%{?dist}
+Version:          0.3.2
+Release:          1%{?dist}
 Summary:          Create Interactive Graphs with 'Echarts JavaScript' Version 4
 
 License:          Apache License (>= 2.0)
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-d3r 
@@ -28,10 +28,10 @@ BuildRequires:    R-CRAN-corrplot
 BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-d3r 
@@ -42,16 +42,17 @@ Requires:         R-CRAN-corrplot
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 Easily create interactive charts by leveraging the 'Echarts Javascript'
-library which includes 34 chart types, themes, 'Shiny' proxies and
+library which includes 36 chart types, themes, 'Shiny' proxies and
 animations.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -72,5 +73,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/htmlwidgets
+%{rlibdir}/%{packname}/htmlwidgets
+%doc %{rlibdir}/%{packname}/tutorials
 %{rlibdir}/%{packname}/INDEX

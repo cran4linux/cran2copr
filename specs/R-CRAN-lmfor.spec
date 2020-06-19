@@ -1,10 +1,10 @@
 %global packname  lmfor
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
-Release:          2%{?dist}
+Version:          1.5
+Release:          1%{?dist}
 Summary:          Functions for Forest Biometrics
 
 License:          GPL-2
@@ -31,7 +31,7 @@ Requires:         R-stats
 Requires:         R-CRAN-magic 
 
 %description
-Functions for different purposes related to Forest biometrics, including
+Functions for different purposes related to forest biometrics, including
 illustrative graphics, numerical computation, modeling height-diameter
 relationships, prediction of tree volumes, modelling of diameter
 distributions and estimation off stand density using ITD. Several
@@ -40,6 +40,7 @@ empirical datasets are also included.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

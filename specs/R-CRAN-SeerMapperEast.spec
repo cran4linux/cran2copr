@@ -1,10 +1,10 @@
 %global packname  SeerMapperEast
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
-Release:          2%{?dist}
+Version:          1.2.3
+Release:          1%{?dist}
 Summary:          Supplemental U.S. 2000 Census Tract Boundaries for 20 EasternStates, District and Territory without Seer Registries for'SeerMapper'
 
 License:          GPL (>= 2)

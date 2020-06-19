@@ -1,36 +1,44 @@
-%global packname  nse2r
-%global packver   0.1.2
+%global packname  sigmajs
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.5
 Release:          1%{?dist}
-Summary:          Fetch Data from 'National Stock Exchange (India)'
+Summary:          Interface to 'Sigma.js' Graph Visualization Library
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-crosstalk 
+Requires:         R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-crosstalk 
 
 %description
-Fetch data related to stocks, index, futures & options from the 'NSE
-(National Stock Exchange, India)'. This package is community maintained
-and is not officially supported by 'NSE'. The accuracy of data is only as
-correct as provided on <https://www.nseindia.com>.
+Interface to 'sigma.js' graph visualization library including animations,
+plugins and shiny proxies.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,10 +60,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/application
+%{rlibdir}/%{packname}/htmlwidgets
 %{rlibdir}/%{packname}/INDEX

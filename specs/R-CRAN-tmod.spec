@@ -1,10 +1,10 @@
 %global packname  tmod
-%global packver   0.40
+%global packver   0.44
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.40
-Release:          2%{?dist}
+Version:          0.44
+Release:          1%{?dist}
 Summary:          Feature Set Enrichment Analysis for Metabolomics andTranscriptomics
 
 License:          GPL (>= 2.0)
@@ -20,11 +20,15 @@ BuildRequires:    R-CRAN-tagcloud
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotwidgets 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-gplots 
 Requires:         R-CRAN-beeswarm 
 Requires:         R-CRAN-tagcloud 
 Requires:         R-CRAN-XML 
 Requires:         R-methods 
 Requires:         R-CRAN-plotwidgets 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-gplots 
 
 %description
 Methods and feature set definitions for feature or gene set enrichment
@@ -35,6 +39,7 @@ visualisation and multivariate functional analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -57,5 +62,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/tmod_user_manual.pdf
 %{rlibdir}/%{packname}/INDEX

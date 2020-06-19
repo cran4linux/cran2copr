@@ -1,11 +1,11 @@
-%global packname  textplot
-%global packver   0.1.3
+%global packname  regress
+%global packver   1.3-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.3.21
 Release:          1%{?dist}
-Summary:          Text Plots
+Summary:          Gaussian Linear Models with Linear Covariance Structure
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,26 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-lattice 
-BuildRequires:    R-stats 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-lattice 
-Requires:         R-stats 
-Requires:         R-Matrix 
-Requires:         R-graphics 
 
 %description
-Visualise complex relations in texts. This is done by providing
-functionalities for displaying text co-occurrence networks, text
-correlation networks, dependency relationships as well as text clustering.
-Feel free to join the effort of providing interesting text visualisations.
+Functions to fit Gaussian linear model by maximising the residual log
+likelihood where the covariance structure can be written as a linear
+combination of known matrices.  Can be used for multivariate models and
+random effects models.  Easy straight forward manner to specify random
+effects models, including random interactions. Code now optimised to use
+Sherman Morrison Woodbury identities for matrix inversion in random
+effects models. We've added the ability to fit models using any kernel as
+well as a function to return the mean and covariance of random effects
+conditional on the data (best linear unbiased predictors, BLUPs). Clifford
+and McCullagh (2006)
+<https://www.r-project.org/doc/Rnews/Rnews_2006-2.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,10 +49,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
+%doc %{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX

@@ -1,10 +1,10 @@
 %global packname  DHARMa
-%global packver   0.3.1
+%global packver   0.3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          2%{?dist}
+Version:          0.3.2.0
+Release:          1%{?dist}
 Summary:          Residual Diagnostics for Hierarchical (Multi-Level / Mixed)Regression Models
 
 License:          GPL (>= 3)

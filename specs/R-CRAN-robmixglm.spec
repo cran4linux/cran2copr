@@ -1,10 +1,10 @@
 %global packname  robmixglm
-%global packver   1.0-4
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
-Release:          2%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          Robust Generalized Linear Models (GLM) using Mixtures
 
 License:          GPL (>= 2)
@@ -24,6 +24,10 @@ BuildRequires:    R-CRAN-actuar
 BuildRequires:    R-methods 
 BuildRequires:    R-boot 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doRNG 
 Requires:         R-CRAN-Rcpp >= 0.12.15
 Requires:         R-CRAN-fastGHQuad 
 Requires:         R-stats 
@@ -34,6 +38,10 @@ Requires:         R-CRAN-actuar
 Requires:         R-methods 
 Requires:         R-boot 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doRNG 
 
 %description
 Robust generalized linear models (GLM) using a mixture method, as

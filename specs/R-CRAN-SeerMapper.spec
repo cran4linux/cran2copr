@@ -1,10 +1,10 @@
 %global packname  SeerMapper
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
-Release:          2%{?dist}
+Version:          1.2.3
+Release:          1%{?dist}
 Summary:          A Quick Way to Map U.S. Rates and Data of U.S. States, Counties,Census Tracts, or Seer Registries using 2000 and 2010 U.S.Census Boundaries
 
 License:          GPL (>= 2)

@@ -1,10 +1,10 @@
 %global packname  openair
-%global packver   2.7-2
+%global packver   2.7-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.2
-Release:          2%{?dist}
+Version:          2.7.4
+Release:          1%{?dist}
 Summary:          Tools for the Analysis of Air Pollution Data
 
 License:          GPL (>= 2)
@@ -14,9 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-readr 
@@ -34,9 +34,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-MASS 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-grid 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-readr 

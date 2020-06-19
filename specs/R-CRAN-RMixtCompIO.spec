@@ -1,10 +1,10 @@
 %global packname  RMixtCompIO
-%global packver   4.0.2
+%global packver   4.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
-Release:          2%{?dist}
+Version:          4.0.5
+Release:          1%{?dist}
 Summary:          Mixture Models with Heterogeneous and (Partially) Missing Data
 
 License:          AGPL-3
@@ -33,6 +33,7 @@ of the C++ 'MixtComp' library.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
