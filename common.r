@@ -50,8 +50,8 @@ watch_builds <- function(ids) {
 
 delete_builds <- function(ids) {
   if (copr_version() >= "1.87")
-    copr_call("delete-build", ids)
-  else for (id in ids)
+    ids <- paste(ids, collapse=" ")
+  for (id in ids)
     copr_call("delete-build", id)
 }
 
