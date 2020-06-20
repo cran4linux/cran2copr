@@ -178,46 +178,6 @@ need_update <- function(pkgs, cran=available.packages()) {
   over < nver
 }
 
-pkg_files <- function(pkg, path) {
-  topdir <- "^DESCRIPTION$|^NAMESPACE$|^LICEN(S|C)E$|^NEWS|^R$|^data$|demo|exec"
-  nodocs <- "DESCRIPTION|INDEX|NAMESPACE|/R$|libs|data|include|LICEN|"
-  nodocs <- paste0(nodocs, "pomdp|java|bin|share|python|widgets")
-  license <- "LICEN"
-
-  instignore <- file.path(path, ".Rinstignore")
-  if (file.exists(instignore)) {
-    instignore <- suppressWarnings(readLines(instignore))
-    instignore <- setdiff(sub("^inst/", "", instignore), "")
-    instignore <- instignore[!grepl("\\{", instignore)] # mRMRe
-    unlink(unlist(sapply(instignore, function(i)
-      dir(file.path(path, "inst"), i, full.names=TRUE))), recursive=TRUE)
-  }
-
-  files <- grep(topdir, dir(path), value=TRUE)
-  files <- c(files, dir(file.path(path, "inst")))
-
-  if (length(dir(file.path(path, "man"))))
-    files <- c(files, "INDEX")
-  if (file.exists(file.path(path, "src")))
-    files <- c(files, "libs")
-
-  # exceptions
-  files <- c(files, switch(
-    pkg, stringi=,dparser=,PreciseSums="include", readr="rcon", maps=,mapdata="mapdata",
-    littler=,processx=,ps=,zip=,phylocomr=,arulesSequences=,brotli=,cepreader="bin",
-    RcppParallel=,StanHeaders=,RInside=,Boom=,RcppMLPACK=,RcppClassic=,emstreeR="lib",
-    rscala="dependencies", pbdZMQ=,pbdMPI="etc", antiword=,unrtf=c("bin", "share"),
-    TMB="Matrix-version", biomod2="HasBeenCustom.txt", icd="COPYING", Rttf2pt1="exec",
-    FastRWeb=c("Rcgi", "cgi-bin"), sundialr="libsundials_all.a", pomdp="pomdp-solve",
-    r2pmml="java", r2sundials="libsundials.a"))
-
-  files <- paste0("%{rlibdir}/%{packname}/", files)
-  files[!grepl(nodocs, files)] <- paste("%doc", files[!grepl(nodocs, files)])
-  files[grep(license, files)] <- paste("%license", files[grep(license, files)])
-
-  files
-}
-
 .fix_version <- function(deps, cran=available.packages()) {
   # fix 2-component versions declared as 3-component
   two_comp <- grep("^[0-9]+.[0-9]+$", cran[,"Version"], value=TRUE)
@@ -412,7 +372,6 @@ create_spec <- function(pkg, cran=available.packages()) {
     cran[cran[,"Package"] == desc$Package, "NeedsCompilation"] = "no"
   deps <- pkg_deps(desc, cran)
   description <- strwrap(desc$Description, 75)
-  files <- pkg_files(pkg, path)
 
   tpl <- sub("\\{\\{prefix\\}\\}", getOption("copr.prefix"), tpl)
   tpl <- sub("\\{\\{packname\\}\\}", pkg, tpl)
@@ -422,7 +381,6 @@ create_spec <- function(pkg, cran=available.packages()) {
   tpl <- sub("\\{\\{license\\}\\}", desc$License, tpl)
   tpl <- sub("\\{\\{dependencies\\}\\}", paste(deps, collapse="\n"), tpl)
   tpl <- sub("\\{\\{description\\}\\}", paste(description, collapse="\n"), tpl)
-  tpl <- sub("\\{\\{files\\}\\}", paste(files, collapse="\n"), tpl)
 
   # java
   if (any(grepl("BuildRequires:[[:space:]]+R-java-devel", deps))) {
