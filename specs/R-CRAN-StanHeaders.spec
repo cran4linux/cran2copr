@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.21.0.5
-Release:          2%{?dist}
+Release:          1%{?dist}
 Summary:          C++ Header Files for Stan
 
 License:          BSD_3_clause + file LICENSE
@@ -13,7 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
+BuildRequires:    tbb-devel
+Requires:         tbb-devel
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
@@ -42,6 +43,8 @@ functions to parse, compile, test, estimate, and analyze Stan models.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -54,17 +57,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/include
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
-%doc %{rlibdir}/%{packname}/lib
+%{rlibdir}/%{packname}

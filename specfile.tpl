@@ -19,6 +19,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 %prep
 %setup -q -c -n %{packname}
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 

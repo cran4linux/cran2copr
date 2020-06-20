@@ -1,4 +1,3 @@
-%global debug_package %{nil}
 %global packname  oai
 %global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library

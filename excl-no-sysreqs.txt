@@ -18,7 +18,8 @@ Rmpi
 pbdMPI
 commonsMath
 googleformr
-gifski
+gifski cargo
+baseflow cargo
 traitdataform
 freetypeharfbuzz
 pcaL1
@@ -27,3 +28,11 @@ GeneBook
 rLindo
 salso
 XLConnect
+bitmexr internet
+dmdScheme internet
+nearfar internet
+randstr internet
+Rhpc mpi
+RKEELjars internet
+switchr internet
+spiR internet

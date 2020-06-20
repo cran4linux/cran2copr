@@ -1,30 +1,38 @@
-%global debug_package %{nil}
-%global packname  pbdPROF
-%global packver   0.4-0
+%global packname  sn
+%global packver   1.6-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.6.2
 Release:          1%{?dist}
-Summary:          Programming with Big Data -- MPI Profiling Tools
+Summary:          The Skew-Normal and Related Distributions Such as the Skew-t
 
-License:          Mozilla Public License 2.0
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    openmpi-devel >= 1.5.4
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.15.3
+Requires:         R-core >= 2.15.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mnormt >= 1.5.4
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-CRAN-mnormt >= 1.5.4
 Requires:         R-methods 
-Requires:         R-stats 
+Requires:         R-stats4 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-utils 
+Requires:         R-CRAN-quantreg 
 
 %description
-MPI profiling tools.
+Build and manipulate probability distributions of the skew-normal family
+and some related ones, notably the skew-t family, and provide related
+statistical methods for data fitting and model diagnostics, in the
+univariate and the multivariate case.
 
 %prep
 %setup -q -c -n %{packname}

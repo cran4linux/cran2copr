@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0.1
-Release:          2%{?dist}
+Release:          1%{?dist}
 Summary:          Parallel Programming Tools for 'Rcpp'
 
 License:          GPL-2
@@ -26,11 +26,13 @@ can be used for accumulating aggregate or other values.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
 %install
-
+export RCPP_PARALLEL_BACKEND=tinythread
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 
@@ -38,19 +40,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/presentations
-%doc %{rlibdir}/%{packname}/rstudio
-%doc %{rlibdir}/%{packname}/skeleton
-%doc %{rlibdir}/%{packname}/tests
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
-%doc %{rlibdir}/%{packname}/lib
+%{rlibdir}/%{packname}

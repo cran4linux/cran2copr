@@ -94,6 +94,7 @@ with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
 
   base <- rownames(installed.packages(priority="high"))
   excl <- unlist(sapply(dir(pattern="excl-.*\\.txt"), readLines))
+  excl <- sapply(strsplit(excl, " "), head, 1)
   pkgs <- setdiff(pkgs, base)
 
   if (!reverse) {
@@ -256,8 +257,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
   # top
   tpl <- c(switch(
     pkg,
-    BANOVA=,beam=,Boom=,FastRWeb=,mapdata=,oai=,pbdRPC=,ROpenCVLite=,
-    StanHeaders="%global debug_package %{nil}",
+    BANOVA=,beam=,Boom=,FastRWeb=,mapdata=,pbdRPC=,pbdPROF=,qtpaint=,RxODE=,
+    tth=,wingui=,StanHeaders="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
@@ -334,10 +335,11 @@ pkg_exceptions <- function(tpl, pkg, path) {
     npsp=,robeth=,robustbase=,rootSolve=,sequoia=,subplex=,VGAM=paste(
       "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
       "echo \"FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch\" > ~/.R/Makevars"),
-    vctrs=, RcppCWB=paste(
+    RcppCWB=paste(
       "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
-      "echo \"CFLAGS=$(R CMD config CFLAGS) -fcommon\" > ~/.R/Makevars"),
+      "find %{packname} -name Makefile -exec sed -i '/^all:.*/i CFLAGS+=-fcommon' {} \\;"),
     rPython = "export RPYTHON_PYTHON_VERSION=3",
+    RcppParallel = "export RCPP_PARALLEL_BACKEND=tinythread",
     Rmpi = "%{_openmpi_load}"
   ))
   install <- grep("CMD INSTALL", tpl)

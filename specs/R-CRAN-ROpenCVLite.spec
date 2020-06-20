@@ -1,4 +1,3 @@
-%global debug_package %{nil}
 %global packname  ROpenCVLite
 %global packver   4.30.1
 %global rlibdir   /usr/local/lib/R/library
