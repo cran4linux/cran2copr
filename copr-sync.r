@@ -12,6 +12,6 @@ pkgs <- with_deps(cran[,"Package"], cran)
 pkgs.add <- pkgs[need_update(pkgs, cran)]
 
 if (length(pkgs.del))
-  system2("./copr-del.r", paste(pkgs.del, collapse=" "))
+  system2("./copr-delete.r", paste(pkgs.del, collapse=" "))
 if (length(pkgs.add))
   system2("./copr-add.r", paste(pkgs.add, collapse=" "))
