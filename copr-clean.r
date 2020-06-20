@@ -4,6 +4,9 @@ source("config.r")
 source("common.r")
 check_copr()
 
+if (!interactive())
+  stop("please, run this interactively and think deeply about what you're doing")
+
 if (copr_version() < "1.87")
   stop("cannot do this for versions of copr < 1.87")
 
