@@ -1,35 +1,32 @@
-%global packname  fit.models
-%global packver   0.63
+%global packname  CFilt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.63
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Compare Fitted Models
+Summary:          Collaborative Filtering by Reference Classes
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-lattice 
-BuildRequires:    R-stats 
-Requires:         R-lattice 
-Requires:         R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-The fit.models function and its associated methods (coefficients, print,
-summary, plot, etc.) were originally provided in the robust package to
-compare robustly and classically fitted model objects. See chapters 2, 3,
-and 5 in Insightful (2002) 'Robust Library User's Guide'
-<http://robust.r-forge.r-project.org/Robust.pdf>). The aim of the
-fit.models package is to separate this fitted model object comparison
-functionality from the robust package and to extend it to support fitting
-methods (e.g., classical, robust, Bayesian, regularized, etc.) more
-generally.
+The collaborative Filtering methodology has been widely used in
+recommendation systems, which uses similarities between users or items to
+make recommendations. A class called CF was implemented, where it is
+structured by matrices and composed of recommendation and database
+manipulation functions. See Aggarwal (2016)
+<doi:10.1007/978-3-319-29659-3> for an overview.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +48,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R

@@ -1,10 +1,10 @@
 %global packname  mashr
-%global packver   0.2.28
+%global packver   0.2.38
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.28
-Release:          2%{?dist}
+Version:          0.2.38
+Release:          1%{?dist}
 Summary:          Multivariate Adaptive Shrinkage
 
 License:          BSD_3_clause + file LICENSE
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-rmeta 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-mixsqp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppGSL 
 Requires:         R-CRAN-ashr >= 2.2.22
@@ -35,7 +34,6 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-rmeta 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-mixsqp 
 
 %description
 Implements the multivariate adaptive shrinkage (mash) method of Urbut et

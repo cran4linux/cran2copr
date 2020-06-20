@@ -1,10 +1,10 @@
 %global packname  broomExtra
-%global packver   4.0.2
+%global packver   4.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
-Release:          2%{?dist}
+Version:          4.0.3
+Release:          1%{?dist}
 Summary:          Enhancements for 'broom' and 'easystats' Package Families
 
 License:          GPL-3 | file LICENSE

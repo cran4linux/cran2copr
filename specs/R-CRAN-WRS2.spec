@@ -1,11 +1,10 @@
-%global debug_package %{nil}
 %global packname  WRS2
-%global packver   1.0-0
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          A Collection of Robust Statistical Methods
 
 License:          GPL-3

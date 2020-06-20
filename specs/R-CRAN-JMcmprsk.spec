@@ -1,39 +1,38 @@
-%global packname  RPESE
-%global packver   1.0.5
+%global packname  JMcmprsk
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.9.8
 Release:          1%{?dist}
-Summary:          Estimates of Standard Errors for Risk and Performance Measures
+Summary:          Joint Models for Longitudinal and Competing Risks Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    gsl-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-RPEIF 
-BuildRequires:    R-CRAN-RPEGLMEN 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-boot 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-RPEIF 
-Requires:         R-CRAN-RPEGLMEN 
-Requires:         R-CRAN-PerformanceAnalytics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-statmod 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-MASS 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-statmod 
 
 %description
-Estimates of standard errors of popular risk and performance measures for
-asset or portfolio returns using methods as described in Chen and Martin
-(2019) <https://ssrn.com/abstract=3085672>.
+Fit joint models of continuous or ordinal longitudinal data and
+time-to-event data with competing risks. For a detailed information, see
+Robert Elashoff, Gang Li and Ning Li (2016, ISBN:9781439807828); Robert M.
+Elashoff,Gang Li and Ning Li (2008) <doi:10.1111/j.1541-0420.2007.00952.x>
+; Ning Li, Robert Elashoff, Gang Li and Jeffrey Saver (2010)
+<doi:10.1002/sim.3798> .
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,7 +56,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/help
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/doc
+%{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

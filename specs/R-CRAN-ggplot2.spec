@@ -1,10 +1,10 @@
 %global packname  ggplot2
-%global packver   3.3.1
+%global packver   3.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.1
-Release:          2%{?dist}
+Version:          3.3.2
+Release:          1%{?dist}
 Summary:          Create Elegant Data Visualisations Using the Grammar of Graphics
 
 License:          GPL-2 | file LICENSE

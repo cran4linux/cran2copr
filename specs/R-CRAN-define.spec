@@ -1,10 +1,10 @@
 %global packname  define
-%global packver   0.2.8
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
-Release:          2%{?dist}
+Version:          0.2.9
+Release:          1%{?dist}
 Summary:          Create FDA-Style Data and Program Definitions
 
 License:          GPL-3
@@ -38,6 +38,7 @@ compatible installation of 'pdflatex', e.g. <https://miktex.org/>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 

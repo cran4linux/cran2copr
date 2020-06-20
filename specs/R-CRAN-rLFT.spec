@@ -1,31 +1,29 @@
-%global packname  rwalkr
-%global packver   0.5.3
+%global packname  rLFT
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          API to Melbourne Pedestrian Data
+Summary:          Processing Linear Features
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-sf >= 0.9.1
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-sf >= 0.9.1
 
 %description
-Provides API to Melbourne pedestrian data in tidy data form.
+Assists in the manipulation and processing of linear features with the
+help of the 'sf' package. Makes use of linear referencing to extract data
+from most shape files. Reference for this packages methods: Albeke, S.E.
+et al. (2010) <doi:10.1007/s10980-010-9528-4>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,9 +45,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/libs

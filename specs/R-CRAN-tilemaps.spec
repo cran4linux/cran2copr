@@ -1,13 +1,13 @@
-%global packname  EMSC
-%global packver   0.9.2
+%global packname  tilemaps
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Extended Multiplicative Signal Correction
+Summary:          Generate Tile Maps
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-smoothr 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-lwgeom 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-smoothr 
 
 %description
-Background correction of spectral like data. Handles variations in
-scaling, polynomial baselines, interferents, constituents and replicate
-variation. Parameters for corrections are stored for further analysis, and
-spectra are corrected accordingly.
+Implements an algorithm for generating maps, known as tile maps, in which
+each region is represented by a single tile of the same shape and size.
+The algorithm was first proposed in "Generating Tile Maps" by Graham
+McNeill and Scott Hale (2017) <doi:10.1111/cgf.13200>. Functions allow
+users to generate, plot, and compare square or hexagon tile maps.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +58,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

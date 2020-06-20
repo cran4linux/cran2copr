@@ -1,10 +1,10 @@
 %global packname  mrgsolve
-%global packver   0.10.1
+%global packver   0.10.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
-Release:          2%{?dist}
+Version:          0.10.4
+Release:          1%{?dist}
 Summary:          Simulate from ODE-Based Models
 
 License:          GPL (>= 2)
@@ -73,6 +73,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/project
 %doc %{rlibdir}/%{packname}/rmarkdown
 %doc %{rlibdir}/%{packname}/Rmd
+%doc %{rlibdir}/%{packname}/script
 %doc %{rlibdir}/%{packname}/WORDLIST
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/libs

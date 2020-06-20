@@ -1,10 +1,10 @@
 %global packname  ipmisc
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
-Release:          2%{?dist}
+Version:          3.1.0
+Release:          1%{?dist}
 Summary:          Miscellaneous Functions for Data Cleaning and Analysis
 
 License:          GPL-3 | file LICENSE

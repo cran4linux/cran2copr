@@ -1,10 +1,10 @@
 %global packname  rehh
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
-Release:          2%{?dist}
+Version:          3.1.1
+Release:          1%{?dist}
 Summary:          Searching for Footprints of Selection using 'Extended HaplotypeHomozygosity' Based Tests
 
 License:          GPL (>= 2)

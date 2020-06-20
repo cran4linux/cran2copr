@@ -1,10 +1,10 @@
 %global packname  ExtractTrainData
-%global packver   5.0.3
+%global packver   5.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.3
-Release:          2%{?dist}
+Version:          5.1.5
+Release:          1%{?dist}
 Summary:          Extract Values from Raster
 
 License:          GPL-3
@@ -17,9 +17,11 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-rgeos 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-rgeos 
 
 %description
@@ -30,6 +32,7 @@ will be contained by band wise raster values and class ids.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 %build
 
@@ -37,6 +40,7 @@ will be contained by band wise raster values and class ids.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 

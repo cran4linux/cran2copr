@@ -1,10 +1,10 @@
 %global packname  calibrate
-%global packver   1.7.6
+%global packver   1.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.6
-Release:          2%{?dist}
+Version:          1.7.7
+Release:          1%{?dist}
 Summary:          Calibration of Scatterplot and Biplot Axes
 
 License:          GPL-2
@@ -48,5 +48,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/R
+%doc %{rlibdir}/%{packname}/CITATION
 %doc %{rlibdir}/%{packname}/doc
 %{rlibdir}/%{packname}/INDEX

@@ -1,10 +1,10 @@
 %global packname  tidybayes
-%global packver   2.0.3
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
-Release:          2%{?dist}
+Version:          2.1.1
+Release:          1%{?dist}
 Summary:          Tidy Data and 'Geoms' for Bayesian Models
 
 License:          GPL (>= 3)
@@ -15,7 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggdist >= 2.1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
@@ -30,7 +31,8 @@ BuildRequires:    R-CRAN-arrayhelpers
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 >= 3.1.0
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggdist >= 2.1.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.3.0
@@ -76,7 +78,6 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
 %{rlibdir}/%{packname}/DESCRIPTION
 %{rlibdir}/%{packname}/NAMESPACE
 %doc %{rlibdir}/%{packname}/NEWS.md

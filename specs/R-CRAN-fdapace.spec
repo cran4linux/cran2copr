@@ -1,10 +1,10 @@
 %global packname  fdapace
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
-Release:          2%{?dist}
+Version:          0.5.4
+Release:          1%{?dist}
 Summary:          Functional Data Analysis and Empirical Dynamics
 
 License:          BSD_3_clause + file LICENSE

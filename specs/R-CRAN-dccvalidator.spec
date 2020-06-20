@@ -1,10 +1,10 @@
 %global packname  dccvalidator
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          2%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}
 Summary:          Metadata Validation for Data Coordinating Centers
 
 License:          MIT + file LICENSE
@@ -92,6 +92,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/R
 %doc %{rlibdir}/%{packname}/app
 %doc %{rlibdir}/%{packname}/doc

@@ -1,10 +1,10 @@
 %global packname  tidyBF
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          2%{?dist}
+Version:          0.2.1
+Release:          1%{?dist}
 Summary:          Tidy Wrapper for 'BayesFactor' Package
 
 License:          GPL-3 | file LICENSE
@@ -12,18 +12,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ipmisc >= 3.1.0
 BuildRequires:    R-CRAN-BayesFactor 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ipmisc 
 BuildRequires:    R-CRAN-metaBMA 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ipmisc >= 3.1.0
 Requires:         R-CRAN-BayesFactor 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ipmisc 
 Requires:         R-CRAN-metaBMA 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
