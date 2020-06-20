@@ -1,10 +1,10 @@
 %global packname  statsExpressions
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
-Release:          2%{?dist}
+Version:          0.4.2
+Release:          1%{?dist}
 Summary:          Expressions with Statistical Details
 
 License:          GPL-3 | file LICENSE
@@ -15,38 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broomExtra >= 3.0.0
-BuildRequires:    R-CRAN-ipmisc >= 2.0.0
-BuildRequires:    R-CRAN-effectsize >= 0.3.0
-BuildRequires:    R-CRAN-correlation >= 0.2.0
-BuildRequires:    R-CRAN-tidyBF >= 0.2.0
-BuildRequires:    R-boot 
+BuildRequires:    R-CRAN-ipmisc >= 3.0.1
+BuildRequires:    R-CRAN-WRS2 >= 1.1.0
+BuildRequires:    R-CRAN-correlation >= 0.3.0
+BuildRequires:    R-CRAN-broomExtra 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-ez 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-metaplus 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rcompanion 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyBF 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-WRS2 
-Requires:         R-CRAN-broomExtra >= 3.0.0
-Requires:         R-CRAN-ipmisc >= 2.0.0
-Requires:         R-CRAN-effectsize >= 0.3.0
-Requires:         R-CRAN-correlation >= 0.2.0
-Requires:         R-CRAN-tidyBF >= 0.2.0
-Requires:         R-boot 
+Requires:         R-CRAN-ipmisc >= 3.0.1
+Requires:         R-CRAN-WRS2 >= 1.1.0
+Requires:         R-CRAN-correlation >= 0.3.0
+Requires:         R-CRAN-broomExtra 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-ez 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-metaplus 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rcompanion 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyBF 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-WRS2 
 
 %description
 Statistical processing backend for 'ggstatsplot', this package creates
@@ -59,6 +55,8 @@ analyses, contingency table analysis, and meta-analysis.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -71,17 +69,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

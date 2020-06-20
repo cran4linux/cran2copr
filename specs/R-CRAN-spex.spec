@@ -1,10 +1,10 @@
 %global packname  spex
-%global packver   0.6.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
-Release:          2%{?dist}
+Version:          0.7.1
+Release:          1%{?dist}
 Summary:          Spatial Extent Tools
 
 License:          GPL-3
@@ -15,18 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.5
 Requires:         R-core >= 3.2.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reproj >= 0.4.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-quadmesh 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-reproj 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-reproj >= 0.4.0
+BuildRequires:    R-CRAN-crsmeta 
 Requires:         R-methods 
 Requires:         R-CRAN-quadmesh 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-reproj 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-crsmeta 
 
 %description
 Functions to produce a fully fledged 'geo-spatial' object extent as a
@@ -39,6 +41,9 @@ for polar maps are included.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -46,17 +51,9 @@ for polar maps are included.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

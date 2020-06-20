@@ -11,5 +11,5 @@ options(
   repos            = "https://cran.r-project.org",
   error            = NULL,
   stringsAsFactors = FALSE,
-  available_packages_filters = c("R_version", "OS_type", "license/FOSS")
+  available_packages_filters = c("OS_type", "license/FOSS")
 )

@@ -1,10 +1,10 @@
 %global packname  tsibble
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
-Release:          2%{?dist}
+Version:          0.9.1
+Release:          1%{?dist}
 Summary:          Tidy Temporal Data Frames and Tools
 
 License:          GPL-3
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-CRAN-anytime >= 0.3.1
+BuildRequires:    R-CRAN-vctrs >= 0.3.1
 BuildRequires:    R-CRAN-ellipsis >= 0.3.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble >= 3.0.0
@@ -31,8 +31,8 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-CRAN-anytime >= 0.3.1
+Requires:         R-CRAN-vctrs >= 0.3.1
 Requires:         R-CRAN-ellipsis >= 0.3.0
-Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-CRAN-lifecycle 
 
@@ -46,6 +46,8 @@ aggregating over calendar periods.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -58,16 +60,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

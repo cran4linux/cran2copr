@@ -1,10 +1,10 @@
 %global packname  cobalt
-%global packver   4.2.0
+%global packver   4.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
-Release:          2%{?dist}
+Version:          4.2.1
+Release:          1%{?dist}
 Summary:          Covariate Balance Tables and Plots
 
 License:          GPL (>= 2)
@@ -17,14 +17,14 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-backports >= 1.1.7
+BuildRequires:    R-CRAN-backports >= 1.1.8
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-gtable >= 0.3.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-backports >= 1.1.7
+Requires:         R-CRAN-backports >= 1.1.8
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-gtable >= 0.3.0
 Requires:         R-grid 
@@ -45,6 +45,8 @@ with longitudinal treatments.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -57,16 +59,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/figures
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

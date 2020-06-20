@@ -1,10 +1,10 @@
 %global packname  asht
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
-Release:          2%{?dist}
+Version:          0.9.5
+Release:          1%{?dist}
 Summary:          Applied Statistical Hypothesis Tests
 
 License:          GPL-3
@@ -40,12 +40,18 @@ intervals, Wilcoxon-Mann-Whitney test [with effect estimates and
 confidence intervals, see Fay and Malinovsky <doi:10.1002/sim.7890>],
 two-sample melding tests [see Fay, Proschan, and Brittain
 <doi:10.1111/biom.12231>], one-way ANOVA allowing var.equal=FALSE [see
-Brown and Forsythe, 1974, Biometrics]). The focus is on methods that have
-compatible confidence intervals.
+Brown and Forsythe, 1974, Biometrics]), prevalence confidence intervals
+that adjust for sensitivity and specificity [see Lang and Reiczigel, 2014
+<doi:10.1016/j.prevetmed.2013.09.015>]). The focus is on hypothesis tests
+that have compatible confidence intervals, but some functions only have
+confidence intervals (e.g., prevSeSp).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -53,17 +59,9 @@ compatible confidence intervals.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
