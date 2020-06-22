@@ -1,10 +1,10 @@
 %global packname  fsbrain
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
-Release:          2%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}
 Summary:          Managing and Visualizing Brain Surface Data
 
 License:          MIT + file LICENSE
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 0.1.10
+BuildRequires:    R-CRAN-freesurferformats >= 0.1.11
 BuildRequires:    R-CRAN-pkgfilecache >= 0.1.1
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-squash 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-freesurferformats >= 0.1.10
+Requires:         R-CRAN-freesurferformats >= 0.1.11
 Requires:         R-CRAN-pkgfilecache >= 0.1.1
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-rgl 
@@ -41,6 +41,8 @@ results directly in 'R'.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -53,14 +55,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
