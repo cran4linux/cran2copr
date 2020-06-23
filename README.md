@@ -14,26 +14,26 @@ These repos are automatically synchronized with CRAN every day at 00:00 UTC thro
 
 To enable this Copr repository in your system:
 
-```
+```bash
 $ sudo dnf copr enable iucar/cran
 $ sudo dnf install R-CoprManager
 ```
 
 By default, CoprManager is enabled, and you can install packages in R as you normally do, e.g.,
 
-```
+```r
 > install.packages("car")
 ```
 
 In the background, a D-Bus service installs the available packages from this Copr repo, and the remaining ones, from CRAN, all within the same call. On the other hand, `remove.packages` will still remove only packages installed in your user library. If you want to remove system packages, run:
 
-```
+```r
 CoprManager::remove_copr("car")
 ```
 
 If you want to disable the CoprManager, so that `install.packages` only works with CRAN again, then run:
 
-```
+```r
 CoprManager::disable()
 install.packages("car") # from CRAN to user lib
 ```
