@@ -1,9 +1,9 @@
 %global packname  simplevis
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Simple Visualisation with 'ggplot2' and 'leaflet' Wrappers
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-stars >= 0.4.0
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-leafpop 
 BuildRequires:    R-CRAN-leaflet.extras 
 BuildRequires:    R-CRAN-janitor 
@@ -52,6 +53,7 @@ Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-stars >= 0.4.0
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-leafpop 
 Requires:         R-CRAN-leaflet.extras 
 Requires:         R-CRAN-janitor 
@@ -81,6 +83,8 @@ expertise than would otherwise be required.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -93,16 +97,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/shiny
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

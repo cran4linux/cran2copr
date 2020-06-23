@@ -1,13 +1,13 @@
-%global packname  BayesianPower
-%global packver   0.2.3
+%global packname  pdfminer
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Sample Size and Power for Comparing Inequality ConstrainedHypotheses
+Summary:          Read Portable Document Format (PDF) Files
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,15 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-jsonlite 
 
 %description
-A collection of methods to determine the required sample size for the
-evaluation of inequality constrained hypotheses by means of a Bayes
-factor. Alternatively, for a given sample size, the unconditional error
-probabilities or the expected conditional error probabilities can be
-determined. Additional material on the methods in this package is
-available in Klaassen, F., Hoijtink, H. & Gu, X. (2019)
-<doi:10.31219/osf.io/d5kf3>.
+Provides an interface to 'PDFMiner'
+<https://github.com/pdfminer/pdfminer.six> a 'Python' package for
+extracting information from 'PDF'-files. 'PDFMiner' has the goal to get
+all information available in a 'PDF'-file, position of the characters,
+font type, font size and informations about lines. Which makes it the
+perfect starting point for extracting tables from 'PDF'-files. More
+information can be found in the package 'README'-file.
 
 %prep
 %setup -q -c -n %{packname}

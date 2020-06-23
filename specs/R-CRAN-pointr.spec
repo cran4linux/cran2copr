@@ -1,13 +1,13 @@
-%global packname  BayesianPower
-%global packver   0.2.3
+%global packname  pointr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Sample Size and Power for Comparing Inequality ConstrainedHypotheses
+Summary:          Working Comfortably with Pointers and Shortcuts to R Objects
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,15 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-stringr 
 
 %description
-A collection of methods to determine the required sample size for the
-evaluation of inequality constrained hypotheses by means of a Bayes
-factor. Alternatively, for a given sample size, the unconditional error
-probabilities or the expected conditional error probabilities can be
-determined. Additional material on the methods in this package is
-available in Klaassen, F., Hoijtink, H. & Gu, X. (2019)
-<doi:10.31219/osf.io/d5kf3>.
+R has no built-in pointer functionality. The 'pointr' package fills this
+gap and lets you create pointers to R objects, including subsets of
+dataframes. This makes your R code more readable and maintainable.
 
 %prep
 %setup -q -c -n %{packname}

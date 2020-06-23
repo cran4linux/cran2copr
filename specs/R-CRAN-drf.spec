@@ -1,35 +1,34 @@
-%global packname  volesti
-%global packver   1.1.1
+%global packname  drf
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Volume Approximation and Sampling of Convex Polytopes
+Summary:          Distributional Random Forests
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.15
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.12.17
+Requires:         R-CRAN-Rcpp >= 0.12.15
+Requires:         R-CRAN-fastDummies 
+Requires:         R-Matrix 
 Requires:         R-methods 
-Requires:         R-stats 
+Requires:         R-CRAN-spatstat 
 
 %description
-Provides an R interface for 'volesti' C++ package. 'volesti' computes
-estimations of volume of polytopes given by (i) a set of points, (ii)
-linear inequalities or (iii) Minkowski sum of segments (a.k.a. zonotopes).
-There are three algorithms for volume estimation as well as algorithms for
-sampling, rounding and rotating polytopes. Moreover, 'volesti' provides
-algorithms for estimating copulas useful in computational finance.
+An implementation of distributional random forests as introduced in Cevid
+& Michel & Meinshausen & Buhlmann (2020) <arXiv:2005.14458>.
 
 %prep
 %setup -q -c -n %{packname}

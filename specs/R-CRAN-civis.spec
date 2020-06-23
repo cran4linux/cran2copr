@@ -1,10 +1,10 @@
 %global packname  civis
-%global packver   2.1.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
-Release:          2%{?dist}
+Version:          3.0.0
+Release:          1%{?dist}
 Summary:          R Client for the 'Civis Platform API'
 
 License:          BSD_3_clause + file LICENSE
@@ -39,6 +39,8 @@ available 'here' <https://civisanalytics.github.io/civis-r/>.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -51,18 +53,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/civis_ml_brandable.rds
-%doc %{rlibdir}/%{packname}/civis_ml_err.rds
-%doc %{rlibdir}/%{packname}/civis_ml_oos.rds
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/rstudio
-%doc %{rlibdir}/%{packname}/scripts
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

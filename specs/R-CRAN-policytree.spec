@@ -1,10 +1,10 @@
 %global packname  policytree
-%global packver   0.9.2
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
-Release:          2%{?dist}
+Version:          1.0
+Release:          1%{?dist}
 Summary:          Policy Learning via Doubly Robust Empirical Welfare Maximizationover Trees
 
 License:          GPL-3
@@ -21,13 +21,18 @@ Requires:         R-CRAN-grf >= 1.1.0
 Requires:         R-CRAN-Rcpp 
 
 %description
-Multi-action treatment effect estimation and policy learning as in Zhou,
-Athey and Wager (2018) <arXiv:1810.04778>.
+Learn optimal policies via doubly robust empirical welfare maximization
+over trees. This package implements the multi-action doubly robust
+approach of Zhou, Athey and Wager (2018) <arXiv:1810.04778> in the case
+where we want to learn policies that belong to the class of depth k
+decision trees.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -40,12 +45,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

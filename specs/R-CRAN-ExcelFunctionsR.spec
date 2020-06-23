@@ -1,13 +1,13 @@
-%global packname  modeldata
-%global packver   0.0.2
+%global packname  ExcelFunctionsR
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.4
 Release:          1%{?dist}
-Summary:          Data Sets Used Useful for Modeling Packages
+Summary:          Imports Excel Functions to R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,10 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-roperators 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-roperators 
+Requires:         R-CRAN-plyr 
+Requires:         R-stats 
 
 %description
-Data sets used for demonstrating or testing model-related packages are
-contained in this package.
+Implements 'Excel' functions in 'R' for your calculation simplicity.You
+can use most of the aggregate functions, addressing functions,logical
+functions and text functions. Helps you a ton in learning how 'R' works as
+some 'Excel' users might be struggling with the program.
 
 %prep
 %setup -q -c -n %{packname}
