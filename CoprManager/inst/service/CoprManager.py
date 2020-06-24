@@ -19,19 +19,21 @@ exec(open(dirname(realpath(__file__)) + "/dbus-paths").read())
 class DnfException(dbus.DBusException):
     _dbus_error_name = IFACE + ".DnfException"
 
+def stderr(pid):
+    return open("/proc/" + str(pid) + "/fd/2", "w")
+
 def redirect_stdout_handle_exceptions(timeout):
     def _redirect_stdout_handle_exceptions(fn):
         @wraps(fn)
         def wrapper(self, pid, *args, **kw):
             signal.alarm(0)
-            with open("/proc/" + str(pid) + "/fd/2", "w") as f:
-                with redirect_stdout(f):
-                    try:
-                        out = fn(self, pid, *args, **kw)
-                    except Exception as err:
-                        raise DnfException(str(err))
-                    finally:
-                        signal.alarm(timeout)
+            with stderr(pid) as f, redirect_stdout(f):
+                try:
+                    out = fn(self, pid, *args, **kw)
+                except Exception as err:
+                    raise DnfException(str(err))
+                finally:
+                    signal.alarm(timeout)
             return out
         return wrapper
     return _redirect_stdout_handle_exceptions
