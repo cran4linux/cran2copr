@@ -3,10 +3,12 @@
 source inst/service/dbus-paths
 
 function subst {
-  cat $1 |
-  sed "s @BUS_NAME@ $BUS_NAME g" |
-  sed "s @R_LIBRARY_DIR@ $R_LIBRARY_DIR g"
+  pushd $1
+    cat $2 |
+    sed "s @BUS_NAME@ $BUS_NAME g" |
+    sed "s @R_LIBRARY_DIR@ $R_LIBRARY_DIR g" > $3
+  popd
 }
 
-subst inst/service/dbus.service.in > inst/service/$BUS_NAME.service
-subst inst/service/dbus.conf.in > inst/service/$BUS_NAME.conf
+subst inst/service dbus.service.in $BUS_NAME.service
+subst inst/service dbus.conf.in $BUS_NAME.conf

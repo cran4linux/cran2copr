@@ -25,11 +25,10 @@ D-Bus to a systemd service that manages package installations via DNF.
 %setup -q -n %{projname}-master
 
 %build
-%{_bindir}/R CMD build %{packname}
 
 %install
 mkdir -p %{buildroot}%{rlibdir}
-%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}_%{version}.tar.gz
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 rm -f %{buildroot}%{rlibdir}/R.css
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 

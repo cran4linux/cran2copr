@@ -1,4 +1,0 @@
-[D-BUS Service]
-Name=org.fedoraproject.cran2copr1
-Exec=/usr/bin/python3 /home/iucar/R/x86_64-redhat-linux-gnu-library/3.6/CoprManager/service/CoprManager.py
-User=root
