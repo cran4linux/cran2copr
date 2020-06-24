@@ -2,7 +2,8 @@
 
 from gi.repository import GLib
 from functools import wraps
-import signal, sys
+from contextlib import redirect_stdout
+import signal
 
 import dbus
 import dbus.service
@@ -23,15 +24,14 @@ def redirect_stdout_handle_exceptions(timeout):
         @wraps(fn)
         def wrapper(self, pid, *args, **kw):
             signal.alarm(0)
-            old = sys.stdout
-            sys.stdout = open("/proc/" + str(pid) + "/fd/2", "w")
-            try:
-                out = fn(self, pid, *args, **kw)
-            except Exception as err:
-                raise DnfException(str(err))
-            finally:
-                sys.stdout = old
-                signal.alarm(timeout)
+            with open("/proc/" + str(pid) + "/fd/2", "w") as f:
+                with redirect_stdout(f):
+                    try:
+                        out = fn(self, pid, *args, **kw)
+                    except Exception as err:
+                        raise DnfException(str(err))
+                    finally:
+                        signal.alarm(timeout)
             return out
         return wrapper
     return _redirect_stdout_handle_exceptions

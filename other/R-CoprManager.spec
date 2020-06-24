@@ -4,7 +4,7 @@
 %global rlibdir %{_datadir}/R/library
 
 Name:           R-%{packname}
-Version:        0.1.0
+Version:        0.1.1
 Release:        1%{?dist}
 Summary:        Package Manager for the 'cran2copr' Project
 
@@ -36,7 +36,7 @@ find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 mkdir -p %{buildroot}%{_datadir}/dbus-1/system-services
 mv %{buildroot}%{rlibdir}/%{packname}/service/%{busname}.service \
     %{buildroot}%{_datadir}/dbus-1/system-services
-    
+
 mkdir -p %{buildroot}%{_sysconfdir}/dbus-1/system.d
 mv %{buildroot}%{rlibdir}/%{packname}/service/%{busname}.conf \
     %{buildroot}%{_sysconfdir}/dbus-1/system.d
