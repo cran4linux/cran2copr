@@ -1,28 +1,28 @@
-%global packname  SeerMapper2010East
-%global packver   1.2.4
+%global packname  knitrdata
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          0.3.1
 Release:          1%{?dist}
-Summary:          Supplemental U.S. 2010 Census Tract Boundaries for 20 EasternStates (including DC and PR) without Registries for'SeerMapper'
+Summary:          Data Language Engine for 'knitr' / 'rmarkdown'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-base64enc 
 
 %description
-Provides supplemental 2010 census tract boundary package for 20 states
-without Seer Registries that are east of the Mississippi river for use
-with the 'SeerMapper' package. The data contained in this package is
-derived from U.S. Census data and is in public domain.
+Implements a data language engine for incorporating data directly in
+'rmarkdown' documents so that they can be made completely standalone.
 
 %prep
 %setup -q -c -n %{packname}

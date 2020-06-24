@@ -1,28 +1,31 @@
-%global packname  SeerMapper2010East
-%global packver   1.2.4
+%global packname  aif360
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Supplemental U.S. 2010 Census Tract Boundaries for 20 EasternStates (including DC and PR) without Registries for'SeerMapper'
+Summary:          Help Detect and Mitigate Bias in Machine Learning Models
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Provides supplemental 2010 census tract boundary package for 20 states
-without Seer Registries that are east of the Mississippi river for use
-with the 'SeerMapper' package. The data contained in this package is
-derived from U.S. Census data and is in public domain.
+The 'AI Fairness 360' <https://aif360.mybluemix.net/> toolkit is an
+open-source library to help detect and mitigate bias in machine learning
+models. The AI Fairness 360 R package includes a comprehensive set of
+metrics for datasets and models to test for biases, explanations for these
+metrics, and algorithms to mitigate bias in datasets and models.
 
 %prep
 %setup -q -c -n %{packname}

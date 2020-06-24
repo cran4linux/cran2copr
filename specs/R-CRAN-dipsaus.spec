@@ -1,10 +1,10 @@
 %global packname  dipsaus
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
-Release:          2%{?dist}
+Version:          0.0.8
+Release:          1%{?dist}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
 License:          GPL-3
@@ -28,12 +28,12 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-fastmap 
 BuildRequires:    R-CRAN-base64url 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-synchronicity 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-startup 
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-rlang >= 0.4.0
@@ -49,12 +49,12 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-fastmap 
 Requires:         R-CRAN-base64url 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-synchronicity 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-startup 
 
 %description
@@ -75,6 +75,8 @@ chip-set, memory limit, etc.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -87,17 +89,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/shiny-addons
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

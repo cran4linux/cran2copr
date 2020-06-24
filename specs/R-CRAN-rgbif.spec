@@ -1,10 +1,10 @@
 %global packname  rgbif
-%global packver   2.3
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
-Release:          2%{?dist}
+Version:          3.0.0
+Release:          1%{?dist}
 Summary:          Interface to the Global 'Biodiversity' Information Facility API
 
 License:          MIT + file LICENSE
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-geoaxe
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-conditionz 
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-crul >= 0.7.4
 Requires:         R-CRAN-wicket >= 0.4.0
@@ -41,6 +42,7 @@ Requires:         R-CRAN-geoaxe
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-conditionz 
 
 %description
 A programmatic interface to the Web Service methods provided by the Global
@@ -56,6 +58,8 @@ occurrence records, and using the 'GBIF' tile map service to make
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -68,19 +72,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/assets
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/singlemaplayout.html
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

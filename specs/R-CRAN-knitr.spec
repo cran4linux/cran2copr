@@ -1,10 +1,10 @@
 %global packname  knitr
-%global packver   1.28
+%global packver   1.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28
-Release:          2%{?dist}
+Version:          1.29
+Release:          1%{?dist}
 Summary:          A General-Purpose Package for Dynamic Report Generation in R
 
 License:          GPL
@@ -19,19 +19,19 @@ Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml >= 2.1.19
 BuildRequires:    R-CRAN-stringr >= 0.6
+BuildRequires:    R-CRAN-xfun >= 0.15
 BuildRequires:    R-CRAN-evaluate >= 0.10
 BuildRequires:    R-CRAN-highr 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-yaml >= 2.1.19
 Requires:         R-CRAN-stringr >= 0.6
+Requires:         R-CRAN-xfun >= 0.15
 Requires:         R-CRAN-evaluate >= 0.10
 Requires:         R-CRAN-highr 
 Requires:         R-CRAN-markdown 
 Requires:         R-methods 
-Requires:         R-CRAN-xfun 
 Requires:         R-tools 
 
 %description
@@ -41,6 +41,9 @@ Literate Programming techniques.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -53,21 +56,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/bin
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/misc
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%doc %{rlibdir}/%{packname}/opencpu
-%doc %{rlibdir}/%{packname}/shiny
-%doc %{rlibdir}/%{packname}/themes
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

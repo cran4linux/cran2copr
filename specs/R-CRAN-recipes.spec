@@ -1,10 +1,10 @@
 %global packname  recipes
-%global packver   0.1.12
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
-Release:          2%{?dist}
+Version:          0.1.13
+Release:          1%{?dist}
 Summary:          Preprocessing Tools to Create Design Matrices
 
 License:          GPL-2
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 0.8.3
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 BuildRequires:    R-CRAN-purrr >= 0.2.3
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-generics
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gower 
 BuildRequires:    R-CRAN-ipred 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-Matrix 
@@ -32,7 +33,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-tidyr >= 0.8.3
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-tidyselect >= 0.2.5
 Requires:         R-CRAN-purrr >= 0.2.3
@@ -41,6 +42,7 @@ Requires:         R-CRAN-generics
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gower 
 Requires:         R-CRAN-ipred 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-Matrix 
@@ -61,6 +63,8 @@ used as inputs into statistical or machine learning models.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -73,14 +77,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/boilerplate.R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

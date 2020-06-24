@@ -1,10 +1,10 @@
 %global packname  stratEst
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
-Release:          2%{?dist}
+Version:          1.0.0
+Release:          1%{?dist}
 Summary:          Strategy Estimation
 
 License:          GPL-3
@@ -12,23 +12,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.18
+Requires:         R-stats 
 
 %description
-Variants of the strategy frequency estimation method by Dal Bo & Frechette
-(2011) <doi:10.1257/aer.101.1.411>, including the adaptation to estimate
-choice parameters of behavior strategies by Breitmoser (2015)
-<doi:10.1257/aer.20130675>, and the extension in the spirit of
-latent-class regression by Dvorak & Fehrler (2018)
-<doi:10.2139/ssrn.2986445>.
+Variants of strategy estimation (Dal Bo & Frechette, 2011,
+<doi:10.1257/aer.101.1.411>), including the model with parameters for the
+choice probabilities of the strategies (Breitmoser, 2015,
+<doi:10.1257/aer.20130675>), and the model with individual level
+covariates for the selection of strategies by individuals (Dvorak &
+Fehrler, 2018, <doi:10.2139/ssrn.2986445>).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -41,15 +46,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHT.txt
-%doc %{rlibdir}/%{packname}/stratEst_paper_181201.pdf
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

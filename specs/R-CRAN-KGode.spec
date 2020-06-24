@@ -1,9 +1,9 @@
 %global packname  KGode
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}
 Summary:          Kernel Based Gradient Matching for Parameter Inference inOrdinary Differential Equations
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-pspline 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-pspline 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-graphics 
 
 %description
 The kernel ridge regression and the gradient matching algorithm proposed
@@ -36,6 +38,8 @@ estimation in odes by using the odes regularisation and warping.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -48,11 +52,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

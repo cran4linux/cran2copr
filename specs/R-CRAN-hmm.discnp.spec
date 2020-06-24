@@ -1,10 +1,10 @@
 %global packname  hmm.discnp
-%global packver   2.1-12
+%global packver   3.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.12
-Release:          2%{?dist}
+Version:          3.0.4
+Release:          1%{?dist}
 Summary:          Hidden Markov Models with Discrete Non-Parametric ObservationDistributions
 
 License:          GPL (>= 2)
@@ -28,6 +28,9 @@ model.  Auxiliary predictors are accommodated in the univariate setting.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -40,17 +43,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/inst.c.save
-%doc %{rlibdir}/%{packname}/Ratfor
-%doc %{rlibdir}/%{packname}/READ_ME
-%doc %{rlibdir}/%{packname}/Save
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

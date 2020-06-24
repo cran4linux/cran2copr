@@ -1,9 +1,9 @@
 %global packname  ReadDIM
-%global packver   0.2.3
+%global packver   0.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.10
 Release:          1%{?dist}
 Summary:          Read ESA SNAP Processed Raster Format in R
 
@@ -16,10 +16,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-sp 

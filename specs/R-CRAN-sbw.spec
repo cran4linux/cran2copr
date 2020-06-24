@@ -1,10 +1,10 @@
 %global packname  sbw
-%global packver   1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
-Release:          2%{?dist}
+Version:          1.1.1
+Release:          1%{?dist}
 Summary:          Stable Balancing Weights for Causal Inference and Estimationwith Incomplete Outcome Data
 
 License:          GPL-2 | GPL-3
@@ -27,12 +27,22 @@ Requires:         R-MASS
 Requires:         R-CRAN-spatstat 
 
 %description
-Weights of minimum variance that approximately balance the empirical
-distribution of the observed covariates.
+Implements the Stable Balancing Weights by Zubizarreta (2015)
+<DOI:10.1080/01621459.2015.1023805>. These are the weights of minimum
+variance that approximately balance the empirical distribution of the
+observed covariates. For an overview, see Chattopadhyay, Hase and
+Zubizarreta (2020) <DOI:10.1002/(ISSN)1097-0258>. To solve the
+optimization problem in 'sbw', the default solver is 'quadprog', which is
+readily available through CRAN. To enhance the performance of 'sbw', users
+are encouraged to install other solvers such as 'gurobi' and 'Rmosek',
+which require special installation.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -45,12 +55,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

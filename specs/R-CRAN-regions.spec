@@ -1,10 +1,10 @@
 %global packname  regions
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          2%{?dist}
+Version:          0.1.5
+Release:          1%{?dist}
 Summary:          Processing Regional Statistics
 
 License:          GPL-3
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-magrittr 
@@ -37,6 +39,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-glue 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-stringr 
 
 %description
 Validating sub-national statistical typologies, re-coding across standard
@@ -48,6 +52,8 @@ hierarchical levels to create meaningful data panels and time series.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -60,14 +66,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

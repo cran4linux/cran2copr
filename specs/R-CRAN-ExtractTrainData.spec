@@ -1,9 +1,9 @@
 %global packname  ExtractTrainData
-%global packver   5.1.5
+%global packver   9.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.5
+Version:          9.1.5
 Release:          1%{?dist}
 Summary:          Extract Values from Raster
 
@@ -25,14 +25,17 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-rgeos 
 
 %description
-By using a multispectral image and ESRI shapefile (Point/Polygon), a data
-table will be generated for classification or regression. The data table
-will be contained by band wise raster values and class ids.
+By using a multispectral image and ESRI shapefile (Point/ Line/ Polygon),
+a data table will be generated for classification, regression or other
+processing. The data table will be contained by band wise raster values
+and shapefile ids (User Defined).
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -45,12 +48,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

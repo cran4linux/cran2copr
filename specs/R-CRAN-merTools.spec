@@ -1,10 +1,10 @@
 %global packname  merTools
-%global packver   0.5.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
-Release:          2%{?dist}
+Version:          0.5.2
+Release:          1%{?dist}
 Summary:          Tools for Analyzing Mixed Effect Regression Models
 
 License:          GPL (>= 2)
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-blme 
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-broom.mixed 
 Requires:         R-CRAN-lme4 >= 1.1.11
 Requires:         R-CRAN-arm 
 Requires:         R-methods 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-blme 
-Requires:         R-CRAN-broom 
+Requires:         R-CRAN-broom.mixed 
 
 %description
 Provides methods for extracting results from mixed-effect model objects
@@ -47,6 +47,9 @@ models.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -54,20 +57,9 @@ models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/modelFigure.R
-%doc %{rlibdir}/%{packname}/shiny-apps
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,13 +1,13 @@
-%global packname  rEDM
-%global packver   1.3.8.5
+%global packname  IOHexperimenter
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8.5
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Empirical Dynamic Modeling ('EDM')
+Summary:          Benchmarking Part of the 'IOHprofiler'
 
-License:          BSD_2_clause + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppThread 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-magrittr 
 
 %description
-An implementation of 'EDM' algorithms based on research software developed
-for internal use at the Sugihara Lab ('UCSD/SIO').  The package is
-implemented with 'Rcpp' wrappers around the 'cppEDM' library.  It
-implements the 'simplex' projection method from Sugihara & May (1990)
-<doi:10.1038/344734a0>, the 'S-map' algorithm from Sugihara (1994)
-<doi:10.1098/rsta.1994.0106>, convergent cross mapping described in
-Sugihara et al. (2012) <doi:10.1126/science.1227079>, and, 'multiview
-embedding' described in Ye & Sugihara (2016)
-<doi:10.1126/science.aag0863>.
+The benchmarking module for the Iterative Optimization Heuristics Profiler
+('IOHprofiler'). This module provides benchmarking in the 'IOHprofiler'
+format, which can be visualized using the 'IOHanalyzer' module.
 
 %prep
 %setup -q -c -n %{packname}

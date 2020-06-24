@@ -1,10 +1,10 @@
 %global packname  mstrio
-%global packver   11.2.1
+%global packver   11.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.2.1
-Release:          2%{?dist}
+Version:          11.2.2
+Release:          1%{?dist}
 Summary:          Interface for 'MicroStrategy' REST API
 
 License:          Apache License 2.0 | file LICENSE
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-crul
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shiny 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-crul
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shiny 
@@ -47,6 +45,8 @@ Interface for creating data sets and extracting data through the
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -59,16 +59,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/rstudio
-%doc %{rlibdir}/%{packname}/www
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
