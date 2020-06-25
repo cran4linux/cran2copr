@@ -1,33 +1,33 @@
-%global packname  splot
-%global packver   0.5.1
+%global packname  BSS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Split Plot
+Summary:          Brownian Semistationary Processes
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-hypergeo 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-phangorn 
+Requires:         R-CRAN-hypergeo 
+Requires:         R-MASS 
+Requires:         R-CRAN-phangorn 
 
 %description
-Automates common plotting tasks to ease data exploration. Makes density
-plots (potentially overlaid on histograms), scatter plots with prediction
-lines, or bar or line plots with error bars. For each type, y, or x and y
-variables can be plotted at levels of other variables, all with minimal
-specification.
+Efficient simulation of Brownian semistationary (BSS) processes using the
+hybrid simulation scheme, as described in Bennedsen, Lunde, Pakkannen
+(2017) <arXiv:1507.03004v4>, as well as functions to fit BSS processes to
+data, and functions to estimate the stochastic volatility process of a BSS
+process.
 
 %prep
 %setup -q -c -n %{packname}

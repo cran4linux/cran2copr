@@ -1,33 +1,28 @@
-%global packname  splot
-%global packver   0.5.1
+%global packname  kdtools
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.4.2
 Release:          1%{?dist}
-Summary:          Split Plot
+Summary:          Tools for Working with Multidimensional Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.14
+BuildRequires:    R-CRAN-strider 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.14
 
 %description
-Automates common plotting tasks to ease data exploration. Makes density
-plots (potentially overlaid on histograms), scatter plots with prediction
-lines, or bar or line plots with error bars. For each type, y, or x and y
-variables can be plotted at levels of other variables, all with minimal
-specification.
+Provides various tools for working with multidimensional data in R and
+C++, including extremely fast nearest-neighbor- and range- queries without
+the overhead of linked tree nodes.
 
 %prep
 %setup -q -c -n %{packname}

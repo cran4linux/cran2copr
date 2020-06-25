@@ -1,9 +1,9 @@
 %global packname  gemtc
-%global packver   0.8-5
+%global packver   0.8-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.6
 Release:          1%{?dist}
 Summary:          Network Meta-Analysis Using Bayesian Methods
 
@@ -44,7 +44,9 @@ Requires:         R-CRAN-Rglpk
 %description
 Network meta-analyses (mixed treatment comparisons) in the Bayesian
 framework using JAGS. Includes methods to assess heterogeneity and
-inconsistency, and a number of standard visualizations.
+inconsistency, and a number of standard visualizations. van Valkenhoef et
+al. (2012) <doi:10.1002/jrsm.1054>; van Valkenhoef et al. (2015)
+<doi:10.1002/jrsm.1167>.
 
 %prep
 %setup -q -c -n %{packname}

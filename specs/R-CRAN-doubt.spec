@@ -1,33 +1,31 @@
-%global packname  splot
-%global packver   0.5.1
+%global packname  doubt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Split Plot
+Summary:          Enable Operators Containing the '?' Symbol
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-unglue 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-unglue 
 
 %description
-Automates common plotting tasks to ease data exploration. Makes density
-plots (potentially overlaid on histograms), scatter plots with prediction
-lines, or bar or line plots with error bars. For each type, y, or x and y
-variables can be plotted at levels of other variables, all with minimal
-specification.
+Overload utils::'?' to build unary and binary operators from existing
+functions, piping operators of different precedence, and flexible
+syntaxes.
 
 %prep
 %setup -q -c -n %{packname}

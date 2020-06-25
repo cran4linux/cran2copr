@@ -1,33 +1,34 @@
-%global packname  splot
-%global packver   0.5.1
+%global packname  phm
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Split Plot
+Summary:          Phrase Mining
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-grDevices 
+BuildRequires:    R-utils >= 3.6.2
+BuildRequires:    R-CRAN-shiny >= 1.4.0
+BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-tm >= 0.7.7
+BuildRequires:    R-CRAN-slam >= 0.1.46
+Requires:         R-utils >= 3.6.2
+Requires:         R-CRAN-shiny >= 1.4.0
+Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-tm >= 0.7.7
+Requires:         R-CRAN-slam >= 0.1.46
 
 %description
-Automates common plotting tasks to ease data exploration. Makes density
-plots (potentially overlaid on histograms), scatter plots with prediction
-lines, or bar or line plots with error bars. For each type, y, or x and y
-variables can be plotted at levels of other variables, all with minimal
-specification.
+Functions to extract and handle commonly occurring principal phrases
+obtained from collections of texts.
 
 %prep
 %setup -q -c -n %{packname}

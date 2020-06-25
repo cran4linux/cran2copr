@@ -1,10 +1,10 @@
 %global packname  detrendr
-%global packver   0.6.6
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
-Release:          2%{?dist}
+Version:          0.6.7
+Release:          1%{?dist}
 Summary:          Detrend Images
 
 License:          BSD_3_clause + file LICENSE
@@ -12,7 +12,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    make
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.0
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
@@ -50,7 +48,6 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-matrixStats 
 Requires:         R-parallel 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
@@ -67,6 +64,8 @@ with the Robin Hood algorithm and thus contains unpublished work.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -79,18 +78,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

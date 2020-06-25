@@ -1,10 +1,10 @@
 %global packname  mc.heterogeneity
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}
+Version:          0.1.1
+Release:          1%{?dist}
 Summary:          A Monte Carlo Based Heterogeneity Test for Meta-Analysis
 
 License:          GPL (>= 2)
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-boot.heterogeneity 
 Requires:         R-stats 
 Requires:         R-CRAN-metafor 
 Requires:         R-utils 
+Requires:         R-CRAN-boot.heterogeneity 
 
 %description
 Implements a Monte Carlo Based Heterogeneity Test for standardized mean
@@ -29,12 +31,19 @@ natural-logarithm-transformed odds ratio (OR) in Meta-Analysis Studies.
 Depending on the presence of moderators, this Monte Carlo Based Test can
 be implemented in the random or mixed-effects model. This package uses
 rma() function from the R package 'metafor' to obtain parameter estimates
-and likelihood, so installation of R package 'metafor' is required.
+and likelihood, so installation of R package 'metafor' is required. This
+approach refers to the studies of Hedges (1981)
+<doi:10.3102/10769986006002107>, Hedges & Olkin (1985,
+ISBN:978-0123363800), Silagy, Lancaster, Stead, Mant, & Fowler (2004)
+<doi:10.1002/14651858.CD000146.pub2>, Viechtbauer (2010)
+<doi:10.18637/jss.v036.i03>, and Zuckerman (1994, ISBN:978-0521432009).
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -47,12 +56,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,10 +1,10 @@
 %global packname  IOHanalyzer
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          2%{?dist}
+Version:          0.1.4
+Release:          1%{?dist}
 Summary:          Data Analysis Part of 'IOHprofiler'
 
 License:          BSD_3_clause + file LICENSE
@@ -24,8 +24,6 @@ BuildRequires:    R-CRAN-colorspace
 BuildRequires:    R-CRAN-colorRamps 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-shinyjs 
@@ -33,9 +31,9 @@ BuildRequires:    R-CRAN-colourpicker
 BuildRequires:    R-CRAN-bsplus 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-PlayerRatings 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -46,8 +44,6 @@ Requires:         R-CRAN-colorspace
 Requires:         R-CRAN-colorRamps 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-shinyjs 
@@ -55,9 +51,9 @@ Requires:         R-CRAN-colourpicker
 Requires:         R-CRAN-bsplus 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-PlayerRatings 
+Requires:         R-CRAN-stringi 
 
 %description
 The data analysis module for the Iterative Optimization Heuristics
@@ -71,6 +67,9 @@ Optimisers) data format for benchmarking.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -83,16 +82,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/shiny-server
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

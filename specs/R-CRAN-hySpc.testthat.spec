@@ -1,33 +1,27 @@
-%global packname  splot
-%global packver   0.5.1
+%global packname  hySpc.testthat
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.2.1
 Release:          1%{?dist}
-Summary:          Split Plot
+Summary:          'testthat' Unit Test Enhancements
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-testthat 
 
 %description
-Automates common plotting tasks to ease data exploration. Makes density
-plots (potentially overlaid on histograms), scatter plots with prediction
-lines, or bar or line plots with error bars. For each type, y, or x and y
-variables can be plotted at levels of other variables, all with minimal
-specification.
+Enhance package 'testthat' by allowing tests to be attached to the
+function/object they test. This allows to keep functional and unit test
+code together.
 
 %prep
 %setup -q -c -n %{packname}

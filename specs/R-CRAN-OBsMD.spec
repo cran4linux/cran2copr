@@ -1,10 +1,10 @@
 %global packname  OBsMD
-%global packver   5.3
+%global packver   6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3
-Release:          2%{?dist}
+Version:          6.0
+Release:          1%{?dist}
 Summary:          Objective Bayesian Model Discrimination in Follow-Up Designs
 
 License:          GPL (>= 2)
@@ -18,13 +18,15 @@ Requires:         R-core
 %description
 Implements the objective Bayesian methodology proposed in Consonni and
 Deldossi in order to choose the optimal experiment that better
-discriminate between competing models. G.Consonni, L. Deldossi (2014)
-Objective Bayesian Model Discrimination in Follow-up Experimental Designs,
-Test. <DOI:10.1007/s11749-015-0461-3>.
+discriminate between competing models, see Deldossi and Nai Ruscone (2020)
+<doi:10.18637/jss.v094.i02>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -37,13 +39,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

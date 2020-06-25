@@ -1,10 +1,10 @@
 %global packname  RchivalTag
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          2%{?dist}
+Version:          0.1.2
+Release:          1%{?dist}
 Summary:          Analyzing Archival Tagging Data
 
 License:          GPL (>= 3)
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-dygraphs 
+BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-mapdata 
 BuildRequires:    R-grDevices 
@@ -40,6 +42,8 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-dygraphs 
+Requires:         R-CRAN-xts 
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-mapdata 
 Requires:         R-grDevices 
@@ -56,6 +60,8 @@ from archival tagging data.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -68,13 +74,4 @@ test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/example_files
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

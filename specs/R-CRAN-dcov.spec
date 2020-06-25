@@ -1,33 +1,29 @@
-%global packname  splot
-%global packver   0.5.1
+%global packname  dcov
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Split Plot
+Summary:          A Fast Implementation of Distance Covariance
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Automates common plotting tasks to ease data exploration. Makes density
-plots (potentially overlaid on histograms), scatter plots with prediction
-lines, or bar or line plots with error bars. For each type, y, or x and y
-variables can be plotted at levels of other variables, all with minimal
-specification.
+Efficient methods for computing distance covariance and relevant
+statistics. See Székely et al.(2007) <doi:10.1214/009053607000000505>;
+Székely and Rizzo (2013) <doi:10.1016/j.jmva.2013.02.012>; Székely and
+Rizzo (2014) <doi:10.1214/14-AOS1255>; Huo and Székely (2016)
+<doi:10.1080/00401706.2015.1054435>.
 
 %prep
 %setup -q -c -n %{packname}

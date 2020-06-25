@@ -1,38 +1,38 @@
-%global packname  mapmisc
-%global packver   1.7.9
+%global packname  MasterBayes
+%global packver   2.57
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.9
+Version:          2.57
 Release:          1%{?dist}
-Summary:          Utilities for Producing Maps
+Summary:          ML and MCMC Methods for Pedigree Reconstruction and Analysis
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-genetics 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-kinship2 
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-genetics 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-kinship2 
 Requires:         R-methods 
-Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-A minimal, light-weight set of tools for producing nice looking maps in R,
-with support for map projections.
+The primary aim of 'MasterBayes' is to use MCMC techniques to integrate
+over uncertainty in pedigree configurations estimated from molecular
+markers and phenotypic data.  Emphasis is put on the marginal distribution
+of parameters that relate the phenotypic data to the pedigree. All
+simulation is done in compiled 'C++' for efficiency.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,38 @@
-%global packname  mapmisc
-%global packver   1.7.9
+%global packname  lifx
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.9
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Utilities for Producing Maps
+Summary:          Control 'LIFX' Smart Light Bulbs
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-stats 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-crayon 
 Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-A minimal, light-weight set of tools for producing nice looking maps in R,
-with support for map projections.
+Allows you to read and change the state of 'LIFX' smart light bulbs via
+the 'LIFX' developer api <https://api.developer.lifx.com/>. Covers most
+'LIFX' api endpoints, including changing light color and brightness,
+selecting lights by id, group or location as well as activating effects.
 
 %prep
 %setup -q -c -n %{packname}
