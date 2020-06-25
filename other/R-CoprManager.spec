@@ -4,7 +4,7 @@
 %global rlibdir %{_datadir}/R/library
 
 Name:           R-%{packname}
-Version:        0.1.1
+Version:        0.1.2
 Release:        1%{?dist}
 Summary:        Package Manager for the 'cran2copr' Project
 

@@ -3,4 +3,4 @@
 .RData
 desc/
 DEBUG
-CoprManager/inst/service/org
+CoprManager/inst/service/org*

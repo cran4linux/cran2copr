@@ -1,15 +1,19 @@
-globalVariables(c("BUS_NAME", "OPATH", "IFACE"))
+utils::globalVariables(c("BUS_NAME", "OPATH", "IFACE"))
 
 dbus_call <- function(cmd, pkgs) {
   source(system.file("service/dbus-paths", package="CoprManager"))
 
   args <- c("call", BUS_NAME, OPATH, IFACE,
             cmd, "ias", Sys.getpid(), length(pkgs), pkgs)
-
   out <- suppressWarnings(system2("busctl", args, stdout=TRUE, stderr=TRUE))
+
+  if (!length(out))
+    return(out)
   status <- attr(out, "status")
   if (!is.null(status) && status != 0)
     stop(out)
+  cat("\n")
+
   out <- gsub('"', "", out)
   out <- strsplit(out, " ")[[1]][-(1:2)]
   invisible(out)
