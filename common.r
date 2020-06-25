@@ -97,7 +97,8 @@ with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
 
   base <- rownames(installed.packages(priority="high"))
   excl <- unlist(sapply(dir(pattern="excl-.*\\.txt"), readLines))
-  excl <- sapply(strsplit(excl, " "), head, 1)
+  if (!is.null(excl))
+    excl <- sapply(strsplit(excl, " "), head, 1)
   pkgs <- setdiff(pkgs, base)
 
   if (!reverse) {
