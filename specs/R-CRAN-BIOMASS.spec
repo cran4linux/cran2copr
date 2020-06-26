@@ -1,9 +1,9 @@
 %global packname  BIOMASS
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}
 Summary:          Estimating Aboveground Biomass and Its Uncertainty in TropicalForests
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-minpack.lm
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-proj4 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-minpack.lm
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
+Requires:         R-CRAN-proj4 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -50,6 +52,8 @@ See more in the article of Réjou-Méchain et al. (2017)
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -57,21 +61,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/external
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
