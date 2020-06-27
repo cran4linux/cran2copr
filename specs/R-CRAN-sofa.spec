@@ -1,10 +1,10 @@
 %global packname  sofa
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
-Release:          2%{?dist}
+Version:          0.4.0
+Release:          1%{?dist}
 Summary:          Connector to 'CouchDB'
 
 License:          MIT + file LICENSE
@@ -29,14 +29,16 @@ Provides an interface to the 'NoSQL' database 'CouchDB'
 (<http://couchdb.apache.org>). Methods are provided for managing databases
 within 'CouchDB', including creating/deleting/updating/transferring, and
 managing documents within databases. One can connect with a local
-'CouchDB' instance, or a remote 'CouchDB' databases such as 'Cloudant'
-(<https://docs.cloudant.com>). Documents can be inserted directly from
-vectors, lists, data.frames, and 'JSON'. Targeted at 'CouchDB' v2 or
-greater.
+'CouchDB' instance, or a remote 'CouchDB' databases such as 'Cloudant'.
+Documents can be inserted directly from vectors, lists, data.frames, and
+'JSON'. Targeted at 'CouchDB' v2 or greater.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -44,22 +46,9 @@ greater.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/ignore
-%doc %{rlibdir}/%{packname}/vign
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

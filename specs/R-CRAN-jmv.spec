@@ -1,9 +1,9 @@
 %global packname  jmv
-%global packver   1.2.5
+%global packver   1.2.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.23
 Release:          1%{?dist}
 Summary:          The 'jamovi' Analyses
 
@@ -18,8 +18,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-car >= 3.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-psych >= 1.7.5
+BuildRequires:    R-CRAN-jmvcore >= 1.2.19
 BuildRequires:    R-CRAN-emmeans >= 1.1.3
-BuildRequires:    R-CRAN-jmvcore >= 1.0.8
 BuildRequires:    R-CRAN-afex >= 0.20.2
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-multcomp 
@@ -38,8 +38,8 @@ BuildRequires:    R-MASS
 Requires:         R-CRAN-car >= 3.0.0
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-psych >= 1.7.5
+Requires:         R-CRAN-jmvcore >= 1.2.19
 Requires:         R-CRAN-emmeans >= 1.1.3
-Requires:         R-CRAN-jmvcore >= 1.0.8
 Requires:         R-CRAN-afex >= 0.20.2
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-multcomp 
@@ -76,9 +76,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

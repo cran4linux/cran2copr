@@ -1,10 +1,10 @@
 %global packname  predictoR
-%global packver   1.1.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
-Release:          2%{?dist}
+Version:          1.1.2
+Release:          1%{?dist}
 Summary:          Predictive Data Analysis System
 
 License:          GPL (>= 2)
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-randomForest >= 4.6.14
 BuildRequires:    R-rpart >= 4.1.13
 BuildRequires:    R-CRAN-ada >= 2.0.5
 BuildRequires:    R-CRAN-glmnet >= 2.0.16
+BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-e1071 >= 1.7.0.1
 BuildRequires:    R-CRAN-neuralnet >= 1.44.2
 BuildRequires:    R-CRAN-kknn >= 1.3.1
@@ -41,6 +42,7 @@ Requires:         R-CRAN-randomForest >= 4.6.14
 Requires:         R-rpart >= 4.1.13
 Requires:         R-CRAN-ada >= 2.0.5
 Requires:         R-CRAN-glmnet >= 2.0.16
+Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-e1071 >= 1.7.0.1
 Requires:         R-CRAN-neuralnet >= 1.44.2
 Requires:         R-CRAN-kknn >= 1.3.1
@@ -68,6 +70,9 @@ Methods.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -75,18 +80,9 @@ Methods.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/application
-%doc %{rlibdir}/%{packname}/rstudio
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

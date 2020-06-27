@@ -1,9 +1,9 @@
 %global packname  SSDforR
-%global packver   1.5.16
+%global packver   1.5.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.16
+Version:          1.5.17
 Release:          1%{?dist}
 Summary:          Functions to Analyze Single System Data
 
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-TTR 
 BuildRequires:    R-MASS 
-BuildRequires:    R-tcltk 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-SingleCaseES
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-TTR 
 Requires:         R-MASS 
-Requires:         R-tcltk 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -54,9 +52,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

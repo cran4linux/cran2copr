@@ -1,10 +1,10 @@
 %global packname  rgdal
-%global packver   1.5-10
+%global packver   1.5-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.10
-Release:          2%{?dist}
+Version:          1.5.12
+Release:          1%{?dist}
 Summary:          Bindings for the 'Geospatial' Data Abstraction Library
 
 License:          GPL (>= 2)
@@ -41,12 +41,14 @@ installed first; it is important that 'GDAL' < 3 be matched with 'PROJ' <
 6. From 'rgdal' 1.5-8, installed with to 'GDAL' >=3, 'PROJ' >=6 and 'sp'
 >= 1.4, coordinate reference systems use 'WKT2_2019' strings, not 'PROJ'
 strings. 'Windows' and 'macOS' binaries (including 'GDAL', 'PROJ' and
-'Expat') are provided on 'CRAN'.
+their dependencies) are provided on 'CRAN'.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -54,30 +56,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/ChangeLog
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/etc
-%{rlibdir}/%{packname}/include
-%license %{rlibdir}/%{packname}/LICENSE.TXT
-%doc %{rlibdir}/%{packname}/m4
-%doc %{rlibdir}/%{packname}/OSGeo4W_test
-%doc %{rlibdir}/%{packname}/pictures
-%doc %{rlibdir}/%{packname}/README
-%doc %{rlibdir}/%{packname}/README.windows
-%doc %{rlibdir}/%{packname}/SVN_VERSION
-%doc %{rlibdir}/%{packname}/vectors
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

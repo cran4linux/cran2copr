@@ -1,9 +1,9 @@
 %global packname  inventorize
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}
 Summary:          Inventory Analytics and Cost Calculations
 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-plotly 
 
 %description
-Simulate inventory Policies, facilitate inventory analysis calculations
+Simulate inventory policies, facilitate inventory analysis calculations
 such as stock levels and re-order points,pricing and promotions
 calculations. The package includes calculations of inventory metrics,
 stock-out calculations and ABC analysis calculations. The package includes
