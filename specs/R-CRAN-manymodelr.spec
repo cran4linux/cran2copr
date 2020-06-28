@@ -1,10 +1,10 @@
 %global packname  manymodelr
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          2%{?dist}
+Version:          0.3.2
+Release:          1%{?dist}
 Summary:          Build and Tune Several Models
 
 License:          GPL-2
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caret >= 6.0.81
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
@@ -34,14 +34,13 @@ one go.The goal is to provide a number of machine learning convenience
 functions. It provides the ability to build, tune and obtain predictions
 of several models in one function. The models are built using 'caret'
 functions with easier to read syntax. Kuhn(2014) <arXiv:1405.6974>.
-Kuhn(2008) <doi:10.18637/jss.v028.i05>. Chambers,J.M.(1992)
-<doi:10.1007/978-3-642-50096-1_48>. Wilkinson,G.N. and Rogers, C. E.
-(1973) <doi:10.2307/2346786>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -49,18 +48,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

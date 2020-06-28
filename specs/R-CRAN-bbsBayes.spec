@@ -1,10 +1,10 @@
 %global packname  bbsBayes
-%global packver   2.2.2
+%global packver   2.3.2.2020
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
-Release:          2%{?dist}
+Version:          2.3.2.2020
+Release:          1%{?dist}
 Summary:          Hierarchical Bayesian Analysis of North American BBS Data
 
 License:          MIT + file LICENSE
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-sbtools 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-jagsUI 
 Requires:         R-CRAN-ggrepel 
@@ -41,14 +42,15 @@ Requires:         R-CRAN-sf
 Requires:         R-tools 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-sbtools 
 
 %description
 The North American Breeding Bird Survey (BBS) is a long-running program
 that seeks to monitor the status and trends of the breeding birds in North
 America. Since its start in 1966, the BBS has accumulated over 50 years of
-data for over 300 species of North American Birds. Given the temporal and
+data for over 500 species of North American Birds. Given the temporal and
 spatial structure of the data, hierarchical Bayesian models are used to
-assess the status and trends of these 300+ species of birds. 'bbsBayes'
+assess the status and trends of these 500+ species of birds. 'bbsBayes'
 allows you to perform hierarchical Bayesian analysis of BBS data. You can
 run a full model analysis for one or more species that you choose, or you
 can take more control and specify how the data should be stratified,
@@ -62,6 +64,8 @@ Wildlife Service (CWS, see Smith and Edwards (2020)
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -69,26 +73,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/area-weight
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/composite-regions
-%{rlibdir}/%{packname}/data-import
-%{rlibdir}/%{packname}/data-terms
-%doc %{rlibdir}/%{packname}/geofacet-grids
-%doc %{rlibdir}/%{packname}/maps
-%doc %{rlibdir}/%{packname}/models
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
