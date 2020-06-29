@@ -1,25 +1,29 @@
-%global packname  MatTransMix
-%global packver   0.1.10
+%global packname  lsdbc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Clustering with Matrix Gaussian and Matrix TransformationMixture Models
+Summary:          Locally Scaled Density Based Clustering
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides matrix Gaussian mixture models, matrix transformation mixture
-models and their model-based clustering results. The parsimonious models
-of the mean matrices and variance covariance matrices are implemented with
-a total of 196 variations.
+Implementation of Locally Scaled Density Based Clustering (LSDBC)
+algorithm proposed by Bicici and Yuret (2007)
+<doi:10.1007/978-3-540-71618-1_82>. This package also contains some
+supporting functions such as betaCV() function and get_spectral()
+function.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
-%global packname  pubchunks
-%global packver   0.2.2
+%global packname  modelc
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0.0
 Release:          1%{?dist}
-Summary:          Fetch Sections of XML Scholarly Articles
+Summary:          A Linear Model to 'SQL' Compiler
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,18 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 >= 1.1.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rcrossref 
-Requires:         R-CRAN-xml2 >= 1.1.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rcrossref 
 
 %description
-Get chunks of XML scholarly articles without having to know how to work
-with XML. Custom mappers for each publisher and for each article section
-pull out the information you want. Works with outputs from package
-'fulltext', 'xml2' package documents, and file paths to XML documents.
+This is a cross-platform linear model to 'SQL' compiler. It generates
+'SQL' from linear and generalized linear models. Its interface consists of
+a single function, modelc(), which takes the output of lm() or glm()
+functions (or any object which has the same signature) and outputs a 'SQL'
+character vector representing the predictions on the scale of the response
+variable as described in Dunn & Smith (2018)
+<doi:10.1007/978-1-4419-0118-7> and originating in Nelder & Wedderburn
+(1972) <doi:10.2307/2344614>. The resultant 'SQL' can be included in a
+'SELECT' statement and returns output similar to that of the glm.predict()
+or lm.predict() predictions, assuming numeric types are represented in the
+database using sufficient precision. Currently log and identity link
+functions are supported.
 
 %prep
 %setup -q -c -n %{packname}

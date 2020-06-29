@@ -1,28 +1,35 @@
-%global packname  roptim
-%global packver   0.1.5
+%global packname  SMMT
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          General Purpose Optimization in R using C++
+Summary:          The Swiss Municipality Merger Tool Maps Municipalities Over Time
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.14
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-tibble 
 
 %description
-Perform general purpose optimization in R using C++. A unified wrapper
-interface is provided to call C functions of the five optimization
-algorithms ('Nelder-Mead', 'BFGS', 'CG', 'L-BFGS-B' and 'SANN') underlying
-optim().
+In Switzerland, the landscape of municipalities is changing rapidly mainly
+due to mergers. The Swiss Municipality Merger Tool automatically detects
+these mutations and maps municipalities over time, i.e. municipalities of
+an old state to municipalities of a new state. This functionality is
+helpful when working with datasets that are based on different spatial
+references. The spatial reference in this context signifies a set of
+municipalities at a given point in time.
 
 %prep
 %setup -q -c -n %{packname}

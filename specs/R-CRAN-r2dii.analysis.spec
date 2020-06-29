@@ -1,43 +1,37 @@
-%global packname  eda4treeR
-%global packver   0.3.0
+%global packname  r2dii.analysis
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Experimental Design and Analysis for Tree Improvement
+Summary:          Tools to Calculate Climate Targets for Financial Portfolios
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dae 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pbkrtest 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dae 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pbkrtest 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides data sets and R Codes for Williams, E.R., Matheson, A.C. and
-Harwood, C.E. (2002). Experimental Design and Analysis for Tree
-Improvement, CSIRO Publishing.
+These tools help you to assess if a financial portfolio aligns with
+climate goals. They summarize key metrics attributed to the portfolio
+(e.g. production, emission factors), and calculate targets based on
+climate scenarios. They implement in R the last step of the free software
+'PACTA' (Paris Agreement Capital Transition Assessment;
+<https://2degrees-investing.org/>). Financial institutions use 'PACTA' to
+study how their capital allocation impacts the climate.
 
 %prep
 %setup -q -c -n %{packname}

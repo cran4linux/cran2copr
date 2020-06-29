@@ -1,25 +1,35 @@
-%global packname  MatTransMix
-%global packver   0.1.10
+%global packname  flattabler
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Clustering with Matrix Gaussian and Matrix TransformationMixture Models
+Summary:          Obtaining a Flat Table from Pivot Tables
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides matrix Gaussian mixture models, matrix transformation mixture
-models and their model-based clustering results. The parsimonious models
-of the mean matrices and variance covariance matrices are implemented with
-a total of 196 variations.
+Transformations that allow obtaining a flat table from reports in text
+format that contain data in the form of pivot tables. They can be defined
+for a single report and applied to a set of reports.
 
 %prep
 %setup -q -c -n %{packname}

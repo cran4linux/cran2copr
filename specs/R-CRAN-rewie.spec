@@ -1,39 +1,38 @@
-%global packname  EpiILM
-%global packver   1.5.1
+%global packname  rewie
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Spatial and Network Based Individual Level Models for Epidemics
+Summary:          Data Preparation and Diagnostics for Random Effects WithinEstimator
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-adaptMCMC 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rockchalk 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-plm 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-adaptMCMC 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-graphics 
+Requires:         R-CRAN-rockchalk 
+Requires:         R-CRAN-lme4 
+Requires:         R-MASS 
+Requires:         R-CRAN-plm 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
 
 %description
-Provides tools for simulating from discrete-time individual level models
-for infectious disease data analysis. This epidemic model class contains
-spatial and contact-network based models with two disease types:
-Susceptible-Infectious (SI) and Susceptible-Infectious-Removed (SIR).
+Diagnostics and data preparation for random effects within estimator,
+random effects within-idiosyncratic estimator,
+between-within-idiosyncratic model, and cross-classified between model.
+Mundlak, Yair (1978) <doi:10.2307/1913646>. Hausman, Jeffrey (1978)
+<doi:10.2307/1913827>. Allison, Paul (2009) <doi:10.4135/9781412993869>.
+Neuhaus, J.M., and J. D. Kalbfleisch (1998) <doi:10.2307/3109770>.
 
 %prep
 %setup -q -c -n %{packname}

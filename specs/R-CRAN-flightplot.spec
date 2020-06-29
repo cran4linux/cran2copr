@@ -1,32 +1,40 @@
-%global packname  exactextractr
-%global packver   0.4.0
+%global packname  flightplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Fast Extraction from Raster Datasets using Polygons
+Summary:          Plotting Flight Paths on Maps
 
-License:          Apache License (== 2.0)
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    geos-devel >= 3.5.0
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides a replacement for the 'extract' function from the 'raster'
-package that is suitable for extracting raster values using 'sf' polygons.
+Provides functionality to plot airplane flight paths on maps. The plotted
+flight paths follow the great circle of the Earth.
 
 %prep
 %setup -q -c -n %{packname}

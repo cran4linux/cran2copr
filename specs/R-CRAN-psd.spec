@@ -1,9 +1,9 @@
 %global packname  psd
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}
 Summary:          Adaptive, Sine-Multitaper Power Spectral Density and CrossSpectrum Estimation
 
@@ -16,11 +16,9 @@ BuildRequires:    R-devel >= 2.14.1
 Requires:         R-core >= 2.14.1
 BuildRequires:    R-CRAN-Rcpp >= 0.11.5
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.11.5
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-zoo 
 
 %description
 Produces power spectral density estimates through iterative refinement of
@@ -43,9 +41,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

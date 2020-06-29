@@ -1,25 +1,33 @@
-%global packname  MatTransMix
-%global packver   0.1.10
+%global packname  modgetxl
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.3
 Release:          1%{?dist}
-Summary:          Clustering with Matrix Gaussian and Matrix TransformationMixture Models
+Summary:          A 'shiny' Module for Reading Excel Sheets
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-readxl 
 
 %description
-Provides matrix Gaussian mixture models, matrix transformation mixture
-models and their model-based clustering results. The parsimonious models
-of the mean matrices and variance covariance matrices are implemented with
-a total of 196 variations.
+This is a shiny module that presents a file picker user interface to get
+an Excel file name, and reads the Excel sheets using 'readxl' package and
+returns the resulting sheet(s) as a vector and data in dataframe(s).
 
 %prep
 %setup -q -c -n %{packname}

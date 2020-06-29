@@ -1,32 +1,37 @@
-%global packname  exactextractr
-%global packver   0.4.0
+%global packname  leafgl
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Fast Extraction from Raster Datasets using Polygons
+Summary:          High-Performance 'WebGl' Rendering for Package 'leaflet'
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    geos-devel >= 3.5.0
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonify 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonify 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-sf 
+Requires:         R-grDevices 
 
 %description
-Provides a replacement for the 'extract' function from the 'raster'
-package that is suitable for extracting raster values using 'sf' polygons.
+Provides bindings to the 'Leaflet.glify' JavaScript library which extends
+the 'leaflet' JavaScript library to render large data in the browser using
+'WebGl'.
 
 %prep
 %setup -q -c -n %{packname}

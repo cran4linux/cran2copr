@@ -1,39 +1,40 @@
-%global packname  EpiILM
-%global packver   1.5.1
+%global packname  ForeCA
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.2.7
 Release:          1%{?dist}
-Summary:          Spatial and Network Based Individual Level Models for Epidemics
+Summary:          Forecastable Component Analysis
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-adaptMCMC 
-BuildRequires:    R-CRAN-LaplacesDemon 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reshape2 >= 1.4.4
+BuildRequires:    R-CRAN-astsa >= 1.10
+BuildRequires:    R-MASS 
 BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-adaptMCMC 
-Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-reshape2 >= 1.4.4
+Requires:         R-CRAN-astsa >= 1.10
+Requires:         R-MASS 
 Requires:         R-graphics 
-Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-methods 
 
 %description
-Provides tools for simulating from discrete-time individual level models
-for infectious disease data analysis. This epidemic model class contains
-spatial and contact-network based models with two disease types:
-Susceptible-Infectious (SI) and Susceptible-Infectious-Removed (SIR).
+Implementation of Forecastable Component Analysis ('ForeCA'), including
+main algorithms and auxiliary function (summary, plotting, etc.) to apply
+'ForeCA' to multivariate time series data. 'ForeCA' is a novel dimension
+reduction (DR) technique for temporally dependent signals. Contrary to
+other popular DR methods, such as 'PCA' or 'ICA', 'ForeCA' takes time
+dependency explicitly into account and searches for the most
+''forecastable'' signal. The measure of forecastability is based on the
+Shannon entropy of the spectral density of the transformed signal.
 
 %prep
 %setup -q -c -n %{packname}
