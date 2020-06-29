@@ -92,7 +92,12 @@ delete_pkg_scm <- function(pkg) {
   message("  Package ", pkg, " removed")
 }
 
-with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
+available_packages <- function(...) {
+  cran <- available.packages()
+  cran[!duplicated(cran[, "Package"]), ]
+}
+
+with_deps <- function(pkgs, cran=available_packages(), reverse=FALSE) {
   if (!length(pkgs)) return(list())
 
   base <- rownames(installed.packages(priority="high"))
@@ -138,7 +143,7 @@ with_deps <- function(pkgs, cran=available.packages(), reverse=FALSE) {
   setdiff(unique(c(names(deps), unlist(deps))), base)
 }
 
-get_build_list <- function(pkgs, cran=available.packages()) {
+get_build_list <- function(pkgs, cran=available_packages()) {
   base <- rownames(installed.packages(priority="high"))
   pkgs <- lapply(tools::package_dependencies(pkgs, db=cran), setdiff, base)
   pkgs <- lapply(Filter(Negate(is.null), pkgs), intersect, names(pkgs))
@@ -171,7 +176,7 @@ get_spec_version <- function(spec) {
   sub(pattern, "", sver)
 }
 
-need_update <- function(pkgs, cran=available.packages()) {
+need_update <- function(pkgs, cran=available_packages()) {
   indb <- cran[cran[,"Package"] %in% pkgs, "Version"]
   if (length(indb) != length(pkgs))
     stop("cannot update packages removed from CRAN")
@@ -183,7 +188,7 @@ need_update <- function(pkgs, cran=available.packages()) {
   over < nver
 }
 
-.fix_version <- function(deps, cran=available.packages()) {
+.fix_version <- function(deps, cran=available_packages()) {
   # fix 2-component versions declared as 3-component
   two_comp <- grep("^[0-9]+.[0-9]+$", cran[,"Version"], value=TRUE)
   two_comp <- deps$pkg %in% names(two_comp)
@@ -192,7 +197,7 @@ need_update <- function(pkgs, cran=available.packages()) {
   deps
 }
 
-.r_deps <- function(desc, cran=available.packages()) {
+.r_deps <- function(desc, cran=available_packages()) {
   keys <- c("Depends", "Imports", "LinkingTo")
   for (i in keys) if (is.null(desc[[i]]))
     desc[[i]] <- ""
@@ -231,7 +236,7 @@ need_update <- function(pkgs, cran=available.packages()) {
   x
 }
 
-pkg_deps <- function(desc, cran=available.packages()) {
+pkg_deps <- function(desc, cran=available_packages()) {
   x <- .sys_deps(desc)
   deps <- .r_deps(desc, cran)
 
@@ -360,7 +365,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
   tpl
 }
 
-create_spec <- function(pkg, cran=available.packages()) {
+create_spec <- function(pkg, cran=available_packages()) {
   tarfile <- download.packages(pkg, tempdir(), cran, quiet=TRUE)[,2]
   untar(tarfile, exdir=tempdir())
   path <- file.path(tempdir(), pkg)

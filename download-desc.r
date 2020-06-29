@@ -7,7 +7,7 @@ options(repos = "https://cloud.r-project.org")
 
 path <- "~/copr/DESC/"
 url <- paste0(getOption("repos"), "/web/packages/")
-pkgs <- available.packages()[,"Package"]
+pkgs <- available_packages()[,"Package"]
 
 invisible(future_map(pkgs, function(pkg) {
   download.file(paste0(url, pkg, "/DESCRIPTION"), paste0(path, pkg), quiet=TRUE)

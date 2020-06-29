@@ -6,7 +6,7 @@ check_copr()
 
 args <- get_args("Usage: ", script_name(), " [--all | pkg1 ...]")
 
-cran <- available.packages()
+cran <- available_packages()
 copr <- get_copr_list(args)
 
 pkgs <- split(copr, copr %in% cran[,"Package"])

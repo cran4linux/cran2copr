@@ -7,7 +7,7 @@ check_copr()
 args <- get_args("Usage: ", script_name(), " pkg1 [pkg2 ...]")
 
 copr <- list_pkgs()
-cran <- available.packages()
+cran <- available_packages()
 pkgs <- with_deps(args, cran)
 pkgs <- pkgs[need_update(pkgs, cran)]
 

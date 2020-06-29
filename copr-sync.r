@@ -4,7 +4,7 @@ source("config.r")
 source("common.r")
 check_copr()
 
-cran <- available.packages()
+cran <- available_packages()
 copr <- get_copr_list()
 
 pkgs.del <- copr[!copr %in% cran[,"Package"]]
