@@ -1,9 +1,9 @@
 %global packname  mnormt
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          The Multivariate Normal and t Distributions, and Their TruncatedVersions
 
@@ -25,7 +25,7 @@ generating random vectors sampled from these distributions, except
 sampling from the truncated "t". Moments of arbitrary order of a truncated
 normal are computed, and converted to cumulants up to order 4.
 Probabilities are computed via non-Monte Carlo methods; different routines
-are used in the case d=1, d=2, d=3, d>2, if d denotes the dimensionality.
+are used in the case d=1, d=2, d=3, d>3, if d denotes the dimensionality.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,9 +40,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

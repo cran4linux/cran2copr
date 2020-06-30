@@ -1,23 +1,33 @@
-%global packname  devEMF
-%global packver   3.8
+%global packname  trade
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8
+Version:          0.5.5
 Release:          1%{?dist}
-Summary:          EMF Graphics Output Device
+Summary:          Tools for Trade Practitioners
 
-License:          GPL-3
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zlib-devel
-BuildRequires:    R-devel >= 2.10.1
-Requires:         R-core >= 2.10.1
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-antitrust >= 0.99.11
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-antitrust >= 0.99.11
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Output graphics to EMF+/EMF.
+A collection of tools for trade practitioners, including the ability to
+calibrate different consumer demand systems and simulate the effects of
+tariffs and quotas under different competitive regimes. These tools are
+derived from Anderson et al. (2001) <doi:10.1016/S0047-2727(00)00085-2>
+and Froeb et al. (2003) <doi:10.1016/S0304-4076(02)00166-5>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,39 @@
-%global packname  bigsparser
-%global packver   0.2.2
+%global packname  DiceOptim
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          2.0.1
 Release:          1%{?dist}
-Summary:          Sparse Matrix Format with Data on Disk
+Summary:          Kriging-Based Optimization for Computer Experiments
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-bigassertr 
+BuildRequires:    R-CRAN-DiceKriging >= 1.2
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-rmio 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-bigassertr 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-DiceDesign 
+Requires:         R-CRAN-DiceKriging >= 1.2
 Requires:         R-methods 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-pbivnorm 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-DiceDesign 
 
 %description
-Provides a sparse matrix format with data stored on disk, to be used in
-both R and C++. This is intended for more efficient use of sparse data in
-C++ and also when parallelizing, since data on disk does not need copying.
-Only a limited number of features will be implemented. For now, conversion
-can be performed from a 'dgCMatrix' of R package 'Matrix'.
+Efficient Global Optimization (EGO) algorithm as described in "Roustant et
+al. (2012)" <doi:10.18637/jss.v051.i01> and adaptations for problems with
+noise ("Picheny and Ginsbourger, 2012") <doi:10.1016/j.csda.2013.03.018>,
+parallel infill, and problems with constraints.
 
 %prep
 %setup -q -c -n %{packname}

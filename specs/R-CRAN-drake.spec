@@ -1,10 +1,10 @@
 %global packname  drake
-%global packver   7.12.2
+%global packver   7.12.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.12.2
-Release:          2%{?dist}
+Version:          7.12.4
+Release:          1%{?dist}
 Summary:          A Pipeline Toolkit for Reproducible Computation at Scale
 
 License:          GPL-3
@@ -15,20 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-storr >= 1.1.0
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-digest >= 0.6.21
+BuildRequires:    R-CRAN-txtq >= 0.2.3
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-vctrs >= 0.2.0
-BuildRequires:    R-CRAN-txtq >= 0.1.3
 BuildRequires:    R-CRAN-base64url 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-storr >= 1.1.0
+Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-digest >= 0.6.21
+Requires:         R-CRAN-txtq >= 0.2.3
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-vctrs >= 0.2.0
-Requires:         R-CRAN-txtq >= 0.1.3
 Requires:         R-CRAN-base64url 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
@@ -50,6 +52,8 @@ to practical examples and more, is available at the reference website
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -57,24 +61,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/rmarkdown
-%doc %{rlibdir}/%{packname}/rstudio
-%doc %{rlibdir}/%{packname}/templates
-%doc %{rlibdir}/%{packname}/testing
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
