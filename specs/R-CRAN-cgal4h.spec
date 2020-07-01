@@ -1,13 +1,13 @@
-%global packname  do
-%global packver   1.3.0.0
+%global packname  cgal4h
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Data Operator
+Summary:          'CGAL' Version 4 C++ Header Files
 
-License:          GPL-3
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,16 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tmcn 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tmcn 
 
 %description
-Flexibly convert data between long and wide format using just two
-functions: reshape_toLong() and reshape_toWide().
+'CGAL' is a C++ library that aims to provide easy access to efficient and
+reliable algorithms in computational geometry. Since its version 4, 'CGAL'
+can be used as standalone header-only library and is available under a
+double GPL-3|LGPL license. <https://www.cgal.org/>.
 
 %prep
 %setup -q -c -n %{packname}

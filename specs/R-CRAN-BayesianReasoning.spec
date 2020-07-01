@@ -1,41 +1,47 @@
-%global packname  schrute
-%global packver   0.2.2
+%global packname  BayesianReasoning
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.1
 Release:          1%{?dist}
-Summary:          The Entire Transcript from the Office in Tidy Format
+Summary:          Plot Positive and Negative Predictive Values for Medical Tests
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-shinyjs 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-shinyjs 
 
 %description
-The complete scripts from the American version of the Office television
-show in tibble format. Use this package to analyze and have fun with text
-from the best series of all time.
+Functions to plot and help understand positive and negative predictive
+values (PPV and NPV), and their relationship with sensitivity,
+specificity, and prevalence. See Akobeng, A.K. (2007)
+<doi:10.1111/j.1651-2227.2006.00180.x> for a theoretical overview of the
+technical concepts and Navarrete et al. (2015) for a practical explanation
+about the importance of their understanding
+<doi:10.3389/fpsyg.2015.01327>.
 
 %prep
 %setup -q -c -n %{packname}

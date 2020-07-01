@@ -1,30 +1,26 @@
-%global packname  do
-%global packver   1.3.0.0
+%global packname  usdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Data Operator
+Summary:          Data on the States and Counties of the United States
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tmcn 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tmcn 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-Flexibly convert data between long and wide format using just two
-functions: reshape_toLong() and reshape_toWide().
+Demographic data on the United States at the county and state levels
+spanning multiple years.
 
 %prep
 %setup -q -c -n %{packname}

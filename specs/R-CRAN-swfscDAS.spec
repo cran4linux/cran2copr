@@ -1,41 +1,49 @@
-%global packname  chorrrds
-%global packver   0.1.9.5
+%global packname  swfscDAS
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9.5
+Version:          0.4.0
 Release:          1%{?dist}
-Summary:          Music Chords Extraction
+Summary:          Southwest Fisheries Science Center Shipboard DAS Data Processing
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-swfscMisc 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-swfscMisc 
+Requires:         R-CRAN-tidyr 
 
 %description
-Extracts music chords from the 'CifraClub' website
-<https://www.cifraclub.com.br/>. The package also has functions for
-cleaning the extracted data and feature extraction.
+Process and summarize shipboard DAS data (data written to a .das file)
+collected using the Southwest Fisheries Science Center (SWFSC) 'WinCruz'
+program. This package is intended to standardize and streamline basic DAS
+data processing. A PDF with the DAS data format requirements is included
+in this package.
 
 %prep
 %setup -q -c -n %{packname}

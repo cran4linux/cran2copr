@@ -1,30 +1,29 @@
-%global packname  do
-%global packver   1.3.0.0
+%global packname  overviewR
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0.0
+Version:          0.0.4
 Release:          1%{?dist}
-Summary:          Data Operator
+Summary:          Easily Extracting Information About Your Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tmcn 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tmcn 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 
 %description
-Flexibly convert data between long and wide format using just two
-functions: reshape_toLong() and reshape_toWide().
+Makes it easy to display descriptive information on a data set.  Getting
+an easy overview of a data set by displaying and visualizing sample
+information in different tables (e.g., time and scope conditions).  The
+package also provides publishable 'LaTeX' code to present the sample
+information.
 
 %prep
 %setup -q -c -n %{packname}

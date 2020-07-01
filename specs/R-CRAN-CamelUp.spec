@@ -1,11 +1,11 @@
 %global packname  CamelUp
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
-Summary:          CamelUp Board Game as a Teaching Aid for Introductory Statistics
+Summary:          'CamelUp' Board Game as a Teaching Aid for IntroductoryStatistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,7 +30,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-shiny 
 
 %description
-Implements the board game CamelUp for use in introductory statistics
+Implements the board game 'CamelUp' for use in introductory statistics
 classes using a Shiny app.
 
 %prep
@@ -46,9 +46,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

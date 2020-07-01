@@ -1,11 +1,11 @@
-%global packname  do
-%global packver   1.3.0.0
+%global packname  LOPART
+%global packver   2020.6.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0.0
+Version:          2020.6.29
 Release:          1%{?dist}
-Summary:          Data Operator
+Summary:          Labeled Optimal Partitioning
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,17 +14,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tmcn 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tmcn 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Flexibly convert data between long and wide format using just two
-functions: reshape_toLong() and reshape_toWide().
+Change-point detection algorithm with label constraints and a penalty for
+each change outside of labels. Read TD Hocking, A Srivastava (2020)
+<arXiv:2006.13967> for details.
 
 %prep
 %setup -q -c -n %{packname}

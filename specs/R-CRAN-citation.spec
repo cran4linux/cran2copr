@@ -1,13 +1,13 @@
-%global packname  do
-%global packver   1.3.0.0
+%global packname  citation
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0.0
+Version:          0.4.1
 Release:          1%{?dist}
-Summary:          Data Operator
+Summary:          Software Citation Tools
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,16 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tmcn 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tmcn 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-desc 
+Requires:         R-utils 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-desc 
 
 %description
-Flexibly convert data between long and wide format using just two
-functions: reshape_toLong() and reshape_toWide().
+A collection of functions to extract citation information from 'R'
+packages and to deal with files in 'citation file format'
+(<https://citation-file-format.github.io/>), extending the functionality
+already provided by the citation() function in the 'utils' package.
 
 %prep
 %setup -q -c -n %{packname}

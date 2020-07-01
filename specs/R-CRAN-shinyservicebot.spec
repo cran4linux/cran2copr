@@ -1,30 +1,32 @@
-%global packname  do
-%global packver   1.3.0.0
+%global packname  shinyservicebot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Data Operator
+Summary:          Servicebot 'Shiny' Integration
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tmcn 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tmcn 
+BuildRequires:    R-CRAN-htmlwidgets >= 0.6
+BuildRequires:    R-CRAN-htmltools >= 0.2.6
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-htmlwidgets >= 0.6
+Requires:         R-CRAN-htmltools >= 0.2.6
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-shiny 
 
 %description
-Flexibly convert data between long and wide format using just two
-functions: reshape_toLong() and reshape_toWide().
+Create in-app purchasing and subscriptions through 'Servicebot' payment
+using the 'Stripe' framework.
 
 %prep
 %setup -q -c -n %{packname}

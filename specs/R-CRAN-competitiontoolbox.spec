@@ -1,13 +1,13 @@
-%global packname  schrute
-%global packver   0.2.2
+%global packname  competitiontoolbox
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.3
 Release:          1%{?dist}
-Summary:          The Entire Transcript from the Office in Tidy Format
+Summary:          A Graphical User Interface for Antitrust and Trade Practitioners
 
-License:          MIT + file LICENSE
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,27 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-antitrust >= 0.99.11
+BuildRequires:    R-CRAN-trade >= 0.5.4
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-antitrust >= 0.99.11
+Requires:         R-CRAN-trade >= 0.5.4
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
 
 %description
-The complete scripts from the American version of the Office television
-show in tibble format. Use this package to analyze and have fun with text
-from the best series of all time.
+A graphical user interface for simulating the effects of mergers, tariffs,
+and quotas under an assortment of different economic models. The interface
+is powered by the 'Shiny' web application framework from 'RStudio'.
 
 %prep
 %setup -q -c -n %{packname}

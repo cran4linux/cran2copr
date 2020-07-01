@@ -1,13 +1,13 @@
-%global packname  do
-%global packver   1.3.0.0
+%global packname  conogive
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Data Operator
+Summary:          Congeneric Normal-Ogive Model
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,16 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tmcn 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tmcn 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-assertthat 
 
 %description
-Flexibly convert data between long and wide format using just two
-functions: reshape_toLong() and reshape_toWide().
+The congeneric normal-ogive model is a popular model for psychometric data
+(McDonald, R. P. (1997) <doi:10.1007/978-1-4757-2691-6_15>). This model
+estimates the model, calculates theoretical and concrete reliability
+coefficients, and predicts the latent variable of the model. This is the
+companion package to Moss (2020) <doi:10.31234/osf.io/nvg5d>.
 
 %prep
 %setup -q -c -n %{packname}

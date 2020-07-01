@@ -1,10 +1,10 @@
 %global packname  qtl2pleio
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
-Release:          2%{?dist}
+Version:          1.3.0
+Release:          1%{?dist}
 Summary:          Testing Pleiotropy in Multiparental Populations
 
 License:          MIT + file LICENSE
@@ -21,10 +21,9 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-parallel 
 BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-dplyr 
@@ -34,10 +33,9 @@ Requires:         R-CRAN-magrittr
 Requires:         R-MASS 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-parallel 
 Requires:         R-Matrix 
+Requires:         R-CRAN-furrr 
 
 %description
 We implement an adaptation of Jiang & Zeng's (1995)
@@ -51,6 +49,9 @@ our test accommodates multiparental populations.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -58,21 +59,9 @@ our test accommodates multiparental populations.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

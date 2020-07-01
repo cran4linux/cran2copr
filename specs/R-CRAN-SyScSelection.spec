@@ -1,13 +1,13 @@
-%global packname  do
-%global packver   1.3.0.0
+%global packname  SyScSelection
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0.0
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Data Operator
+Summary:          Systemic Scenario Selection for Stress Testing
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,16 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tmcn 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tmcn 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
 
 %description
-Flexibly convert data between long and wide format using just two
-functions: reshape_toLong() and reshape_toWide().
+Quasi-Monte-Carlo algorithm for systematic generation of shock scenarios
+from an arbitrary multivariate elliptical distribution. The algorithm
+selects a systematic mesh of arbitrary fineness that approximately evenly
+covers an isoprobability ellipsoid in d dimensions (Flood, Mark D. &
+Korenko, George G. (2013) <doi:10.1080/14697688.2014.926018>). This
+package is the 'R' analogy to the 'Matlab' code published by Flood &
+Korenko in above-mentioned paper.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  InSilicoVA
-%global packver   1.3.0
+%global packname  SCOUTer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Probabilistic Verbal Autopsy Coding with 'InSilicoVA' Algorithm
+Summary:          Simulate Controlled Outliers
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-InterVA5 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-InterVA5 
-Requires:         R-methods 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-stats 
 
 %description
-Computes individual causes of death and population cause-specific
-mortality fractions using the 'InSilicoVA' algorithm from McCormick et al.
-(2016) <DOI:10.1080/01621459.2016.1152191>. It uses data derived from
-verbal autopsy (VA) interviews, in a format similar to the input of the
-widely used 'InterVA4' method. This package provides general model fitting
-and customization for 'InSilicoVA' algorithm and basic graphical
-visualization of the output.
+Using principal component analysis as a base model, 'SCOUTer' offers a new
+approach to simulate outliers in a simple and precise way. The user can
+generate new observations defining them by a pair of well-known
+statistics: the Squared Prediction Error (SPE) and the Hotelling's T^2
+(T^2) statistics. Just by introducing the target values of the SPE and
+T^2, 'SCOUTer' returns a new set of observations with the desired target
+properties. Authors: Alba González, Abel Folch-Fortuny, Francisco Arteaga
+and Alberto Ferrer (2020).
 
 %prep
 %setup -q -c -n %{packname}
