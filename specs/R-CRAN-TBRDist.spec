@@ -1,31 +1,32 @@
-%global packname  colorDF
-%global packver   0.1.2
+%global packname  TBRDist
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Colorful Data Frames in R Terminal
+Summary:          Rearrangement Distances Between Unrooted Phylogenetic Trees
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-TreeDist 
+BuildRequires:    R-CRAN-TreeTools 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-TreeDist 
+Requires:         R-CRAN-TreeTools 
 
 %description
-Colorful Data Frames in the terminal. The new class does change the
-behaviour of any of the objects, but adds a style definition and a print
-method. Using ANSI escape codes, it colors the terminal output of data
-frames. Some column types (such as p-values and identifiers) are
-automatically recognized.
+Fast calculation of the Subtree Prune and Regraft (SPR), Tree Bisection
+and Reconnection (TBR) and Replug distances between unrooted trees, using
+the algorithms of Whidden and Matsen (2017) <arxiv:1511.07529>.
 
 %prep
 %setup -q -c -n %{packname}

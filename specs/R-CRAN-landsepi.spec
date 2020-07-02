@@ -1,10 +1,10 @@
 %global packname  landsepi
-%global packver   0.0.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
-Release:          2%{?dist}
+Version:          1.0.0
+Release:          1%{?dist}
 Summary:          Landscape Epidemiology and Evolution
 
 License:          GPL (>= 2) | file LICENSE
@@ -14,53 +14,62 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    gsl-devel
 BuildRequires:    gdal-devel >= 1.11.0
-Requires:         gsl
-Requires:         gdal
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-stats >= 3.0.2
 BuildRequires:    R-grDevices >= 3.0.0
 BuildRequires:    R-graphics >= 3.0.0
-BuildRequires:    R-CRAN-rgdal >= 1.2.16
 BuildRequires:    R-CRAN-sp >= 1.0.17
 BuildRequires:    R-CRAN-Rcpp >= 0.9.0
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-Matrix 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-splancs 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-stats >= 3.0.2
 Requires:         R-grDevices >= 3.0.0
 Requires:         R-graphics >= 3.0.0
-Requires:         R-CRAN-rgdal >= 1.2.16
 Requires:         R-CRAN-sp >= 1.0.17
 Requires:         R-CRAN-Rcpp >= 0.9.0
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-Matrix 
-Requires:         R-MASS 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-splancs 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
-A spatio-temporal stochastic model to assess resistance deployment
-strategies against plant pathogens. The model is based on stochastic
-geometry for describing the landscape and the resistant hosts, a dispersal
-kernel for the dissemination of the pathogen, and a SEIR
-(Susceptible-Exposed-Infectious-Removed) architecture to simulate plant
-response to disease. Loup Rimbaud, Julien Papaïx, Jean-François Rey, Luke
-G Barrett, Peter H Thrall (2018) <doi:10.1371/journal.pcbi.1006067>.
+A stochastic, spatially-explicit, demo-genetic model simulating the spread
+and evolution of a plant pathogen in a heterogeneous landscape to assess
+resistance deployment strategies. It is based on a spatial geometry for
+describing the landscape and allocation of different cultivars, a
+dispersal kernel for the dissemination of the pathogen, and a SEIR
+('Susceptible-Exposed-Infectious-Removed’) structure with a discrete time
+step. It provides a useful tool to assess the performance of a wide range
+of deployment options with respect to their epidemiological, evolutionary
+and economic outcomes. Loup Rimbaud, Julien Papaïx, Jean-François Rey,
+Luke G Barrett, Peter H Thrall (2018) <doi:10.1371/journal.pcbi.1006067>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -70,18 +79,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

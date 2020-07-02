@@ -1,11 +1,11 @@
 %global packname  mclogit
-%global packver   0.6.1
+%global packver   0.8.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
-Release:          2%{?dist}
-Summary:          Mixed Conditional Logit Models
+Version:          0.8.5.1
+Release:          1%{?dist}
+Summary:          Multinomial Logit Models, with or without Random Effects orOverdispersion
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,15 +25,19 @@ Requires:         R-CRAN-memisc
 Requires:         R-methods 
 
 %description
-Specification and estimation of conditional logit models of binary
-responses and multinomial counts is provided, with or without random
-effects. The current implementation of the estimator for random effects
-variances uses a Laplace approximation (or PQL) approach and thus should
-be used only if groups sizes are large.
+Provides estimators for multinomial logit models in their conditional
+logit and baseline logit variants, with or without random effects, with or
+without overdispersion. Random effects models are estimated using the PQL
+technique (based on a Laplace approximation) or the MQL technique (based
+on a Solomon-Cox approximation). Estimates should be treated with caution
+if the group sizes are small.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -41,20 +45,9 @@ be used only if groups sizes are large.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/ChangeLog
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

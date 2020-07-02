@@ -1,36 +1,33 @@
-%global packname  set6
-%global packver   0.1.5
+%global packname  MixOptim
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          R6 Mathematical Sets Interface
+Summary:          Mixture Optimization Algorithm
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-desirability 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-desirability 
+Requires:         R-CRAN-rlang 
 
 %description
-An object-oriented package for mathematical sets, upgrading the current
-gold-standard {sets}. Many forms of mathematical sets are implemented,
-including (countably finite) sets, tuples, intervals (countably infinite
-or uncountable), and fuzzy variants. Wrappers extend functionality by
-allowing symbolic representations of complex operations on sets, including
-unions, (cartesian) products, exponentiation, and differences (asymmetric
-and symmetric).
+Simple tools to perform mixture optimization based on the 'desirability'
+package by Max Kuhn. It also provides a plot routine using 'ggplot2' and
+'patchwork'.
 
 %prep
 %setup -q -c -n %{packname}

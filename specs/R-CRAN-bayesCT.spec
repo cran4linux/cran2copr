@@ -1,11 +1,11 @@
-%global packname  colorDF
-%global packver   0.1.2
+%global packname  bayesCT
+%global packver   0.99.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.99.3
 Release:          1%{?dist}
-Summary:          Colorful Data Frames in R Terminal
+Summary:          Simulation and Analysis of Adaptive Bayesian Clinical Trials
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,17 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-bayesDP 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-survival 
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-bayesDP 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
+Requires:         R-survival 
 
 %description
-Colorful Data Frames in the terminal. The new class does change the
-behaviour of any of the objects, but adds a style definition and a print
-method. Using ANSI escape codes, it colors the terminal output of data
-frames. Some column types (such as p-values and identifiers) are
-automatically recognized.
+Simulation and analysis of Bayesian adaptive clinical trials for binomial,
+Gaussian, and time-to-event data types, incorporates historical data and
+allows early stopping for futility or early success. The package uses
+novel and efficient Monte Carlo methods for estimating Bayesian posterior
+probabilities, evaluation of loss to follow up, and imputation of
+incomplete data. The package has the functionality for dynamically
+incorporating historical data into the analysis via the power prior or
+non-informative priors.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,37 @@
-%global packname  colorDF
-%global packver   0.1.2
+%global packname  PROsetta
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}
-Summary:          Colorful Data Frames in R Terminal
+Summary:          Linking Patient-Reported Outcomes Measures
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-equate 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-plink 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-equate 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-plink 
+Requires:         R-CRAN-psych 
+Requires:         R-methods 
 
 %description
-Colorful Data Frames in the terminal. The new class does change the
-behaviour of any of the objects, but adds a style definition and a print
-method. Using ANSI escape codes, it colors the terminal output of data
-frames. Some column types (such as p-values and identifiers) are
-automatically recognized.
+Perform scale linking to establish relationships between instruments that
+measure similar constructs according to the PROsetta Stone methodology, as
+in Choi, Schalet, Cook, & Cella (2014) <doi:10.1037/a0035768>.
 
 %prep
 %setup -q -c -n %{packname}

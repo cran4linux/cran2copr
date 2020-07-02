@@ -1,11 +1,11 @@
-%global packname  colorDF
-%global packver   0.1.2
+%global packname  DFA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Colorful Data Frames in R Terminal
+Summary:          Detrended Fluctuation Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,17 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
 
 %description
-Colorful Data Frames in the terminal. The new class does change the
-behaviour of any of the objects, but adds a style definition and a print
-method. Using ANSI escape codes, it colors the terminal output of data
-frames. Some column types (such as p-values and identifiers) are
-automatically recognized.
+Contains the Detrended Fluctuation Analysis (DFA), Detrended
+Cross-Correlation Analysis (DCCA), Detrended Cross-Correlation Coefficient
+(rhoDCCA), Delta Amplitude Detrended Cross-Correlation Coefficient
+(DeltarhoDCCA), log amplitude Detrended Fluctuation Analysis
+(DeltalogDFA), two DFA automatic methods for identification of crossover
+points and a Deltalog automatic method for identification of reference
+channels.
 
 %prep
 %setup -q -c -n %{packname}

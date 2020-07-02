@@ -1,31 +1,30 @@
-%global packname  colorDF
-%global packver   0.1.2
+%global packname  vcpen
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.6
 Release:          1%{?dist}
-Summary:          Colorful Data Frames in R Terminal
+Summary:          Penalized Variance Components Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-RcppArmadillo >= 0.8.0
+Requires:         R-methods 
+Requires:         R-CRAN-knitr 
 
 %description
-Colorful Data Frames in the terminal. The new class does change the
-behaviour of any of the objects, but adds a style definition and a print
-method. Using ANSI escape codes, it colors the terminal output of data
-frames. Some column types (such as p-values and identifiers) are
-automatically recognized.
+Method to perform penalized variance component analysis.
 
 %prep
 %setup -q -c -n %{packname}

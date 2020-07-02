@@ -1,10 +1,10 @@
 %global packname  clustermq
-%global packver   0.8.9
+%global packver   0.8.95
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
-Release:          2%{?dist}
+Version:          0.8.95
+Release:          1%{?dist}
 Summary:          Evaluate Function Calls on HPC Schedulers (LSF, SGE, SLURM,PBS/Torque)
 
 License:          Apache License (== 2.0) | file LICENSE
@@ -12,20 +12,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rzmq >= 0.9.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-narray 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rzmq >= 0.9.4
+Requires:         R-methods 
 Requires:         R-CRAN-narray 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-utils 
 
 %description
@@ -37,6 +38,8 @@ accessing the file system. Remote schedulers are supported via SSH.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -44,25 +47,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/LSF.tmpl
-%doc %{rlibdir}/%{packname}/PBS.tmpl
-%doc %{rlibdir}/%{packname}/SGE.tmpl
-%doc %{rlibdir}/%{packname}/SLURM.tmpl
-%doc %{rlibdir}/%{packname}/SSH.tmpl
-%doc %{rlibdir}/%{packname}/TORQUE.tmpl
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

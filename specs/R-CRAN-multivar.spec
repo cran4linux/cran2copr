@@ -1,36 +1,34 @@
-%global packname  set6
-%global packver   0.1.5
+%global packname  multivar
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          R6 Mathematical Sets Interface
+Summary:          Penalized Estimation and Forecasting of Multiple Subject VectorAutoregressive (VAR) Models
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-matlab 
+BuildRequires:    R-MASS 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-matlab 
+Requires:         R-MASS 
 
 %description
-An object-oriented package for mathematical sets, upgrading the current
-gold-standard {sets}. Many forms of mathematical sets are implemented,
-including (countably finite) sets, tuples, intervals (countably infinite
-or uncountable), and fuzzy variants. Wrappers extend functionality by
-allowing symbolic representations of complex operations on sets, including
-unions, (cartesian) products, exponentiation, and differences (asymmetric
-and symmetric).
+Functions for simulating, estimating and forecasting stationary Vector
+Autoregressive (VAR) models from multiple subjects using penalized
+regression methods (LASSO and adaptive LASSO) using accelerated proximal
+gradient descent algorithms (Fisher, Kim and Pipiras, Under Review).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,33 @@
-%global packname  set6
-%global packver   0.1.5
+%global packname  qtl2convert
+%global packver   0.22-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.22.7
 Release:          1%{?dist}
-Summary:          R6 Mathematical Sets Interface
+Summary:          Convert Data among QTL Mapping Packages
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-qtl >= 1.40.8
+BuildRequires:    R-CRAN-qtl2 >= 0.18
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-qtl >= 1.40.8
+Requires:         R-CRAN-qtl2 >= 0.18
+Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-An object-oriented package for mathematical sets, upgrading the current
-gold-standard {sets}. Many forms of mathematical sets are implemented,
-including (countably finite) sets, tuples, intervals (countably infinite
-or uncountable), and fuzzy variants. Wrappers extend functionality by
-allowing symbolic representations of complex operations on sets, including
-unions, (cartesian) products, exponentiation, and differences (asymmetric
-and symmetric).
+Functions to convert data structures among the 'qtl2', 'qtl', and 'DOQTL'
+packages for mapping quantitative trait loci (QTL).
 
 %prep
 %setup -q -c -n %{packname}

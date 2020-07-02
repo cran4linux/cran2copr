@@ -1,10 +1,10 @@
 %global packname  warbleR
-%global packver   1.1.23
+%global packver   1.1.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.23
-Release:          2%{?dist}
+Version:          1.1.24
+Release:          1%{?dist}
 Summary:          Streamline Bioacoustic Analysis
 
 License:          GPL (>= 2)
@@ -30,9 +30,6 @@ BuildRequires:    R-CRAN-rjson
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Sim.DiffProc 
-BuildRequires:    R-CRAN-maps 
 Requires:         R-CRAN-seewave >= 2.0.1
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-NatureSounds 
@@ -48,33 +45,30 @@ Requires:         R-CRAN-rjson
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Sim.DiffProc 
-Requires:         R-CRAN-maps 
 
 %description
 Functions aiming to facilitate the analysis of the structure of animal
-acoustic signals in 'R'. Users can collect open-access avian recordings or
-enter their own data into a workflow that facilitates spectrographic
-visualization and measurement of acoustic parameters. 'warbleR' makes use
-of the basic sound analysis tools from the package 'seewave', and offers
-new tools for acoustic structure analysis. The main features of the
-package are the use of loops to apply tasks through acoustic signals
-referenced in a selection (annotation) table and the production of
-spectrograms in image files that allow to organize data and verify
-acoustic analyzes. The package offers functions to explore, organize and
-manipulate multiple sound files, explore and download 'Xeno-Canto'
-recordings, detect signals automatically, create spectrograms of complete
-recordings or individual signals, run different measures of acoustic
-signal structure, evaluate the performance of measurement methods, catalog
-signals, characterize different structural levels in acoustic signals, run
-statistical analysis of duet coordination and consolidate databases and
-annotation tables, among others.
+acoustic signals in 'R'. 'warbleR' makes use of the basic sound analysis
+tools from the package 'seewave', and offers new tools for acoustic
+structure analysis. The main features of the package are the use of loops
+to apply tasks through acoustic signals referenced in a selection
+(annotation) table and the production of spectrograms in image files that
+allow to organize data and verify acoustic analyzes. The package offers
+functions to explore, organize and manipulate multiple sound files,
+explore and download 'Xeno-Canto' recordings, detect signals
+automatically, create spectrograms of complete recordings or individual
+signals, run different measures of acoustic signal structure, evaluate the
+performance of measurement methods, catalog signals, characterize
+different structural levels in acoustic signals, run statistical analysis
+of duet coordination and consolidate databases and annotation tables,
+among others.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -82,20 +76,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

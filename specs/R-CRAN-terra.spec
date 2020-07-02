@@ -1,9 +1,9 @@
 %global packname  terra
-%global packver   0.7-4
+%global packver   0.7-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.7.11
 Release:          1%{?dist}
 Summary:          Spatial Data Analysis
 
@@ -18,10 +18,10 @@ BuildRequires:    proj-devel >= 6.3.1
 BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-raster >= 3.1.5
+BuildRequires:    R-CRAN-raster >= 3.3.7
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-raster >= 3.1.5
+Requires:         R-CRAN-raster >= 3.3.7
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 
@@ -48,9 +48,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

@@ -1,10 +1,10 @@
 %global packname  iSTATS
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
-Release:          2%{?dist}
+Version:          1.5
+Release:          1%{?dist}
 Summary:          A Graphical Interface to Perform STOCSY Analyses on NMR Data
 
 License:          GPL-3
@@ -41,13 +41,14 @@ Launches a 'shiny' based application for Nuclear Magnetic Resonance
 background and applications of STOCSY method could be found at Cloarec,
 O., Dumas, M. E., Craig, A., Barton, R. H., Trygg, J., Hudson, J.,
 Blancher, C., Gauguier, D., Lindon, J. C., Holmes, E. & Nicholson, J.
-(2005) <doi:10.1021/ac048630x>. The packeage is also available on github
-<https://github.com/LaCiDIAUFG/iSTATS>.
+(2005) <doi:10.1021/ac048630x>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -55,18 +56,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/app
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

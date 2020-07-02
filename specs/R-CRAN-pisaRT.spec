@@ -1,13 +1,13 @@
-%global packname  colorDF
-%global packver   0.1.2
+%global packname  pisaRT
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Colorful Data Frames in R Terminal
+Summary:          Small Example Response and Response Time Data from PISA 2015
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
 
 %description
-Colorful Data Frames in the terminal. The new class does change the
-behaviour of any of the objects, but adds a style definition and a print
-method. Using ANSI escape codes, it colors the terminal output of data
-frames. Some column types (such as p-values and identifiers) are
-automatically recognized.
+Scored responses and responses times from the Canadian subsample of the
+PISA 2015 assessment, accessible as the "Cognitive Item Data File" by OECD
+(2016) <https://www.oecd.org/pisa/data/2015database/>.
 
 %prep
 %setup -q -c -n %{packname}
