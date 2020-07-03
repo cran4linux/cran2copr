@@ -1,10 +1,10 @@
 %global packname  tidyquant
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}
+Version:          1.0.1
+Release:          1%{?dist}
 Summary:          Tidy Quantitative Financial Analysis
 
 License:          MIT + file LICENSE
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-timetk >= 2.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-quantmod >= 0.4.13
@@ -30,16 +31,15 @@ BuildRequires:    R-CRAN-Quandl
 BuildRequires:    R-CRAN-riingo 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-timetk 
 BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-CRAN-TTR 
-BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-timetk >= 2.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-quantmod >= 0.4.13
@@ -55,10 +55,8 @@ Requires:         R-CRAN-Quandl
 Requires:         R-CRAN-riingo 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-timetk 
 Requires:         R-CRAN-timeDate 
 Requires:         R-CRAN-TTR 
-Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
@@ -79,6 +77,8 @@ to use quantitative functions with the 'tidyverse' functions including
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -86,20 +86,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

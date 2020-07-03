@@ -1,41 +1,43 @@
-%global packname  DMCfun
-%global packver   0.12.1
+%global packname  oysteR
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.0.3
 Release:          1%{?dist}
-Summary:          Diffusion Model of Conflict (DMC) in Reaction Time Tasks
+Summary:          Scans R Projects for Vulnerable Third Party Dependencies
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-CRAN-optimr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-CRAN-optimr 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-DMC model simulation detailed in Ulrich, R., Schroeter, H., Leuthold, H.,
-& Birngruber, T. (2015). Automatic and controlled stimulus processing in
-conflict tasks: Superimposed diffusion processes and delta functions.
-Cognitive Psychology, 78, 148-174. Ulrich et al. (2015)
-<doi:10.1016/j.cogpsych.2015.02.005>.
+Collects a list of your third party R packages, and scans them with the
+'OSS' Index provided by 'Sonatype', reporting back on any vulnerabilities
+that are found in the third party packages you use.
 
 %prep
 %setup -q -c -n %{packname}

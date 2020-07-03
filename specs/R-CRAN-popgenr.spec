@@ -1,31 +1,25 @@
-%global packname  Rlof
-%global packver   1.1.2
+%global packname  popgenr
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1
 Release:          1%{?dist}
-Summary:          R Parallel Implementation of Local Outlier Factor(LOF)
+Summary:          Accompaniment to the Book Population Genetics with R: AnIntroduction for Life Scientists
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-R parallel implementation of Local Outlier Factor(LOF) which uses multiple
-CPUs to significantly speed up the LOF computation for large datasets.
-(Note: The overall performance depends on the computers especially the
-number of the cores).It also supports multiple k values to be calculated
-in parallel, as well as various distance measures in addition to the
-default Euclidean distance.
+Provides several data sets and a linkage disequilibrium function to
+accompany the book "Population Genetics with R: An Introduction for Life
+Scientists".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,24 @@
-%global packname  Rlof
-%global packver   1.1.2
+%global packname  dna
+%global packver   2.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.1.2
 Release:          1%{?dist}
-Summary:          R Parallel Implementation of Local Outlier Factor(LOF)
+Summary:          Differential Network Analysis
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-R parallel implementation of Local Outlier Factor(LOF) which uses multiple
-CPUs to significantly speed up the LOF computation for large datasets.
-(Note: The overall performance depends on the computers especially the
-number of the cores).It also supports multiple k values to be calculated
-in parallel, as well as various distance measures in addition to the
-default Euclidean distance.
+Package for conducting differential network analysis from microarray data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,39 @@
-%global packname  MNLpred
-%global packver   0.0.3
+%global packname  matrixpls
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.10
 Release:          1%{?dist}
-Summary:          Simulated Predicted Probabilities for Multinomial Logit Models
+Summary:          Matrix-Based Partial Least Squares Estimation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-assertive 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-MASS 
-BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-psych 
+Requires:         R-CRAN-assertive 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-lavaan 
 Requires:         R-MASS 
-Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-psych 
 
 %description
-Functions to easily return simulated predicted probabilities and first
-differences for multinomial logit models. It takes a specified scenario
-and a multinomial model to predict probabilities with a set of
-coefficients, drawn from a simulated sampling distribution. The simulated
-predictions allow for meaningful plots with means and confidence
-intervals. The methodological approach is based on the principles laid out
-by King, Tomz, and Wittenberg (2000) <doi:10.2307/2669316> and Hanmer and
-Ozan Kalkan (2016) <doi:10.1111/j.1540-5907.2012.00602.x>.
+Partial Least Squares Path Modeling algorithm and related algorithms. The
+algorithm implementations aim for computational efficiency using matrix
+algebra and covariance data. The package is designed toward Monte Carlo
+simulations and includes functions to perform simple Monte Carlo
+simulations.
 
 %prep
 %setup -q -c -n %{packname}

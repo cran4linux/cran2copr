@@ -1,10 +1,10 @@
 %global packname  BayesianFROC
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
-Release:          2%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}
 Summary:          FROC Analysis by Bayesian Approaches
 
 License:          MIT + file LICENSE
@@ -58,44 +58,57 @@ Requires:         R-CRAN-shinythemes
 
 %description
 Execute BayesianFROC::fit_GUI_Shiny() (or fit_GUI_Shiny_MRMC()) for a
-graphical user interface via Shiny. The free-response receiver operating
-characteristic (FROC) method is a generalization of receiver operating
-characteristic (ROC) analysis. However, Chakraborty's classical model is
-non-generative in the sense that it cannot synthesize data. This package
-aims to modify his models to be generative using a Bayesian approach, and
-to verify that our models fit practical datasets. In signal detection
-theory, the number of true positives never exceeds the number of targets.
-However, this is not explained by any existing model. Thus, in this
-package, the author contributes to FROC theory by refining Chakraborty’s
-model to obtain models that are generative. This modification allows us to
-use FROC analysis in a general statistical scheme, and as a benefit, our
-generative model can be applied to calculations of posterior predictive p
-values that require generation of synthetic datasets from fitted models.
-Furthermore, this package presents new models for comparison of
-modalities. Modality comparison is a common problem in radiology, and has
-been studied extensively. However, in many medical studies, such problems
-are addressed with non-Bayesian methods such as ANOVA. As a supplementary
-topic, this work presents a Bayesian model that includes individual
-differences. With this model, we can account for differences between
-individual readers when comparing modalities, using Bayesian rather than
-ML-methods. The author found the existing FROC model in [1] to be
-non-generative for calculation of posterior predictive p values. Replacing
-the ML-based method with a Bayesian approach differs from standard
-practice but provides insight into the problems of existing methods.
-Please execute the following R scripts from the R (R studio) console,
-demo(demo_MRMC, package = "BayesianFROC"); demo(demo_srsc, package =
-"BayesianFROC"); demo(demo_stan, package = "BayesianFROC");
-demo(demo_drawcurves_srsc, package = "BayesianFROC");
-demo_Bayesian_FROC(); demo_Bayesian_FROC_without_pause(). References: [1]
-Dev Chakraborty (1989) <doi:10.1118/1.596358> Maximum likelihood analysis
-of free - response receiver operating characteristic (FROC) data.
-Pre-print: Issei Tsunoda; Generative Models for free-response receiver
-operating characteristic analysis. See the vignettes for more details.
+graphical user interface via Shiny.  Provides new methods for the
+so-called Free-response Receiver Operating Characteristic (FROC) analysis.
+The ultimate aim of FROC analysis is to compare observer performances,
+which means comparing characteristics, such as area under the curve (AUC)
+or figure of merit (FOM). In this package, we only use the notion of AUC
+for modality comparison, where by "modality", we mean imaging methods such
+as Magnetic Resonance Imaging (MRI), Computed Tomography (CT), Positron
+Emission Tomography (PET), ..., etc. So there is a problem that which
+imaging method is better to detect lesions from shadows in radiographs. To
+solve modality comparison issues, this package provides new methods using
+hierarchical Bayesian models proposed by the author of this package. Using
+this package, one can obtain at least one conclusion that which imaging
+methods are better for finding lesions in radiographs with the case of
+your data. Fitting FROC statistical models is sometimes not so good, it
+can easily confirm by drawing FROC curves and comparing these curves and
+the points constructed by False Positive fractions (FPFs) and True
+Positive Fractions (TPFs), we can validate the goodness of fit
+intuitively. Such validation is also implemented by the Chi square
+goodness of fit statistics in the Bayesian context which means that the
+parameter is not deterministic, thus by integrating it with the posterior
+predictive measure, we get a desired value. To compare modalities (imaging
+methods: MRI, CT, PET, ... , etc), we evaluate AUCs for each modality.
+FROC is developed by Dev Chakraborty, his FROC model in his 1989 paper
+relies on the maximal likelihood methodology. The author modified and
+provided the alternative Bayesian FROC model. Strictly speaking, his model
+does not coincide with models in this package. In FROC context, we means
+by multiple reader and multiple case (MRMC) the case of the number of
+reader or modality is two or more. The MRMC data is available for
+functions of this package. I hope that medical researchers use not only
+the frequentist method but also alternative Bayesian methods. In medical
+research, many problems are considered under only frequentist methods,
+such as the notion of p-values. But p-value is sometimes misunderstood.
+Bayesian methods provide very simple, direct, intuitive answer for
+research questions. Combining frequentist methods with Bayesian methods,
+we can obtain more reliable answer for research questions. Please execute
+the following R scripts from the R (R studio) console, demo(demo_MRMC,
+package = "BayesianFROC"); demo(demo_srsc, package = "BayesianFROC");
+demo(demo_stan, package = "BayesianFROC"); demo(demo_drawcurves_srsc,
+package = "BayesianFROC"); demo_Bayesian_FROC();
+demo_Bayesian_FROC_without_pause(). References: Dev Chakraborty (1989)
+<doi:10.1118/1.596358> Maximum likelihood analysis of free - response
+receiver operating characteristic (FROC) data. Pre-print: Issei Tsunoda;
+Bayesian Models for free-response receiver operating characteristic
+analysis.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -103,25 +116,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/myapp
-%doc %{rlibdir}/%{packname}/myappp
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

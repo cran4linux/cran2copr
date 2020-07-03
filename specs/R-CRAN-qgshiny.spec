@@ -1,31 +1,33 @@
-%global packname  Rlof
-%global packver   1.1.2
+%global packname  qgshiny
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          R Parallel Implementation of Local Outlier Factor(LOF)
+Summary:          A 'shiny' Application for Active Learning Instruction inIntroductory Quantitative Genetics
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-stats 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-R parallel implementation of Local Outlier Factor(LOF) which uses multiple
-CPUs to significantly speed up the LOF computation for large datasets.
-(Note: The overall performance depends on the computers especially the
-number of the cores).It also supports multiple k values to be calculated
-in parallel, as well as various distance measures in addition to the
-default Euclidean distance.
+A 'shiny' application for teaching introductory quantitative genetics and
+plant breeding through interactive simulations. The application relies on
+established plant breeding and quantitative genetic theory found in
+Falconer and Mackay (1996, ISBN:0582243025) and Bernardo (2010,
+ISBN:978-0972072427).
 
 %prep
 %setup -q -c -n %{packname}

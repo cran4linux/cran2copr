@@ -1,10 +1,10 @@
 %global packname  CSTools
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
-Release:          2%{?dist}
+Version:          3.1.0
+Release:          1%{?dist}
 Summary:          Assessing Skill of Climate Forecasts on Seasonal-to-DecadalTimescales
 
 License:          Apache License 2.0
@@ -12,13 +12,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.2
-Requires:         R-core >= 3.4.2
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-multiApply >= 2.1.1
 BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-s2dverification 
+BuildRequires:    R-CRAN-s2dv 
 BuildRequires:    R-CRAN-rainfarmr 
-BuildRequires:    R-CRAN-multiApply 
 BuildRequires:    R-CRAN-qmap 
 BuildRequires:    R-CRAN-ClimProjDiags 
 BuildRequires:    R-CRAN-ncdf4 
@@ -27,15 +28,17 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-verification 
+Requires:         R-CRAN-multiApply >= 2.1.1
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-s2dverification 
+Requires:         R-CRAN-s2dv 
 Requires:         R-CRAN-rainfarmr 
-Requires:         R-CRAN-multiApply 
 Requires:         R-CRAN-qmap 
 Requires:         R-CRAN-ClimProjDiags 
 Requires:         R-CRAN-ncdf4 
@@ -44,6 +47,7 @@ Requires:         R-CRAN-abind
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -72,6 +76,8 @@ project MEDSCOPE and the H2020 S2S4E project. Doblas-Reyes et al. (2005)
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -79,19 +85,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

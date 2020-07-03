@@ -1,31 +1,34 @@
-%global packname  Rlof
-%global packver   1.1.2
+%global packname  rCAT
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.6
 Release:          1%{?dist}
-Summary:          R Parallel Implementation of Local Outlier Factor(LOF)
+Summary:          Conservation Assessment Tools
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-grDevices >= 3.3.2
+BuildRequires:    R-CRAN-pracma >= 1.9.5
+BuildRequires:    R-CRAN-rgdal >= 1.2.5
+BuildRequires:    R-CRAN-sp >= 1.2.3
+Requires:         R-grDevices >= 3.3.2
+Requires:         R-CRAN-pracma >= 1.9.5
+Requires:         R-CRAN-rgdal >= 1.2.5
+Requires:         R-CRAN-sp >= 1.2.3
 
 %description
-R parallel implementation of Local Outlier Factor(LOF) which uses multiple
-CPUs to significantly speed up the LOF computation for large datasets.
-(Note: The overall performance depends on the computers especially the
-number of the cores).It also supports multiple k values to be calculated
-in parallel, as well as various distance measures in addition to the
-default Euclidean distance.
+A set of tools and functions to help with species conservation assessments
+(Red List threat assessments). Includes Extent of occurrence, Area of
+Occupancy, Minimum Enclosing Rectangle, a geographic Projection Wizard and
+Species batch processing.
 
 %prep
 %setup -q -c -n %{packname}

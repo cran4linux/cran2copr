@@ -1,11 +1,11 @@
 %global packname  hydraulics
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}
-Summary:          Basic Pipe Hydraulics
+Version:          0.2.0
+Release:          1%{?dist}
+Summary:          Basic Pipe and Open Channel Hydraulics
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,21 +24,26 @@ Requires:         R-CRAN-reshape2
 
 %description
 Functions for basic hydraulic calculations related to water flow in
-circular pipes flowing full (under pressure). This includes friction loss
-calculations by solving the Darcy-Weisbach equation for head loss, flow or
-diameter, and plotting a Moody diagram. The Darcy-Weisbach friction factor
-is calculated using the Colebrook (or Colebrook-White equation), the basis
-of the Moody diagram, the original citation being Colebrook (1939)
-<doi:10.1680/ijoti.1939.13150>. The derivation of the Darcy-Weisbach
-equation and methods for its solution are outlined in many fluid mechanics
-texts such as Finnemore and Franzini (2002, ISBN:978-0072432022). This
-package is designed to work similarly to the 'iemisc' package, but with an
-emphasis on pipe flow.
+circular pipes both flowing full (under pressure), and partially full
+(gravity flow), and trapezoidal open channels. For pressure flow this
+includes friction loss calculations by solving the Darcy-Weisbach equation
+for head loss, flow or diameter, and plotting a Moody diagram. The
+Darcy-Weisbach friction factor is calculated using the Colebrook (or
+Colebrook-White equation), the basis of the Moody diagram, the original
+citation being Colebrook (1939) <doi:10.1680/ijoti.1939.13150>. For
+gravity flow, the Manning equation is used, again solving for missing
+parameters. The derivation of and solutions using the Darcy-Weisbach
+equation and the Manning equation are outlined in many fluid mechanics
+texts such as Finnemore and Franzini (2002, ISBN:978-0072432022). For the
+Manning equation solutions, this package uses modifications of original
+code from the 'iemisc' package by Irucka Embry.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -46,17 +51,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

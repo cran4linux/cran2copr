@@ -1,9 +1,9 @@
 %global packname  abn
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}
 Summary:          Modelling Multivariate Data with Additive Bayesian Networks
 
@@ -55,15 +55,18 @@ selection - determining the most robust empirical model of data from
 interdependent variables. Laplace approximations are used to estimate
 goodness of fit metrics and model parameters, and wrappers are also
 included to the INLA package which can be obtained from
-<http://www.r-inla.org>. A comprehensive set of documented case studies,
-numerical accuracy/quality assurance exercises, and additional
-documentation are available from the 'abn' website
-<http://r-bayesian-networks.org>.
+<http://www.r-inla.org>. The computing library JAGS
+<http://mcmc-jags.sourceforge.net> is used to simulate 'abn'-like data. A
+comprehensive set of documented case studies, numerical accuracy/quality
+assurance exercises, and additional documentation are available from the
+'abn' website <http://r-bayesian-networks.org>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -71,22 +74,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/bootstrapping_example
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/old_vignette
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

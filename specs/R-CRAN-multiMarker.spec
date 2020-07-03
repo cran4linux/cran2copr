@@ -1,31 +1,32 @@
-%global packname  Rlof
-%global packver   1.1.2
+%global packname  multiMarker
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0
 Release:          1%{?dist}
-Summary:          R Parallel Implementation of Local Outlier Factor(LOF)
+Summary:          Latent Variable Model to Infer Food Intake from MultipleBiomarkers
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-ordinalNet 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-ordinalNet 
 
 %description
-R parallel implementation of Local Outlier Factor(LOF) which uses multiple
-CPUs to significantly speed up the LOF computation for large datasets.
-(Note: The overall performance depends on the computers especially the
-number of the cores).It also supports multiple k values to be calculated
-in parallel, as well as various distance measures in addition to the
-default Euclidean distance.
+A latent variable model based on factor analytic and mixture of experts
+models, designed to infer food intake from multiple biomarkers data. The
+model is framed within a Bayesian hierarchical framework, which provides
+flexibility to adapt to different biomarker distributions and facilitates
+prediction of the intake along with its associated uncertainty. Details
+are in D'Angelo, et al. (2020) <arXiv:2006.02995>.
 
 %prep
 %setup -q -c -n %{packname}
