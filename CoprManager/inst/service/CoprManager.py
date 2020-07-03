@@ -52,6 +52,9 @@ class PackageManager(dbus.service.Object):
         for pkg in pkgs:
             try:
                 base.install("R-CRAN-" + pkg)
+                base.upgrade("R-CRAN-" + pkg)
+            except dnf.exceptions.PackagesNotInstalledError:
+                pass
             except:
                 notavail.append(pkg)
         
