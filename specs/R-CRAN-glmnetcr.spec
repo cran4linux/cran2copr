@@ -1,31 +1,30 @@
-%global packname  ragg
-%global packver   0.3.1
+%global packname  glmnetcr
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.6
 Release:          1%{?dist}
-Summary:          Graphic Devices Based on AGG
+Summary:          Fit a Penalized Constrained Continuation Ratio Model forPredicting an Ordinal Response
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    freetype-devel
-BuildRequires:    libpng-devel
-BuildRequires:    libtiff-devel
-BuildRequires:    libjpeg-turbo-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-systemfonts >= 0.2.1
-Requires:         R-CRAN-systemfonts >= 0.2.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-glmnet 
 
 %description
-Anti-Grain Geometry (AGG) is a high-quality and high-performance 2D
-drawing library. The 'ragg' package provides a set of graphic devices
-based on AGG to use as alternative to the raster devices provided through
-the 'grDevices' package.
+Penalized methods are useful for fitting over-parameterized models. This
+package includes functions for restructuring an ordinal response dataset
+for fitting continuation ratio models for datasets where the number of
+covariates exceeds the sample size or when there is collinearity among the
+covariates. The 'glmnet' fitting algorithm is used to fit the continuation
+ratio model after data restructuring.
 
 %prep
 %setup -q -c -n %{packname}

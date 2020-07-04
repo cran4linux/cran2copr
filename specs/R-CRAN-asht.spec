@@ -1,9 +1,9 @@
 %global packname  asht
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}
 Summary:          Applied Statistical Hypothesis Tests
 
@@ -15,15 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-exact2x2 >= 1.6.4
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-exact2x2 
 BuildRequires:    R-CRAN-exactci 
 BuildRequires:    R-CRAN-bpcp 
 BuildRequires:    R-CRAN-coin 
 BuildRequires:    R-CRAN-perm 
 BuildRequires:    R-CRAN-ssanv 
+Requires:         R-CRAN-exact2x2 >= 1.6.4
 Requires:         R-stats 
-Requires:         R-CRAN-exact2x2 
 Requires:         R-CRAN-exactci 
 Requires:         R-CRAN-bpcp 
 Requires:         R-CRAN-coin 
@@ -59,9 +59,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

@@ -1,9 +1,9 @@
 %global packname  BayesianReasoning
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}
 Summary:          Plot Positive and Negative Predictive Values for Medical Tests
 
@@ -22,8 +22,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-shinyjs 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
@@ -31,8 +29,6 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-shinyjs 
 
 %description
 Functions to plot and help understand positive and negative predictive

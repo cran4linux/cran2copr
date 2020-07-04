@@ -1,11 +1,11 @@
 %global packname  MVNtestchar
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
-Release:          2%{?dist}
-Summary:          Multivariate Normal Distribution Characterization Test
+Version:          1.1.0
+Release:          1%{?dist}
+Summary:          Test for Multivariate Normal Distribution Based on aCharacterization
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,32 +20,30 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a test of multivariate normality of a sample which does not
-require estimation of the nuisance parameters, the mean and covariance
+Provides a test of multivariate normality of an unknown sample that does
+not require estimation of the nuisance parameters, the mean and covariance
 matrix.  Rather, a sequence of transformations removes these nuisance
 parameters and results in a set of sample matrices that are positive
 definite.  These matrices are uniformly distributed on the space of
-positive definite matrices in the unit hyperrectangle if and only if the
+positive definite matrices in the unit hyper-rectangle if and only if the
 original data is multivariate normal. The package performs a goodness of
-fit test of this hypothesis. Four sample datasets are included: a
-bivariate and a trivariate normal set and a bivariate and trivariate
-Bernoulli set. In addition to the test, functions in the package give
-rotatable visualizations of the support region of positive definite
+fit test of this hypothesis. In addition to the test, functions in the
+package give visualizations of the support region of positive definite
 matrices for bivariate samples.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -53,19 +51,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,13 +1,13 @@
-%global packname  tidylog
-%global packver   1.0.2
+%global packname  trundler
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.13
 Release:          1%{?dist}
-Summary:          Logging for 'dplyr' and 'tidyr' Functions
+Summary:          Retrieve Data from 'Trundler' API
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-urltools 
+Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-urltools 
 
 %description
-Provides feedback about 'dplyr' and 'tidyr' operations.
+A wrapper around the 'Trundler' API, which gives access to historical
+retail pricing data and can be found at <https://api.trundler.dev/>.
 
 %prep
 %setup -q -c -n %{packname}

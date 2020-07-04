@@ -1,31 +1,35 @@
-%global packname  ragg
-%global packver   0.3.1
+%global packname  goxygen
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Graphic Devices Based on AGG
+Summary:          In-Code Documentation for 'GAMS'
 
-License:          MIT + file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    freetype-devel
-BuildRequires:    libpng-devel
-BuildRequires:    libtiff-devel
-BuildRequires:    libjpeg-turbo-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-systemfonts >= 0.2.1
-Requires:         R-CRAN-systemfonts >= 0.2.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-gms 
+BuildRequires:    R-CRAN-citation 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-pander 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-gms 
+Requires:         R-CRAN-citation 
+Requires:         R-CRAN-yaml 
 
 %description
-Anti-Grain Geometry (AGG) is a high-quality and high-performance 2D
-drawing library. The 'ragg' package provides a set of graphic devices
-based on AGG to use as alternative to the raster devices provided through
-the 'grDevices' package.
+A collection of tools which extract a model documentation from 'GAMS' code
+and comments. In order to use the package you need to install 'pandoc' and
+'pandoc-citeproc' first (<https://pandoc.org/>).
 
 %prep
 %setup -q -c -n %{packname}

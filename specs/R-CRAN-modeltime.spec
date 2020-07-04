@@ -1,9 +1,9 @@
 %global packname  modeltime
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}
 Summary:          The Tidymodels Extension for Time Series Modeling
 
@@ -12,12 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-timetk >= 2.0.0
+BuildRequires:    R-CRAN-timetk >= 2.1.0
+BuildRequires:    R-CRAN-parsnip >= 0.1.2
 BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-parsnip >= 0.1.0
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-workflows 
@@ -40,9 +40,10 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-prophet 
-Requires:         R-CRAN-timetk >= 2.0.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-timetk >= 2.1.0
+Requires:         R-CRAN-parsnip >= 0.1.2
 Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-parsnip >= 0.1.0
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-yardstick 
 Requires:         R-CRAN-workflows 
@@ -65,6 +66,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-prophet 
+Requires:         R-methods 
 
 %description
 The time series forecasting framework for use with the 'tidymodels'
@@ -87,9 +89,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

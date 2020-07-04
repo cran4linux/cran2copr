@@ -1,0 +1,62 @@
+%global packname  ivdoctr
+%global packver   1.0.0
+%global rlibdir   /usr/local/lib/R/library
+
+Name:             R-CRAN-%{packname}
+Version:          1.0.0
+Release:          1%{?dist}
+Summary:          Ensures Mutually Consistent Beliefs When Using IVs
+
+License:          CC0
+URL:              https://cran.r-project.org/package=%{packname}
+Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
+
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 0.11.6
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-graphics 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.6
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-data.table 
+Requires:         R-graphics 
+Requires:         R-MASS 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
+
+%description
+Uses data and researcher's beliefs on measurement error and instrumental
+variable (IV) endogeneity to generate the space of consistent beliefs
+across measurement error, instrument endogeneity, and instrumental
+relevance for IV regressions. Package based on DiTraglia and Garcia-Jimeno
+(2020) <doi:10.1080/07350015.2020.1753528>.
+
+%prep
+%setup -q -c -n %{packname}
+
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+
+%build
+
+%install
+
+mkdir -p %{buildroot}%{rlibdir}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
+
+%files
+%{rlibdir}/%{packname}

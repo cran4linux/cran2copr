@@ -1,31 +1,35 @@
-%global packname  ragg
+%global packname  stickr
 %global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
 Release:          1%{?dist}
-Summary:          Graphic Devices Based on AGG
+Summary:          View and Use R Hex Stickers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    freetype-devel
-BuildRequires:    libpng-devel
-BuildRequires:    libtiff-devel
-BuildRequires:    libjpeg-turbo-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-systemfonts >= 0.2.1
-Requires:         R-CRAN-systemfonts >= 0.2.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gh >= 1.1.0
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-gh >= 1.1.0
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-Anti-Grain Geometry (AGG) is a high-quality and high-performance 2D
-drawing library. The 'ragg' package provides a set of graphic devices
-based on AGG to use as alternative to the raster devices provided through
-the 'grDevices' package.
+Download and use R hex stickers. Stickers made available in standardized
+locations in GitHub repositories, as well as those in the
+<https://github.com/rstudio/hex-stickers> repository will be available.
 
 %prep
 %setup -q -c -n %{packname}
