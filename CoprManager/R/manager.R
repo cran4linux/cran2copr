@@ -3,7 +3,7 @@ utils::globalVariables(c("BUS_NAME", "OPATH", "IFACE"))
 dbus_call <- function(cmd, pkgs) {
   source(system.file("service/dbus-paths", package="CoprManager"))
 
-  args <- c("call", BUS_NAME, OPATH, IFACE,
+  args <- c("call", "--timeout=1h", BUS_NAME, OPATH, IFACE,
             cmd, "ias", Sys.getpid(), length(pkgs), pkgs)
   out <- suppressWarnings(system2("busctl", args, stdout=TRUE, stderr=TRUE))
 

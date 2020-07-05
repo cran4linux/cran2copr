@@ -3,7 +3,7 @@
 from gi.repository import GLib
 from functools import wraps
 from contextlib import redirect_stdout
-import signal
+import sys, signal
 
 import dbus
 import dbus.service
@@ -44,8 +44,10 @@ class PackageManager(dbus.service.Object):
     @redirect_stdout_handle_exceptions(10)
     def install(self, pid, pkgs):
         print("Installing Copr packages...", flush=True)
+        progress = dnf.cli.progress.MultiFileProgressMeter(fo=sys.stdout)
         base = dnf.Base()
         base.read_all_repos()
+        base.repos.all().set_progress_bar(progress)
         base.fill_sack()
         
         notavail = []
@@ -59,7 +61,6 @@ class PackageManager(dbus.service.Object):
                 notavail.append(pkg)
         
         base.resolve()
-        progress = dnf.cli.progress.MultiFileProgressMeter()
         base.download_packages(base.transaction.install_set, progress)
         base.do_transaction(dnf.cli.output.CliTransactionDisplay())
         base.close()
