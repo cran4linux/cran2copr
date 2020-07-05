@@ -4,7 +4,7 @@
 %global rlibdir %{_datadir}/R/library
 
 Name:           R-%{packname}
-Version:        0.1.4
+Version:        0.1.5
 Release:        1%{?dist}
 Summary:        Package Manager for the 'cran2copr' Project
 
@@ -28,21 +28,16 @@ D-Bus to a systemd service that manages package installations via DNF.
 
 %install
 mkdir -p %{buildroot}%{rlibdir}
-%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname} \
+  --configure-vars="BUILD_DIR=%{buildroot}" \
+  --configure-vars="DATA_DIR=%{buildroot}%{_datadir}" \
+  --configure-vars="SYSCONF_DIR=%{buildroot}%{_sysconfdir}"
 rm -f %{buildroot}%{rlibdir}/R.css
-find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
-mkdir -p %{buildroot}%{_datadir}/dbus-1/system-services
-mv %{buildroot}%{rlibdir}/%{packname}/service/%{busname}.service \
-    %{buildroot}%{_datadir}/dbus-1/system-services
-
-mkdir -p %{buildroot}%{_sysconfdir}/dbus-1/system.d
-mv %{buildroot}%{rlibdir}/%{packname}/service/%{busname}.conf \
-    %{buildroot}%{_sysconfdir}/dbus-1/system.d
-
+# enable by default
 mkdir -p %{buildroot}%{_libdir}/R/etc
 echo "suppressMessages(CoprManager::enable())" \
-    > %{buildroot}%{_libdir}/R/etc/Rprofile.site
+  > %{buildroot}%{_libdir}/R/etc/Rprofile.site
 
 %files
 %dir %{rlibdir}/%{packname}

@@ -3,6 +3,11 @@ utils::globalVariables(c("BUS_NAME", "OPATH", "IFACE"))
 dbus_call <- function(cmd, pkgs) {
   source(system.file("service/dbus-paths", package="CoprManager"))
 
+  args <- c("list", "--no-pager")
+  out <- suppressWarnings(system2("busctl", args, stdout=TRUE, stderr=TRUE))
+  if (!any(grepl(BUS_NAME, out)))
+    stop("CoprManager service not found")
+
   args <- c("call", "--timeout=1h", BUS_NAME, OPATH, IFACE,
             cmd, "ias", Sys.getpid(), length(pkgs), pkgs)
   out <- suppressWarnings(system2("busctl", args, stdout=TRUE, stderr=TRUE))
