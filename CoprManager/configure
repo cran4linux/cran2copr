@@ -1,13 +1,13 @@
 #!/bin/sh
 
-source inst/service/dbus-paths
+. inst/service/dbus-paths
 
-function subst {
-  pushd $1 > /dev/null
-    cat $2 |
+subst() {
+  DIR=$(pwd)
+  cd $1 && cat $2 |
     sed "s @BUS_NAME@ $BUS_NAME g" |
     sed "s @R_LIBRARY_DIR@ ${R_LIBRARY_DIR#"$BUILD_ROOT"} g" > $3
-  popd > /dev/null
+  cd $DIR
 }
 
 if [ -z "$DATA_DIR" ] || [ -z "$SYSCONF_DIR" ]; then
