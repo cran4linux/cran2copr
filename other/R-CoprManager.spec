@@ -29,7 +29,7 @@ D-Bus to a systemd service that manages package installations via DNF.
 %install
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname} \
-  --configure-vars="BUILD_DIR=%{buildroot}" \
+  --configure-vars="BUILD_ROOT=%{buildroot}" \
   --configure-vars="DATA_DIR=%{buildroot}%{_datadir}" \
   --configure-vars="SYSCONF_DIR=%{buildroot}%{_sysconfdir}"
 rm -f %{buildroot}%{rlibdir}/R.css

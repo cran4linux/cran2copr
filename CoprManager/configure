@@ -6,7 +6,7 @@ function subst {
   pushd $1 > /dev/null
     cat $2 |
     sed "s @BUS_NAME@ $BUS_NAME g" |
-    sed "s @R_LIBRARY_DIR@ ${R_LIBRARY_DIR#"$BUILD_DIR"} g" > $3
+    sed "s @R_LIBRARY_DIR@ ${R_LIBRARY_DIR#"$BUILD_ROOT"} g" > $3
   popd > /dev/null
 }
 
