@@ -1,3 +1,0 @@
-OPATH="/org/fedoraproject/cran2copr1/PackageManager"
-IFACE="org.fedoraproject.cran2copr1.PackageManager"
-BUS_NAME="org.fedoraproject.cran2copr1"
