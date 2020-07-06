@@ -1,9 +1,9 @@
 %global packname  Compositional
-%global packver   3.8
+%global packver   3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8
+Version:          3.9
 Release:          1%{?dist}
 Summary:          Compositional Data Analysis
 
@@ -17,6 +17,7 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-emplik 
+BuildRequires:    R-CRAN-FlexDir 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-mda 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-sn
 BuildRequires:    R-stats 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-emplik 
+Requires:         R-CRAN-FlexDir 
 Requires:         R-CRAN-foreach 
 Requires:         R-MASS 
 Requires:         R-CRAN-mda 
@@ -66,11 +68,12 @@ Lobachevskii Journal of Mathematics, 39(3): 398--412.
 <doi:10.1134/S1995080218030198>. h) Alenazi A. (2019). Regression for
 compositional data with compositional data as predictor variables with or
 without zero values. Journal of Data Science, 17(1): 219--238.
-<doi:10.6339/JDS.201901_17(1).0010>. i) Tsagris M. and Stewart C. (2019).
-A folded model for compositional data analysis. <arXiv:1802.07330>. j)
-Tsagris M., Alenazi A. and Stewart C. (2020). The alpha-k-NN regression
-for compositional data. <arXiv:2002.05137>. We further include functions
-for percentages (or proportions).
+<doi:10.6339/JDS.201901_17(1).0010>. i) Tsagris M. and Stewart C. (2020).
+A folded model for compositional data analysis. Australian and New Zealand
+Journal of Statistics (to appear). <arXiv:1802.07330>. j) Tsagris M.,
+Alenazi A. and Stewart C. (2020). The alpha-k-NN regression for
+compositional data. <arXiv:2002.05137>. We further include functions for
+percentages (or proportions).
 
 %prep
 %setup -q -c -n %{packname}
@@ -85,9 +88,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

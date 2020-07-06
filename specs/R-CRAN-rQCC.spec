@@ -1,10 +1,10 @@
 %global packname  rQCC
-%global packver   1.20.3
+%global packver   1.20.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20.3
-Release:          2%{?dist}
+Version:          1.20.7
+Release:          1%{?dist}
 Summary:          Robust Quality Control Chart
 
 License:          GPL-2 | GPL-3
@@ -21,14 +21,18 @@ Constructs robust quality control chart based on the median or
 Hodges-Lehmann estimator (location) and the median absolute deviation
 (MAD) or Shamos estimator (scale). These estimators are all unbiased with
 a sample of finite size. For more details, see Park, Kim and Wang (2020)
-<doi:10.1080/03610918.2019.1699114>. This work was partially supported by
-the National Research Foundation of Korea (NRF) grant funded by the Korea
-government (NRF-2017R1A2B4004169).
+<doi:10.1080/03610918.2019.1699114>. In addition, using this package, the
+conventional quality control charts such as X-bar, S and R charts are also
+easily constructed. This work was partially supported by the National
+Research Foundation of Korea (NRF) grant funded by the Korea government
+(NRF-2017R1A2B4004169).
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -36,18 +40,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

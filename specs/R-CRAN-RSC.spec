@@ -1,31 +1,42 @@
-%global packname  gam
-%global packver   1.20
+%global packname  RSC
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Generalized Additive Models
+Summary:          Robust and Sparse Correlation Matrix
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-stats 
-BuildRequires:    R-splines 
+BuildRequires:    R-graphics 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-splines 
+Requires:         R-graphics 
+Requires:         R-Matrix 
+Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-utils 
 
 %description
-Functions for fitting and working with generalized additive models, as
-described in chapter 7 of "Statistical Models in S" (Chambers and Hastie
-(eds), 1991), and "Generalized Additive Models" (Hastie and Tibshirani,
-1990).
+Performs robust and sparse correlation matrix estimation. Robustness is
+achieved based on a simple robust pairwise correlation estimator, while
+sparsity is obtained based on thresholding. The optimal thresholding is
+tuned via cross-validation. See Serra, Coretto, Fratello, and Tagliaferri
+(2018) <doi:10.1093/bioinformatics/btx642>.
 
 %prep
 %setup -q -c -n %{packname}

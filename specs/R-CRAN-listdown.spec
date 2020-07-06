@@ -1,31 +1,27 @@
-%global packname  gam
-%global packver   1.20
+%global packname  listdown
+%global packver   0.2.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20
+Version:          0.2.18
 Release:          1%{?dist}
-Summary:          Generalized Additive Models
+Summary:          Create R Markdown from Lists
 
-License:          GPL-2
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-stats 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-stats 
-Requires:         R-splines 
-Requires:         R-CRAN-foreach 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-yaml 
 
 %description
-Functions for fitting and working with generalized additive models, as
-described in chapter 7 of "Statistical Models in S" (Chambers and Hastie
-(eds), 1991), and "Generalized Additive Models" (Hastie and Tibshirani,
-1990).
+Programmatically create R Markdown documents from lists.
 
 %prep
 %setup -q -c -n %{packname}

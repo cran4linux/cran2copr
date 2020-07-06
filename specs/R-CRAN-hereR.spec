@@ -1,10 +1,10 @@
 %global packname  hereR
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
-Release:          2%{?dist}
+Version:          0.4.0
+Release:          1%{?dist}
 Summary:          'sf'-Based Interface to the 'HERE' REST APIs
 
 License:          GPL-3
@@ -20,13 +20,13 @@ BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-data.table >= 1.12.6
 BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-lwgeom >= 0.2.3
+BuildRequires:    R-CRAN-flexpolyline >= 0.1.0
 Requires:         R-CRAN-curl >= 4.2
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.12.6
 Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-lwgeom >= 0.2.3
+Requires:         R-CRAN-flexpolyline >= 0.1.0
 
 %description
 Interface to the 'HERE' REST APIs
@@ -35,15 +35,18 @@ autocomplete addresses or reverse geocode POIs using the 'Geocoder' API;
 (2) route directions, travel distance or time matrices and isolines using
 the 'Routing' API; (3) request real-time traffic flow and incident
 information from the 'Traffic' API; (4) find request public transport
-connections and nearby stations from the 'Public Transit' API; (5) get
-weather forecasts, reports on current weather conditions, astronomical
-information and alerts at a specific location from the 'Destination
-Weather' API. Locations, routes and isolines are returned as 'sf' objects.
+connections and nearby stations from the 'Public Transit' API; (5) request
+intermodal routes using the 'Intermodal Routing' API; (6) get weather
+forecasts, reports on current weather conditions, astronomical information
+and alerts at a specific location from the 'Destination Weather' API.
+Locations, routes and isolines are returned as 'sf' objects.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -51,20 +54,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/figure
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

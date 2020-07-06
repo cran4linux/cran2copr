@@ -1,9 +1,9 @@
 %global packname  DynTxRegime
-%global packver   4.5
+%global packver   4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5
+Version:          4.6
 Release:          1%{?dist}
 Summary:          Methods for Estimating Optimal Dynamic Treatment Regimes
 

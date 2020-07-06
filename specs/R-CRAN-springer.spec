@@ -1,9 +1,9 @@
 %global packname  springer
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Sparse Group Variable Selection for Gene-EnvironmentInteractions in the Longitudinal Study
 
@@ -21,7 +21,7 @@ Requires:         R-MASS
 Requires:         R-CRAN-Rcpp 
 
 %description
-Recently, regularized variable selection has emerged as a power tool to
+Recently, regularized variable selection has emerged as a powerful tool to
 identify and dissect gene-environment interactions. Nevertheless, in
 longitudinal studies with high dimensional genetic factors, regularization
 methods for G×E interactions have not been systematically developed. In

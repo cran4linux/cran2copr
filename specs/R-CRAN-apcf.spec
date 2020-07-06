@@ -1,34 +1,33 @@
-%global packname  GetoptLong
-%global packver   1.0.1
+%global packname  apcf
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.5
 Release:          1%{?dist}
-Summary:          Parsing Command-Line Arguments and Simple Variable Interpolation
+Summary:          Adapted Pair Correlation Function
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         perl(Getopt::Long)
+BuildRequires:    gdal-devel >= 2.0.0
+BuildRequires:    geos-devel >= 3.4.0
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.0
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-GlobalOptions >= 0.1.0
-Requires:         R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-Rcpp >= 0.12
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-Rcpp >= 0.12
+Requires:         R-graphics 
 
 %description
-This is a command-line argument parser which wraps the powerful Perl
-module Getopt::Long and with some adaptations for easier use in R. It also
-provides a simple way for variable interpolation in R.
+The adapted pair correlation function transfers the concept of the pair
+correlation function from point patterns to patterns of objects of finite
+size and irregular shape (e.g. lakes within a country). This is a
+reimplementation of the method suggested by Nuske et al. (2009)
+<doi:10.1016/j.foreco.2009.09.050> using the libraries 'GEOS' and 'GDAL'
+directly instead of through 'PostGIS'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,38 @@
-%global packname  transformr
+%global packname  UKgrid
 %global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
 Release:          1%{?dist}
-Summary:          Polygon and Path Transformations
+Summary:          The UK National Electricity Transmission System Dataset
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.15
-BuildRequires:    R-CRAN-tweenr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-Rcpp >= 0.12.15
-Requires:         R-CRAN-tweenr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-lpSolve 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-zoo >= 1.8.0
+BuildRequires:    R-CRAN-lubridate >= 1.6.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-data.table >= 1.11.2
+BuildRequires:    R-CRAN-tsibble >= 0.9.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.5
+BuildRequires:    R-CRAN-xts >= 0.12.0
+Requires:         R-CRAN-zoo >= 1.8.0
+Requires:         R-CRAN-lubridate >= 1.6.0
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-data.table >= 1.11.2
+Requires:         R-CRAN-tsibble >= 0.9.0
+Requires:         R-CRAN-dplyr >= 0.7.5
+Requires:         R-CRAN-xts >= 0.12.0
 
 %description
-In order to smoothly animate the transformation of polygons and paths,
-many aspects needs to be taken into account, such as differing number of
-control points, changing center of rotation, etc. The 'transformr' package
-provides an extensive framework for manipulating the shapes of polygons
-and paths and can be seen as the spatial brother to the 'tweenr' package.
+A time series of the national grid demand (high-voltage electric power
+transmission network) in the UK since 2011.
 
 %prep
 %setup -q -c -n %{packname}
