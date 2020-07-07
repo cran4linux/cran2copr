@@ -1,22 +1,35 @@
-%global packname  TrialSize
-%global packver   1.4
+%global packname  mrgsim.parallel
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          R Functions for Chapter 3,4,6,7,9,10,11,12,14,15 of Sample SizeCalculation in Clinical Research
+Summary:          Simulate with 'mrgsolve' in Parallel
 
-License:          GPL (>= 2.15.1)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mrgsolve 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future.apply 
+Requires:         R-CRAN-mrgsolve 
+Requires:         R-parallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future.apply 
 
 %description
-Functions and Examples in Sample Size Calculation in Clinical Research.
+Simulation from an 'mrgsolve'
+<https://cran.r-project.org/package=mrgsolve> model using a parallel
+backend. Input data sets are split (chunked) and simulated in parallel
+using mclapply() or future_lapply()
+<https://cran.r-project.org/package=future.apply>.
 
 %prep
 %setup -q -c -n %{packname}

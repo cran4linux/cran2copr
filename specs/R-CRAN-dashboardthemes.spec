@@ -1,22 +1,27 @@
-%global packname  TrialSize
-%global packver   1.4
+%global packname  dashboardthemes
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.1.1
 Release:          1%{?dist}
-Summary:          R Functions for Chapter 3,4,6,7,9,10,11,12,14,15 of Sample SizeCalculation in Clinical Research
+Summary:          Customise the Appearance of 'shinydashboard' Applications usingThemes
 
-License:          GPL (>= 2.15.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools >= 0.3.5
+Requires:         R-CRAN-htmltools >= 0.3.5
 
 %description
-Functions and Examples in Sample Size Calculation in Clinical Research.
+Allows manual creation of themes and logos to be used in applications
+created using the 'shinydashboard' package. Removes the need to change the
+underlying css code by wrapping it into a set of convenient R functions.
 
 %prep
 %setup -q -c -n %{packname}

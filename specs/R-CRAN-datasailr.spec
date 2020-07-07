@@ -1,9 +1,9 @@
 %global packname  datasailr
-%global packver   0.8.4
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.8.5
 Release:          1%{?dist}
 Summary:          Fast Row by Row Data Processing Tool, Using 'Sailr' Script
 

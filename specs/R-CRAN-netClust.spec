@@ -1,22 +1,26 @@
-%global packname  TrialSize
-%global packver   1.4
+%global packname  netClust
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.0
 Release:          1%{?dist}
-Summary:          R Functions for Chapter 3,4,6,7,9,10,11,12,14,15 of Sample SizeCalculation in Clinical Research
+Summary:          Model-Based Clustering of Network Data
 
-License:          GPL (>= 2.15.1)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.2
 
 %description
-Functions and Examples in Sample Size Calculation in Clinical Research.
+Clustering unilayer and multilayer network data by means of finite
+mixtures is the main utility of 'netClust'.
 
 %prep
 %setup -q -c -n %{packname}

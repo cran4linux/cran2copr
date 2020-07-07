@@ -1,36 +1,42 @@
-%global packname  rNeighborGWAS
-%global packver   1.2.0
+%global packname  evident
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Testing Neighbor Effects in Marker-Based Regressions
+Summary:          Evidence Factors in Observational Studies
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gaston 
-BuildRequires:    R-Matrix 
 BuildRequires:    R-stats 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-sensitivity2x2xk 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RcppParallel 
-Requires:         R-CRAN-gaston 
-Requires:         R-Matrix 
+BuildRequires:    R-CRAN-sensitivitymult 
+BuildRequires:    R-CRAN-sensitivitymv 
+BuildRequires:    R-CRAN-senstrat 
+BuildRequires:    R-CRAN-DOS2 
 Requires:         R-stats 
+Requires:         R-MASS 
+Requires:         R-CRAN-sensitivity2x2xk 
 Requires:         R-graphics 
-Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-sensitivitymult 
+Requires:         R-CRAN-sensitivitymv 
+Requires:         R-CRAN-senstrat 
+Requires:         R-CRAN-DOS2 
 
 %description
-To incorporate neighbor genotypic identity into genome-wide association
-studies, the package provides a set of functions for variation
-partitioning and association mapping. The theoretical background of the
-method is described in Sato et al. (2019) <doi:10.1101/845735>.
+Contains a collection of examples of evidence factors in observational
+studies; e.g., Rosenbaum (2017) <doi:10.1214/17-STS621>.  The examples are
+collected to aid readers of a book in preparation, "Replication and
+Evidence Factors in Observational Studies".
 
 %prep
 %setup -q -c -n %{packname}

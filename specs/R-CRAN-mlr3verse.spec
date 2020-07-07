@@ -1,10 +1,10 @@
 %global packname  mlr3verse
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          2%{?dist}
+Version:          0.1.3
+Release:          1%{?dist}
 Summary:          Easily Install and Load the 'mlr3' Package Family
 
 License:          LGPL-3
@@ -16,22 +16,22 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mlr3 
-BuildRequires:    R-CRAN-mlr3db 
 BuildRequires:    R-CRAN-mlr3filters 
 BuildRequires:    R-CRAN-mlr3learners 
 BuildRequires:    R-CRAN-mlr3pipelines 
 BuildRequires:    R-CRAN-mlr3tuning 
 BuildRequires:    R-CRAN-mlr3viz 
 BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-mlr3data 
 BuildRequires:    R-CRAN-mlr3misc 
 Requires:         R-CRAN-mlr3 
-Requires:         R-CRAN-mlr3db 
 Requires:         R-CRAN-mlr3filters 
 Requires:         R-CRAN-mlr3learners 
 Requires:         R-CRAN-mlr3pipelines 
 Requires:         R-CRAN-mlr3tuning 
 Requires:         R-CRAN-mlr3viz 
 Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-mlr3data 
 Requires:         R-CRAN-mlr3misc 
 
 %description
@@ -44,6 +44,9 @@ more information about the 'mlr3' project at
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -51,17 +54,9 @@ more information about the 'mlr3' project at
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,22 +1,27 @@
-%global packname  TrialSize
-%global packver   1.4
+%global packname  clipp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          R Functions for Chapter 3,4,6,7,9,10,11,12,14,15 of Sample SizeCalculation in Clinical Research
+Summary:          Calculating Likelihoods by Pedigree Paring
 
-License:          GPL (>= 2.15.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Functions and Examples in Sample Size Calculation in Clinical Research.
+A fast and general implementation of the Elston-Stewart algorithm that can
+calculate the likelihoods of large and complex pedigrees without loops.
+References for the Elston-Stewart algorithm are Elston & Stewart (1971)
+<doi:10.1159/000152448>, Lange & Elston (1975) <doi:10.1159/000152714> and
+Cannings et al. (1978) <doi:10.2307/1426718>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,34 @@
-%global packname  rstantools
-%global packver   2.1.1
+%global packname  pchc
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1
 Release:          1%{?dist}
-Summary:          Tools for Developing R Packages Interfacing with 'Stan'
+Summary:          Bayesian Network Learning with the PCHC Algorithm
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-bnlearn 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-CRAN-desc 
+Requires:         R-CRAN-bnlearn 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides various tools for developers of R packages interfacing with
-'Stan' <https://mc-stan.org>, including functions to set up the required
-package structure, S3 generics and default methods to unify function
-naming across 'Stan'-based R packages, and vignettes with recommendations
-for developers.
+Bayesian network learning using the PCHC algorithm. PCHC stands for PC
+Hill-Climbing. It is a new hybrid algorithm that used PC to construct the
+skeleton of the BN and then utilizes the Hill-Climbing greedy search. The
+relevant paper has been submitted and is currently in revision.
 
 %prep
 %setup -q -c -n %{packname}

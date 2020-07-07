@@ -1,22 +1,33 @@
-%global packname  TrialSize
-%global packver   1.4
+%global packname  pexm
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          R Functions for Chapter 3,4,6,7,9,10,11,12,14,15 of Sample SizeCalculation in Clinical Research
+Summary:          Loading a JAGS Module for the Piecewise Exponential Distribution
 
-License:          GPL (>= 2.15.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-msm 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-msm 
 
 %description
-Functions and Examples in Sample Size Calculation in Clinical Research.
+Load the Just Another Gibbs Sampling (JAGS) module 'pexm'. The module
+provides the tools to work with the Piecewise Exponential (PE)
+distribution in a Bayesian model with the corresponding Markov Chain Monte
+Carlo algorithm (Gibbs Sampling) implemented via JAGS. Details about the
+module implementation can be found in Mayrink et al. (2020)
+<arXiv:2004.12359>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,29 @@
-%global packname  rstantools
-%global packver   2.1.1
+%global packname  roxut
+%global packver   0.2.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.2.23
 Release:          1%{?dist}
-Summary:          Tools for Developing R Packages Interfacing with 'Stan'
+Summary:          Document Unit Tests Roxygen-Style
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-CRAN-desc 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-roxygen2 >= 7.1
+Requires:         R-CRAN-roxygen2 >= 7.1
 
 %description
-Provides various tools for developers of R packages interfacing with
-'Stan' <https://mc-stan.org>, including functions to set up the required
-package structure, S3 generics and default methods to unify function
-naming across 'Stan'-based R packages, and vignettes with recommendations
-for developers.
+Much as 'roxygen2' allows one to document functions in the same file as
+the function itself, 'roxut' allows one to write the unit tests in the
+same file as the function.  Once processed, the unit tests are moved to
+the appropriate directory.  Currently supports 'testthat' and 'tinytest'
+frameworks. The 'roxygen2' package provides much of the infrastructure.
 
 %prep
 %setup -q -c -n %{packname}

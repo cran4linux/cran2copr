@@ -1,22 +1,28 @@
-%global packname  TrialSize
-%global packver   1.4
+%global packname  sgpv
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          R Functions for Chapter 3,4,6,7,9,10,11,12,14,15 of Sample SizeCalculation in Clinical Research
+Summary:          Calculate Second-Generation p-Values and Associated Measures
 
-License:          GPL (>= 2.15.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.3
+Requires:         R-core >= 3.3.3
+BuildArch:        noarch
 
 %description
-Functions and Examples in Sample Size Calculation in Clinical Research.
+Computation of second-generation p-values as described in Blume et al.
+(2018) <doi:10.1371/journal.pone.0188299> and Blume et al. (2019)
+<doi:10.1080/00031305.2018.1537893>. There are additional functions which
+provide power and type I error calculations, create graphs (particularly
+suited for large-scale inference usage), and a function to estimate false
+discovery rates based on second-generation p-value inference.
 
 %prep
 %setup -q -c -n %{packname}
