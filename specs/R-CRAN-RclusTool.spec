@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.91.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Graphical Toolbox for Clustering and Classification of DataFrames
 
 License:          GPL (>= 2)

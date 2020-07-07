@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Supplemental U.S. 2000 Census Tract Boundaries for 20 States,District and Territory without Seer Registries that are East ofthe Mississippi River for Use with 'SeerMapper' Package
 
 License:          GPL (>= 2)

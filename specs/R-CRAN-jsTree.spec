@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Interactive Trees with the 'jQuery' 'jsTree' Plugin
 
 License:          GPL-2 | GPL-3

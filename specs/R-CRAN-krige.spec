@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Geospatial Kriging with Metropolis Sampling
 
 License:          GPL (>= 2)

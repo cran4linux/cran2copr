@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Download Regularly Maintained Political Science Data Sets
 
 License:          GPL (>= 3)

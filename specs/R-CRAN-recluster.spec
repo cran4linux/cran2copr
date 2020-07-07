@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Ordination Methods for the Analysis of Beta-Diversity Indices
 
 License:          GPL (>= 2.0)

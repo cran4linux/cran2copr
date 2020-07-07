@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Selecting the Best Set of Relevant Environmental Variables alongwith the Optimal Regularization Multiplier for Maxent NicheModeling
 
 License:          GPL (>= 2)

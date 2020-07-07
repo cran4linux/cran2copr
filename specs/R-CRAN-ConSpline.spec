@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Partial Linear Least-Squares Regression using ConstrainedSplines
 
 License:          GPL-2 | GPL-3

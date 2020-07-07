@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions and Datasets to Accompany Hollander, Wolfe, andChicken - Nonparametric Statistical Methods, Third Edition
 
 License:          GPL-2

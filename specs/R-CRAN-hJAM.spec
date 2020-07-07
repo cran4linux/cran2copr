@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Hierarchical Joint Analysis of Marginal Summary Statistics
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Network Meta-Analysis of Individual and Aggregate Data
 
 License:          GPL-3

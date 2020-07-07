@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Turn vectors and lists of vectors into indexed structures
 
 License:          GPL-3

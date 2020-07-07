@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.26.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Portable Emissions (and Other Mobile) Measurement SystemUtilities
 
 License:          GPL (>= 2)

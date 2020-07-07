@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Joint Quantile and Expected Shortfall Regression
 
 License:          GPL-3

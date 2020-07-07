@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Latent Variable Gaussian Process Modeling with Qualitative andQuantitative Input Variables
 
 License:          GPL-2

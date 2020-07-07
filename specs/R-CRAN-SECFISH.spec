@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Disaggregate Variable Costs
 
 License:          GPL-2

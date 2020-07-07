@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          OPTICS K-Xi Density-Based Clustering
 
 License:          GPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          GRS Test for Portfolio Efficiency, Its Statistical PowerAnalysis, and Optimal Significance Level Calculation
 
 License:          GPL-2

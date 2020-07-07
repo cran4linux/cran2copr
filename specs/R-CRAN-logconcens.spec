@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Maximum Likelihood Estimation of a log-Concave Density Based onCensored Data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Uncertainties of Climate Projections using Smoothing Splines
 
 License:          GPL-3

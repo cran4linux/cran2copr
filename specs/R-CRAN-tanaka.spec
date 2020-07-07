@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Design Shaded Contour Lines (or Tanaka) Maps
 
 License:          GPL-3

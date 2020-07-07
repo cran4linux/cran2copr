@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          UNC Men's Basketball Match Results Since 1949-1950 Season
 
 License:          CC0

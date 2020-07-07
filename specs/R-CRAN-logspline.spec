@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Routines for Logspline Density Estimation
 
 License:          Apache License 2.0

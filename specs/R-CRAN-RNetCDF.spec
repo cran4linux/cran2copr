@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to 'NetCDF' Datasets
 
 License:          GPL (>= 2) | file LICENSE

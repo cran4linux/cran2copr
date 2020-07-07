@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'dplyr'-Like Syntax for Summary Statistics of Survey Data
 
 License:          GPL-2 | GPL-3

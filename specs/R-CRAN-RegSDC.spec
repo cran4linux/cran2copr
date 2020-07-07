@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Information Preserving Regression-Based Tools for StatisticalDisclosure Control
 
 License:          Apache License 2.0 | file LICENSE

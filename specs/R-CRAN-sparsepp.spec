@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.22
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'Rcpp' Interface to 'sparsepp'
 
 License:          BSD_3_clause + file LICENSE

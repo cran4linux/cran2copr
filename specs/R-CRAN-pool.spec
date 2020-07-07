@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Object Pooling
 
 License:          GPL-3

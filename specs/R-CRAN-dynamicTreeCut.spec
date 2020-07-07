@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.63.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for Detection of Clusters in Hierarchical ClusteringDendrograms
 
 License:          GPL (>= 2)

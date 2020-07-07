@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Easily Download and Visualise Climate Data from CliFlo
 
 License:          GPL-2

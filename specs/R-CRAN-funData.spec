@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An S4 Class for Functional Data
 
 License:          GPL-2

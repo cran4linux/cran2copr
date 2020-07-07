@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Stellar CharactEristics Pisa Estimation gRid for Binary Systems
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sensitivity Analysis of Ordinary Differential Equations
 
 License:          LGPL-3

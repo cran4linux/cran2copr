@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Goodness-of-Fit Tests for Capture-Recapture Models
 
 License:          GPL (>= 2)

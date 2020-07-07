@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fixed Sequence Multiple Testing Procedures
 
 License:          GPL (>= 2)

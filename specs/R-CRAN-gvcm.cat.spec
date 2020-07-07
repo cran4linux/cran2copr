@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Regularized Categorical Effects/Categorical EffectModifiers/Continuous/Smooth Effects in GLMs
 
 License:          GPL (>= 2)

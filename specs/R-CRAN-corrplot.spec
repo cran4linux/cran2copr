@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.84
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Visualization of a Correlation Matrix
 
 License:          GPL

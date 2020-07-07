@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2014.02.17
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Gene-signatures finder tools
 
 License:          GPL-2

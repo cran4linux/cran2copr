@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simultaneous Detection of Clusters and Cluster-Specific Genes inHigh-Throughput Transcriptome Data
 
 License:          GPL-3

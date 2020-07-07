@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Random GraphModels to Egocentrically Sampled Network Data
 
 License:          GPL-3 + file LICENSE

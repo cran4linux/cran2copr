@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Testing Infrastructure for Broom Model Generics
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.18.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions to Perform Isotonic Regression
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Manly Mixture Modeling and Model-Based Clustering
 
 License:          GPL (>= 2)

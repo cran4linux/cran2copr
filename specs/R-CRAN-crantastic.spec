@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Various R tools for http://crantastic.org/
 
 License:          GPL-2

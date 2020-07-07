@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generate, Visualise, and Evaluate Fast-and-Frugal Decision Trees
 
 License:          CC0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Construction, Simulation and Analysis of Boolean Networks
 
 License:          Artistic-2.0

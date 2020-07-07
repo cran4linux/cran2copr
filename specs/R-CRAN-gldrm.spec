@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generalized Linear Density Ratio Models
 
 License:          MIT + file LICENSE

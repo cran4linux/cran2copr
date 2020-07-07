@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          jSonar Analytics Platform API for R
 
 License:          AGPL-3

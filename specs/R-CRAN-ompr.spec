@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Model and Solve Mixed Integer Linear Programs
 
 License:          GPL-3

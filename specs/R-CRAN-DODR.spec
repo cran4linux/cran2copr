@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Detection of Differential Rhythmicity
 
 License:          GPL-2

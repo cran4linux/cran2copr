@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Access Publisher Copyright & Self-Archiving Policies via the'SHERPA/RoMEO' API
 
 License:          GPL-3

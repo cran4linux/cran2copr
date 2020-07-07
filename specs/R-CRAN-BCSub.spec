@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Bayesian Semiparametric Factor Analysis Model for SubtypeIdentification (Clustering)
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mixed Effects Cox Models
 
 License:          LGPL-2

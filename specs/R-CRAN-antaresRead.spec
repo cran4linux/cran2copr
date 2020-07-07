@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Import, Manipulate and Explore the Results of an 'Antares'Simulation
 
 License:          GPL (>= 2) | file LICENSE

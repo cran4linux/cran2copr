@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Sparse Group Lasso for the Multivariate MultipleLinear Regression with an Arbitrary Group Structure
 
 License:          GPL (>= 2)

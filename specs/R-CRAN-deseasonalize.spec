@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.35
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Optimal deseasonalization for geophysical time series using ARfitting
 
 License:          GPL (>= 2)

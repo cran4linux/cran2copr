@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Misc Functions of the Department of Statistics, ProbabilityTheory Group (Formerly: E1071), TU Wien
 
 License:          GPL-2 | GPL-3

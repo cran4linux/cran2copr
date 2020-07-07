@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Highlight Lines and Points in 'ggplot2'
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          BLUE for Combining Location and Scale Information in aMeta-Analysis
 
 License:          GPL-2

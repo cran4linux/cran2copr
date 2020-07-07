@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-States Semi-Markov Models
 
 License:          GPL (>= 2)

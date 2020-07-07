@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Implementation of Rubin's (1981) Bayesian Bootstrap
 
 License:          MIT + file LICENSE

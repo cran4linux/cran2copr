@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Maximin-Distance (Sliced) Latin Hypercube Designs
 
 License:          LGPL-2.1

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An IPSUR Plugin for the R Commander
 
 License:          GPL (>= 2)

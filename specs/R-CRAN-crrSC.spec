@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Competing risks regression for Stratified and Clustered data
 
 License:          GPL-2

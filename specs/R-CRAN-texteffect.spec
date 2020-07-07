@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Discovering Latent Treatments in Text Corpora and EstimatingTheir Causal Effects
 
 License:          GPL (>= 2)

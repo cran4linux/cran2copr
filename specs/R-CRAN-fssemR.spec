@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fused Sparse Structural Equation Models to Jointly Infer GeneRegulatory Network
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Color Palettes using Colormaps Node Module
 
 License:          MIT + file LICENSE

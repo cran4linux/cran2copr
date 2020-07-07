@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The Symmetric Group: Permutations of a Finite Set
 
 License:          GPL-2

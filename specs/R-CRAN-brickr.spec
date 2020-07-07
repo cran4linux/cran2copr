@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Emulate LEGO Bricks in 2D and 3D
 
 License:          MIT + file LICENSE

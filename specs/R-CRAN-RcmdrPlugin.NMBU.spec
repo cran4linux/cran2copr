@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Commander Plug-in for University Level Applied Statistics
 
 License:          GPL (>= 2)

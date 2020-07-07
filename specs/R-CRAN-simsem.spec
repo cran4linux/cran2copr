@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.15
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          SIMulated Structural Equation Modeling
 
 License:          GPL (>= 2)

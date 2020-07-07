@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.17
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Planning and Analyzing Dose Finding Experiments
 
 License:          GPL-3

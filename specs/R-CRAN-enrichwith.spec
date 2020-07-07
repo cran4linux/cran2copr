@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods to Enrich R Objects with Extra Components
 
 License:          GPL-2 | GPL-3

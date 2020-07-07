@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Parser for 'ArchieML'
 
 License:          Apache License (>= 2.0)

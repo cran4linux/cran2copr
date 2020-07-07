@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The Attributable Fraction (AF) Described as a Function ofDisease Heritability, Prevalence and Intervention SpecificFactors
 
 License:          GPL-2 | GPL-3

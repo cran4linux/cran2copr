@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Manipulation of Linear Systems of (in)Equalities
 
 License:          GPL-3

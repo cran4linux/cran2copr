@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Adaptive Sampling for Positive Unlabeled and Label NoiseLearning
 
 License:          GPL-3

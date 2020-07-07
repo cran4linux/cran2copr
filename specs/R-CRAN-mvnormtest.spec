@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Normality test for multivariate variables
 
 License:          GPL

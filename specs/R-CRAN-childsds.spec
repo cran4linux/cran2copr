@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data and Methods Around Reference Values in Pediatrics
 
 License:          GPL-3

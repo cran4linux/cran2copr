@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          GroundWater Spatiotemporal Data Analysis Tool (GWSDAT)
 
 License:          GPL-3

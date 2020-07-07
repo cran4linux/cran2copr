@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Analyzing Non-Uniform Pseudo-Random Variate Generators
 
 License:          GPL-2

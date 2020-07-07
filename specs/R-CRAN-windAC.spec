@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Area Correction Methods
 
 License:          GNU General Public License

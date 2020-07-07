@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Model Optimized Reference Correction Method forAssigned and Unassigned Protein NMR Spectra
 
 License:          BSD_3_clause + file LICENSE

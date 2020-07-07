@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Discrete Global Grids
 
 License:          MIT + file LICENCE

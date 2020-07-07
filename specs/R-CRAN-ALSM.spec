@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Companion to Applied Linear Statistical Models
 
 License:          GPL-2 | GPL-3

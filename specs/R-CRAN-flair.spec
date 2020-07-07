@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Highlight, Annotate, and Format your R Source Code
 
 License:          MIT + file LICENSE

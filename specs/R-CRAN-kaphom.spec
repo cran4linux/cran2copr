@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Test the Homogeneity of Kappa Statistics
 
 License:          GPL-3

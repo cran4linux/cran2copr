@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Correlation and Regression Analyses for Randomized Response Data
 
 License:          GPL-3

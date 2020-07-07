@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read and Write TIFF Files
 
 License:          GPL-3

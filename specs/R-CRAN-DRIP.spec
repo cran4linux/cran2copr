@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Discontinuous Regression and Image Processing
 
 License:          GPL (>= 3)

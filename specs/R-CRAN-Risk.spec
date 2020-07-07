@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Computes 26 Financial Risk Measures for Any ContinuousDistribution
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An R package for Stats 330
 
 License:          GPL-2

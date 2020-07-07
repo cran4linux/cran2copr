@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of Optimal Portfolio Weights by Combining SimplePortfolio Strategies
 
 License:          GPL (>= 2)

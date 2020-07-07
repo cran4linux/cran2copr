@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Association Analysis for Categorical Variables
 
 License:          MIT + file LICENSE

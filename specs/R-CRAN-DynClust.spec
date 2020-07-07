@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.13
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Denoising and clustering for dynamical image sequence (2D or3D)+T
 
 License:          MIT + file LICENSE

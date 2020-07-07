@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Convex Hierarchical Testing of Interactions
 
 License:          GPL-3

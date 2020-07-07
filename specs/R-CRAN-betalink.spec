@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Beta-Diversity of Species Interactions
 
 License:          BSD_2_clause + file LICENSE

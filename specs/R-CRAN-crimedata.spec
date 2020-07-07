@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Access Crime Data from the Open Crime Database
 
 License:          MIT + file LICENSE

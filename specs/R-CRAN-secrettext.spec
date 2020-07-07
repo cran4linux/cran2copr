@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Encrypt Text Using a Shifting Substitution Cipher
 
 License:          MIT + file LICENSE

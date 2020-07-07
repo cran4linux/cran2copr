@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Public Subject Attention via Wikipedia Page View Statistics
 
 License:          GPL (>= 2)

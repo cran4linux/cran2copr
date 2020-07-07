@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to the Keras Deep Learning Library
 
 License:          LGPL-2

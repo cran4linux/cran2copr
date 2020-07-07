@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Ensemble Empirical Mode Decomposition (EEMD) and Its CompleteVariant (CEEMDAN)
 
 License:          GPL-3

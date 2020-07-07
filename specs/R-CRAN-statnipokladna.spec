@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Use Data from the Czech Public Finance Database
 
 License:          MIT + file LICENSE

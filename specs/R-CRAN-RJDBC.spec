@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Provides Access to Databases Through the JDBC Interface
 
 License:          MIT + file LICENSE

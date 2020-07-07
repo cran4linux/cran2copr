@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.21.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          C++ Header Files for Stan
 
 License:          BSD_3_clause + file LICENSE

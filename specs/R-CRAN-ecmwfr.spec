@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to 'ECMWF' and 'CDS' Data Web Services
 
 License:          AGPL-3

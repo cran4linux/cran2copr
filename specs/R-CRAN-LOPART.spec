@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.6.29
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Labeled Optimal Partitioning
 
 License:          GPL-3

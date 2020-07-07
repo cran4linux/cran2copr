@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tool for Annotating Images in Preparation for Analysis
 
 License:          GPL-3

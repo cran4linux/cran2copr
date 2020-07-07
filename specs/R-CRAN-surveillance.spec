@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.18.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Temporal and Spatio-Temporal Modeling and Monitoring of EpidemicPhenomena
 
 License:          GPL-2

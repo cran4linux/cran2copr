@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Working with Connectivity Data
 
 License:          GPL (>= 2)

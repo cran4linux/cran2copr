@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Validate, Compare and Format Identification Numbers from Brazil
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for parsing and manipulating rpart objects, includinggenerating machine readable rules.
 
 License:          GPL-3

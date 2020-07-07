@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Bootstrap Predictive Mean Matching - Multiple andSingle Imputation for Discrete Data
 
 License:          GPL (>= 2)

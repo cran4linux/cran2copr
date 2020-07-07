@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data sets included in Utts and Heckard's Mind on Statistics
 
 License:          GPL

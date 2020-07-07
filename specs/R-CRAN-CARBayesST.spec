@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatio-Temporal Generalised Linear Mixed Models for Areal UnitData
 
 License:          GPL (>= 2)

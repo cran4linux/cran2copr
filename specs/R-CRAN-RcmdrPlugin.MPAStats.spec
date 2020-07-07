@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Commander Plug-in for MPA Statistics
 
 License:          GPL (> 2)

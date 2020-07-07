@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.58
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Censored Spatial Models
 
 License:          GPL (>= 2)

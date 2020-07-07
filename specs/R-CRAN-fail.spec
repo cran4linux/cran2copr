@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          File Abstraction Interface Layer (FAIL)
 
 License:          BSD_3_clause + file LICENSE

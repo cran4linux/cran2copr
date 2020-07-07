@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Collection of Utility and Convenience Functions
 
 License:          GPL (>= 2)

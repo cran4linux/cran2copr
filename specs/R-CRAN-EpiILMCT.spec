@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Continuous Time Distance-Based and Network-Based IndividualLevel Models for Epidemics
 
 License:          GPL (>= 2)

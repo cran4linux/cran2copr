@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Data Specification Format and Interface
 
 License:          GPL-3

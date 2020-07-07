@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.8.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Infectious Disease Spread Models
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Pleiotropy Test for Multiple Traits on a Genetic Marker
 
 License:          GPL (>= 2)

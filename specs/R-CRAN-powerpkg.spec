@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Power analyses for the affected sib pair and the TDT design
 
 License:          GPL (>= 2)

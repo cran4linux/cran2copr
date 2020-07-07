@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculates Power, Sample Size, or Detectable Effect forLongitudinal Analyses
 
 License:          Unlimited

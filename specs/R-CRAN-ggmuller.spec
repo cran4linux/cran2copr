@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Muller Plots of Evolutionary Dynamics
 
 License:          MIT + file LICENSE

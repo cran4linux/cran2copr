@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Computational Tools for Economics
 
 License:          GPL-3

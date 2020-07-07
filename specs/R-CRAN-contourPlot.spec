@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Plots x,y,z Co-Ordinates in a Contour Map
 
 License:          MIT +file LICENSE

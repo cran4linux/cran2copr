@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Discriminant Analysis Incorporating Individual Uncertainties
 
 License:          GPL-3

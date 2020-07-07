@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.18
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sets, Generalized Sets, Customizable Sets and Intervals
 
 License:          GPL-2

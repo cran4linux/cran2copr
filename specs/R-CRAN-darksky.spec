@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools to Work with the 'Dark Sky' 'API'
 
 License:          MIT + file LICENSE

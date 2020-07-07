@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Creates an Interactive Tree Structure of a Directory
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Extended Rao-Stirling Diversity Index to Handle Missing Data
 
 License:          GPL-3

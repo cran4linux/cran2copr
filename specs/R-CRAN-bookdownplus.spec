@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generate Assorted Books and Documents with R 'bookdown' Package
 
 License:          MIT + file LICENSE

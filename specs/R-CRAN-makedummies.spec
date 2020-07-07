@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Dummy Variables from Categorical Data
 
 License:          GPL-2

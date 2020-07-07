@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools that Create D3 JavaScript Force Directed Graph from R
 
 License:          MIT + file LICENSE

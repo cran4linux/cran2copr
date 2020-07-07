@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculate Solutions to the Kelvin Differential Equation usingBessel Functions
 
 License:          GPL (>= 2)

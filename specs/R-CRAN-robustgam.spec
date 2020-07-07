@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Robust Estimation for Generalized Additive Models
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Robust, High Performance JSON Parser and Generator for R
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The Standard Distribution Functions for the TruncatedGeneralised Gamma Distribution
 
 License:          GPL-3

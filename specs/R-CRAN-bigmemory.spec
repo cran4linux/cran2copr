@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.5.36
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Manage Massive Matrices with Shared Memory and Memory-MappedFiles
 
 License:          LGPL-3 | Apache License 2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2012.04.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions and Datasets for the book "Bayesian Data Analysis"
 
 License:          GPL (>= 2)

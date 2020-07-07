@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Univariate Pseudo-Random Number Generation
 
 License:          GPL-2 | GPL-3

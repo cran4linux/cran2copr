@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          High-Probability Lower Bounds for the Total Variance Distance
 
 License:          GPL-3

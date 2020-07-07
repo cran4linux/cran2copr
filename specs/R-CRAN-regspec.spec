@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Non-Parametric Bayesian Spectrum Estimation for Multirate Data
 
 License:          GPL-2

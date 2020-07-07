@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.21
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R6 Objects for Text and Data
 
 License:          MIT + file LICENSE

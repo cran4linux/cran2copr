@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Download School District Geospatial Data, Perform SpatialAnalysis, and Create Formatted Exportable Maps
 
 License:          CC0

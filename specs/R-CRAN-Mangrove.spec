@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.21
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Risk Prediction on Trees
 
 License:          GPL (>= 2)

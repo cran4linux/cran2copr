@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Switching nonparametric regression models for a single curve andfunctional data
 
 License:          GPL-3

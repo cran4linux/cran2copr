@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Covariate Assisted Principal (CAP) Regression for CovarianceMatrix Outcomes
 
 License:          GPL (>= 2)

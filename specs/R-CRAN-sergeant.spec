@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools to Transform and Query Data with Apache Drill
 
 License:          MIT + file LICENSE

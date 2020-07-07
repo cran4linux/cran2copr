@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Quantify the Relationship Between Development Rate andTemperature in Ectotherms
 
 License:          GPL-2

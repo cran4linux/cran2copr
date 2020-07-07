@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Markov Decision Processes Toolbox
 
 License:          BSD_3_clause + file LICENSE

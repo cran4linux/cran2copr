@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.9.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast Unified Random Forests for Survival, Regression, andClassification (RF-SRC)
 
 License:          GPL (>= 3)

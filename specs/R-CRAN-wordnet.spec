@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          WordNet Interface
 
 License:          MIT + file LICENSE

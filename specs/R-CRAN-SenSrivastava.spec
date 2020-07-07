@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2015.6.25
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Datasets from Sen & Srivastava
 
 License:          GPL (>= 2)

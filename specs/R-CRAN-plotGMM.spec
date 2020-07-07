@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Visualizing Gaussian Mixture Models
 
 License:          MIT + file LICENSE

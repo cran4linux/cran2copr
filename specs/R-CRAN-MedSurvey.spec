@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mediation Analysis for Complex Surveys
 
 License:          MIT + file LICENSE

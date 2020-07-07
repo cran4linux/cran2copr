@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.31
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Quality Control Charts for 'ggplot'
 
 License:          GPL-3 | file LICENSE

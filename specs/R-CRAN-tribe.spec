@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Play with the Tribe of Attributes
 
 License:          MIT + file LICENSE

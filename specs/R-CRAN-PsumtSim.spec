@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulations of grouped responses relative to baseline.
 
 License:          GPL (>= 3)

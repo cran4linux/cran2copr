@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Client for 'Mapzen' and Related Map APIs
 
 License:          MIT + file LICENSE

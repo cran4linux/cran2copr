@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The Complete R6 Probability Distributions Interface
 
 License:          MIT + file LICENSE

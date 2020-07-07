@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Distributed Lag Non-Linear Models
 
 License:          GPL (>= 2)

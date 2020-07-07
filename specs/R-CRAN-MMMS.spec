@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Marker Molecular Signature for Treatment-specific SubgroupIdentification
 
 License:          GPL-3

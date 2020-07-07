@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Meta-Analysis of Region-Based Tests of Rare DNA Variants
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Convenient API for Accessing United States Census Bureau'sQuarterly Workforce Indicator
 
 License:          MIT + file LICENSE

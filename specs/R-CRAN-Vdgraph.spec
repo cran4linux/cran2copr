@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Variance dispersion graphs and Fraction of design space plotsfor response surface designs
 
 License:          GPL-2

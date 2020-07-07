@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Modelling Space Time AutoRegressive Moving Average (STARMA)Processes
 
 License:          GPL-2

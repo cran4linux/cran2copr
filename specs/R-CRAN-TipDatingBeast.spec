@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Using Tip Dates with Phylogenetic Trees in BEAST
 
 License:          GPL (>= 2)

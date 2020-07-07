@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Hierarchical Bayesian Benefit-Risk Assessment Using DiscreteChoice Experiment
 
 License:          GPL-2

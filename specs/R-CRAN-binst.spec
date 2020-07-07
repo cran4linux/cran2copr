@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Preprocessing, Binning for Classification and Regression
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Independent component analysis using score functions from thePearson system
 
 License:          GPL-2

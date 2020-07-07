@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tracking the Progress of Mc*pply with Progress Bar
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          DBI/RJDBC Interface to H2 Database
 
 License:          Mozilla Public License 1.1

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implementing EFF-TOX and Monotone Utility Based Phase 12 Trials
 
 License:          GPL-2

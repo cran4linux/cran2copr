@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.97
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Special models for categorical variables
 
 License:          GPL (>= 2)

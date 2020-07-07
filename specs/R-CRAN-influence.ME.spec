@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Detecting Influential Data in Mixed Effects Models
 
 License:          GPL-3

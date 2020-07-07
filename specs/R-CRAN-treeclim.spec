@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Numerical Calibration of Proxy-Climate Relationships
 
 License:          GPL-3

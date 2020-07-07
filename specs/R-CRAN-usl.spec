@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analyze System Scalability with the Universal Scalability Law
 
 License:          BSD_2_clause + file LICENSE

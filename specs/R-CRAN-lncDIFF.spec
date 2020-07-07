@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Long Non-Coding RNA Differential Expression Analysis
 
 License:          GPL (>= 2)

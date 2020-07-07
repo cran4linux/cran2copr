@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.18
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Home Range Estimation
 
 License:          GPL (>= 2)

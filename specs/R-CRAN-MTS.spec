@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          All-Purpose Toolkit for Analyzing Multivariate Time Series (MTS)and Estimating Multivariate Volatility Models
 
 License:          Artistic License 2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Basic Set of Functions for Compositional Data Analysis
 
 License:          GPL

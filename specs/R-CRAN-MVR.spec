@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.33.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mean-Variance Regularization
 
 License:          GPL (>= 3) | file LICENSE

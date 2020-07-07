@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools and GUI for Analyzing Data of Just Finance andEconometrics
 
 License:          GPL (>= 2)

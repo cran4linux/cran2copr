@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.17
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          ODBC Database Access
 
 License:          GPL-2 | GPL-3

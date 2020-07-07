@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2017.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generic SQL Helper Functions for 'TSdbi' SQL Plugins
 
 License:          GPL-2

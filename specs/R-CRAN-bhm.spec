@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Biomarker Threshold Models
 
 License:          GPL (>= 2)

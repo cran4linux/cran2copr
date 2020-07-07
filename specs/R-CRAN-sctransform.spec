@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Variance Stabilizing Transformations for Single Cell UMI Data
 
 License:          GPL-3 | file LICENSE

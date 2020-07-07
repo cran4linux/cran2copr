@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extensions to 'ggplot2' for Radiation Spectra
 
 License:          GPL (>= 2)

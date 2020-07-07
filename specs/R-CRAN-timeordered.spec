@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Time-Ordered and Time-Aggregated Network Analyses
 
 License:          GPL-3

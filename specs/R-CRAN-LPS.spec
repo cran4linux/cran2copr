@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Linear Predictor Score, for Binary Inference from MultipleContinuous Variables
 
 License:          GPL (>= 3)

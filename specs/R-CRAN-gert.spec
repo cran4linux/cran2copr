@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simple Git Client for R
 
 License:          MIT + file LICENSE

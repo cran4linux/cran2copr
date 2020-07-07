@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Download and Prepare C14 Dates from Different Source Databases
 
 License:          GPL-2 | file LICENSE

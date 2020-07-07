@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Joint Mean-Correlation Regression Approach for DiscreteLongitudinal Data
 
 License:          GPL (>= 2)

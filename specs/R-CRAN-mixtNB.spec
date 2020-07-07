@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          DE Analysis of RNA-Seq Data by Mixtures of NB
 
 License:          GPL-3

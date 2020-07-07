@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Probabilistic Sex Estimate using Logistic Regression, Based onVISual Traits of the Human Os Coxae
 
 License:          CeCILL-2 | file LICENSE

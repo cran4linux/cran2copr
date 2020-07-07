@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create 2D Principal Component Plots with Bootstrapping
 
 License:          GPL-2

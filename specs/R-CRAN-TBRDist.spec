@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rearrangement Distances Between Unrooted Phylogenetic Trees
 
 License:          GPL (>= 3)

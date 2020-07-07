@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Thermodynamic Calculations and Diagrams for Geochemistry
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interactive Visualization and Mapping of Chromosomes
 
 License:          GPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Enables Importing/Loading of Packages or Functions WhileCreating an Alias for Them
 
 License:          GPL-3

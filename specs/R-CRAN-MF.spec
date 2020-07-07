@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mitigated Fraction
 
 License:          MIT + file LICENSE

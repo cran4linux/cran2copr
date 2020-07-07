@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An R Port of the 'ImageJ' Plugin 'Auto Threshold'
 
 License:          GPL-3

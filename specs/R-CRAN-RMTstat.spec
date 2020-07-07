@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Distributions, Statistics and Tests derived from Random MatrixTheory
 
 License:          BSD_3_clause + file LICENSE

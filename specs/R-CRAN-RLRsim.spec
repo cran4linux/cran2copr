@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Exact (Restricted) Likelihood Ratio Tests for Mixed and AdditiveModels
 
 License:          GPL

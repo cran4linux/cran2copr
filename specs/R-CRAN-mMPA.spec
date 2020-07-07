@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implementation of Marker-Assisted Mini-Pooling with Algorithm
 
 License:          MIT + file LICENSE

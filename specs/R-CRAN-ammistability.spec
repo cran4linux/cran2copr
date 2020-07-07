@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Additive Main Effects and Multiplicative Interaction ModelStability Parameters
 
 License:          GPL-2 | GPL-3

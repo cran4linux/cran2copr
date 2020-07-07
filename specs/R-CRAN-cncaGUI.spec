@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Canonical Non-Symmetrical Correspondence Analysis in R
 
 License:          GPL (>= 2)

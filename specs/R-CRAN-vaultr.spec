@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Vault Client for Secrets and Sensitive Data
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Instrumental Variables Two Stage Least Squares estimation
 
 License:          Artistic-2.0

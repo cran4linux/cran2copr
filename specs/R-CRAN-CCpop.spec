@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          One and two locus GWAS of binary phenotype withcase-control-population design
 
 License:          GPL-2

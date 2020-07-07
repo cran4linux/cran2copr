@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simple Key Value Stores
 
 License:          MIT + file LICENSE

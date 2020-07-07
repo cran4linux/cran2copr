@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Common R Scripts and Utilities Used by the Statnet ProjectSoftware
 
 License:          GPL-3 + file LICENSE

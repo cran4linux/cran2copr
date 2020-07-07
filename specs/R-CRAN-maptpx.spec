@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          MAP Estimation of Topic Models
 
 License:          GPL-3

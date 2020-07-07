@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Time-Dependent ROC Curve and AUC for Censored Survival Data
 
 License:          GPL (>= 2)

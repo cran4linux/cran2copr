@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Console Bindings for the 'Domino Command-Line Client'
 
 License:          MIT + file LICENSE

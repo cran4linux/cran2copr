@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.20
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Emulation of Computer Programs
 
 License:          GPL

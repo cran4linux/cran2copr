@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Selecting Bandwidth for Kernel Density Estimator with MinimumDistance Method
 
 License:          GPL-2 | GPL-3

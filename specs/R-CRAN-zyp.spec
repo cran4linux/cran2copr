@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Zhang + Yue-Pilon Trends Package
 
 License:          LGPL-2.1

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to Geometry Engine - Open Source ('GEOS')
 
 License:          GPL (>= 2)

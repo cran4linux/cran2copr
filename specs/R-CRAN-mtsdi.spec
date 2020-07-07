@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Time Series Data Imputation
 
 License:          GPL (>= 2)

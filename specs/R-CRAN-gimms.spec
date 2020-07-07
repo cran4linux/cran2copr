@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Download and Process GIMMS NDVI3g Data
 
 License:          MIT + file LICENSE

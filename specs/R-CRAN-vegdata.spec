@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Access Vegetation Databases and Treat Taxonomy
 
 License:          GPL (>= 2)

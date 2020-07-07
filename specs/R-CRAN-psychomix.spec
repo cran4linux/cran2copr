@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Psychometric Mixture Models
 
 License:          GPL-2 | GPL-3

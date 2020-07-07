@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Monte Carlo Exact Tests for Log-linear models
 
 License:          GPL

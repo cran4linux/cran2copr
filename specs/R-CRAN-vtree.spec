@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Display Information About Nested Subsets of a Data Frame
 
 License:          GPL-3

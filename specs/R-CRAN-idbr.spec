@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to the US Census Bureau International Data Base API
 
 License:          MIT + file LICENSE

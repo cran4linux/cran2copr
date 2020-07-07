@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Graphical User Interface for FactoMineR
 
 License:          GPL (>= 2)

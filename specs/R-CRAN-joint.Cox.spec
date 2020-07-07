@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Joint Frailty-Copula Models for Tumour Progression and Death inMeta-Analysis
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calling haplotype-based and variant-based pedigreedisequilibrium test for rare variants in pedigrees.
 
 License:          GPL (>= 2)

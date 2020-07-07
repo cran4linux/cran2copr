@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Optimal Estimation of Partially Observed Boolean DynamicalSystems
 
 License:          Artistic-2.0

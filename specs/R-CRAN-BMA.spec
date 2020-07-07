@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.18.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Model Averaging
 
 License:          GPL (>= 2)

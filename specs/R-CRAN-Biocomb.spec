@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Feature Selection and Classification with the EmbeddedValidation Procedures for Biomedical Data Analysis
 
 License:          GPL (>= 3)

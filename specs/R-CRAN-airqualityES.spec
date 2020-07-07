@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Air Quality Measurements in Spain from 2011 to 2018
 
 License:          CC BY-SA 4.0

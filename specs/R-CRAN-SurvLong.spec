@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Proportional Hazards Model with Sparse LongitudinalCovariates
 
 License:          GPL-2

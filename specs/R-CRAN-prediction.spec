@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tidy, Type-Safe 'prediction()' Methods
 
 License:          MIT + file LICENSE

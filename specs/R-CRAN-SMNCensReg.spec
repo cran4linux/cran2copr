@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fitting Univariate Censored Regression Model Under the Family ofScale Mixture of Normal Distributions
 
 License:          GPL (>= 3.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Repeatability and Reproducibility Studies withOrdinal Measurements
 
 License:          GPL-2

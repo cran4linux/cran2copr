@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Additive Regression for Discrete Data
 
 License:          GPL (>= 2)

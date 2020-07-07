@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Inverse Probability of Censoring Weights to Deal with TreatmentSwitch in Randomized Clinical Trials
 
 License:          GPL-3

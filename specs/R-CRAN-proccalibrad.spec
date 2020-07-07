@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extraction of Bands from MODIS Calibrated Radiances MOD02 NRT
 
 License:          GPL (>= 2)

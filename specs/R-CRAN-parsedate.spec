@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Recognize and Parse Dates in Various Formats, Including All ISO8601 Formats
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Recalibration Methods for Improved Clinical Utility of RiskScores
 
 License:          GPL-2

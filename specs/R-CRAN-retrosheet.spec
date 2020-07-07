@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Import Professional Baseball Data from 'Retrosheet'
 
 License:          GPL (>= 2)

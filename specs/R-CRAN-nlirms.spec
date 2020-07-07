@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Non-Life Insurance Rate-Making System
 
 License:          MIT + file LICENSE

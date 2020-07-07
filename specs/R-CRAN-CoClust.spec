@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Copula Based Cluster Analysis
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate-from-Univariate (MfU) MCMC Sampler
 
 License:          GPL (>= 2)

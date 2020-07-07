@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An R package to perform LPUE standardization and stockassessment of the English Channel cuttlefish stock using atwo-stage biomass model
 
 License:          GPL-3

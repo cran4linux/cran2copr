@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Export DiagrammeR Graphviz Graphs as SVG
 
 License:          MIT + file LICENSE

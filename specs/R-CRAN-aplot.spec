@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Decorate a 'ggplot' with Associated Information
 
 License:          Artistic-2.0

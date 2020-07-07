@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A wrapper around the Java machine learning tool MALLET
 
 License:          MIT + file LICENSE

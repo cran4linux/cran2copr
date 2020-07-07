@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Basis for Modular Model Creation
 
 License:          GPL-3

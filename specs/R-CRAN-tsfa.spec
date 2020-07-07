@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2014.10.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Time Series Factor Analysis
 
 License:          GPL-2

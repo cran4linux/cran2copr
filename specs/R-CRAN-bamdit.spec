@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Meta-Analysis of Diagnostic Test Data
 
 License:          GPL (>= 2)

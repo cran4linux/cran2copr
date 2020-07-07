@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of Spatial Autoregressive Models with and withoutHeteroscedasticity
 
 License:          GPL-2

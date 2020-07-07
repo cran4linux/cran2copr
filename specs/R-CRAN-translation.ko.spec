@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1.5.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Manuals Literally Translated in Korean
 
 License:          GPL (>= 2)

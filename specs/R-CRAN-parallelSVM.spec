@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Parallel-Voting Version of the Support-Vector-MachineAlgorithm
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'WebVR' Data Visualizations with 'RStudio Shiny' and 'MozillaA-Frame'
 
 License:          AGPL-3

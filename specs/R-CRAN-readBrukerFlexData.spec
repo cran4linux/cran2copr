@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Reads Mass Spectrometry Data in Bruker *flex Format
 
 License:          GPL (>= 3)

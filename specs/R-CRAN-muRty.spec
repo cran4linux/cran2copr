@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Murty's Algorithm for k-Best Assignments
 
 License:          MIT + file LICENSE

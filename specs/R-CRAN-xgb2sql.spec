@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Convert Trained 'XGBoost' Model to SQL Query
 
 License:          MIT + file LICENSE

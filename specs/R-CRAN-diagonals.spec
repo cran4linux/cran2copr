@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Block Diagonal Extraction or Replacement
 
 License:          GPL-3

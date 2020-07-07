@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Equivalence Test for the Means of Two Normal Distributions
 
 License:          GPL-3

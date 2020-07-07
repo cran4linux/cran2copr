@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Deep Learning for Statistical Classification and RegressionAnalysis with Random Effects
 
 License:          GPL-2

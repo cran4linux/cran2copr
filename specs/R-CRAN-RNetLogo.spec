@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Provides an Interface to the Agent-Based Modelling Platform'NetLogo'
 
 License:          GPL-2

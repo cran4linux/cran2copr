@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Obtaining a Flat Table from Pivot Tables
 
 License:          MIT + file LICENSE

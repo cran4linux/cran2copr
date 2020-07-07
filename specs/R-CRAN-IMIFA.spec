@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Infinite Mixtures of Infinite Factor Analysers and RelatedModels
 
 License:          GPL (>= 2)

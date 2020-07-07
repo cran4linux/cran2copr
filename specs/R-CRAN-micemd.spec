@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multiple Imputation by Chained Equations with Multilevel Data
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Significance of the Sharpe Ratio
 
 License:          LGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Cox Regression (Proportional Hazards Model) with Multiple Causesand Mixed Effects
 
 License:          GPL (>= 3)

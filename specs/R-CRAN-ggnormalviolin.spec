@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A 'ggplot2' Extension to Make Normal Violin Plots
 
 License:          CC0

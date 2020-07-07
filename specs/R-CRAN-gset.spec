@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Group Sequential Design in Equivalence Studies
 
 License:          GPL (>= 2)

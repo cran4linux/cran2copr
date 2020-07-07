@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Automated Satellite Image Processing
 
 License:          GPL-3

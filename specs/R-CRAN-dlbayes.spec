@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Use Dirichlet Laplace Prior to Solve Linear Regression Problemand Do Variable Selection
 
 License:          MIT + file LICENSE

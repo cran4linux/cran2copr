@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Use Pokemon Inspired Colour Palettes
 
 License:          MIT + file LICENSE

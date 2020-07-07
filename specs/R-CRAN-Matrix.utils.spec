@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data.frame-Like Operations on Sparse and Dense Matrix Objects
 
 License:          GPL-3

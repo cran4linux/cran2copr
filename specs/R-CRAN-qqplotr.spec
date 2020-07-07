@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Quantile-Quantile Plot Extensions for 'ggplot2'
 
 License:          GPL-3 | file LICENSE

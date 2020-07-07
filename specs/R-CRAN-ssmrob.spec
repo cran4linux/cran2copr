@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Robust Estimation and Inference in Sample Selection Models
 
 License:          GPL-2

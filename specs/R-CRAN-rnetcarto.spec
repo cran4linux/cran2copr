@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast Network Modularity and Roles Computation by SimulatedAnnealing (Rgraph C Library Wrapper for R)
 
 License:          GPL (>= 2)

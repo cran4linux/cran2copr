@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Geometries to Plot Networks with 'ggplot2'
 
 License:          GPL-3

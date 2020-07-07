@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tidy Output from Regular Expression Matching
 
 License:          MIT + file LICENSE

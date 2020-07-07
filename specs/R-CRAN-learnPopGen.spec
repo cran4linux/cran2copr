@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Population Genetic Simulations & Numerical Analysis
 
 License:          GPL (>= 2)

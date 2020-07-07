@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Species Sensitivity Distributions
 
 License:          Apache License (== 2.0) | file LICENSE

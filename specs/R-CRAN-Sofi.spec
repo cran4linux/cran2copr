@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.16.4.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interfaz interactiva con fines didacticos
 
 License:          GPL (>= 2)

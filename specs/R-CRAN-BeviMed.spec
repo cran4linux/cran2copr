@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Evaluation of Variant Involvement in Mendelian Disease
 
 License:          GPL (>= 2)

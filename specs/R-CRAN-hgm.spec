@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.18
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Holonomic Gradient Method and Gradient Descent
 
 License:          GPL-2

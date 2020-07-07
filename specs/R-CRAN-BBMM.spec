@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Brownian bridge movement model
 
 License:          GNU General Public License

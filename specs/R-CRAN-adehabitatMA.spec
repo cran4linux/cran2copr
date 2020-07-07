@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools to Deal with Raster Maps
 
 License:          GPL (>= 2)

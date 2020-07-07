@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Implementation of a SAS-Style Data Step
 
 License:          CC0

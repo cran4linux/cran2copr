@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Structural Equation Modeling and Confirmatory Network Analysis
 
 License:          GPL-2

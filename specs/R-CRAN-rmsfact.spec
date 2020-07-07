@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Amazing Random Facts About the World's Greatest Hacker
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Test for Conditional Independence Based on the GeneralizedCovariance Measure (GCM)
 
 License:          GPL-2

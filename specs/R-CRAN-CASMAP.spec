@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Detection of Statistically Significant Combinations of SNPs inAssociation Mapping
 
 License:          GPL (>= 2)

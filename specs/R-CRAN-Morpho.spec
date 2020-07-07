@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculations and Visualisations Related to GeometricMorphometrics
 
 License:          GPL-2

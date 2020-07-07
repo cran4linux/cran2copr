@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Actual Evapotranspiration with Energy Balance Models
 
 License:          GPL (>= 2)

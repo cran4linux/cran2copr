@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Normalized Mutual Information of Community Structure in Network
 
 License:          GNU General Public License version 2

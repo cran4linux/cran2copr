@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fitting and Predicting Large-Scale Nonlinear Regression Problemsusing Multi-Resolution Functional ANOVA (MRFA) Approach
 
 License:          GPL-2 | GPL-3

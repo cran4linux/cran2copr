@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Automatic Reporter for Descriptive Analysis
 
 License:          GPL-2

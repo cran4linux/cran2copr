@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Signature Overrepresentation Analysis
 
 License:          GPL-2

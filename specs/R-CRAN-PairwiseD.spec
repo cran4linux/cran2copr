@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.62
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Pairing Up Units and Vectors in Panel Data Setting
 
 License:          GPL-2

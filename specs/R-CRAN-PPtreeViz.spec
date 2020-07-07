@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Projection Pursuit Classification Tree Visualization
 
 License:          GPL (>= 2)

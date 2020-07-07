@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Diagnostics for Confounding of Time-Varying and Other JointExposures
 
 License:          GPL-3

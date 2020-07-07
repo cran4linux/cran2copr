@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Additivity Tests in the Two Way Anova with Single Sub-classNumbers
 
 License:          GPL-3

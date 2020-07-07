@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Graph/Network Visualization
 
 License:          MIT + file LICENSE

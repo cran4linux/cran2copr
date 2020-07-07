@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Client Implementing the W3C WebDriver Specification
 
 License:          GPL-3

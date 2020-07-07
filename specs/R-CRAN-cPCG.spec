@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Efficient and Customized Preconditioned Conjugate GradientMethod for Solving System of Linear Equations
 
 License:          GPL (>= 2)

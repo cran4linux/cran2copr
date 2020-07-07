@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Phonetic and Acoustic Analyses
 
 License:          BSD_2_clause + file LICENSE

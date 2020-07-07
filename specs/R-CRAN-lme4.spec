@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.23
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Linear Mixed-Effects Models using 'Eigen' and S4
 
 License:          GPL (>= 2)

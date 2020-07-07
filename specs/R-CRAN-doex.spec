@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The One-Way Heteroscedastic ANOVA Tests
 
 License:          GPL (>= 2)

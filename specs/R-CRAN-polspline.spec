@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.19
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Polynomial Spline Routines
 
 License:          GPL (>= 2)

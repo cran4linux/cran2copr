@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          7.5.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Cognitive Diagnosis Modeling
 
 License:          GPL (>= 2)

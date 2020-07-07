@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Parametric Estimation and Sensitivity Analysis of Direct andIndirect Effects
 
 License:          GPL-2

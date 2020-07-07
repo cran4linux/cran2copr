@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Computing Weighted Topological Overlaps (wTO) & Consensus wTONetwork
 
 License:          GPL-2

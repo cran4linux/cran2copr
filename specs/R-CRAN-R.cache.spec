@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast and Light-Weight Caching (Memoization) of Objects andResults to Speed Up Computations
 
 License:          LGPL (>= 2.1)

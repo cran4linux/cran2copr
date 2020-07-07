@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read-Write Support for 'NumPy' Files via 'Rcpp'
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.38
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multivariate Adaptive Shrinkage
 
 License:          BSD_3_clause + file LICENSE

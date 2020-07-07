@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.16.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Classes for Relational Data
 
 License:          GPL (>= 2)

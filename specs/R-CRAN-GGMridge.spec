@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Gaussian Graphical Models Using Ridge Penalty Followed byThresholding and Reestimation
 
 License:          GPL-2

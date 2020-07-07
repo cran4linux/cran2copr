@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.21
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Regression with Functional Data
 
 License:          GPL (>= 2)

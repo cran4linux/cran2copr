@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.98
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Iterative Sequential Regression
 
 License:          Unlimited

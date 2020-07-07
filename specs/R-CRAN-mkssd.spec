@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Efficient multi-level k-circulant supersaturated designs
 
 License:          GPL (>= 2)

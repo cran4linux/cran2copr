@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Yield curve or zero-coupon prices interpolation andextrapolation
 
 License:          GPL-2 | GPL-3

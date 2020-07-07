@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Limited Memory BFGS Minimizer with Bounds on Parameters withoptim() 'C' Interface
 
 License:          GPL-2

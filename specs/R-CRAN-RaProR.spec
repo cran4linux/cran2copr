@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculate Sketches using Random Projections to Reduce Large DataSets
 
 License:          GPL (>= 3)

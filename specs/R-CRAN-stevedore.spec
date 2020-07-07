@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Docker Client
 
 License:          MIT + file LICENSE

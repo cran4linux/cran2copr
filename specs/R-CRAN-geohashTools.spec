@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Working with Geohashes
 
 License:          MPL-2.0 | file LICENSE

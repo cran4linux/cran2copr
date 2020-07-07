@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dens-Based Method for Partial Correlation Estimation in LargeScale Brain Networks
 
 License:          GPL-2

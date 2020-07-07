@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dynamic Models for Survival Data
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Import texts from files in the Alceste format using the tm textmining framework
 
 License:          GPL (>= 2)

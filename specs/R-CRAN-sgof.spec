@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multiple Hypothesis Testing
 
 License:          GPL-2

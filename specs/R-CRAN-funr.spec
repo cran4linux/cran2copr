@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Simple Utility Providing Terminal Access to all R Functions
 
 License:          MIT + file LICENSE

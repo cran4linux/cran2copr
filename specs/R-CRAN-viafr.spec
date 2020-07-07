@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to the 'VIAF' ('Virtual International Authority File')API
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.9.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Linear Model with Breakpoint
 
 License:          GPL (>= 2)

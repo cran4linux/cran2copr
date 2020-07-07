@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Regularized Random Forest
 
 License:          GPL (>= 2)

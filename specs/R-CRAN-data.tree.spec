@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          General Purpose Hierarchical Data Structure
 
 License:          GPL (>= 2)

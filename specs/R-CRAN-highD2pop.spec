@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Two-Sample Tests for Equality of Means in High Dimension
 
 License:          GPL (>= 2)

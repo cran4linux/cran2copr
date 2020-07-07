@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.47
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for Adaptive Shrinkage, using Empirical Bayes
 
 License:          GPL (>= 3)

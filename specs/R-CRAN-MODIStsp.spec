@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Tool for Automating Download and Preprocessing of MODIS LandProducts Data
 
 License:          GPL-3

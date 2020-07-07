@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Green Finance and Environmental Risk
 
 License:          GPL-2

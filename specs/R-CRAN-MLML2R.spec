@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Maximum Likelihood Estimation of DNA Methylation andHydroxymethylation Proportions
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Non-Supervised Regional Frequency Analysis
 
 License:          GPL (>= 2)

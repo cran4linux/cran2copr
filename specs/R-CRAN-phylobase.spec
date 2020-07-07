@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Base Package for Phylogenetic Structures and Comparative Data
 
 License:          GPL (>= 2)

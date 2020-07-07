@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Parallel-Voting Algorithm for many Classifiers
 
 License:          GPL-2

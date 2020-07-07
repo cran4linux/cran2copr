@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to 'TensorFlow IO'
 
 License:          Apache License 2.0

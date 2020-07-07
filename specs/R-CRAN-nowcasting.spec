@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Predicting Economic Variables using Dynamic Factor Models
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rule- And Instance-Based Regression Modeling
 
 License:          GPL-3

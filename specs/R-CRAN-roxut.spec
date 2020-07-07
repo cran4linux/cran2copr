@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.23
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Document Unit Tests Roxygen-Style
 
 License:          GPL-3

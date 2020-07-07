@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Unified Framework for Input-Output Operations in R
 
 License:          GPL (>= 3)

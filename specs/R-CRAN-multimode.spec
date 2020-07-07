@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mode Testing and Exploring
 
 License:          GPL-3

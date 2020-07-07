@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Obtain Alpha-Outlier Regions for Well-Known ProbabilityDistributions
 
 License:          GPL-3

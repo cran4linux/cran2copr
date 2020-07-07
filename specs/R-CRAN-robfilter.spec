@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Robust Time Series Filters
 
 License:          GPL (>= 2)

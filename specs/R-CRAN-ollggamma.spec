@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Odd Log-Logistic Generalized Gamma Probability Distribution
 
 License:          MIT + file LICENSE

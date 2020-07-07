@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Empirical Bayes Smoothing Splines with Correlated Errors
 
 License:          GPL-2

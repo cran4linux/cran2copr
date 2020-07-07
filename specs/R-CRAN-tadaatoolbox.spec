@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Helpers for Data Analysis and Presentation Focused on UndergradPsychology
 
 License:          MIT + file LICENSE

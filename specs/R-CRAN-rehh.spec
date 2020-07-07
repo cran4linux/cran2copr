@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Searching for Footprints of Selection using 'Extended HaplotypeHomozygosity' Based Tests
 
 License:          GPL (>= 2)

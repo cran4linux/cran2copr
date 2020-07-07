@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bagged Cross-Validation for Kernel Density Bandwidth Selection
 
 License:          GPL-3

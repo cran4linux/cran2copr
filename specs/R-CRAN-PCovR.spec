@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Principal Covariates Regression
 
 License:          GPL (>= 2)

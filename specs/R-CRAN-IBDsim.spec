@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation of Chromosomal Regions Shared by Family Members
 
 License:          GPL (>= 2)

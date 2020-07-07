@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interactive Visualizations for Profiling R Code
 
 License:          GPL-3 | file LICENSE

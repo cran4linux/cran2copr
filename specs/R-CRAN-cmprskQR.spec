@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Competing Risks Using Quantile Regressions
 
 License:          GPL (>= 2)

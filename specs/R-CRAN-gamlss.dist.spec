@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Distributions for Generalized Additive Models for Location Scaleand Shape
 
 License:          GPL-2 | GPL-3

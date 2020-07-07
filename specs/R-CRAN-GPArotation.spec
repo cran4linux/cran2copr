@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2014.11.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          GPA Factor Rotation
 
 License:          GPL (>= 2) | file LICENSE

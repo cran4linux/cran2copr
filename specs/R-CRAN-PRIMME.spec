@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Eigenvalues and Singular Values and Vectors from Large Matrices
 
 License:          GPL-3

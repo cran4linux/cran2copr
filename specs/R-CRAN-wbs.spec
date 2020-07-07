@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wild Binary Segmentation for Multiple Change-Point Detection
 
 License:          GPL-2

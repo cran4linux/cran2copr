@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sparse and Non-Sparse Partial Robust M Regression andClassification
 
 License:          GPL (>= 3)

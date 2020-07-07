@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Response Time Distributions
 
 License:          GPL (>= 3)

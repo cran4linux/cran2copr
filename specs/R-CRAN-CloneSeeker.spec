@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Seeking and Finding Clones in Copy Number and Sequencing Data
 
 License:          Apache License (== 2.0)

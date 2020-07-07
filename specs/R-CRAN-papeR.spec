@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Toolbox for Writing Pretty Papers and Reports
 
 License:          GPL-2

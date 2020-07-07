@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatially Discrete Approximation to Log-Gaussian Cox Processesfor Aggregated Disease Count Data
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Continuous Optimization using Memetic Algorithms with LocalSearch Chains (MA-LS-Chains) in R
 
 License:          GPL-3 | file LICENSE

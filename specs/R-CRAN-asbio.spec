@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Collection of Statistical Tools for Biologists
 
 License:          GPL (>= 2)

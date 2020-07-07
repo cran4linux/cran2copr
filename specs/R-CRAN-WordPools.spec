@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Classical Word Pools Used in Studies of Learning and Memory
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Two functions for Generalized SARIMA time series simulation
 
 License:          GPL (>= 2)

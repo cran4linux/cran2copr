@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Multilevel Mediation
 
 License:          GPL (>= 3)

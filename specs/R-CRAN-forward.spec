@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Robust Analysis using Forward Search
 
 License:          GPL-2

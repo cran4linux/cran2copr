@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions and Data for the Second Edition of "Data Mining withR"
 
 License:          GPL (>= 2)

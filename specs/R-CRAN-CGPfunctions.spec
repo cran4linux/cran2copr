@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Powell Miscellaneous Functions for Teaching and LearningStatistics
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Combination Matrix Axis for 'ggplot2' to Create 'UpSet' Plots
 
 License:          GPL-3

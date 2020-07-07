@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.25
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Evaluation of Failure Time Surrogate Endpoints in IndividualPatient Data Meta-Analyses
 
 License:          GPL-2

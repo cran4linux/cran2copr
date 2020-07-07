@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analyze and Create Elegant Directed Acyclic Graphs
 
 License:          MIT + file LICENSE

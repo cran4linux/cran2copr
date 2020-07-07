@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Trusted Timestamps of Datasets and Files
 
 License:          AGPL-3

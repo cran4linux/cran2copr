@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Build Resumes with R
 
 License:          BSD_3_clause + file LICENSE

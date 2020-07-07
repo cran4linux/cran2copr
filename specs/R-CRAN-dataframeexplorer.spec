@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Familiarity with Dataframes Before Data Manipulation
 
 License:          MIT + file LICENSE

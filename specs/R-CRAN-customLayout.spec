@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Arrange Elements on the R's Drawing Area or Inside thePowerPoint's Slide
 
 License:          GPL-3

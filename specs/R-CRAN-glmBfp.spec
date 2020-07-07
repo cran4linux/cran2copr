@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.60
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bayesian Fractional Polynomials for GLMs
 
 License:          GPL (>= 2)

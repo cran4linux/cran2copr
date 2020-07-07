@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.37.253
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Supports Developing, Building and Deploying R Solution
 
 License:          MIT + file LICENSE

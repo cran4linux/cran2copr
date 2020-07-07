@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation and Estimation of Multi-State Discrete-TimeSemi-Markov and Markov Models
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Integrative Random Forest for Gene Regulatory Network Inference
 
 License:          GPL (>= 2)

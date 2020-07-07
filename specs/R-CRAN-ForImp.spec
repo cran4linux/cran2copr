@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Imputation of Missing Values Through a Forward ImputationAlgorithm
 
 License:          GPL

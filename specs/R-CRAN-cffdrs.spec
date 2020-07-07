@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.18
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Canadian Forest Fire Danger Rating System
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          In Silico Quantitative Genetics
 
 License:          GPL-2 | file LICENSE

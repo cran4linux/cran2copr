@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analyze, Summarize, and Visualize Daily Streamflow Data
 
 License:          Apache License 2.0

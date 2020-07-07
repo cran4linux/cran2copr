@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Flexible Syntax for Population Dynamic Modelling
 
 License:          MIT + file LICENSE

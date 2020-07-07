@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Integration to 'Apache' 'Arrow'
 
 License:          Apache License (>= 2.0)

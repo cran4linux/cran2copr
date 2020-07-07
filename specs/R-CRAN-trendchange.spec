@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Innovative Trend Analysis and Time-Series Change Point Analysis
 
 License:          GPL-3

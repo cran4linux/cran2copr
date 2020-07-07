@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multinomial Probit Bayesian Additive Regression Trees
 
 License:          GPL (>= 2)

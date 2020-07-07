@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Quick Way to Map U.S. Rates and Data of U.S. States, Counties,Census Tracts, or Seer Registries using 2000 and 2010 U.S.Census Boundaries
 
 License:          GPL (>= 2)

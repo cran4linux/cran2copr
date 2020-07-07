@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Perform Factorial Analysis from 'FactoMineR' with a ShinyApplication
 
 License:          GPL (>= 2)

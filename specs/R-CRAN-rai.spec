@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Revisiting-Alpha-Investing for Polynomial Regression
 
 License:          GPL-3

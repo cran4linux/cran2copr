@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Misclassified Interval Censored Time-to-Event Data
 
 License:          GPL (>= 2)

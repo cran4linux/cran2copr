@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Global and Individual Tests for Direct Effects
 
 License:          GPL (>= 2)

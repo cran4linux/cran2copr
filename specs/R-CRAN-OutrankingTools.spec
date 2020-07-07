@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Solving Multiple-criteria Decision-making Problems
 
 License:          GPL (>= 2)

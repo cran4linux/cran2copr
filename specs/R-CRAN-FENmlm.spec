@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fixed Effects Nonlinear Maximum Likelihood Models
 
 License:          GPL (>= 2)

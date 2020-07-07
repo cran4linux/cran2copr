@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Joint N-Mixture Models for Site-Associated Species
 
 License:          GPL (>= 2)

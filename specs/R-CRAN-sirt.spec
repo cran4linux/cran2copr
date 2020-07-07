@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.9.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Supplementary Item Response Theory Models
 
 License:          GPL (>= 2)

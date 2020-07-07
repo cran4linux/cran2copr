@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sparse Principal Component Analysis (SPCA)
 
 License:          GPL (>= 3)

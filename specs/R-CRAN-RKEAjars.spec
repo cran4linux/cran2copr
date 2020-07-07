@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R/KEA Interface Jars
 
 License:          GPL-2

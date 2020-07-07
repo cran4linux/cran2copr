@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Collapsed Gibbs Sampling Methods for Topic Models
 
 License:          LGPL

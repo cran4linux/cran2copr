@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Automatic Model Selection and Prediction for Univariate TimeSeries
 
 License:          GPL-3

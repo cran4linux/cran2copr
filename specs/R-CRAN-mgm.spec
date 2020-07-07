@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.10
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimating Time-Varying k-Order Mixed Graphical Models
 
 License:          GPL (>= 2)

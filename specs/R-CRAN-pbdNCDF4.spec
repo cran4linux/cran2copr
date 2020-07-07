@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Programming with Big Data -- Interface to Parallel UnidataNetCDF4 Format Data Files
 
 License:          GPL (>= 3)

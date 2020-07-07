@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Textual Data Analysis Package used by the TXM Software
 
 License:          GPL (>= 3)

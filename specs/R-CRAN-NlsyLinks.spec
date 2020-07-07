@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Utilities and Kinship Information for Research with the NLSY
 
 License:          GPL

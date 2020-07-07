@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Reading Machine Learning Benchmark Data Sets in DifferentFormats
 
 License:          GPL-3

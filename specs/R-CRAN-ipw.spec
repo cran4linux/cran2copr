@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimate Inverse Probability Weights
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Nomograms for Right-Censored Outcomes from Survey Designs
 
 License:          GPL-2

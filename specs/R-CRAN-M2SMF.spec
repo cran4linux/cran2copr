@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Modal Similarity Matrix Factorization for IntegrativeMulti-Omics Data Analysis
 
 License:          GPL (>= 2)

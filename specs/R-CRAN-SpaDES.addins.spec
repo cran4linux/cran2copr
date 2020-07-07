@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Development Tools for 'SpaDES' and 'SpaDES' Modules
 
 License:          GPL-3

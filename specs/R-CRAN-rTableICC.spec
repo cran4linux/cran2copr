@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Random Generation of Contingency Tables
 
 License:          GPL-3

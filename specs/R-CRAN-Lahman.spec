@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          8.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sean 'Lahman' Baseball Database
 
 License:          GPL

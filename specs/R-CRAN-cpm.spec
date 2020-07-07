@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sequential and Batch Change Detection Using Parametric andNonparametric Methods
 
 License:          GPL-3

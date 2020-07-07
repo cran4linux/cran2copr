@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spanish version of orloca package. Modelos de localizacion eninvestigacion operativa
 
 License:          GPL (>= 3)

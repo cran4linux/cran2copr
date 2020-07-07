@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Just a Rather Bayesian Evidence Synthesis
 
 License:          GPL (>= 2)

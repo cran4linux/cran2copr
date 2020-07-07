@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'Rcpp' Implementation of 'FSelector' Entropy-Based FeatureSelection Algorithms with a Sparse Matrix Support
 
 License:          GPL-2

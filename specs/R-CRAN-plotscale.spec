@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Scale Graphics Devices Using Plot Dimensions
 
 License:          GPL-3

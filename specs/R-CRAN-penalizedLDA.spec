@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Penalized Classification using Fisher's Linear Discriminant
 
 License:          GPL (>= 2)

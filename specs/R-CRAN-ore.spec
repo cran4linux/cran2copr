@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An R Interface to the Onigmo Regular Expression Library
 
 License:          BSD_3_clause + file LICENCE

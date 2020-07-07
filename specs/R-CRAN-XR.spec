@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Structure for Interfaces from R
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatio-Temporal Uncertainty Propagation Across Multiple Scales
 
 License:          GPL (>= 3)

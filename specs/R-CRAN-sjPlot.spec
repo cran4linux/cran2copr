@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Visualization for Statistics in Social Science
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Discrete Time Survival Analysis
 
 License:          GPL-3

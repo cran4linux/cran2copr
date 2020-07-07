@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Plot Linkage Group Maps with Quantitative Trait Loci
 
 License:          GPL-3

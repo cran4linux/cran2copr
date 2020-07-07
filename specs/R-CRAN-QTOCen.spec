@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Quantile-Optimal Treatment Regimes with Censored Data
 
 License:          GPL (>= 2)

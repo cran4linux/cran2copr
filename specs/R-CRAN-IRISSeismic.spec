@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Classes and Methods for Seismic Data Analysis
 
 License:          GPL (>= 2)

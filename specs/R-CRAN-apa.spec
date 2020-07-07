@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Format Outputs of Statistical Tests According to APA Guidelines
 
 License:          GPL (>= 3)

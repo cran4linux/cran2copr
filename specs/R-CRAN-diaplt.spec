@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Beads Summary Plot of Ranges
 
 License:          MIT + file LICENSE

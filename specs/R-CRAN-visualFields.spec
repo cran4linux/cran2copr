@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Methods for Visual Fields
 
 License:          GPL (>= 3.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Soybean Nested Association Mapping Dataset
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.64
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implementation of the Fourier Amplitude Sensitivity Test (FAST)
 
 License:          GPL-2

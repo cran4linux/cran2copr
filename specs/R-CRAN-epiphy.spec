@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Plant Disease Epidemics
 
 License:          MIT + file LICENSE

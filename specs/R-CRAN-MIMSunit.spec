@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Algorithm to Compute Monitor Independent Movement Summary Unit(MIMS-Unit)
 
 License:          MIT + file LICENSE

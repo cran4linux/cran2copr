@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions to Operate on Binary Fingerprint Data
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          SCORER 2.0: an algorithm for distinguishing parallel dimeric andtrimeric coiled-coil sequences
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Optimal Two and Three Stage Designs for Single-Arm and Two-ArmRandomized Controlled Trials with a Long-Term Binary Endpoint
 
 License:          GPL (>= 2)

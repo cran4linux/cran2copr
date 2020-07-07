@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Paginate the HTML Output of R Markdown with CSS for Print
 
 License:          MIT + file LICENSE

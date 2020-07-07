@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.13.20
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generalized Estimation Equation Solver
 
 License:          GPL-2

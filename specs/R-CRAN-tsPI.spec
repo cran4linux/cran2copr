@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Improved Prediction Intervals for ARIMA Processes and StructuralTime Series
 
 License:          GPL-3

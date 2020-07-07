@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Easily Encrypt and Decrypt Data Frame/Tibble Columns or Filesusing RSA Public/Private Keys
 
 License:          MIT + file LICENSE

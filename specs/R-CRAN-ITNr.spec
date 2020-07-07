@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of the International Trade Network
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.10.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models forNetworks
 
 License:          GPL-3 + file LICENSE

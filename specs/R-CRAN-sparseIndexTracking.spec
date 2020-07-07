@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Design of Portfolio of Stocks to Track an Index
 
 License:          GPL-3 | file LICENSE

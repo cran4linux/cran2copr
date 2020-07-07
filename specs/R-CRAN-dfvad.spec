@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Diewert and Fox's Method of Value Added Growth Decomposition
 
 License:          GPL-2

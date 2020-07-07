@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Structural Equation Modeling for the Social Relations Model
 
 License:          GPL (>= 2)

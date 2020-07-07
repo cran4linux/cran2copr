@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Engle-Granger Cointegration Models
 
 License:          GPL-2 | GPL-3

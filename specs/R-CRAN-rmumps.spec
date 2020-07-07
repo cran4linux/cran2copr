@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.2.1.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wrapper for MUMPS Library
 
 License:          GPL (>= 2)

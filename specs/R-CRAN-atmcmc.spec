@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Automatically Tuned Markov Chain Monte Carlo
 
 License:          GPL (>= 2)

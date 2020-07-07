@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.28
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bolstad functions
 
 License:          GPL (>= 2)

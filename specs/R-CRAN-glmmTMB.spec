@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generalized Linear Mixed Models using Template Model Builder
 
 License:          AGPL-3

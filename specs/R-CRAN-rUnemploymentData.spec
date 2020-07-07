@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data and Functions for USA State and County Unemployment Data
 
 License:          BSD_3_clause + file LICENSE

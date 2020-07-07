@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interactive 3D Scatter Plots, Networks and Globes
 
 License:          MIT + file LICENSE

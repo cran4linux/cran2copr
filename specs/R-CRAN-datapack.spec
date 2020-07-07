@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Flexible Container to Transport and Manipulate Data andAssociated Resources
 
 License:          Apache License (== 2.0)

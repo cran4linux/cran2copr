@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Reads Mass Spectrometry Data in mzXML Format
 
 License:          GPL (>= 3)

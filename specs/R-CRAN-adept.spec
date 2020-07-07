@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Adaptive Empirical Pattern Transformation
 
 License:          GPL-3

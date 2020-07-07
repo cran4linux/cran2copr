@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Consistent and Intuitive Platform to Explore the Dependenciesof Packages on the Comprehensive R Archive Network LikeRepositories
 
 License:          GPL-3

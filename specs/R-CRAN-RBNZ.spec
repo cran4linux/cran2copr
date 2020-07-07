@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Download Data from the Reserve Bank of New Zealand Website
 
 License:          MIT + file LICENSE

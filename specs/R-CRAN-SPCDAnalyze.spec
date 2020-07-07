@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Design and Analyze Studies using the Sequential ParallelComparison Design
 
 License:          Unlimited

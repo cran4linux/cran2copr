@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Stable Isotope Mixing Model
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Tensor Factorization Linked to External Data
 
 License:          MIT + file LICENSE

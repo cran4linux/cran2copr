@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulated Maximum Likelihood Estimation of Mixed Logit Modelsfor Large Datasets
 
 License:          GPL (>= 2)

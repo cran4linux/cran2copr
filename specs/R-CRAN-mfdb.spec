@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          MareFrame DB Querying Library
 
 License:          GPL-3

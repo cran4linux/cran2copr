@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.11.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Regularization Paths for SCAD and MCP Penalized RegressionModels
 
 License:          GPL-3

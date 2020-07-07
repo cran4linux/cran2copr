@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Kernel Based Estimates on in-Memory Raster Images
 
 License:          MIT + file LICENSE

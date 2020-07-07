@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Chronomics Analysis Toolkit (CAT): Periodicity Analysis
 
 License:          GPL-2

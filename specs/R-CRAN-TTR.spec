@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.23.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Technical Trading Rules
 
 License:          GPL (>= 2)

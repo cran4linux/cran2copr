@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Solves a Generic Stochastic Growth Model with a RepresentativeAgent
 
 License:          GPL-3

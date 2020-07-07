@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implements ACME Estimator of Bird and Bat Mortality by WindTurbines
 
 License:          MIT + file LICENSE

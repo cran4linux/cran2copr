@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Structural Equation Modeling Using Partial Least Squares
 
 License:          GPL-2

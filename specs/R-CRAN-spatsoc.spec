@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Group Animal Relocation Data by Spatial and TemporalRelationship
 
 License:          GPL-3 | file LICENSE

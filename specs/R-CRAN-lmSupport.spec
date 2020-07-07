@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.9.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Support for Linear Models
 
 License:          GPL (>= 2)

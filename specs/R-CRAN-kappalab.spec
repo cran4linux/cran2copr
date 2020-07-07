@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Non-Additive Measure and Integral Manipulation Functions
 
 License:          CeCILL

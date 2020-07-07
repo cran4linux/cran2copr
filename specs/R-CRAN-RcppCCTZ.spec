@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'Rcpp' Bindings for the 'CCTZ' Library
 
 License:          GPL (>= 2)

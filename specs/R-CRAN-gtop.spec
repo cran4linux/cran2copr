@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Game-Theoretically OPtimal (GTOP) Reconciliation Method
 
 License:          GPL-2 | GPL-3

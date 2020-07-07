@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Analysis for ODS and Case-Cohort Designs withInterval-Censoring
 
 License:          GPL-2

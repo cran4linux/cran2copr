@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          IMAGing engINEs, Tools for Application of Image Filters to DataMatrices
 
 License:          GPL (>= 2)

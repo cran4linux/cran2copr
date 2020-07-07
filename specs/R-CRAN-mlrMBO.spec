@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Optimization and Model-Based Optimization of ExpensiveBlack-Box Functions
 
 License:          BSD_2_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wrapper for 'Python' Module 'sqlparse': Parse, Split, and Format'SQL'
 
 License:          GPL-3

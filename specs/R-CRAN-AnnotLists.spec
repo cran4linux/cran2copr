@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          AnnotLists: A tool to annotate multiple lists from a specificannotation file.
 
 License:          GPL

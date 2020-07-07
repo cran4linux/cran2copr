@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implementation of the Remote Procedure Call Protocol ('XML-RPC')
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Two-Dimensional Sociometric Status Determination with RatingScales
 
 License:          GPL-2

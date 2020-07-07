@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2015.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'TSdbi' Extensions for 'PostgreSQL'
 
 License:          GPL-2

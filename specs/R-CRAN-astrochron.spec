@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Computational Tool for Astrochronology
 
 License:          GPL-3

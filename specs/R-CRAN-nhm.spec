@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Non-Homogeneous Markov and Hidden Markov Multistate Models
 
 License:          GPL (>= 2)

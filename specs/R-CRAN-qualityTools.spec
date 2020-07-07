@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.55
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Methods for Quality Science
 
 License:          GPL-2

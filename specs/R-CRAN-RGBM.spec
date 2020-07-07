@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          LS-TreeBoost and LAD-TreeBoost for Gene Regulatory NetworkReconstruction
 
 License:          GPL (>= 3)

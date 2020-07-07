@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Prediction of Stochastic Processes
 
 License:          GPL (>= 2)

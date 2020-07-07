@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Pairwise Distance Estimation with TKF91 and TKF92 Model
 
 License:          GPL-2

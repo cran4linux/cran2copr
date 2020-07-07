@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.95
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for Detecting Safety Signals in Clinical Trials UsingBody-Systems (System Organ Classes)
 
 License:          GPL (>= 2)

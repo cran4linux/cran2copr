@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Convenient Base R String Handling
 
 License:          MIT + file LICENSE

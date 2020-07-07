@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.13
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Comparative 'Phylogenetic' Analyses of Diversification
 
 License:          GPL (>= 2)

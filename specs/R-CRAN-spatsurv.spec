@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Spatial Survival Analysis with Parametric ProportionalHazards Models
 
 License:          GPL-3

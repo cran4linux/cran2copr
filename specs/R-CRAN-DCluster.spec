@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for the Detection of Spatial Clusters of Diseases
 
 License:          GPL (>= 2)

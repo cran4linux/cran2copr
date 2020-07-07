@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.75.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Hartigan's Dip Test Statistic for Unimodality - Corrected
 
 License:          GPL (>= 2)

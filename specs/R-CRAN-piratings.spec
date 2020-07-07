@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculate Pi Ratings for Teams Competing in Sport Matches
 
 License:          GPL-2

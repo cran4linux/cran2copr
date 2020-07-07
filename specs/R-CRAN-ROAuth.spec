@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface For OAuth
 
 License:          Artistic-2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Discretely Observed LinearBirth-and-Death(-and-Immigration) Markov Chains
 
 License:          GPL (>= 2)

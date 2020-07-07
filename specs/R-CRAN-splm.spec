@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Econometric Models for Spatial Panel Data
 
 License:          GPL-2

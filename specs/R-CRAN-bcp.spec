@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Analysis of Change Point Problems
 
 License:          GPL (>= 2)

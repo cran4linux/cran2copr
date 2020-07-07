@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to the 'Handsontable.js' Library
 
 License:          MIT + file LICENSE

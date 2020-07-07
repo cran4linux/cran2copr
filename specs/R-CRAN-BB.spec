@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.10.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Solving and Optimizing Large-Scale Nonlinear Systems
 
 License:          GPL-3

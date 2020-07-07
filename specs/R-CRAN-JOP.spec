@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Joint Optimization Plot
 
 License:          GPL (>= 2)

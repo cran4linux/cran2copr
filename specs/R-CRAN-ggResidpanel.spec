@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Panels and Interactive Versions of Diagnostic Plots using'ggplot2'
 
 License:          MIT + file LICENSE

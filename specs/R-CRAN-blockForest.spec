@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Block Forests: Random Forests for Blocks of Clinical and OmicsCovariate Data
 
 License:          GPL-3

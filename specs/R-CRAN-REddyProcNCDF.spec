@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Reading Data from NetCDF Files for 'REddyProc'
 
 License:          GPL (>= 2)

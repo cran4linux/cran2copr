@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.21
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multiple Comparisons Using Normal Approximation
 
 License:          GPL-2

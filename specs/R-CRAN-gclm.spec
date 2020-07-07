@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Graphical Continuous Lyapunov Models
 
 License:          MIT + file LICENSE

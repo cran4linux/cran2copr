@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.900.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear AlgebraLibrary
 
 License:          GPL (>= 2)

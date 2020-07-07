@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Dimensionality Assessment Using Minimum Rank Factor Analysis
 
 License:          GPL-3

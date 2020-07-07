@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Explanation of Predictions for Classification and RegressionModels
 
 License:          GPL-3

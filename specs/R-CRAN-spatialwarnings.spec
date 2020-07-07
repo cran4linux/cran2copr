@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatial Early Warning Signals of Ecosystem Degradation
 
 License:          MIT + file LICENSE

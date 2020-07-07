@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Modeling Animal Movement with Continuous-Time Discrete-SpaceMarkov Chains
 
 License:          GPL-2

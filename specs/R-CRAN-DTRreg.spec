@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          DTR Estimation and Inference via G-Estimation, Dynamic WOLS,Q-Learning, and Dynamic Weighted Survival Modeling (DWSurv)
 
 License:          GPL-2

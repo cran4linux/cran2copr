@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Phylogenetic ANalyses of DiversificAtion
 
 License:          GPL-2

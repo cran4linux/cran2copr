@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Offers Various Swiss Maps as Data Frames and 'ggplot2' Objects
 
 License:          GPL-2

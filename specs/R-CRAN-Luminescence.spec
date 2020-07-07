@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Comprehensive Luminescence Dating Data Analysis
 
 License:          GPL-3

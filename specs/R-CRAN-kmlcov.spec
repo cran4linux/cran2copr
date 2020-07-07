@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Clustering longitudinal data using the likelihood as a metric ofdistance
 
 License:          GPL-2

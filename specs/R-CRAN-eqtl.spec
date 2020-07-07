@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for analyzing eQTL experiments: A complementary to KarlBroman's 'qtl' package for genome-wide analysis
 
 License:          GPL (>= 2)

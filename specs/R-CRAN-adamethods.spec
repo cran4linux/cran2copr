@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Archetypoid Algorithms and Anomaly Detection
 
 License:          GPL (>= 2)

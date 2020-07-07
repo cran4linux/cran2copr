@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculation of Rarity Indices for Species and Assemblages ofSpecies
 
 License:          GPL (>= 2.0)

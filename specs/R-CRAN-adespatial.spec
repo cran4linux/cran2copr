@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Multiscale Spatial Analysis
 
 License:          GPL (>= 2)

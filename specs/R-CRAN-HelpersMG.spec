@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Environmental Analyses, Ecotoxicology and Various RFunctions
 
 License:          GPL-2

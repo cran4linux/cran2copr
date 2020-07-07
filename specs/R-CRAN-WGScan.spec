@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Genome-Wide Scan Statistic Framework for Whole-Genome SequenceData Analysis
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to InfluxDB
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Only: Algorithmic Complexity of Short Strings (Computed viaCoding Theorem Method)
 
 License:          GPL (>= 2)

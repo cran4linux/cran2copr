@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Computes Pdf, Cdf, Quantile, Random Numbers and ProvidesEstimation for any Univariate Wrapped Distributions
 
 License:          GPL (>= 2)

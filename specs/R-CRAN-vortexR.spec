@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Post Vortex Simulation Analysis
 
 License:          GPL-3

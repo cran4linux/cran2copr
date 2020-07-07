@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Landscape Metrics for Categorical Map Patterns
 
 License:          GPL-3

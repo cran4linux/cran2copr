@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Estimation of the ETAS Model for Earthquake Occurrences
 
 License:          GPL-3

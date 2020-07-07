@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.62
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multilevel Regression with Post-Stratification (MrP) forSwitzerland
 
 License:          GPL-2

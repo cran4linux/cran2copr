@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Epidemiological Data Display Package
 
 License:          GPL (>= 2)

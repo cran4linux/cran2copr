@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implement Tour Methods in R Code
 
 License:          MIT + file LICENSE

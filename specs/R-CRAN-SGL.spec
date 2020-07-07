@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit a GLM (or Cox Model) with a Combination of Lasso and GroupLasso Regularization
 
 License:          GPL

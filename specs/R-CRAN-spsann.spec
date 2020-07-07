@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Optimization of Sample Configurations using Spatial SimulatedAnnealing
 
 License:          GPL (>= 2)

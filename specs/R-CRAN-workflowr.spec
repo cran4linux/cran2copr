@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Framework for Reproducible and Collaborative Data Science
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Network Structure Learning, Parameter Learning andInference
 
 License:          GPL (>= 2)

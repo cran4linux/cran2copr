@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.13.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extending 'dendrogram' Functionality in R
 
 License:          GPL-2 | GPL-3

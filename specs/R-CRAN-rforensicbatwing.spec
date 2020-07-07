@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          BATWING for Calculating Forensic Trace-Suspect MatchProbabilities
 
 License:          GPL

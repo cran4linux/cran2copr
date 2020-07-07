@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          XML Output Functions for Easy Creation of Moodle Questions
 
 License:          Artistic-2.0

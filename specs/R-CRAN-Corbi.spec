@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Collection of Rudimentary Bioinformatics Tools
 
 License:          GPL (>= 2)

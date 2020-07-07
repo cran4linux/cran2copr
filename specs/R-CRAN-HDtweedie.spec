@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The Lasso for the Tweedie's Compound Poisson Model Using anIRLS-BMD Algorithm
 
 License:          GPL-2

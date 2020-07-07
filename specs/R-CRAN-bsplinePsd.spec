@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Nonparametric Spectral Density Estimation UsingB-Spline Priors
 
 License:          GPL (>= 3)

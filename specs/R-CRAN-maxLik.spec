@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Maximum Likelihood Estimation and Related Tools
 
 License:          GPL (>= 2)

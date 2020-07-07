@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.21
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Running 'WinBUGS' and 'OpenBUGS' from 'R' / 'S-PLUS'
 
 License:          GPL-2

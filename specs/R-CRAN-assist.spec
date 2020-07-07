@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Suite of R Functions Implementing Spline Smoothing Techniques
 
 License:          GPL-2

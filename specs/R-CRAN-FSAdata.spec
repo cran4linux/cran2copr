@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data to Support Fish Stock Assessment ('FSA') Package
 
 License:          GPL (>= 2)

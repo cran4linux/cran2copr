@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.83.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rmetrics - Autoregressive Conditional Heteroskedastic Modelling
 
 License:          GPL (>= 2)

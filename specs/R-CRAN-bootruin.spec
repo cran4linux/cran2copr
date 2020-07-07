@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Bootstrap Test for the Probability of Ruin in the ClassicalRisk Process
 
 License:          AGPL-3

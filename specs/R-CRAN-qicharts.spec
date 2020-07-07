@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Quality Improvement Charts
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Meta-analysis for Classification Data and Correction toImperfect Reference
 
 License:          GPL (>= 2)

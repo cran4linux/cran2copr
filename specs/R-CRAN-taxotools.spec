@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.43
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools to Handle Taxonomic Lists
 
 License:          CC0

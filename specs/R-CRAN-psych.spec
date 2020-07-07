@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.12.31
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Procedures for Psychological, Psychometric, and PersonalityResearch
 
 License:          GPL (>= 2)

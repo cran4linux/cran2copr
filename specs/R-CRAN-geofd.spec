@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatial Prediction for Function Value Data
 
 License:          GPL-2

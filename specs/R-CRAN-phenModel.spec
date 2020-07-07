@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Insect Phenology Model Evaluation Based on Daily Temperatures
 
 License:          GPL (>= 2)

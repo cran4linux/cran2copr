@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Easy Access to Model Information for Various Model Objects
 
 License:          GPL-3

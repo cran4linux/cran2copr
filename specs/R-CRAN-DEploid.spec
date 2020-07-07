@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Deconvolute Mixed Genomes with Unknown Proportions
 
 License:          GPL (>= 3)

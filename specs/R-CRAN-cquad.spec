@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Conditional Maximum Likelihood for Quadratic Exponential Modelsfor Binary Panel Data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Identify Similar Cases for Qualitative Case Studies
 
 License:          GPL (>= 2)

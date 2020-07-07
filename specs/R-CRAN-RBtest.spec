@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Regression-Based Approach for Testing the Type of Missing Data
 
 License:          GPL-3

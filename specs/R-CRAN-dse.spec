@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dynamic Systems Estimation (Time Series Package)
 
 License:          GPL-2

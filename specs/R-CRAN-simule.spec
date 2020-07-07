@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Constrained L1 Minimization Approach for Estimating MultipleSparse Gaussian or Nonparanormal Graphical Models
 
 License:          GPL-2

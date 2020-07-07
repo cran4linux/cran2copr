@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Model-Based Clustering of Spatio-Temporal Data
 
 License:          GPL (>= 2)

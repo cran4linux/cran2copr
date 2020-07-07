@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The Skillings-Mack Test Statistic for Block Designs with MissingObservations
 
 License:          GPL (>= 2)

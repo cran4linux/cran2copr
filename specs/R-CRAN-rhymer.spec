@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wrapper for the 'Datamuse' API to Find Rhyming and AssociatedWords
 
 License:          MIT + file LICENSE

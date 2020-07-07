@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistics Norway's Miscellaneous Tools
 
 License:          Apache License 2.0 | file LICENSE

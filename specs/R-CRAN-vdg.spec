@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Variance Dispersion Graphs and Fraction of Design Space Plots
 
 License:          GPL (>= 2)

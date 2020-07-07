@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Linear Mixed Effect Model Splines for Modelling and Analysis ofTime Course Data
 
 License:          GPL (>= 2)

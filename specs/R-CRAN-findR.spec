@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Find Code Snippets, R Scripts, R Markdown, PDF and Text Fileswith Pattern Matching
 
 License:          GPL-3

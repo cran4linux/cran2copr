@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          2d and 3d Space-Varying Coefficient Models
 
 License:          GPL (>= 2)

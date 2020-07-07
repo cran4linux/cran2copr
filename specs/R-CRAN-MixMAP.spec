@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implements the MixMAP Algorithm
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Objective Optimization for Collecting Cluster Alternatives
 
 License:          Artistic License 2.0

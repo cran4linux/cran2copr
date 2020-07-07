@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Emulation, Calibration and Validation of ComputerModels
 
 License:          GPL-2 | GPL-3

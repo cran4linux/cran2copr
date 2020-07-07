@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Play Texas Hold Em Poker
 
 License:          GPL-2

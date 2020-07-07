@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Low-Level R to Java Interface
 
 License:          GPL-2

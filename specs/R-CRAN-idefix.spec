@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Efficient Designs for Discrete Choice Experiments
 
 License:          GPL-3

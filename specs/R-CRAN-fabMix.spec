@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Overfitting Bayesian Mixtures of Factor Analyzers withParsimonious Covariance and Unknown Number of Components
 
 License:          GPL-2

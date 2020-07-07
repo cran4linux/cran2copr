@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Utilities for using R scripts in Hadoop streaming
 
 License:          GPL

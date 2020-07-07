@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.25
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Delaunay Triangulation and Dirichlet (Voronoi) Tessellation
 
 License:          GPL (>= 2)

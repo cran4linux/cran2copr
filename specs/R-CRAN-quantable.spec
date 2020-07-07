@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Streamline Descriptive Analysis of Quantitative Data Matrices
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Translate Models from System Dynamics Software into 'R'
 
 License:          MIT + file LICENSE

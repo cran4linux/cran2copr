@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatial and Environmental Blocking for K-Fold Cross-Validation
 
 License:          GPL-3

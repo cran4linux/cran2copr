@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Clustering of Multivariate Binary Data with Dimension Reductionvia L1-Regularized Likelihood Maximization
 
 License:          GPL (>= 2)

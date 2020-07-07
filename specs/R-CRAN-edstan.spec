@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Stan Models for Item Response Theory
 
 License:          BSD_3_clause + file LICENSE

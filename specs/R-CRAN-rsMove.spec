@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Guidelines for the use of Remote Sensing in Movement Ecology
 
 License:          GPL (>= 3)

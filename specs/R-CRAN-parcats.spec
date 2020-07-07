@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interactive Parallel Categories Diagrams for 'easyalluvial'
 
 License:          MIT + file LICENSE

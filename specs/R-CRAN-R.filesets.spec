@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.13.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Easy Handling of and Access to Files Organized in StructuredDirectories
 
 License:          LGPL (>= 2.1)

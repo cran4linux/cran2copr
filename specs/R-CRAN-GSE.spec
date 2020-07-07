@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Robust Estimation in the Presence of Cellwise and CasewiseContamination and Missing Data
 
 License:          GPL (>= 2)

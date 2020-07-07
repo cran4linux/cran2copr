@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.19
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Convex Formulation for Modeling Interactions with StrongHeredity
 
 License:          GPL (>= 2)

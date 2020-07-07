@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Multiple Time Course Data
 
 License:          GPL (>= 3)

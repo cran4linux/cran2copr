@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          interactive network analysis and visualization.
 
 License:          GPL-2

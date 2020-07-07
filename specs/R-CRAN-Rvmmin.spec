@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2018.4.17
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Variable Metric Nonlinear Function Minimization
 
 License:          GPL (>= 2)

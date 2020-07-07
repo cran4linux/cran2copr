@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          C++ Classes to Embed R in C++ (and C) Applications
 
 License:          GPL (>= 2)

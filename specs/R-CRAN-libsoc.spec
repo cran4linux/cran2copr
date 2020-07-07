@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read, Create and Write 'PharmML' Standard Output (so) XML Files
 
 License:          LGPL-3

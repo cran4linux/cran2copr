@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Resolution Estimation of the Hazard Rate
 
 License:          GPL-2

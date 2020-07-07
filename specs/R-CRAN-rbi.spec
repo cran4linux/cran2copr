@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to 'LibBi'
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extra Additive Terms for Generalized Additive Models forLocation Scale and Shape
 
 License:          GPL-2 | GPL-3

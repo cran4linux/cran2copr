@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interpolate Munsell Renotation Data from Hue/Chroma to CIE/RGB
 
 License:          GPL (>= 3)

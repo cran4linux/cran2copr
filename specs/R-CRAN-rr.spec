@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Methods for the Randomized Response Technique
 
 License:          GPL (>= 3)

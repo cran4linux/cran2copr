@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          GWR and MGWR with Spatial Autocorrelation
 
 License:          GPL (>= 2)

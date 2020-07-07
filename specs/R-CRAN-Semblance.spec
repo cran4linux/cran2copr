@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Data-Driven Similarity Kernel on Probability Spaces
 
 License:          GPL-2

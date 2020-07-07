@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.19.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Output Analysis and Diagnostics for MCMC
 
 License:          GPL (>= 2)

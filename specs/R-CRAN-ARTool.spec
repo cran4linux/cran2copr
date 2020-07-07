@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Aligned Rank Transform
 
 License:          GPL (>= 2)

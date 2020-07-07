@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The Multifactor Dimensionality Reduction (MDR) Analysis forIncomplete Data
 
 License:          GPL (>= 2)

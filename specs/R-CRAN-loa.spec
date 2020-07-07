@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.45.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Lattice Options and Add-Ins
 
 License:          GPL (>= 2)

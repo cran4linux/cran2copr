@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to 'TensorFlow'
 
 License:          Apache License 2.0

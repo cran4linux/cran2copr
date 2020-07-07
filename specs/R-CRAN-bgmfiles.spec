@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Example BGM Files for the Atlantis Ecosystem Model
 
 License:          CC0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generate RNA-Seq Data from Gene-Gene Association Networks
 
 License:          GPL-2 | GPL-3

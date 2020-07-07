@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Camera Trap Data Management and Preparation of Occupancy andSpatial Capture-Recapture Analyses
 
 License:          GPL (>= 2)

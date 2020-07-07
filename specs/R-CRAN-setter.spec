@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mutators that Work with Pipes
 
 License:          Unlimited

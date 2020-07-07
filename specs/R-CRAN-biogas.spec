@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.23.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Process Biogas Data and Predict Biogas Production
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.20
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Support for the Multicriteria Decision Aiding Process
 
 License:          EUPL (== 1.1)

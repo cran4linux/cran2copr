@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Australian Tax Policy Analysis
 
 License:          GPL-2

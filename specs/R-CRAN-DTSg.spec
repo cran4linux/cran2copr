@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Class for Working with Time Series Based on 'data.table' and'R6' with Largely Optional Reference Semantics
 
 License:          MIT + file LICENSE

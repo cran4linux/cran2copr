@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.22.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Quick Serialization of R Objects
 
 License:          GPL-3 | file LICENSE

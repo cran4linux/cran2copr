@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          SNPs-based whole genome association studies
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.13
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Seawater Carbonate Chemistry
 
 License:          GPL (>= 2)

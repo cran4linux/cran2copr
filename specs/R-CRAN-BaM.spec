@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions and Datasets for Books by Jeff Gill
 
 License:          GPL (>= 2)

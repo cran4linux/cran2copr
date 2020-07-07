@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Tests for Assessing Trinormal ROC Data
 
 License:          LGPL-2.1

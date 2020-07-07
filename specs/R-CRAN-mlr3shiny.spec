@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Machine Learning in 'shiny' with 'mlr3'
 
 License:          BSD_2_clause + file LICENSE

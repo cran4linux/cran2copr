@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Find Free Versions of Scholarly Publications via Unpaywall
 
 License:          MIT + file LICENSE

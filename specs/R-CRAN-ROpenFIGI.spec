@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to OpenFIGI
 
 License:          GPL (>= 3)

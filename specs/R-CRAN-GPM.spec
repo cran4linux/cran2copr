@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Gaussian Process Modeling of Multi-Response and Possibly NoisyDatasets
 
 License:          GPL-2

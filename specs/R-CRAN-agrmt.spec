@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.40.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculate Agreement or Consensus in Ordered Rating Scales
 
 License:          GPL-3

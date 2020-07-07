@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Iterative Max-Min Entropy Margin-Maximization with InteractionTerms for Feature Selection
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.15.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Idiograms with Marks and Karyotype Indices
 
 License:          GPL (>= 2)

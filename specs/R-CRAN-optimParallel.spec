@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Parallel Version of the L-BFGS-B Optimization Method
 
 License:          GPL (>= 2)

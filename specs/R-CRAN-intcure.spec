@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mixture Cure Models with Random Effects
 
 License:          GPL-3

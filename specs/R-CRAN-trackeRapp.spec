@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Interface for the Analysis of Running, Cycling and Swimming Datafrom GPS-Enabled Tracking Devices
 
 License:          GPL-3

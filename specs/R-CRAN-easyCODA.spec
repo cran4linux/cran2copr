@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.31.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Compositional Data Analysis in Practice
 
 License:          GPL

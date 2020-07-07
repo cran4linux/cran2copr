@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interim Analysis of Operational Futility in Randomized Trialswith Time-to-Event Endpoints and Fixed Follow-Up
 
 License:          GPL-2

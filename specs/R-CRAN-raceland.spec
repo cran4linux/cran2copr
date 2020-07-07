@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Pattern-Based Zoneless Method for Analysis and Visualization ofRacial Topography
 
 License:          MIT + file LICENSE

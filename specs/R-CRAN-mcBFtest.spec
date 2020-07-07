@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Monte Carlo Based Tests for the Behrens Fisher Problem as anAlternative to Welch's t-Approximation
 
 License:          GPL (>= 2.0)

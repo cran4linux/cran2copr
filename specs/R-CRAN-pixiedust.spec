@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tables so Beautifully Fine-Tuned You Will Believe It's Magic
 
 License:          GPL (>= 2)

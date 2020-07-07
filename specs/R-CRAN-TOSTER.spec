@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Two One-Sided Tests (TOST) Equivalence Testing
 
 License:          GPL-3

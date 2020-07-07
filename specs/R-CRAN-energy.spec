@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          E-Statistics: Multivariate Inference via the Energy of Data
 
 License:          GPL (>= 2)

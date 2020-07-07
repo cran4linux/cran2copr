@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Reading Ontologies into R
 
 License:          GPL (>= 2)

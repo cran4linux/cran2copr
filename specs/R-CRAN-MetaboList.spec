@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Annotation of Metabolites from Liquid Chromatography-MassSpectrometry Data
 
 License:          GPL-2

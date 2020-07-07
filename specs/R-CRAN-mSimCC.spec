@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Micro Simulation Model for Cervical Cancer Prevention
 
 License:          GPL (>= 2)

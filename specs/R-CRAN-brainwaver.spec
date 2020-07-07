@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Basic wavelet analysis of multivariate time series with avisualisation and parametrisation using graph theory.
 
 License:          GPL (>= 2)

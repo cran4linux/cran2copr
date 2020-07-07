@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Weibull Analysis for Reliability Engineering
 
 License:          GPL (>= 3)

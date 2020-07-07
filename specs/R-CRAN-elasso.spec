@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Enhanced Least Absolute Shrinkage and Selection OperatorRegression Model
 
 License:          GPL-2

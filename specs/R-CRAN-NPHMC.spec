@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sample Size Calculation for the Proportional Hazards MixtureCure Model
 
 License:          GPL-2

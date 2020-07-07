@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.10.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Two-Table ExPosition
 
 License:          GPL-2

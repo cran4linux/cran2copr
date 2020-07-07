@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimate and Account for Tumor Purity in Cancer Methylation DataAnalysis
 
 License:          GPL-2

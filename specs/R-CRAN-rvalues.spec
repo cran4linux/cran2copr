@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R-Values for Ranking in High-Dimensional Settings
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Efficient Network Enrichment Analysis Test
 
 License:          GPL-3

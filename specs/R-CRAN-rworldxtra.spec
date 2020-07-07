@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.01
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Country boundaries at high resolution.
 
 License:          GPL (>= 2)

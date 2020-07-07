@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Discriminant Analysis Methods by Weight Mahalanobis Distance andbayes
 
 License:          GPL (>= 2)

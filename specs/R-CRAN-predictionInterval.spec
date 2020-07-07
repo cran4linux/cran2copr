@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Prediction Interval Functions for Assessing Replication StudyResults
 
 License:          MIT License + file LICENSE

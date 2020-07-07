@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extract Semantic Relations from Text by Querying and ReshapingSyntax
 
 License:          GPL-3

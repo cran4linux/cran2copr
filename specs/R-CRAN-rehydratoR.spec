@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Downloads Tweets from a List of Tweet IDs
 
 License:          BSD_3_clause + file LICENSE

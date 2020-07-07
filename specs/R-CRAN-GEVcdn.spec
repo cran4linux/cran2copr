@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.6.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          GEV Conditional Density Estimation Network
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Graphical Horseshoe MCMC Sampler Using Data Augmented BlockGibbs Sampler
 
 License:          GPL-2

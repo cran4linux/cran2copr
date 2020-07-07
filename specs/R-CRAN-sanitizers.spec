@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          C/C++ source code to trigger Address and Undefined BehaviourSanitizers
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fine-Scale Population Analysis (Rewrite forGene-Trait-Environment Interaction Analysis)
 
 License:          GPL (>= 2.0)

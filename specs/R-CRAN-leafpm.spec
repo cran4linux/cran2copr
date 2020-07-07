@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Leaflet Map Plugin for Drawing and Editing
 
 License:          MIT + file LICENSE

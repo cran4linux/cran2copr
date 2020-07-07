@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interactive Circular Visualization of Genomic Data using'htmlwidgets' and 'BioCircos.js'
 
 License:          GPL-2 | file LICENSE

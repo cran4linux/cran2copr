@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Haplotype Two Snips Out of a Paired Group of Patients
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Clean and Analyze Continuous Glucose Monitor Data
 
 License:          CC0

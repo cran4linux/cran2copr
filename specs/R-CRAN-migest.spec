@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for the Indirect Estimation of Bilateral Migration
 
 License:          GPL-3

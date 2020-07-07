@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Estimating Causal Dose Response Functions
 
 License:          MIT + file LICENSE

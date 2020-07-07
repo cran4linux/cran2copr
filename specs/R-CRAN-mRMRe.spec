@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          "Parallelized Minimum Redundancy, Maximum Relevance (mRMR)Ensemble Feature Selection"
 
 License:          Artistic-2.0

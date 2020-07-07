@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Graphics for Spherical Distributions and Earthquake FocalMechanisms
 
 License:          GPL (>= 2)

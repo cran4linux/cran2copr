@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Alt String Implementation
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Isotonic Inference for Circular Data
 
 License:          GPL (>= 3)

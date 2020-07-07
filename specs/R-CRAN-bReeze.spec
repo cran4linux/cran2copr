@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Wind Resource Assessment
 
 License:          MIT + file LICENSE

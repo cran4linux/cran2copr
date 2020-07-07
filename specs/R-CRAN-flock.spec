@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Process Synchronization Using File Locks
 
 License:          Apache License 2.0

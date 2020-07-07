@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          C++11 Header Files for 'cereal'
 
 License:          BSD_2_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatial Coverage Sampling and Random Sampling from CompactGeographical Strata
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          23.0.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Exemplar Data Sets for Student Growth Percentiles (SGP) Analyses
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Procedures for Ecological Assessment of Surface Waters
 
 License:          GPL-3

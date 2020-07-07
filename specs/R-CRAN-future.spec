@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.17.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Unified Parallel and Distributed Processing in R for Everyone
 
 License:          LGPL (>= 2.1)

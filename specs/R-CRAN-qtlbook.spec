@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.18.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Datasets for the R/qtl Book
 
 License:          GPL-3

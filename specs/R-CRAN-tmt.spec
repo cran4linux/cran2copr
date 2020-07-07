@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of the Rasch Model for Multistage Tests
 
 License:          GPL-3

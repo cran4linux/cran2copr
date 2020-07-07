@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Run 'R CMD check' from 'R' and Capture Results
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Parse Data of 'R' Code as an 'XML' Tree
 
 License:          MIT + file LICENSE

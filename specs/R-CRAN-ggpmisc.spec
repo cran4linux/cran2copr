@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Miscellaneous Extensions to 'ggplot2'
 
 License:          GPL (>= 2)

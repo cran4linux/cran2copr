@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Statistical Analysis Tools for High Dimension Molecular Data(HDMD)
 
 License:          GPL (>= 2)

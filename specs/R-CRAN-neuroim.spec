@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Structures and Handling for Neuroimaging Data
 
 License:          GPL (>= 2)

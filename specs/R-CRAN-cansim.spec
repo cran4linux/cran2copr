@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Accessing Statistics Canada Data Table and Vectors
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Microarray CGH analysis using the Smith-Waterman algorithm
 
 License:          GPL (>= 2)

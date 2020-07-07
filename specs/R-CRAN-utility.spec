@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Construct, Evaluate and Plot Value and Utility Functions
 
 License:          GPL-3

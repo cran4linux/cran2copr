@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Reinforced Angle-Based Multicategory Support Vector Machines
 
 License:          GPL-2

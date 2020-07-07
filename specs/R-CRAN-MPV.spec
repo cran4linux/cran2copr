@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.55
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Sets from Montgomery, Peck and Vining
 
 License:          Unlimited

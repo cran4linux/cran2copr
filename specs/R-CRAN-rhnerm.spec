@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Random Heteroscedastic Nested Error Regression
 
 License:          GPL (>= 2)

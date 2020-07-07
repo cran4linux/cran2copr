@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Constructing and Interacting with Databases of Presentations
 
 License:          GPL-3

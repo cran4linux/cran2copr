@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.9200
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools, Classes, and Methods for Interfacing with SaTScanStand-Alone Software
 
 License:          GPL-3

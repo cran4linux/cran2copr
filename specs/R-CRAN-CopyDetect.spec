@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Computing Response Similarity Indices for Multiple-Choice Tests
 
 License:          GPL-3 | file LICENSE

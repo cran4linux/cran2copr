@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The Self-Consistent, Competing Risks (SC-CR) Algorithms
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Used in the Vignettes Accompanying the CARBayes andCARBayesST Packages
 
 License:          GPL (>= 2)

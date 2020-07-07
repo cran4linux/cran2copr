@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.81
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of Parameter-Dependent Network Centrality Measures
 
 License:          MIT + file LICENSE

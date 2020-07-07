@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.99
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Straightforward Filtering Index for AP-MS Data Analysis (SFINX)
 
 License:          Apache License 2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Transformations for Post-Processing Climate ModelOutput
 
 License:          GPL (>= 2)

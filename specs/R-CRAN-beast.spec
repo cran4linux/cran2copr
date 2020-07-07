@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Estimation of Change-Points in the Slope ofMultivariate Time-Series
 
 License:          GPL-2

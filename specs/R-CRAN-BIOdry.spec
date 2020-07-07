@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multilevel Modeling of Dendroclimatical Fluctuations
 
 License:          GPL-3

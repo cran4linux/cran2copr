@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.8.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Qualitative Comparative Analysis
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Lassoed Principal Components for Testing Significance ofFeatures
 
 License:          GPL (>= 2)

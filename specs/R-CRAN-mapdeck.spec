@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interactive Maps Using 'Mapbox GL JS' and 'Deck.gl'
 
 License:          GPL-3

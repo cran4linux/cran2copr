@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Exact Test from the Combinations of Mutually ExclusiveAlterations (CoMEt) Algorithm
 
 License:          MIT + file LICENSE

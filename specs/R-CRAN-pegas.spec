@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.13
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Population and Evolutionary Genetics Analysis System
 
 License:          GPL (>= 2)

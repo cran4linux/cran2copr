@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Toolbox for Working with R Arrays in a Functional ProgrammingStyle
 
 License:          GPL-3

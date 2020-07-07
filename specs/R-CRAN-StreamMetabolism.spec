@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculate Single Station Metabolism from Diurnal Oxygen Curves
 
 License:          GPL (>= 3)

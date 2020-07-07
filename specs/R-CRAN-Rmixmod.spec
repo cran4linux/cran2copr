@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Classification with Mixture Modelling
 
 License:          GPL-3

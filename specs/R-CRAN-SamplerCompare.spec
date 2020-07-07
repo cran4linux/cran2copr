@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Framework for Comparing the Performance of MCMC Samplers
 
 License:          GPL-2

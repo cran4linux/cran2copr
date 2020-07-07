@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.98
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          L1 Regularization Path for Generalized Linear Models and CoxProportional Hazards Model
 
 License:          GPL (>= 2)

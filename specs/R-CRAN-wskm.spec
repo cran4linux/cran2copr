@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.40
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Weighted k-Means Clustering
 
 License:          GPL (>= 3)

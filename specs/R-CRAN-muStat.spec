@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Prentice Rank Sum Test and McNemar Test
 
 License:          GPL (>= 2)

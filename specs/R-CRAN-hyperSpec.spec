@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.20200527
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Work with Hyperspectral Data, i.e. Spectra + Meta Information(Spatial, Time, Concentration, ...)
 
 License:          GPL (>= 3)

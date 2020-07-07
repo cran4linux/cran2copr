@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Ternary Search Tree for Auto-Completion and Spell Checking
 
 License:          GPL-2

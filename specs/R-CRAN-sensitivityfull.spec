@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sensitivity Analysis for Full Matching in Observational Studies
 
 License:          GPL-2

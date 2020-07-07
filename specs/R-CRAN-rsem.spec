@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Robust Structural Equation Modeling with Missing Data andAuxiliary Variables
 
 License:          GPL-2

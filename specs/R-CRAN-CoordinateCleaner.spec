@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Automated Cleaning of Occurrence Records from BiologicalCollections
 
 License:          GPL-3

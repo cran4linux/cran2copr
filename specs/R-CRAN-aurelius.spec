@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generates PFA Documents from R Code and Optionally Runs Them
 
 License:          Apache License 2.0 | file LICENSE

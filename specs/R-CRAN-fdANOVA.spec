@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Variance for Univariate and Multivariate FunctionalData
 
 License:          LGPL-2 | LGPL-3 | GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          File-Backed Matrix Class with Convenient Read and Write Access
 
 License:          LGPL-3

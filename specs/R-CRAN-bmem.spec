@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Mediation Analysis with Missing Data Using Bootstrap
 
 License:          GPL-2

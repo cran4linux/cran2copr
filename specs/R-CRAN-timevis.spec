@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Interactive Timeline Visualizations in R
 
 License:          MIT + file LICENSE

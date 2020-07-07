@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Learning Causal Cyclic Graphs from Unknown Shift Interventions
 
 License:          GPL

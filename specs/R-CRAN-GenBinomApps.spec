@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Clopper-Pearson Confidence Interval and Generalized BinomialDistribution
 
 License:          GPL-3

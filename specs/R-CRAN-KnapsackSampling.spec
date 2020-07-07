@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generate Feasible Samples of a Knapsack Problem
 
 License:          GPL (>= 2) | file LICENSE

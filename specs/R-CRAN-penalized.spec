@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.51
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          L1 (Lasso and Fused Lasso) and L2 (Ridge) Penalized Estimationin GLMs and in the Cox Model
 
 License:          GPL (>= 2)

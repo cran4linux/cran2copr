@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An R Package for Text Analysis
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Mixed-Effects Model for Analyzing Cluster-Level Non-IgnorableMissing Data
 
 License:          GPL

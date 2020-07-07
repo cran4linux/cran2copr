@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          eXtraction of ENTity
 
 License:          GPL-3

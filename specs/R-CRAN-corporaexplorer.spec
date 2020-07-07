@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A 'Shiny' App for Exploration of Text Collections
 
 License:          GPL-3 | file LICENSE

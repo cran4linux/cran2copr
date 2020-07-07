@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Bias Correction of Climate Model Outputs
 
 License:          GPL-2

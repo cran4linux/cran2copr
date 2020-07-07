@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          MultiClass Visualizable Classification using Combination ofProjections
 
 License:          GPL-3

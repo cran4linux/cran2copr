@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast Implementation of the Iterative Proportional FittingProcedure in C
 
 License:          Apache License (== 2.0)

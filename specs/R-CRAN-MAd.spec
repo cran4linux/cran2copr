@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Meta-Analysis with Mean Differences
 
 License:          GPL-2

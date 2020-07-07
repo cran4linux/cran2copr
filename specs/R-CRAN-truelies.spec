@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Methods to Estimate the Proportion of Liars in CoinFlip Experiments
 
 License:          MIT + file LICENSE

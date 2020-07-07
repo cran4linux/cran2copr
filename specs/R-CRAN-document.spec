@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Run 'roxygen2' on (Chunks of) Single Code Files
 
 License:          BSD_2_clause + file LICENSE

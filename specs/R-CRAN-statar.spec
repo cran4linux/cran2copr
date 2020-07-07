@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools Inspired by 'Stata' to Manipulate Tabular Data
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Find all root(s) of the equation and Find root(s) of theequation by dichotomy
 
 License:          GPL (>= 2)

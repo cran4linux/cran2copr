@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.48
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sotkanet Open Data Access and Analysis
 
 License:          BSD_2_clause + file LICENSE

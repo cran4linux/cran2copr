@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Taking the Pain Out of Catching and Handling Conditions
 
 License:          MIT + file LICENSE

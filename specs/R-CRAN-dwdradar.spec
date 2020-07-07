@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read Binary Radar Files from 'DWD' (German Weather Service)
 
 License:          GPL (>= 2)

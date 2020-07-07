@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast and Scalable Learning of Sparse Changes in High-DimensionalGaussian Graphical Model Structure
 
 License:          GPL-2

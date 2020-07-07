@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A package to simulate constrained phenotypes under a diseasemodel H1
 
 License:          GPL (>= 3)

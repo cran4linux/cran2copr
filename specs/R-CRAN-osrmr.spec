@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.35
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wrapper for the 'OSRM' API
 
 License:          GPL-3

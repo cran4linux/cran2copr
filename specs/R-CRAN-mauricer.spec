@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Install 'BEAST2' Packages
 
 License:          GPL-3

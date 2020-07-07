@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.21
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Covariate Balancing Propensity Score
 
 License:          GPL (>= 2)

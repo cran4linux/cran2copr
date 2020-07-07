@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rigorous - 'NIfTI' + 'ANALYZE' + 'AFNI' : Input / Output
 
 License:          BSD_3_clause + file LICENSE

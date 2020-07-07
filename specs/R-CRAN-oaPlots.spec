@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.25
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          OpenAnalytics Plots Package
 
 License:          GPL-3 + file LICENSE

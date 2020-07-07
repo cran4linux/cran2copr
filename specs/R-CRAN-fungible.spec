@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.96.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Psychometric Functions from the Waller Lab
 
 License:          GPL (>= 2)

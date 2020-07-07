@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Busy Indicator for 'Shiny' Applications
 
 License:          GPL-3 | file LICENSE

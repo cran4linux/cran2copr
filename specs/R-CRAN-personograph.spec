@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Pictographic Representation of Treatment Effects
 
 License:          LGPL (>= 2.0, < 3) | Mozilla Public License

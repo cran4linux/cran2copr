@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Example Functional Imaging Data from the Multi-Modal MRI'Reproducibility' Resource
 
 License:          GPL-2

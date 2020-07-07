@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.54.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Classification, Regression and Feature Evaluation
 
 License:          GPL-3

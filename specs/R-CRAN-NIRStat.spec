@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Novel Statistical Methods for Studying Near-InfraredSpectroscopy (NIRS) Time Series Data
 
 License:          GPL-2

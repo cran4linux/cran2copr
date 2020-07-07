@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Precise and Accurate Power of the Wilcoxon-Mann-Whitney Rank-SumTest for a Continuous Variable
 
 License:          GPL-3

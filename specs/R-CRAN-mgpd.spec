@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.99
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          mgpd: Functions for multivariate generalized Pareto distribution(MGPD of Type II)
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Shape-Preserving Uni-Variate and Bi-Variate Spline Interpolation
 
 License:          GPL (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Semi-Supervised Generalized Structural Equation Modeling
 
 License:          GPL (>= 2)

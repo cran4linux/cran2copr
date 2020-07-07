@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read, Write and Edit xlsx Files
 
 License:          MIT + file LICENSE

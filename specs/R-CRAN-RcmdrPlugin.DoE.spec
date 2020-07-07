@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Commander Plugin for (industrial) Design of Experiments
 
 License:          GPL (>= 2)

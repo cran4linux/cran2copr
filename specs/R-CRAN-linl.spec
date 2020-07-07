@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'linl' is not 'Letter'
 
 License:          GPL-3

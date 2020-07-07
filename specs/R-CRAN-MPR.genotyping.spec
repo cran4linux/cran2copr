@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Maximum Parsimony of Recombination to Infer Parental Genotypes
 
 License:          GPL (>= 2)

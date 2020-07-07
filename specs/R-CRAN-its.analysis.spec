@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Running Interrupted Time Series Analysis
 
 License:          MIT + file LICENCE

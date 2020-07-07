@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Non-clustered heatmap alternatives
 
 License:          GPL-3

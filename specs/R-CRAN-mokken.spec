@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Conducts Mokken Scale Analysis
 
 License:          GPL (>= 2)

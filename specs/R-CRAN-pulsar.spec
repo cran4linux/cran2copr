@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Parallel Utilities for Lambda Selection along a RegularizationPath
 
 License:          GPL (>= 2)

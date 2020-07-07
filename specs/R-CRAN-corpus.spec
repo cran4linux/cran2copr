@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Text Corpus Analysis
 
 License:          Apache License (== 2.0) | file LICENSE

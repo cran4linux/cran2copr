@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          MCMC Procedures for Estimating Enzyme Kinetics Constants
 
 License:          GPL-3

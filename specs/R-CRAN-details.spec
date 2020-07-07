@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Details HTML Tag for Markdown and Package Documentation
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Analysis to Compare Models using Resampling Statistics
 
 License:          GPL-2

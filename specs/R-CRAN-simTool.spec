@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Conduct Simulation Studies with a Minimal Amount of Source Code
 
 License:          GPL-3

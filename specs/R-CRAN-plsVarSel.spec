@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Variable Selection in Partial Least Squares
 
 License:          GPL (>= 2)

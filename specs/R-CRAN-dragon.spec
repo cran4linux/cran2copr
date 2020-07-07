@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Deep Time Redox Analysis of the Geobiology Ontology Network
 
 License:          GPL-3

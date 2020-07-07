@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.5.21
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation and Hypothesis Testing for Threshold Regression
 
 License:          GPL (>= 2)

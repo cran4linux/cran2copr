@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rigorous - Positron Emission Tomography
 
 License:          BSD_3_clause + file LICENSE

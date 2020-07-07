@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read Data from JSTOR/DfR
 
 License:          GPL-3 | file LICENSE

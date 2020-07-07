@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multiscale Multifractal Analysis of Time Series Data
 
 License:          GPL (>= 2)

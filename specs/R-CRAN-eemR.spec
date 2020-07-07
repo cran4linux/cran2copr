@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Pre-Processing Emission-Excitation-Matrix (EEM)Fluorescence Data
 
 License:          GPL (>= 2)

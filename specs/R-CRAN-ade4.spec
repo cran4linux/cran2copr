@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Ecological Data: Exploratory and Euclidean Methodsin Environmental Sciences
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.80.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rmetrics - Analysing and Modeling Multivariate Financial ReturnDistributions
 
 License:          GPL (>= 2)

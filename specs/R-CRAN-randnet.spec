@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Random Network Model Selection and Parameter Tuning
 
 License:          GPL (>= 2)

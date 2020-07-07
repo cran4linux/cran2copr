@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tests on Properties of Space-Time Covariance Functions
 
 License:          GPL (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.13
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Moving Epidemic Method Web Application
 
 License:          GPL (>= 2)

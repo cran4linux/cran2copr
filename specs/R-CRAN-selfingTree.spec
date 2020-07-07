@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Genotype Probabilities in Intermediate Generations of InbreedingThrough Selfing
 
 License:          BSD_3_clause + file LICENSE

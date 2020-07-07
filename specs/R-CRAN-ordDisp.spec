@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Separating Location and Dispersion in Ordinal Regression Models
 
 License:          GPL-2

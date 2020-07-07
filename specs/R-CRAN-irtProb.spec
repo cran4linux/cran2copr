@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Utilities and Probability Distributions Related toMultidimensional Person Item Response Models
 
 License:          GPL (>= 2)

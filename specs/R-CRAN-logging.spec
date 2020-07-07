@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.108
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Logging Package
 
 License:          GPL-3

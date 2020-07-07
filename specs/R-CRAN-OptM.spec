@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimating the Optimal Number of Migration Edges from 'Treemix'
 
 License:          GPL (>= 2)

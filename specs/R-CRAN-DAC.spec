@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Calculating Data Agreement Criterion Scores to Rank ExpertsBased on Their Beliefs
 
 License:          GPL-3

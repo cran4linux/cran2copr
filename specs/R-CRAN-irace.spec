@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Iterated Racing for Automatic Algorithm Configuration
 
 License:          GPL (>= 2)

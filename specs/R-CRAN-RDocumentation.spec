@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Integrate R with 'RDocumentation'
 
 License:          GPL (>= 2)

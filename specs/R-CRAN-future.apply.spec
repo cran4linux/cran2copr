@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Apply Function to Elements in Parallel using Futures
 
 License:          GPL (>= 2)

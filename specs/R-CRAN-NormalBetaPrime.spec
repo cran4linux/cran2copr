@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Normal Beta Prime Prior
 
 License:          GPL-3

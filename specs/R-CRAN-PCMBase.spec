@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation and Likelihood Calculation of PhylogeneticComparative Models
 
 License:          GPL (>= 3.0)

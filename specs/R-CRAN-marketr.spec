@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tidy Calculation of Marketing Metrics Plus Quick Analysis
 
 License:          CC0

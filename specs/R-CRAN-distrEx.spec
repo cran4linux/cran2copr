@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extensions of Package 'distr'
 
 License:          LGPL-3

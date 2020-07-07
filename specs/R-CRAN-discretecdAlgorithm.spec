@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Coordinate-Descent Algorithm for Learning Sparse DiscreteBayesian Networks
 
 License:          GPL (>= 2)

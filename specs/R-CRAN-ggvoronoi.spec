@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Voronoi Diagrams and Heatmaps with 'ggplot2'
 
 License:          MIT + file LICENSE

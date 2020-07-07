@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read and Write 'las' and 'laz' Binary File Formats Used forRemote Sensing Data
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Expected/Observed Fisher Information and Bias-Corrected MaximumLikelihood Estimate(s)
 
 License:          GPL (>= 2)

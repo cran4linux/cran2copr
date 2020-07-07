@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fitting User-Specified Models with Group Lasso Penalty
 
 License:          GPL

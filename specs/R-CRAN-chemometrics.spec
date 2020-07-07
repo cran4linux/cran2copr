@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Statistical Analysis in Chemometrics
 
 License:          GPL (>= 3)

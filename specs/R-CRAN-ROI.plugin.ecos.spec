@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'ECOS' Plugin for the 'R' Optimization Infrastructure
 
 License:          GPL-3

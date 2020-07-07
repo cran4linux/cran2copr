@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Meta-Analysis of Correlation Coefficients
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.50
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Process Improvement using Data
 
 License:          BSD_2_clause + file LICENSE

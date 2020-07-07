@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Powerful and Reliable Tools for Running System Commands in R
 
 License:          MIT + file LICENSE

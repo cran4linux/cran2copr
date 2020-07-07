@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to the 'HDF5' Binary Data Format
 
 License:          Apache License 2.0 | file LICENSE

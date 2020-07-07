@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Cleaning and Visualizing Implicit Association Test (IAT) Data
 
 License:          Apache License 2.0

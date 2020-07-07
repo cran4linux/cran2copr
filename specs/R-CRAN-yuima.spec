@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The YUIMA Project Package for SDEs
 
 License:          GPL-2

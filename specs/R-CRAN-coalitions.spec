@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian "Now-Cast" Estimation of Event Probabilities inMulti-Party Democracies
 
 License:          MIT + file LICENSE

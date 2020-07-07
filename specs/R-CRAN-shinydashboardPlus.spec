@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Add More 'AdminLTE2' Components to 'shinydashboard'
 
 License:          GPL (>= 2) | file LICENSE

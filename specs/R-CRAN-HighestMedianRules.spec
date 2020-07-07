@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implementation of Voting Rules Electing the Candidate withHighest Median Grade
 
 License:          AGPL-3

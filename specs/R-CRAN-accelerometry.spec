@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Processing Accelerometer Data
 
 License:          GPL-3

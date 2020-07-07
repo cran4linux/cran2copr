@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Empirical Likelihood Analysis for the Cox Model andYang-Prentice (2005) Model
 
 License:          GPL (>= 2)

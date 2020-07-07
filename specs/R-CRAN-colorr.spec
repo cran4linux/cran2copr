@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Color Palettes for EPL, MLB, NBA, NHL, and NFL Teams
 
 License:          MIT + file LICENSE

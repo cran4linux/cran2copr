@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Ensemble Methods for Survival Data with Time-Varying Covariates
 
 License:          GPL (>= 2)

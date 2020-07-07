@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Testing Gene-Environment Interaction for Rare Genetic Variants
 
 License:          GPL-3

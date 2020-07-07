@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.31
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Package for Plotting Categorical Longitudinal and Time-SeriesData
 
 License:          GPL (>= 3)

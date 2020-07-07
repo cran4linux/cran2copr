@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Irish Weather Observing Stations Hourly Records for 2017
 
 License:          Creative Commons Attribution 4.0 International License

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.25
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Construction of Regular and Irregular Histograms with DifferentOptions for Automatic Choice of Bins
 
 License:          GPL (>= 2)

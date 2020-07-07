@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Locus Random-SNP-Effect Mixed Linear Model Tools forGenome-Wide Association Study with Graphical User Interface
 
 License:          GPL (>= 2)

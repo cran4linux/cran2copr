@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.93
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Plot and Manipulate Multigraphs
 
 License:          GPL-3

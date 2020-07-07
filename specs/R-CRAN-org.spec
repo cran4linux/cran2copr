@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Organising Projects
 
 License:          GPL-3

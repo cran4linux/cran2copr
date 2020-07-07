@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wavelet Functional ANOVA Through Markov Groves
 
 License:          GPL (>= 3)

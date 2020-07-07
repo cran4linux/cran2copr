@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.57
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          ML and MCMC Methods for Pedigree Reconstruction and Analysis
 
 License:          GPL (>= 2)

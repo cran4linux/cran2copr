@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of Model-Based Predictions, Contrasts and Means
 
 License:          GPL-3

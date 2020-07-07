@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.12.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Regression Models for Ordinal Data
 
 License:          GPL (>= 2)

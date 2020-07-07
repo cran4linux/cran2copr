@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Spectral Analysis Models using Gaussian Process Priors
 
 License:          GPL (>= 2)

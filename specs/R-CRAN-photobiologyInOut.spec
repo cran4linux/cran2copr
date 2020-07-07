@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.22.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read Spectral and Logged Data from Foreign Files
 
 License:          GPL (>= 2)

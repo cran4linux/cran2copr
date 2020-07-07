@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          General Purpose Interface to 'Elasticsearch'
 
 License:          MIT + file LICENSE

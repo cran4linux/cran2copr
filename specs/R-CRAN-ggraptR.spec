@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Allows Interactive Visualization of Data Through a Web BrowserGUI
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sparse Arrays and Multivariate Polynomials
 
 License:          GPL (>= 2)

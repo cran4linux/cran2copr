@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Propensity Clustering and Decomposition
 
 License:          GPL (>= 2)

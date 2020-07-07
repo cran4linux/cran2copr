@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimating Finite State Machine Models from Data
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.37
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data analysis for forensic scientists
 
 License:          GPL (>= 2)

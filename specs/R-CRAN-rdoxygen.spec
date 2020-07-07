@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Doxygen Documentation for Source Code
 
 License:          GPL-2 | file LICENSE

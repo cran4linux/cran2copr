@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Package for Displaying Visual Scenes as They May Appear to anAnimal with Lower Acuity
 
 License:          GPL (>= 2)

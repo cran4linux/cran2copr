@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Article Formats for R Markdown
 
 License:          GPL-3

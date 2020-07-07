@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Vector Generalized Linear and Additive Models
 
 License:          GPL-3

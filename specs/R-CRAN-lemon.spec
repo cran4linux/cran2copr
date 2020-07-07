@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Freshing Up your 'ggplot2' Plots
 
 License:          GPL-3

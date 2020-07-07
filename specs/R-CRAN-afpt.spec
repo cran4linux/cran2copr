@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Modelling of Animal Flight Performance
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Space-Time Point Pattern Simulation, Visualisation and Analysis
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Classifies implicit trading activity from market quotes andcomputes the probability of informed trading
 
 License:          GPL-3

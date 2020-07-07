@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.01
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sensitivity Analysis for 2x2xk Tables in Observational Studies
 
 License:          GPL-2

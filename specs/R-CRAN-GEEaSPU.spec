@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Adaptive Association Tests for Multiple Phenotypes usingGeneralized Estimating Equations (GEE)
 
 License:          GNU General Public License (>= 3)

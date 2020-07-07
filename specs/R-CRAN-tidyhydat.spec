@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extract and Tidy Canadian 'Hydrometric' Data
 
 License:          Apache License (== 2.0) | file LICENSE

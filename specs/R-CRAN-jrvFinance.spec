@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Basic Finance; NPV/IRR/Annuities/Bond-Pricing; Black Scholes
 
 License:          GPL (>= 2)

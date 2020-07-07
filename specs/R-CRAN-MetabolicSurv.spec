@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Biomarker Validation Approach for Classification andPredicting Survival Using Metabolomics Signature
 
 License:          GPL-3

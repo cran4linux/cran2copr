@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R for Amplicon-Sequencing-Based Microbial-Ecology
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Adaptable Regularized Hotelling's T^2 Test for High-DimensionalData
 
 License:          GPL (>= 2)

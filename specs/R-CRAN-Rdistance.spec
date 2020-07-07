@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Distance-Sampling Analyses for Density and Abundance Estimation
 
 License:          GNU General Public License

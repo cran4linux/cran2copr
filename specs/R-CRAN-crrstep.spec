@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2015.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Stepwise Covariate Selection for the Fine & Gray Competing RisksRegression Model
 
 License:          GPL (>= 2)

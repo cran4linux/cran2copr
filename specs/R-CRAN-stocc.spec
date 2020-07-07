@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.30
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit a Spatial Occupancy Model via Gibbs Sampling
 
 License:          CC0

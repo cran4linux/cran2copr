@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Redraw Base Graphics Using 'grid' Graphics
 
 License:          GPL (>= 2)

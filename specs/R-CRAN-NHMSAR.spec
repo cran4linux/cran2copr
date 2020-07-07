@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.17
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Non-Homogeneous Markov Switching Autoregressive Models
 
 License:          GPL

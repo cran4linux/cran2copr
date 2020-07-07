@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Useful Functions for Ridit Analysis
 
 License:          GPL-2 | GPL-3 | MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implements the supervised multidimensional scaling (superMDS)proposal of Witten and Tibshirani (2011)
 
 License:          GPL-2

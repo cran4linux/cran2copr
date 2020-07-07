@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Plot and Save Customised Swiss Maps
 
 License:          GPL (>= 2)

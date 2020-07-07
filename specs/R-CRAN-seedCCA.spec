@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Seeded Canonical Correlation Analysis
 
 License:          GPL (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          TURF Analysis for R
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.1.31
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast, Weighted ROC Curves
 
 License:          GPL-3

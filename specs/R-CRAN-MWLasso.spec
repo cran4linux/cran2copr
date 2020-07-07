@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Penalized Moving-Window Lasso Method for Genome-Wide AssociationStudies
 
 License:          GPL

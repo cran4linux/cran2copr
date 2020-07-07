@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Access the 'Public Transport Victoria' Timetable API
 
 License:          MIT + file LICENSE

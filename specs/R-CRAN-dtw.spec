@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.21.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dynamic Time Warping Algorithms
 
 License:          GPL (>= 2)

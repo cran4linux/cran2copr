@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sources an R "Module" with Caching & Encapsulation, ReturningExported Vars
 
 License:          MIT + file LICENSE

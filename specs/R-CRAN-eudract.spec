@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Creates Safety Results Summary in XML to Upload to EudraCT
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Text Extraction, Rendering and Converting of PDF Documents
 
 License:          MIT + file LICENSE

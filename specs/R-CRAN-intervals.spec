@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Working with Points and Intervals
 
 License:          Artistic-2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions to Create Publication-Quality Plots
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Flexible Mixture Modeling
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.94.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          High-Dimensional Penalized Regression
 
 License:          GPL (>= 2)

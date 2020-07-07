@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Facilitates Clustered Binary Data Generation, and Estimation ofIntracluster Correlation Coefficient (ICC) for Binary Data
 
 License:          GPL (>= 2)

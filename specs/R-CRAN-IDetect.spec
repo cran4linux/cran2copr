@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Isolate-Detect Methodology for Multiple Change-Point Detection
 
 License:          GPL-3

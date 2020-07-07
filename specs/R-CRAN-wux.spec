@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wegener Center Climate Uncertainty Explorer
 
 License:          GPL (>= 2)

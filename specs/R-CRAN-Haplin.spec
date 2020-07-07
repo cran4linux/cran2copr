@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          7.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analyzing Case-Parent Triad and/or Case-Control Data with SNPHaplotypes
 
 License:          GPL (>= 2)

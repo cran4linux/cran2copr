@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Toolbox for Manipulating and Assessing Colors and Palettes
 
 License:          BSD_3_clause + file LICENSE

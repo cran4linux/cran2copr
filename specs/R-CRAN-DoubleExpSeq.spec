@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Differential Exon Usage Test for RNA-Seq Data via EmpiricalBayes Shrinkage of the Dispersion Parameter
 
 License:          GPL-3

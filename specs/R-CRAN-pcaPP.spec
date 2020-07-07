@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.73
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Robust PCA by Projection Pursuit
 
 License:          GPL (>= 3)

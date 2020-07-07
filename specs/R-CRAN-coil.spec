@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Contextualization and Evaluation of COI-5P Barcode Data
 
 License:          GPL-3

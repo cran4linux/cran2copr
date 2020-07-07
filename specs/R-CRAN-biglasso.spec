@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extending Lasso Model Fitting to Big Data
 
 License:          GPL-3

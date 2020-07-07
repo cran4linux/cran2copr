@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generation of Up to Four Different Types of Variables
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Prepare Reproducible Example Code via the Clipboard
 
 License:          MIT + file LICENSE

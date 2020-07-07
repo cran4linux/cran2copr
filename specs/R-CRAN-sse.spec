@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sample Size Estimation
 
 License:          GPL-3

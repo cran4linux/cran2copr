@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Analysis with Optimal Scaling
 
 License:          GPL-3

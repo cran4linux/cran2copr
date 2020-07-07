@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Pretty, Human Readable Formatting of Quantities
 
 License:          MIT + file LICENSE

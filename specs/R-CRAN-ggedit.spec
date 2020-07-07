@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interactive 'ggplot2' Layer and Theme Aesthetic Editor
 
 License:          MIT + file LICENSE

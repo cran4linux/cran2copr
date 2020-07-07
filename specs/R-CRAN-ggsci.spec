@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Scientific Journal and Sci-Fi Themed Color Palettes for'ggplot2'
 
 License:          GPL-3 | file LICENSE

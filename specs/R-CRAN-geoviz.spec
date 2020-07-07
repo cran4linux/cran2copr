@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Elevation and GPS Data Visualisation
 
 License:          GPL-3

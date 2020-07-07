@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Structure Parameter Inference Approach
 
 License:          BSD_3_clause + file LICENSE

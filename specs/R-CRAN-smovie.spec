@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Some Movies to Illustrate Concepts in Statistics
 
 License:          GPL (>= 2)

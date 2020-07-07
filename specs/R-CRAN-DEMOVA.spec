@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          DEvelopment (of Multi-Linear QSPR/QSAR) MOdels VAlidated usingTest Set
 
 License:          GPL (>= 2)

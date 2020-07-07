@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.79
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rmetrics - Trading and Rebalancing Financial Instruments
 
 License:          GPL (>= 2)

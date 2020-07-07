@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Partially Additive (Generalized) Linear Model Trees
 
 License:          GPL-2 | GPL-3

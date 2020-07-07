@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Modified Maximum Contrast Method
 
 License:          GPL-3

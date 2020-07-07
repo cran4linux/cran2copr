@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          An R Package for the Stochastic Simulation of Disease Spreadingin Dynamic Networks
 
 License:          GPL (>= 2)

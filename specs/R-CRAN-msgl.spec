@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multinomial Sparse Group Lasso
 
 License:          GPL (>= 2)

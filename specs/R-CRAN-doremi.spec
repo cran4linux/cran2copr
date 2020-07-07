@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dynamics of Return to Equilibrium During Multiple Inputs
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2015.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dynamic Systems Estimation - Extensions
 
 License:          GPL-2

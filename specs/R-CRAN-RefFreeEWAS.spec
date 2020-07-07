@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          EWAS using Reference-Free DNA Methylation Mixture Deconvolution
 
 License:          GPL (>= 2)

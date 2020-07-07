@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          C++ Implementation of Component-Wise Boosting
 
 License:          MIT + file LICENSE

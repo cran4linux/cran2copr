@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Instagram 2014 Vancouver Top Colour Dataset
 
 License:          CC0

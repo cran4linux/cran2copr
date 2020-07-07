@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bacterium and Virus Analysis of Orthologous Groups (BOG) is aPackage for Identifying Differentially Regulated Genes in theLight of Gene Functions
 
 License:          GPL-3

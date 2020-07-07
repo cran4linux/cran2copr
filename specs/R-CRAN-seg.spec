@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Measuring Spatial Segregation
 
 License:          GPL (>= 3)

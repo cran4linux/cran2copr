@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Compares the Distribution of Sister Clades Through a Phylogeny
 
 License:          MIT + file LICENSE

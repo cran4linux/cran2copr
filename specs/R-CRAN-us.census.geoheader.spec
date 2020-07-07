@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          US 2010 Census SF2 Geographic Header Summary Levels 010-050
 
 License:          BSD_2_clause + file LICENSE

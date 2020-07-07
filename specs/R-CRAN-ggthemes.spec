@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extra Themes, Scales and Geoms for 'ggplot2'
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Linear Ridge Regression with Ridge Penalty and Ridge Statistics
 
 License:          GPL (>= 2.0)

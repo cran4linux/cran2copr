@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Comparisons of Two or more Alpha Coefficients
 
 License:          GPL (>= 3)

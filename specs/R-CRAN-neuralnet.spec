@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.44.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Training of Neural Networks
 
 License:          GPL (>= 2)

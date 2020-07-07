@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          CpG Filtering Method Based on Intra-Class CorrelationCoefficients
 
 License:          GPL-3

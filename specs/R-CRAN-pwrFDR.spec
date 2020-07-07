@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.95
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          FDR Power
 
 License:          GPL (>= 2)

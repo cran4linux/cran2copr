@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create 'Java' Objects and Execute 'Java' Methods
 
 License:          GPL-3

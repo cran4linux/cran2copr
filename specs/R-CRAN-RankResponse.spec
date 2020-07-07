@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Ranking Responses in a Single Response Question or a MultipleResponse Question
 
 License:          GPL-2

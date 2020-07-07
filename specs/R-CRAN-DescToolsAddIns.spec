@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interactive Functions to be Used as Shortcuts in 'RStudio'
 
 License:          GPL (>= 2)

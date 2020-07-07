@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Convert Data from and to 'GeoJSON' or 'TopoJSON'
 
 License:          MIT + file LICENSE

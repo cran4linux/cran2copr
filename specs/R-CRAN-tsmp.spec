@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Time Series with Matrix Profile
 
 License:          Apache License (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Co-Tucker3 Analysis of Two Sequences of Matrices
 
 License:          GPL (>= 2)

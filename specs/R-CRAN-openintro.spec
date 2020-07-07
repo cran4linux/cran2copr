@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Data Sets and Supplemental Functions from 'OpenIntro' Textbooksand Labs
 
 License:          GPL-3

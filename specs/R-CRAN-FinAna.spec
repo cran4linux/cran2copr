@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Financial Analysis and Regression Diagnostic Analysis
 
 License:          GPL (>= 2)

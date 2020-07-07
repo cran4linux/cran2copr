@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sample Size Estimation Functions for Cluster Randomized Trials
 
 License:          GPL (>= 2)

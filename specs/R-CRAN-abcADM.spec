@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit Accumulated Damage Models and Estimate Reliability using ABC
 
 License:          GPL-3

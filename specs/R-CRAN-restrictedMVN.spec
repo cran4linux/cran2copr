@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Normal Restricted by Affine Constraints
 
 License:          GPL (>= 2)

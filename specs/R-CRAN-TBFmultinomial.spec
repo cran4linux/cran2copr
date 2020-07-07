@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          TBF Methodology Extension for Multinomial Outcomes
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Independent Evidence in IV Analyses and Do SensitivityAnalysis in Regression and IV Analysis
 
 License:          GPL (>= 2)

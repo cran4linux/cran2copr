@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Analysis of Spatial Data Using a Unifying SpatialFusion Framework
 
 License:          GPL (>= 3)

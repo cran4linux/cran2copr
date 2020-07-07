@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          'Rcpp' Integration of Different "Ziggurat" Normal RNGImplementations
 
 License:          GPL (>= 2)

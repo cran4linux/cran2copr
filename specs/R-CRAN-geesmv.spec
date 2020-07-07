@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Modified Variance Estimators for Generalized EstimatingEquations
 
 License:          GPL (>= 3)

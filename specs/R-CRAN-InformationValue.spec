@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Performance Analysis and Companion Functions for BinaryClassification Models
 
 License:          GPL (>= 2)

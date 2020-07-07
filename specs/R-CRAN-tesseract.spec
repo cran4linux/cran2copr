@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Open Source OCR Engine
 
 License:          Apache License 2.0

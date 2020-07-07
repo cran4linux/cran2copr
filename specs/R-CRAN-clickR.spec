@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.47
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fix Data and Create Report Tables from Different Objects
 
 License:          GPL (>= 2)

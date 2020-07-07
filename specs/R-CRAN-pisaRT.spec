@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Small Example Response and Response Time Data from PISA 2015
 
 License:          CC BY 4.0

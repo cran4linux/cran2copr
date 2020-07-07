@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          S3 Infrastructure for Regular and Irregular Time Series (Z'sOrdered Observations)
 
 License:          GPL-2 | GPL-3

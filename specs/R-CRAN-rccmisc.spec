@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Miscellaneous R Functions for Swedish Regional Cancer Centers
 
 License:          GPL-2

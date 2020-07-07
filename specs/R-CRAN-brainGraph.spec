@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Graph Theory Analysis of Brain MRI Data
 
 License:          GPL-3

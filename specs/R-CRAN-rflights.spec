@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.103
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Query Plane Tickets using the 'Kiwi' API
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Exploring Differential Shannon Entropy, DifferentialCoefficient of Variation and Differential Expression
 
 License:          GPL-3

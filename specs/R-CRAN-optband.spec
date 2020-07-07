@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'surv' Object Confidence Bands Optimized by Area
 
 License:          GPL-2 | GPL-3

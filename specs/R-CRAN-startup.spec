@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Friendly R Startup Configuration
 
 License:          LGPL (>= 2.1)

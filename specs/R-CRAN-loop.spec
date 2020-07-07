@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          loop decomposition of weighted directed graphs for life cycleanalysis, providing flexbile network plotting methods, andanalyzing food chain properties in ecology
 
 License:          GPL-2

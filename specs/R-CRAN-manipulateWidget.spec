@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Add Even More Interactivity to Interactive Charts
 
 License:          GPL (>= 2) | file LICENSE

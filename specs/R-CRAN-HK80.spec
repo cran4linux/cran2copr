@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Conversion Tools for HK80 Geographical Coordinate System
 
 License:          GPL-2

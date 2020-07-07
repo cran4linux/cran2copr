@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Automated Feature Selection from 'caret'
 
 License:          GPL-2 | GPL-3

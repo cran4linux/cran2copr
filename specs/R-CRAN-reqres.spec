@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Powerful Classes for HTTP Requests and Responses
 
 License:          MIT + file LICENSE

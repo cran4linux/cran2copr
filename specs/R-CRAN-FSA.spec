@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.30
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simple Fisheries Stock Assessment Methods
 
 License:          GPL (>= 2)

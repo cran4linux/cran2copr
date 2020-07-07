@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read and Write FWF Files in the Blaise Format
 
 License:          GPL-3

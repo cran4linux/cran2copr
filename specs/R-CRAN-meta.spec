@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.13.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          General Package for Meta-Analysis
 
 License:          GPL (>= 2)

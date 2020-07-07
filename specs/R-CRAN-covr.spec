@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Test Coverage for Packages
 
 License:          GPL-3

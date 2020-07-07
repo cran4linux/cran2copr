@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Adaptive Subgroup Selection in Group Sequential Trials
 
 License:          GPL (>= 2)

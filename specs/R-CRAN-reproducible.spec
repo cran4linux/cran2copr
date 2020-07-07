@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Set of Tools that Enhance Reproducibility Beyond PackageManagement
 
 License:          GPL-3

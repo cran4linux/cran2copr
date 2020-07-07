@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Performs Quality Control, Data Normalization, and Batch EffectCorrection for 'NanoString nCounter' Data
 
 License:          MIT + file LICENSE

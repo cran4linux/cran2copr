@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multiples Comparisons Procedures Based on Studentized Midrangeand Range Distributions
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Numerical Formal Concept Analysis for Systematic Clustering
 
 License:          GPL-2

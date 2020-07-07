@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bivariate Gaussian Genotype Clustering and Calling for IlluminaMicroarrays
 
 License:          GPL (>= 2)

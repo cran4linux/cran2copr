@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Meta-Analysis Approach with Filtering for IdentifyingGene-Level Gene-Environment Interactions with GeneticAssociation Data
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of Smooth Hazard Models for Interval-Censored Datawith Applications to Survival and Illness-Death Models
 
 License:          GPL (>= 2)

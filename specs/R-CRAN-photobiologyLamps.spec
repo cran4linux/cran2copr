@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spectral Irradiance Data for Lamps
 
 License:          GPL (>= 2)

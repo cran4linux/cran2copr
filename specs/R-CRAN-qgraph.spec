@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Graph Plotting Methods, Psychometric Data Visualization andGraphical Model Estimation
 
 License:          GPL-2

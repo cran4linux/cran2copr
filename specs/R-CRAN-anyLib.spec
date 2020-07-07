@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Install and Load Any Package from CRAN, Bioconductor or Github
 
 License:          CC BY-SA 4.0

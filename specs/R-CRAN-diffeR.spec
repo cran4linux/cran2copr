@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Metrics of Difference for Comparing Pairs of Maps or Pairs ofVariables
 
 License:          GPL (>= 2)

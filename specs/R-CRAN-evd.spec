@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Extreme Value Distributions
 
 License:          GPL-3

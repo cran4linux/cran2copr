@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Permutation Testing in High-Dimensional Linear Models
 
 License:          GNU General Public License

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multilevel Mantel-Haenszel Statistics for Differential ItemFunctioning Detection
 
 License:          GPL (>= 2)

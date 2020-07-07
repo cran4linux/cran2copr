@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fits Regression & ARMA Models Subject to Constraints to theCoefficient
 
 License:          GPL-2 | GPL-3

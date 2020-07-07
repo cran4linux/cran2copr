@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Spatial Thinning of Species Occurrence Records forUse in Ecological Models
 
 License:          GPL-3

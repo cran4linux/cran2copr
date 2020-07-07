@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Collection of Functions to Implement a Class for UnivariatePolynomial Manipulations
 
 License:          GPL-2

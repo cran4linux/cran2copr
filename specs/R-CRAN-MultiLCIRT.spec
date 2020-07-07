@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multidimensional Latent Class Item Response Theory Models
 
 License:          GPL (>= 2)

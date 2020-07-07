@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Homogeneity and Sparsity Detection Incorporating PriorConstraint Information
 
 License:          GPL (>= 2)

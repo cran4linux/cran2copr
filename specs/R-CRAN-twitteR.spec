@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Based Twitter Client
 
 License:          Artistic-2.0

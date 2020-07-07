@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Non-Parametric Sampling with Parallel Monte Carlo
 
 License:          MIT + file LICENSE

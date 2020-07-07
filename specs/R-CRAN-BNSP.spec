@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Non- And Semi-Parametric Model Fitting
 
 License:          GPL (>= 2)

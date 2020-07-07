@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Presmoothed Estimation in Survival Analysis
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.41
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation of Event Histories for Multi-State Models
 
 License:          GPL (>= 2)

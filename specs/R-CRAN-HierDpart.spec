@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Partitioning Hierarchical Diversity and Differentiation AcrossMetrics and Scales, from Genes to Ecosystems
 
 License:          GPL (>= 3)

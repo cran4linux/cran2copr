@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Assessing and Visualizing Fragility of Clinical Results withBinary Outcomes
 
 License:          GPL (>= 2)

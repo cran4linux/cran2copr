@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.9.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Parsing, Applying, and Manipulating Data Cleaning Rules
 
 License:          GPL-3

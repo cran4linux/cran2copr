@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Load Data from 'MyTarget API v2'
 
 License:          GPL-2

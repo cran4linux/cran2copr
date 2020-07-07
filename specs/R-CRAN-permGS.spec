@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Permutational Group Sequential Test for Time-to-Event Data
 
 License:          GPL-3 | file LICENSE

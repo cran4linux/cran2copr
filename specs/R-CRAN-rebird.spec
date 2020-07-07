@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Client for the eBird Database of Bird Observations
 
 License:          MIT + file LICENSE

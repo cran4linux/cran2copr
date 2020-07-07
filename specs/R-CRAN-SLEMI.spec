@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Learning Based Estimation of Mutual Information
 
 License:          LGPL (>= 2)

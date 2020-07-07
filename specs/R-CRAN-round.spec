@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Rounding to Decimal Digits
 
 License:          AGPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.4.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Descriptive Analysis by Groups
 
 License:          GPL (>= 2)

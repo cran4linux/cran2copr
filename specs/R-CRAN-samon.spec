@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sensitivity Analysis for Missing Data
 
 License:          GPL-2

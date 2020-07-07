@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Match Cases to Controls Based on Genotype Principal Components
 
 License:          MIT + file LICENSE

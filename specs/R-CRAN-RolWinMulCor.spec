@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Subroutines to Estimate Rolling Window Multiple Correlation
 
 License:          GPL (>= 2)

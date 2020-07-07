@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Irucka Embry's Miscellaneous USGS Functions
 
 License:          CC0 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          B Cell Receptor Somatic Hyper Mutation Analysis
 
 License:          GPL (>= 2)

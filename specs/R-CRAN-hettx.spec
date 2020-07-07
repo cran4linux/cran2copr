@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fisherian and Neymanian Methods for Detecting and MeasuringTreatment Effect Variation
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Suite of Functions to Flexibly Read Data from Files
 
 License:          GPL (>= 2)

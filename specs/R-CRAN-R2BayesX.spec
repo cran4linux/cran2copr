@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimate Structured Additive Regression Models with 'BayesX'
 
 License:          GPL-2 | GPL-3

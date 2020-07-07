@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Reduced-Rank Regression
 
 License:          GPL (>= 3)

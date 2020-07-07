@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Nonparametric Methods for Identifying Differential EnrichmentRegions with ChIP-Seq Data
 
 License:          GPL (>= 2.15.1)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Subset- And Name-Aware Array Utility Functions
 
 License:          Apache License (== 2.0) | file LICENSE

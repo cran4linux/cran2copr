@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Toolkit to Validate New Data for a Predictive Model
 
 License:          MIT + file LICENSE

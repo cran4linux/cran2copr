@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Moments, cumulants, skewness, kurtosis and related tests
 
 License:          GPL (>= 2)

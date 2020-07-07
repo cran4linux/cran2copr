@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.5.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Configural Frequencies Analysis Using Log-Linear Modeling
 
 License:          GPL-3

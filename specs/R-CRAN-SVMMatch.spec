@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Causal Effect Estimation and Diagnostics with Support VectorMachines
 
 License:          GPL (>= 2)

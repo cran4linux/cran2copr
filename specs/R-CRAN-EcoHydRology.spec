@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.12.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Community Modeling Foundation for Eco-Hydrology
 
 License:          GPL-2

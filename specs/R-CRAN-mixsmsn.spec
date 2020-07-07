@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fitting Finite Mixture of Scale Mixture of Skew-NormalDistributions
 
 License:          GPL (>= 2.0)

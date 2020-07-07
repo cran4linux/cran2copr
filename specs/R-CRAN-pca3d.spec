@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Three Dimensional PCA Plots
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Canonical Correlation Analysis based on Kernel IndependenceMeasures
 
 License:          GPL-2

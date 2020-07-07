@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Building Diversity Models from Multiple Species Occupancy Models
 
 License:          GPL-3

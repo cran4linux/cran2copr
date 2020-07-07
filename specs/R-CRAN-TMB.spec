@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Template Model Builder: A General Random Effect Tool Inspired by'ADMB'
 
 License:          GPL-2

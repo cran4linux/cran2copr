@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Augmented Backward Elimination
 
 License:          GPL (>= 2)

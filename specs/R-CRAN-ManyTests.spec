@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multiple Testing Procedures of Cox (2011) and Wong and Cox(2007)
 
 License:          GPL-2

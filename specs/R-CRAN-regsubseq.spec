@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Detect and Test Regular Sequences and Subsequences
 
 License:          GPL-2

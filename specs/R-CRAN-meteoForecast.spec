@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.53
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Numerical Weather Predictions
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Compute the Top Decile Lift and Plot the Lift Curve
 
 License:          GPL (>= 2)

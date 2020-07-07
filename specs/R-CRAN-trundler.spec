@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.14
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Retrieve Data from 'Trundler' API
 
 License:          GPL-3

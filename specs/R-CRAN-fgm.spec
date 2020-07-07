@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Partial Separability and Functional Gaussian Graphical Models
 
 License:          GPL (>= 2)

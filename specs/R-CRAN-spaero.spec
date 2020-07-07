@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Software for Project AERO
 
 License:          GPL (>= 2) | file LICENSE

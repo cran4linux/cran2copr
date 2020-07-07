@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Efficient Mixed Model Analysis of Count Data in Large-ScaleGenomic Sequencing Studies
 
 License:          GPL (>= 2)

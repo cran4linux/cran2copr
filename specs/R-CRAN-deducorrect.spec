@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Deductive Correction, Deductive Imputation, and DeterministicCorrection
 
 License:          GPL-3

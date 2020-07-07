@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Harmonic Analysis of Tides
 
 License:          BSD_3_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Earth Observation Data Cubes from Satellite Image Collections
 
 License:          MIT + file LICENSE

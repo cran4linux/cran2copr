@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Meta-CART: A Flexible Approach to Identify Moderators inMeta-Analysis
 
 License:          GPL (>= 2)

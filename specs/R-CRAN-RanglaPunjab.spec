@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Displays Palette of 5 Colors
 
 License:          GPL-2

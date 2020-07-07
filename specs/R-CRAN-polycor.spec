@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Polychoric and Polyserial Correlations
 
 License:          GPL (>= 2)

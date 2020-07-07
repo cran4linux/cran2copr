@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          SciViews GUI API - Dialog boxes using Tcl/Tk
 
 License:          GPL-2

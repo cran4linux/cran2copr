@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Cumulative Sum (CUSUM) Charts for Monitoring of HospitalPerformance
 
 License:          GPL-2

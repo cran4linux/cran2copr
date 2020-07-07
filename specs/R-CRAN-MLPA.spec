@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multiplex Ligation-Dependent Probe Amplification Data Analysis
 
 License:          GPL (>= 3)

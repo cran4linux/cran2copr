@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Test ANOVA Replications by Means of the Prior Predictive p-Value
 
 License:          GPL (>= 3)

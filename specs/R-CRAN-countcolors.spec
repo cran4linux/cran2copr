@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Locates and Counts Pixels Within Color Range(s) in Images
 
 License:          GPL-3

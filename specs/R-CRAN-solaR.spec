@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.45
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Radiation and Photovoltaic Systems
 
 License:          GPL-3

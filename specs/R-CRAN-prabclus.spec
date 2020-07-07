@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Clustering and Testing of Presence-Absence,Abundance and Multilocus Genetic Data
 
 License:          GPL

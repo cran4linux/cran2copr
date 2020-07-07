@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read Binary Files Saved by 'Igor Pro' (Including 'Neuromatic'Data)
 
 License:          GPL (>= 2)

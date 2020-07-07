@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Java GUI for R
 
 License:          GPL-2

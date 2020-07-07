@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Approximation of First-Passage-Time Densities for DiffusionProcesses
 
 License:          GPL-2

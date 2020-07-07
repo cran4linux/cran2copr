@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Find Optimal Sampling Locations Based on Spatial Covariate(s)
 
 License:          MIT + file LICENSE

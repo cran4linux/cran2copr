@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Computes Pseudo-Observations for Modeling
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Differential Abundance Analysis for Metagenomic Data viaZero-Inflated Beta Regression
 
 License:          GPL (>= 2)

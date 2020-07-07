@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Biological Image Analysis
 
 License:          GPL-3

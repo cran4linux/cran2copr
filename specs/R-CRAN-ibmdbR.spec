@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.50.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          IBM in-Database Analytics for R
 
 License:          GPL-3

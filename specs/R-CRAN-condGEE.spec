@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Parameter estimation in conditional GEE for recurrent event gaptimes
 
 License:          GPL (>= 2)

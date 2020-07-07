@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Co-Operation: Fast Covariance, Correlation, and CosineSimilarity Operations
 
 License:          BSD 2-clause License + file LICENSE

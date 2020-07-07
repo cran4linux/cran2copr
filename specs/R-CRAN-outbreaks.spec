@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Collection of Disease Outbreak Data
 
 License:          GPL (>= 2)

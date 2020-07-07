@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Classical, Reloaded and Adaptive FastICA Algorithms
 
 License:          GPL (>= 2)

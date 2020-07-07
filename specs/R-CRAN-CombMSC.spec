@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Combined Model Selection Criteria
 
 License:          GPL-2

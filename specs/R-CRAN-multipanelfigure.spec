@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Infrastructure to Assemble Multi-Panel Figures (from Grobs)
 
 License:          GPL (>= 3)

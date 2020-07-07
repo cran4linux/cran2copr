@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Client for Adobe Analytics API V1.4
 
 License:          MIT + file LICENSE

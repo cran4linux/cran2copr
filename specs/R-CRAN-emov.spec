@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Eye Movement Analysis Package for Fixation and Saccade Detection
 
 License:          GPL-3

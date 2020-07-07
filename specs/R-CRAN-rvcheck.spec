@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R/Package Version Check
 
 License:          Artistic-2.0

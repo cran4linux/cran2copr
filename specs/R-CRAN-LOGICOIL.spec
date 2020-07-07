@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          LOGICOIL: multi-state prediction of coiled-coil oligomericstate.
 
 License:          GPL (>= 2)

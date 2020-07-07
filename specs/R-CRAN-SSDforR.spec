@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.17
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Functions to Analyze Single System Data
 
 License:          GPL (>= 2)

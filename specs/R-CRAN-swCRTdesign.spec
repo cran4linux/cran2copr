@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Stepped Wedge Cluster Randomized Trial (SW CRT) Design
 
 License:          GPL-2

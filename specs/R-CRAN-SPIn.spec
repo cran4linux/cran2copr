@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation-efficient Shortest Probability Intervals
 
 License:          GPL (>= 2)

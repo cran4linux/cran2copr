@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analyze biotic homogenization of landscapes
 
 License:          GPL-2 | Artistic-2.0

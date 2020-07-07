@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sentiment Analysis Scorer
 
 License:          BSD 2-clause License + file LICENSE

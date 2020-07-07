@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Assertions for Checking the State of R
 
 License:          GPL (>= 3)

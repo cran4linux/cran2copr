@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Calculating Dodge Romig, MIL STD 105E and MIL STD414 Acceptance Sampling Plan
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Treatment of Zeros, Left-Censored and Missing Values inCompositional Data Sets
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Permutation Test for Comparing Restricted Mean Survival Time
 
 License:          GPL-2

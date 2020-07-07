@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Miscellaneous Esoteric Statistical Scripts
 
 License:          GPL-2

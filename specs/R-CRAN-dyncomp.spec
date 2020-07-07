@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Complexity of Short and Coarse-Grained Time Series
 
 License:          MIT + file LICENSE

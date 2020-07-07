@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Robust Multiple Imputation with Generalized Additive Models forLocation Scale and Shape
 
 License:          GPL-3

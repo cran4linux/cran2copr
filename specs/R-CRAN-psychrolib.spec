@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Psychrometric Properties of Moist and Dry Air
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculate Upcoming Birthday Dates of Github Repos
 
 License:          MIT + file LICENSE

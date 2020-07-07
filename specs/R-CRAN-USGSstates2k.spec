@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Replaced by 'states2k' -- United States of America Map with theNAD 1983 Albers Projection
 
 License:          CC0

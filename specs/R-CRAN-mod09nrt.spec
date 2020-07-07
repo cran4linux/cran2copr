@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extraction of Bands from MODIS Surface Reflectance Product MOD09NRT
 
 License:          GPL (>= 2)

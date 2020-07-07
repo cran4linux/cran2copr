@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Customise 'Shiny' Disconnected Screens and Error Messages
 
 License:          MIT + file LICENSE

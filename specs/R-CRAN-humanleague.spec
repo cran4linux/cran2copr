@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Synthetic Population Generator
 
 License:          MIT + file LICENCE

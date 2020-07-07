@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extreme Value Analysis
 
 License:          GPL (>= 2)

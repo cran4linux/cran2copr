@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Lasso and Elastic-Net Regularized Generalized Linear Models
 
 License:          GPL-2

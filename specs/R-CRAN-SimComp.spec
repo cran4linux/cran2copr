@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simultaneous Comparisons for Multiple Endpoints
 
 License:          GPL

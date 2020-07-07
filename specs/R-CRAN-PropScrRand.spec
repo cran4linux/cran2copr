@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Propensity score methods for assigning treatment in randomizedtrials
 
 License:          GPL-3

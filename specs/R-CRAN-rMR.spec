@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Importing Data from Loligo Systems Software, CalculatingMetabolic Rates and Critical Tensions
 
 License:          GPL-3

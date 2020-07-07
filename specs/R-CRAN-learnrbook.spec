@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Datasets for Aphalo's "Learn R" Book
 
 License:          GPL (>= 2)

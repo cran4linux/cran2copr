@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Biplot of Multivariate Data Based on Principal ComponentsAnalysis
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Perform Rosenbaum bounds sensitivity tests for matched andunmatched data.
 
 License:          GPL (>= 2)

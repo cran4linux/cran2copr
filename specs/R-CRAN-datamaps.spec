@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Interactive Web Maps with the 'JavaScript Datamaps'Library
 
 License:          MIT + file LICENSE

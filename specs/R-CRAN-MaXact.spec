@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Exact max-type Cochran-Armitage trend test(CATT)
 
 License:          GPL-2

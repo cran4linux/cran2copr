@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'Multi-Solution' Binary Linear Problem Plug-in for the 'R'Optimization Interface
 
 License:          GPL-3

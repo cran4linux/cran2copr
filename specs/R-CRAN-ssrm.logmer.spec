@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sample Size Determination for Longitudinal Designs with BinaryOutcome
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Diagnostic Tests for Models with a Binomial Response
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to API 'vk.com'
 
 License:          GPL-2

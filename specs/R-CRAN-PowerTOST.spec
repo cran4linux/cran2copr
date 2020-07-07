@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Power and Sample Size for (Bio)Equivalence Studies
 
 License:          GPL (>= 2)

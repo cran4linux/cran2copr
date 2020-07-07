@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Visualization and Analysis of Statistical Measures of Confidence
 
 License:          GPL (<= 2)

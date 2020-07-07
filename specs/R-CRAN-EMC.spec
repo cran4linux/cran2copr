@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Evolutionary Monte Carlo (EMC) algorithm
 
 License:          GPL (>= 2)

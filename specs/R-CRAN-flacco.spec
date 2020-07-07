@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Feature-Based Landscape Analysis of Continuous and ConstrainedOptimization Problems
 
 License:          BSD_2_clause + file LICENSE

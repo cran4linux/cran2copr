@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Combine Data from Positive and Negative Ionization Mode FindingCommon Entities
 
 License:          GPL-2

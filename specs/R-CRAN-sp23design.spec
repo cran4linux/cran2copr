@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Design and Simulation of seamless Phase II-III Clinical Trials
 
 License:          LGPL-3

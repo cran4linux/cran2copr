@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Endogenous Perturbation Analysis of Cancer
 
 License:          LGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysing Density Profiles from Resistance Drilling of Trees
 
 License:          GPL-3

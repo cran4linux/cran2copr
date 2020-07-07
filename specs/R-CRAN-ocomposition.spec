@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Regression for Rank-Indexed Compositional Data
 
 License:          GPL (>= 2)

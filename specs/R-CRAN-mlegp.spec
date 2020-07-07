@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Maximum Likelihood Estimates of Gaussian Processes
 
 License:          GPL (>= 2)

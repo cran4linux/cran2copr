@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Synthetic Control Method Using Time Series
 
 License:          GPL

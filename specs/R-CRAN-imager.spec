@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.42.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Image Processing Library Based on 'CImg'
 
 License:          LGPL-3

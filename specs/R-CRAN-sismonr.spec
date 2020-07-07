@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation of in Silico Multi-Omic Networks
 
 License:          GPL (>= 2)

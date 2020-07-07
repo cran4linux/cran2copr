@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.31
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for Statistical Disclosure Control in Tabular Data
 
 License:          GPL (>= 2)

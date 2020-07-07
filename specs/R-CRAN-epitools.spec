@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.10.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Epidemiology Tools
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Inference of Transmission Tree from a Dated Phylogeny
 
 License:          GPL (>= 2)

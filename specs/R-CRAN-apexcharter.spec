@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Create Interactive Chart with the JavaScript 'ApexCharts'Library
 
 License:          MIT + file LICENSE

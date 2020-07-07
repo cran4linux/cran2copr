@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Breaks For Additive Season and Trend (BFAST)
 
 License:          GPL (>= 2)

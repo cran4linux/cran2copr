@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          LaTeX descriptive statistic reporting for survey data
 
 License:          GPL-3

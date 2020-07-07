@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.25
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions to Support Extension Education Program Evaluation
 
 License:          GPL-3

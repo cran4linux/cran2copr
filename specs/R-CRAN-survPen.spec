@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multidimensional Penalized Splines for Survival and Net SurvivalModels
 
 License:          GPL-3 | file LICENSE

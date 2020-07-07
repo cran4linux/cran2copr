@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          List-Based Rules for Dynamic Treatment Regimes
 
 License:          GPL (>= 2)

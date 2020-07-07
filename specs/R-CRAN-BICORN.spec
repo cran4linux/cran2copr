@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Integrative Inference of De Novo Cis-Regulatory Modules
 
 License:          GPL-2

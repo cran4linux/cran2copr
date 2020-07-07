@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Hierarchical Bayesian Modeling of Decision-Making Tasks
 
 License:          GPL-3

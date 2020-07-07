@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Identify Global Objects in R Expressions
 
 License:          LGPL (>= 2.1)

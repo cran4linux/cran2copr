@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Extremes: Bayesian Estimation of the SpectralMeasure
 
 License:          GPL (>= 2)

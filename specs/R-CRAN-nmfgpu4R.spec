@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Non-Negative Matrix Factorization (NMF) using CUDA
 
 License:          GPL-3 | file LICENSE

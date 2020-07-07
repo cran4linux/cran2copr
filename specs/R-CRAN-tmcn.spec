@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.13
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Text Mining Toolkit for Chinese
 
 License:          LGPL

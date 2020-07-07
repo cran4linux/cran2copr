@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bitmap Images (``Pixel Maps'')
 
 License:          GPL-2

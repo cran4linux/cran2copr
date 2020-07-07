@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extensions for 'ggplot2': Custom Geom, Custom Themes, PlotAlignment, Labelled Panels, Symmetric Scales, and Fixed PanelSize
 
 License:          GPL-3

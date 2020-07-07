@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Document the R Working Environment
 
 License:          GPL (>= 3.0)

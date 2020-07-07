@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Graphical Tool for Wavelet (Cross) Correlation and WaveletMultiple (Cross) Correlation Analysis
 
 License:          GPL (>= 2)

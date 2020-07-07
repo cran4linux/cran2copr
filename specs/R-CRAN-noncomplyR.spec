@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Analysis of Randomized Experiments with Non-Compliance
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical analysis of surveys with anchoring vignettes
 
 License:          GPL (>= 2)

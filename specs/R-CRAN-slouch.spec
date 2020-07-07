@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Stochastic Linear Ornstein-Uhlenbeck Comparative Hypotheses
 
 License:          GPL-2

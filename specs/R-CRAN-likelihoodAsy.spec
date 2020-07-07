@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.51
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Likelihood Asymptotics
 
 License:          GPL (>= 2)

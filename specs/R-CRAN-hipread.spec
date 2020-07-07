@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read Hierarchical Fixed Width Files
 
 License:          GPL (>= 2) | file LICENSE

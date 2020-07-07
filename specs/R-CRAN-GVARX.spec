@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Perform Global Vector Autoregression Estimation and Inference
 
 License:          GPL (>= 2)

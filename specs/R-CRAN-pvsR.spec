@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An R package to interact with the Project Vote Smart API forscientific research
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Empirical Mode Decomposition and Hilbert Spectral Analysis
 
 License:          GPL (>= 3)

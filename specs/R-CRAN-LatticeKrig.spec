@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          8.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Resolution Kriging Based on Markov Random Fields
 
 License:          GPL (>= 2)

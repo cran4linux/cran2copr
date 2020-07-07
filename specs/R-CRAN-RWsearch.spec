@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.8.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Lazy Search in R Packages, Task Views, CRAN, the Web. All-in-OneDownload
 
 License:          GPL-2

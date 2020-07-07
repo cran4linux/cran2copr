@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Interface to the 'fastText' Library
 
 License:          BSD_3_clause + file LICENSE

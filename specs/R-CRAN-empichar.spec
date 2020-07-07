@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Evaluates the Empirical Characteristic Function for MultivariateSamples
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Files and Functions Accompanying the Book "Bayesian DataAnalysis in Ecology using R, BUGS and Stan"
 
 License:          GPL-2

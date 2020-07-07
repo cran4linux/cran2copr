@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Approximate Bayesian Computation via Random Forests
 
 License:          GPL (>= 2)

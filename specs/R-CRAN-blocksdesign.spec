@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Nested and Crossed Block Designs for Factorial and UnstructuredTreatment Sets
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulating Phylogenetic Trees under General Bellman Harris andLineage Shift Model
 
 License:          GPL-2

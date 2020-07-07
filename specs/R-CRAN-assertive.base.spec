@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Lightweight Core of the 'assertive' Package
 
 License:          GPL (>= 3)

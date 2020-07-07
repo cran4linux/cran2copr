@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Latent and Stochastic Block Model Estimation by a 'V-EM'Algorithm
 
 License:          LGPL-2.1

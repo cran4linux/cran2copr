@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Random Projection Kernel Outlier Detector
 
 License:          GPL (>= 2.0)

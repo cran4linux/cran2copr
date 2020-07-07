@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Time Delay Estimation for Stochastic Time Series ofGravitationally Lensed Quasars
 
 License:          GPL-2

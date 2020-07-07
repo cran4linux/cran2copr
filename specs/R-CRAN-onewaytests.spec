@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          One-Way Tests in Independent Groups Designs
 
 License:          GPL (>= 2)

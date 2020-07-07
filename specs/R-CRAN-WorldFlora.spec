@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Standardize Plant Names According to World Flora OnlineTaxonomic Backbone
 
 License:          GPL-2

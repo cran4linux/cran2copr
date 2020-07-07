@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Core Utilities for Developing and Running Spatially ExplicitDiscrete Event Models
 
 License:          GPL-3

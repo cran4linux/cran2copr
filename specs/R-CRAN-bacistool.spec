@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Classification and Information Sharing (BaCIS) Tool forthe Design of Multi-Group Phase II Clinical Trials
 
 License:          GNU General Public License (>= 3)

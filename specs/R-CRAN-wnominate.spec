@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multidimensional Vote Scaling Software
 
 License:          GPL-2

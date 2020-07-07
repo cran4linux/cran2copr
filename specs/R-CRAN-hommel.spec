@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for Closed Testing with Simes Inequality, in ParticularHommel's Method
 
 License:          GPL (>= 2)

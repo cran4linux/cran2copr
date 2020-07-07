@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Geographic and Non-Geographic Map Tiles
 
 License:          MIT + file LICENSE

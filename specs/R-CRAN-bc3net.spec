@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Gene Regulatory Network Inference with Bc3net
 
 License:          GPL (>= 2)

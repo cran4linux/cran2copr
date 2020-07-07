@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.17
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Handbook of Statistical Analyses Using R (2nd Edition)
 
 License:          GPL-2

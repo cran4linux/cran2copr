@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.43
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Pipeline for Microbiome Analysis and Visualization
 
 License:          GPL-3

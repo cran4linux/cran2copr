@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation, Simulation and Visualization of HierarchicalArchimedean Copulae (HAC)
 
 License:          GPL (>= 3)

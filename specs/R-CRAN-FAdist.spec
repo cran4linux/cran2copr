@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Distributions that are Sometimes Used in Hydrology
 
 License:          GPL-2

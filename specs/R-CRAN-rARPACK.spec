@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Solvers for Large Scale Eigenvalue and SVD Problems
 
 License:          BSD_3_clause + file LICENSE

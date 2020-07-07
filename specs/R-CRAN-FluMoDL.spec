@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Influenza-Attributable Mortality with Distributed-Lag Models
 
 License:          GPL (>= 2)

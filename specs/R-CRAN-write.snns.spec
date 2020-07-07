@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Function for exporting data to SNNS pattern files.
 
 License:          GPL (>= 2)

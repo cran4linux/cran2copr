@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bootstrapped Robustness Assessment for Qualitative ComparativeAnalysis
 
 License:          GPL-2

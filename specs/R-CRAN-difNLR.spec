@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          DIF and DDF Detection by Non-Linear Regression Models
 
 License:          GPL-3

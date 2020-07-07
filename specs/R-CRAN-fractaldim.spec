@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of fractal dimensions
 
 License:          GPL (>= 2)

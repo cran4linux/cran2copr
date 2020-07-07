@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          True Random Numbers using RANDOM.ORG
 
 License:          GPL (>= 2)

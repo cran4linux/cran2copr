@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Simple Packages Which Do not Upset R Package Checks
 
 License:          GPL (>= 2)

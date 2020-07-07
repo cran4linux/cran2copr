@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Test and Detection of Explosive Behaviors for Time Series
 
 License:          GPL (>= 2)

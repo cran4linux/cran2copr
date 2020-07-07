@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Package to Test for Multi-Trait Association
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Machine Learning with AdaBoost on Decision Stumps
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Log-Concave Density Estimation in Arbitrary Dimensions
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fractional Hot Deck and Fully Efficient Fractional Imputation
 
 License:          GPL (>= 2)

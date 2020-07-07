@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Setup and connect to 'OpenTripPlanner'
 
 License:          GPL-3

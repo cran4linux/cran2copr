@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Association Tests for Microbial Lineages on a Taxonomic Tree
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.60
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Subtracting Summary Statistics of One or more Cohorts fromMeta-GWAS Results
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Pre-process DNA Copy Number (CN) Data for Detection of CN Events
 
 License:          GPL-2

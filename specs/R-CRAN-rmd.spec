@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Easily Install and Load the R Markdown Family
 
 License:          GPL-3 | file LICENSE

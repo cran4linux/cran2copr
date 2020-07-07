@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Programmatic Analysis of Sediment Cores Using ComputedTomography Imaging
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Time-Weighted Dynamic Time Warping for Satellite Image TimeSeries Analysis
 
 License:          GPL (>= 3) | file LICENSE

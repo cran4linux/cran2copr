@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast K-Mer Counting and Clustering for Biological SequenceAnalysis
 
 License:          GPL-3

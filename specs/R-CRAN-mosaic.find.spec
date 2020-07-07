@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Finding Rhythmic and Non-Rhythmic Trends in Multi-Omics Data(MOSAIC)
 
 License:          MIT + file LICENSE

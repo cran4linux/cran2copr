@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Text Mining of PubMed Abstracts
 
 License:          GPL-3

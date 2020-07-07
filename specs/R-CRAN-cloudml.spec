@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to the Google Cloud Machine Learning Platform
 
 License:          Apache License 2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Run Predictions Inside the Database
 
 License:          GPL-3

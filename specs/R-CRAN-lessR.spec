@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.9.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Less Code, More Results
 
 License:          GPL (>= 2)

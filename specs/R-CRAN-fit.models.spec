@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.63
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Compare Fitted Models
 
 License:          GPL

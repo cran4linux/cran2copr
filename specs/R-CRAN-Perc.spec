@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Using Percolation and Conductance to Find Information FlowCertainty in a Direct Network
 
 License:          GPL (>= 2)

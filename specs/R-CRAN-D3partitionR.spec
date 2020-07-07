@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interactive Charts of Nested and Hierarchical Data with 'D3.js'
 
 License:          AGPL-3

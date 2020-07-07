@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extreme Bounds Analysis (EBA)
 
 License:          GPL (>= 2)

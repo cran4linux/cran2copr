@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Orthogonal Signal Deconvolution for Spectra Deconvolution inGC-MS and GCxGC-MS Data
 
 License:          GPL (>= 2)

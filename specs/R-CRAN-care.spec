@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          High-Dimensional Regression and CAR Score Variable Selection
 
 License:          GPL (>= 3)

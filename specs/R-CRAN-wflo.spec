@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Set and Helper Functions for Wind Farm Layout OptimizationProblems
 
 License:          GPL-3

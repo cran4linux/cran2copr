@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Exploring the Phylogenetic Signal in Continuous Traits
 
 License:          GPL-3

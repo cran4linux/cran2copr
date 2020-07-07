@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.25
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Maximally Selected Rank Statistics
 
 License:          GPL (>= 2)

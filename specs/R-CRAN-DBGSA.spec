@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          methods of distance-based gene set functional enrichmentanalysis.
 
 License:          GPL-3

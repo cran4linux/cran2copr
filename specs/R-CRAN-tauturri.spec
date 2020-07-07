@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Get Data Out of 'Tautulli' (Formerly 'PlexPy')
 
 License:          MIT + file LICENSE

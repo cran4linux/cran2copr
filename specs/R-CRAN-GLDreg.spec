@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit GLD Regression Model and GLD Quantile Regression Model toEmpirical Data
 
 License:          GPL (>= 3)

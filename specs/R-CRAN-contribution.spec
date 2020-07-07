@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Tiny Contribution Table Generator Based on 'ggplot2'
 
 License:          MIT + file LICENSE

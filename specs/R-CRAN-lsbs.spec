@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bandwidth Selection for Level Sets and HDR Estimation
 
 License:          GPL-3

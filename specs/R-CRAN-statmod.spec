@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.34
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Modeling
 
 License:          GPL-2 | GPL-3

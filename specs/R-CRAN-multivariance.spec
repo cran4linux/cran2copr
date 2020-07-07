@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Measuring Multivariate Dependence Using Distance Multivariance
 
 License:          GPL-3

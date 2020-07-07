@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Mining Classification and Regression Methods
 
 License:          GPL-2

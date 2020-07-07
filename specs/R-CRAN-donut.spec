@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Nearest Neighbour Search with Variables on a Torus
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Minimal Clinically Important Difference and Response ShiftEffect for Health-Related Quality of Life
 
 License:          GPL (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Convenience Functions, Moving Window Statistics, and Graphics
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.50
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Sets for "Applied Survival Analysis Using R""
 
 License:          CC0

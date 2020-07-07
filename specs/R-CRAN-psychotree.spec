@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Recursive Partitioning Based on Psychometric Models
 
 License:          GPL-2 | GPL-3

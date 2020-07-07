@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Access to the YouTheria Mammal Trait Database
 
 License:          MIT + file LICENSE

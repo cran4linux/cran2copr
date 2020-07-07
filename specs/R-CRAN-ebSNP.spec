@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Genotyping and SNP calling using single-sample next generationsequencing data
 
 License:          GPL-2

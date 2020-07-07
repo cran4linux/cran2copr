@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast Bayesian Inference in Large Gaussian Graphical Models
 
 License:          GPL (>= 2.0)

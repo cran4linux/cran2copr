@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.40
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Analysis and Data Display: Heiberger and Holland
 
 License:          GPL (>= 2)

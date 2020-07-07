@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'Rcpp' Interface for Querying System Configuration Variables
 
 License:          GPL (>= 2)

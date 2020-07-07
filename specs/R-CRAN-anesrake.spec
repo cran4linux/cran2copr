@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.80
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          ANES Raking Implementation
 
 License:          GPL (>= 2)

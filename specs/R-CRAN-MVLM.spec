@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Linear Model with Analytic p-Values
 
 License:          GPL (>= 2)

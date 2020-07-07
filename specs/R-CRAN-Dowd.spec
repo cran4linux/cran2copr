@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions Ported from 'MMR2' Toolbox Offered in Kevin Dowd'sBook Measuring Market Risk
 
 License:          GPL

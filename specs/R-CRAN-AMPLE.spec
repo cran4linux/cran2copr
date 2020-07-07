@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Common Code for the 'AMPED' and 'PIMPLE' 'shiny' Apps forStakeholder Engagement and Harvest Strategies
 
 License:          GPL-3

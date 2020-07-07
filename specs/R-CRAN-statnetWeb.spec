@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Graphical User Interface for Network Modeling with 'Statnet'
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.53
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Moderated Nonlinear Factor Analysis
 
 License:          GPL (>= 2)

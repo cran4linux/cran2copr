@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Tools for Case 1 Best-Worst Scaling (MaxDiff) Designs
 
 License:          MIT + file LICENSE

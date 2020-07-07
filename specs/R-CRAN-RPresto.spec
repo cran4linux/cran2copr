@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          DBI Connector to Presto
 
 License:          BSD_3_clause + file LICENSE

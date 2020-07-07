@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Tools for Data Copy-Pasta
 
 License:          MIT + file LICENSE

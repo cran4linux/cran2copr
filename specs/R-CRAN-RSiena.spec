@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.23
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Siena - Simulation Investigation for Empirical Network Analysis
 
 License:          GPL (>= 3)

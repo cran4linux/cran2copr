@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Collapsed Latent Position Cluster Model for Social Networks
 
 License:          GPL-3

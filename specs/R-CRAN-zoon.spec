@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Reproducible, Accessible & Shareable Species DistributionModelling
 
 License:          BSD_3_clause + file LICENSE

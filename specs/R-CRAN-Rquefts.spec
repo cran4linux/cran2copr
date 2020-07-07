@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Quantitative Evaluation of the Native Fertility of TropicalSoils
 
 License:          GPL (>= 3)

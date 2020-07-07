@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sure Independence Screening via Quantile Correlation andComposite Quantile Correlation
 
 License:          GPL-2

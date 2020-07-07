@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of MHC Data in Non-Model Species
 
 License:          MIT + file LICENSE

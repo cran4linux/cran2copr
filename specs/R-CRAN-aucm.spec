@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.12.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          AUC Maximization
 
 License:          GPL-2

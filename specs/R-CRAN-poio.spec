@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Input/Output Functionality for "PO" and "POT" MessageTranslation Files
 
 License:          GPL-3

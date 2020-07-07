@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit a Stochastic Dynamical Array Model to Array Data
 
 License:          GPL (>= 2)

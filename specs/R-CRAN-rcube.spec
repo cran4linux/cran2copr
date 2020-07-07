@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulations and Visualizations of Rubik's Cube (with Mods)
 
 License:          GPL-3

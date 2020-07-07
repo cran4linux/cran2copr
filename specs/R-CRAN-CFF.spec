@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simple Similarity for User-Based Collaborative Filtering Systems
 
 License:          GPL (>= 2)

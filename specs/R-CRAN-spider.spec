@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Species Identity and Evolution in R
 
 License:          MIT + file LICENSE

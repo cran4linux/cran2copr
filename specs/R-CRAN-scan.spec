@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.40
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Single-Case Data Analyses for Single and Multiple BaselineDesigns
 
 License:          GPL

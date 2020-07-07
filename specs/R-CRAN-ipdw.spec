@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatial Interpolation by Inverse Path Distance Weighting
 
 License:          GPL (>= 2)

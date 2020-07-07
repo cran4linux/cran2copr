@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Dynamic Assembly Model of Colonization, Local Extinction andSpeciation
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Protein Quantification in Mass Spectrometry-Based Proteomics
 
 License:          BSD_3_clause + file LICENSE

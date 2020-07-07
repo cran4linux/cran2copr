@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wizardry Code Offensive Programming R Documentation
 
 License:          GPL-3

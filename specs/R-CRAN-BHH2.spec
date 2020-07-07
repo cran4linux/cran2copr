@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2016.05.31
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Useful Functions for Box, Hunter and Hunter II
 
 License:          GPL (>= 2)

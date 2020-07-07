@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multivariate Normal Mixture Models and Mixtures of GeneralizedLinear Mixed Models Including Model Based Clustering
 
 License:          GPL (>= 3)

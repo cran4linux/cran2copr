@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Some EM-Type Estimation Methods for the Heckman Selection Model
 
 License:          GPL-2

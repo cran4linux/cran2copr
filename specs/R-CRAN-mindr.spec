@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Convert Files Between Markdown or R Markdown Files and Mind Maps
 
 License:          MIT + file LICENSE

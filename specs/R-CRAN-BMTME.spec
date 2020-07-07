@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Multi-Trait Multi-Environment for Genomic SelectionAnalysis
 
 License:          LGPL-3

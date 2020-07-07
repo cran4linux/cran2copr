@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Short Term Forecasting via GMDH-Type Neural Network Algorithms
 
 License:          GPL (>= 2)

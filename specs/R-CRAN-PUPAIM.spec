@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Collection of Physical and Chemical Adsorption Isotherm Models
 
 License:          GPL-2

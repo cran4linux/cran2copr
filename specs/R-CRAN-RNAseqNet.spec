@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Log-Linear Poisson Graphical Model with Hot-Deck MultipleImputation
 
 License:          GPL (>= 3)

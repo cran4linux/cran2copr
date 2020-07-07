@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Catch-at-Age Plotting Environment
 
 License:          GPL (>= 2)

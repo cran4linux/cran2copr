@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Higher Criticism Test of Two Frequency Counts Tables
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculation of the Conventional and Self-Calibrating PalmerDrought Severity Index
 
 License:          GPL-3

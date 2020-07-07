@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Client for the Microsoft Cognitive Services 'Text-to-Speech'REST API
 
 License:          GPL-3

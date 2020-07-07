@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R API to Interactive Brokers Trader Workstation
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multinomial Logit Models with Random Parameters
 
 License:          GPL (>= 2)

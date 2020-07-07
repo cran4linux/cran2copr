@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Creates and Manages Folder Functions for Portable Large-Scale RAnalysis
 
 License:          BSD_2_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Procedures to Generate Patterns under Multistage Testing
 
 License:          GPL (>= 2)

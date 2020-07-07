@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Miscellaneous Helper Functions for B. Bischl
 
 License:          BSD_2_clause + file LICENSE

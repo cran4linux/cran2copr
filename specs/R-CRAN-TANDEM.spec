@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Two-Stage Approach to Maximize Interpretability of DrugResponse Models Based on Multiple Molecular Data Types
 
 License:          GPL-2

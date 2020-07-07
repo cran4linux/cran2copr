@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Criteria Decision Making Methods for Fuzzy Data
 
 License:          LGPL (>= 3)

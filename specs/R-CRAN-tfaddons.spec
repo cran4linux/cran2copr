@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to 'TensorFlow SIG Addons'
 
 License:          Apache License 2.0

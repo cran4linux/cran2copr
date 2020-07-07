@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'R Markdown' Format for Scientific and Technical Writing
 
 License:          Apache License 2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Downloads, Unpacks and Tidies Legislative Data from theBrazilian Federal Senate and Chamber of Deputies
 
 License:          MIT + file LICENSE

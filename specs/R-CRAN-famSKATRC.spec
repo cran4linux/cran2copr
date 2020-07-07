@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Family Sequence Kernel Association Test for Rare and CommonVariants
 
 License:          GPL (>= 3)

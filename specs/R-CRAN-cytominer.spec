@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for Image-Based Cell Profiling
 
 License:          BSD_3_clause + file LICENSE

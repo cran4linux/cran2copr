@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to Open Collaboration Services (OCS) REST API
 
 License:          MIT + file LICENSE

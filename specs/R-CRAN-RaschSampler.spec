@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rasch Sampler
 
 License:          GPL-2

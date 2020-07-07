@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An R Gallery for China and Other Geojson Choropleth Map inLeaflet
 
 License:          GPL-2

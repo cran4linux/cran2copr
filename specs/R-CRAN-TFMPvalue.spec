@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Efficient and Accurate P-Value Computation for Position WeightMatrices
 
 License:          GPL-2

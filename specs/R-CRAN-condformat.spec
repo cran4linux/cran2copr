@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Conditional Formatting in Data Frames
 
 License:          BSD_3_clause + file LICENSE

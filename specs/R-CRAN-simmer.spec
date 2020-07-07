@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Discrete-Event Simulation for R
 
 License:          GPL (>= 2)

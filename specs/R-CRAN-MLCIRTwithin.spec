@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Latent Class Item Response Theory (LC-IRT) Models underWithin-Item Multidimensionality
 
 License:          GPL (>= 2)

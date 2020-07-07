@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for Calculating the Loreau & Hector 2001 BEF Partition
 
 License:          GPL-3

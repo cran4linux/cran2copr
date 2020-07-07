@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation with Kernel Density Estimation
 
 License:          GPL (>= 3) | file LICENSE

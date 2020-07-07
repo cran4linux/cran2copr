@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Subsample Temporal Data to Synchronal Events and Compute the MCI
 
 License:          GPL-2

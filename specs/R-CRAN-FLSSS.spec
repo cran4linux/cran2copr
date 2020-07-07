@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          8.5.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mining Rigs for Specialized Subset Sum, Multi-Subset Sum,Multidimensional Subset Sum, Multidimensional Knapsack,Generalized Assignment Problems
 
 License:          GPL-3

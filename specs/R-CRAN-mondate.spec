@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.01.02
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Keep track of dates in terms of months
 
 License:          GPL (>= 2)

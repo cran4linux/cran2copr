@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bias Reduction in Binomial-Response Generalized Linear Models
 
 License:          GPL (>= 2)

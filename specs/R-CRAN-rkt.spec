@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mann-Kendall Test, Seasonal and Regional Kendall Tests
 
 License:          GPL-2

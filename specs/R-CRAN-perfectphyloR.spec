@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Reconstruct Perfect Phylogenies from DNA Sequence Data
 
 License:          GNU General Public License

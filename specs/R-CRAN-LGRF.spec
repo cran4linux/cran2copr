@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Set-Based Tests for Genetic Association in Longitudinal Studies
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implementation of the Well-Known Game to Clear Bombs from aGiven Field (Matrix)
 
 License:          GPL-2

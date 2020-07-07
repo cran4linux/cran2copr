@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Connector to the Objective Revision Evaluation Service (ORES)
 
 License:          MIT + file LICENSE

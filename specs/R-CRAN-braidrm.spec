@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.71
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fitting Dose Response with the BRAID Combined Action Model
 
 License:          GPL (>= 3)

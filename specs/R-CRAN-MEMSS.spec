@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Sets from Mixed-Effects Models in S
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Gillespie's Stochastic Simulation Algorithm for Impatient People
 
 License:          GPL (>= 3)

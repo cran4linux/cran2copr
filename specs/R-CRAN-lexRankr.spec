@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extractive Summarization of Text with the LexRank Algorithm
 
 License:          MIT + file LICENSE

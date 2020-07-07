@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Many-to-One Comparisons of Proportions
 
 License:          GPL-2

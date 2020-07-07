@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generalized CDH (GCDH) Analysis
 
 License:          GPL-3

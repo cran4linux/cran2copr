@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Manage and manipulate large collections of R objects stored astape-like files
 
 License:          GPL-2

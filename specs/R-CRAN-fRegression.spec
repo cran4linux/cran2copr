@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.82
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rmetrics - Regression Based Decision and Prediction
 
 License:          GPL (>= 2)

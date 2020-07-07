@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Inference of Linear Mixed Models Through MM Algorithm
 
 License:          GPL (>= 2)

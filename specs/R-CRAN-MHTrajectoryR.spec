@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Model Selection in Logistic Regression for theDetection of Adverse Drug Reactions
 
 License:          GPL (>= 2)

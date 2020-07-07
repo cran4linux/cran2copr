@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Basic Runtime Support for Datacanvas.io
 
 License:          BSD_3_clause + file LICENSE

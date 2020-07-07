@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Easily Gate or Select Points on a Scatter Plot
 
 License:          GPL (>= 2)

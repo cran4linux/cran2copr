@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Some Latent Variable Models
 
 License:          GPL (>= 2)

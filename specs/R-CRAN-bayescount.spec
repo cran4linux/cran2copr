@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.99.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Power Calculations and Bayesian Analysis of Count Distributionsand FECRT Data using MCMC
 
 License:          GPL-2

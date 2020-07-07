@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Non-Negative Lasso and Elastic Net Penalized Generalized LinearModels
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Load ARCOS Prescription Data Prepared by the Washington Post
 
 License:          MIT + file LICENSE

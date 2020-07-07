@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast Simulation of Simple Temporal Exponential Random GraphModels
 
 License:          GPL-3

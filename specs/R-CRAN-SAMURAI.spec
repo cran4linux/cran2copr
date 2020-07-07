@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sensitivity Analysis of a Meta-analysis with Unpublished butRegistered Analytical Investigations
 
 License:          GPL-2 | GPL-3

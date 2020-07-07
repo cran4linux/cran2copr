@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of RNA Cytosine-5 Methylation
 
 License:          GPL (>= 2)

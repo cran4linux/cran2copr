@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data and Source Code From: Nitrogen Uptake and AllocationEstimates for Spartina Alterniflora and Distichlis Spicata
 
 License:          GPL-3

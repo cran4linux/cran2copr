@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Write Storm Bolts in R using the Storm Multi-Language Protocol.
 
 License:          GPL (>= 2)

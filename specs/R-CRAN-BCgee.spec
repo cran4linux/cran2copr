@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bias-Corrected Estimates for Generalized Linear Models forDependent Data
 
 License:          GPL-2

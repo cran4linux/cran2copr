@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.7.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'AWS' Athena 'DBI' Wrapper
 
 License:          AGPL-3

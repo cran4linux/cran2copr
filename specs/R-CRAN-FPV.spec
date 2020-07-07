@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Testing Hypotheses via Fuzzy P-Value in Fuzzy Environment
 
 License:          LGPL (>= 3)

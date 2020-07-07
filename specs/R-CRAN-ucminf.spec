@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          General-Purpose Unconstrained Non-Linear Optimization
 
 License:          GPL (>= 2)

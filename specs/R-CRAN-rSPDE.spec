@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rational Approximations of Fractional Stochastic PartialDifferential Equations
 
 License:          GPL (>= 3)

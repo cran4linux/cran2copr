@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Analysis and Parameter Estimation Using Item ResponseTheory
 
 License:          GPL (>= 3)

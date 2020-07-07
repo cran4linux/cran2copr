@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Remote R: Control a Remote R Session from a Local One
 
 License:          BSD 2-clause License + file LICENSE

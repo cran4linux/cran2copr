@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Presentation Ninja
 
 License:          MIT + file LICENSE

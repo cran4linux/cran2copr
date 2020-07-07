@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for using fonts
 
 License:          GPL-2

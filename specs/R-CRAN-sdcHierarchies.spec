@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.18.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create and (Interactively) Modify Nested Hierarchies
 
 License:          GPL-3

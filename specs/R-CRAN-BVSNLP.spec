@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Variable Selection in High Dimensional Settings usingNonlocal Priors
 
 License:          GPL (>= 2)

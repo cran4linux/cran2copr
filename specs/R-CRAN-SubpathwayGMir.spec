@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Identify Metabolic Subpathways Mediated by MicroRNAs
 
 License:          GPL (>= 2)

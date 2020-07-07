@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatial Probit Models
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulate and Visualize Kendall Random Walks and RelatedDistributions
 
 License:          MIT + file LICENSE

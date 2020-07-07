@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          7.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          MSigDB Gene Sets for Multiple Organisms in a Tidy Data Format
 
 License:          MIT + file LICENSE

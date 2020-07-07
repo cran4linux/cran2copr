@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Nonlinear Aggregation of Predictors
 
 License:          GPL (>= 2)

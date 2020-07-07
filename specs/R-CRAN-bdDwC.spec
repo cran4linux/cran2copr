@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Darwinizer: Darwin Core (DwC) Field Names Standardization
 
 License:          GPL-3

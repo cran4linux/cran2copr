@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generates Samples or Complete List of Brazilian IBGE (InstitutoBrasileiro De Geografia e Estatistica) Census Households,Geocoding it by Google Maps
 
 License:          GPL

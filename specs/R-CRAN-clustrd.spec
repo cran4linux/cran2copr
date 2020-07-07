@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.7.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for Joint Dimension Reduction and Clustering
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Benthic Biotic Indices Calculation from Composition Data
 
 License:          AGPL-3 | file LICENSE

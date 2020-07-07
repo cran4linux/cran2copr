@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Exploratory Data Analysis and Manipulation of Multi-Label DataSets
 
 License:          LGPL (>= 3) | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Identification, Tuning, Visualisation and Analysis of LabourMarket Areas
 
 License:          GPL (>= 2)

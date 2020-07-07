@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimate Smooth and Linear Trends from Population Count SurveyData
 
 License:          GPL-3

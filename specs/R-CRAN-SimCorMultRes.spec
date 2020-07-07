@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulates Correlated Multinomial Responses
 
 License:          GPL-3

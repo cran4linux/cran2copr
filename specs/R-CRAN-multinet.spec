@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis and Mining of Multilayer Social Networks
 
 License:          GPL

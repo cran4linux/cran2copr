@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Cause-Deleted Life Expectancy Improvement Procedure
 
 License:          GPL-2

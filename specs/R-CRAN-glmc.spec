@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fitting Generalized Linear Models Subject to Constraints
 
 License:          GPL (>= 2)

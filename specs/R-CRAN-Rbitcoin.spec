@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R & bitcoin integration
 
 License:          MIT + file LICENSE

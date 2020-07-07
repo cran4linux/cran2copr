@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          False Discovery Exceedance Controlling Multiple TestingProcedures
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generate Two- And Three-Phase Relative Permeability Estimates
 
 License:          GPL-3

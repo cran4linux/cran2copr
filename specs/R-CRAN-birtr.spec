@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The R Package for "The Basics of Item Response Theory Using R"
 
 License:          GPL (>= 2)

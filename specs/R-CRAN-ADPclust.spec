@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast Clustering Using Adaptive Density Peak Detection
 
 License:          GPL (>= 2)

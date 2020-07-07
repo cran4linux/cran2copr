@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interactive R Tutorials to Accompany Field (2016), "An Adventurein Statistics"
 
 License:          GPL-3

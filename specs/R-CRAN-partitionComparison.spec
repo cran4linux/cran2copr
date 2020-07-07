@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implements Measures for the Comparison of Two Partitions
 
 License:          MIT + file LICENSE

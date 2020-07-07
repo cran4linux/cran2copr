@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.6.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to 'Lp_solve' v. 5.5 to Solve Linear/Integer Programs
 
 License:          LGPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Minimum-Dependency 'R' Interface to the 'NHL' API
 
 License:          AGPL-3

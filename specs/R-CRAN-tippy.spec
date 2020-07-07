@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Add Tooltips to 'R markdown' Documents or 'Shiny' Apps
 
 License:          MIT + file LICENSE

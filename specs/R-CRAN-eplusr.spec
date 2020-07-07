@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Toolkit for Using Whole Building Simulation Program'EnergyPlus'
 
 License:          MIT + file LICENSE

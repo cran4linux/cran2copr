@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.11.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Package for Community Ecology and Suitability Analysis
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Automate Package and Project Setup
 
 License:          GPL-3

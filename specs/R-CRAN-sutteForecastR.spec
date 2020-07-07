@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Forecasting Data using Alpha-Sutte Indicator
 
 License:          GPL (>= 2)

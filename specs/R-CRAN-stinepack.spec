@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Stineman, a Consistently Well Behaved Method of Interpolation
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Ecological Inference and Higher-Dimension Data Management
 
 License:          GPL (>= 2) | file LICENSE

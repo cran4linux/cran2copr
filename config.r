@@ -6,7 +6,7 @@ options(
   copr.prefix      = "R-CRAN-",
   copr.tpl         = "specfile.tpl",
   copr.bflags      = "",
-  copr.chroots     = NULL,
+  copr.chroots     = c("fedora-31-x86_64", "fedora-rawhide-x86_64"),
   copr.watch       = FALSE,
   repos            = "https://cran.r-project.org",
   error            = NULL,

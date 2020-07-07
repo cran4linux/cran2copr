@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatial Generalised Linear Mixed Models for Areal Unit Data
 
 License:          GPL (>= 2)

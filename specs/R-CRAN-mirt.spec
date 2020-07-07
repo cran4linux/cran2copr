@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.32.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multidimensional Item Response Theory
 
 License:          GPL (>= 3)

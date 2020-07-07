@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Quickly and Neatly Collect Arguments from One Environment toPass to Another
 
 License:          MIT + file LICENSE

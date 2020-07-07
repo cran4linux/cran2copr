@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Linear Mixed Effects Models for QTL Mapping for Multienvironmentand Multitrait Analysis
 
 License:          GPL-3

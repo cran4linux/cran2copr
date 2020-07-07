@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Differential Geometric Least Angle Regression
 
 License:          GPL (>= 2)

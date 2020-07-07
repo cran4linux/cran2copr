@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Interacting with 'PostgreSQL' / 'PostGIS' Databases
 
 License:          GPL-3

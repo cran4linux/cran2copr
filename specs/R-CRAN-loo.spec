@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Efficient Leave-One-Out Cross-Validation and WAIC for BayesianModels
 
 License:          GPL (>= 3)

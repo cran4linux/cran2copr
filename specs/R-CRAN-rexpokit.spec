@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.26.6.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Wrappers for EXPOKIT; Other Matrix Functions
 
 License:          GPL (>= 2)

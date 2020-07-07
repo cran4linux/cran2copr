@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.18
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Loading Google Adwords Data into R
 
 License:          MIT + file LICENSE

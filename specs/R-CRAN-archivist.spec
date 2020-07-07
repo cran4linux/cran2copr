@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Storing, Restoring and Searching for R Objects
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Cox models by likelihood based boosting for a single survivalendpoint or competing risks
 
 License:          GPL (>= 2)

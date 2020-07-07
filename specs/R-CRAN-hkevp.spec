@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatial Extreme Value Analysis with the Hierarchical Model ofReich and Shaby (2012)
 
 License:          GPL

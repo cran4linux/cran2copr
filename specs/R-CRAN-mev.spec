@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.13.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Extreme Value Distributions
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An API Wrapper for the Bureau of Justice Statistics (BJS)
 
 License:          MIT + file LICENSE

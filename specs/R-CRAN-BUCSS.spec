@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bias and Uncertainty Corrected Sample Size
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Hurricane Re-Analysis Project
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Outlier Detection Using the Iterated RMCD Method of Cerioli(2010)
 
 License:          GPL (>= 2)

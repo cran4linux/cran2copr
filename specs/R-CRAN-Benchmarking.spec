@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.28
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Benchmark and Frontier Analysis Using DEA and SFA
 
 License:          GPL (>= 2)

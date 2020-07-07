@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'Htmlwidget' for 'd3.js' Parallel Coordinates Chart
 
 License:          MIT + file LICENSE

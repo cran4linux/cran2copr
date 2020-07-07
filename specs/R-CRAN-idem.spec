@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Inference in Randomized Controlled Trials with Death andMissingness
 
 License:          GPL (>= 3)

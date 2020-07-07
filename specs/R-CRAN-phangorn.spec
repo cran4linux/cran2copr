@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Phylogenetic Reconstruction and Analysis
 
 License:          GPL (>= 2)

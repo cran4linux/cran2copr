@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Kaplan-Meier Multiple Imputation for the Analysis of CumulativeIncidence Functions in the Competing Risks Setting
 
 License:          GPL (>= 2)

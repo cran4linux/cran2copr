@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.30
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to the 'UNU.RAN' Random Variate Generators
 
 License:          GPL (>= 2)

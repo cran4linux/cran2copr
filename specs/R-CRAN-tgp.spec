@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Treed Gaussian Process Models
 
 License:          LGPL

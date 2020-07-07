@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Geostatistical Data
 
 License:          GPL (>= 2)

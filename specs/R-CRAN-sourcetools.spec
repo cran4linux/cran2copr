@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Reading, Tokenizing and Parsing R Code
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Parameter-Free Domain-Agnostic Season Length Detection in TimeSeries
 
 License:          GPL-2

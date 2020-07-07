@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Kaplan-Meier Simultaneous Confidence Band for the SurvivorFunction
 
 License:          GPL (>= 2)

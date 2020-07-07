@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to the Levenberg-Marquardt Nonlinear Least-SquaresAlgorithm Found in MINPACK, Plus Support for Bounds
 
 License:          GPL-3

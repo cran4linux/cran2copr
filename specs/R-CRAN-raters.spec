@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Modification of Fleiss' Kappa in Case of Nominal and OrdinalVariables
 
 License:          GPL (>= 2)

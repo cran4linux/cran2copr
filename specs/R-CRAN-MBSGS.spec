@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Multivariate Bayesian Sparse Group Selection with Spike and Slab
 
 License:          GPL (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Accelerated line search algorithm for simultaneous orthogonaltransformation of several positive definite symmetric matricesto nearly diagonal form.
 
 License:          GPL (>= 2)

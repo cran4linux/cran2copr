@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Cartography for Statistical Analysis
 
 License:          GPL (>= 2.0) | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          (Niche) (R)egion and Niche (Over)lap Metrics forMultidimensional Ecological Niches
 
 License:          GPL-2

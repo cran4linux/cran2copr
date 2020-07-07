@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          C++ ODE Solvers Compiled on-Demand
 
 License:          GPL (>= 2)

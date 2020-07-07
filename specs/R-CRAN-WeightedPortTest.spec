@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Weighted Portmanteau Tests for Time Series Goodness-of-fit
 
 License:          GPL (>= 3)

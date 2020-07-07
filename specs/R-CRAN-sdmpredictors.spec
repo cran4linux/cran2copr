@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Species Distribution Modelling Predictor Datasets
 
 License:          MIT + file LICENSE

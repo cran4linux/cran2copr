@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Inference for Hidden Markov and Semi-Markov Models
 
 License:          GPL (>= 2)

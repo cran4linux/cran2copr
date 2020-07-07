@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Parametric Frailty Models
 
 License:          GPL-2

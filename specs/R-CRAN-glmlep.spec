@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit GLM with LEP-Based Penalized Maximum Likelihood
 
 License:          GPL-2

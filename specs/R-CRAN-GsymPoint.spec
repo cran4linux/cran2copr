@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of the Generalized Symmetry Point, an OptimalCutpoint in Continuous Diagnostic Tests
 
 License:          GPL

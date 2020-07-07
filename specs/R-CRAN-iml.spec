@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interpretable Machine Learning
 
 License:          MIT + file LICENSE

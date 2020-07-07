@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          PARAFAC Analysis of EEMs from DOM
 
 License:          AGPL

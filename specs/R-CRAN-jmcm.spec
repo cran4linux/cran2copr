@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Joint Mean-Covariance Models using 'Armadillo' and S4
 
 License:          GPL (>= 2)

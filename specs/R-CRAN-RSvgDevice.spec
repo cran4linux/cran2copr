@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.4.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An R SVG graphics device.
 
 License:          GPL (>= 2)

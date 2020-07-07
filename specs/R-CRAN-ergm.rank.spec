@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models forRank-Order Relational Data
 
 License:          GPL-3 + file LICENSE

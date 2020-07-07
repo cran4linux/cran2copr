@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Zero-Inflated Models (ZIM) for Count Time Series with ExcessZeros
 
 License:          GPL-3

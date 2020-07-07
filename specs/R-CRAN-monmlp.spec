@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Layer Perceptron Neural Network with Optional MonotonicityConstraints
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Visualising Statistical Models using Dynamic Nomograms
 
 License:          GPL-2

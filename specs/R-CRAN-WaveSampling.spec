@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Weakly Associated Vectors (WAVE) Sampling
 
 License:          GPL (>= 2)

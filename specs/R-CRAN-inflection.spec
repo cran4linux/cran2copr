@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Finds the Inflection Point of a Curve
 
 License:          GPL (>= 2)

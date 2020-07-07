@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Computation of Optimal Transport Plans and Wasserstein Distances
 
 License:          GPL (>= 2)

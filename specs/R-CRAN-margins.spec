@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.23
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Marginal Effects for Model Objects
 
 License:          MIT + file LICENSE

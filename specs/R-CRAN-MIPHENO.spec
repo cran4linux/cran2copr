@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mutant Identification through Probabilistic High throughputEnabled NOrmalization
 
 License:          GPL (>= 3)

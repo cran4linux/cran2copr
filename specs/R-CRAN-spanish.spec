@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Translate Quantities from Strings to Integer and Back. MiscFunctions on Spanish Data
 
 License:          GPL-3

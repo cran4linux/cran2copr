@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Produce Charts that you See on the Fingertips Website
 
 License:          GPL-3

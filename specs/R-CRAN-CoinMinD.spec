@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simultaneous Confidence Interval for Multinomial Proportion
 
 License:          GPL-2

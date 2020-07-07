@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functional Latent Data Models for Clustering HeterogeneousCurves ('FLaMingos')
 
 License:          GPL (>= 3)

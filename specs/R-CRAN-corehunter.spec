@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Purpose Core Subset Selection
 
 License:          MIT + file LICENSE

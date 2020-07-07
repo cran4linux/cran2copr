@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Simple Implementation and Demonstration of Gradient Boosting
 
 License:          GPL-3

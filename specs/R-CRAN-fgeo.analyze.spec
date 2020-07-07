@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.13
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analyze ForestGEO Data
 
 License:          GPL-3

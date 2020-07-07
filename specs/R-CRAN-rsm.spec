@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Response-Surface Analysis
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Paralellised Versions of Constraint Based Causal DiscoveryAlgorithms
 
 License:          GPL (>= 2)

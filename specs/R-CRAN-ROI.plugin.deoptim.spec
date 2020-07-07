@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'DEoptim' and 'DEoptimR' Plugin for the 'R' OptimizationInterface
 
 License:          GPL-3

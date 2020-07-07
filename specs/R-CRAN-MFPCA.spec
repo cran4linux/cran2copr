@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Functional Principal Component Analysis for DataObserved on Different Dimensional Domains
 
 License:          GPL-2

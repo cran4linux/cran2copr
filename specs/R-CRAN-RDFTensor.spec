@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Different Tensor Factorization (Decomposition) Techniques forRDF Tensors (Three-Mode-Tensors)
 
 License:          GPL-3

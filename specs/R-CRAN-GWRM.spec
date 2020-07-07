@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generalized Waring Regression Model for Count Data
 
 License:          GPL-2 | GPL-3

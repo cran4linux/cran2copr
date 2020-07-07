@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation Tools for Small Area Estimation
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Path Diagrams for Lavaan Models via DiagrammeR
 
 License:          GPL (>= 2)

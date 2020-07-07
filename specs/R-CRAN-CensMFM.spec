@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Finite Mixture of Multivariate Censored/Missing Data
 
 License:          GPL (>= 2)

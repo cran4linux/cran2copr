@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.24
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit Interpretable Machine Learning Models and Explain BlackboxMachine Learning
 
 License:          MIT + file LICENSE

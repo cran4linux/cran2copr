@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Graphical Models using MCMC
 
 License:          GPL (== 2)

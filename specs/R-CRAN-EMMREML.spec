@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fitting Mixed Models with Known Covariance Structures
 
 License:          GPL-2

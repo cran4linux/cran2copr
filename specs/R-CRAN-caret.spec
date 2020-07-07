@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.0.86
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Classification and Regression Training
 
 License:          GPL (>= 2)

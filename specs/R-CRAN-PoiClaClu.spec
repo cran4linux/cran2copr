@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Classification and Clustering of Sequencing Data Based on aPoisson Model
 
 License:          GPL-2

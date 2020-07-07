@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Joint Modelling of Multivariate Longitudinal Data andTime-to-Event Outcomes
 
 License:          GPL-3 | file LICENSE

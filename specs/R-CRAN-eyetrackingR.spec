@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Eye-Tracking Data Analysis
 
 License:          MIT + file LICENSE

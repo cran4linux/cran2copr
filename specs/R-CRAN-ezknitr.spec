@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Avoid the Typical Working Directory Pain When Using 'knitr'
 
 License:          MIT + file LICENSE

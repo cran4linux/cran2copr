@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Command-Line Parsing for an R World
 
 License:          GPL (>= 3) | file LICENSE

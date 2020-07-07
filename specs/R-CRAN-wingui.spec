@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Advanced Windows Functions
 
 License:          GPL-2 | GPL-3 | MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          NeuroAnatomy Toolbox for Analysis of 3D Image Data
 
 License:          GPL-3

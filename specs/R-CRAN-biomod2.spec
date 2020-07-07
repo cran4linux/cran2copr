@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Ensemble Platform for Species Distribution Modeling
 
 License:          GPL-2

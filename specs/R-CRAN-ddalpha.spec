@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Depth-Based Classification and Calculation of Data Depth
 
 License:          GPL-2

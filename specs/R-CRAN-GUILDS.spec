@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implementation of Sampling Formulas for the Unified NeutralModel of Biodiversity and Biogeography, with or without GuildStructure
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Improved Communication to Users with Respect to Problems inFunction Arguments
 
 License:          GPL-3

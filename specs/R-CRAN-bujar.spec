@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Buckley-James Regression for Survival Data with High-DimensionalCovariates
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Exact Multinomial Test: Goodness-of-Fit Test for DiscreteMultivariate data
 
 License:          GPL

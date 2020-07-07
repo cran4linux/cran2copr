@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.23
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Firth's Bias-Reduced Logistic Regression
 
 License:          GPL

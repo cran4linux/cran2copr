@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Association Analysis of Bivariate Survival Data Based on Copulas
 
 License:          GPL-2

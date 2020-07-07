@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Converting Odds Ratio to Relative Risk in Cohort Studies withPartial Data Information
 
 License:          GPL (>= 2)

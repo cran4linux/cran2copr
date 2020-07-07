@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.42.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          PC-Axis with R
 
 License:          GPL-3

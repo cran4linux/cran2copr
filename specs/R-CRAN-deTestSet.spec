@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.7.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Test Set for Differential Equations
 
 License:          GPL

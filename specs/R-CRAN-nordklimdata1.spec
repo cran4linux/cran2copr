@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dataset for Climate Analysis with Data from the Nordic Region
 
 License:          GPL (>= 3)

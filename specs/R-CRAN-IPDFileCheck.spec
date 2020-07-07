@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Basic Functions to Check Readability, Consistency, and Contentof an Individual Participant Data File
 
 License:          CC0

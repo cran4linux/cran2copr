@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to the 'g:Profiler' Toolset
 
 License:          GPL (>= 2)

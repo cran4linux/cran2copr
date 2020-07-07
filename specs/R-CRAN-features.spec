@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2015.12.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Feature Extraction for Discretely-Sampled Functional Data
 
 License:          GPL (>= 2)

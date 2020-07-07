@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Import Articles from 'Factiva' Using the 'tm' Text MiningFramework
 
 License:          GPL (>= 2)

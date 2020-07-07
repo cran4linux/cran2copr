@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Code Examples to Accompany the Book "R for Dummies"
 
 License:          GPL-2 | GPL-3

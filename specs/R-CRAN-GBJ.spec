@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generalized Berk-Jones Test for Set-Based Inference in GeneticAssociation Studies
 
 License:          GPL-3

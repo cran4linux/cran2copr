@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Import/Export Routines for 'MALDIquant'
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculates the Leaf Area Index (LAD) and Other Related Functions
 
 License:          GPL-3

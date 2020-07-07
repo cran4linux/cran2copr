@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dependent Mixture Models - Hidden Markov Models of GLMs andOther Distributions in S4
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Universal Foreach Parallel Adapter using the Future API of the'future' Package
 
 License:          LGPL (>= 2.1)

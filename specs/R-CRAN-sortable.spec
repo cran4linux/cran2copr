@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Drag-and-Drop in 'shiny' Apps with 'SortableJS'
 
 License:          MIT + file LICENSE

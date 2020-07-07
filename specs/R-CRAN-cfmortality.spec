@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Cystic Fibrosis Survival Prediction Model Based on StanojevicModel
 
 License:          GPL-3

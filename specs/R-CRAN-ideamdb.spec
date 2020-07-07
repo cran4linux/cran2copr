@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Easy Manipulation of IDEAM's Climatological Data
 
 License:          GPL (>= 2)

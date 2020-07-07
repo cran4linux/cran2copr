@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Applies GAMbag, GAMrsm and GAMens Ensemble Classifiers forBinary Classification
 
 License:          GPL (>= 2)

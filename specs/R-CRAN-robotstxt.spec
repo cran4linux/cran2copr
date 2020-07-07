@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A 'robots.txt' Parser and 'Webbot'/'Spider'/'Crawler'Permissions Checker
 
 License:          MIT + file LICENSE

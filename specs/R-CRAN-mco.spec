@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.15.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multiple Criteria Optimization Algorithms and Related Functions
 
 License:          GPL-2

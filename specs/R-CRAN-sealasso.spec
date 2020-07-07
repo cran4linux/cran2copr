@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Standard Error Adjusted Adaptive Lasso
 
 License:          GPL (>= 2)

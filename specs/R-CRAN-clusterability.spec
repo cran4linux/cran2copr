@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Performs Tests for Cluster Tendency of a Data Set
 
 License:          GPL-2

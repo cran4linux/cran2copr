@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Package for Reading Binary Files
 
 License:          GPL-2 | GPL-3

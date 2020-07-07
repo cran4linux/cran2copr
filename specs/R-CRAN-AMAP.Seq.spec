@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Compare Gene Expressions from 2-Treatment RNA-Seq Experiments
 
 License:          GPL (>= 2)

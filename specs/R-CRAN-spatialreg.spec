@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatial Regression Analysis
 
 License:          GPL-2

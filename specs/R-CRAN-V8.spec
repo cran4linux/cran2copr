@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Embedded JavaScript and WebAssembly Engine for R
 
 License:          MIT + file LICENSE

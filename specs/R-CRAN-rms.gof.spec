@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Root-mean-square goodness-of-fit test for simple null hypothesis
 
 License:          GPL-3

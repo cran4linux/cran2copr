@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'HJ-Biplot' using Different Ways of Penalization Plotting with'ggplot2'
 
 License:          GPL (>= 3)

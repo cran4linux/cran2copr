@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Standard and User-Defined RGB Color Spaces, with ConversionBetween RGB and CIE XYZ
 
 License:          GPL (>= 3)

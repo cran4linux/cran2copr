@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Detection of Isotope Pattern of a Mass Spectrometric Measurement
 
 License:          GPL-3

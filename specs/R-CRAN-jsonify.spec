@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Convert Between 'R' Objects and Javascript Object Notation(JSON)
 
 License:          MIT + file LICENSE

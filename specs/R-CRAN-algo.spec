@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Implement an Address Search Auto Completion Menu on 'Shiny' TextInputs Using the 'Algolia Places' 'Javascript' Library
 
 License:          MIT + file LICENSE

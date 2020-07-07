@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Coordinate Descent Algorithms for Lasso Penalized L1, L2, andLogistic Regression
 
 License:          GPL-2

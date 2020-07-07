@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimate Ensemble Bayesian Model Averaging Forecasts using GibbsSampling or EM-Algorithms
 
 License:          GPL (>= 2)

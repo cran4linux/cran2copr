@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tcl/Tk Quick and Simple Function GUI
 
 License:          GPL (<= 2.0)

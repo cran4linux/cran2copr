@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Semiparametric efficient estimation for a two-sample treatmenteffect
 
 License:          GPL-2

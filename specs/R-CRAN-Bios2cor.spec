@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          From Biological Sequences and Simulations to CorrelationAnalysis
 
 License:          GPL (>= 2)

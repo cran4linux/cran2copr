@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Arctic Ice Studio's Nord and Group of Seven Inspired ColourPalettes for 'ggplot2'
 
 License:          MIT + file LICENSE

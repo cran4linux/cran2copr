@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data and Variable Transformation Functions
 
 License:          GPL-3

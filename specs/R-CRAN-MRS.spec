@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Resolution Scanning for Cross-Sample Differences
 
 License:          GPL (>= 3)

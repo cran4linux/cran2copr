@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.94
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Smoothing with Infinite Order Flat-Top Kernels
 
 License:          GPL

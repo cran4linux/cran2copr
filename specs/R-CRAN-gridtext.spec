@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Improved Text Rendering Support for 'Grid' Graphics
 
 License:          MIT + file LICENSE

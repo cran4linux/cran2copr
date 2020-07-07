@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Desirability Functions for Ranking, Selecting, and IntegratingData
 
 License:          GPL-3

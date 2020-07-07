@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Utilities for Working with R's Operators
 
 License:          GPL-2 | file LICENSE

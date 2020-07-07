@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A 'Shiny' App to Test Regular Expressions in an R Environment
 
 License:          MIT + file LICENSE

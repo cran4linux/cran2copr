@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Draw Treemaps in 'ggplot2'
 
 License:          GPL (>= 3)

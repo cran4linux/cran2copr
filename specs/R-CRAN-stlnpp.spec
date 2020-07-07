@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatio-Temporal Analysis of Point Patterns on Linear Networks
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.800
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Restricted Statistical Estimation and Inference for LinearModels
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Expander Functions for Generating Full Gradient and Hessian fromSingle-Slot and Multi-Slot Base Distributions
 
 License:          GPL (>= 2)

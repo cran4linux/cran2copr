@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Comprehensive Science Mapping Analysis
 
 License:          GPL-3

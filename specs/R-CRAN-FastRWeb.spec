@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast Interactive Framework for Web Scripting Using R
 
 License:          GPL-2

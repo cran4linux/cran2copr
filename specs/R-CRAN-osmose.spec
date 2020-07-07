@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Object Oriented Simulator of Marine Ecosystems
 
 License:          CeCILL

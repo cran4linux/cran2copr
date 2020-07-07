@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data-Driven Sparse Partial Least Squares Robust to MissingSamples for Mono and Multi-Block Data Sets
 
 License:          MIT + file LICENSE

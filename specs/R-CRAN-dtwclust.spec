@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.5.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Time Series Clustering Along with Optimizations for the DynamicTime Warping Distance
 
 License:          GPL-3

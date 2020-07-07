@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Application Directories: Determine Where to Save Data, Caches,and Logs
 
 License:          MIT + file LICENSE

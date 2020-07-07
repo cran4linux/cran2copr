@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A Spatial Model of Intra-Tumor Heterogeneity
 
 License:          GPL (>= 2)

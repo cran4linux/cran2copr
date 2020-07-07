@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to the Lake Multi-Scaled Geospatial and TemporalDatabase
 
 License:          GPL

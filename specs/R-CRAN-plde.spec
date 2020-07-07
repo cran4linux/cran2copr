@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Penalized Log-Density Estimation Using Legendre Polynomials
 
 License:          GPL (>= 2)

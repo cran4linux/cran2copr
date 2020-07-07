@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'ade4' Tcl/Tk Graphical User Interface
 
 License:          GPL (>= 2)

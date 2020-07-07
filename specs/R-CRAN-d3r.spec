@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'd3.js' Utilities for R
 
 License:          BSD_3_clause + file LICENSE

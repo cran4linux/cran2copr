@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Approximate False Positive Rate Control in Selection Frequencyfor Random Forest
 
 License:          MIT + file LICENSE

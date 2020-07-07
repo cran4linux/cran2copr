@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions to Solve Quadratic Programming Problems
 
 License:          GPL (>= 2)

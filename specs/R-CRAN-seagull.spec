@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Lasso, Group Lasso, and Sparse-Group Lasso for Mixed Models
 
 License:          GPL (>= 2)

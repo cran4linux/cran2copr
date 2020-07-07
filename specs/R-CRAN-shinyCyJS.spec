@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Interactive Network Visualizations in R and 'shiny'
 
 License:          MIT + file LICENSE

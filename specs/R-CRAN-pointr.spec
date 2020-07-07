@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Working Comfortably with Pointers and Shortcuts to R Objects
 
 License:          GPL-3

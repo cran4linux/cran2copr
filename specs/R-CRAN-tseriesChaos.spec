@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.13.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Nonlinear Time Series
 
 License:          GPL-2

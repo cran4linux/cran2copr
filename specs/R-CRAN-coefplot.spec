@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Plots Coefficients from Fitted Models
 
 License:          BSD_3_clause + file LICENSE

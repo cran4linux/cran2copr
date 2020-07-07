@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Compute Expected Shortfall and Value at Risk for ContinuousDistributions
 
 License:          GPL (>= 2)

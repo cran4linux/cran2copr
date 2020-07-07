@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.33
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interpolation Methods
 
 License:          GPL (>= 2)

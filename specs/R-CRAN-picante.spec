@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Integrating Phylogenies and Ecology
 
 License:          GPL-2

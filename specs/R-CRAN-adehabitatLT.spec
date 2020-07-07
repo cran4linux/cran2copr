@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.25
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Animal Movements
 
 License:          GPL (>= 2)

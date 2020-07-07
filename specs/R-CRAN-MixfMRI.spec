@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mixture fMRI Clustering Analysis
 
 License:          Mozilla Public License 2.0

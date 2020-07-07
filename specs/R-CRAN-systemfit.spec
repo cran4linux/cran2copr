@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.24
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimating Systems of Simultaneous Equations
 
 License:          GPL (>= 2)

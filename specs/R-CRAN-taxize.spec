@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.97
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Taxonomic Information from Around the Web
 
 License:          MIT + file LICENSE

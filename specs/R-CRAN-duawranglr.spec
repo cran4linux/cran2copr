@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Securely Wrangle Dataset According to Data Usage Agreement
 
 License:          MIT + file LICENSE

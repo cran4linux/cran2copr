@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fire Weather Index System and Fire Behaviour Prediction SystemCalculations
 
 License:          GPL-2

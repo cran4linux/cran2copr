@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.21
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Toolkit for Item Factor Analysis with 'OpenMx'
 
 License:          AGPL (>= 3)

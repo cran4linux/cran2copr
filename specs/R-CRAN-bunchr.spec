@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analyze Bunching in a Kink or Notch Setting
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Copula Mixed Models for Multivariate Meta-Analysis of DiagnosticTest Accuracy Studies
 
 License:          GPL (>= 2.10)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Log Linear by Linear Association models and Rasch family modelsby pseudolikelihood estimation
 
 License:          GPL (>= 2)

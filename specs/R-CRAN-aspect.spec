@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A General Framework for Multivariate Analysis with OptimalScaling
 
 License:          GPL-2

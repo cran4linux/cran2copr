@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generation of Regular Factorial Designs
 
 License:          GPL (>= 2)

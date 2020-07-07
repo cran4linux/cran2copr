@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Deployment Interface for R Markdown Documents and ShinyApplications
 
 License:          GPL-2

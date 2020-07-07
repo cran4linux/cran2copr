@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of Transmissibility in the Early Stages of a DiseaseOutbreak
 
 License:          MIT + file LICENSE

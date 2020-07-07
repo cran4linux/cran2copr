@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.91.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Discretization-Based Direct Random Sample Generation
 
 License:          GPL (>= 2)

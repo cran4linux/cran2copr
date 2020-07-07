@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Simple XML Tree Parser and Generator
 
 License:          GPL (>= 3)

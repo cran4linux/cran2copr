@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Geostatistical Modeling with RAMPS
 
 License:          GPL-2

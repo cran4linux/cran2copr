@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Patient-Centered Network Meta-Analysis
 
 License:          GPL (>= 2)

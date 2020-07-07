@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Simulation and Analysis of Adaptive Bayesian Clinical Trials
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extremely Randomized Trees (ExtraTrees) Method forClassification and Regression
 
 License:          Apache License 2.0

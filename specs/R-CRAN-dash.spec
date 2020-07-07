@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Interface to the 'dash' Ecosystem for Authoring Reactive WebApplications
 
 License:          MIT + file LICENSE

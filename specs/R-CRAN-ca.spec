@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.71.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simple, Multiple and Joint Correspondence Analysis
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Indices of Productivity Using Data Envelopment Analysis (DEA)
 
 License:          GPL-3

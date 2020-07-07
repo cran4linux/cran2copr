@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          7.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Xsimd C++ Header-Only Library Files
 
 License:          BSD_3_clause + file LICENSE

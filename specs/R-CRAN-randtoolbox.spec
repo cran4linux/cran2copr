@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.30.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Toolbox for Pseudo and Quasi Random Number Generation and RandomGenerator Tests
 
 License:          BSD_3_clause + file LICENSE

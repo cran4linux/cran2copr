@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.20
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'Utilities of Institute of Data Analyses and Process Design(www.zhaw.ch/idp)'
 
 License:          GPL (>= 3)

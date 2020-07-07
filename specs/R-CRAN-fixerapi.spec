@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An R Client for the "Fixer.io" Currency API
 
 License:          MIT + file LICENSE

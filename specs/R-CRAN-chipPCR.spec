@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.8.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Toolkit of Helper Functions to Pre-Process Amplification Data
 
 License:          GPL-3

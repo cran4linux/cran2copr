@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Companion Package for the Book "Model-Based Clustering andClassification for Data Science" by Bouveyron et al. (2019,ISBN:9781108644181).
 
 License:          GPL (>= 2)

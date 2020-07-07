@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.19.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Function Collection Related to Plotting and Hydrology
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Helpful Way to Install R Packages Hosted on GitHub
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.7.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Comprehensive and Easy to Use Quality Control of GWAS Results
 
 License:          GPL-3

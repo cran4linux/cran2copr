@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Read Data Stored in DBC (Compressed DBF) Files
 
 License:          AGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fit Continuous-Time Correlated Random Walk Models to AnimalMovement Data
 
 License:          CC0

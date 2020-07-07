@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation of Study Data
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation-Based Bayesian Inference for Latent Traits of ItemResponse Models
 
 License:          GPL (>= 2)

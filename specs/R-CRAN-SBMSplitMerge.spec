@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Inference for a Generalised SBM with a Split Merge Sampler
 
 License:          MIT + file LICENSE

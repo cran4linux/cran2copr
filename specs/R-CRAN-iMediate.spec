@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Likelihood Methods for Mediation Analysis
 
 License:          GPL (>= 2)

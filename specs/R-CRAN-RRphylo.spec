@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Phylogenetic Ridge Regression Methods for Comparative Studies
 
 License:          GPL-2

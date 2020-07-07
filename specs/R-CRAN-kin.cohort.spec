@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Kin-Cohort Studies
 
 License:          GPL (>= 2)

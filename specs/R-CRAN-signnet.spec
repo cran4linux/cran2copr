@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Methods to Analyse Signed Networks
 
 License:          MIT + file LICENSE

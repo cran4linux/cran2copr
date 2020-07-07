@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Alternative Bootstrap-Based t-Test Aiming to Reduce Type-I Errorfor Non-Negative, Zero-Inflated Data
 
 License:          GPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          GAMLSS Utilities
 
 License:          GPL-2 | GPL-3

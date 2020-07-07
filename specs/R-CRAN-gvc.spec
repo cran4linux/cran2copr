@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Global Value Chains Tools
 
 License:          GPL-3

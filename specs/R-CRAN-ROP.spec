@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Regression Optimized: Numerical Approach for MultivariateClassification and Regression Trees
 
 License:          GPL (>= 2.0)

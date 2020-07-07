@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Inference for Zero-Inflated Count Models
 
 License:          GPL (>= 2)

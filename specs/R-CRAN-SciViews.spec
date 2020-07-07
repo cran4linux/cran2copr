@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.13.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          SciViews - Main package
 
 License:          GPL-2

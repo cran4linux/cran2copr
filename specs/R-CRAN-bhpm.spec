@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Hierarchical Poisson Models for Multiple GroupedOutcomes with Clustering
 
 License:          GPL (>= 2)

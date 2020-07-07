@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simple Peak Alignment for Gas-Chromatography Data
 
 License:          GPL (>= 2)

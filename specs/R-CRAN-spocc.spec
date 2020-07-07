@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to Species Occurrence Data Sources
 
 License:          MIT + file LICENSE

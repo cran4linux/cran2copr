@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Provides tools for quality checks of georeferenced plant speciesaccessions.
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Model Averaging for Random and Fixed EffectsMeta-Analysis
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          SAGA Geoprocessing and Terrain Analysis
 
 License:          GPL-2 | file LICENSE

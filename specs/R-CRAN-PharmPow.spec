@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Pharmacometric Power calculations for mixed study designs
 
 License:          MIT + file LICENSE

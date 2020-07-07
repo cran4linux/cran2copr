@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An R 'Pandoc' Writer
 
 License:          AGPL-3 | file LICENSE

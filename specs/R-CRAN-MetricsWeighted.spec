@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Weighted Metrics, Scoring Functions and Performance Measures forMachine Learning
 
 License:          GPL (>= 2)

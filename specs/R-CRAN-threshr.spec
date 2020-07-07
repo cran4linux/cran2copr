@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Threshold Selection and Uncertainty for Extreme Value Analysis
 
 License:          GPL (>= 2)

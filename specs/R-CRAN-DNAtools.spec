@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Analysing Forensic Genetic DNA Data
 
 License:          GPL (>= 2) | file LICENSE

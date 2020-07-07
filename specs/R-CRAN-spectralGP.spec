@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Approximate Gaussian Processes Using the Fourier Basis
 
 License:          GPL (>= 2)

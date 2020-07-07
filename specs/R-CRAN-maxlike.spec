@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Model Species Distributions by Estimating the Probability ofOccurrence Using Presence-Only Data
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.01
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Exact Hardy-Weinburg testing for Genome Wide Association Studies
 
 License:          GPL-3

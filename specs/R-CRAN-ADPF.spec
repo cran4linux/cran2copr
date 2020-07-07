@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Use Least Squares Polynomial Regression and Statistical Testingto Improve Savitzky-Golay
 
 License:          GPL-3

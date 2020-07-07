@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Constructing and Evaluating Self-Organizing Maps
 
 License:          GPL

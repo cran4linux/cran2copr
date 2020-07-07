@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Program for Missing Data
 
 License:          GPL (>= 2)

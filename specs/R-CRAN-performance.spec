@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.7
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Assessment of Regression Models Performance
 
 License:          GPL-3

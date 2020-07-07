@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2012.4.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Components of Canadian Monetary and Credit Aggregates
 
 License:          GPL-2 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sparse Generalized Linear Model with L0 Approximation forFeature Selection
 
 License:          GPL-2

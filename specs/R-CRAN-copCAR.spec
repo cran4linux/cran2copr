@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fitting the copCAR Regression Model for Discrete Areal Data
 
 License:          GPL (>= 2)

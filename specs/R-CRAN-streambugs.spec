@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Parametric Ordinary Differential Equations Model of Growth,Death, and Respiration of Macroinvertebrate and Algae Taxa
 
 License:          GPL-3

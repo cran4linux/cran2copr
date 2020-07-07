@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dynamic Hazard Models using State Space Models
 
 License:          GPL-2

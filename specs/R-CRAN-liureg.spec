@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Liu Regression with Liu Biasing Parameters and Statistics
 
 License:          GPL-2 | GPL-3

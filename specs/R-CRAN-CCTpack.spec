@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Consensus Analysis, Model-Based Clustering, and CulturalConsensus Theory Applications
 
 License:          GPL (>= 2)

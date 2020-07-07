@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Regression Standardization
 
 License:          LGPL (>= 3)

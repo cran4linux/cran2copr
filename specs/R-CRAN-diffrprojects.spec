@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Projects for Text Version Comparison and Analytics in R
 
 License:          MIT + file LICENSE

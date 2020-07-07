@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tukey Curve Depth and Distance in the Space of Curves
 
 License:          GPL (>= 2)

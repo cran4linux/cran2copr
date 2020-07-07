@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Plugin de R-Commander para el Manual 'EACSPIR'
 
 License:          GPL (>= 2)

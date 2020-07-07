@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Translates information from netcdf files with MC2 output intointer-PVT transitions.
 
 License:          GPL-2

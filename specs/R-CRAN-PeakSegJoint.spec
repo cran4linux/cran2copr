@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2018.10.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Joint Peak Detection in Several ChIP-Seq Samples
 
 License:          GPL-3

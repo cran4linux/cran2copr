@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Design and Analysis of Mixture Experiments
 
 License:          GPL (>= 2)

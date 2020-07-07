@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Efficiently Using Gaussian Processes with Rcpp and RcppEigen
 
 License:          GPL-2

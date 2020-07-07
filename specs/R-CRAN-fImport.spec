@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.85
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rmetrics - Importing Economic and Financial Data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Filtering Algorithms for the State Space Models on the StiefelManifold
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Native R Kernel for the 'Jupyter Notebook'
 
 License:          MIT + file LICENSE

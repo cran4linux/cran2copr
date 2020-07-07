@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bias and Precision Plots to Compare Two Measurements withPossibly Heteroscedastic Measurement Errors
 
 License:          GPL-3

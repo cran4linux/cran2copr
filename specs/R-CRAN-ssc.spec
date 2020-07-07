@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Semi-Supervised Classification Methods
 
 License:          GPL (>= 3)

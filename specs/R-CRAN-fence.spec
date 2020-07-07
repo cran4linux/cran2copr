@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Using Fence Methods for Model Selection
 
 License:          BSD_2_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Fast Solver for Parameterized LP Problems, Constrained L1Minimization Approach to Sparse Precision Matrix Estimation andDantzig Selector
 
 License:          GPL-2

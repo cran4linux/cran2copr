@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Recognize and Handle Data in Formats Used by Swedish CancerCenters
 
 License:          GPL-2

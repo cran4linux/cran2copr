@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.80
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rmetrics - Pricing and Evaluating Exotic Option
 
 License:          GPL (>= 2)

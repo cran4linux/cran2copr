@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extrapolation and Bridging of Adult Information in Early PhaseDose-Finding Paediatrics Studies
 
 License:          GPL (>= 3)

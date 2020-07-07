@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A package to check the cancellation axioms of conjointmeasurement.
 
 License:          GPL (>= 2)

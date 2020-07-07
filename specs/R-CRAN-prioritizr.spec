@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Systematic Conservation Prioritization in R
 
 License:          GPL-3

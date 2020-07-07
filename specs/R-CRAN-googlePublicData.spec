@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.16.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Working with Google's 'Public Data Explorer' DSPL Metadata Files
 
 License:          MIT + file LICENSE

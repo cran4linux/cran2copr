@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Clinical Trial Design and Data Analysis Functions
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Modular Leaf Ordering Methods for Dendrogram Nodes
 
 License:          GPL-2 | GPL-3

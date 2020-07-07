@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Distances for Machine Learning and Statistics in the Context ofBig Data
 
 License:          GPL (>= 3)

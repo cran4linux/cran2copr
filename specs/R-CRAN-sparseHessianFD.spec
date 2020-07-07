@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Numerical Estimation of Sparse Hessians
 
 License:          MPL (== 2.0)

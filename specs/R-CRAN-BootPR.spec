@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.60
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bootstrap Prediction Intervals and Bias-Corrected Forecasting
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Baumgartner Weiss Schindler Test of Equal Distributions
 
 License:          LGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Imputation of Multivariate Time Series Based on Dynamic TimeWarping
 
 License:          GPL (>= 2)

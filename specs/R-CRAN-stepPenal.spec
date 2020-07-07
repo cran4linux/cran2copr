@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Stepwise Forward Variable Selection in Penalized Regression
 
 License:          GPL-2

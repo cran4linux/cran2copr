@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Download Mexico City Pollution, Wind, and Temperature Data
 
 License:          BSD_3_clause + file LICENSE

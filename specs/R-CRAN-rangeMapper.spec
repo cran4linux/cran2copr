@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Platform for the Study of Macro-Ecology of Life History Traits
 
 License:          GPL (>= 2)

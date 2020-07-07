@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Nucleic Acid Melting Curve Analysis on Microbead Surfaces with R
 
 License:          GPL (>= 2)

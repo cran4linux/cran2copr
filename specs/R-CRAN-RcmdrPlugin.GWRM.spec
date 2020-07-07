@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Commander Plug-in for Fitting Generalized Waring RegressionModels
 
 License:          GPL (>= 2)

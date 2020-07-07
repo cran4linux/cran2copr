@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Genetic Data Handling (QC, GRM, LD, PCA) & Linear Mixed Models
 
 License:          GPL-3

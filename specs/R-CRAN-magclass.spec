@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.7.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Class and Tools for Handling Spatial-Temporal Data
 
 License:          LGPL-3 | file LICENSE

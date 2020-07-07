@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Rigorous Data Reduction and Error Propagation of Ar40 / Ar39Data
 
 License:          GPL-2

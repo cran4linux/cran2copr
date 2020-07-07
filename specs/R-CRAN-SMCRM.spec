@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Sets for Statistical Methods in Customer RelationshipManagement by Kumar and Petersen (2012).
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Best Hand Analysis for Poker Variants Including Wildcards
 
 License:          GPL-3

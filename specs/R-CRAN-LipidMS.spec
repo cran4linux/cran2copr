@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Lipid Annotation for LC-MS/MS DIA Data
 
 License:          GPL (>= 2)

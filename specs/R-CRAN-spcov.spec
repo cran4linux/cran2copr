@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.01
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sparse Estimation of a Covariance Matrix
 
 License:          GPL-2

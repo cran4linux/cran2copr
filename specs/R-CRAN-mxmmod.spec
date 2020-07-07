@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Measurement Model of Derivatives in 'OpenMx'
 
 License:          Apache License 2.0

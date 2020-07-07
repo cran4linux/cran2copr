@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Novel Topology-Based Pathway Enrichment Analysis Approach
 
 License:          GPL-2

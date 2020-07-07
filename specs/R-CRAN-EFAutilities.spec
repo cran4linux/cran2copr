@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Utility Functions for Exploratory Factor Analysis
 
 License:          GPL-2

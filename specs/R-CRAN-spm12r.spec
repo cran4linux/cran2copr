@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wrapper Functions for 'SPM' (Statistical Parametric Mapping)Version 12 from the 'Wellcome' Trust Centre for 'Neuroimaging'
 
 License:          GPL-2 | file LICENCE

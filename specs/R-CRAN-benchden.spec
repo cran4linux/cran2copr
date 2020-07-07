@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          28 benchmark densities from Berlinet/Devroye (1994)
 
 License:          GPL (>= 2)

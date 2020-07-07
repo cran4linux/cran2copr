@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Various Linear Mixed Model Analyses
 
 License:          GPL-3

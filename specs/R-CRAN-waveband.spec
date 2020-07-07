@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Computes Credible Intervals for Bayesian Wavelet Shrinkage
 
 License:          GPL (>= 2)

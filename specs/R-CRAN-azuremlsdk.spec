@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.85
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to the 'Azure Machine Learning' 'SDK'
 
 License:          MIT + file LICENSE

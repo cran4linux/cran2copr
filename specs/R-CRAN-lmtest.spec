@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.37
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Testing Linear Regression Models
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of the Conditional Survival Function for OrderedMultivariate Failure Time Data
 
 License:          GPL (>= 2)

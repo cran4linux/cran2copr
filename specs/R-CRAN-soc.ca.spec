@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Specific Correspondence Analysis for the Social Sciences
 
 License:          GPL-3

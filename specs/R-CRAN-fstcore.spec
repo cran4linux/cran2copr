@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Bindings to the 'Fstlib' Library
 
 License:          AGPL-3

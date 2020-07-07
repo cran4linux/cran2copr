@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Forecasting of Univariate Time Series Using the PatternSequence-Based Forecasting (PSF) Algorithm
 
 License:          GPL (>= 2)

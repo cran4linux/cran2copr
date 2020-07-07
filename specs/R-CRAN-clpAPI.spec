@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.13
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to C API of COIN-or Clp
 
 License:          GPL-3 | file LICENSE

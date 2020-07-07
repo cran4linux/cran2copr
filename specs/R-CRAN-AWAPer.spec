@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Catchment Area Weighted Daily Climate Data Anywhere in Australia
 
 License:          GPL-3

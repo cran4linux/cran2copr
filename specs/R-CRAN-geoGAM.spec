@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Select Sparse Geoadditive Models for Spatial Prediction
 
 License:          GPL (>= 2)

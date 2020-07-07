@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.10.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Download or Upload 'Socrata' Data Sets
 
 License:          MIT + file LICENSE

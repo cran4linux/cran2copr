@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Logging Utility for R
 
 License:          LGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Commander Plug-in for Fuzzy Clustering Methods (Fuzzy C-Meansand Gustafson Kessel)
 
 License:          GPL-2

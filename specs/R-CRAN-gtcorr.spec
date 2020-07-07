@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Calculate efficiencies of group testing algorithms withcorrelated responses
 
 License:          GPL-3

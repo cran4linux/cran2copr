@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to the DataONE REST API
 
 License:          Apache License 2.0

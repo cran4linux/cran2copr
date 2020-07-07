@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of Transition Probabilities in Multistate Models
 
 License:          GPL (>= 2)

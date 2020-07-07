@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Automates the Creation of New Statistical Analysis Projects
 
 License:          GPL-3 | file LICENSE

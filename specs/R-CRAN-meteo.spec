@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatio-Temporal Analysis and Mapping of MeteorologicalObservations
 
 License:          GPL (>= 2.0) | file LICENCE

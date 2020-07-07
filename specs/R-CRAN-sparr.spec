@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.13
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spatial and Spatiotemporal Relative Risk
 
 License:          GPL (>= 2)

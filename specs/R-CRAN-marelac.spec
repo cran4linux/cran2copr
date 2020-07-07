@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Aquatic Sciences
 
 License:          GPL (>= 2)

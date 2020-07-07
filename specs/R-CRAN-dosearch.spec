@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Causal Effect Identification from Multiple Incomplete DataSources
 
 License:          GPL (>= 2)

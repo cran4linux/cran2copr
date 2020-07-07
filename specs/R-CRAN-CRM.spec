@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Continual Reassessment Method (CRM) for Phase I Clinical Trials
 
 License:          GPL (>= 2)

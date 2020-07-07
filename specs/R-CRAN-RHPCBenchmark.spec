@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Benchmarks for High-Performance Computing Environments
 
 License:          Apache License 2.0 | file LICENSE

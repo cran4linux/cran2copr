@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Basic Functions for Pre-Processing Microarrays
 
 License:          Apache License (== 2.0)

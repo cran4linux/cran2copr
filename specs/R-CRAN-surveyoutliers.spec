@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Helps Manage Outliers in Sample Surveys
 
 License:          GPL-2 | GPL-3

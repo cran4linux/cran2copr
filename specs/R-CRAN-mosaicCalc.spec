@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Function-Based Numerical and Symbolic Differentiation andAntidifferentiation
 
 License:          GPL (>= 2)

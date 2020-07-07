@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          19.05.24
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generalized Competing Event Model
 
 License:          GPL (>= 2)

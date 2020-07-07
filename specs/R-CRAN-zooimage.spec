@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.5.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Numerical Plankton Images
 
 License:          GPL (>= 2)

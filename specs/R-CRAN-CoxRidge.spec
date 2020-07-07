@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Cox Models with Dynamic Ridge Penalties
 
 License:          GPL (>= 2)

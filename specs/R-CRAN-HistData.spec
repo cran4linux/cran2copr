@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Sets from the History of Statistics and Data Visualization
 
 License:          GPL

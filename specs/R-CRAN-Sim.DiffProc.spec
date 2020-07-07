@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation of Diffusion Processes
 
 License:          GPL (>= 2)

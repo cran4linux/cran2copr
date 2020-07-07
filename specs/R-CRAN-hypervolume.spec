@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          High Dimensional Geometry and Set Operations Using KernelDensity Estimation, Support Vector Machines, and Convex Hulls
 
 License:          GPL-3

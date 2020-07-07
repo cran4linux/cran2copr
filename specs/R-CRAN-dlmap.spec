@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.13
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Detection Localization Mapping for QTL
 
 License:          GPL-2

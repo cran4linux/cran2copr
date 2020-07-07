@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          String Distance Calculation with Tidy Data Principles
 
 License:          MIT + file LICENSE

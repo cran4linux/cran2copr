@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Cross Entropy Inspired Method for Optimization
 
 License:          GPL (>= 2)

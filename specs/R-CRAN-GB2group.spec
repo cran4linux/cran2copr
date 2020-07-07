@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation of the Generalised Beta Distribution of the SecondKind from Grouped Data
 
 License:          GPL (>= 2)

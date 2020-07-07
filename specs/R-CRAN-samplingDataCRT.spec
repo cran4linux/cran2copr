@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sampling Data Within Different Study Designs for ClusterRandomized Trials
 
 License:          GPL-3

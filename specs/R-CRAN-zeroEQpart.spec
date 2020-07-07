@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Zero Order vs (Semi) Partial Correlation Test and CI
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Geostatistical Modelling of Spatially Referenced Prevalence Data
 
 License:          GPL (>= 2)

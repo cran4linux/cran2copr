@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Graphical Extension with Accuracy in Parameter Estimation(GAIPE)
 
 License:          GPL (>= 2)

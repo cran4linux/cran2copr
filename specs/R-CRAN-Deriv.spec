@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Symbolic Differentiation
 
 License:          GPL (>= 3)

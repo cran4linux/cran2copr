@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Call Google's 'Natural Language' API, 'Cloud Translation' API,'Cloud Speech' API and 'Cloud Text-to-Speech' API
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools to Support the Sheffield Elicitation Framework
 
 License:          GPL-2 | GPL-3

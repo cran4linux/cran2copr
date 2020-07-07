@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          NeuroAnatomy Toolbox ('nat') Extension for Assessing NeuronSimilarity and Clustering
 
 License:          GPL-3

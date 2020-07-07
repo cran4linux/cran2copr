@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Site Stochastic Models for Daily Precipitation andTemperature
 
 License:          GPL-3

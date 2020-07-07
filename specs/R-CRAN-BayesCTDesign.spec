@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Two Arm Bayesian Clinical Trial Design with and WithoutHistorical Control Data
 
 License:          GPL-3

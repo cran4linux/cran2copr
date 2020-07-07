@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Visualization of Regression Models
 
 License:          GPL-3

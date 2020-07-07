@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Meta-Analysis and Meta-Regression
 
 License:          GPL (>= 2)

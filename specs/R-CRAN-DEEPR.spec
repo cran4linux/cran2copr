@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dirichlet-multinomial Evolutionary Event Profile Randomization(DEEPR) test
 
 License:          GPL (>= 2)

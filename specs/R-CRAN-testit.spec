@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Simple Package for Testing R Packages
 
 License:          GPL-3

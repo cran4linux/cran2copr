@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Operations Research LOCational Analysis Models
 
 License:          GPL (>= 3)

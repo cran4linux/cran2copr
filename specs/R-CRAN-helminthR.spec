@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Access London Natural History Museum Host-Helminth RecordDatabase
 
 License:          GPL-3

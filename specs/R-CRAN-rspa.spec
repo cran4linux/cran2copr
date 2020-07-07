@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Adapt Numerical Records to Fit (in)Equality Restrictions
 
 License:          GPL-3

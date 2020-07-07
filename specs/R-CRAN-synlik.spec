@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Synthetic Likelihood Methods for Intractable Likelihoods
 
 License:          GPL (>= 2)

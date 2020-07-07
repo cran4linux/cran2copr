@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Directed and Undirected Graphs
 
 License:          GPL (>= 2)

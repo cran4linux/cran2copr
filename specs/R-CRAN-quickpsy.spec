@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fits Psychometric Functions for Multiple Groups
 
 License:          MIT + file LICENSE

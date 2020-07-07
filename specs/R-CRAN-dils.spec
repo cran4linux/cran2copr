@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data-Informed Link Strength. Combine multiple-relationshipnetworks into a single weighted network. Impute (fill-in)missing network links.
 
 License:          MIT + file LICENSE

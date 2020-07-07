@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Quantile Comparison for Two-Sample Right-Censored Survival Data
 
 License:          GPL-3

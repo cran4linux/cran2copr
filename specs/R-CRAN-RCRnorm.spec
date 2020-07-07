@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Integrated Regression Model for Normalizing 'NanoStringnCounter' Data
 
 License:          GPL (>= 2)

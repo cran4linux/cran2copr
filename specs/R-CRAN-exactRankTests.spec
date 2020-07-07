@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.31
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Exact Distributions for Rank and Permutation Tests
 
 License:          GPL (>= 2)

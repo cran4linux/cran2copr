@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Joint Analysis and Imputation of Incomplete Data
 
 License:          GPL (>= 2)

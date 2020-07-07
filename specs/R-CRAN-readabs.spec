@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Download and Tidy Time Series Data from the Australian Bureau ofStatistics
 
 License:          MIT + file LICENSE

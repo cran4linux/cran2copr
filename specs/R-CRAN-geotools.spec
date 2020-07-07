@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Geo tools
 
 License:          GPL

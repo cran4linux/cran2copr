@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implementation of the 'Lights Out' Puzzle Game
 
 License:          MIT + file LICENSE

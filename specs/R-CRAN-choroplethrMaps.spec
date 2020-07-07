@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Contains Maps Used by the 'choroplethr' Package
 
 License:          BSD_3_clause + file LICENSE

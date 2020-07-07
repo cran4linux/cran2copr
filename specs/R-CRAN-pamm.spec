@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.121
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Power Analysis for Random Effects in Mixed Models
 
 License:          GPL-2 | GPL-3

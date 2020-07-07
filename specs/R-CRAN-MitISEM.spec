@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mixture of Student t Distributions using Importance Sampling andExpectation Maximization
 
 License:          GPL (>= 3)

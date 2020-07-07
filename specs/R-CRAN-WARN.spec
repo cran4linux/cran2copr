@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Weaning Age Reconstruction with Nitrogen Isotope Analysis
 
 License:          GPL (>= 3)

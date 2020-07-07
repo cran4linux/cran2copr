@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Compute a distance metric between two partitions of a set
 
 License:          BSD_2_clause + file LICENSE

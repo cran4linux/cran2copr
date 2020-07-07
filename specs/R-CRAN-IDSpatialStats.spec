@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimate Global Clustering in Infectious Disease
 
 License:          GPL (>= 2)

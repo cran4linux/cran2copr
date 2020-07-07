@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.27.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Factorial Experiments
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.13.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Nonparametrics for Automatic Gating of Flow-CytometryData
 
 License:          LGPL-3 | file LICENSE

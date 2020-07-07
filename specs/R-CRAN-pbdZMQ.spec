@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Programming with Big Data -- Interface to 'ZeroMQ'
 
 License:          GPL-3

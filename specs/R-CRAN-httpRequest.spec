@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Basic HTTP Request
 
 License:          GPL (>= 2)

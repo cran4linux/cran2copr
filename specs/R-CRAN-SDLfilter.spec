@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Filtering and Assessing the Sample Size of Tracking Data
 
 License:          GPL-2 | file LICENSE

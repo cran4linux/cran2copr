@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Classification rule based on Bayesian mixture models withfeature selection bias corrected
 
 License:          GPL (>= 2)

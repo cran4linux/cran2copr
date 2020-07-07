@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generate 3D visualizations for data exploration on the web
 
 License:          GPL (>= 2)

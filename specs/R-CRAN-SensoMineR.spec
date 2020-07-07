@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.26
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sensory Data Analysis
 
 License:          GPL (>= 2)

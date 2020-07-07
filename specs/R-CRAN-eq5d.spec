@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for Calculating 'EQ-5D' Utility Index Scores
 
 License:          MIT + file LICENSE

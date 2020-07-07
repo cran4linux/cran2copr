@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Classification and Visualization
 
 License:          GPL-2 | GPL-3

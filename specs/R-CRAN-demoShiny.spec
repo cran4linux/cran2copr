@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Runs a 'Shiny' App as Demo or Lists All Demo 'Shiny' Apps
 
 License:          GPL-3

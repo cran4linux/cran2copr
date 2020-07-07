@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.24
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Power Calculations for SNP Studies with Censored Outcomes
 
 License:          GPL-3

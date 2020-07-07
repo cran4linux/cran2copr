@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Interactive Visualisation of Meta-Analysis as a PhysicalWeighing Machine
 
 License:          GPL (>= 2)

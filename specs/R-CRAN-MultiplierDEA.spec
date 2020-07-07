@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.18
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multiplier Data Envelopment Analysis and Cross Efficiency
 
 License:          LGPL-2

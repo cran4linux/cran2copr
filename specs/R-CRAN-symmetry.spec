@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Testing for Symmetry of Data and Model Residuals
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Kernel-Smoothed Nonparametric Methods for Environmental ExposureData Subject to Detection Limits
 
 License:          GPL-2

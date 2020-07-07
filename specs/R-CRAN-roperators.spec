@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Additional Operators to Help you Write Cleaner R Code
 
 License:          MIT + file LICENSE

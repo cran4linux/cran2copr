@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Ridge Group Sparse Optimization Problem for Estimation of a MetaModel Based on Reproducing Kernel Hilbert Spaces
 
 License:          GPL (>= 2)

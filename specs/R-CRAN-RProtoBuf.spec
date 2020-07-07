@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.17
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
 
 License:          GPL (>= 2)

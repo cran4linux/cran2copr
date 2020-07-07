@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Quantification of the effect of geographic versus environmentalisolation on genetic differentiation
 
 License:          GPL

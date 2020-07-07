@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.01
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Automated Large Linear Analysis Node
 
 License:          GPL

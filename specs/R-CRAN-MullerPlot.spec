@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generates Muller Plot from Population/Abundance/FrequencyDynamics Data
 
 License:          GPL-3

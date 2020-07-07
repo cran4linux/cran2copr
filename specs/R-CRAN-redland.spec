@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.17.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          RDF Library Bindings in R
 
 License:          Apache License 2.0

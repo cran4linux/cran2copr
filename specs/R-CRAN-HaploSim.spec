@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions to simulate haplotypes
 
 License:          GPL (>= 2)

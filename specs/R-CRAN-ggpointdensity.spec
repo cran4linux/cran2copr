@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Cross Between a 2D Density Plot and a Scatter Plot
 
 License:          GPL-3 | file LICENSE

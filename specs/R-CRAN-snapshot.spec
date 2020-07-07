@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Gadget N-body cosmological simulation code snapshot I/Outilities
 
 License:          GPL-2

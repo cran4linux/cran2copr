@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Variable Length Markov Chains ('VLMC') Models
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.23
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions Useful in the Design and ANOVA of Experiments
 
 License:          GPL (>= 2)

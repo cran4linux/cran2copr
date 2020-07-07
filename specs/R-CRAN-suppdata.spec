@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Downloading Supplementary Data from Published Manuscripts
 
 License:          MIT + file LICENSE

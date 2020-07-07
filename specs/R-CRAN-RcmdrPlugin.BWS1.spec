@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          R Commander Plug-in for Case 1 (Object Case) Best-Worst Scaling
 
 License:          GPL (>= 2)

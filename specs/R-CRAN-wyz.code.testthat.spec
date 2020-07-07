@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.17
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wizardry Code Offensive Programming Test Generation
 
 License:          GPL-3

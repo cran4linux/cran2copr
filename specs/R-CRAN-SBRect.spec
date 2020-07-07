@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.26
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Detecting structural breaks using rectangle covering(non-parametric method).
 
 License:          GPL-2

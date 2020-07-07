@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Application of 2D Convolution Kernel Filters to Matrices or 3DArrays
 
 License:          GPL-2

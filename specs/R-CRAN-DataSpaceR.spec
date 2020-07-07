@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to 'the CAVD DataSpace'
 
 License:          GPL-3

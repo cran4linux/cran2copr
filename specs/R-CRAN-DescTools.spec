@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.36
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Descriptive Statistics
 
 License:          GPL (>= 2)

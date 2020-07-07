@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.7.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Radiocarbon Dating, Age-Depth Modelling, Relative Sea Level RateEstimation, and Non-Parametric Phase Modelling
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Parse 'Java' Properties Files for 'R Service Bus' Applications
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generalized Pareto Distribution and Peaks Over Threshold
 
 License:          GPL (>= 2)

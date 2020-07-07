@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for "Data Analysis in Vegetation Ecology"
 
 License:          LGPL (>= 2.0)

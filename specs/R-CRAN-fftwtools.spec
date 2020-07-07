@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wrapper for 'FFTW3' Includes: One-Dimensional Univariate,One-Dimensional Multivariate, and Two-Dimensional Transform
 
 License:          GPL (>= 2)

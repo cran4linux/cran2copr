@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for Set-Theoretic Multi-Method Research and AdvancedQCA
 
 License:          GPL-2

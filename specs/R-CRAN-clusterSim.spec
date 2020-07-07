@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.48.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Searching for Optimal Clustering Procedure for a Data Set
 
 License:          GPL (>= 2)

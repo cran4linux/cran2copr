@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Harrell Miscellaneous
 
 License:          GPL (>= 2)

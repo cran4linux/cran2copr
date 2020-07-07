@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Perform the Robust Multivariable Mendelian RandomizationAnalysis
 
 License:          GPL-2 | GPL-3

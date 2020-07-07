@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.94.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Model-Based Clustering for Multivariate Partial Ranking Data
 
 License:          GPL (>= 2)

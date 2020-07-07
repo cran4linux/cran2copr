@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Discrete Laplace Mixture Inference using the EM Algorithm
 
 License:          GPL-2 | file LICENSE

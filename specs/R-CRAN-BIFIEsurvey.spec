@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Survey Statistics in Educational Assessment
 
 License:          GPL (>= 2)

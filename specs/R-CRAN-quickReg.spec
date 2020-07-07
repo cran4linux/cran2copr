@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Build Regression Models Quickly and Display the Results Using'ggplot2'
 
 License:          GPL-2

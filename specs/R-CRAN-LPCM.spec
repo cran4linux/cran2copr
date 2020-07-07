@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.46.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Local Principal Curve Methods
 
 License:          GPL (>= 2)

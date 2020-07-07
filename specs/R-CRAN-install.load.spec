@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Check, Install and Load CRAN & USGS GRAN Packages
 
 License:          CC BY-SA 4.0 | GPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Distributional Method for the Dichotomisation of ContinuousOutcomes
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Inference, Goodness-of-Fit and Forecast for Univariate GaussianHidden Markov Models
 
 License:          GPL (>= 2)

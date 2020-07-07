@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Plot Publication-Grade Gene and Genome Maps
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Ising Network Estimation using Elastic Net and k-FoldCross-Validation
 
 License:          GPL-2

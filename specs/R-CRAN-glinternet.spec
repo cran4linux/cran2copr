@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Learning Interactions via Hierarchical Group-LassoRegularization
 
 License:          GPL-2

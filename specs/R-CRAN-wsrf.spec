@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.17
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Weighted Subspace Random Forest for Classification
 
 License:          GPL (>= 2)

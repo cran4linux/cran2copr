@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Integrated Methylation QTL Mapping and Allele-Specific Analysis
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Selection and Misclassification Bias Adjustment for LogisticRegression Models
 
 License:          GPL-3

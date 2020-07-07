@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Auxiliary Functions to Estimate Centers of Biodiversity
 
 License:          GPL (>= 2)

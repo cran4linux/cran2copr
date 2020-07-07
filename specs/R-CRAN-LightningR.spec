@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Communication with Lightning-Viz Server
 
 License:          MIT + file LICENSE

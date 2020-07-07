@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Relative Risk Based on the Ratio of Median Unbiased Estimates
 
 License:          GPL-3

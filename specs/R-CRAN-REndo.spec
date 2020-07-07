@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fitting Linear Models with Endogenous Regressors using LatentInstrumental Variables
 
 License:          GPL-3

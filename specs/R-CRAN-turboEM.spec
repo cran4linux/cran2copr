@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Suite of Convergence Acceleration Schemes for EM, MM and OtherFixed-Point Algorithms
 
 License:          GPL-2

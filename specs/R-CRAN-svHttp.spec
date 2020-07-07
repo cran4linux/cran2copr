@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.55
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          SciViews GUI API - R HTTP server
 
 License:          GPL-2

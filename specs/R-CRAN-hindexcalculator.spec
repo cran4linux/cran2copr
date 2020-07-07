@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          H-Index Calculator using Data from a Web of Science (WoS)Citation Report
 
 License:          AGPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Easy Data Import Using GUI File Picker and SeamlessCommunication Between an Excel and R
 
 License:          GPL-3

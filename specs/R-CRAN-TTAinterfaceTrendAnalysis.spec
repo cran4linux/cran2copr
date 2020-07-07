@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Temporal Trend Analysis Graphical Interface
 
 License:          GPL (>= 2)

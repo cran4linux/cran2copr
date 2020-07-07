@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimating Regularized Multi-state Models Using L1 Penalties
 
 License:          GPL (>= 2)

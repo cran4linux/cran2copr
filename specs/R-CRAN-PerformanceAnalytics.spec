@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Econometric Tools for Performance and Risk Analysis
 
 License:          GPL-2 | GPL-3

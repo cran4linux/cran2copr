@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Portfolio Management with R
 
 License:          GPL-3

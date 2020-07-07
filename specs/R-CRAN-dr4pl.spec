@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.11
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dose Response Data Analysis using the 4 Parameter Logistic (4pl)Model
 
 License:          GPL (>= 2)

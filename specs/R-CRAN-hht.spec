@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          The Hilbert-Huang Transform: Tools and Methods
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Methods for Dimension Reduction
 
 License:          GPL (>= 2)

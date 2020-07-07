@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Finding Optimal Microsampling Designs for Non-CompartmentalPharmacokinetic Analysis
 
 License:          GPL-3

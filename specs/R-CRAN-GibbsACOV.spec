@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Gibbs Sampler for One-Way Mixed-Effects ANOVA and ANCOVA Models
 
 License:          GPL (>= 2)

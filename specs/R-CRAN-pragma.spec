@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Provides a pragma / directive / keyword syntax for R.
 
 License:          GPL (>= 2)

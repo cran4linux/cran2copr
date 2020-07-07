@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          7.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools to Analyze the Thermal Reaction Norm of Embryo Growth
 
 License:          GPL-2

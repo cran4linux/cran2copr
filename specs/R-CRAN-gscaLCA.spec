@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Generalized Structure Component Analysis- Latent Class Analysis& Latent Class Regression
 
 License:          GPL-3

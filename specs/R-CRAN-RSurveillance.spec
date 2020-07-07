@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Design and Analysis of Disease Surveillance Activities
 
 License:          GPL-2 | GPL-3

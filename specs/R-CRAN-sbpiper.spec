@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data Analysis Functions for 'SBpipe' Package
 
 License:          MIT + file LICENSE

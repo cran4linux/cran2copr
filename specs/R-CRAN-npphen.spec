@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Vegetation Phenological Cycle and Anomaly Detection using RemoteSensing Data
 
 License:          GPL (>= 3)

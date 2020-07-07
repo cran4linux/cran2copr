@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A 'shiny' Application for Exploring Laboratory Data
 
 License:          GPL-3

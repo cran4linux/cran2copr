@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.13
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sino Xmen Said
 
 License:          GPL-3

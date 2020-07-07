@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Geostatistical Data using Bayes and Empirical BayesMethods
 
 License:          GPL (>= 2)

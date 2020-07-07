@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Using Fonts More Easily in R Graphs
 
 License:          Apache License (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Threshold Cut Point of Probability for a Binary Classifier Model
 
 License:          GPL-2

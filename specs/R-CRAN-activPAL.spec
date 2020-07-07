@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Advanced Processing and Chart Generation from activPAL EventsFiles
 
 License:          GPL-3

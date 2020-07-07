@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generative Mechanism Estimation in Temporal Complex Networks
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Adaptive Association Tests for Multiple Phenotypes usingProportional Odds Model (POM-aSPU)
 
 License:          GNU General Public License (>= 3)

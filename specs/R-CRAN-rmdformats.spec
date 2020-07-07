@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          HTML Output Formats and Templates for 'rmarkdown' Documents
 
 License:          GPL (>= 2)

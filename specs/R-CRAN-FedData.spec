@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions to Automate Downloading Geospatial Data Available fromSeveral Federated Data Sources
 
 License:          MIT + file LICENSE

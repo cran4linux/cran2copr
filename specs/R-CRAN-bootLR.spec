@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bootstrapped Confidence Intervals for (Negative) LikelihoodRatio Tests
 
 License:          LGPL-2.1

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Button-Based GUI for Financial and Economic Data Analysis
 
 License:          GPL (>= 2)

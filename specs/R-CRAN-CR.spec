@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Power Calculation for Weighted Log-Rank Tests in Cure RateModels
 
 License:          GPL-2

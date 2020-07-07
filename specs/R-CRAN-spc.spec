@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Process Control -- Calculation of ARL and OtherControl Chart Performance Measures
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Modeling Earthquake Data Using 'ETAS' Model
 
 License:          GPL (>= 2)

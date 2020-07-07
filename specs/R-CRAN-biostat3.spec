@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Utility Functions, Datasets and Extended Examples for SurvivalAnalysis
 
 License:          GPL (>= 2)

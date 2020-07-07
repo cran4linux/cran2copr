@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Analysis of Habitat Selection by Animals
 
 License:          GPL (>= 2)

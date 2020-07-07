@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Orthant Probability of the Multivariate Normal Distribution
 
 License:          BSD_3_clause + file LICENSE

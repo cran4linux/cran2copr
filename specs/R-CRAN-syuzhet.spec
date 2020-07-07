@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extracts Sentiment and Sentiment-Derived Plot Arcs from Text
 
 License:          GPL-3

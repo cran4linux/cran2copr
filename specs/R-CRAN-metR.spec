@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Easier Analysis of Meteorological Fields
 
 License:          GPL-3

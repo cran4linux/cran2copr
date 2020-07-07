@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          NRI for Risk Prediction Models with Time to Event and BinaryResponse Data
 
 License:          GPL-2

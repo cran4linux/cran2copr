@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Whole-Genome Regression
 
 License:          GPL-3

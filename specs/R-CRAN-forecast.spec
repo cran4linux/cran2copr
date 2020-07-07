@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          8.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Forecasting Functions for Time Series and Linear Models
 
 License:          GPL-3

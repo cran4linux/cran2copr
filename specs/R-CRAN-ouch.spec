@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.14.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Ornstein-Uhlenbeck Models for Phylogenetic ComparativeHypotheses
 
 License:          GPL-3

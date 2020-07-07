@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Access to the 'Google Cloud Vision' API for Image Recognition,OCR and Labeling
 
 License:          MIT + file LICENSE

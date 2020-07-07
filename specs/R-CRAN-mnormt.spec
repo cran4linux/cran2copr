@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          The Multivariate Normal and t Distributions, and Their TruncatedVersions
 
 License:          GPL-2 | GPL-3

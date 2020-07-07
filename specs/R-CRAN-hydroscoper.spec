@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to the Greek National Data Bank forHydrometeorological Information
 
 License:          MIT + file LICENSE

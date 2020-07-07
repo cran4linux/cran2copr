@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.21
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sample Size Calculations for Longitudinal Data
 
 License:          GPL (>= 2)

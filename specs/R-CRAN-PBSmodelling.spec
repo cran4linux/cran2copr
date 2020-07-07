@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.68.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          GUI Tools Made Easy: Interact with Models and Explore Data
 
 License:          GPL (>= 2)

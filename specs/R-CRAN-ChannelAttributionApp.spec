@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Shiny Web Application for the Multichannel Attribution Problem
 
 License:          GPL (>= 2)

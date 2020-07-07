@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Antarctic Spatial Data Manipulation
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.21
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Plot the Australian Coastline and States
 
 License:          GPL-2

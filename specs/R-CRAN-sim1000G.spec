@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.40
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Genotype Simulations for Rare or Common Variants UsingHaplotypes from 1000 Genomes
 
 License:          GPL (>= 2)

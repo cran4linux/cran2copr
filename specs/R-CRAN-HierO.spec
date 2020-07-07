@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A graphical user interface for calculating power and sample sizefor hierarchical data
 
 License:          GPL-2

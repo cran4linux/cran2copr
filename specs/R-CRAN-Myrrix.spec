@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface to Myrrix. Myrrix is a Complete, Real-Time, ScalableClustering and Recommender System, Evolved from Apache Mahout
 
 License:          Apache License (== 2.0)

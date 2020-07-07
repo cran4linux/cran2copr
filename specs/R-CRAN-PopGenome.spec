@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Efficient Swiss Army Knife for Population Genomic Analyses
 
 License:          GPL-3

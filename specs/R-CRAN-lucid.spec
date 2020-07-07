@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Printing Floating Point Numbers in a Human-Friendly Format
 
 License:          GPL-3

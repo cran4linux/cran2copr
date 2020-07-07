@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mapas de las Divisiones Politicas y Administrativas de Chile(Maps of the Political and Administrative Divisions of Chile)
 
 License:          GPL-3

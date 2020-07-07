@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Approximate Conditional Inference for Logistic and LoglinearModels
 
 License:          GPL (>= 2) | file LICENCE

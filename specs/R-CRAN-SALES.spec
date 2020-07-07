@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Elastic Net and (Adaptive) Lasso Penalized Sparse AsymmetricLeast Squares (SALES) and Coupled Sparse Asymmetric LeastSquares (COSALES) using Coordinate Descent and ProximalGradient Algorithms
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Implementation of SparseMDC Algorithm
 
 License:          GPL-3

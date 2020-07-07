@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Easily Add Markdown Help Files to 'shiny' App Elements
 
 License:          GPL-3

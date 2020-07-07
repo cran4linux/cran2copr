@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Hybrid Bayesian Networks Using R and JAGS
 
 License:          MIT + file LICENSE

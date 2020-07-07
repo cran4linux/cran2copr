@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimating a (c)DCC-GARCH Model in Large Dimensions
 
 License:          GPL (>= 2)

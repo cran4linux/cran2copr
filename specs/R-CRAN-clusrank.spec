@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Wilcoxon Rank Sum Test for Clustered Data
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.20.3
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          C-Like 'getopt' Behavior
 
 License:          GPL (>= 2)

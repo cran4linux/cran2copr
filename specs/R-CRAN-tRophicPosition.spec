@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.7
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Trophic Position Calculation with Stable Isotopes
 
 License:          GPL (>= 2)

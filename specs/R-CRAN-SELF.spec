@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Structural Equation Embedded Likelihood Framework for CausalDiscovery
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Trait Analysis of Rare-Variant Association Study
 
 License:          GPL (>= 2)

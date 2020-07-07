@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Exact Sequential Analysis for Poisson and Binomial Data
 
 License:          GPL-2

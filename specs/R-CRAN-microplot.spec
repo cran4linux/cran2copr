@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.42
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Microplots (Sparklines) in 'LaTeX', 'Word', 'HTML', 'Excel'
 
 License:          GPL (>= 2)

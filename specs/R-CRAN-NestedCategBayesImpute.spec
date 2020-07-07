@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Modeling, Imputing and Generating Synthetic Versions of NestedCategorical Data in the Presence of Impossible Combinations
 
 License:          GPL (>= 3)

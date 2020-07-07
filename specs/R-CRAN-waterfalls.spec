@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Waterfall Charts using 'ggplot2' Simply
 
 License:          MIT + file LICENSE

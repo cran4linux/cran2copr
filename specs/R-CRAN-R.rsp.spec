@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.43.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dynamic Generation of Scientific Reports
 
 License:          LGPL (>= 2.1)

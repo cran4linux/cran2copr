@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.9
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Temporal Exponential Random Graph Models by BootstrappedPseudolikelihood
 
 License:          GPL (>= 2)

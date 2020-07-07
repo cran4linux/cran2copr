@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Two and Three Dimensional Kolmogorov-Smirnov Two-Sample Tests
 
 License:          GPL-2

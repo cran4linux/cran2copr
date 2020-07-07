@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Front End for 'Apache Spark'
 
 License:          Apache License (== 2.0)

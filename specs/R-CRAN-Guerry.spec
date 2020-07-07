@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Maps, Data and Methods Related to Guerry (1833) "MoralStatistics of France"
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Information About Deputies and Votings in Polish Diet fromSeventh to Eighth Term of Office
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          'STK++' Core Library Integration to 'R' using 'Rcpp'
 
 License:          GPL (>= 2)

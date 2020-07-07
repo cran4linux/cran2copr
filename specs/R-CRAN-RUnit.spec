@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.32
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Unit Test Framework
 
 License:          GPL-2

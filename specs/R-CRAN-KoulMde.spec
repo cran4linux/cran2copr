@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Koul's Minimum Distance Estimation in Linear Regression andAutoregression Model by Coordinate Descent Algorithm
 
 License:          GPL-2

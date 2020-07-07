@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Analysis of Circular Data using NonnegativeTrigonometric Sums (NNTS) Models
 
 License:          GPL (>= 2)

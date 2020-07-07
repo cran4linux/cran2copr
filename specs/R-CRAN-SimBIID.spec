@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation-Based Inference Methods for Infectious Disease Models
 
 License:          GPL (>= 3)

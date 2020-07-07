@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools for Fast Computing and Plotting Euclidean Minimum SpanningTrees
 
 License:          BSD_3_clause + file LICENSE

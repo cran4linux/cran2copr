@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Downscaling Toolkit for Climate Change Scenariousing Non Parametric Quantile Mapping
 
 License:          GPL (>= 2)

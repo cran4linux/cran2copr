@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Probabilistic Models to Analyze and Gaussianize Heavy-Tailed,Skewed Data
 
 License:          GPL (>= 2)

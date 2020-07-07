@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Topological k-NN Classifier Based on Self-Organising Maps
 
 License:          GPL-3

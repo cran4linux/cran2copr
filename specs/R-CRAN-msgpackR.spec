@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A library to serialize or unserialize data in MessagePack format
 
 License:          BSD_2_clause + file LICENSE

@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.85.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Integrated Regression Goodness of Fit
 
 License:          GPL (>= 2)

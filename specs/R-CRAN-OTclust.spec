@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Mean Partition, Uncertainty Assessment, Cluster Validation andVisualization Selection for Cluster Analysis
 
 License:          GPL (>= 2)

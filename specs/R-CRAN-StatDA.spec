@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Analysis for Environmental Data
 
 License:          GPL (>= 3)

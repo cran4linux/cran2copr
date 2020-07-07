@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Change-in-Estimate Approach to Assess Confounding Effects
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Visually Learning the Graphical Structure of Bayesian Networksand Performing MCMC with 'Stan'
 
 License:          GPL (>= 3)

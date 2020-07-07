@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Ray Shooting Depth (i.e. RS Depth) functions for bivariateanalysis
 
 License:          GPL-2

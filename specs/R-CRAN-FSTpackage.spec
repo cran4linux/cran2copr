@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Unified Sequence-Based Association Tests Allowing for MultipleFunctional Annotation Scores
 
 License:          GPL-3

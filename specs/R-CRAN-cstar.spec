@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Substantive significance testing for regression estimates andmarginal effects.
 
 License:          GPL-2

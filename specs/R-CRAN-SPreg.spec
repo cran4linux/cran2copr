@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Bias Reduction in the Skew-Probit Model for a Binary Response
 
 License:          GPL-3

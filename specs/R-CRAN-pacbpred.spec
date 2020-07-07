@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.92.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          PAC-Bayesian Estimation and Prediction in Sparse AdditiveModels.
 
 License:          GPL (>= 2)

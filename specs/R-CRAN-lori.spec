@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Imputation of Count Data using Side Information
 
 License:          GPL-3

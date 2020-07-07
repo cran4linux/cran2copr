@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulation of Synthetic Populations for Survey Data ConsideringAuxiliary Information
 
 License:          GPL (>= 2)

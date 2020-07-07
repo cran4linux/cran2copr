@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.66
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Models for Word Frequency Distributions
 
 License:          GPL-3

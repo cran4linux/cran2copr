@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          A 'shiny' Module for Reading Excel Sheets
 
 License:          MIT + file LICENSE

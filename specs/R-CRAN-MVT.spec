@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimation and Testing for the Multivariate t-Distribution
 
 License:          GPL (>= 2)

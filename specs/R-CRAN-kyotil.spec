@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.11.22
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Utility Functions for Statistical Analysis Report Generation andMonte Carlo Studies
 
 License:          GPL (>= 2)

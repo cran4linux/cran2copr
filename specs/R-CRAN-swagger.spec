@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.9.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Dynamically Generates Documentation from a 'Swagger' CompliantAPI
 
 License:          Apache License 2.0 | file LICENSE

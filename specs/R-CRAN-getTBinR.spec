@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Access and Summarise World Health Organization Tuberculosis Data
 
 License:          GPL-3 | file LICENSE

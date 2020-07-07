@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Time-Varying Coefficient for Single and Multi-EquationRegressions
 
 License:          GPL (>= 3)

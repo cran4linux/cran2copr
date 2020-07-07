@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simulating Homogenous & Non-Homogenous Poisson Processes
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Programming with Big Data -- Interface to MPI
 
 License:          Mozilla Public License 2.0

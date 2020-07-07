@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Different Models of Posterior Distributions of Adjusted OddsRatio
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.27
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Object-Oriented Framework for Geostatistical Modeling in S+
 
 License:          GPL (>= 2)

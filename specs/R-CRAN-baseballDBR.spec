@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sabermetrics and Advanced Baseball Statistics
 
 License:          MIT + file LICENSE

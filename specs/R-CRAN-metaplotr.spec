@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Creates CrossHairs Plots for Meta-Analyses
 
 License:          GPL-2 | file LICENSE

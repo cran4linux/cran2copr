@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Estimates of Coefficient of Overlapping for Animal ActivityPatterns
 
 License:          GPL (>= 3)

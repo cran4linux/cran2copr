@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.5.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Statistical Disclosure Control Methods for Anonymization of Dataand Risk Estimation
 
 License:          GPL-2

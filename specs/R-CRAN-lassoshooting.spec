@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          L1 regularized regression (Lasso) solver using the CyclicCoordinate Descent algorithm aka Lasso Shooting
 
 License:          LGPL-3

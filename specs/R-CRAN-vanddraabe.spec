@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Identification and Statistical Analysis of Conserved Waters NearProteins
 
 License:          MIT + file LICENSE

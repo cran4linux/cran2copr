@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Temporal Process Regression
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.94.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Linear Classification with Online Adaptation of CoordinateFrequencies
 
 License:          GPL-2

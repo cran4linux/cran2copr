@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          General-Purpose Optimisation With the Self-Organising MigratingAlgorithm
 
 License:          GPL-2

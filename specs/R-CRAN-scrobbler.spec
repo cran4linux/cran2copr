@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Download 'Scrobbles' from 'Last.fm'
 
 License:          GPL-3

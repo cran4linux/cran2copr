@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Computing F-Statistics from Pool-Seq Data
 
 License:          GPL (>= 2)

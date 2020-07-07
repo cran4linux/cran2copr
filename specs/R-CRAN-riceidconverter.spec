@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Convert Biological ID from RAP or MSU to SYMBOL for Oryza Sativa
 
 License:          Artistic-2.0

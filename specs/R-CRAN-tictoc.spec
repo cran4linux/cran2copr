@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functions for timing R scripts, as well as implementations ofStack and List structures.
 
 License:          Apache License (== 2.0) | file LICENSE

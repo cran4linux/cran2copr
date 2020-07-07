@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generalized Mass Spectrum Missing Peaks Abundance Imputation
 
 License:          GPL (>= 2)

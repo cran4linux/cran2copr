@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Nonparametric Methods for Generating High Quality ComparativeEffectiveness Evidence
 
 License:          Apache License 2.0 | file LICENSE

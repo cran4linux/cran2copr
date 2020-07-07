@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast Creation of Dummy (Binary) Columns and Rows fromCategorical Variables
 
 License:          MIT + file LICENSE

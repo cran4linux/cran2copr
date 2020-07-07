@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.9
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Kaplan-Meier Plot with 'ggplot2'
 
 License:          Apache License 2.0

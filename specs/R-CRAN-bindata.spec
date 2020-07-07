@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.19
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Generation of Artificial Binary Data
 
 License:          GPL-2

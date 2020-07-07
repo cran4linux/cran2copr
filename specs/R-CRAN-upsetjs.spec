@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          'HTMLWidget' Wrapper of 'UpSet.js' for Exploring Large SetIntersections
 
 License:          AGPL-3 | file LICENSE

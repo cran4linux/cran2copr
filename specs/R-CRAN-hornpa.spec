@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Horn's (1965) Test to Determine the Number of Components/Factors
 
 License:          GPL-3

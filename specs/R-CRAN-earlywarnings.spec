@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.59
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Early Warning Signals Toolbox for Detecting Critical Transitionsin Timeseries
 
 License:          FreeBSD

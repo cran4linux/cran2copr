@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Flexible and Coherent Test/Estimation Procedure Based onRestricted Mean Survival Times
 
 License:          GPL-2

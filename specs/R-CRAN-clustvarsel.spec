@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Variable Selection for Gaussian Model-Based Clustering
 
 License:          GPL (>= 2)

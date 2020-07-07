@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Models for Drying and Soaking Kinetics of Seeds
 
 License:          GPL (>= 2)

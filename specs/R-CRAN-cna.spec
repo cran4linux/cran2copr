@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Causal Modeling with Coincidence Analysis
 
 License:          GPL (>= 2)

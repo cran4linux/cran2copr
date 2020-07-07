@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Continual Reassessment Method for Phase IDose-Escalation Trials
 
 License:          GPL (>= 2)

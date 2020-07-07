@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Meta-Analysis for Diagnostic Test Studies
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.55
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Quantile Regression
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tropical Fisheries Analysis
 
 License:          GPL-3

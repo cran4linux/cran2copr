@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Amazon Web Services Security, Identity, & Compliance APIs
 
 License:          Apache License (>= 2.0)

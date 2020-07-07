@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Regularized Model with Selecting the Number of Non-Zeros
 
 License:          GPL (>= 2)

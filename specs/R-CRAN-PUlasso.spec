@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          High-Dimensional Variable Selection with Presence-Only Data
 
 License:          GPL-2

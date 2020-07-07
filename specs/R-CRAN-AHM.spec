@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Additive Heredity Model: Method for the Mixture-of-MixturesExperiments
 
 License:          GPL-3

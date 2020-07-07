@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fitting 'Maxent' Species Distribution Models with 'glmnet'
 
 License:          MIT + file LICENSE

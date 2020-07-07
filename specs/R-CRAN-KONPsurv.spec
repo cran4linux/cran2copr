@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          KONP Tests: Powerful K-Sample Tests for Right-Censored Data
 
 License:          GPL (>= 2)

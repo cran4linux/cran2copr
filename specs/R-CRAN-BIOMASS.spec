@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Estimating Aboveground Biomass and Its Uncertainty in TropicalForests
 
 License:          GPL-2

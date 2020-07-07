@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          T-Distributed Stochastic Neighbor Embedding using a Barnes-HutImplementation
 
 License:          file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Visualizing Hypothesis Tests in Multivariate Linear Models
 
 License:          GPL (>= 2)

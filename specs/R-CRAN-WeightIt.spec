@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Weighting for Covariate Balance in Observational Studies
 
 License:          GPL (>= 2)

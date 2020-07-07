@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Shiny User Interface for Multiple Source Capture RecaptureModels
 
 License:          MIT + file LICENCE

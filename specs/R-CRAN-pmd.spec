@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Paired Mass Distance Analysis for GC/LC-MS Based Non-TargetedAnalysis
 
 License:          GPL-2

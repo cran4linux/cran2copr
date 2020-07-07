@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Kolmogorov-Zurbenko Spatial Smoothing and Applications
 
 License:          GPL (>= 2)

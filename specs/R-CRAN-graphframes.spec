@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Interface for 'GraphFrames'
 
 License:          Apache License 2.0 | file LICENSE

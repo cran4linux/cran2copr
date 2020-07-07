@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          MOPSOCD: Multi-objective Particle Swarm Optimization withCrowding Distance
 
 License:          GPL (>= 2)

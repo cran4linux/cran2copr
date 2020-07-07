@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.16.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Unified Handling of Graphics Devices
 
 License:          LGPL (>= 2.1)

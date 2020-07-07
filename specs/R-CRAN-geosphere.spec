@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.10
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Spherical Trigonometry
 
 License:          GPL (>= 3)

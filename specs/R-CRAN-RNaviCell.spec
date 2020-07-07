@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Visualization of High-Throughput Data on Large-Scale BiologicalNetworks
 
 License:          LGPL-2.1 | file LICENSE

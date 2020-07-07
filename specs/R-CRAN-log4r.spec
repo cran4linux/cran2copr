@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          A Fast and Lightweight Logging System for R, Based on 'log4j'
 
 License:          Artistic-2.0

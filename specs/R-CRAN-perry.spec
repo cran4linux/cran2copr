@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Resampling-based prediction error estimation for regressionmodels
 
 License:          GPL (>= 2)

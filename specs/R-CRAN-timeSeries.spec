@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3062.100
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Financial Time Series Objects (Rmetrics)
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Simple Unified Interface to Read Bitmap Images(BMP,JPEG,PNG,TIFF)
 
 License:          GPL (>= 2)

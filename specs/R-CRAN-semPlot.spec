@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Path Diagrams and Visual Analysis of Various SEM Packages'Output
 
 License:          GPL-2

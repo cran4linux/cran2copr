@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Antimicrobial Resistance Analysis
 
 License:          GPL-2 | file LICENSE

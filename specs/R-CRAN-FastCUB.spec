@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fast EM and Best-Subset Selection for CUB Models for Rating Data
 
 License:          GPL-2 | GPL-3

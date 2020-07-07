@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Data for "Forecasting: Principles and Practice" (3rd Edition)
 
 License:          GPL-3

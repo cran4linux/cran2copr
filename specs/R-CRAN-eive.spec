@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          An Algorithm for Reducing Errors-in-Variable Bias in SimpleLinear Regression
 
 License:          GPL

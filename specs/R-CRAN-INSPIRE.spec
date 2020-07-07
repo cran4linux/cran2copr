@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Inferring Shared Modules from Multiple Gene Expression Datasetswith Partially Overlapping Gene Sets
 
 License:          GPL (>= 2)

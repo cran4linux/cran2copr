@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Web-Processing of Large Gridded Datasets
 
 License:          CC0

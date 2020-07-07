@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Nonparametric kernel estimation of the distribution function.Bandwidth selection and estimation of related functions.
 
 License:          GPL (>= 2)

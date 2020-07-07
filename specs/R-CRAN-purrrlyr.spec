@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Tools at the Intersection of 'purrr' and 'dplyr'
 
 License:          GPL-3 | file LICENSE

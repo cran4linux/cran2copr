@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.12
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Bayesian Graphical Estimation using Spike-and-Slab Priors
 
 License:          GPL (>= 2)

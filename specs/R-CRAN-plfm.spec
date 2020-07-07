@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Probabilistic Latent Feature Analysis
 
 License:          GPL (>= 2)

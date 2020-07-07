@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.60
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Aids in Processing and Plotting Data from a Lemna-TecScananalyzer
 
 License:          GPL (>= 2)

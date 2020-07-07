@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Markov Beta and Gamma Processes for Modeling Hazard Rates
 
 License:          GPL (>= 2)

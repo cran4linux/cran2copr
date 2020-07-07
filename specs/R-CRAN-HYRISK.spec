@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Hybrid Methods for Addressing Uncertainty in RISK Assessments
 
 License:          GPL-3

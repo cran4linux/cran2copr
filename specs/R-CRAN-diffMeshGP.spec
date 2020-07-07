@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multi-Fidelity Computer Experiments Using the Tuo-Wu-Yu Model
 
 License:          GPL (>= 2)

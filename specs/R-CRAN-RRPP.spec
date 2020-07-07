@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Linear Model Evaluation with Randomized Residuals in aPermutation Procedure
 
 License:          GPL (>= 2)

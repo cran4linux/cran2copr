@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Automatic Shift Detection using a Phylogenetic EM
 
 License:          GPL (>= 2) | file LICENSE

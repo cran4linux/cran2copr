@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.5.20
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Kernel Based Regression Models
 
 License:          GPL-2

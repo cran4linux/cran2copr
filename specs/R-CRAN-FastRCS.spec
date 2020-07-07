@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fits the FastRCS Robust Multivariable Linear Regression Model
 
 License:          GPL (>= 2)

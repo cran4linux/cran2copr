@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.55
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Chronological Objects which can Handle Dates and Times
 
 License:          GPL-2
