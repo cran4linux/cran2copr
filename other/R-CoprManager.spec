@@ -4,7 +4,7 @@
 
 Name:           R-%{packname}
 Version:        0.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
