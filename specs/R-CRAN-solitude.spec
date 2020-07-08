@@ -1,10 +1,10 @@
 %global packname  solitude
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}
+Version:          1.0.1
+Release:          1%{?dist}
 Summary:          An Implementation of Isolation Forest
 
 License:          GPL-3
@@ -18,11 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.0
 BuildRequires:    R-CRAN-igraph >= 1.2.2
 BuildRequires:    R-CRAN-data.table >= 1.11.4
+BuildRequires:    R-CRAN-lgr >= 0.3.4
 BuildRequires:    R-CRAN-future.apply >= 0.2.0
 BuildRequires:    R-CRAN-ranger >= 0.10.0
 Requires:         R-CRAN-R6 >= 2.4.0
 Requires:         R-CRAN-igraph >= 1.2.2
 Requires:         R-CRAN-data.table >= 1.11.4
+Requires:         R-CRAN-lgr >= 0.3.4
 Requires:         R-CRAN-future.apply >= 0.2.0
 Requires:         R-CRAN-ranger >= 0.10.0
 

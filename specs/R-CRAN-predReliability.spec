@@ -1,30 +1,34 @@
-%global packname  lcmm
-%global packver   1.9.2
+%global packname  predReliability
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Extended Mixed Models Using Latent Classes and Latent Processes
+Summary:          Estimates Reliability of Individual Supervised LearningPredictions
 
-License:          GPL (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-survival >= 2.37.2
+BuildRequires:    R-devel >= 3.3.2
+Requires:         R-core >= 3.3.2
+BuildArch:        noarch
 BuildRequires:    R-parallel 
-Requires:         R-survival >= 2.37.2
+BuildRequires:    R-cluster 
+BuildRequires:    R-rpart 
 Requires:         R-parallel 
+Requires:         R-cluster 
+Requires:         R-rpart 
 
 %description
-Estimation of various extensions of the mixed models including latent
-class mixed models, joint latent latent class mixed models and mixed
-models for curvilinear univariate or multivariate longitudinal outcomes
-using a maximum likelihood estimation method (Proust-Lima, Philipps,
-Liquet (2017) <doi:10.18637/jss.v078.i02>).
+An implementation of reliability estimation methods described in the paper
+(Bosnic, Z., & Kononenko, I. (2008) <doi:10.1007/s10489-007-0084-9>),
+which allows you to test the reliability of a single predicted instance
+made by your model and prediction function. It also allows you to make a
+correlation test to estimate which reliability estimate is the most
+accurate for your model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  varTestnlme
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}
 Summary:          Variance Components Testing for Linear and Nonlinear MixedEffects Models
 
 License:          GPL (>= 2)
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-lmeresampler 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-alabama 
 Requires:         R-Matrix 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-methods 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
+Requires:         R-CRAN-lmeresampler 
 
 %description
 An implementation of the Likelihood ratio Test (LRT) for testing that, in
@@ -71,9 +73,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

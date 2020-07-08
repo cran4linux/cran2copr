@@ -1,10 +1,10 @@
 %global packname  logr
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
-Release:          2%{?dist}
+Version:          1.0.5
+Release:          1%{?dist}
 Summary:          Creates Log Files
 
 License:          CC0

@@ -1,10 +1,10 @@
 %global packname  safedata
-%global packver   1.0.1
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
-Release:          3%{?dist}
+Version:          1.0.5
+Release:          1%{?dist}
 Summary:          Interface to Data from the SAFE Project
 
 License:          GPL-3
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-chron 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-igraph 
 
 %description
 The SAFE Project (<https://www.safeproject.net/>) is a large scale
@@ -38,6 +40,8 @@ discover and load that data into R.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -45,18 +49,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/safedata_example_dir
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

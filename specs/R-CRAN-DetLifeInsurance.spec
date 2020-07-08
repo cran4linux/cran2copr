@@ -1,13 +1,13 @@
-%global packname  florestal
-%global packver   0.1.1
+%global packname  DetLifeInsurance
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
-Summary:          Results for Forest Inventories
+Summary:          Life Insurance Premium and Reserves Valuation
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,27 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-BiodiversityR 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-BiodiversityR 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 
 %description
-The functions return sampling parameters for forest inventories with
-tables and graphics. Methods used in the package refers to Pellico e Brena
-(1997) <https://bit.ly/2BDbHJI>.
+Methods for valuation of life insurance premiums and reserves (including
+variable-benefit and fractional coverage) based on "Actuarial Mathematics"
+by Bowers, H.U. Gerber, J.C. Hickman, D.A. Jones and C.J. Nesbitt (1997,
+ISBN: 978-0938959465), "Actuarial Mathematics for Life Contingent Risks"
+by Dickson, David C. M., Hardy, Mary R. and Waters, Howard R (2009)
+<doi:10.1017/CBO9780511800146> and "Life Contingencies" by Jordan, C. W
+(1952) <doi:10.1017/S002026810005410X>. It also contains functions for
+equivalent interest and discount rate calculation, present and future
+values of annuities, and loan amortization schedule.
 
 %prep
 %setup -q -c -n %{packname}

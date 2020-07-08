@@ -1,10 +1,10 @@
 %global packname  simplevis
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
-Release:          2%{?dist}
+Version:          1.5.0
+Release:          1%{?dist}
 Summary:          Simple Visualisation with 'ggplot2' and 'leaflet' Wrappers
 
 License:          MIT + file LICENSE
@@ -21,9 +21,9 @@ BuildRequires:    R-CRAN-leaflet >= 2.0.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-sf >= 0.8.0
+BuildRequires:    R-CRAN-sf >= 0.9.0
+BuildRequires:    R-CRAN-stars >= 0.4.1
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-stars >= 0.4.0
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-htmltools 
@@ -48,9 +48,9 @@ Requires:         R-CRAN-leaflet >= 2.0.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-sf >= 0.8.0
+Requires:         R-CRAN-sf >= 0.9.0
+Requires:         R-CRAN-stars >= 0.4.1
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-stars >= 0.4.0
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-htmltools 
@@ -92,9 +92,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

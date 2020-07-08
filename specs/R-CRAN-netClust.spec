@@ -1,10 +1,10 @@
 %global packname  netClust
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
-Release:          2%{?dist}
+Version:          1.0.1
+Release:          1%{?dist}
 Summary:          Model-Based Clustering of Network Data
 
 License:          GPL (>= 2)

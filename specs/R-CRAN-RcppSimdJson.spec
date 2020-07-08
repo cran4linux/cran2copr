@@ -1,10 +1,10 @@
 %global packname  RcppSimdJson
-%global packver   0.0.6
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
-Release:          2%{?dist}
+Version:          0.1.0
+Release:          1%{?dist}
 Summary:          'Rcpp' Bindings for the 'simdjson' Header-Only Library for'JSON' Parsing
 
 License:          GPL (>= 2)
@@ -15,7 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
 
 %description
 The 'JSON' format is ubiquitous for data interchange, and the 'simdjson'

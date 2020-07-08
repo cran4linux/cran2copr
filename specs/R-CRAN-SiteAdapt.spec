@@ -1,13 +1,13 @@
-%global packname  florestal
-%global packver   0.1.1
+%global packname  SiteAdapt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Results for Forest Inventories
+Summary:          Site Adaptation of Solar Irradiance Modeled Series
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,27 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glmulti 
+BuildRequires:    R-CRAN-solaR 
+BuildRequires:    R-CRAN-hyfo 
+BuildRequires:    R-CRAN-hydroGOF 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-BiodiversityR 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-glmulti 
+Requires:         R-CRAN-solaR 
+Requires:         R-CRAN-hyfo 
+Requires:         R-CRAN-hydroGOF 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-BiodiversityR 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-stats 
 
 %description
-The functions return sampling parameters for forest inventories with
-tables and graphics. Methods used in the package refers to Pellico e Brena
-(1997) <https://bit.ly/2BDbHJI>.
+The SiteAdapt procedure improves the accuracy of modeled solar irradiance
+series through site-adaptation with coincident ground-based measurements
+relying on the use of a regression preprocessing followed by an empirical
+quantile mapping (eQM) correction. Fernandez-Peruchena et al (2020)
+<doi:10.3390/rs12132127>.
 
 %prep
 %setup -q -c -n %{packname}

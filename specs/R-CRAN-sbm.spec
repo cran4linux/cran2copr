@@ -1,11 +1,11 @@
-%global packname  florestal
-%global packver   0.1.1
+%global packname  sbm
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Results for Forest Inventories
+Summary:          Stochastic Blockmodels
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,28 +14,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-blockmodels 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-BiodiversityR 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-blockmodels 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-BiodiversityR 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 
 %description
-The functions return sampling parameters for forest inventories with
-tables and graphics. Methods used in the package refers to Pellico e Brena
-(1997) <https://bit.ly/2BDbHJI>.
+A collection of tools and function to adjust a variety of stochastic
+blockmodels (SBM). Support at the moment Simple and Bipartite SBM
+(undirected and directed) for Bernoulli, Poisson and Gaussian emission
+laws of the edges as described in Léger, 2016 <arxiv:1602.07587>.
 
 %prep
 %setup -q -c -n %{packname}

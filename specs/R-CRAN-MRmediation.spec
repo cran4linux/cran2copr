@@ -1,29 +1,34 @@
-%global packname  AsioHeaders
-%global packver   1.16.1-1
+%global packname  MRmediation
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16.1.1
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          'Asio' C++ Header Files
+Summary:          A Causal Mediation Method with Methylated Region (MR) as theMediator
 
-License:          BSL-1.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-MASS 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-fda 
+Requires:         R-MASS 
+Requires:         R-stats 
 
 %description
-'Asio' is a cross-platform C++ library for network and low-level I/O
-programming that provides developers with a consistent asynchronous model
-using a modern C++ approach. It is also included in Boost but requires
-linking when used with Boost. Standalone it can be used header-only
-(provided a recent compiler). 'Asio' is written and maintained by
-Christopher M. Kohlhoff, and released under the 'Boost Software License',
-Version 1.0.
+A causal mediation approach under the counterfactual framework to test the
+significance of total, direct and indirect effects. In this approach, a
+group of methylated sites from a predefined region are utilized as the
+mediator, and the functional transformation is used to reduce the possible
+high dimension in the region-based methylated sites and account for their
+location information.
 
 %prep
 %setup -q -c -n %{packname}

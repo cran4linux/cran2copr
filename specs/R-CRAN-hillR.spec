@@ -1,10 +1,10 @@
 %global packname  hillR
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
-Release:          3%{?dist}
+Version:          0.5.0
+Release:          1%{?dist}
 Summary:          Diversity Through Hill Numbers
 
 License:          MIT + file LICENSE
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-geiger 
 Requires:         R-CRAN-FD 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-geiger 
 
 %description
 Calculate taxonomic, functional and phylogenetic diversity measures
@@ -34,6 +36,9 @@ through Hill Numbers proposed by Chao, Chiu and Jost (2014)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -41,19 +46,9 @@ through Hill Numbers proposed by Chao, Chiu and Jost (2014)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
