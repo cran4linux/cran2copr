@@ -1,10 +1,10 @@
 %global packname  RcppCWB
-%global packver   0.2.10
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
-Release:          2%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}
 Summary:          'Rcpp' Bindings for the 'Corpus Workbench' ('CWB')
 
 License:          GPL-3
@@ -28,7 +28,7 @@ indexing and query engine to efficiently analyze large corpora
 (<http://cwb.sourceforge.net>). 'RcppCWB' is licensed under the GNU GPL-3,
 in line with the GPL-3 license of the 'CWB'
 (<https://www.r-project.org/Licenses/GPL-3>). The 'CWB' relies on 'pcre'
-(BSD license, see <https://www.pcre.org/licence.txt>) and 'GLib' (LGPL
+(BSD license, see <http://www.pcre.org/licence.txt>) and 'GLib' (LGPL
 license, see <https://www.gnu.org/licenses/lgpl-3.0.en.html>). See the
 file LICENSE.note for further information. The package includes modified
 code of the 'rcqp' package (GPL-2, see

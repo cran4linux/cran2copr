@@ -1,10 +1,10 @@
 %global packname  WaterML
-%global packver   1.9.0
+%global packver   1.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
-Release:          3%{?dist}
+Version:          1.9.5
+Release:          1%{?dist}
 Summary:          Fetch and Analyze Data from 'WaterML' and 'WaterOneFlow' WebServices
 
 License:          MIT + file LICENSE
@@ -39,12 +39,18 @@ Show what variables, methods and quality control levels are available at
 the specific site. GetValues(): Given a site code, variable code, start
 time and end time, fetch a data.frame of all the observation time series
 data values. The GetValues() function can also parse 'WaterML' data from a
-custom URL or from a local file.
+custom URL or from a local file. The package also has five data upload
+functions: AddSites(), AddVariables(), AddMethods(), AddSources(), and
+AddValues(). These functions can be used for uploading data to a
+'HydroServer Lite' Observations Data Model ('ODM') database via the 'JSON'
+data upload web service interface.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -52,19 +58,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

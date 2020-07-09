@@ -1,11 +1,11 @@
 %global packname  pspline.inference
-%global packver   0.23
+%global packver   0.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23
-Release:          2%{?dist}
-Summary:          Estimation of Non-Linear Outcomes of Infectious DiseaseOutbreaks using Generalized Additive Modeling with PenalizedBasis Splines
+Version:          0.24
+Release:          1%{?dist}
+Summary:          Estimation of Characteristics of Seasonal and SporadicInfectious Disease Outbreaks Using Generalized AdditiveModeling with Penalized Basis Splines
 
 License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,8 +37,8 @@ Requires:         R-CRAN-plotrix
 Requires:         R-CRAN-rlang 
 
 %description
-Stochastic inference of non-linear outcomes of infectious disease
-outbreaks using generalized additive (mixed) models.
+Stochastic inference of infectious disease outcomes using generalized
+additive (mixed) models.
 
 %prep
 %setup -q -c -n %{packname}

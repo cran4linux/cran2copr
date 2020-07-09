@@ -1,10 +1,10 @@
 %global packname  ForestFit
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
-Release:          2%{?dist}
+Version:          0.6.1
+Release:          1%{?dist}
 Summary:          Statistical Modelling for Plant Size Distributions
 
 License:          GPL (>= 2)
@@ -21,26 +21,27 @@ Requires:         R-CRAN-ars
 Requires:         R-CRAN-pracma 
 
 %description
-Developed for the following tasks. I ) Computing the probability density
+Developed for the following tasks. 1 ) Computing the probability density
 function, cumulative distribution function, random generation, and
-estimating the parameters of the eleven mixture models. II ) Point
+estimating the parameters of the eleven mixture models. 2 ) Point
 estimation of the parameters of two - parameter Weibull distribution using
 twelve methods and three - parameter Weibull distribution using nine
-methods. III ) The Bayesian estimators of the three - parameter Weibull
-distribution. IV ) Estimating parameters of the three - parameter Birnbaum
+methods. 3 ) The Bayesian inference for the three - parameter Weibull
+distribution. 4 ) Estimating parameters of the three - parameter Birnbaum
 - Saunders, generalized exponential, and Weibull distributions fitted to
 grouped data using three methods including approximated maximum
-likelihood, expectation maximization, and maximum likelihood. V )
+likelihood, expectation maximization, and maximum likelihood. 5 )
 Estimating the parameters of the gamma, log-normal, and Weibull mixture
-models fitted to the grouped data through the EM algorithm, VI )
-Estimating parameters of the nonlinear height curve fitted to the height -
-diameter observation, VII ) Estimating parameters, computing probability
-density function, cumulative distribution function, and generating
-realizations from gamma shape mixture model introduced by Venturini et al.
-(2008) <doi:10.1214/07-AOAS156> , VIII ) Computing probability density
+models fitted to the grouped data through the EM algorithm, 6 ) Estimating
+parameters of the nonlinear height curve fitted to the height - diameter
+observation, 7 ) Estimating parameters, computing probability density
 function, cumulative distribution function, and generating realizations
-from four-parameter Johnson's SB distribution, and VIIII ) Robust multiple
-linear regression analysis when error term follows skewed t distribution.
+from gamma shape mixture model introduced by Venturini et al. (2008)
+<doi:10.1214/07-AOAS156> , 8 ) The Bayesian inference, computing
+probability density function, cumulative distribution function, and
+generating realizations from four - parameter Johnson SB distribution, and
+9 ) Robust multiple linear regression analysis when error term follows
+skewed t distribution.
 
 %prep
 %setup -q -c -n %{packname}

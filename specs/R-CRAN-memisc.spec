@@ -1,10 +1,10 @@
 %global packname  memisc
-%global packver   0.99.25.5
+%global packver   0.99.25.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.25.5
-Release:          2%{?dist}
+Version:          0.99.25.6
+Release:          1%{?dist}
 Summary:          Management of Survey Data and Presentation of Analysis Results
 
 License:          GPL-2

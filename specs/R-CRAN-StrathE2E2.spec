@@ -1,11 +1,11 @@
-%global packname  doBy
-%global packver   4.6.7
+%global packname  StrathE2E2
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.7
+Version:          3.1.0
 Release:          1%{?dist}
-Summary:          Groupwise Statistics, LSmeans, Linear Contrasts, Utilities
+Summary:          End-to-End Marine Food Web Model
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,32 +14,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-pbkrtest >= 0.4.8.1
+BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-methods 
-BuildRequires:    R-MASS 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Deriv 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-pbkrtest >= 0.4.8.1
+BuildRequires:    R-CRAN-NetIndices 
+Requires:         R-CRAN-deSolve 
 Requires:         R-methods 
-Requires:         R-MASS 
-Requires:         R-Matrix 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Deriv 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-NetIndices 
 
 %description
-Contains: 1) Facilities for working with grouped data: 'do' something to
-data stratified 'by' some variables. 2) LSmeans (least-squares means),
-general linear contrasts. 3) Miscellaneous other utilities.
+A dynamic model of the big-picture, whole ecosystem effects of
+hydrodynamics, temperature, nutrients, and fishing on continental shelf
+marine food webs. The package has been developed from a prototype
+described in: Heath, M.R. (2012) <doi:10.1016/j.pocean.2012.03.004>
+Ecosystem limits to food web fluxes and fisheries yields in the North Sea
+simulated with an end-to-end food web model. Progress in Oceanography
+(Special issue: End-to-end modelling: Towards Comparative Analysis of
+Marine Ecosystem Organisation) 102, 42-66.
 
 %prep
 %setup -q -c -n %{packname}

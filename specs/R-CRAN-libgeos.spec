@@ -1,35 +1,25 @@
-%global packname  worrms
-%global packver   0.4.2
+%global packname  libgeos
+%global packver   3.8.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          3.8.1.0
 Release:          1%{?dist}
-Summary:          World Register of Marine Species (WoRMS) Client
+Summary:          Open Source Geometry Engine ('GEOS') C API
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 1.2
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-CRAN-crul >= 0.6.0
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-tibble >= 1.2
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-CRAN-crul >= 0.6.0
-Requires:         R-CRAN-data.table 
 
 %description
-Client for World Register of Marine Species
-(<http://www.marinespecies.org/>). Includes functions for each of the API
-methods, including searching for names by name, date and common names,
-searching using external identifiers, fetching synonyms, as well as
-fetching taxonomic children and taxonomic classification.
+Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
+used to write high-performance C and C++ geometry operations using R as an
+interface. Headers are provided to make linking to and using these
+functions from C++ code as easy and as safe as possible.
 
 %prep
 %setup -q -c -n %{packname}

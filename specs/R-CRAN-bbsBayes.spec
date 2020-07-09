@@ -1,10 +1,10 @@
 %global packname  bbsBayes
-%global packver   2.3.2.2020
+%global packver   2.3.3.2020
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2.2020
-Release:          2%{?dist}
+Version:          2.3.3.2020
+Release:          1%{?dist}
 Summary:          Hierarchical Bayesian Analysis of North American BBS Data
 
 License:          MIT + file LICENSE

@@ -1,33 +1,25 @@
-%global packname  googleVis
-%global packver   0.6.6
+%global packname  npregderiv
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          1.0
 Release:          1%{?dist}
-Summary:          R Interface to Google Charts
+Summary:          Nonparametric Estimation of the Derivatives of a RegressionFunction
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
 
 %description
-R interface to Google's chart tools, allowing users to create interactive
-charts based on data frames. Charts are displayed locally via the R HTTP
-help server. A modern browser with an Internet connection is required and
-for some charts a Flash player. The data remains local and is not uploaded
-to Google.
+Estimating the first and second derivatives of a regression function by
+the method of Wang and Lin (2015)
+<http://www.jmlr.org/papers/v16/wang15b.html>.
 
 %prep
 %setup -q -c -n %{packname}

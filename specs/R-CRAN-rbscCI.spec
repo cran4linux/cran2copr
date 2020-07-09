@@ -1,35 +1,28 @@
-%global packname  worrms
-%global packver   0.4.2
+%global packname  rbscCI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          World Register of Marine Species (WoRMS) Client
+Summary:          Blyth-Still-Casella Confidence Interval
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 1.2
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-CRAN-crul >= 0.6.0
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-tibble >= 1.2
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-CRAN-crul >= 0.6.0
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Client for World Register of Marine Species
-(<http://www.marinespecies.org/>). Includes functions for each of the API
-methods, including searching for names by name, date and common names,
-searching using external identifiers, fetching synonyms, as well as
-fetching taxonomic children and taxonomic classification.
+Provides a fast calculation of the Blyth-Still-Casella confidence
+interval. The implementation follows the 'StatXact' 9 manual (Cytel 2010)
+and "Refining Binomial Confidence Intervals" by George Casella (1986)
+<doi:10.2307/3314658>.
 
 %prep
 %setup -q -c -n %{packname}

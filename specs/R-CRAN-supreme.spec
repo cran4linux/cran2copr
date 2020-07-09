@@ -1,35 +1,36 @@
-%global packname  worrms
-%global packver   0.4.2
+%global packname  supreme
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.1.0
 Release:          1%{?dist}
-Summary:          World Register of Marine Species (WoRMS) Client
+Summary:          Modeling Tool for 'Shiny' Applications Developed with Modules
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 1.2
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-CRAN-crul >= 0.6.0
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-tibble >= 1.2
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-CRAN-crul >= 0.6.0
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-yaml >= 2.2.0
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-nomnoml 
+Requires:         R-CRAN-yaml >= 2.2.0
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-nomnoml 
 
 %description
-Client for World Register of Marine Species
-(<http://www.marinespecies.org/>). Includes functions for each of the API
-methods, including searching for names by name, date and common names,
-searching using external identifiers, fetching synonyms, as well as
-fetching taxonomic children and taxonomic classification.
+A modeling tool helping users better structure 'Shiny' applications
+developed with 'Shiny' modules. Users are able to: 1. Visualize
+relationship of modules in existing applications 2. Design new
+applications from scratch.
 
 %prep
 %setup -q -c -n %{packname}

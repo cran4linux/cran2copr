@@ -1,10 +1,10 @@
 %global packname  reda
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
-Release:          2%{?dist}
+Version:          0.5.2
+Release:          1%{?dist}
 Summary:          Recurrent Event Data Analysis
 
 License:          GPL (>= 3)

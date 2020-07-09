@@ -1,10 +1,10 @@
 %global packname  tune
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          3%{?dist}
+Version:          0.1.1
+Release:          1%{?dist}
 Summary:          Tidy Tuning Tools
 
 License:          MIT + file LICENSE
@@ -17,9 +17,10 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-cli >= 2.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-recipes >= 0.1.9
 BuildRequires:    R-CRAN-workflows >= 0.1.0
 BuildRequires:    R-CRAN-hardhat >= 0.1.0
@@ -37,9 +38,10 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-cli >= 2.0.0
-Requires:         R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.2
+Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-recipes >= 0.1.9
 Requires:         R-CRAN-workflows >= 0.1.0
 Requires:         R-CRAN-hardhat >= 0.1.0
@@ -66,6 +68,8 @@ methods, and post-processing steps.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -73,21 +77,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,10 +1,10 @@
 %global packname  stars
-%global packver   0.4-2
+%global packver   0.4-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
-Release:          2%{?dist}
+Version:          0.4.3
+Release:          1%{?dist}
 Summary:          Spatiotemporal Arrays, Raster and Vector Data Cubes
 
 License:          Apache License

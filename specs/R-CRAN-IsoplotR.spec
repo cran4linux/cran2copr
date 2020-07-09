@@ -1,10 +1,10 @@
 %global packname  IsoplotR
-%global packver   3.3
+%global packver   3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3
-Release:          3%{?dist}
+Version:          3.4
+Release:          1%{?dist}
 Summary:          Statistical Toolbox for Radiometric Geochronology
 
 License:          GPL-3
@@ -41,6 +41,8 @@ plots.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -48,68 +50,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/ArAr1.csv
-%doc %{rlibdir}/%{packname}/ArAr2.csv
-%doc %{rlibdir}/%{packname}/ArAr3.csv
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/constants.json
-%doc %{rlibdir}/%{packname}/diseq.csv
-%doc %{rlibdir}/%{packname}/DZ.csv
-%doc %{rlibdir}/%{packname}/FT1.csv
-%doc %{rlibdir}/%{packname}/FT2.csv
-%doc %{rlibdir}/%{packname}/FT3.csv
-%doc %{rlibdir}/%{packname}/KCa1.csv
-%doc %{rlibdir}/%{packname}/KCa2.csv
-%doc %{rlibdir}/%{packname}/KCa3.csv
-%doc %{rlibdir}/%{packname}/LudwigKDE.csv
-%doc %{rlibdir}/%{packname}/LudwigMean.csv
-%doc %{rlibdir}/%{packname}/LudwigMixture.csv
-%doc %{rlibdir}/%{packname}/LudwigSpectrum.csv
-%doc %{rlibdir}/%{packname}/LuHf1.csv
-%doc %{rlibdir}/%{packname}/LuHf2.csv
-%doc %{rlibdir}/%{packname}/LuHf3.csv
-%doc %{rlibdir}/%{packname}/PbPb1.csv
-%doc %{rlibdir}/%{packname}/PbPb2.csv
-%doc %{rlibdir}/%{packname}/PbPb3.csv
-%doc %{rlibdir}/%{packname}/RbSr1.csv
-%doc %{rlibdir}/%{packname}/RbSr2.csv
-%doc %{rlibdir}/%{packname}/RbSr3.csv
-%doc %{rlibdir}/%{packname}/ReOs1.csv
-%doc %{rlibdir}/%{packname}/ReOs2.csv
-%doc %{rlibdir}/%{packname}/ReOs3.csv
-%doc %{rlibdir}/%{packname}/SmNd1.csv
-%doc %{rlibdir}/%{packname}/SmNd2.csv
-%doc %{rlibdir}/%{packname}/SmNd3.csv
-%doc %{rlibdir}/%{packname}/ThPb1.csv
-%doc %{rlibdir}/%{packname}/ThPb2.csv
-%doc %{rlibdir}/%{packname}/ThPb3.csv
-%doc %{rlibdir}/%{packname}/ThU1.csv
-%doc %{rlibdir}/%{packname}/ThU2.csv
-%doc %{rlibdir}/%{packname}/ThU3.csv
-%doc %{rlibdir}/%{packname}/ThU4.csv
-%doc %{rlibdir}/%{packname}/UPb1.csv
-%doc %{rlibdir}/%{packname}/UPb2.csv
-%doc %{rlibdir}/%{packname}/UPb3.csv
-%doc %{rlibdir}/%{packname}/UPb4.csv
-%doc %{rlibdir}/%{packname}/UPb41.csv
-%doc %{rlibdir}/%{packname}/UPb5.csv
-%doc %{rlibdir}/%{packname}/UPb6.csv
-%doc %{rlibdir}/%{packname}/UPb7.csv
-%doc %{rlibdir}/%{packname}/UTh1.csv
-%doc %{rlibdir}/%{packname}/UTh2.csv
-%doc %{rlibdir}/%{packname}/UThHe.csv
-%doc %{rlibdir}/%{packname}/UThSmHe.csv
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
