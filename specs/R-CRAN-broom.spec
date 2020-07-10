@@ -1,11 +1,11 @@
 %global packname  broom
-%global packver   0.5.6
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
-Release:          3%{?dist}
-Summary:          Convert Statistical Analysis Objects into Tidy Tibbles
+Version:          0.7.0
+Release:          1%{?dist}
+Summary:          Convert Statistical Objects into Tidy Tibbles
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,20 +19,22 @@ BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-generics >= 0.0.2
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
-BuildRequires:    R-nlme 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-generics >= 0.0.2
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-glue 
 Requires:         R-methods 
-Requires:         R-nlme 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 
@@ -50,6 +52,8 @@ observations to a dataset, such as fitted values or influence measures.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -57,21 +61,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

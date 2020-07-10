@@ -1,10 +1,10 @@
 %global packname  R.rsp
-%global packver   0.43.2
+%global packver   0.44.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.43.2
-Release:          3%{?dist}
+Version:          0.44.0
+Release:          1%{?dist}
 Summary:          Dynamic Generation of Scientific Reports
 
 License:          LGPL (>= 2.1)
@@ -16,23 +16,23 @@ BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R.methodsS3 >= 1.7.1
-BuildRequires:    R-CRAN-R.oo >= 1.22.0
+BuildRequires:    R-CRAN-R.oo >= 1.23.0
 BuildRequires:    R-CRAN-digest >= 0.6.13
-BuildRequires:    R-CRAN-R.cache >= 0.13.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-R.cache 
 Requires:         R-CRAN-R.methodsS3 >= 1.7.1
-Requires:         R-CRAN-R.oo >= 1.22.0
+Requires:         R-CRAN-R.oo >= 1.23.0
 Requires:         R-CRAN-digest >= 0.6.13
-Requires:         R-CRAN-R.cache >= 0.13.0
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-R.cache 
 
 %description
 The RSP markup language makes any text-based document come alive.  RSP
@@ -54,6 +54,9 @@ write an R script, you'll be up and running within minutes.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -61,29 +64,9 @@ write an R script, you'll be up and running within minutes.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%doc %{rlibdir}/%{packname}/exec
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/exData
-%doc %{rlibdir}/%{packname}/rsp
-%doc %{rlibdir}/%{packname}/rsp_encodings
-%doc %{rlibdir}/%{packname}/rsp_examples
-%doc %{rlibdir}/%{packname}/rsp_LoremIpsum
-%doc %{rlibdir}/%{packname}/rsp_tests
-%doc %{rlibdir}/%{packname}/rsp_tests_experimental
-%doc %{rlibdir}/%{packname}/rsp_tests_online
-%doc %{rlibdir}/%{packname}/tcl
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

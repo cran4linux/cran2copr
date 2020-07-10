@@ -1,10 +1,10 @@
 %global packname  growthPheno
-%global packver   1.0-22
+%global packver   1.0-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
-Release:          3%{?dist}
+Version:          1.0.26
+Release:          1%{?dist}
 Summary:          Plotting, Smoothing and Growth Trait Extraction for LongitudinalData
 
 License:          GPL (>= 2)
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dae 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-GGally 
@@ -27,6 +28,7 @@ BuildRequires:    R-grid
 Requires:         R-CRAN-dae 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-GGally 
@@ -46,15 +48,17 @@ extracted from longitudinal data, including single time-point smoothed
 trait values and their growth rates, interval growth rates and other
 growth statistics, such as maximum growth. The package is particularly
 suited to preparing data from high-throughput phenotyping facilities, such
-as imaging data from a Lemna-Tec Scananalyzer (see
-<https://www.lemnatec.com/products/conveyor-scanalyzer/> for more
-information). The package 'growthPheno' can also be installed from
+as imaging data from a Lemna-Tec Scananalyzer 3D (see
+<https://www.youtube.com/watch?v=MRAF_mAEa7E/> for more information). The
+package 'growthPheno' can also be installed from
 <http://chris.brien.name/rpackages/>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -62,20 +66,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/News.Rd
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

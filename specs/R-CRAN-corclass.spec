@@ -1,13 +1,13 @@
-%global packname  modgetxl
-%global packver   0.4
+%global packname  corclass
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.2
 Release:          1%{?dist}
-Summary:          A 'shiny' Module for Reading Excel Sheets
+Summary:          Correlational Class Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-readxl 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-readxl 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-igraph 
+Requires:         R-methods 
 
 %description
-This is a shiny module that presents a file picker user interface to get
-an Excel file name, and reads the Excel sheets using 'readxl' package and
-returns the resulting sheet(s) as a vector and data in dataframe(s).
+Perform a correlational class analysis of the data, resulting in a
+partition of the data into separate modules.
 
 %prep
 %setup -q -c -n %{packname}

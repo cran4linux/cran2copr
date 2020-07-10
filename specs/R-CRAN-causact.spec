@@ -1,10 +1,10 @@
 %global packname  causact
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          2%{?dist}
+Version:          0.3.2
+Release:          1%{?dist}
 Summary:          Accelerated Bayesian Analytics with DAGs
 
 License:          MIT + file LICENSE
@@ -52,7 +52,8 @@ modelling, visualization, and inference. Define probabilistic graphical
 models using directed acyclic graphs (DAGs) as a unifying language for
 business stakeholders, statisticians, and programmers. This package relies
 on the sleek and elegant 'greta' package for Bayesian inference. 'greta',
-in turn, is an interface into 'TensorFlow' from 'R'. See
+in turn, is an interface into 'TensorFlow' from 'R'. Install 'greta' using
+instructions available here: <http://causact.com/install-greta.html>. See
 <http://github.com/flyaflya/causact> or <http://causact.com> for more
 documentation.
 
@@ -69,9 +70,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

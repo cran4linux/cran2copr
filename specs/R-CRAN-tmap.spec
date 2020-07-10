@@ -1,10 +1,10 @@
 %global packname  tmap
-%global packver   3.0
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
-Release:          3%{?dist}
+Version:          3.1
+Release:          1%{?dist}
 Summary:          Thematic Maps
 
 License:          GPL-3
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tmaptools >= 3.0
+BuildRequires:    R-CRAN-tmaptools >= 3.1
 BuildRequires:    R-CRAN-leaflet >= 2.0.2
-BuildRequires:    R-CRAN-sf >= 0.9.1
+BuildRequires:    R-CRAN-sf >= 0.9.3
 BuildRequires:    R-CRAN-units >= 0.6.1
 BuildRequires:    R-CRAN-classInt >= 0.4.3
-BuildRequires:    R-CRAN-stars >= 0.4.1
+BuildRequires:    R-CRAN-stars >= 0.4.2
 BuildRequires:    R-CRAN-leafem >= 0.1
 BuildRequires:    R-methods 
 BuildRequires:    R-grid 
@@ -28,14 +28,16 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-widgetframe 
 BuildRequires:    R-CRAN-leafsync 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-tmaptools >= 3.0
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-tmaptools >= 3.1
 Requires:         R-CRAN-leaflet >= 2.0.2
-Requires:         R-CRAN-sf >= 0.9.1
+Requires:         R-CRAN-sf >= 0.9.3
 Requires:         R-CRAN-units >= 0.6.1
 Requires:         R-CRAN-classInt >= 0.4.3
-Requires:         R-CRAN-stars >= 0.4.1
+Requires:         R-CRAN-stars >= 0.4.2
 Requires:         R-CRAN-leafem >= 0.1
 Requires:         R-methods 
 Requires:         R-grid 
@@ -43,8 +45,10 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-widgetframe 
 Requires:         R-CRAN-leafsync 
 Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
 Thematic maps are geographical maps in which spatial data distributions
@@ -55,6 +59,8 @@ use approach to create thematic maps, such as choropleths and bubble maps.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -62,22 +68,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/img
-%doc %{rlibdir}/%{packname}/tips.txt
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

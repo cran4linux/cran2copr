@@ -1,10 +1,10 @@
 %global packname  apsimx
-%global packver   1.941
+%global packver   1.946
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.941
-Release:          2%{?dist}
+Version:          1.946
+Release:          1%{?dist}
 Summary:          Inspect, Read, Edit and Run 'APSIM' "Next Generation" and'APSIM' Classic
 
 License:          GPL-3
