@@ -1,10 +1,10 @@
 %global packname  EPX
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}
+Version:          1.0.1
+Release:          1%{?dist}
 Summary:          Ensemble of Phalanxes
 
 License:          GPL-3
@@ -33,7 +33,9 @@ two-class classification problems. The method uses an ensemble of
 classifiers where the constituent models of the ensemble use disjoint
 subsets (phalanxes) of explanatory variables. We provide an implementation
 of the phalanx-formation algorithm. Please see Tomal et al. (2015)
-<doi:10.1214/14-AOAS778> for more details.
+<doi:10.1214/14-AOAS778>, Tomal et al. (2016)
+<doi:10.1021/acs.jcim.5b00663>, and Tomal et al. (2019) <arXiv:1706.06971>
+for more details.
 
 %prep
 %setup -q -c -n %{packname}

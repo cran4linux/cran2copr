@@ -1,13 +1,13 @@
-%global packname  parSim
-%global packver   0.1.4
+%global packname  cpp11
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Parallel Simulation Studies
+Summary:          A C++11 Interface for R's C Interface
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-snow 
-Requires:         R-CRAN-dplyr 
-Requires:         R-parallel 
-Requires:         R-methods 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-snow 
 
 %description
-Perform flexible simulation studies using one or multiple computer cores.
-The package is set up to be usable on high-performance clusters in
-addition to being run locally, see examples on
-<https://github.com/SachaEpskamp/parSim>.
+Provides a header only, C++11 interface to R's C interface. Compared to
+other approaches 'cpp11' strives to be safe against long jumps from the C
+API as well as C++ exceptions, conform to normal R function semantics and
+supports interaction with 'ALTREP' vectors.
 
 %prep
 %setup -q -c -n %{packname}

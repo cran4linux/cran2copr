@@ -1,10 +1,10 @@
 %global packname  qtl2
-%global packver   0.22-8
+%global packver   0.22-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22.8
-Release:          2%{?dist}
+Version:          0.22.11
+Release:          1%{?dist}
 Summary:          Quantitative Trait Locus Mapping in Experimental Crosses
 
 License:          GPL-3

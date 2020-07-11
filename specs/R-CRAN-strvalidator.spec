@@ -1,10 +1,10 @@
 %global packname  strvalidator
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
-Release:          3%{?dist}
+Version:          2.3.0
+Release:          1%{?dist}
 Summary:          Process Control and Internal Validation of Forensic STR Kits
 
 License:          GPL-2
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.1.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-gWidgets2 
-BuildRequires:    R-CRAN-gWidgets2tcltk 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
@@ -31,7 +30,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-MASS 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-gWidgets2 
-Requires:         R-CRAN-gWidgets2tcltk 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
@@ -57,6 +55,9 @@ each function can be found in the respective help documentation.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -64,20 +65,9 @@ each function can be found in the respective help documentation.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

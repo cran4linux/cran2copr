@@ -1,10 +1,10 @@
 %global packname  shipunov
-%global packver   1.9
+%global packver   1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
-Release:          2%{?dist}
+Version:          1.10
+Release:          1%{?dist}
 Summary:          Miscellaneous Functions from Alexey Shipunov
 
 License:          GPL (>= 2)
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-PBSmapping 
+Requires:         R-CRAN-PBSmapping 
 
 %description
 A collection of functions for data manipulation, plotting and statistical

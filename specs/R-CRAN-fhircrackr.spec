@@ -1,11 +1,11 @@
-%global packname  EBPRS
-%global packver   2.0.4
+%global packname  fhircrackr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Derive Polygenic Risk Score Based on Emprical Bayes Theory
+Summary:          Handling HL7 FHIR Resources in R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,22 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ROCR 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
 
 %description
-EB-PRS is a novel method that leverages information for effect sizes
-across all the markers to improve the prediction accuracy.  No parameter
-tuning is needed in the method, and no external information is needed.
-This R-package provides the calculation of polygenic risk scores from the
-given training summary statistics and testing data. We can use EB-PRS to
-extract main information, estimate Empirical Bayes parameters, derive
-polygenic risk scores for each individual in testing data, and evaluate
-the PRS according to AUC and predictive r2. See Song et al. (2020)
-<doi:10.1371/journal.pcbi.1007565> for a detailed presentation of the
-method.
+Useful tools for conveniently downloading FHIR resources in xml format and
+converting them to R data frames. The package uses FHIR-search to download
+bundles from a FHIR server, provides functions to save and read xml-files
+containing such bundles and allows flattening the bundles to data.frames
+using XPath expressions.
 
 %prep
 %setup -q -c -n %{packname}

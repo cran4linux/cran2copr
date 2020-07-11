@@ -1,10 +1,10 @@
 %global packname  phonfieldwork
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
-Release:          2%{?dist}
+Version:          0.0.7
+Release:          1%{?dist}
 Summary:          Linguistic Phonetic Fieldwork Tools
 
 License:          GPL (>= 2)
@@ -38,13 +38,13 @@ files recorded during a session, automatic annotation in 'Praat' TextGrids
 (this is one of the sound annotation standards provided by 'Praat'
 software, see Boersma & Weenink 2018 <http://www.fon.hum.uva.nl/praat/>),
 creating an html table with annotations and spectrograms, and converting
-multiple formats ('Praat' TextGrid, 'EXMARaLDA', 'ELAN', and 'FLEx'
-flextext). All of these tasks can be solved by a mixture of different
-tools (any programming language has programs for automatic renaming, and
-Praat contains scripts for concatenating and renaming files, etc.).
-'phonfieldwork' provides a functionality that will make it easier to solve
-those tasks independently of any additional tools. You can also compare
-the functionality with other packages: 'rPraat'
+multiple formats ('Praat' TextGrid, 'ELAN', 'EXMARaLDA', 'Audacity',
+subtitles '.srt', and 'FLEx' flextext). All of these tasks can be solved
+by a mixture of different tools (any programming language has programs for
+automatic renaming, and Praat contains scripts for concatenating and
+renaming files, etc.). 'phonfieldwork' provides a functionality that will
+make it easier to solve those tasks independently of any additional tools.
+You can also compare the functionality with other packages: 'rPraat'
 <https://CRAN.R-project.org/package=rPraat>, 'textgRid'
 <https://CRAN.R-project.org/package=textgRid>.
 
@@ -61,9 +61,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

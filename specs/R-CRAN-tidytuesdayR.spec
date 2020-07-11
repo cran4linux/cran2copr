@@ -1,10 +1,10 @@
 %global packname  tidytuesdayR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}
+Version:          1.0.1
+Release:          1%{?dist}
 Summary:          Access the Weekly 'TidyTuesday' Project Dataset
 
 License:          MIT + file LICENSE
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-rstudioapi >= 0.2
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-usethis 
 Requires:         R-tools >= 3.1.0
 Requires:         R-CRAN-lubridate >= 1.7.0
 Requires:         R-CRAN-xml2 >= 1.2.0
@@ -37,6 +38,7 @@ Requires:         R-CRAN-rstudioapi >= 0.2
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-usethis 
 
 %description
 'TidyTuesday' is a project by the 'R4DS Online Learning Community' in

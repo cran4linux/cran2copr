@@ -1,10 +1,10 @@
 %global packname  SLOPE
-%global packver   0.3.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
-Release:          2%{?dist}
+Version:          0.3.2
+Release:          1%{?dist}
 Summary:          Sorted L1 Penalized Estimation
 
 License:          GPL-3

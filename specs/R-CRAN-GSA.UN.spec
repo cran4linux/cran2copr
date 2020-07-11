@@ -1,36 +1,31 @@
-%global packname  parSim
-%global packver   0.1.4
+%global packname  GSA.UN
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Parallel Simulation Studies
+Summary:          Global Sensitivity Analysis Tool
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-snow 
-Requires:         R-CRAN-dplyr 
-Requires:         R-parallel 
-Requires:         R-methods 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-snow 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-e1071 
+Requires:         R-utils 
 
 %description
-Perform flexible simulation studies using one or multiple computer cores.
-The package is set up to be usable on high-performance clusters in
-addition to being run locally, see examples on
-<https://github.com/SachaEpskamp/parSim>.
+A tool to sensitivity analysis using SOBOL (Sobol, 1993) and AMA (Dell'Oca
+et al. 2017 <doi:10.5194/hess-21-6219-2017>) indices. It allows to
+identify the most sensitive parameter or parameters of a model.
 
 %prep
 %setup -q -c -n %{packname}

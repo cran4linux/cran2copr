@@ -1,10 +1,10 @@
 %global packname  miceFast
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
-Release:          2%{?dist}
+Version:          0.6.2
+Release:          1%{?dist}
 Summary:          Fast Imputations Using 'Rcpp' and 'Armadillo'
 
 License:          GPL (>= 2)

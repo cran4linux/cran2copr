@@ -1,9 +1,9 @@
 %global packname  tibble
-%global packver   3.0.2
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.3
 Release:          1%{?dist}
 Summary:          Simple Data Frames
 

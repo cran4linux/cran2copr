@@ -1,13 +1,13 @@
-%global packname  parSim
-%global packver   0.1.4
+%global packname  newFocus
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Parallel Simulation Studies
+Summary:          True Discovery Guarantee by the New Focus Level Procedure
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-snow 
-Requires:         R-CRAN-dplyr 
-Requires:         R-parallel 
-Requires:         R-methods 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-snow 
+BuildRequires:    R-CRAN-ctgt 
+Requires:         R-CRAN-ctgt 
 
 %description
-Perform flexible simulation studies using one or multiple computer cores.
-The package is set up to be usable on high-performance clusters in
-addition to being run locally, see examples on
-<https://github.com/SachaEpskamp/parSim>.
+A new focus level procedure is developed based on the old focus level
+procedure of Goeman and Mansmann (2008)
+<doi:10.1093/bioinformatics/btm628> and the closed testing procedure with
+globaltest of Xu and Goeman (2020) <arXiv:2001.01541>. It produces the
+lower bound for the number of true discoveries in any gene set or GO (Gene
+Ontology) term. It is more powerful for the focus level GO terms chosen by
+user before seeing the data than the non-focus level GO terms or gene sets
+chosen after seeing the data.
 
 %prep
 %setup -q -c -n %{packname}
