@@ -1,10 +1,10 @@
 %global packname  NetworkChange
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
-Release:          2%{?dist}
+Version:          0.7
+Release:          1%{?dist}
 Summary:          Bayesian Package for Network Changepoint Analysis
 
 License:          GPL-3
@@ -61,7 +61,7 @@ Requires:         R-CRAN-ggvis
 %description
 Network changepoint analysis for undirected network data. The package
 implements a hidden Markov network change point model (Park and Sohn
-2019). Functions for break number detection using the approximate marginal
+2020). Functions for break number detection using the approximate marginal
 likelihood and WAIC are also provided.
 
 %prep
@@ -77,9 +77,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

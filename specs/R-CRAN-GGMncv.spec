@@ -1,10 +1,10 @@
 %global packname  GGMncv
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          Gaussian Graphical Models with Non-Convex Penalties
 
 License:          GPL-2
@@ -14,22 +14,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-MASS >= 7.3.51.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
 BuildRequires:    R-CRAN-psych >= 1.9.12.31
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
 BuildRequires:    R-CRAN-glassoFast >= 1.0
 BuildRequires:    R-CRAN-Rdpack >= 0.11.1
+BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-MASS >= 7.3.51.5
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1
 Requires:         R-CRAN-psych >= 1.9.12.31
 Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-CRAN-glassoFast >= 1.0
 Requires:         R-CRAN-Rdpack >= 0.11.1
+Requires:         R-CRAN-reshape 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -44,8 +48,8 @@ logarithm Mazumder, Friedman, and Hastie (2011)
 <doi:10.1198/jasa.2011.tm09738>, Lq, smoothly clipped absolute deviation
 Fan and Li (2001) <doi:10.1198/016214501753382273>, and minimax concave
 penalty Zhang (2010) <doi:10.1214/09-AOS729>. There are also extensions
-for computing variable inclusion probabilities and multiple regression
-coefficients.
+for computing variable inclusion probabilities, multiple regression
+coefficients, and statistical inference <doi:10.1214/15-EJS1031>.
 
 %prep
 %setup -q -c -n %{packname}

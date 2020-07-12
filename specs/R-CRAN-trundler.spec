@@ -1,11 +1,11 @@
 %global packname  trundler
-%global packver   0.1.14
+%global packver   0.1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.14
-Release:          2%{?dist}
-Summary:          Retrieve Data from 'Trundler' API
+Version:          0.1.15
+Release:          1%{?dist}
+Summary:          Historical Retail Data from the 'Trundler' API
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -36,7 +36,8 @@ Requires:         R-CRAN-urltools
 
 %description
 A wrapper around the 'Trundler' API, which gives access to historical
-retail pricing data and can be found at <https://api.trundler.dev/>.
+retail product and pricing data, and can be found at
+<https://api.trundler.dev/>.
 
 %prep
 %setup -q -c -n %{packname}

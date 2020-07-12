@@ -1,10 +1,10 @@
 %global packname  ibdsim2
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
-Release:          2%{?dist}
+Version:          1.2
+Release:          1%{?dist}
 Summary:          Simulation of Chromosomal Regions Shared by Family Members
 
 License:          GPL-3
@@ -28,9 +28,9 @@ Requires:         R-CRAN-glue
 %description
 Simulation of segments shared identical-by-descent (IBD) by pedigree
 members. Using sex specific recombination rates along the human genome
-(Kong et al. (2010) <doi:10.1038/nature09525>), phased chromosomes are
-simulated for all pedigree members. Additional features include
-calculation of realised IBD coefficients and plots of IBD segment
+(Halldorsson et al. (2019) <doi:10.1126/science.aau1043>), phased
+chromosomes are simulated for all pedigree members. Additional features
+include calculation of realised IBD coefficients and plots of IBD segment
 distributions.
 
 %prep
