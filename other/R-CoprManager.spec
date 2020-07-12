@@ -3,7 +3,7 @@
 %global rlibdir %{_datadir}/R/library
 
 Name:           R-%{packname}
-Version:        0.3.0
+Version:        0.3.1
 Release:        1%{?dist}
 Summary:        Package Manager for the 'cran2copr' Project
 
@@ -40,9 +40,7 @@ EOF
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} . \
   --configure-vars="BUILD_ROOT=%{buildroot}" \
-  --configure-vars="DATA_DIR=%{buildroot}%{_datadir}" \
-  --configure-vars="SYSCONF_DIR=%{buildroot}%{_sysconfdir}" \
-  --configure-vars="PKG_PREFIX=R-CRAN-"
+  --configure-vars="PKG_PREF='R-CRAN-'"
 rm -f %{buildroot}%{rlibdir}/R.css
 
 # enable by default
