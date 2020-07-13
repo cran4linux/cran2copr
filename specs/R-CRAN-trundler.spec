@@ -1,9 +1,9 @@
 %global packname  trundler
-%global packver   0.1.15
+%global packver   0.1.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.15
+Version:          0.1.16
 Release:          1%{?dist}
 Summary:          Historical Retail Data from the 'Trundler' API
 
