@@ -4,7 +4,7 @@
 
 Name:           R-%{packname}
 Version:        0.3.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
@@ -62,6 +62,6 @@ echo "suppressMessages(CoprManager::enable())" \
 %{rlibdir}/%{packname}/service
 %{_datadir}/dbus-1/system-services/org.fedoraproject.cran2copr1.service
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/org.fedoraproject.cran2copr1.conf
-%{_libdir}/R/etc/Rprofile.site
+%config %{_libdir}/R/etc/Rprofile.site
 
 %changelog
