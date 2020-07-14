@@ -44,9 +44,15 @@ mkdir -p %{buildroot}%{rlibdir}
 rm -f %{buildroot}%{rlibdir}/R.css
 
 # enable by default
-mkdir -p %{buildroot}%{_libdir}/R/etc
-echo "suppressMessages(CoprManager::enable())" \
-  > %{buildroot}%{_libdir}/R/etc/Rprofile.site
+mkdir -p %{buildroot}%{_libdir}/R/etc/Rprofile.site.d
+echo "suppressMessages(%{packname}::enable())" \
+  > %{buildroot}%{_libdir}/R/etc/Rprofile.site.d/50-%{packname}.site
+cat <<EOF > %{buildroot}%{_libdir}/R/etc/Rprofile.site
+local({
+  for (startup_file in Sys.glob(R.home("etc/Rprofile.site.d/*.site")))
+    source(startup_file)
+})
+EOF
 
 %files
 %dir %{rlibdir}/%{packname}
@@ -62,6 +68,8 @@ echo "suppressMessages(CoprManager::enable())" \
 %{rlibdir}/%{packname}/service
 %{_datadir}/dbus-1/system-services/org.fedoraproject.cran2copr1.service
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/org.fedoraproject.cran2copr1.conf
-%config %{_libdir}/R/etc/Rprofile.site
+%config(noreplace) %{_libdir}/R/etc/Rprofile.site
+%dir %{_libdir}/R/etc/Rprofile.site.d
+%config(noreplace) %{_libdir}/R/etc/Rprofile.site.d/50-%{packname}.site
 
 %changelog
