@@ -1,10 +1,10 @@
 %global packname  clustermq
-%global packver   0.8.95
+%global packver   0.8.95.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.95
-Release:          2%{?dist}
+Version:          0.8.95.1
+Release:          1%{?dist}
 Summary:          Evaluate Function Calls on HPC Schedulers (LSF, SGE, SLURM,PBS/Torque)
 
 License:          Apache License (== 2.0) | file LICENSE

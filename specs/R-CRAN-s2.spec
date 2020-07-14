@@ -1,10 +1,10 @@
 %global packname  s2
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}
+Version:          1.0.1
+Release:          1%{?dist}
 Summary:          Spherical Geometry Operators Using the S2 Geometry Library
 
 License:          Apache License (== 2.0)

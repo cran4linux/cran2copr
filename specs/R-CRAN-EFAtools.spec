@@ -1,9 +1,9 @@
 %global packname  EFAtools
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Fast and Flexible Implementations of Exploratory Factor AnalysisTools
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,12 +27,10 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-microbenchmark 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-psych 
@@ -41,7 +38,6 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-stringr 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -49,12 +45,10 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-graphics 
-Requires:         R-parallel 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-GPArotation 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-microbenchmark 
 
 %description
 Provides functions to perform exploratory factor analysis (EFA) procedures

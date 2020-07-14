@@ -1,11 +1,11 @@
 %global packname  roll
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
-Release:          2%{?dist}
-Summary:          Rolling Statistics
+Version:          1.1.6
+Release:          1%{?dist}
+Summary:          Rolling and Expanding Statistics
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,7 +21,8 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-RcppParallel 
 
 %description
-Fast and efficient computation of rolling statistics for time-series data.
+Fast and efficient computation of rolling and expanding statistics for
+time-series data.
 
 %prep
 %setup -q -c -n %{packname}

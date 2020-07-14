@@ -1,11 +1,11 @@
 %global packname  MiRNAQCD
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
-Release:          2%{?dist}
-Summary:          MiRNA Quality Control and Diagnosis
+Version:          1.1
+Release:          1%{?dist}
+Summary:          Micro-RNA Quality Control and Diagnosis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,10 +25,27 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-pROC 
 
 %description
-A set of functions to carry out quality control, training and
-classification analyses on datasets containing MiRNA multiplets. The
-package implements the method introduced in Ricci et al. (2015)
-<doi:10.1186/s12859-015-0715-9>.
+A complete and dedicated analytical toolbox for quality control and
+diagnosis based on subject-related measurements of micro-RNA (miRNA)
+expressions. The package consists of a set of functions that allow to
+train, optimize and use a Bayesian classifier that relies on multiplets of
+measured miRNA expressions. The package also implements the quality
+control tools required to preprocess input datasets. In addition, the
+package provides a function to carry out a statistical analysis of miRNA
+expressions, which can give insights to improve the classifier's
+performance. The method implemented in the package was first introduced in
+L. Ricci, V. Del Vescovo, C. Cantaloni, M. Grasso, M. Barbareschi and M.
+A. Denti, "Statistical analysis of a Bayesian classifier based on the
+expression of miRNAs", BMC Bioinformatics 16:287, 2015
+<doi:10.1186/s12859-015-0715-9>. The package is thoroughly described in M.
+Castelluzzo, A. Perinelli, S. Detassis, M. A. Denti and L. Ricci,
+"MiRNA-QC-and-Diagnosis: An R package for diagnosis based on MiRNA
+expression", SoftwareX 12:100569, 2020 <doi:10.1016/j.softx.2020.100569>.
+Please cite both these works if you use the package for your analysis.
+DISCLAIMER: The software in this package is for general research purposes
+only and is thus provided WITHOUT ANY WARRANTY. It is NOT intended to form
+the basis of clinical decisions. Please refer to the GNU General Public
+License 3.0 (GPLv3) for further information.
 
 %prep
 %setup -q -c -n %{packname}

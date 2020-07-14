@@ -1,10 +1,10 @@
 %global packname  RRphylo
-%global packver   2.4.4
+%global packver   2.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
-Release:          2%{?dist}
+Version:          2.4.7
+Release:          1%{?dist}
 Summary:          Phylogenetic Ridge Regression Methods for Comparative Studies
 
 License:          GPL-2
@@ -22,24 +22,7 @@ BuildRequires:    R-CRAN-geiger
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-binr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-smatr 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-outliers 
-BuildRequires:    R-CRAN-picante 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-cluster 
-BuildRequires:    R-CRAN-ddpcr 
-BuildRequires:    R-CRAN-geomorph 
 Requires:         R-CRAN-emmeans >= 1.4.3
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-phytools 
@@ -47,24 +30,7 @@ Requires:         R-CRAN-geiger
 Requires:         R-stats4 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-lmtest 
 Requires:         R-parallel 
-Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-binr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-nlme 
-Requires:         R-CRAN-smatr 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-outliers 
-Requires:         R-CRAN-picante 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-plotrix 
-Requires:         R-cluster 
-Requires:         R-CRAN-ddpcr 
-Requires:         R-CRAN-geomorph 
 
 %description
 Functions for phylogenetic analysis (Castiglione et al, 2018
@@ -87,9 +53,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

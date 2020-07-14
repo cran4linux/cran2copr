@@ -1,10 +1,10 @@
 %global packname  chirps
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}
+Version:          0.1.2
+Release:          1%{?dist}
 Summary:          API Client for CHIRPS
 
 License:          MIT + file LICENSE

@@ -1,32 +1,30 @@
-%global packname  Rlabkey
-%global packver   2.5.1
+%global packname  OneStep
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          0.9.0
 Release:          1%{?dist}
-Summary:          Data Exchange Between R and 'LabKey' Server
+Summary:          One-Step Maximum Likelihood Estimation
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-numDeriv 
 
 %description
-The 'LabKey' client library for R makes it easy for R users to load live
-data from a 'LabKey' Server, <https://www.labkey.com/>, into the R
-environment for analysis, provided users have permissions to read the
-data. It also enables R users to insert, update, and delete records stored
-on a 'LabKey' Server, provided they have appropriate permissions to do so.
+Provide principally an eponymic function that numerically computes the Le
+Cam one-step estimator which is asymptotically efficient (see e.g. L. Le
+Cam (1956) <https://projecteuclid.org/euclid.bsmsp/1200501652>) and can be
+computed faster than the maximum likelihood estimator.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global packname  tableone
-%global packver   0.11.1
+%global packver   0.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
-Release:          3%{?dist}
-Summary:          Create 'Table 1' to Describe Baseline Characteristics
+Version:          0.11.2
+Release:          1%{?dist}
+Summary:          Create 'Table 1' to Describe Baseline Characteristics with orwithout Propensity Score Weights
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,15 +37,14 @@ Creates 'Table 1', i.e., description of baseline patient characteristics,
 which is essential in every medical research. Supports both continuous and
 categorical variables, as well as p-values and standardized mean
 differences. Weighted data are supported via the 'survey' package. See
-'github' for a screen cast. 'tableone' was inspired by descriptive
-statistics functions in 'Deducer' , a Java-based GUI package by Ian
-Fellows. This package does not require GUI or Java, and intended for
-command-line users.
+'github' for a screen cast.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -53,18 +52,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

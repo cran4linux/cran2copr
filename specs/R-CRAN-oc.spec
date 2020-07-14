@@ -1,32 +1,26 @@
-%global packname  Rlabkey
-%global packver   2.5.1
+%global packname  oc
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          1.2
 Release:          1%{?dist}
-Summary:          Data Exchange Between R and 'LabKey' Server
+Summary:          Optimal Classification Roll Call Analysis Software
 
-License:          Apache License 2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 2.3.1
+Requires:         R-core >= 2.3.1
+BuildRequires:    R-CRAN-pscl >= 0.59
+Requires:         R-CRAN-pscl >= 0.59
 
 %description
-The 'LabKey' client library for R makes it easy for R users to load live
-data from a 'LabKey' Server, <https://www.labkey.com/>, into the R
-environment for analysis, provided users have permissions to read the
-data. It also enables R users to insert, update, and delete records stored
-on a 'LabKey' Server, provided they have appropriate permissions to do so.
+Estimates optimal classification (Poole 2000)
+<doi:10.1093/oxfordjournals.pan.a029814> scores from roll call votes
+supplied though a 'rollcall' object from package 'pscl'.
 
 %prep
 %setup -q -c -n %{packname}

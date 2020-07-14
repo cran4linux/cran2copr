@@ -1,32 +1,25 @@
-%global packname  Rlabkey
-%global packver   2.5.1
+%global packname  tgstat
+%global packver   2.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.3.10
 Release:          1%{?dist}
-Summary:          Data Exchange Between R and 'LabKey' Server
+Summary:          Amos Tanay's Group High Performance Statistical Utilities
 
-License:          Apache License 2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-The 'LabKey' client library for R makes it easy for R users to load live
-data from a 'LabKey' Server, <https://www.labkey.com/>, into the R
-environment for analysis, provided users have permissions to read the
-data. It also enables R users to insert, update, and delete records stored
-on a 'LabKey' Server, provided they have appropriate permissions to do so.
+A collection of high performance utilities to compute distance,
+correlation, auto correlation, clustering and other tasks.
 
 %prep
 %setup -q -c -n %{packname}

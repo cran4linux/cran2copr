@@ -1,32 +1,30 @@
-%global packname  Rlabkey
-%global packver   2.5.1
+%global packname  rbiorxiv
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Data Exchange Between R and 'LabKey' Server
+Summary:          Client for the 'bioRxiv' API
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.6.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-jsonlite >= 1.6.0
+Requires:         R-CRAN-httr >= 1.4.0
 
 %description
-The 'LabKey' client library for R makes it easy for R users to load live
-data from a 'LabKey' Server, <https://www.labkey.com/>, into the R
-environment for analysis, provided users have permissions to read the
-data. It also enables R users to insert, update, and delete records stored
-on a 'LabKey' Server, provided they have appropriate permissions to do so.
+R client for interacting with the 'bioRxiv' API
+<https://api.biorxiv.org/>. Functions include retrieving metadata of
+'bioRxiv' and 'medRxiv' preprints, details of published papers associated
+with preprints, and summary and usage statistics.
 
 %prep
 %setup -q -c -n %{packname}
