@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.5
-Release:          2%{?dist}
+Release:          1%{?dist}
 Summary:          Fast Row by Row Data Processing Tool, Using 'Sailr' Script
 
 License:          GPL (>= 3)
@@ -12,6 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    bison
+BuildRequires:    flex
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18

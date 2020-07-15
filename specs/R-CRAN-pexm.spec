@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          1%{?dist}
 Summary:          Loading a JAGS Module for the Piecewise Exponential Distribution
 
 License:          GPL-3
@@ -12,6 +12,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    jags-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-coda 

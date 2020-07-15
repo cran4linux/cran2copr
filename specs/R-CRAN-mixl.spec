@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 %global packname  mixl
 %global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library

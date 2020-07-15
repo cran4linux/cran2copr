@@ -6,15 +6,21 @@ check_copr()
 chroots <- get_chroots()
 df.mon <- get_monitor()
 
-i <- 2
+i <- 3
 df.fail <- subset_failed(df.mon[, c("Package", chroots[i])])
-pkgs <- sub("R-CRAN-", "", df.fail$Package)
-#writeLines(pkgs, "rebuild-rawhide.txt")
+df.fail.common <- subset_failed(df.mon[, c("Package", chroots[2:3])])
+no.common <- !df.fail$Package %in% df.fail.common$Package
+pkgs <- sub("R-CRAN-", "", df.fail$Package[no.common])
+blist <- get_build_list(pkgs)
+for (i in seq_along(blist)) {
+  n <- formatC(i, width=2, format="d", flag="0")
+  writeLines(blist[[i]], paste0("f33-rebuild-", n, ".txt"))
+}
+
 ids <- sapply(strsplit(df.fail[, chroots[i]], " "), "[", 1)
 url <- get_url_builds(list(ids, df.fail$Package), chroots[i])
-
 # sapply(paste0(url, "/builder-live.log.gz"), browseURL)
-# pkg <- "vaultr"; writeLines(create_spec(pkg), paste0("specs/R-CRAN-", pkg, ".spec"))
+# pkg <- "pexm"; writeLines(create_spec(pkg), paste0("specs/R-CRAN-", pkg, ".spec"))
 # sapply(df.fail$Package, build_pkg, chroots[i])
 pkgs <- unlist(get_build_list(sub("R-CRAN-", "", df.fail$Package)))
 sapply(paste0("R-CRAN-", pkgs), build_pkg, chroots[i])

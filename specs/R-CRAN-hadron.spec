@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.0
-Release:          2%{?dist}
+Release:          1%{?dist}
 Summary:          Analysis Framework for Monte Carlo Simulation Data in Physics
 
 License:          GPL-3
@@ -12,6 +12,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    gsl-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-abind 

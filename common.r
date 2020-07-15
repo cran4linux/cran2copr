@@ -264,7 +264,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
   tpl <- c(switch(
     pkg,
     BANOVA=,beam=,Boom=,FastRWeb=,mapdata=,pbdRPC=,pbdPROF=,qtpaint=,RxODE=,
-    tth=,wingui=,StanHeaders="%global debug_package %{nil}",
+    tth=,wingui=,mixl=,StanHeaders="%global debug_package %{nil}",
     tcltk2="%undefine __brp_mangle_shebangs"), tpl)
 
   # source
