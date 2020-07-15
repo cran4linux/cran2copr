@@ -463,6 +463,19 @@ subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
   subset(x, apply(cbind(x.fail, x.succ), 1, all))
 }
 
+subset_vmismatch <- function(x, chroots=seq_len(ncol(x)-1)) {
+  x.chrt <- x[, 2:ncol(x), drop=FALSE]
+  x.mism <- x.chrt[, chroots, drop=FALSE]
+  x.mism <- apply(x.mism, 2, function(x) {
+    ver <- sapply(strsplit(x, "[[:space:]]+"), "[", 3)
+    sapply(strsplit(ver, "-"), "[", 1)
+  })
+  x.mism <- apply(x.mism, 1, function(x) {
+    !all(sapply(seq_along(x)[-1], function(i) x[1] == x[i]))
+  })
+  subset(x, x.mism)
+}
+
 have_build_msg <- function(ids, chroots, msg, bytes=NULL) {
   urls <- paste0(get_url_builds(ids, chroots), "/builder-live.log.gz")
   contents <- .read_urls(urls, bytes=bytes)
