@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          API Client Library for 'Wikidata Query Service'
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Create Tidy Data Frames of Marginal Effects for 'ggplot' fromModel Outputs
 
 License:          GPL-3

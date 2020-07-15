@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.14
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          R Interface to the Vowpal Wabbit
 
 License:          GPL (>= 2)

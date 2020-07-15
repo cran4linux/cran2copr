@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.9
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Miscellaneous Functions for the USGS INL Project Office
 
 License:          CC0

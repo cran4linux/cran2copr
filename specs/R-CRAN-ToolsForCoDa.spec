@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Multivariate Tools for Compositional Data Analysis
 
 License:          GPL (>= 2)

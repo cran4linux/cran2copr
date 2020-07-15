@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Sequential Method for Classification and Generalized EstimatingEquations Problem
 
 License:          GPL (>= 2)

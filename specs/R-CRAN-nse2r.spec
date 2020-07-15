@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Fetch Data from 'National Stock Exchange (India)'
 
 License:          MIT + file LICENSE

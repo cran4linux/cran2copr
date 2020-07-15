@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Robust Generalized Linear Models (GLM) using Mixtures
 
 License:          GPL (>= 2)

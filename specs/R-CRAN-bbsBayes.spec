@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.3.2020
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Hierarchical Bayesian Analysis of North American BBS Data
 
 License:          MIT + file LICENSE

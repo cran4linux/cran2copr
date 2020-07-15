@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Functional Data Analysis and Empirical Dynamics
 
 License:          BSD_3_clause + file LICENSE

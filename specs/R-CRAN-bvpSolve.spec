@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Solvers for Boundary Value Problems of Differential Equations
 
 License:          GPL (>= 2)

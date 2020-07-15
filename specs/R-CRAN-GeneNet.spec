@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.15
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Modeling and Inferring Gene Networks
 
 License:          GPL (>= 3)

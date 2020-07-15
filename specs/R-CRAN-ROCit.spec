@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Performance Assessment of Binary Classifier with Visualization
 
 License:          GPL-3

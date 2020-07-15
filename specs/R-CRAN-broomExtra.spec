@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Enhancements for 'broom' and 'easystats' Package Families
 
 License:          GPL-3 | file LICENSE

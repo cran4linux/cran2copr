@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Modern Psychometrics with R
 
 License:          GPL-2

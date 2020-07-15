@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.8
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Reimplementations of Functions Introduced Since R-3.0.0
 
 License:          GPL-2 | GPL-3

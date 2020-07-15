@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.37.5
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Conversion of R Regression Output to LaTeX or HTML Tables
 
 License:          GPL-3

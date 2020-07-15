@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Manipulating Labelled Data
 
 License:          GPL-3

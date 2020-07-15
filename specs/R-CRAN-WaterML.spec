@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Fetch and Analyze Data from 'WaterML' and 'WaterOneFlow' WebServices
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Extended Multiplicative Signal Correction
 
 License:          GPL-2

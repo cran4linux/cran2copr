@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.25.6
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Management of Survey Data and Presentation of Analysis Results
 
 License:          GPL-2

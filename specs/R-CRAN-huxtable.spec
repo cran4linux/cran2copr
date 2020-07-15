@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Easily Create and Style Tables for LaTeX, HTML and Other Formats
 
 License:          MIT + file LICENSE

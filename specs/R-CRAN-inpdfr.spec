@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.11
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Analyse Text Documents Using Ecological Tools
 
 License:          GPL-2

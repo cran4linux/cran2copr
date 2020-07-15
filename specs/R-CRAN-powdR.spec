@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Full Pattern Summation of X-Ray Powder Diffraction Data
 
 License:          GPL-2 | file LICENSE

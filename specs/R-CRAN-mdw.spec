@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.6.17
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Maximum Diversity Weighting
 
 License:          GPL-2

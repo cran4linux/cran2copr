@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Create Interactive Graphics Related to Clinical Trial Safety
 
 License:          MIT + file LICENSE

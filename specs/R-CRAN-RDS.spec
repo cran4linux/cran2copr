@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Respondent-Driven Sampling
 
 License:          LGPL-2.1

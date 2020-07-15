@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.16
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Random Effects Latent Class Analysis
 
 License:          GPL (>= 2)

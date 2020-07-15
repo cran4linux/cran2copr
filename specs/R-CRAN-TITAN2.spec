@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Threshold Indicator Taxa Analysis
 
 License:          GPL-2

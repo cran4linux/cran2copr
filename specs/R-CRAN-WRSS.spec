@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Water Resources System Simulator
 
 License:          GPL-3

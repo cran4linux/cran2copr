@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Estimation and Validation Methods for Subgroup Identificationand Personalized Medicine
 
 License:          GPL-2

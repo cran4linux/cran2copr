@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Lab for Developing and Testing Recommender Algorithms
 
 License:          GPL-2

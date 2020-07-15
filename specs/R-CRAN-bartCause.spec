@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Causal Inference using Bayesian Additive Regression Trees
 
 License:          GPL (>= 2)

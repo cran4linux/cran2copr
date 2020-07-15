@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Compare H20 or Spark Supervised Regression Models Using ShinyApp
 
 License:          GPL-3

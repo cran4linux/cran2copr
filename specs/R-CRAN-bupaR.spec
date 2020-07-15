@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.4
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Business Process Analysis in R
 
 License:          MIT + file LICENSE

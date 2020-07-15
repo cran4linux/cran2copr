@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Piecewise Structural Equation Modeling
 
 License:          GPL-3
