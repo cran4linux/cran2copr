@@ -1,34 +1,33 @@
 %global packname  multivar
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
-Release:          2%{?dist}
-Summary:          Penalized Estimation and Forecasting of Multiple Subject VectorAutoregressive (VAR) Models
+Version:          0.0.2
+Release:          1%{?dist}
+Summary:          Penalized Estimation and Forecasting of Multiple Subject VectorAutoregressive (multi-VAR) Models
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-matlab 
 BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-matlab 
 Requires:         R-MASS 
 
 %description
 Functions for simulating, estimating and forecasting stationary Vector
-Autoregressive (VAR) models from multiple subjects using penalized
-regression methods (LASSO and adaptive LASSO) using accelerated proximal
-gradient descent algorithms (Fisher, Kim and Pipiras, Under Review).
+Autoregressive (VAR) models for multiple subject data using the penalized
+multi-VAR framework in Fisher, Kim and Pipiras (2020) <arXiv:2007.05052>.
 
 %prep
 %setup -q -c -n %{packname}

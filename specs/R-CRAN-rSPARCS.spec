@@ -1,13 +1,13 @@
-%global packname  ChannelAttributionApp
-%global packver   1.3
+%global packname  rSPARCS
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.0.8
 Release:          1%{?dist}
-Summary:          Shiny Web Application for the Multichannel Attribution Problem
+Summary:          Sites, Polulation, and Records Cleaning Skills
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ChannelAttribution 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ChannelAttribution 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-spatialEco 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-tigris 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-utils 
+Requires:         R-CRAN-spatialEco 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-tigris 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-plyr 
 
 %description
-Shiny Web Application for the Multichannel Attribution Problem. It is a
-user-friendly graphical interface for package 'ChannelAttribution'.
+Data cleaning including 1) generating datasets for time-series and
+case-crossover analyses based on raw hospital records, 2)linking
+individuals to a areal map, 3)picking out cases living within a certain
+distance from a site, etc. For more information, please refer to Zhang
+W,etc. (2018) <doi: 10.1016/j.envpol.2018.08.030>.
 
 %prep
 %setup -q -c -n %{packname}

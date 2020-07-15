@@ -1,32 +1,32 @@
-%global packname  clValid
-%global packver   0.6-9
+%global packname  ivdesign
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Validation of Clustering Results
+Summary:          Hypothesis Testing in Cluster-Randomized Encouragement Designs
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-cluster 
-BuildRequires:    R-methods 
-BuildRequires:    R-class 
-Requires:         R-cluster 
-Requires:         R-methods 
-Requires:         R-class 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Statistical and biological validation of clustering results. This package
-implements Dunn Index, Silhouette, Connectivity, Stability, BHI and BSI.
-Further information can be found in Brock, G et al. (2008) <doi:
-10.18637/jss.v025.i04>.
+An implementation of randomization-based hypothesis testing for three
+different estimands in a cluster-randomized encouragement experiment. The
+three estimands include (1) testing a cluster-level constant proportional
+treatment effect (Fisher's sharp null hypothesis), (2) pooled effect
+ratio, and (3) average cluster effect ratio. To test the third estimand,
+user needs to install 'Gurobi' (>= 9.0.1) optimizer via its R API. Please
+refer to
+<https://www.gurobi.com/documentation/9.0/refman/ins_the_r_package.html>.
 
 %prep
 %setup -q -c -n %{packname}

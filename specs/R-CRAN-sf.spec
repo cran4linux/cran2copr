@@ -1,10 +1,10 @@
 %global packname  sf
-%global packver   0.9-4
+%global packver   0.9-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
-Release:          3%{?dist}
+Version:          0.9.5
+Release:          1%{?dist}
 Summary:          Simple Features for R
 
 License:          GPL-2 | MIT + file LICENSE
@@ -47,12 +47,15 @@ Requires:         R-utils
 Support for simple features, a standardized way to encode spatial vector
 data. Binds to 'GDAL' for reading and writing data, to 'GEOS' for
 geometrical operations, and to 'PROJ' for projection conversions and datum
-transformations.
+transformations. Optionally uses the 's2' package for spherical geometry
+operations on geographic coordinates.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -60,32 +63,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/csv
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/docker
-%doc %{rlibdir}/%{packname}/gml
-%doc %{rlibdir}/%{packname}/gpkg
-%{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/nc
-%doc %{rlibdir}/%{packname}/osm
-%doc %{rlibdir}/%{packname}/shape
-%doc %{rlibdir}/%{packname}/sqlite
-%doc %{rlibdir}/%{packname}/tif
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

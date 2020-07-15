@@ -1,10 +1,10 @@
 %global packname  probhat
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          3%{?dist}
+Version:          0.3.1
+Release:          1%{?dist}
 Summary:          Multivariate Generalized Kernel Smoothing and RelatedStatistical Methods
 
 License:          GPL (>= 2)
@@ -23,20 +23,25 @@ Requires:         R-CRAN-barsurf
 Requires:         R-CRAN-kubik 
 
 %description
-Constructs, plots and evaluates probability distributions (probability
-mass/density functions, cumulative distribution functions and quantile
-functions) with continuous kernel smoothing, and to a lesser extent,
-discrete kernel smoothing. Supports univariate, multivariate and
-conditional distributions, including multivariate-conditional
-distributions. Also, supports other probability distributions
-(categorical, frequency and empirical-like) and weighted data, which is
-possibly useful mixed with fuzzy clustering. Furthermore, there are
-extensions for computing multivariate probabilities and multivariate
-random numbers, and for parameter and mode estimation.
+Mass functions, density functions, distribution functions and quantile
+functions via continuous kernel smoothing, and to a lesser extent,
+discrete kernel smoothing. Also, supports categorical distributions and
+smooth empirical-like distributions. There are univariate, multivariate
+and conditional distributions, including multivariate-conditional
+distributions and conditional distributions with mixed input types, along
+with functions for plotting univariate, bivariate and trivariate
+distributions. Conditional categorical distributions with mixed input
+types can be used for statistical classification purposes. And there are
+extensions for computing multivariate probabilities, multivariate random
+numbers, moment-based statistics, robust-based statistics and mode
+estimates.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -44,17 +49,9 @@ random numbers, and for parameter and mode estimation.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
