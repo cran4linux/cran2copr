@@ -4,7 +4,7 @@
 
 Name:           R-%{packname}
 Version:        0.3.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
@@ -43,6 +43,7 @@ mkdir -p %{buildroot}%{rlibdir}
   --configure-vars="BUILD_ROOT=%{buildroot}" \
   --configure-vars="PKG_PREF='R-CRAN-'"
 rm -f %{buildroot}%{rlibdir}/R.css
+rm -f %{buildroot}%{rlibdir}/%{packname}/service/*.in
 
 # enable by default
 mkdir -p %{buildroot}%{_libdir}/R/etc/Rprofile.site.d
@@ -66,7 +67,14 @@ EOF
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/service
+%dir %{rlibdir}/%{packname}/service
+%config %{rlibdir}/%{packname}/service/bspm.excl
+%config %{rlibdir}/%{packname}/service/bspm.pref
+%config %{rlibdir}/%{packname}/service/dbus-paths
+%config %{rlibdir}/%{packname}/service/nodiscover
+%{rlibdir}/%{packname}/service/CoprManager.py
+%dir %{rlibdir}/%{packname}/service/backend
+%{rlibdir}/%{packname}/service/backend/*
 %{_datadir}/dbus-1/system-services/org.fedoraproject.cran2copr1.service
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/org.fedoraproject.cran2copr1.conf
 %config(noreplace) %{_libdir}/R/etc/Rprofile.site
