@@ -42,6 +42,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} . \
   --configure-vars="BUILD_ROOT=%{buildroot}" \
   --configure-vars="PKG_PREF='R-CRAN-'"
+touch %{buildroot}%{rlibdir}/%{packname}/service/bspm.excl
 rm -f %{buildroot}%{rlibdir}/R.css
 rm -f %{buildroot}%{rlibdir}/%{packname}/service/*.in
 
