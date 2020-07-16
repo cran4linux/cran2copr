@@ -3,8 +3,8 @@
 %global rlibdir %{_datadir}/R/library
 
 Name:           R-%{packname}
-Version:        0.3.1
-Release:        2%{?dist}
+Version:        0.3.2
+Release:        1%{?dist}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
@@ -24,10 +24,11 @@ D-Bus to a systemd service that manages package installations via DNF.
 %setup -q -n %{projname}-%{version}
 
 %build
-rename %{projname} CoprManager inst/service/%{projname}.py
-sed -i 's/%{projname}/CoprManager/' DESCRIPTION
-sed -i 's/%{projname}/CoprManager/g' R/* inst/service/dbus.service.in
-rename _sys _copr man/*
+rm -rf inst/tinytest tests
+rename %{projname} %{packname} man/* inst/service/%{projname}.py
+sed -i 's/%{projname}/%{packname}/' DESCRIPTION
+sed -i 's/%{projname}/%{packname}/g' man/* R/* inst/service/dbus.service.in
+sed -i 's@Enchufa2/%{packname}@Enchufa2/%{projname}@g' man/* R/*
 sed -i 's/_sys/_copr/g' NAMESPACE man/* R/*
 
 cat <<EOF > inst/service/dbus-paths
