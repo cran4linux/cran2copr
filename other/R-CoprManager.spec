@@ -4,14 +4,14 @@
 
 Name:           R-%{packname}
 Version:        0.3.2
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
 URL:            https://github.com/Enchufa2/%{projname}
 Source0:        %{url}/archive/v%{version}/%{projname}_%{version}.tar.gz
 
-BuildRequires:  R-devel
+BuildRequires:  R-devel, python3-devel
 Requires:       systemd, python3-dbus, python3-gobject, python3-dnf
 BuildArch:      noarch
 
@@ -42,10 +42,10 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} . \
   --configure-vars="BUILD_ROOT=%{buildroot}" \
   --configure-vars="PKG_PREF='R-CRAN-'"
-touch %{buildroot}%{rlibdir}/%{packname}/service/bspm.excl
-mkdir -p %{buildroot}%{rlibdir}/%{packname}/service/backend/__pycache__
+touch %{buildroot}%{rlibdir}/%{packname}/service/%{projname}.excl
 rm -f %{buildroot}%{rlibdir}/R.css
 rm -f %{buildroot}%{rlibdir}/%{packname}/service/*.in
+%py_byte_compile %{python3} %{buildroot}%{rlibdir}/%{packname}/service/backend
 
 # enable by default
 mkdir -p %{buildroot}%{_libdir}/R/etc/Rprofile.site.d
@@ -70,13 +70,12 @@ EOF
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/help
 %dir %{rlibdir}/%{packname}/service
-%config %{rlibdir}/%{packname}/service/bspm.excl
-%config %{rlibdir}/%{packname}/service/bspm.pref
+%config %{rlibdir}/%{packname}/service/%{projname}.excl
+%config %{rlibdir}/%{packname}/service/%{projname}.pref
 %config %{rlibdir}/%{packname}/service/dbus-paths
 %config %{rlibdir}/%{packname}/service/nodiscover
-%{rlibdir}/%{packname}/service/CoprManager.py
+%{rlibdir}/%{packname}/service/%{packname}.py
 %{rlibdir}/%{packname}/service/backend
-%{rlibdir}/%{packname}/service/backend/__pycache__
 %{_datadir}/dbus-1/system-services/org.fedoraproject.cran2copr1.service
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/org.fedoraproject.cran2copr1.conf
 %config(noreplace) %{_libdir}/R/etc/Rprofile.site
