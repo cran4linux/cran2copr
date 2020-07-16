@@ -1,11 +1,11 @@
 %global packname  rSPARCS
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}
-Summary:          Sites, Polulation, and Records Cleaning Skills
+Summary:          Sites, Population, and Records Cleaning Skills
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

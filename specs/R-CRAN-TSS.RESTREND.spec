@@ -1,10 +1,10 @@
 %global packname  TSS.RESTREND
-%global packver   0.2.13
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.13
-Release:          3%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}
 Summary:          Time Series Segmentation of Residual Trends
 
 License:          GPL-3
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-strucchange 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RcppRoll 
+BuildRequires:    R-CRAN-mblm 
 Requires:         R-CRAN-bfast >= 1.5.7
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-strucchange 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-RcppRoll 
+Requires:         R-CRAN-mblm 
 
 %description
 Time Series Segmented Residual Trends is a method for the automated
@@ -45,12 +47,18 @@ introduced in version 0.2.03 focus on the inclusion of temperature as an
 additional climate variable. This allows for land degradation assessment
 in temperature limited drylands. A paper that details this work is
 currently under review. There are also a number of bug fixes and speed
-improvements. The version under active development and additional example
-scripts can be can be found at <https:// github.com/ArdenB/TSSRESTREND>.
+improvements. Version 0.3.0 introduces additional attribution for eCO2,
+climate change and climate variability the details of which are in press
+in Burrell et al., (2020).  The version under active development and
+additional example scripts showing how the package can be applied can be
+found at <https://github.com/ArdenB/TSSRESTREND>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -60,16 +68,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

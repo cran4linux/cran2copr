@@ -1,10 +1,10 @@
 %global packname  vctrs
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          3%{?dist}
+Version:          0.3.2
+Release:          1%{?dist}
 Summary:          Vector Helpers
 
 License:          GPL-3
@@ -14,11 +14,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-ellipsis >= 0.2.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-ellipsis >= 0.2.0
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-glue 
@@ -33,28 +33,18 @@ analysing function interfaces.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "CFLAGS=$(R CMD config CFLAGS) -fcommon" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

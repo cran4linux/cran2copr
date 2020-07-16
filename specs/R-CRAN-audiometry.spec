@@ -1,10 +1,10 @@
 %global packname  audiometry
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
-Release:          2%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}
 Summary:          Standard Conform Pure Tone Audiometry (PTA) Plots
 
 License:          GPL-3
