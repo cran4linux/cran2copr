@@ -1,10 +1,10 @@
 %global packname  ctsem
-%global packver   3.3.6
+%global packver   3.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.6
-Release:          2%{?dist}
+Version:          3.3.8
+Release:          1%{?dist}
 Summary:          Continuous Time Structural Equation Modelling
 
 License:          GPL-3
@@ -39,6 +39,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-rstan >= 2.19.0
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-Rcpp >= 0.12.16
@@ -61,6 +62,7 @@ Requires:         R-stats
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-tibble 
 
 %description
 Hierarchical continuous time state space modelling, for linear and
@@ -70,8 +72,9 @@ stochastic differential equation (SDE), measurement models are typically
 multivariate normal factor models. Linear mixed effects SDE's estimated
 via maximum likelihood and optimization are the default. Nonlinearities,
 (state dependent parameters) and random effects on all parameters are
-possible, using either optimization (with optional importance sampling) or
-Stan's Hamiltonian Monte Carlo sampling. See
+possible, using either max likelihood / max a posteriori optimization
+(with optional importance sampling) or Stan's Hamiltonian Monte Carlo
+sampling. See
 <https://github.com/cdriveraus/ctsem/raw/master/vignettes/hierarchicalmanual.pdf>
 for details. Priors may be used. For the conceptual overview of the
 hierarchical Bayesian linear SDE approach, see
@@ -95,9 +98,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

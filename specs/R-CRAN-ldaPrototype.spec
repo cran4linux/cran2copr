@@ -1,10 +1,10 @@
 %global packname  ldaPrototype
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          3%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}
 Summary:          Prototype of Multiple Latent Dirichlet Allocation Runs
 
 License:          GPL (>= 3)
@@ -21,7 +21,10 @@ BuildRequires:    R-CRAN-colorspace >= 1.4.1
 BuildRequires:    R-CRAN-fs >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.11.2
 BuildRequires:    R-CRAN-progress >= 1.1.1
+BuildRequires:    R-CRAN-batchtools >= 0.9.11
 BuildRequires:    R-CRAN-dendextend 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-parallelMap 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate >= 1.8.5
@@ -30,7 +33,10 @@ Requires:         R-CRAN-colorspace >= 1.4.1
 Requires:         R-CRAN-fs >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.11.2
 Requires:         R-CRAN-progress >= 1.1.1
+Requires:         R-CRAN-batchtools >= 0.9.11
 Requires:         R-CRAN-dendextend 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-parallelMap 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -47,6 +53,9 @@ prototype.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -54,17 +63,9 @@ prototype.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

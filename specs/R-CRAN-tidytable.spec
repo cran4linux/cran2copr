@@ -1,10 +1,10 @@
 %global packname  tidytable
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
-Release:          2%{?dist}
+Version:          0.5.3
+Release:          1%{?dist}
 Summary:          Tidy Interface to 'data.table'
 
 License:          MIT + file LICENSE
@@ -16,15 +16,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-vctrs >= 0.3.1
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
+Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-vctrs >= 0.3.1
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-magrittr 

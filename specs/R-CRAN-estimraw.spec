@@ -1,36 +1,32 @@
-%global packname  ectotemp
-%global packver   0.2.0
+%global packname  estimraw
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Quantitative Estimates of Small Ectotherm Temperature RegulationEffectiveness
+Summary:          Estimation of Four-Fold Table Cell Frequencies (Raw Data) fromEffect Size Measures
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-psych 
-Requires:         R-stats 
-Requires:         R-graphics 
 
 %description
-Easy and rapid quantitative estimation of small terrestrial ectotherm
-temperature regulation effectiveness in R. ectotemp is built on classical
-formulas that evaluate temperature regulation by means of various indices,
-inaugurated by Hertz et al. (1993) <doi: 10.1086/285573>. Options for
-bootstrapping and permutation testing are included to test hypotheses
-about divergence between organisms, species or populations.
+Estimation of four-fold table cell frequencies (raw data) from risk ratios
+(relative risks), risk differences and odds ratios. While raw data can be
+useful for doing meta-analysis, such data is often not provided by primary
+studies (with summary statistics being solely presented). Therefore, based
+on summary statistics (namely, risk ratios, risk differences and odds
+ratios), this package estimates the value of each cell in a 2x2 table
+according to the equations described in Di Pietrantonj C (2006)
+<doi:10.1002/sim.2287>.
 
 %prep
 %setup -q -c -n %{packname}

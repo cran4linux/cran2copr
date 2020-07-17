@@ -1,35 +1,36 @@
-%global packname  StatMatch
-%global packver   1.4.0
+%global packname  symSEM
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1
 Release:          1%{?dist}
-Summary:          Statistical Matching or Data Fusion
+Summary:          Symbolic Computation for Structural Equation Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-proxy 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-OpenMx 
+BuildRequires:    R-CRAN-metaSEM 
+BuildRequires:    R-CRAN-Ryacas 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-OpenMx 
+Requires:         R-CRAN-metaSEM 
+Requires:         R-CRAN-Ryacas 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Integration of two data sources referred to the same target population
-which share a number of variables. Some functions can also be used to
-impute missing values in data sets through hot deck imputation methods.
-Methods to perform statistical matching when dealing with data from
-complex sample surveys are available too.
+A collection of functions for symbolic computation using 'Ryacas' package
+for structural equation models. This package includes functions to
+calculate model-implied covariance (and correlation) matrix and sampling
+covariance matrix of functions of variables using the first-order Taylor
+approximation. Reference: McArdle and McDonald (1984)
+<doi:10.1111/j.2044-8317.1984.tb00802.x>.
 
 %prep
 %setup -q -c -n %{packname}
