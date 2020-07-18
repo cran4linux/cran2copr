@@ -1,10 +1,10 @@
 %global packname  pspline.inference
-%global packver   0.24
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24
-Release:          2%{?dist}
+Version:          1.0.2
+Release:          1%{?dist}
 Summary:          Estimation of Characteristics of Seasonal and SporadicInfectious Disease Outbreaks Using Generalized AdditiveModeling with Penalized Basis Splines
 
 License:          Apache License 2.0
@@ -37,8 +37,9 @@ Requires:         R-CRAN-plotrix
 Requires:         R-CRAN-rlang 
 
 %description
-Stochastic inference of infectious disease outcomes using generalized
-additive (mixed) models.
+Inference of infectious disease outcomes using generalized additive
+(mixed) models with penalized basis splines (P-Splines). See
+<https://medrxiv.org/cgi/content/short/2020.07.14.20138180v1>.
 
 %prep
 %setup -q -c -n %{packname}

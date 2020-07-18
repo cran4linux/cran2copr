@@ -1,10 +1,10 @@
 %global packname  dipsaus
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
-Release:          2%{?dist}
+Version:          0.0.9
+Release:          1%{?dist}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
 License:          GPL-3
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-rstudioapi >= 0.11
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
@@ -33,10 +34,10 @@ BuildRequires:    R-CRAN-base64url
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-synchronicity 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-startup 
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-rstudioapi >= 0.11
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-parallel 
@@ -54,7 +55,6 @@ Requires:         R-CRAN-base64url
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-synchronicity 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-startup 
 
 %description
@@ -84,9 +84,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

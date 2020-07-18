@@ -1,10 +1,10 @@
 %global packname  raster
-%global packver   3.3-7
+%global packver   3.3-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.7
-Release:          2%{?dist}
+Version:          3.3.13
+Release:          1%{?dist}
 Summary:          Geographic Data Analysis and Modeling
 
 License:          GPL (>= 3)

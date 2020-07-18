@@ -1,9 +1,9 @@
 %global packname  climaemet
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Climate AEMET Tools
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggthemes >= 4.2.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-climatol >= 3.1.2
+BuildRequires:    R-CRAN-tibble >= 3.0.3
 BuildRequires:    R-CRAN-lubridate >= 1.7.9
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
@@ -32,9 +33,11 @@ BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-CRAN-ggpubr >= 0.4.0
 BuildRequires:    R-CRAN-gtable >= 0.3.0
 BuildRequires:    R-CRAN-jpeg >= 0.1.8.1
+BuildRequires:    R-methods 
 Requires:         R-CRAN-ggthemes >= 4.2.0
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-climatol >= 3.1.2
+Requires:         R-CRAN-tibble >= 3.0.3
 Requires:         R-CRAN-lubridate >= 1.7.9
 Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-magrittr >= 1.5
@@ -49,6 +52,7 @@ Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-CRAN-ggpubr >= 0.4.0
 Requires:         R-CRAN-gtable >= 0.3.0
 Requires:         R-CRAN-jpeg >= 0.1.8.1
+Requires:         R-methods 
 
 %description
 Tools to download the climatic data of the Spanish Meteorological Agency
