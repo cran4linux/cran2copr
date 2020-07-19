@@ -1,39 +1,34 @@
-%global packname  ImpactEffectsize
-%global packver   0.6.0
+%global packname  SEMsens
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.2.6
 Release:          1%{?dist}
-Summary:          Calculation and Visualization of the Impact Effect Size Measure
+Summary:          A Tool for Sensitivity Analysis in Structural Equation Modeling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-caTools 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-parallelDist 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-caTools 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-parallelDist 
-Requires:         R-methods 
+Requires:         R-CRAN-lavaan 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-Rcpp 
 
 %description
-A non-parametric effect size measure capturing changes in central tendency
-or shape of data distributions. The package provides the necessary
-functions to calculate and plot the Impact effect size measure between two
-groups.
+Perform sensitivity analysis in structural equation modeling using
+meta-heuristic optimization methods (e.g., ant colony optimization and
+others). The references for the proposed methods are: (1) Harring, J. R.,
+McNeish, D. M., & Hancock, G. R. (2017)
+<doi:10.1080/10705511.2018.1506925>; (2) Socha, K., & Dorigo, M. (2008)
+<doi:10.1016/j.ejor.2006.06.046>. We also thank Dr. Krzysztof Socha for
+sharing his thesis and R code, which provided the base for the development
+of this package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,28 @@
-%global packname  sensitivity
-%global packver   1.22.0
+%global packname  fastkmedoids
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.0
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Global Sensitivity Analysis of Model Outputs
+Summary:          Faster K-Medoids Clustering Algorithms: FastPAM, FastCLARA,FastCLARANS
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-numbers 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-boot 
-Requires:         R-CRAN-numbers 
+Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
 
 %description
-A collection of functions for factor screening, global sensitivity
-analysis and robustness analysis. Most of the functions have to be applied
-on model with scalar output, but several functions support
-multi-dimensional outputs.
+R wrappers of C++ implementation of Faster K-Medoids clustering algorithms
+(FastPAM, FastCLARA and FastCLARANS) proposed in Erich Schubert, Peter J.
+Rousseeuw 2019 <doi:10.1007/978-3-030-32047-8_16>.
 
 %prep
 %setup -q -c -n %{packname}

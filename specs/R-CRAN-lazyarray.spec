@@ -1,10 +1,10 @@
 %global packname  lazyarray
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          Persistent Large Data Array with Lazy-Loading on Demand
 
 License:          AGPL-3
@@ -30,7 +30,8 @@ data on demand within seconds without occupying too much memories. With
 data stored on hard drive, a lazy-array data can be loaded, shared across
 multiple R sessions. For arrays with partition mode on, multiple R
 sessions can write to a same array simultaneously along the last dimension
-(partition).
+(partition). The internal storage format is provided by 'fstcore' package
+geared by 'LZ4' and 'ZSTD' compressors.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,9 +46,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

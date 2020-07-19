@@ -1,13 +1,13 @@
-%global packname  gramEvol
-%global packver   2.1-4
+%global packname  hacksaw
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Grammatical Evolution for R
+Summary:          Additional Tools for Splitting and Cleaning Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,12 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-zeallot 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-zeallot 
+Requires:         R-CRAN-magrittr 
 
 %description
-A native R implementation of grammatical evolution (GE). GE facilitates
-the discovery of programs that can achieve a desired goal. This is done by
-performing an evolutionary optimisation over a population of R expressions
-generated via a user-defined context-free grammar (CFG) and cost function.
+Move between data frames and lists more efficiently with precision
+splitting via 'dplyr' verbs. Easily cast variables to different data
+types. Keep rows with NAs. Shift row values.
 
 %prep
 %setup -q -c -n %{packname}

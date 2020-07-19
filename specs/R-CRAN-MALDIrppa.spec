@@ -1,36 +1,31 @@
-%global packname  sensitivity
-%global packver   1.22.0
+%global packname  MALDIrppa
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.0
+Version:          1.0.3
 Release:          1%{?dist}
-Summary:          Global Sensitivity Analysis of Model Outputs
+Summary:          MALDI Mass Spectrometry Data Robust Pre-Processing and Analysis
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-numbers 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-boot 
-Requires:         R-CRAN-numbers 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.2.5
+Requires:         R-core >= 3.2.5
+BuildRequires:    R-CRAN-MALDIquant 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-lattice 
+Requires:         R-CRAN-MALDIquant 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-robustbase 
+Requires:         R-lattice 
 
 %description
-A collection of functions for factor screening, global sensitivity
-analysis and robustness analysis. Most of the functions have to be applied
-on model with scalar output, but several functions support
-multi-dimensional outputs.
+Provides methods for quality control and robust pre-processing and
+analysis of MALDI mass spectrometry data.
 
 %prep
 %setup -q -c -n %{packname}

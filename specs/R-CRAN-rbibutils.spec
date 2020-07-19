@@ -1,36 +1,31 @@
-%global packname  sensitivity
-%global packver   1.22.0
+%global packname  rbibutils
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.0
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Global Sensitivity Analysis of Model Outputs
+Summary:          Convert Between Bibliography Formats
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-numbers 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-boot 
-Requires:         R-CRAN-numbers 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-xml2 
 
 %description
-A collection of functions for factor screening, global sensitivity
-analysis and robustness analysis. Most of the functions have to be applied
-on model with scalar output, but several functions support
-multi-dimensional outputs.
+Converts between a number of bibliography formats, including 'BibTeX',
+'BibLaTeX' and 'Bibentry'.  Includes a port of the 'bibutils' utilities by
+Chris Putnam <https://sourceforge.net/projects/bibutils/>. Supports all
+bibliography formats and character encodings implemented in 'bibutils'.
 
 %prep
 %setup -q -c -n %{packname}

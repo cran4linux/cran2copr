@@ -1,36 +1,30 @@
-%global packname  sensitivity
-%global packver   1.22.0
+%global packname  RenvModule
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.0
+Version:          1.0
 Release:          1%{?dist}
-Summary:          Global Sensitivity Analysis of Model Outputs
+Summary:          Interface to Allow Full Use of the Environment Modules Systemfor Unix
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-numbers 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-boot 
-Requires:         R-CRAN-numbers 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-A collection of functions for factor screening, global sensitivity
-analysis and robustness analysis. Most of the functions have to be applied
-on model with scalar output, but several functions support
-multi-dimensional outputs.
+Provides environment modules functionality, which enables use of the
+Environment Modules system (<http://modules.sourceforge.net/>) from within
+the R environment. By default the user's login shell environment (ie.
+"bash -l") will be used to initialize the current session. The module
+function can also; load or unload specific software, list all the loaded
+software within the current session, and list all the applications
+available for loading from the module system. Lastly, the module function
+can remove all loaded software from the current session.
 
 %prep
 %setup -q -c -n %{packname}
