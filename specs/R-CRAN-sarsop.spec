@@ -1,43 +1,38 @@
-%global packname  BayesSUR
-%global packver   1.2-1
+%global packname  sarsop
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.6.4
 Release:          1%{?dist}
-Summary:          Bayesian Seemingly Unrelated Regression
+Summary:          Approximate POMDP Planning Software
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.000
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-tikzDevice 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-igraph 
+Requires:         R-parallel 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-digest 
 Requires:         R-Matrix 
-Requires:         R-CRAN-tikzDevice 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 
 %description
-Bayesian seemingly unrelated regression with general variable selection
-and dense/sparse covariance matrix. The sparse seemingly unrelated
-regression is described in Banterle et al. (2018) <doi:10.1101/467019>.
+A toolkit for Partially Observed Markov Decision Processes (POMDP).
+Provides bindings to C++ libraries implementing the algorithm SARSOP
+(Successive Approximations of the Reachable Space under Optimal Policies)
+and described in Kurniawati et al (2008), <doi:10.15607/RSS.2008.IV.009>.
+This package also provides a high-level interface for generating, solving
+and simulating POMDP problems and their solutions.
 
 %prep
 %setup -q -c -n %{packname}

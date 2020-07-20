@@ -1,42 +1,43 @@
-%global packname  RSC
-%global packver   1.0
+%global packname  GENLIB
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
-Release:          2%{?dist}
-Summary:          Robust and Sparse Correlation Matrix
+Version:          1.0.9
+Release:          1%{?dist}
+Summary:          Genealogical Data Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.9.10
+BuildRequires:    R-CRAN-kinship2 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-bootstrap 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-Matrix 
+Requires:         R-CRAN-Rcpp >= 0.9.10
+Requires:         R-CRAN-kinship2 
 Requires:         R-methods 
-Requires:         R-parallel 
+Requires:         R-CRAN-bootstrap 
+Requires:         R-Matrix 
+Requires:         R-lattice 
+Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
-Requires:         R-utils 
 
 %description
-Performs robust and sparse correlation matrix estimation. Robustness is
-achieved based on a simple robust pairwise correlation estimator, while
-sparsity is obtained based on thresholding. The optimal thresholding is
-tuned via cross-validation. See Serra, Coretto, Fratello, and Tagliaferri
-(2018) <doi:10.1093/bioinformatics/btx642>.
+Genealogical data analysis including descriptive statistics (e.g., kinship
+and inbreeding coefficients) and gene-dropping simulations.
 
 %prep
 %setup -q -c -n %{packname}

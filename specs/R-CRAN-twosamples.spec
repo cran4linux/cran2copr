@@ -1,9 +1,9 @@
 %global packname  twosamples
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Fast Permutation Based Two Sample Tests
 
@@ -21,14 +21,15 @@ Requires:         R-CRAN-Rcpp >= 0.12.17
 Fast randomization based two sample tests. Testing the hypothesis that two
 samples come from the same distribution using randomization to create
 p-values. Included tests are: Kolmogorov-Smirnov, Kuiper, Cramer-von
-Mises, and Anderson-Darling. There is also a very efficient new test based
-on the Wasserstein Distance as the default, 'two_sample', which builds on
-the Wasserstein distance by using a weighting scheme like that of
-Anderson-Darling. See the companion paper at <arXiv:2007.01360> or
+Mises, Anderson-Darling, Wasserstein, and DTS. The default test
+(two_sample) is based on the DTS test statistic, as it is the most
+powerful, and thus most useful to most users. The DTS test statistic
+builds on the Wasserstein distance by using a weighting scheme like that
+of Anderson-Darling. See the companion paper at <arXiv:2007.01360> or
 <https://codowd.com/public/DTS.pdf> for details of that test statistic,
 and non-standard uses of the package (parallel for big N, weighted
-observations, etc). We also include the permutation scheme to make test
-building simple for others.
+observations, one sample tests, etc). We also include the permutation
+scheme to make test building simple for others.
 
 %prep
 %setup -q -c -n %{packname}
