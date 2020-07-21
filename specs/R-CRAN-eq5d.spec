@@ -1,10 +1,10 @@
 %global packname  eq5d
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
-Release:          3%{?dist}
+Version:          0.7.2
+Release:          1%{?dist}
 Summary:          Methods for Calculating 'EQ-5D' Utility Index Scores
 
 License:          MIT + file LICENSE
@@ -34,7 +34,7 @@ health surveys. The eq5d package provides methods to calculate index
 scores from a subject's dimension scores. 25 TTO and 11 VAS EQ-5D-3L value
 sets including those for countries in Szende et al (2007)
 <doi:10.1007/1-4020-5511-0> and Szende et al (2014)
-<doi:10.1007/978-94-007-7596-1>, 21 EQ-5D-5L EQ-VT value sets from the
+<doi:10.1007/978-94-007-7596-1>, 22 EQ-5D-5L EQ-VT value sets from the
 EuroQol website, and the EQ-5D-5L crosswalk value sets developed by van
 Hout et al. (2012) <doi:10.1016/j.jval.2012.02.008> are included.
 Additionally, a shiny web tool is included to enable the calculation,
@@ -45,6 +45,8 @@ a web browser using EQ-5D dimension scores stored in CSV or Excel files.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -52,22 +54,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/shiny
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

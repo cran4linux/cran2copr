@@ -1,10 +1,10 @@
 %global packname  Copula.Markov.survival
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          2%{?dist}
+Version:          1.0.0
+Release:          1%{?dist}
 Summary:          Copula Markov Model with Dependent Censoring
 
 License:          GPL-3
@@ -25,14 +25,8 @@ Requires:         R-graphics
 %description
 Perform likelihood estimation and corresponding analysis under the
 copula-based Markov chain model for serially dependent event times with a
-dependent terminal event. A two stage estimation method is applied for
-estimating model parameters. Two copula functions are used for measuring
-dependence. One is used for modeling serial dependence in recurrent event
-times. The other one is for modeling dependent censoring. The baseline
-hazard functions are modeled by the Weibull distributions. See Huang
-(2019)
-<https://etd.lib.nctu.edu.tw/cgi-bin/gs32/ncugsweb.cgi?o=dncucdr&s=id=%22GC106225601%22.&searchmode=basic>
-for detail.
+dependent terminal event. Available are statistical methods in Huang, Wang
+and Emura (2020, JJSD accepted).
 
 %prep
 %setup -q -c -n %{packname}

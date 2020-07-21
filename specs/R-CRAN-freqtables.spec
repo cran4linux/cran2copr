@@ -1,35 +1,32 @@
-%global packname  bayestestR
-%global packver   0.7.2
+%global packname  freqtables
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Understand and Describe Bayesian Models and PosteriorDistributions
+Summary:          Make Quick Descriptive Tables for Categorical Variables
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.8.4
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.8.4
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides utilities to describe posterior distributions and Bayesian
-models. It includes point-estimates such as Maximum A Posteriori (MAP),
-measures of dispersion (Highest Density Interval - HDI; Kruschke, 2015
-<doi:10.1016/C2012-0-00477-2>) and indices used for null-hypothesis
-testing (such as ROPE percentage, pd and Bayes factors).
+Quickly make tables of descriptive statistics (i.e., counts, percentages,
+confidence intervals) for categorical variables. This package is designed
+to work in a Tidyverse pipeline, and consideration has been given to get
+results from R to Microsoft Word ® with minimal pain.
 
 %prep
 %setup -q -c -n %{packname}

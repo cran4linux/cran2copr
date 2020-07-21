@@ -1,10 +1,10 @@
 %global packname  distr6
-%global packver   1.3.7
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
-Release:          3%{?dist}
+Version:          1.4.0
+Release:          1%{?dist}
 Summary:          The Complete R6 Probability Distributions Interface
 
 License:          MIT + file LICENSE
@@ -14,19 +14,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-R62S3 >= 1.4.0
-BuildRequires:    R-CRAN-set6 >= 0.1.4
+BuildRequires:    R-CRAN-set6 >= 0.1.7
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-R62S3 >= 1.4.0
-Requires:         R-CRAN-set6 >= 0.1.4
+Requires:         R-CRAN-set6 >= 0.1.7
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
 Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 
 %description
 An R6 object oriented distributions package. Unified interface for 42
@@ -45,6 +46,8 @@ the Multivariate Normal distribution and Michael et al. (1976)
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -52,19 +55,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

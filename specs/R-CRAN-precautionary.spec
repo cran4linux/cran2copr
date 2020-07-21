@@ -1,13 +1,13 @@
-%global packname  trundler
-%global packver   0.1.17
+%global packname  precautionary
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.17
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Historical Retail Data from the 'Trundler' API
+Summary:          Safety Diagnostics for Dose-Escalation Trial Designs
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,29 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-escalation 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-distr6 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-escalation 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-CRAN-distr6 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-A wrapper around the 'Trundler' API, which gives access to historical
-retail product and pricing data, and can be found at
-<https://api.trundler.dev/>.
+Enhances various R packages that support the design and simulation of
+phase 1 dose-escalation trials, adding diagnostics to examine the safety
+characteristics of these designs in light of expected inter-individual
+variation in pharmacokinetics and pharmacodynamics. See Norris (2020),
+"Retrospective analysis of a fatal dose-finding trial" <arXiv:2004.12755>.
 
 %prep
 %setup -q -c -n %{packname}
