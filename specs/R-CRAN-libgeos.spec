@@ -1,9 +1,9 @@
 %global packname  libgeos
-%global packver   3.8.1-1
+%global packver   3.8.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.1
+Version:          3.8.1.2
 Release:          1%{?dist}
 Summary:          Open Source Geometry Engine ('GEOS') C API
 
@@ -19,9 +19,9 @@ Requires:         R-core
 Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
 used to write high-performance C and C++ geometry operations using R as an
 interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. If a suitable
-version of 'GEOS' is not available, an internal version of 'GEOS' will be
-built and used.
+functions from C++ code as easy and as safe as possible. This package
+contains an internal copy of the 'GEOS' library to guarantee the best
+possible consistency on multiple platforms.
 
 %prep
 %setup -q -c -n %{packname}

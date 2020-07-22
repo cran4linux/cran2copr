@@ -1,10 +1,10 @@
 %global packname  credentials
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
-Release:          2%{?dist}
+Version:          1.3.0
+Release:          1%{?dist}
 Summary:          Tools for Managing SSH and Git Credentials
 
 License:          MIT + file LICENSE

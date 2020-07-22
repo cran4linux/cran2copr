@@ -1,9 +1,9 @@
 %global packname  tbl2xts
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}
 Summary:          Convert Tibbles or Data Frames to Xts Easily
 
@@ -19,13 +19,11 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 
 %description

@@ -1,10 +1,10 @@
 %global packname  ggquickeda
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
-Release:          3%{?dist}
+Version:          0.1.7
+Release:          1%{?dist}
 Summary:          Quickly Explore Your Data Using 'ggplot2' and 'table1' SummaryTables
 
 License:          MIT + file LICENSE
@@ -13,9 +13,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         pandoc
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.1
 BuildRequires:    R-CRAN-shinyjs >= 1.1
 BuildRequires:    R-CRAN-table1 >= 1.1
 BuildRequires:    R-CRAN-shiny >= 1.0.4
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpmisc 
 BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-ggpubr 
@@ -47,6 +47,7 @@ BuildRequires:    R-survival
 BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.3.1
 Requires:         R-CRAN-shinyjs >= 1.1
 Requires:         R-CRAN-table1 >= 1.1
 Requires:         R-CRAN-shiny >= 1.0.4
@@ -56,7 +57,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpmisc 
 Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-ggpubr 
@@ -89,6 +89,8 @@ click 'Shiny' interface.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -96,21 +98,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/shinyapp
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
