@@ -1,10 +1,10 @@
 %global packname  popsom
-%global packver   4.2.1
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.1
-Release:          3%{?dist}
+Version:          4.3.0
+Release:          1%{?dist}
 Summary:          Functions for Constructing and Evaluating Self-Organizing Maps
 
 License:          GPL
@@ -26,12 +26,19 @@ Requires:         R-graphics
 Requires:         R-CRAN-ggplot2 
 
 %description
-State of the art functions for constructing and evaluating self-organizing
-maps.
+A self-organizing map package with three distinguishing features: (1)
+Automatic cluster centroid detection and visualization using starbursts
+(2) Convergence index, a statistical quality measure based on the linear
+combination of map embedding and estimated topographic accuracy (3) A very
+efficient stochastic training algorithm based on ideas from tensor
+algebra.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -41,15 +48,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

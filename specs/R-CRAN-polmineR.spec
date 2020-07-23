@@ -1,10 +1,10 @@
 %global packname  polmineR
-%global packver   0.8.3
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
-Release:          2%{?dist}
+Version:          0.8.4
+Release:          1%{?dist}
 Summary:          Verbs and Nouns for Corpus Analysis
 
 License:          GPL-3

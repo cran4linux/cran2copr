@@ -1,13 +1,13 @@
-%global packname  aplot
-%global packver   0.0.5
+%global packname  rddtools
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          1.2.0
 Release:          1%{?dist}
-Summary:          Decorate a 'ggplot' with Associated Information
+Summary:          Toolbox for Regression Discontinuity Design ('RDD')
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-KernSmooth 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rdd 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-locpol 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rdrobust 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-np 
+Requires:         R-KernSmooth 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rdd 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-locpol 
 Requires:         R-methods 
+Requires:         R-CRAN-rdrobust 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-For many times, we are not just aligning plots as what 'cowplot' and
-'patchwork' did. Users would like to align associated information that
-requires axes to be exactly matched in subplots, e.g. hierarchical
-clustering with a heatmap. This package provides utilities to aligns
-associated subplots to a main plot at different sides (left, right, top
-and bottom) with axes exactly matched.
+Set of functions for Regression Discontinuity Design ('RDD'), for data
+visualisation, estimation and testing.
 
 %prep
 %setup -q -c -n %{packname}

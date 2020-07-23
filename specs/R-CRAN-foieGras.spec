@@ -1,10 +1,10 @@
 %global packname  foieGras
-%global packver   0.6-7
+%global packver   0.6-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
-Release:          3%{?dist}
+Version:          0.6.9
+Release:          1%{?dist}
 Summary:          Fit Continuous-Time State-Space and Latent Variable Models forQuality Control of Argos Satellite (and Other) Telemetry Dataand for Estimating Movement Behaviour
 
 License:          MIT + file LICENSE
@@ -19,7 +19,7 @@ BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-TMB >= 1.7.15
 BuildRequires:    R-CRAN-future >= 1.13.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-sf >= 0.9.4
 BuildRequires:    R-CRAN-furrr >= 0.1.0
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-stringr 
@@ -29,13 +29,15 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-trip 
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-wesanderson 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-TMB >= 1.7.15
 Requires:         R-CRAN-future >= 1.13.0
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-sf >= 0.9.3
+Requires:         R-CRAN-sf >= 0.9.4
 Requires:         R-CRAN-furrr >= 0.1.0
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-stringr 
@@ -45,6 +47,8 @@ Requires:         R-parallel
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-trip 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-wesanderson 
+Requires:         R-CRAN-patchwork 
 
 %description
 Fits continuous-time random walk and correlated random walk state-space
@@ -66,6 +70,8 @@ among southern elephant seals with a mixed effects model. Ecology
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -73,21 +79,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

@@ -1,10 +1,10 @@
 %global packname  maditr
-%global packver   0.7.1
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
-Release:          3%{?dist}
+Version:          0.7.3
+Release:          1%{?dist}
 Summary:          Fast Data Aggregation, Modification, and Filtering with Pipesand 'data.table'
 
 License:          GPL-2
@@ -21,7 +21,7 @@ Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-data.table >= 1.12.6
 
 %description
-Package provides pipe-style interface for 'data.table'. It preserves all
+Provides pipe-style interface for 'data.table'. Package preserves all
 'data.table' features without significant impact on performance. 'let' and
 'take' functions are simplified interfaces for most common data
 manipulation tasks. For example, you can write 'take(mtcars, mean(mpg), by
@@ -35,6 +35,8 @@ conveniences such as automatic 'data.frame' conversion to 'data.table'.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -42,19 +44,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/tinytest
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

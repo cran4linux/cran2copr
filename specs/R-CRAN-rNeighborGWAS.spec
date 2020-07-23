@@ -1,26 +1,36 @@
-%global packname  comprehenr
-%global packver   0.6.8
+%global packname  rNeighborGWAS
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          1.2.1
 Release:          1%{?dist}
-Summary:          List Comprehensions
+Summary:          Testing Neighbor Effects in Marker-Based Regressions
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gaston 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppParallel 
+Requires:         R-CRAN-gaston 
+Requires:         R-Matrix 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-RcppParallel 
 
 %description
-Provides 'Python'-style list comprehensions. List comprehension
-expressions use usual loops (for(), while() and repeat()) and usual if()
-as list producers. In many cases it gives more concise notation than
-standard "*apply + filter" strategy.
+To incorporate neighbor genotypic identity into genome-wide association
+studies, the package provides a set of functions for variation
+partitioning and association mapping. The theoretical background of the
+method is described in Sato et al. (2019) <doi:10.1101/845735>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  reReg
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
-Release:          3%{?dist}
+Version:          1.3.0
+Release:          1%{?dist}
 Summary:          Recurrent Event Regression
 
 License:          GPL (>= 3)
@@ -23,6 +23,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-scam 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-reda >= 0.5.0
 Requires:         R-CRAN-BB 
 Requires:         R-CRAN-nleqslv 
@@ -32,6 +35,8 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-scam 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rootSolve 
 
 %description
 A collection of regression models for recurrent event process and failure
@@ -45,6 +50,9 @@ time data. Available methods include these from Xu et al. (2017)
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -52,19 +60,9 @@ time data. Available methods include these from Xu et al. (2017)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

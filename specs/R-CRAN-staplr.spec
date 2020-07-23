@@ -1,10 +1,10 @@
 %global packname  staplr
-%global packver   2.9.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
-Release:          3%{?dist}
+Version:          3.0.0
+Release:          1%{?dist}
 Summary:          A Toolkit for PDF Files
 
 License:          GPL-3
@@ -19,10 +19,14 @@ BuildRequires:    R-tcltk
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-rJava 
 Requires:         R-tcltk 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-rJava 
 
 %description
 Provides function to manipulate PDF files: fill out PDF forms; merge
@@ -30,11 +34,15 @@ multiple PDF files into one; remove selected pages from a file; rename
 multiple files in a directory; rotate entire pdf document; rotate selected
 pages of a pdf file; Select pages from a file; splits single input PDF
 document into individual pages; splits single input PDF document into
-parts from given points.
+parts from given points. 'staplr' requires a Java installation on your
+system.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -44,14 +52,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/testForm.pdf
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

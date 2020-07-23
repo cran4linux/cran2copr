@@ -1,37 +1,36 @@
-%global packname  fhircrackr
-%global packver   0.1.1
+%global packname  climate
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.9.7
 Release:          1%{?dist}
-Summary:          Handling HL7 FHIR Resources in R
+Summary:          Interface to Download Meteorological (and Hydrological) Datasets
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-XML 
 Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-curl 
 
 %description
-Useful tools for conveniently downloading FHIR resources in xml format and
-converting them to R data frames. The package uses FHIR-search to download
-bundles from a FHIR server, provides functions to save and read xml-files
-containing such bundles and allows flattening the bundles to data.frames
-using XPath expressions.
+Automatize downloading of meteorological and hydrological data from
+publicly available repositories: OGIMET
+(<http://ogimet.com/index.phtml.en>), University of Wyoming - atmospheric
+vertical profiling data (<http://weather.uwyo.edu/upperair>), Polish
+Institute of Meterology and Water Management - National Research Institute
+(<https://dane.imgw.pl>), and National Oceanic & Atmospheric
+Administration (NOAA). This package also allows for adding geographical
+coordinates for each observation.
 
 %prep
 %setup -q -c -n %{packname}

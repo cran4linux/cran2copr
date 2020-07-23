@@ -1,10 +1,10 @@
 %global packname  DynTxRegime
-%global packver   4.6
+%global packver   4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6
-Release:          2%{?dist}
+Version:          4.7
+Release:          1%{?dist}
 Summary:          Methods for Estimating Optimal Dynamic Treatment Regimes
 
 License:          GPL-2
@@ -32,7 +32,10 @@ Requires:         R-CRAN-dfoptim
 Methods to estimate dynamic treatment regimes using Interactive
 Q-Learning, Q-Learning, weighted learning, and value-search methods based
 on Augmented Inverse Probability Weighted Estimators and Inverse
-Probability Weighted Estimators.
+Probability Weighted Estimators. Dynamic Treatment Regimes: Statistical
+Methods for Precision Medicine, Tsiatis, A. A., Davidian, M. D., Holloway,
+S. T., and Laber, E. B., Chapman & Hall/CRC Press, 2020,
+ISBN:978-1-4987-6977-8.
 
 %prep
 %setup -q -c -n %{packname}

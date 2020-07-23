@@ -1,10 +1,10 @@
 %global packname  bnviewer
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
-Release:          3%{?dist}
+Version:          0.1.5
+Release:          1%{?dist}
 Summary:          Interactive Visualization of Bayesian Networks
 
 License:          MIT + file LICENSE
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-bnlearn >= 4.3
 BuildRequires:    R-CRAN-visNetwork >= 2.0.4
 BuildRequires:    R-CRAN-igraph >= 1.2.4
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-bnlearn >= 4.3
 Requires:         R-CRAN-visNetwork >= 2.0.4
 Requires:         R-CRAN-igraph >= 1.2.4
 Requires:         R-methods 
+Requires:         R-CRAN-shiny 
 
 %description
 Bayesian networks provide an intuitive framework for probabilistic
@@ -37,6 +39,9 @@ views offered by existing packages.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -46,14 +51,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

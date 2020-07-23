@@ -1,10 +1,10 @@
 %global packname  mlr3
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
-Release:          3%{?dist}
+Version:          0.4.0
+Release:          1%{?dist}
 Summary:          Machine Learning in R - Next Generation
 
 License:          LGPL-3
@@ -19,9 +19,9 @@ BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-future.apply >= 1.5.0
 BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-mlr3misc >= 0.4.0
+BuildRequires:    R-CRAN-paradox >= 0.4.0
 BuildRequires:    R-CRAN-lgr >= 0.3.4
-BuildRequires:    R-CRAN-mlr3misc >= 0.2.0
-BuildRequires:    R-CRAN-paradox >= 0.2.0
 BuildRequires:    R-CRAN-mlr3measures >= 0.1.3
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-digest 
@@ -31,9 +31,9 @@ Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-future.apply >= 1.5.0
 Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-mlr3misc >= 0.4.0
+Requires:         R-CRAN-paradox >= 0.4.0
 Requires:         R-CRAN-lgr >= 0.3.4
-Requires:         R-CRAN-mlr3misc >= 0.2.0
-Requires:         R-CRAN-paradox >= 0.2.0
 Requires:         R-CRAN-mlr3measures >= 0.1.3
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-digest 
@@ -52,6 +52,8 @@ provide additional functionality.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -59,21 +61,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/references.bib
-%doc %{rlibdir}/%{packname}/testthat
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

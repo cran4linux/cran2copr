@@ -1,9 +1,9 @@
 %global packname  PublicationBias
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}
 Summary:          Sensitivity Analysis for Publication Bias in Meta-Analyses
 
