@@ -1,13 +1,13 @@
 %global packname  ecap
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Excess Certainty Adjusted Probability Estimate
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -27,10 +27,10 @@ Implements the Excess Certainty Adjusted Probability adjustment procedure
 as described in the paper "Irrational Exuberance: Correcting Bias in
 Probability Estimates" by Gareth James, Peter Radchenko, and Bradley Rava
 (Journal of the American Statistical Association, 2020;
-<arXiv:1910.13570>). The package includes a function that preforms the
-ECAP adjustment and a function that estimates the parameters needed for
-implementing ECAP. For testing and reproducibility, the ESPN and
-FiveThirtyEight data used in the paper are also included.
+<doi:10.1080/01621459.2020.1787175>). The package includes a function that
+preforms the ECAP adjustment and a function that estimates the parameters
+needed for implementing ECAP. For testing and reproducibility, the ESPN
+and FiveThirtyEight data used in the paper are also included.
 
 %prep
 %setup -q -c -n %{packname}

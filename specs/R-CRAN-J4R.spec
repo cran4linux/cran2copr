@@ -1,10 +1,10 @@
 %global packname  J4R
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
-Release:          3%{?dist}
+Version:          1.0.8
+Release:          1%{?dist}
 Summary:          Create 'Java' Objects and Execute 'Java' Methods
 
 License:          GPL-3
@@ -15,8 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.4.4
-Requires:         R-utils >= 3.4.4
+BuildRequires:    R-utils >= 3.4
+BuildRequires:    R-methods >= 3.4
+Requires:         R-utils >= 3.4
+Requires:         R-methods >= 3.4
 
 %description
 Makes it possible to create 'Java' objects and to execute 'Java' methods
@@ -33,6 +35,8 @@ included in this package.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -40,17 +44,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/java
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

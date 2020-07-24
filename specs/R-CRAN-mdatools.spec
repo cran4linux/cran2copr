@@ -1,9 +1,9 @@
 %global packname  mdatools
-%global packver   0.11.0
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.11.1
 Release:          1%{?dist}
 Summary:          Multivariate Data Analysis for Chemometrics
 

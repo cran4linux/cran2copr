@@ -1,10 +1,10 @@
 %global packname  OCNet
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          2%{?dist}
+Version:          0.3.2
+Release:          1%{?dist}
 Summary:          Optimal Channel Networks
 
 License:          GPL-3
@@ -36,8 +36,8 @@ Generate and analyze Optimal Channel Networks (OCNs): oriented spanning
 trees reproducing all scaling features characteristic of real, natural
 river networks. As such, they can be used in a variety of numerical
 experiments in the fields of hydrology, ecology and epidemiology. See
-Carraro et al. (2020) <doi:10.1101/2020.02.17.948851> for a presentation
-of the package; Rinaldo et al. (2014) <doi:10.1073/pnas.1322700111> for a
+Carraro et al. (2020) <doi:10.1002/ece3.6479> for a presentation of the
+package; Rinaldo et al. (2014) <doi:10.1073/pnas.1322700111> for a
 theoretical overview on the OCN concept; Furrer and Sain (2010)
 <doi:10.18637/jss.v036.i10> for the construct used.
 

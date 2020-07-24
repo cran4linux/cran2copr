@@ -1,13 +1,13 @@
-%global packname  zalpha
+%global packname  palmerpenguins
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
-Summary:          Run a Suite of Selection Statistics
+Release:          1%{?dist}
+Summary:          Palmer Archipelago (Antarctica) Penguin Data
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,18 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-A suite of statistics for identifying areas of the genome under selective
-pressure. See Jacobs, Sluckin and Kivisild (2016)
-<doi:10.1534/genetics.115.185900>.
+Size measurements, clutch observations, and blood isotope ratios for adult
+foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the
+Palmer Archipelago near Palmer Station, Antarctica. Data were collected
+and made available by Dr. Kristen Gorman and the Palmer Station Long Term
+Ecological Research (LTER) Program.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -32,19 +36,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

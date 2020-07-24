@@ -1,13 +1,13 @@
-%global packname  seminr
-%global packver   1.1.0
+%global packname  tcftt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Domain-Specific Language for Building and Estimating StructuralEquation Models
+Summary:          Two-Sample Tests for Skewed Data
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-MASS 
-Requires:         R-parallel 
-Requires:         R-CRAN-lavaan 
-Requires:         R-MASS 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-A powerful, easy to syntax for specifying and estimating complex
-Structural Equation Models. Models can be estimated using Partial Least
-Squares Path Modeling or Covariance-Based Structural Equation Modeling or
-covariance based Confirmatory Factor Analysis.
+The classical two-sample t-test works well for the normally distributed
+data or data with large sample size. The tcfu() and tt() tests implemented
+in this package provide better type-I-error control with more accurate
+power when testing the equality of two-sample means for skewed populations
+having unequal variances. These tests are especially useful when the
+sample sizes are moderate. The tcfu() uses the Cornish-Fisher expansion to
+achieve a better approximation to the true percentiles. The tt() provides
+transformations of the Welch's t-statistic so that the sampling
+distribution become more symmetric. For more technical details, please
+refer to Zhang (2019) <http://hdl.handle.net/2097/40235>.
 
 %prep
 %setup -q -c -n %{packname}
