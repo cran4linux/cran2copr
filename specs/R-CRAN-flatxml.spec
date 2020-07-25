@@ -1,10 +1,10 @@
 %global packname  flatxml
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
-Release:          3%{?dist}
+Version:          0.1.0
+Release:          1%{?dist}
 Summary:          Tools for Working with XML Files as R Dataframes
 
 License:          GPL-3
@@ -17,19 +17,25 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-httr 
 
 %description
 On import, the XML information is converted to a dataframe that reflects
 the hierarchical XML structure. Intuitive functions allow to navigate
 within this transparent XML data structure (without any knowledge of
 'XPath'). 'flatXML' also provides tools to extract data from the XML into
-a flat dataframe that can be used to perform statistical operations.
+a flat dataframe that can be used to perform statistical operations. It
+also supports converting dataframes to XML.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -39,15 +45,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/soccer.xml
-%doc %{rlibdir}/%{packname}/worldpopulation.xml
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

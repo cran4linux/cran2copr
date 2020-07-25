@@ -1,33 +1,29 @@
-%global packname  chk
-%global packver   0.5.1
+%global packname  l1ball
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Check User-Supplied Function Arguments
+Summary:          L1-Ball Prior for Sparse Regression
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-VGAM 
+Requires:         R-stats 
 
 %description
-For developers to check user-supplied function arguments.  It is designed
-to be simple, fast and customizable.  Error messages follow the tidyverse
-style guide.
+Provides function for the l1-ball prior on high-dimensional regression.
+The main function, l1ball(), yields posterior samples for linear
+regression, as introduced by Xu and Duan (2020) <arXiv:2006.01340>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  BGGM
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
 Summary:          Bayesian Gaussian Graphical Models
 
@@ -25,13 +25,13 @@ BuildRequires:    R-CRAN-ggridges >= 0.5.1
 BuildRequires:    R-CRAN-mvnfast >= 0.2.5
 BuildRequires:    R-CRAN-BFpack >= 0.2.1
 BuildRequires:    R-CRAN-Rdpack >= 0.11.1
-BuildRequires:    R-CRAN-RcppProgress >= 0.1
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppDist 
+BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-MASS >= 7.3.51.5
 Requires:         R-CRAN-ggplot2 >= 3.2.1
 Requires:         R-CRAN-sna >= 2.5
@@ -43,7 +43,6 @@ Requires:         R-CRAN-ggridges >= 0.5.1
 Requires:         R-CRAN-mvnfast >= 0.2.5
 Requires:         R-CRAN-BFpack >= 0.2.1
 Requires:         R-CRAN-Rdpack >= 0.11.1
-Requires:         R-CRAN-RcppProgress >= 0.1
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-stats 

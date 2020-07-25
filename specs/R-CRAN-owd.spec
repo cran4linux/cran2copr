@@ -1,33 +1,24 @@
-%global packname  incidence
-%global packver   1.7.2
+%global packname  owd
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.0.4
 Release:          1%{?dist}
-Summary:          Compute, Handle, Plot and Model Incidence of Dated Events
+Summary:          Open Working Directory
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.13
+Requires:         R-core >= 2.13
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-aweek >= 0.2.0
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-aweek >= 0.2.0
 
 %description
-Provides functions and classes to compute, handle and visualise incidence
-from dated events for a defined time interval. Dates can be provided in
-various standard formats. The class 'incidence' is used to store computed
-incidence and can be easily manipulated, subsetted, and plotted. In
-addition, log-linear models can be fitted to 'incidence' objects using
-'fit'. This package is part of the RECON
-(<http://www.repidemicsconsortium.org/>) toolkit for outbreak analysis.
+Open the current working directory (or a given directory path) in your
+computer's file manager.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  lcsm
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          2%{?dist}
+Version:          0.1.2
+Release:          1%{?dist}
 Summary:          Univariate and Bivariate Latent Change Score Modeling
 
 License:          GPL-3
@@ -27,6 +27,8 @@ BuildRequires:    R-CRAN-lavaan >= 0.6.2
 BuildRequires:    R-CRAN-broom >= 0.5.1
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-rlang >= 0.1.6
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-utf8 
 Requires:         R-stats >= 3.5.2
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-magrittr >= 1.5
@@ -39,6 +41,8 @@ Requires:         R-CRAN-lavaan >= 0.6.2
 Requires:         R-CRAN-broom >= 0.5.1
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-rlang >= 0.1.6
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-utf8 
 
 %description
 Helper functions to implement univariate and bivariate latent change score
@@ -71,9 +75,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

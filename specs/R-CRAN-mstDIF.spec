@@ -1,9 +1,9 @@
 %global packname  mstDIF
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}
 Summary:          A Collection of DIF Tests for Multistage Tests
 
@@ -21,14 +21,12 @@ BuildRequires:    R-Matrix
 BuildRequires:    R-CRAN-PP 
 BuildRequires:    R-CRAN-scDIFtest 
 BuildRequires:    R-CRAN-eRm 
-BuildRequires:    R-CRAN-strucchange 
 Requires:         R-CRAN-mirt >= 1.31
 Requires:         R-CRAN-expm 
 Requires:         R-Matrix 
 Requires:         R-CRAN-PP 
 Requires:         R-CRAN-scDIFtest 
 Requires:         R-CRAN-eRm 
-Requires:         R-CRAN-strucchange 
 
 %description
 A collection of statistical tests for the detection of differential item

@@ -1,10 +1,10 @@
 %global packname  tsibble
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
-Release:          2%{?dist}
+Version:          0.9.2
+Release:          1%{?dist}
 Summary:          Tidy Temporal Data Frames and Tools
 
 License:          GPL-3
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-vctrs >= 0.3.1
 BuildRequires:    R-CRAN-ellipsis >= 0.3.0
 BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-lubridate >= 1.7.0
 Requires:         R-CRAN-dplyr >= 1.0.0
@@ -35,6 +36,7 @@ Requires:         R-CRAN-vctrs >= 0.3.1
 Requires:         R-CRAN-ellipsis >= 0.3.0
 Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
 
 %description
 Provides a 'tbl_ts' class (the 'tsibble') for temporal data in an data-
@@ -55,9 +57,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

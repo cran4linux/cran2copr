@@ -1,10 +1,10 @@
 %global packname  tidyUSDA
-%global packver   0.2.8
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
-Release:          2%{?dist}
+Version:          0.2.9
+Release:          1%{?dist}
 Summary:          A Minimal Tool Set for Gathering USDA Quick Stat Data forAnalysis and Visualization
 
 License:          MIT + file LICENSE
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tigris >= 1.0
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
@@ -27,8 +28,8 @@ BuildRequires:    R-nlme
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tigris 
 BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-tigris >= 1.0
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
@@ -41,7 +42,6 @@ Requires:         R-nlme
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tigris 
 Requires:         R-CRAN-usethis 
 
 %description

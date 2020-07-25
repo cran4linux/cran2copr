@@ -1,33 +1,33 @@
-%global packname  chk
-%global packver   0.5.1
+%global packname  InformativeCensoring
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.3.5
 Release:          1%{?dist}
-Summary:          Check User-Supplied Function Arguments
+Summary:          Multiple Imputation for Informative Censoring
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
+BuildRequires:    R-survival >= 2.36.1
+BuildRequires:    R-CRAN-dplyr >= 0.4.3
+BuildRequires:    R-boot 
+BuildRequires:    R-parallel 
+Requires:         R-survival >= 2.36.1
+Requires:         R-CRAN-dplyr >= 0.4.3
+Requires:         R-boot 
+Requires:         R-parallel 
 
 %description
-For developers to check user-supplied function arguments.  It is designed
-to be simple, fast and customizable.  Error messages follow the tidyverse
-style guide.
+Multiple Imputation for Informative Censoring. This package implements two
+methods. Gamma Imputation described in <DOI:10.1002/sim.6274> and Risk
+Score Imputation described in <DOI:10.1002/sim.3480>.
 
 %prep
 %setup -q -c -n %{packname}

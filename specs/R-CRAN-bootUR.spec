@@ -1,10 +1,10 @@
 %global packname  bootUR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}
 Summary:          Bootstrap Unit Root Tests
 
 License:          GPL (>= 2)
@@ -17,6 +17,7 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
