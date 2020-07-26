@@ -1,10 +1,10 @@
 %global packname  robotstxt
-%global packver   0.7.7
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
-Release:          2%{?dist}
+Version:          0.7.8
+Release:          1%{?dist}
 Summary:          A 'robots.txt' Parser and 'Webbot'/'Spider'/'Crawler'Permissions Checker
 
 License:          MIT + file LICENSE
