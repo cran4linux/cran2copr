@@ -1,10 +1,10 @@
 %global packname  leafem
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          3%{?dist}
+Version:          0.1.3
+Release:          1%{?dist}
 Summary:          'leaflet' Extensions for 'mapview'
 
 License:          MIT + file LICENSE
@@ -16,26 +16,18 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-leaflet >= 2.0.1
-BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-htmltools >= 0.3
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-mapdeck 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-png 
 Requires:         R-CRAN-leaflet >= 2.0.1
-Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-htmltools >= 0.3
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-mapdeck 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-methods 
-Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-png 
 
 %description
@@ -50,6 +42,8 @@ type agnostic function to add points, lines, polygons to a map.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -57,20 +51,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/htmlwidgets
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

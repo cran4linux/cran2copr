@@ -1,10 +1,10 @@
 %global packname  eRTG3D
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
-Release:          3%{?dist}
+Version:          0.6.3
+Release:          1%{?dist}
 Summary:          Empirically Informed Random Trajectory Generation in 3-D
 
 License:          GPL (>= 3)
@@ -18,20 +18,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.9.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
 BuildRequires:    R-CRAN-raster >= 2.9.5
-BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-pbapply >= 1.4.1
-BuildRequires:    R-CRAN-sp >= 1.3.1
 BuildRequires:    R-CRAN-rasterVis >= 0.45
 BuildRequires:    R-CRAN-CircStats >= 0.2.6
 BuildRequires:    R-CRAN-tiff >= 0.1.5
 Requires:         R-CRAN-plotly >= 4.9.0
 Requires:         R-CRAN-ggplot2 >= 3.1.1
 Requires:         R-CRAN-raster >= 2.9.5
-Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-pbapply >= 1.4.1
-Requires:         R-CRAN-sp >= 1.3.1
 Requires:         R-CRAN-rasterVis >= 0.45
 Requires:         R-CRAN-CircStats >= 0.2.6
 Requires:         R-CRAN-tiff >= 0.1.5
@@ -56,6 +50,9 @@ Science, 9, online. <doi:10.5167/uzh-130652>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -63,20 +60,9 @@ Science, 9, online. <doi:10.5167/uzh-130652>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

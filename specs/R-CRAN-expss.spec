@@ -1,10 +1,10 @@
 %global packname  expss
-%global packver   0.10.5
+%global packver   0.10.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.5
-Release:          2%{?dist}
+Version:          0.10.6
+Release:          1%{?dist}
 Summary:          Tables, Labels and Some Useful Functions from Spreadsheets and'SPSS' Statistics
 
 License:          GPL (>= 2)

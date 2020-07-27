@@ -1,10 +1,10 @@
 %global packname  random.polychor.pa
-%global packver   1.1.4-3
+%global packver   1.1.4-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4.3
-Release:          2%{?dist}
+Version:          1.1.4.4
+Release:          1%{?dist}
 Summary:          A Parallel Analysis with Polychoric Correlation Matrices
 
 License:          GPL (>= 2)
@@ -46,7 +46,8 @@ made available for random (uniform and multinomial distribution and with
 or without difficulty factor) and bootstrap methods. An option to choose
 between default or full output is also available as well as a parameter to
 print Fit Statistics (Chi-squared, TLI, RMSEA, RMR and BIC) for the factor
-solutions indicated by the Parallel Analysis.
+solutions indicated by the Parallel Analysis. Also weighted correlation
+matrices may be considered for PA.
 
 %prep
 %setup -q -c -n %{packname}
@@ -61,9 +62,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

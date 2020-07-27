@@ -1,27 +1,25 @@
-%global packname  wrswoR
-%global packver   1.1.1
+%global packname  zalpha
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Weighted Random Sampling without Replacement
+Summary:          Run a Suite of Selection Statistics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-logging >= 0.4.13
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
-Requires:         R-CRAN-logging >= 0.4.13
-Requires:         R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-A collection of implementations of classical and novel algorithms for
-weighted sampling without replacement.
+A suite of statistics for identifying areas of the genome under selective
+pressure. See Jacobs, Sluckin and Kivisild (2016)
+<doi:10.1534/genetics.115.185900>.
 
 %prep
 %setup -q -c -n %{packname}

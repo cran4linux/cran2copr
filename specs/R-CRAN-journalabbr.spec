@@ -1,9 +1,9 @@
 %global packname  journalabbr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          Journal Abbreviations for BibTeX Documents
 
@@ -15,24 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-bib2df 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-bib2df 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-shiny 
 
 %description
 Since the reference management software (such as 'Zotero', 'Mendeley')
@@ -40,7 +40,9 @@ exports Bib file journal abbreviation is not detailed enough, the
 'journalabbr' package only abbreviates the journal field of Bib file, and
 then outputs a new Bib file for generating reference format with journal
 abbreviation on other software (such as 'texstudio'). The abbreviation
-table is from 'JabRef'.
+table is from 'JabRef'. At the same time, 'Shiny' application is provided
+to generate 'thebibliography', a reference format that can be directly
+used for latex paper writing based on 'Rmd' files.
 
 %prep
 %setup -q -c -n %{packname}

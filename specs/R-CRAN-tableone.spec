@@ -1,9 +1,9 @@
 %global packname  tableone
-%global packver   0.11.2
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.12.0
 Release:          1%{?dist}
 Summary:          Create 'Table 1' to Describe Baseline Characteristics with orwithout Propensity Score Weights
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-e1071
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-gmodels 
 BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-labelled 
 Requires:         R-CRAN-survey 
 Requires:         R-MASS 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-e1071
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-gmodels 
 Requires:         R-nlme 
-Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-labelled 
 
 %description

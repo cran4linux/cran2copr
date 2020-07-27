@@ -1,10 +1,10 @@
 %global packname  SpatialVx
-%global packver   0.6-5
+%global packver   0.6-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
-Release:          3%{?dist}
+Version:          0.6.6
+Release:          1%{?dist}
 Summary:          Spatial Forecast Verification
 
 License:          GPL (>= 2)
@@ -16,7 +16,7 @@ BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fields >= 6.8
-BuildRequires:    R-CRAN-spatstat >= 1.37.0
+BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-smoothie 
 BuildRequires:    R-CRAN-smatr 
 BuildRequires:    R-CRAN-turboEM 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-CircStats
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-waveslim 
 Requires:         R-CRAN-fields >= 6.8
-Requires:         R-CRAN-spatstat >= 1.37.0
+Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-smoothie 
 Requires:         R-CRAN-smatr 
 Requires:         R-CRAN-turboEM 
@@ -49,6 +49,9 @@ way.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -58,14 +61,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
