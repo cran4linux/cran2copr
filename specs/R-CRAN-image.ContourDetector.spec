@@ -1,34 +1,29 @@
-%global packname  ztpln
-%global packver   0.1.1
+%global packname  image.ContourDetector
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Zero-Truncated Poisson Lognormal Distribution
+Summary:          Implementation of the Unsupervised Smooth Contour Line Detectionfor Images
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-RcppNumerical >= 0.3.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-DistributionUtils 
-BuildRequires:    R-CRAN-mixtools 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-DistributionUtils 
-Requires:         R-CRAN-mixtools 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.8
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-Rcpp >= 0.12.8
+Requires:         R-CRAN-sp 
 
 %description
-Functions for obtaining the density, random variates and maximum
-likelihood estimates of the Zero-truncated Poisson lognormal distribution
-and their mixture distribution.
+An implementation of the Unsupervised Smooth Contour Detection algorithm
+for digital images as described in the paper: "Unsupervised Smooth Contour
+Detection" by Rafael Grompone von Gioi, and Gregory Randall (2016). The
+algorithm is explained at <doi:10.5201/ipol.2016.175>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  quanteda
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
-Release:          2%{?dist}
+Version:          2.1.1
+Release:          1%{?dist}
 Summary:          Quantitative Analysis of Textual Data
 
 License:          GPL-3
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
 BuildRequires:    R-CRAN-data.table >= 1.9.6
 BuildRequires:    R-Matrix >= 1.2

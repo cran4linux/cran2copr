@@ -1,10 +1,10 @@
 %global packname  chicane
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          3%{?dist}
+Version:          0.1.2
+Release:          1%{?dist}
 Summary:          Capture Hi-C Analysis Engine
 
 License:          GPL-2
@@ -23,6 +23,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-bedr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-gamlss.tr 
 Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-data.table 
@@ -31,6 +34,9 @@ Requires:         R-stats
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-bedr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 
 %description
 Toolkit for processing and calling interactions in capture Hi-C data.
@@ -42,6 +48,9 @@ count to the expected background rate from a count regression model.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -49,21 +58,9 @@ count to the expected background rate from a count regression model.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/bin
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

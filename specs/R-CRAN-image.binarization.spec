@@ -1,34 +1,33 @@
-%global packname  ztpln
-%global packver   0.1.1
+%global packname  image.binarization
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Zero-Truncated Poisson Lognormal Distribution
+Summary:          Binarize Images for Enhancing Optical Character Recognition
 
-License:          MIT + file LICENSE
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-RcppNumerical >= 0.3.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-DistributionUtils 
-BuildRequires:    R-CRAN-mixtools 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-DistributionUtils 
-Requires:         R-CRAN-mixtools 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-magick 
+Requires:         R-grDevices 
 
 %description
-Functions for obtaining the density, random variates and maximum
-likelihood estimates of the Zero-truncated Poisson lognormal distribution
-and their mixture distribution.
+Improve optical character recognition by binarizing images. The package
+focuses primarily on local adaptive thresholding algorithms. In English,
+this means that it has the ability to turn a color or gray scale image
+into a black and white image. This is particularly useful as a
+preprocessing step for optical character recognition or handwritten text
+recognition.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  VOSONDash
-%global packver   0.5.4
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
-Release:          3%{?dist}
+Version:          0.5.7
+Release:          1%{?dist}
 Summary:          User Interface for Collecting and Analysing Social Networks
 
 License:          GPL (>= 3)
@@ -18,26 +18,34 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.3.2
 BuildRequires:    R-CRAN-igraph >= 1.2.2
 BuildRequires:    R-CRAN-vosonSML >= 0.29.0
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-lattice 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-SnowballC 
+BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-syuzhet 
+BuildRequires:    R-CRAN-textutils 
 BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-wordcloud 
 Requires:         R-CRAN-shiny >= 1.3.2
 Requires:         R-CRAN-igraph >= 1.2.2
 Requires:         R-CRAN-vosonSML >= 0.29.0
+Requires:         R-CRAN-data.table 
 Requires:         R-graphics 
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-httr 
 Requires:         R-lattice 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-SnowballC 
+Requires:         R-CRAN-systemfonts 
 Requires:         R-CRAN-syuzhet 
+Requires:         R-CRAN-textutils 
 Requires:         R-CRAN-tm 
 Requires:         R-utils 
 Requires:         R-CRAN-wordcloud 
@@ -51,6 +59,8 @@ data using 'vosonSML'.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -58,19 +68,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/vosondash
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

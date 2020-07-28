@@ -1,11 +1,11 @@
 %global packname  ChannelAttribution
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}
-Summary:          Markov Model for the Online Multi-Channel Attribution Problem
+Summary:          Markov Model for Online Multi-Channel Attribution
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,7 +21,7 @@ Requires:         R-CRAN-Rcpp
 %description
 Advertisers use a variety of online marketing channels to reach consumers
 and they want to know the degree each channel contributes to their
-marketing success. This is called the online multi-channel attribution
+marketing success. This is called online multi-channel attribution
 problem. This package contains a probabilistic algorithm for the
 attribution problem. The model uses a k-order Markov representation to
 identify structural correlations in the customer journey data. The package

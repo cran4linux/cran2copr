@@ -1,9 +1,9 @@
 %global packname  listdown
-%global packver   0.2.20
+%global packver   0.2.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.20
+Version:          0.2.21
 Release:          1%{?dist}
 Summary:          Create R Markdown from Lists
 

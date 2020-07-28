@@ -1,10 +1,10 @@
 %global packname  hmclearn
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
-Release:          2%{?dist}
+Version:          0.0.4
+Release:          1%{?dist}
 Summary:          Fit Statistical Models Using Hamiltonian Monte Carlo
 
 License:          GPL-3
@@ -31,13 +31,12 @@ own models.  All of the code is written in R.  Theoretical references are
 listed below:. Neal, Radford (2011) "Handbook of Markov Chain Monte Carlo"
 ISBN: 978-1420079418, Betancourt, Michael (2017) "A Conceptual
 Introduction to Hamiltonian Monte Carlo" <arXiv:1701.02434>, Thomas, S.,
-Tu, W. (2020) "Hamiltonian Monte Carlo"
-<doi:10.1002/9781118445112.stat08243>, Gelman, A., Carlin, J. B., Stern,
-H. S., Dunson, D. B., Vehtari, A., & Rubin, D. B. (2013) "Bayesian Data
-Analysis" ISBN: 978-1439840955, Agresti, Alan (2015) "Foundations of
-Linear and Generalized Linear Models ISBN: 978-1118730034, Pinheiro, J.,
-Bates, D. (2006) "Mixed-effects Models in S and S-Plus" ISBN:
-978-1441903174.
+Tu, W. (2020) "Learning Hamiltonian Monte Carlo in R" <arXiv:
+arXiv:2006.16194>, Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B.,
+Vehtari, A., & Rubin, D. B. (2013) "Bayesian Data Analysis" ISBN:
+978-1439840955, Agresti, Alan (2015) "Foundations of Linear and
+Generalized Linear Models ISBN: 978-1118730034, Pinheiro, J., Bates, D.
+(2006) "Mixed-effects Models in S and S-Plus" ISBN: 978-1441903174.
 
 %prep
 %setup -q -c -n %{packname}

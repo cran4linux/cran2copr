@@ -1,34 +1,29 @@
-%global packname  ztpln
-%global packver   0.1.1
+%global packname  image.libfacedetection
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1
 Release:          1%{?dist}
-Summary:          Zero-Truncated Poisson Lognormal Distribution
+Summary:          Convolutional Neural Network for Face Detection
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-RcppNumerical >= 0.3.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-DistributionUtils 
-BuildRequires:    R-CRAN-mixtools 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-DistributionUtils 
-Requires:         R-CRAN-mixtools 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.8
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-Rcpp >= 0.12.8
+Requires:         R-graphics 
 
 %description
-Functions for obtaining the density, random variates and maximum
-likelihood estimates of the Zero-truncated Poisson lognormal distribution
-and their mixture distribution.
+An open source library for face detection in images. Provides a pretrained
+convolutional neural network based on
+<https://github.com/ShiqiYu/libfacedetection> which can be used to detect
+faces which have size greater than 10x10 pixels.
 
 %prep
 %setup -q -c -n %{packname}

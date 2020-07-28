@@ -1,34 +1,39 @@
-%global packname  ztpln
-%global packver   0.1.1
+%global packname  ascii
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.3
 Release:          1%{?dist}
-Summary:          Zero-Truncated Poisson Lognormal Distribution
+Summary:          Export R Objects to Several Markup Languages
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-RcppNumerical >= 0.3.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-DistributionUtils 
-BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-devel >= 2.13
+Requires:         R-core >= 2.13
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-codetools 
+BuildRequires:    R-survival 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-DistributionUtils 
-Requires:         R-CRAN-mixtools 
+BuildRequires:    R-grDevices 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-digest 
+Requires:         R-codetools 
+Requires:         R-survival 
 Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-Functions for obtaining the density, random variates and maximum
-likelihood estimates of the Zero-truncated Poisson lognormal distribution
-and their mixture distribution.
+Coerce R object to 'asciidoc', 'txt2tags', 'restructuredText', 'org',
+'textile' or 'pandoc' syntax. Package comes with a set of drivers for
+'Sweave'.
 
 %prep
 %setup -q -c -n %{packname}

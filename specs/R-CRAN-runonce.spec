@@ -1,25 +1,32 @@
-%global packname  tgstat
-%global packver   2.3.10
+%global packname  runonce
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.10
+Version:          0.2.2
 Release:          1%{?dist}
-Summary:          Amos Tanay's Group High Performance Statistical Utilities
+Summary:          Run Once and Save Result
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bigassertr 
+BuildRequires:    R-CRAN-urltools 
+Requires:         R-CRAN-bigassertr 
+Requires:         R-CRAN-urltools 
 
 %description
-A collection of high performance utilities to compute distance,
-correlation, auto correlation, clustering and other tasks.
+Package 'runonce' helps automating the saving of long-running code to help
+running the same code multiple times. If you run some long-running code
+once, it saves the result in a file on disk. Then, if the result already
+exists, i.e. if the code has already been run and its output has already
+been saved, it just read the result from the stored file instead of
+running the code again.
 
 %prep
 %setup -q -c -n %{packname}

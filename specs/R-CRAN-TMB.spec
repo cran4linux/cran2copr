@@ -1,9 +1,9 @@
 %global packname  TMB
-%global packver   1.7.17
+%global packver   1.7.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.17
+Version:          1.7.18
 Release:          1%{?dist}
 Summary:          Template Model Builder: A General Random Effect Tool Inspired by'ADMB'
 

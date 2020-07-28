@@ -1,10 +1,10 @@
 %global packname  rstan
-%global packver   2.21.1
+%global packver   2.21.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.21.1
-Release:          2%{?dist}
+Version:          2.21.2
+Release:          1%{?dist}
 Summary:          R Interface to Stan
 
 License:          GPL (>= 3)
@@ -27,6 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-inline 
 BuildRequires:    R-CRAN-pkgbuild 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-V8 
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-ggplot2 >= 3.0.0
@@ -38,6 +39,7 @@ Requires:         R-methods
 Requires:         R-stats4 
 Requires:         R-CRAN-inline 
 Requires:         R-CRAN-pkgbuild 
+Requires:         R-CRAN-withr 
 Requires:         R-CRAN-V8 
 
 %description
