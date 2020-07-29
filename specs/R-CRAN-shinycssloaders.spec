@@ -1,13 +1,13 @@
 %global packname  shinycssloaders
-%global packver   0.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
-Release:          3%{?dist}
-Summary:          Add CSS Loading Animations to 'shiny' Outputs
+Version:          1.0.0
+Release:          1%{?dist}
+Summary:          Add Loading Animations to a 'shiny' Output While It'sRecalculating
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,14 +25,19 @@ Requires:         R-grDevices
 Requires:         R-CRAN-shiny 
 
 %description
-Automatically show loader animations while a Shiny output is
-(re)calculating. This is mostly a wrapper around the css-loaders created
-by Luke Hass <https://github.com/lukehaas/css-loaders>.
+When a 'Shiny' output (such as a plot, table, map, etc.) is recalculating,
+it remains visible but gets greyed out. Using 'shinycssloaders', you can
+add a loading animation ("spinner") to outputs instead. By wrapping a
+'Shiny' output in 'withSpinner()', a spinner will automatically appear
+while the output is recalculating. See the demo online at
+<https://daattali.com/shiny/shinycssloaders-demo/>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -40,20 +45,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/assets
-%doc %{rlibdir}/%{packname}/css-loaders
-%doc %{rlibdir}/%{packname}/examples
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

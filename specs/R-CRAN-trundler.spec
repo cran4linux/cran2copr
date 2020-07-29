@@ -1,9 +1,9 @@
 %global packname  trundler
-%global packver   0.1.17
+%global packver   0.1.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.17
+Version:          0.1.19
 Release:          1%{?dist}
 Summary:          Historical Retail Data from the 'Trundler' API
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-urltools 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-urltools 

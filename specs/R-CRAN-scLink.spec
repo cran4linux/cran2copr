@@ -1,29 +1,27 @@
-%global packname  badger
-%global packver   0.0.8
+%global packname  scLink
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Badge for R Package
+Summary:          Inferring Functional Gene Co-Expression Networks from SingleCell Data
 
-License:          Artistic-2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dlstats 
-BuildRequires:    R-CRAN-rvcheck 
-BuildRequires:    R-CRAN-desc 
-Requires:         R-CRAN-dlstats 
-Requires:         R-CRAN-rvcheck 
-Requires:         R-CRAN-desc 
+BuildRequires:    R-parallel 
+Requires:         R-parallel 
 
 %description
-Query information and generate badge for using in README and GitHub Pages.
+Uses statistical network modeling to understand the co-expression
+relationships among genes and to construct sparse gene co-expression
+networks from single-cell gene expression data.
 
 %prep
 %setup -q -c -n %{packname}

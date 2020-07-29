@@ -1,9 +1,9 @@
 %global packname  primes
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}
 Summary:          Generate and Test for Prime Numbers
 
@@ -12,14 +12,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-Rcpp 
 
 %description
 Functions for dealing with prime numbers, such as testing whether a number
-is prime and generating a sequence prime numbers.
+is prime and generating a sequence prime numbers. Additional functions
+include finding prime factors and Ruth-Aaron pairs, finding next and
+previous prime numbers in the series, finding or estimating the nth prime,
+estimating the number of primes less than or equal to an arbitrary number,
+computing primorials, and prime k-tuples (e.g., twin primes).
 
 %prep
 %setup -q -c -n %{packname}
