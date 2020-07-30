@@ -1,10 +1,10 @@
 %global packname  raceland
-%global packver   1.0.8
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
-Release:          3%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          Pattern-Based Zoneless Method for Analysis and Visualization ofRacial Topography
 
 License:          MIT + file LICENSE
@@ -34,7 +34,8 @@ Requires:         R-CRAN-comat >= 0.7.0
 
 %description
 Implements a computational framework for a pattern-based, zoneless
-analysis, and visualization of (ethno)racial topography. It is a
+analysis, and visualization of (ethno)racial topography (Dmowska,
+Stepinski, and Nowosad (2020) <doi:10.1016/j.apgeog.2020.102239>). It is a
 reimagined approach for analyzing residential segregation and racial
 diversity based on the concept of 'landscape’ used in the domain of
 landscape ecology.
@@ -43,6 +44,8 @@ landscape ecology.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -50,23 +53,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/rast_data
-%doc %{rlibdir}/%{packname}/results
-%{rlibdir}/%{packname}/vect_data
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

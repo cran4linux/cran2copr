@@ -1,10 +1,10 @@
 %global packname  hmi
-%global packver   0.9.18
+%global packver   0.9.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.18
-Release:          3%{?dist}
+Version:          0.9.19
+Release:          1%{?dist}
 Summary:          Hierarchical Multiple Imputation
 
 License:          GPL-3
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-linLIR >= 1.1
 BuildRequires:    R-CRAN-mvtnorm >= 1.0.7
 BuildRequires:    R-CRAN-pbivnorm >= 0.6.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0.1
+BuildRequires:    R-CRAN-broom.mixed >= 0.2.6
 BuildRequires:    R-CRAN-coda >= 0.19.1
 BuildRequires:    R-utils 
 Requires:         R-MASS >= 7.3.49
@@ -51,6 +52,7 @@ Requires:         R-CRAN-linLIR >= 1.1
 Requires:         R-CRAN-mvtnorm >= 1.0.7
 Requires:         R-CRAN-pbivnorm >= 0.6.0
 Requires:         R-CRAN-rlang >= 0.3.0.1
+Requires:         R-CRAN-broom.mixed >= 0.2.6
 Requires:         R-CRAN-coda >= 0.19.1
 Requires:         R-utils 
 
@@ -65,6 +67,8 @@ routines build for this package.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -72,18 +76,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

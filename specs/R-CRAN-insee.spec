@@ -1,13 +1,13 @@
-%global packname  priceR
-%global packver   0.1.4
+%global packname  insee
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.7.0
 Release:          1%{?dist}
-Summary:          Economics and Pricing Tools
+Summary:          Tools to Easily Download Data from INSEE BDM Database
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,34 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rsdmx 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gsubfn 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-rsdmx 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gsubfn 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-stats 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Functions to aid in micro and macro economic analysis and handling of
-price and currency data. Includes extraction of relevant inflation and
-exchange rate data from World Bank API, data cleaning/parsing, and
-standardisation. Inflation adjustment calculations as found in Principles
-of Macroeconomics by Gregory Mankiw et al (2014). Current and historical
-end of day exchange rates for 171 currencies from the European Central
-Bank Statistical Data Warehouse (2020)
-<https://sdw.ecb.europa.eu/curConverter.do>.
+Using embedded sdmx queries, get the data of more than 140 000 insee
+series from bdm database. Have a look at the detailed sdmx web service
+page with the following link :
+<https://www.insee.fr/en/information/2868055>.
 
 %prep
 %setup -q -c -n %{packname}

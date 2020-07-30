@@ -1,10 +1,10 @@
 %global packname  fdapace
-%global packver   0.5.4
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
-Release:          3%{?dist}
+Version:          0.5.5
+Release:          1%{?dist}
 Summary:          Functional Data Analysis and Empirical Dynamics
 
 License:          BSD_3_clause + file LICENSE
@@ -42,9 +42,10 @@ continuous trajectories with confidence bands, even for subjects with very
 few longitudinal observations. PACE is a viable and flexible alternative
 to random effects modeling of longitudinal data. There is also a Matlab
 version (PACE) that contains some methods not available on fdapace and
-vice versa. Please cite our package if you use it (You may run the command
-citation("fdapace") to get the citation format and bibtex entry).
-References: Wang, J.L., Chiou, J., Müller, H.G. (2016)
+vice versa. Updates to fdapace were supported by grants from NIH Echo and
+NSF DMS-1712864 and DMS-2014626. Please cite our package if you use it
+(You may run the command citation("fdapace") to get the citation format
+and bibtex entry). References: Wang, J.L., Chiou, J., Müller, H.G. (2016)
 <doi:10.1146/annurev-statistics-041715-033624>; Chen, K., Zhang, X.,
 Petersen, A., Müller, H.G. (2017) <doi:10.1007/s12561-015-9137-5>.
 
@@ -52,6 +53,8 @@ Petersen, A., Müller, H.G. (2017) <doi:10.1007/s12561-015-9137-5>.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -59,21 +62,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

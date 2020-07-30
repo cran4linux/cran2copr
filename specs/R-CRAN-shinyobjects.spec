@@ -1,10 +1,10 @@
 %global packname  shinyobjects
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          2%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}
 Summary:          Access Reactive Data Interactively
 
 License:          GPL-3
@@ -19,8 +19,11 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringr 
@@ -31,8 +34,11 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-pander 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringr 

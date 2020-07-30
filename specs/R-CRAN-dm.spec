@@ -1,10 +1,10 @@
 %global packname  dm
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
-Release:          2%{?dist}
+Version:          0.1.6
+Release:          1%{?dist}
 Summary:          Relational Data Models
 
 License:          MIT + file LICENSE
@@ -20,7 +20,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.2.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.2
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-ellipsis 
@@ -38,7 +38,7 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.2.0
+Requires:         R-CRAN-vctrs >= 0.3.2
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-ellipsis 

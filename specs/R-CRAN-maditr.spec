@@ -1,9 +1,9 @@
 %global packname  maditr
-%global packver   0.7.3
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.7.4
 Release:          1%{?dist}
 Summary:          Fast Data Aggregation, Modification, and Filtering with Pipesand 'data.table'
 
