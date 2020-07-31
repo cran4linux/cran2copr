@@ -1,10 +1,10 @@
 %global packname  ckanr
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
-Release:          3%{?dist}
+Version:          0.5.0
+Release:          1%{?dist}
 Summary:          Client for the Comprehensive Knowledge Archive Network ('CKAN')API
 
 License:          MIT + file LICENSE
@@ -15,22 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9
+BuildRequires:    R-CRAN-jsonlite >= 0.9.17
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-DBI >= 0.3.1
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-crul 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 0.9
+Requires:         R-CRAN-jsonlite >= 0.9.17
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-DBI >= 0.3.1
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-crul 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-magrittr 
 
@@ -42,6 +42,9 @@ In addition, provides an interface to the 'datastore' API.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -49,20 +52,9 @@ In addition, provides an interface to the 'datastore' API.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

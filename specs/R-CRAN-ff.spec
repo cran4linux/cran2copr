@@ -1,22 +1,22 @@
 %global packname  ff
-%global packver   2.2-14.2
+%global packver   4.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.14.2
-Release:          3%{?dist}
+Version:          4.0.2
+Release:          1%{?dist}
 Summary:          Memory-Efficient Storage of Large Data on Disk and Fast AccessFunctions
 
-License:          GPL-2 | file LICENSE
+License:          GPL-2 | GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10.1
 Requires:         R-core >= 2.10.1
-BuildRequires:    R-CRAN-bit >= 1.1.13
+BuildRequires:    R-CRAN-bit >= 4.0.0
 BuildRequires:    R-utils 
-Requires:         R-CRAN-bit >= 1.1.13
+Requires:         R-CRAN-bit >= 4.0.0
 Requires:         R-utils 
 
 %description
@@ -66,6 +66,8 @@ enhancements can be made available upon request.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -73,25 +75,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%doc %{rlibdir}/%{packname}/exec
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/ANNOUNCEMENT-2.0.txt
-%doc %{rlibdir}/%{packname}/ANNOUNCEMENT-2.1.2.txt
-%doc %{rlibdir}/%{packname}/ANNOUNCEMENT-2.1.txt
-%doc %{rlibdir}/%{packname}/ANNOUNCEMENT-2.2.txt
-%doc %{rlibdir}/%{packname}/README_devel.txt
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

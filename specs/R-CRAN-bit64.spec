@@ -1,24 +1,24 @@
 %global packname  bit64
-%global packver   0.9-7.1
+%global packver   4.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7.1
+Version:          4.0.2
 Release:          1%{?dist}
 Summary:          A S3 Class for Vectors of 64bit Integers
 
-License:          GPL-2
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
-BuildRequires:    R-CRAN-bit >= 1.1.12
+BuildRequires:    R-CRAN-bit >= 4.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-bit >= 1.1.12
+Requires:         R-CRAN-bit >= 4.0.0
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-stats 

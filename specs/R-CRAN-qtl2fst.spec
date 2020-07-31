@@ -1,30 +1,32 @@
-%global packname  assertive.datetimes
-%global packver   0.0-3
+%global packname  qtl2fst
+%global packver   0.22-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.22.7
 Release:          1%{?dist}
-Summary:          Assertions to Check Properties of Dates and Times
+Summary:          Database Storage of Genotype Probabilities for QTL Mapping
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertive.base >= 0.0.7
-BuildRequires:    R-CRAN-assertive.types 
-Requires:         R-CRAN-assertive.base >= 0.0.7
-Requires:         R-CRAN-assertive.types 
+BuildRequires:    R-CRAN-qtl2 >= 0.15.1
+BuildRequires:    R-CRAN-fst 
+Requires:         R-CRAN-qtl2 >= 0.15.1
+Requires:         R-CRAN-fst 
 
 %description
-A set of predicates and assertions for checking the properties of dates
-and times.  This is mainly for use by other package developers who want to
-include run-time testing features in their own packages.  End-users will
-usually want to use assertive directly.
+Uses the 'fst' package to store genotype probabilities on disk for the
+'qtl2' package. These genotype probabilities are a central data object for
+mapping quantitative trait loci (QTL), but they can be quite large. The
+facilities in this package enable the genotype probabilities to be stored
+on disk, leading to reduced memory usage with only a modest increase in
+computation time.
 
 %prep
 %setup -q -c -n %{packname}

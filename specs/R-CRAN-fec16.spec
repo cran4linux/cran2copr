@@ -1,30 +1,31 @@
-%global packname  assertive.datetimes
-%global packver   0.0-3
+%global packname  fec16
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Assertions to Check Properties of Dates and Times
+Summary:          Data Package for the 2016 United States Federal Elections
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.2.4
+Requires:         R-core >= 3.2.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertive.base >= 0.0.7
-BuildRequires:    R-CRAN-assertive.types 
-Requires:         R-CRAN-assertive.base >= 0.0.7
-Requires:         R-CRAN-assertive.types 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
 
 %description
-A set of predicates and assertions for checking the properties of dates
-and times.  This is mainly for use by other package developers who want to
-include run-time testing features in their own packages.  End-users will
-usually want to use assertive directly.
+Easily analyze relational data from the United States 2016 federal
+election cycle as reported by the Federal Election Commission. This
+package contains data about candidates, committees, and a variety of
+different financial expenditures. Data is from
+<https://www.fec.gov/data/browse-data/?tab=bulk-data>.
 
 %prep
 %setup -q -c -n %{packname}

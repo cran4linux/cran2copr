@@ -1,40 +1,41 @@
-%global packname  iDINGO
-%global packver   1.0.4
+%global packname  BBcor
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Integrative Differential Network Analysis in Genomics
+Summary:          Bayesian Bootstrapping Correlations
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-psych >= 1.9.12.31
+BuildRequires:    R-CRAN-pbapply >= 1.4.2
+BuildRequires:    R-CRAN-wdm >= 0.2.1
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-GGMridge 
-BuildRequires:    R-CRAN-visNetwork 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-glasso 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-psych >= 1.9.12.31
+Requires:         R-CRAN-pbapply >= 1.4.2
+Requires:         R-CRAN-wdm >= 0.2.1
 Requires:         R-parallel 
-Requires:         R-CRAN-GGMridge 
-Requires:         R-CRAN-visNetwork 
-Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
 
 %description
-Fits covariate dependent partial correlation matrices for integrative
-models to identify differential networks between two groups. The methods
-are described in Class et. al., (2018) <doi:10.1093/bioinformatics/btx750>
-and Ha et. al., (2015) <doi:10.1093/bioinformatics/btv406>.
+Efficiently draw samples from the posterior distribution of various
+correlation coefficients with the Bayesian bootstrap described in Rubin
+(1981) <doi:10.1214/aos/1176345338>. There are five correlation
+coefficients, including Pearson, Kendall, Spearman, Blomqvist, and
+polychoric.
 
 %prep
 %setup -q -c -n %{packname}

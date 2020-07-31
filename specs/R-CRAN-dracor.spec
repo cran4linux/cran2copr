@@ -1,31 +1,26 @@
-%global packname  assertive.reflection
-%global packver   0.0-4.1
+%global packname  dracor
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.1
+Version:          0.2.1
 Release:          1%{?dist}
-Summary:          Assertions for Checking the State of R
+Summary:          Decode Draco Format 3D Mesh Data
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-assertive.base >= 0.0.7
-BuildRequires:    R-utils 
-Requires:         R-CRAN-assertive.base >= 0.0.7
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-A set of predicates and assertions for checking the state and capabilities
-of R, the operating system it is running on, and the IDE being used.  This
-is mainly for use by other package developers who want to include run-time
-testing features in their own packages. End-users will usually want to use
-assertive directly.
+Decodes meshes and point cloud data encoded by the Draco mesh compression
+library from Google. Note that this is only designed for basic decoding
+and not intended as a full scale wrapping of the Draco library.
 
 %prep
 %setup -q -c -n %{packname}

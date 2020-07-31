@@ -1,30 +1,28 @@
-%global packname  assertive.datetimes
-%global packver   0.0-3
+%global packname  faq
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Assertions to Check Properties of Dates and Times
+Summary:          Create FAQ Page
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertive.base >= 0.0.7
-BuildRequires:    R-CRAN-assertive.types 
-Requires:         R-CRAN-assertive.base >= 0.0.7
-Requires:         R-CRAN-assertive.types 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
 
 %description
-A set of predicates and assertions for checking the properties of dates
-and times.  This is mainly for use by other package developers who want to
-include run-time testing features in their own packages.  End-users will
-usually want to use assertive directly.
+A fast tool to create an interactive and toggle styling Frequently Asked
+Questions page by using R data.
 
 %prep
 %setup -q -c -n %{packname}

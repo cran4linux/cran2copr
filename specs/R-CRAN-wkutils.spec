@@ -1,30 +1,34 @@
-%global packname  assertive.datetimes
-%global packver   0.0-3
+%global packname  wkutils
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Assertions to Check Properties of Dates and Times
+Summary:          Utilities for Well-Known Geometry Vectors
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-assertive.base >= 0.0.7
-BuildRequires:    R-CRAN-assertive.types 
-Requires:         R-CRAN-assertive.base >= 0.0.7
-Requires:         R-CRAN-assertive.types 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-wk >= 0.3.1
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-wk >= 0.3.1
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
 
 %description
-A set of predicates and assertions for checking the properties of dates
-and times.  This is mainly for use by other package developers who want to
-include run-time testing features in their own packages.  End-users will
-usually want to use assertive directly.
+Provides extra utilities for well-known formats in the 'wk' package that
+are outside the scope of that package. Utilities to parse coordinates from
+data frames, plot well-known geometry vectors, extract meta information
+from well-known geometry vectors, and calculate bounding boxes are
+provided.
 
 %prep
 %setup -q -c -n %{packname}

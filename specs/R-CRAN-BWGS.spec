@@ -1,13 +1,13 @@
-%global packname  pedmut
-%global packver   0.2.0
+%global packname  BWGS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Mutation Models for Pedigree Likelihood Computations
+Summary:          BreedWheat Genomic Selection Pipeline
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rrBLUP 
+BuildRequires:    R-CRAN-BGLR 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-brnn 
+BuildRequires:    R-CRAN-e1071 
+Requires:         R-CRAN-rrBLUP 
+Requires:         R-CRAN-BGLR 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-brnn 
+Requires:         R-CRAN-e1071 
 
 %description
-A collection of functions for modeling mutations in pedigrees with marker
-data, as used e.g. in likelihood computations with microsatellite data.
-Implemented models include proportional and stepwise models, as well as
-random models for experimental work, and custom models allowing the user
-to apply any valid mutation matrix. Allele lumping is done following the
-lumpability criteria of Kemeny and Snell (1976), ISBN:0387901922.
+Package for Breed Wheat Genomic Selection Pipeline. The R package 'BWGS'
+is developed by Gilles Charmet <gilles.charmet@inra.fr>. This repository
+is forked from original repository
+<https://forgemia.inra.fr/umr-gdec/bwgs> and modified as a R package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  miceadds
-%global packver   3.9-14
+%global packver   3.10-28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.14
-Release:          3%{?dist}
+Version:          3.10.28
+Release:          1%{?dist}
 Summary:          Some Additional Multiple Imputation Functions, Especially for'mice'
 
 License:          GPL (>= 2)
@@ -42,13 +42,18 @@ level or with any number of hierarchical and non-hierarchical levels
 Buuren, 2018, Ch.7, <doi:10.1201/9780429492259>), imputation using partial
 least squares (PLS) for high dimensional predictors (Robitzsch, Pham &
 Yanagida, 2016), nested multiple imputation (Rubin, 2003,
-<doi:10.1111/1467-9574.00217>) and substantive model compatible imputation
-(Bartlett et al., 2015, <doi:10.1177/0962280214521348>).
+<doi:10.1111/1467-9574.00217>), substantive model compatible imputation
+(Bartlett et al., 2015, <doi:10.1177/0962280214521348>), and features for
+the generation of synthetic datasets (Reiter, 2005,
+<doi:10.1111/j.1467-985X.2004.00343.x>; Nowok, Raab, & Dibben, 2016,
+<doi:10.18637/jss.v074.i11>).
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -56,21 +61,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
