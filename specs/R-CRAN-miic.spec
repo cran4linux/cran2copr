@@ -1,9 +1,9 @@
 %global packname  miic
-%global packver   1.4.0
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.2
 Release:          1%{?dist}
 Summary:          Learning Causal or Non-Causal Graphical Models Using InformationTheory
 
@@ -14,13 +14,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ppcor 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-MASS 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ppcor 
 Requires:         R-CRAN-scales 

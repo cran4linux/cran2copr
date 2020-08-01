@@ -1,10 +1,10 @@
 %global packname  fs
-%global packver   1.4.2
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
-Release:          2%{?dist}
+Version:          1.5.0
+Release:          1%{?dist}
 Summary:          Cross-Platform File System Operations Based on 'libuv'
 
 License:          GPL-3

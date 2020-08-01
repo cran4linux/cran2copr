@@ -1,9 +1,9 @@
 %global packname  libgeos
-%global packver   3.8.1-2
+%global packver   3.8.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.2
+Version:          3.8.1.3
 Release:          1%{?dist}
 Summary:          Open Source Geometry Engine ('GEOS') C API
 

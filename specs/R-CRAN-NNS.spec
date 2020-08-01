@@ -1,10 +1,10 @@
 %global packname  NNS
-%global packver   0.5.4.2
+%global packver   0.5.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4.2
-Release:          2%{?dist}
+Version:          0.5.4.3
+Release:          1%{?dist}
 Summary:          Nonlinear Nonparametric Statistics
 
 License:          GPL-3
