@@ -1,10 +1,10 @@
 %global packname  gausscov
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
-Release:          3%{?dist}
+Version:          0.0.4
+Release:          1%{?dist}
 Summary:          The Gaussian Covariate Method for Variable Selection
 
 License:          GPL-3
@@ -35,15 +35,17 @@ exact probabilities. In the simplest version the only parameter is a
 specified cut-off P-value which can be interpreted as the probability of a
 false positive being included in the final selection. For more information
 see the website below and the accompanying papers: L. Davies and L.
-Duembgen, "A Model-free Approach to Linear Least Squares Regression with
-Exact Probabilities and Applications to Covariate Selection", 2019,
-<arXiv:1906.01990>. L. Davies, "Lasso, Knockoff and Gaussian covariates: A
-comparison", 2018, <arXiv:1807.09633>.
+Duembgen, "Covariate Selection Based on a Model-free Approach to Linear
+Regression with Exact Probabilities", 2020, <arXiv:1906.01990>. L. Davies,
+"Lasso, Knockoff and Gaussian covariates: A comparison", 2018,
+<arXiv:1807.09633>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -51,18 +53,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

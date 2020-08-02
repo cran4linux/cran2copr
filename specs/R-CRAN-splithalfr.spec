@@ -1,10 +1,10 @@
 %global packname  splithalfr
-%global packver   1.0.10
+%global packver   2.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
-Release:          3%{?dist}
+Version:          2.0.12
+Release:          1%{?dist}
 Summary:          Extensible Bootstrapped Split-Half Reliabilities
 
 License:          GPL-3
@@ -12,24 +12,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 2.1.1
+BuildRequires:    R-CRAN-psych >= 1.8.12
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-rlang >= 0.3.4
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-bcaboot >= 0.2.1
+Requires:         R-CRAN-tibble >= 2.1.1
+Requires:         R-CRAN-psych >= 1.8.12
 Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-rlang >= 0.3.4
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-bcaboot >= 0.2.1
 
 %description
-Calculates scores and estimates bootstrapped split-half reliabilities for
-reaction time tasks and questionnaires. The 'splithalfr' can be extended
-with custom scoring algorithms for user-provided datasets. For more
-information, see Parsons, Kruijt, & Fox (2018)
-<doi:10.31234/osf.io/6ka9z>.
+Estimates split-half reliabilities for scoring algorithms of reaction time
+(RT) tasks and questionnaires. The 'splithalfr' supports user-provided
+scoring algorithms. It provides four splitting techniques, split
+stratification, a number of reliability coefficients, and the option to
+sub-sample data.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -37,18 +46,9 @@ information, see Parsons, Kruijt, & Fox (2018)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

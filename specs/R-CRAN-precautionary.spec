@@ -1,9 +1,9 @@
 %global packname  precautionary
-%global packver   0.1-1
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}
 Summary:          Safety Diagnostics for Dose-Escalation Trial Designs
 
@@ -19,16 +19,20 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-escalation 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-distr6 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-kableExtra 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-escalation 
 Requires:         R-CRAN-data.table 
 Requires:         R-methods 
-Requires:         R-CRAN-distr6 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-kableExtra 
 
 %description
 Enhances various R packages that support the design and simulation of

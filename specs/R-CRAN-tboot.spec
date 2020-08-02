@@ -1,32 +1,34 @@
-%global packname  DiallelAnalysisR
-%global packver   0.3.0
+%global packname  tboot
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Diallel Analysis with R
+Summary:          Tilted Bootstrap
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-kernlab 
 Requires:         R-stats 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-kernlab 
 
 %description
-Performs Diallel Analysis with R using Griffing's and Hayman's approaches.
-Four different Methods (1: Method-I (Parents + F1's + reciprocals); 2:
-Method-II (Parents and one set of F1's); 3: Method-III (One set of F1's
-and reciprocals); 4: Method-IV (One set of F1's only)) and two Models (1:
-Fixed Effects Model; 2: Random Effects Model) can be applied using
-Griffing's approach.
+Creates simulated clinical trial data with realistic correlation
+structures and assumed efficacy levels by using a tilted bootstrap
+resampling approach. Samples are drawn from observed data with some
+samples appearing more frequently than others. May also be used for
+simulating from a joint Bayesian distribution along with clinical trials
+based on the Bayesian distribution.
 
 %prep
 %setup -q -c -n %{packname}

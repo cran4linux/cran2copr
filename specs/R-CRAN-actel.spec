@@ -1,10 +1,10 @@
 %global packname  actel
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          3%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          Acoustic Telemetry Data Analysis
 
 License:          GPL-3
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-fasttime 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-graphics 
@@ -32,6 +31,7 @@ BuildRequires:    R-CRAN-rsvg
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-circular 
@@ -39,7 +39,6 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-fasttime 
-Requires:         R-CRAN-fs 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-svglite 
 Requires:         R-graphics 
@@ -51,6 +50,7 @@ Requires:         R-CRAN-rsvg
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 Requires:         R-grDevices 
 Requires:         R-utils 
 
@@ -69,6 +69,8 @@ results from different studies. CJS calculations are based on Perry et al.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -76,26 +78,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/example_shapefile.cpg
-%doc %{rlibdir}/%{packname}/example_shapefile.dbf
-%doc %{rlibdir}/%{packname}/example_shapefile.prj
-%doc %{rlibdir}/%{packname}/example_shapefile.qpj
-%doc %{rlibdir}/%{packname}/example_shapefile.shp
-%doc %{rlibdir}/%{packname}/example_shapefile.shx
-%doc %{rlibdir}/%{packname}/example_spatial.csv
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

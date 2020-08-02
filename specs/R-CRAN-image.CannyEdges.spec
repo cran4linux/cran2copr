@@ -1,32 +1,26 @@
-%global packname  DiallelAnalysisR
-%global packver   0.3.0
+%global packname  image.CannyEdges
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Diallel Analysis with R
+Summary:          Implementation of the Canny Edge Detector for Images
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9
+Requires:         R-CRAN-Rcpp >= 0.12.9
 
 %description
-Performs Diallel Analysis with R using Griffing's and Hayman's approaches.
-Four different Methods (1: Method-I (Parents + F1's + reciprocals); 2:
-Method-II (Parents and one set of F1's); 3: Method-III (One set of F1's
-and reciprocals); 4: Method-IV (One set of F1's only)) and two Models (1:
-Fixed Effects Model; 2: Random Effects Model) can be applied using
-Griffing's approach.
+An implementation of the Canny Edge Detector for detecting edges in
+images. The package provides an interface to the algorithm available at
+<https://github.com/Neseb/canny>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,31 @@
-%global packname  DiallelAnalysisR
-%global packver   0.3.0
+%global packname  fabricerin
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Diallel Analysis with R
+Summary:          Create Easily Canvas in 'shiny' and 'RMarkdown' Documents
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-glue 
 
 %description
-Performs Diallel Analysis with R using Griffing's and Hayman's approaches.
-Four different Methods (1: Method-I (Parents + F1's + reciprocals); 2:
-Method-II (Parents and one set of F1's); 3: Method-III (One set of F1's
-and reciprocals); 4: Method-IV (One set of F1's only)) and two Models (1:
-Fixed Effects Model; 2: Random Effects Model) can be applied using
-Griffing's approach.
+Allows the user to implement easily canvas elements within a 'shiny' app
+or an 'RMarkdown' document. The user can create shapes, images and text
+elements within the canvas which can also be used as a drawing tool for
+taking notes. The package relies on the 'fabricjs' 'JavaScript' library.
+See <http://fabricjs.com/>.
 
 %prep
 %setup -q -c -n %{packname}
