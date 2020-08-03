@@ -1,9 +1,9 @@
 %global packname  mice
-%global packver   3.10.0
+%global packver   3.10.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.0
+Version:          3.10.0.1
 Release:          1%{?dist}
 Summary:          Multivariate Imputation by Chained Equations
 
@@ -33,6 +33,7 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Multiple imputation using Fully Conditional Specification (FCS)

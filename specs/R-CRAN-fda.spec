@@ -1,9 +1,9 @@
 %global packname  fda
-%global packver   5.1.5
+%global packver   5.1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.5
+Version:          5.1.5.1
 Release:          1%{?dist}
 Summary:          Functional Data Analysis
 

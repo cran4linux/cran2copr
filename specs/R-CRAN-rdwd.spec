@@ -1,10 +1,10 @@
 %global packname  rdwd
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
-Release:          3%{?dist}
+Version:          1.4.0
+Release:          1%{?dist}
 Summary:          Select and Download Climate Data from 'DWD' (German WeatherService)
 
 License:          GPL (>= 2)
@@ -17,21 +17,27 @@ Requires:         pandoc-citeproc
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-berryFunctions >= 1.17.0
+BuildRequires:    R-CRAN-berryFunctions >= 1.18.19
 BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-berryFunctions >= 1.17.0
+Requires:         R-CRAN-berryFunctions >= 1.18.19
 Requires:         R-CRAN-pbapply 
 
 %description
 Handle climate data from the 'DWD' ('Deutscher Wetterdienst', see
 <https://www.dwd.de/EN/climate_environment/cdc/cdc.html> for more
-information). Choose files with 'selectDWD()', download and process data
-sets with 'dataDWD()' and 'readDWD()'.
+information). Choose observational time series from meteorological
+stations with 'selectDWD()'. Find raster data from radar and interpolation
+according to <https://bookdown.org/brry/rdwd/raster-data.html>. Download
+(multiple) data sets with progress bars and no re-downloads through
+'dataDWD()'. Read both tabular observational data and binary gridded
+datasets with 'readDWD()'.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -39,20 +45,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

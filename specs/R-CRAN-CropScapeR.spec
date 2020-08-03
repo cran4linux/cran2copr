@@ -1,9 +1,9 @@
 %global packname  CropScapeR
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}
 Summary:          Access Cropland Data Layer Data via the 'CropScape' Web Service
 
@@ -19,22 +19,18 @@ BuildRequires:    R-utils >= 3.6.1
 BuildRequires:    R-CRAN-raster >= 3.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-rgdal >= 1.4
 BuildRequires:    R-CRAN-RJSONIO >= 1.3
 BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-sf >= 0.8
-BuildRequires:    R-CRAN-usmap >= 0.5.0
 Requires:         R-utils >= 3.6.1
 Requires:         R-CRAN-raster >= 3.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-rgdal >= 1.4
 Requires:         R-CRAN-RJSONIO >= 1.3
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-sf >= 0.8
-Requires:         R-CRAN-usmap >= 0.5.0
 
 %description
 Interface to easily access Cropland Data Layer (CDL) data for any area of

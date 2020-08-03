@@ -1,10 +1,10 @@
 %global packname  ribd
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
-Release:          3%{?dist}
+Version:          1.2.0
+Release:          1%{?dist}
 Summary:          Pedigree-based Relatedness Coefficients
 
 License:          GPL-3
@@ -28,20 +28,22 @@ Requires:         R-CRAN-glue
 Recursive algorithms for computing various relatedness coefficients,
 including pairwise kinship, kappa and identity coefficients. Both
 autosomal and X-linked coefficients are computed. Founders are allowed to
-be inbred. In addition to the standard pairwise coefficients, ribd also
-computes a range of lesser-known coefficients, including generalised
-kinship coefficients (Karigl (1981)
+be inbred, enabling construction of any given kappa coefficients (Vigeland
+(2020) <doi:10.1007/s00285-020-01505-x>). In addition to the standard
+pairwise coefficients, ribd also computes a range of lesser-known
+coefficients, including generalised kinship coefficients (Karigl (1981)
 <doi:10.1111/j.1469-1809.1981.tb00341.x>; Weeks and Lange (1988)
 <https:www.ncbi.nlm.nih.gov/pmc/articles/PMC1715269>), two-locus
 coefficients (Thompson (1988) <doi:10.1093/imammb/5.4.261>) and
 multi-person coefficients. This package is part of the ped suite, a
-collection of packages for pedigree analysis with 'pedtools' as the core
-package for creating and handling pedigree objects.
+collection of packages for pedigree analysis in R.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -49,19 +51,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

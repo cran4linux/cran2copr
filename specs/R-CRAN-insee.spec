@@ -1,9 +1,9 @@
 %global packname  insee
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}
 Summary:          Tools to Easily Download Data from INSEE BDM Database
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-rsdmx 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-xml2 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang 
 
 %description
 Using embedded sdmx queries, get the data of more than 140 000 insee

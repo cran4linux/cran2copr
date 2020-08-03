@@ -1,10 +1,10 @@
 %global packname  RXshrink
-%global packver   1.4
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
-Release:          2%{?dist}
+Version:          1.4.1
+Release:          1%{?dist}
 Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or LeastAngle Regression Methods
 
 License:          GPL-2
@@ -19,16 +19,16 @@ BuildRequires:    R-CRAN-lars
 Requires:         R-CRAN-lars 
 
 %description
-Functions are provided to calculate and display ridge TRACEs for various
-shrinkage Paths. They determine the m-Extent of shrinkage most likely,
-under Normal-theory, to produce optimally biased estimates of regression
-beta-coefficients with minimum MSE Risk. The new unr.ridge() function
-implements the "Unrestricted Path" introduced in "Ridge TRACE Diagnostics"
-<arXiv:2005.14291>. This Path appears more efficient than the Paths used
-by the qm.ridge(), aug.lars() and uc.lars() functions. In-Sample
-predictions can be made using RXpredict() for all five types of RXshrink
-linear model TRACE diagnostics. New functions MLboot(), MLcalc(), MLhist()
-and MLtrue() provide insights into the true bias and MSE risk
+Functions are provided to calculate and display ridge TRACE diagnostics
+for a variety of shrinkage Paths. TRACEs identify the m-Extent of
+shrinkage most likely, under Normal-theory, to produce optimally biased
+estimates of beta-coefficients with minimum MSE Risk. The unr.ridge()
+function implements the "Unrestricted Path" introduced in Obenchain (2020)
+<arXiv:2005.14291>. This Shrinkage-Path is more efficient than the Paths
+used by the qm.ridge(), aug.lars() and uc.lars() functions. Optimally
+biased predictions can be made using RXpredict() for all five types of
+RXshrink linear model TRACE diagnostics. Functions MLboot(), MLcalc(),
+MLhist() and MLtrue() provide insights into the true bias and MSE risk
 characteristics of non-linear Shrinkage estimators. The correct.signs()
 function provides estimates with "correct" numerical signs when
 ill-conditioned (nearly multicollinear) models yield OLS estimates that
