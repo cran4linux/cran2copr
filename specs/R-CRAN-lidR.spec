@@ -1,10 +1,10 @@
 %global packname  lidR
-%global packver   3.0.2
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
-Release:          2%{?dist}
+Version:          3.0.3
+Release:          1%{?dist}
 Summary:          Airborne LiDAR Data Manipulation and Visualization for ForestryApplications
 
 License:          GPL-3

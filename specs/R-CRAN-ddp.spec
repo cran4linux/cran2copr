@@ -1,27 +1,30 @@
-%global packname  paws.analytics
-%global packver   0.1.9
+%global packname  ddp
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.0.2
 Release:          1%{?dist}
-Summary:          Amazon Web Services Analytics Services
+Summary:          Desirable Dietary Pattern
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
 
 %description
-Interface to Amazon Web Services 'analytics' services, including 'Elastic
-MapReduce' 'Hadoop' and 'Spark' big data service, 'Elasticsearch' search
-engine, and more <https://aws.amazon.com/>.
+The desirable Dietary Pattern (DDP)/ PPH score measures the variety of
+food consumption. The (weighted) score is calculated based on the type of
+food. This package is intended to calculate the DDP/ PPH score that is
+faster than traditional method via a manual calculation by BKP (2017)
+<http://bkp.pertanian.go.id/storage/app/uploads/public/5bf/ca9/06b/5bfca906bc654274163456.pdf>
+and is simpler than the nutrition survey <http://www.nutrisurvey.de>. The
+database to create weights and baseline values is the Indonesia national
+survey in 2017.
 
 %prep
 %setup -q -c -n %{packname}

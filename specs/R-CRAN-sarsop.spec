@@ -1,11 +1,11 @@
-%global packname  ETLUtils
-%global packver   1.5
+%global packname  sarsop
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.6.5
 Release:          1%{?dist}
-Summary:          Utility Functions to Execute Standard Extract/Transform/LoadOperations (using Package 'ff') on Large Data
+Summary:          Approximate POMDP Planning Software
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,19 +14,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ff >= 4.0.0
-BuildRequires:    R-CRAN-bit >= 4.0.0
-Requires:         R-CRAN-ff >= 4.0.0
-Requires:         R-CRAN-bit >= 4.0.0
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-xml2 
+Requires:         R-parallel 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-digest 
+Requires:         R-Matrix 
 
 %description
-Provides functions to facilitate the use of the 'ff' package in
-interaction with big data in 'SQL' databases (e.g. in 'Oracle', 'MySQL',
-'PostgreSQL', 'Hive') by allowing easy importing directly into 'ffdf'
-objects using 'DBI', 'RODBC' and 'RJDBC'. Also contains some basic utility
-functions to do fast left outer join merging based on 'match',
-factorisation of data and a basic function for re-coding vectors.
+A toolkit for Partially Observed Markov Decision Processes (POMDP).
+Provides bindings to C++ libraries implementing the algorithm SARSOP
+(Successive Approximations of the Reachable Space under Optimal Policies)
+and described in Kurniawati et al (2008), <doi:10.15607/RSS.2008.IV.009>.
+This package also provides a high-level interface for generating, solving
+and simulating POMDP problems and their solutions.
 
 %prep
 %setup -q -c -n %{packname}

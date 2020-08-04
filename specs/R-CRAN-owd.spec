@@ -1,28 +1,24 @@
-%global packname  fastkmedoids
-%global packver   1.0
+%global packname  owd
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.5
 Release:          1%{?dist}
-Summary:          Faster K-Medoids Clustering Algorithms: FastPAM, FastCLARA,FastCLARANS
+Summary:          Open Working Directory
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.13
+Requires:         R-core >= 2.13
+BuildArch:        noarch
 
 %description
-R wrappers of C++ implementation of Faster K-Medoids clustering algorithms
-(FastPAM, FastCLARA and FastCLARANS) proposed in Erich Schubert, Peter J.
-Rousseeuw 2019 <doi:10.1007/978-3-030-32047-8_16>.
+Open the current working directory (or a given directory path) in your
+computer's file manager.
 
 %prep
 %setup -q -c -n %{packname}

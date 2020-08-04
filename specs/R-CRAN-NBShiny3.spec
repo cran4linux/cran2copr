@@ -1,36 +1,40 @@
-%global packname  scgwr
-%global packver   0.1.2
+%global packname  NBShiny3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Scalable Geographically Weighted Regression
+Summary:          Interactive Document for Working with Naive Bayes Classification
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-spData 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-optimParallel 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-spData 
+BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-rhandsontable 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-optimParallel 
+Requires:         R-datasets 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-rhandsontable 
 
 %description
-Fast and regularized version of GWR for large dataset, detailed in
-Murakami, Tsutsumida, Yoshida, Nakaya, and Lu (2019) <arXiv:1905.00266>.
+An interactive document on the topic of naive Bayes classification
+analysis using 'rmarkdown' and 'shiny' packages. Runtime examples are
+provided in the package function as well as at
+<https://kartikeyab.shinyapps.io/NBShiny/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  NlinTS
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}
 Summary:          Models for Non Linear Causality Detection in Time Series
 

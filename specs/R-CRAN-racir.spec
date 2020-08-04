@@ -1,27 +1,35 @@
-%global packname  PCAmatchR
-%global packver   0.2.1
+%global packname  racir
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          2.0.0
 Release:          1%{?dist}
-Summary:          Match Cases to Controls Based on Genotype Principal Components
+Summary:          Rapid A/Ci Response (RACiR) Data Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Matches cases to controls based on genotype principal components (PC). In
-order to produce better results, matches are based on the weighted
-distance of PCs where the weights are equal to the % variance explained by
-that PC. A weighted Mahalanobis distance metric (Kidd et al. (1987)
-<DOI:10.1016/0031-3203(87)90066-5>) is used to determine matches.
+Contains functions useful for reading in Licor 6800 files, correcting and
+analyzing rapid A/Ci response (RACiR) data. Requires some user interaction
+to adjust the calibration (empty chamber) data file to a useable range.
+Calibration uses a 1st to 5th order polynomial as suggested in Stinziano
+et al. (2017) <doi:10.1111/pce.12911>. Data can be processed individually
+or batch processed for all files paired with a given calibration file.
+RACiR is a trademark of LI-COR Biosciences, and used with permission.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  paws.analytics
-%global packver   0.1.9
+%global packname  frostr
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}
-Summary:          Amazon Web Services Analytics Services
+Summary:          R API to MET Norway's 'Frost' API
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,13 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Interface to Amazon Web Services 'analytics' services, including 'Elastic
-MapReduce' 'Hadoop' and 'Spark' big data service, 'Elasticsearch' search
-engine, and more <https://aws.amazon.com/>.
+An R API to MET Norway's 'Frost' API <https://frost.met.no/index.html> to
+retrieve data as data frames. The 'Frost' API, and the underlying data, is
+made available by the Norwegian Meteorological Institute (MET Norway). The
+data and products are distributed under the Norwegian License for Open
+Data 2.0 (NLOD) <https://data.norge.no/nlod/en/2.0> and Creative Commons
+4.0 <https://creativecommons.org/licenses/by/4.0/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,35 @@
-%global packname  paws.analytics
-%global packver   0.1.9
+%global packname  gasper
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Amazon Web Services Analytics Services
+Summary:          Graph Signal Processing
 
-License:          Apache License (>= 2.0)
+License:          LGPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
+BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-rwavelet 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-rwavelet 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Interface to Amazon Web Services 'analytics' services, including 'Elastic
-MapReduce' 'Hadoop' and 'Spark' big data service, 'Elasticsearch' search
-engine, and more <https://aws.amazon.com/>.
+Provides the standard operations for signal processing on graphs: graph
+Fourier transform, spectral graph wavelet transform, visualization tools.
+It also implements a data driven method for graph signal
+denoising/regression, for details see De Loynes, Navarro, Olivier (2019)
+<arxiv:1906.01882>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,26 +1,36 @@
-%global packname  QUIC
-%global packver   1.1.1
+%global packname  ukpolice
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.2.2
 Release:          1%{?dist}
-Summary:          Regularized Sparse Inverse Covariance Matrix Estimation
+Summary:          Download Data on UK Police and Crime
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-snakecase 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-snakecase 
 
 %description
-Use Newton's method and coordinate descent to solve the regularized
-inverse covariance matrix estimation problem. Please refer to: Sparse
-Inverse Covariance Matrix Estimation Using Quadratic Approximation,
-Cho-Jui Hsieh, Matyas A. Sustik, Inderjit S. Dhillon, Pradeep Ravikumar,
-Advances in Neural Information Processing Systems 24, 2011, p. 2330--2338.
+Downloads data from the 'UK Police' public data API, the full docs of
+which are available at <https://data.police.uk/docs/>. Includes data on
+police forces and police force areas, crime reports, and the use of
+stop-and-search powers.
 
 %prep
 %setup -q -c -n %{packname}

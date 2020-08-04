@@ -1,13 +1,13 @@
-%global packname  paws.analytics
-%global packver   0.1.9
+%global packname  meantables
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Amazon Web Services Analytics Services
+Summary:          Make Quick Descriptive Tables for Continuous Variables
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,13 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
-Interface to Amazon Web Services 'analytics' services, including 'Elastic
-MapReduce' 'Hadoop' and 'Spark' big data service, 'Elasticsearch' search
-engine, and more <https://aws.amazon.com/>.
+Quickly make tables of descriptive statistics (i.e., counts, means,
+confidence intervals) for continuous variables. This package is designed
+to work in a Tidyverse pipeline, and consideration has been given to get
+results from R to 'Microsoft Word' ® with minimal pain.
 
 %prep
 %setup -q -c -n %{packname}

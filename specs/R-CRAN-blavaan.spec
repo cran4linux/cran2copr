@@ -1,10 +1,10 @@
 %global packname  blavaan
-%global packver   0.3-9
+%global packver   0.3-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
-Release:          2%{?dist}
+Version:          0.3.10
+Release:          1%{?dist}
 Summary:          Bayesian Latent Variable Analysis
 
 License:          GPL (>= 3)
@@ -20,7 +20,7 @@ BuildRequires:    R-CRAN-loo >= 2.0
 BuildRequires:    R-CRAN-BH >= 1.69.0
 BuildRequires:    R-CRAN-rstantools >= 1.5.0
 BuildRequires:    R-CRAN-lavaan >= 0.6.5
-BuildRequires:    R-CRAN-nonnest2 >= 0.5.2
+BuildRequires:    R-CRAN-nonnest2 >= 0.5.5
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.15
 BuildRequires:    R-methods 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-rstan >= 2.19.2
 Requires:         R-CRAN-loo >= 2.0
 Requires:         R-CRAN-rstantools >= 1.5.0
 Requires:         R-CRAN-lavaan >= 0.6.5
-Requires:         R-CRAN-nonnest2 >= 0.5.2
+Requires:         R-CRAN-nonnest2 >= 0.5.5
 Requires:         R-CRAN-Rcpp >= 0.12.15
 Requires:         R-methods 
 Requires:         R-stats 
@@ -66,9 +66,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}
