@@ -1,27 +1,25 @@
-%global packname  canvasXpress.data
-%global packver   1.29.0
+%global packname  mmr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.29.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Datasets for the 'canvasXpress' Package
+Summary:          Matrix Multiplication on Data.frames
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-Contains the prepared data that is needed for the 'shiny' application
-examples in the 'canvasXpress' package.  This package also includes
-datasets used for automated 'testthat' tests. Scotto L, Narayan G, Nandula
-SV, Arias-Pulido H et al. (2008) <doi:10.1002/gcc.20577>. Davis S, Meltzer
-PS (2007) <doi:10.1093/bioinformatics/btm254>.
+Simple helpers for matrix multiplication on data.frames. These allow for
+more concise code during low level mathematical operations, and help
+ensure code is more easily read, understood, and serviced.
 
 %prep
 %setup -q -c -n %{packname}

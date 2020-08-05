@@ -1,10 +1,10 @@
 %global packname  adamethods
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
-Release:          3%{?dist}
+Version:          1.2.1
+Release:          1%{?dist}
 Summary:          Archetypoid Algorithms and Anomaly Detection
 
 License:          GPL (>= 2)
@@ -40,13 +40,17 @@ Requires:         R-utils
 
 %description
 Collection of several algorithms to obtain archetypoids with small and
-large databases and with both classical multivariate data and functional
+large databases, and with both classical multivariate data and functional
 data (univariate and multivariate). Some of these algorithms also allow to
-detect anomalies (outliers).
+detect anomalies (outliers). Please see Vinue and Epifanio (2020)
+<doi:10.1007/s11634-020-00412-9>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -56,14 +60,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

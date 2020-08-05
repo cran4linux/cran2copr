@@ -1,10 +1,10 @@
 %global packname  CalibrateSSB
-%global packver   1.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
-Release:          3%{?dist}
+Version:          1.3.0
+Release:          1%{?dist}
 Summary:          Weighting and Estimation for Panel Data with Non-Response
 
 License:          GPL-2
@@ -22,11 +22,23 @@ Requires:         R-methods
 
 %description
 Functions to calculate weights, estimates of changes and corresponding
-variance estimates for panel data with non-response.
+variance estimates for panel data with non-response. Partially overlapping
+samples are handled. Initially, weights are calculated by linear
+calibration. By default, the survey package is used for this purpose. It
+is also possible to use ReGenesees, which can be installed from
+<https://github.com/DiegoZardetto/ReGenesees>. Variances of linear
+combinations (changes and averages) and ratios are calculated from a
+covariance matrix based on residuals according to the calibration model.
+The methodology was presented at the conference, The Use of R in Official
+Statistics, and is described in Langsrud (2016)
+<http://www.revistadestatistica.ro/wp-content/uploads/2016/06/RRS2_2016_A021.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -34,17 +46,9 @@ variance estimates for panel data with non-response.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

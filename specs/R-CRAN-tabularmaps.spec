@@ -1,27 +1,34 @@
-%global packname  canvasXpress.data
-%global packver   1.29.0
+%global packname  tabularmaps
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.29.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Datasets for the 'canvasXpress' Package
+Summary:          Create Tile-Grid Geographical Maps
 
-License:          GPL-3
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-rlang >= 0.4.7
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-ggforce >= 0.3.2
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-rlang >= 0.4.7
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-ggforce >= 0.3.2
 
 %description
-Contains the prepared data that is needed for the 'shiny' application
-examples in the 'canvasXpress' package.  This package also includes
-datasets used for automated 'testthat' tests. Scotto L, Narayan G, Nandula
-SV, Arias-Pulido H et al. (2008) <doi:10.1002/gcc.20577>. Davis S, Meltzer
-PS (2007) <doi:10.1093/bioinformatics/btm254>.
+The 'tabularmap' is one of the visualization methods for efficiently
+displaying data consisting of multiple elements by tiling them. When
+dealing with geospatial, it corrects for differences in visibility between
+areas.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,30 @@
-%global packname  canvasXpress.data
-%global packver   1.29.0
+%global packname  gkgraphR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.29.0
+Version:          1.0.1
 Release:          1%{?dist}
-Summary:          Datasets for the 'canvasXpress' Package
+Summary:          Accessing the Official 'Google Knowledge Graph' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ISOcodes >= 2020.03.16
+BuildRequires:    R-CRAN-jsonlite >= 1.5
+BuildRequires:    R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-ISOcodes >= 2020.03.16
+Requires:         R-CRAN-jsonlite >= 1.5
+Requires:         R-CRAN-httr >= 1.4.1
 
 %description
-Contains the prepared data that is needed for the 'shiny' application
-examples in the 'canvasXpress' package.  This package also includes
-datasets used for automated 'testthat' tests. Scotto L, Narayan G, Nandula
-SV, Arias-Pulido H et al. (2008) <doi:10.1002/gcc.20577>. Davis S, Meltzer
-PS (2007) <doi:10.1093/bioinformatics/btm254>.
+A simple way to interact with and extract data from the official 'Google
+Knowledge Graph' API <https://developers.google.com/knowledge-graph/>.
 
 %prep
 %setup -q -c -n %{packname}
