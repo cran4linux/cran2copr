@@ -1,10 +1,10 @@
 %global packname  bigchess
-%global packver   1.9.0
+%global packver   1.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
-Release:          2%{?dist}
+Version:          1.9.1
+Release:          1%{?dist}
 Summary:          Read, Write, Manipulate, Explore Chess PGN Files and R API toUCI Chess Engines
 
 License:          GPL-3

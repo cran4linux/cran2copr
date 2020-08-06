@@ -1,28 +1,34 @@
-%global packname  parglm
-%global packver   0.1.5
+%global packname  bayeslincom
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}
-Summary:          Parallel GLM
+Summary:          Linear Combinations of Bayesian Posterior Samples
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-Matrix 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Provides a parallel estimation method for generalized linear models
-without compiling with a multithreaded LAPACK or BLAS.
+Computes point estimates, standard deviations, and credible intervals for
+linear combinations of posterior samples. Optionally performs region
+practical equivalence (ROPE) tests as described in Kruschke and Liddell
+(2018) <doi:10.3758/s13423-016-1221-4>.
 
 %prep
 %setup -q -c -n %{packname}

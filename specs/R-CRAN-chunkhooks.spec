@@ -1,34 +1,32 @@
-%global packname  ibdreg
-%global packver   0.3.1
+%global packname  chunkhooks
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Regression Methods for IBD Linkage with Covariates
+Summary:          Chunk Hooks for 'R Markdown'
 
-License:          GPL-2 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-measurements 
+BuildRequires:    R-CRAN-prettyunits 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-measurements 
+Requires:         R-CRAN-prettyunits 
 
 %description
-Method to test genetic linkage with covariates by regression methods with
-response IBD sharing for relative pairs.  Account for correlations of IBD
-statistics and covariates for relative pairs within the same pedigree.
+Set chunk hooks for 'R Markdown' documents
+<https://rmarkdown.rstudio.com/>, and improve user experience. For
+example, change units of figure sizes, benchmark chunks, and number lines
+on code blocks.
 
 %prep
 %setup -q -c -n %{packname}

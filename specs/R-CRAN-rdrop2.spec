@@ -1,40 +1,38 @@
-%global packname  geosapi
-%global packver   0.5
+%global packname  rdrop2
+%global packver   0.8.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.8.2.1
 Release:          1%{?dist}
-Summary:          GeoServer REST API R Interface
+Summary:          Programmatic Interface to the 'Dropbox' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.1.1
+Requires:         R-core >= 3.1.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-assertive 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-keyring 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-assertive 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 
 %description
-Provides an R interface to the GeoServer REST API, allowing to upload and
-publish data in a GeoServer web-application and expose data to OGC
-Web-Services. The package currently supports all CRUD
-(Create,Read,Update,Delete) operations on GeoServer workspaces,
-namespaces, datastores (stores of vector data), featuretypes, layers,
-styles, as well as vector data upload operations. For more information
-about the GeoServer REST API, see
-<http://docs.geoserver.org/stable/en/user/rest/>.
+Provides full programmatic access to the 'Dropbox' file hosting platform
+<https://dropbox.com>, including support for all standard file operations.
 
 %prep
 %setup -q -c -n %{packname}

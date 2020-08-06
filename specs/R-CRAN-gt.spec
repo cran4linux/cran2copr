@@ -1,10 +1,10 @@
 %global packname  gt
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
-Release:          3%{?dist}
+Version:          0.2.2
+Release:          1%{?dist}
 Summary:          Easily Create Presentation-Ready Display Tables
 
 License:          MIT + file LICENSE
@@ -26,8 +26,8 @@ BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-htmltools >= 0.4.0
 BuildRequires:    R-CRAN-sass >= 0.1.1
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-tibble >= 3.0.0
@@ -40,8 +40,8 @@ Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-htmltools >= 0.4.0
 Requires:         R-CRAN-sass >= 0.1.1
 
 %description
@@ -57,6 +57,8 @@ fine details.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -64,22 +66,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/css
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/graphics
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

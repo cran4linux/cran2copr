@@ -1,10 +1,10 @@
 %global packname  geonapi
-%global packver   0.3-1
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          3%{?dist}
+Version:          0.4
+Release:          1%{?dist}
 Summary:          'GeoNetwork' API R Interface
 
 License:          MIT + file LICENSE
@@ -16,11 +16,13 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-geometa 
+BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-geometa 
+Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-httr 
@@ -34,6 +36,9 @@ metadata in a 'GeoNetwork' web-application and exposte it to OGC CSW.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -41,18 +46,9 @@ metadata in a 'GeoNetwork' web-application and exposte it to OGC CSW.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

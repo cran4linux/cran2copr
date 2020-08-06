@@ -1,9 +1,9 @@
 %global packname  fivethirtyeight
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}
 Summary:          Data and Code Behind the Stories and Interactives at'FiveThirtyEight'
 

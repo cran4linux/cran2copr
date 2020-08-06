@@ -1,10 +1,10 @@
 %global packname  RobMixReg
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          3%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          Robust Mixture Regression
 
 License:          GPL
@@ -30,6 +30,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glmnet 
 Requires:         R-CRAN-flexmix 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-gtools 
@@ -45,6 +46,7 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-stats 
+Requires:         R-CRAN-glmnet 
 
 %description
 Finite mixture models are a popular technique for modelling unobserved
@@ -71,6 +73,8 @@ Zhou, Yong Zang, Chi Zhang, Sha Cao (2020) <arXiv:2005.11599>.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -78,18 +82,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
