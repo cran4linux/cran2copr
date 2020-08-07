@@ -1,9 +1,9 @@
 %global packname  mboost
-%global packver   2.9-2.1
+%global packver   2.9-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.2.1
+Version:          2.9.3
 Release:          1%{?dist}
 Summary:          Model-Based Boosting
 

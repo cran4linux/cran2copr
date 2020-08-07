@@ -1,33 +1,29 @@
-%global packname  CONCUR
-%global packver   1.3
+%global packname  qpmadr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Copy Number Profile Curve-Based Association Test
+Summary:          Interface to the 'qpmad' Quadratic Programming Solver
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-mgcv 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-CRAN-dplyr 
-Requires:         R-mgcv 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-checkmate 
 
 %description
-Implements a kernel-based association test for copy number variation (CNV)
-aggregate analysis in a certain genomic region (e.g., gene set,
-chromosome, or genome) that is robust to the within-locus and across-locus
-etiological heterogeneity, and bypass the need to define a "locus" unit
-for CNVs. Brucker, A., et al. (2020) <doi:10.1101/666875>.
+Efficiently solve quadratic problems with linear inequality, equality and
+box constraints. The method used is outlined in D. Goldfarb, and A. Idnani
+(1983) <doi:10.1007/BF02591962>.
 
 %prep
 %setup -q -c -n %{packname}

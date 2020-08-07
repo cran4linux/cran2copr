@@ -1,33 +1,39 @@
-%global packname  CONCUR
-%global packver   1.3
+%global packname  torch
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Copy Number Profile Curve-Based Association Test
+Summary:          Tensors and Neural Networks with 'GPU' Acceleration
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-mgcv 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-CRAN-dplyr 
-Requires:         R-mgcv 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-rlang 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Implements a kernel-based association test for copy number variation (CNV)
-aggregate analysis in a certain genomic region (e.g., gene set,
-chromosome, or genome) that is robust to the within-locus and across-locus
-etiological heterogeneity, and bypass the need to define a "locus" unit
-for CNVs. Brucker, A., et al. (2020) <doi:10.1101/666875>.
+Provides functionality to define and train neural networks similar to
+'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
+in R using the 'libtorch' library. Also supports low-level tensor
+operations and 'GPU' acceleration.
 
 %prep
 %setup -q -c -n %{packname}

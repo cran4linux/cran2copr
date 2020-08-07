@@ -1,10 +1,10 @@
 %global packname  oceanis
-%global packver   1.7.4
+%global packver   1.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
-Release:          2%{?dist}
+Version:          1.7.5
+Release:          1%{?dist}
 Summary:          Cartography for Statistical Analysis
 
 License:          GPL (>= 2.0) | file LICENSE

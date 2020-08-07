@@ -1,9 +1,9 @@
 %global packname  nntrf
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Supervised Data Transformation by Means of Neural Network HiddenLayer
 
@@ -27,16 +27,16 @@ Requires:         R-CRAN-pracma
 %description
 A supervised transformation of datasets is performed. The aim is similar
 to that of Principal Component Analysis (PCA), that is, to carry out data
-transformation and dimensionality reduction, but in a non-linear
-supervised way. This is achieved by first training a 3-layer Multi-Layer
-Perceptron and then using the activations of the hidden layer as a
-transformation of the input features. In fact, it takes advantage of the
-change of representation provided by the hidden layer of a neural network.
-This can be useful as data pre-processing for Machine Learning methods in
-general, specially for those that do not work well with many irrelevant or
-redundant features. Rumelhart, D.E., Hinton, G.E. and Williams, R.J.
-(1986) "Learning representations by back-propagating errors"
-<doi:10.1038/323533a0>.
+transformation and dimensionality reduction, but in a supervised way. This
+is achieved by first training a 3-layer Multi-Layer Perceptron and then
+using the activations of the hidden layer as a transformation of the input
+features. In fact, it takes advantage of the change of representation
+provided by the hidden layer of a neural network. This can be useful as
+data pre-processing for Machine Learning methods in general, specially for
+those that do not work well with many irrelevant or redundant features. It
+uses the nnet package under the hood. Rumelhart, D.E., Hinton, G.E. and
+Williams, R.J. (1986) "Learning representations by back-propagating
+errors" <doi:10.1038/323533a0>.
 
 %prep
 %setup -q -c -n %{packname}
