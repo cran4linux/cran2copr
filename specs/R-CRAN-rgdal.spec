@@ -1,9 +1,9 @@
 %global packname  rgdal
-%global packver   1.5-15
+%global packver   1.5-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.15
+Version:          1.5.16
 Release:          1%{?dist}
 Summary:          Bindings for the 'Geospatial' Data Abstraction Library
 

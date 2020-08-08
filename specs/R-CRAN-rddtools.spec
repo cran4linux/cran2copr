@@ -1,9 +1,9 @@
 %global packname  rddtools
-%global packver   1.2.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.4.0
 Release:          1%{?dist}
 Summary:          Toolbox for Regression Discontinuity Design ('RDD')
 

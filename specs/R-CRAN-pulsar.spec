@@ -1,33 +1,41 @@
-%global packname  pls
-%global packver   2.7-3
+%global packname  pulsar
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.3
+Version:          0.3.7
 Release:          1%{?dist}
-Summary:          Partial Least Squares and Principal Component Regression
+Summary:          Parallel Utilities for Lambda Selection along a RegularizationPath
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-Matrix 
 Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-Matrix 
 
 %description
-Multivariate regression methods Partial Least Squares Regression (PLSR),
-Principal Component Regression (PCR) and Canonical Powered Partial Least
-Squares (CPPLS).
+Model selection for penalized graphical models using the Stability
+Approach to Regularization Selection ('StARS'), with options for speed-ups
+including Bounded StARS (B-StARS), batch computing, and other stability
+metrics (e.g., graphlet stability G-StARS). Christian L. Müller, Richard
+Bonneau, Zachary Kurtz (2016) <arXiv:1605.07072>.
 
 %prep
 %setup -q -c -n %{packname}

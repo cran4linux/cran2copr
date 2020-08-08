@@ -1,36 +1,41 @@
-%global packname  sensitivity
-%global packver   1.22.1
+%global packname  changepoint.mv
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.1
+Version:          1.0.2
 Release:          1%{?dist}
-Summary:          Global Sensitivity Analysis of Model Outputs
+Summary:          Changepoint Analysis for Multivariate Time Series
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-numbers 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-tbart 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-boot 
-Requires:         R-CRAN-numbers 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-assertive 
+Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-tbart 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-assertive 
 
 %description
-A collection of functions for factor screening, global sensitivity
-analysis and robustness analysis. Most of the functions have to be applied
-on model with scalar output, but several functions support
-multi-dimensional outputs.
+Detects the Most Recent Changepoints (mrc) for panel data consisting of
+many related univariate timeseries using the method developed by Bardwell,
+Fearnhead, Eckley, Smith and Spott (2018)
+<doi:10.1080/00401706.2018.1438926>.
 
 %prep
 %setup -q -c -n %{packname}

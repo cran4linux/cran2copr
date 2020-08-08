@@ -1,11 +1,11 @@
-%global packname  mlr3viz
-%global packver   0.2.0
+%global packname  mlr3oml
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Visualizations for 'mlr3'
+Summary:          Connector Between 'mlr3' and 'OpenML'
 
 License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,25 +14,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-backports >= 1.1.6
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-CRAN-mlr3 
 BuildRequires:    R-CRAN-mlr3misc 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-backports >= 1.1.6
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-mlr3 
 Requires:         R-CRAN-mlr3misc 
-Requires:         R-utils 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringi 
 
 %description
-Provides visualizations for 'mlr3' objects such as tasks, predictions,
-resample results or benchmark results via the autoplot() generic of
-'ggplot2'. The returned 'ggplot' objects are intended to provide sensible
-defaults, yet can easily be customized to create camera-ready figures.
-Visualizations include barplots, boxplots, histograms, ROC curves, and
-Precision-Recall curves.
+Provides an interface to 'OpenML.org' to list and download machine
+learning data and tasks. Data and tasks can be automatically converted to
+'mlr3' tasks. For a more sophisticated interface which also allows
+uploading experiments, see the 'OpenML' package.
 
 %prep
 %setup -q -c -n %{packname}

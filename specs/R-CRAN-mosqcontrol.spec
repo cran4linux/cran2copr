@@ -1,13 +1,13 @@
-%global packname  J4R
-%global packver   1.0.8
+%global packname  mosqcontrol
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Create 'Java' Objects and Execute 'Java' Methods
+Summary:          Mosquito Control Resource Optimization
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.4
-BuildRequires:    R-methods >= 3.4
-Requires:         R-utils >= 3.4
-Requires:         R-methods >= 3.4
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-NlcOptim 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-sfsmisc 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-NlcOptim 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-sfsmisc 
 
 %description
-Makes it possible to create 'Java' objects and to execute 'Java' methods
-from the 'R' environment. The 'Java' Virtual Machine is handled by a
-gateway server. Commands are sent to the server through a socket
-connection from the 'R' environment. Calls to 'Java' methods allow for
-vectors so that a particular method is iteratively run on each element of
-the vector. A score algorithm also makes the calls to 'Java' methods less
-restrictive. The gateway server relies on the runnable 'Java' library
-'j4r.jar'. This library is licensed under the LGPL-3. Its sources are
-included in this package.
+This project aims to make an accessible model for mosquito control
+resource optimization. The model uses data provided by users to estimate
+the mosquito populations in the sampling area for the sampling time
+period, and the optimal time to apply a treatment or multiple treatments.
 
 %prep
 %setup -q -c -n %{packname}

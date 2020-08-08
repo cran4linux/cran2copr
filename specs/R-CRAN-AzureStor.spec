@@ -1,10 +1,10 @@
 %global packname  AzureStor
-%global packver   3.2.2
+%global packver   3.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
-Release:          2%{?dist}
+Version:          3.2.3
+Release:          1%{?dist}
 Summary:          Storage Management in 'Azure'
 
 License:          MIT + file LICENSE
@@ -16,16 +16,16 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-AzureRMR >= 2.3.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-AzureRMR >= 2.3.0
+Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-utils 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-xml2 

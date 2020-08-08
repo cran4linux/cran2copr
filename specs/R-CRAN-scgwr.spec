@@ -1,9 +1,9 @@
 %global packname  scgwr
-%global packver   0.1.2
+%global packver   0.1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.2.1
 Release:          1%{?dist}
 Summary:          Scalable Geographically Weighted Regression
 
@@ -18,14 +18,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-spData 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-optimParallel 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-spData 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-optimParallel 
 
 %description

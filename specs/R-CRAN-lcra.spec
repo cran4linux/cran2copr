@@ -1,13 +1,13 @@
-%global packname  betadiv
-%global packver   1.0.1
+%global packname  lcra
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.2
 Release:          1%{?dist}
-Summary:          Estimators of Multiple-Site Dissimilarity Indices for theAssessment of Beta Diversity
+Summary:          Bayesian Joint Latent Class and Regression Models
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-J4R >= 1.0.8
-Requires:         R-CRAN-J4R >= 1.0.8
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
 
 %description
-Implement the multiple-site dissimilarity indices of Simpson, Sorensen and
-nestedness, which can be used to assess the beta diversity of a
-population. These indices were adapted from those developed by Baselga
-(2010) <doi:10.1111/j.1466-8238.2009.00490.x> in order to have them
-population size-independent. All the details behind the calculation and
-estimation of these adapted indices can be found in Fortin et al. (2020)
-<doi:10.1111/geb.13080>.
+For fitting Bayesian joint latent class and regression models using Gibbs
+sampling. See the documentation for the model. The technical details of
+the model implemented here are described in Elliott, Michael R., Zhao,
+Zhangchen, Mukherjee, Bhramar, Kanaya, Alka, Needham, Belinda L., "Methods
+to account for uncertainty in latent class assignments when using latent
+classes as predictors in regression models, with application to
+acculturation strategy measures" (2020) In press at Epidemiology
+<doi:10.1097/EDE.0000000000001139>.
 
 %prep
 %setup -q -c -n %{packname}
