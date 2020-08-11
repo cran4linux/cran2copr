@@ -1,9 +1,9 @@
 %global packname  workflows
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}
 Summary:          Modeling Workflows
 
@@ -19,14 +19,14 @@ BuildRequires:    R-CRAN-cli >= 2.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.1
 BuildRequires:    R-CRAN-ellipsis >= 0.2.0
 BuildRequires:    R-CRAN-hardhat >= 0.1.4
-BuildRequires:    R-CRAN-parsnip >= 0.1.2
+BuildRequires:    R-CRAN-parsnip >= 0.1.3
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-rlang >= 0.4.1
 Requires:         R-CRAN-ellipsis >= 0.2.0
 Requires:         R-CRAN-hardhat >= 0.1.4
-Requires:         R-CRAN-parsnip >= 0.1.2
+Requires:         R-CRAN-parsnip >= 0.1.3
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 

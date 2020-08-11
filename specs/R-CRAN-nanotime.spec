@@ -1,11 +1,11 @@
 %global packname  nanotime
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}
-Summary:          Nanosecond-Resolution Time for R
+Summary:          Nanosecond-Resolution Time Support for R
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,9 +26,10 @@ Requires:         R-CRAN-bit64
 Requires:         R-CRAN-zoo 
 
 %description
-Full 64-bit resolution date and time support with resolution up to
-nanosecond granularity is provided, with easy transition to and from the
-standard 'POSIXct' type.
+Full 64-bit resolution date and time functionality with nanosecond
+granularity is provided, with easy transition to and from the standard
+'POSIXct' type. Three additional classes offer interval, period and
+duration functionality for nanosecond-resolution timestamps.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  lazytrade
-%global packver   0.3.10
+%global packver   0.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
-Release:          3%{?dist}
+Version:          0.3.11
+Release:          1%{?dist}
 Summary:          Learn Computer and Data Science using Algorithmic Trading
 
 License:          MIT + file LICENSE
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-h2o 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-h2o 
@@ -42,12 +40,18 @@ using idea of algorithmic trading. Main goal is to process information
 within "Decision Support System" to come up with analysis or predictions.
 There are several utilities such as dynamic and adaptive risk management
 using reinforcement learning and even functions to generate predictions of
-price changes using pattern recognition deep regression learning.
+price changes using pattern recognition deep regression learning. Summary
+of Methods used: Awesome H2O tutorials:
+<https://github.com/h2oai/awesome-h2o>, Market Type research of Van Tharp
+Institute: <https://www.vantharp.com/>, Reinforcement Learning R package:
+<https://CRAN.R-project.org/package=ReinforcementLearning>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -55,20 +59,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

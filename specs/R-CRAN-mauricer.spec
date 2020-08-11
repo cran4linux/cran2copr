@@ -1,37 +1,34 @@
-%global packname  rbacon
-%global packver   2.4.3
+%global packname  mauricer
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          2.1
 Release:          1%{?dist}
-Summary:          Age-Depth Modelling using Bayesian Statistics
+Summary:          Install 'BEAST2' Packages
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-coda >= 0.19.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-coda >= 0.19.1
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-beastier 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-beastier 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-stringr 
 
 %description
-An approach to age-depth modelling that uses Bayesian statistics to
-reconstruct accumulation histories for deposits, through combining
-radiocarbon and other dates with prior information. See Blaauw & Christen
-(2011) <doi:10.1214/11-BA618>.
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'BEAST2' is
+commonly accompanied by 'BEAUti 2' (<https://www.beast2.org>), which,
+among others, allows one to install 'BEAST2' package. This package allows
+to install 'BEAST2' packages from 'R'.
 
 %prep
 %setup -q -c -n %{packname}

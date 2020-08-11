@@ -1,10 +1,10 @@
 %global packname  htestClust
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}
 Summary:          Reweighted Marginal Hypothesis Tests for Clustered Data
 
 License:          MIT + file LICENSE
@@ -16,9 +16,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bootstrap 
+BuildRequires:    R-graphics 
 BuildRequires:    R-MASS 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-bootstrap 
+Requires:         R-graphics 
 Requires:         R-MASS 
 Requires:         R-stats 
 

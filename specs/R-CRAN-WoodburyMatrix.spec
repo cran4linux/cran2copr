@@ -1,37 +1,33 @@
-%global packname  rbacon
-%global packver   2.4.3
+%global packname  WoodburyMatrix
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          0.0.1
 Release:          1%{?dist}
-Summary:          Age-Depth Modelling using Bayesian Statistics
+Summary:          Fast Matrix Operations via the Woodbury Matrix Identity
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-coda >= 0.19.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-coda >= 0.19.1
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-Matrix 
+BuildRequires:    R-methods 
+Requires:         R-Matrix 
+Requires:         R-methods 
 
 %description
-An approach to age-depth modelling that uses Bayesian statistics to
-reconstruct accumulation histories for deposits, through combining
-radiocarbon and other dates with prior information. See Blaauw & Christen
-(2011) <doi:10.1214/11-BA618>.
+A hierarchy of classes and methods for manipulating matrices formed
+implicitly from the sums of the inverses of other matrices, a situation
+commonly encountered in spatial statistics and related fields. Enables
+easy use of the Woodbury matrix identity and the matrix determinant lemma
+to allow computation (e.g., solving linear systems) without having to form
+the actual matrix. More information on the underlying linear algebra can
+be found in Harville, D. A. (1997) <doi:10.1007/b98818>.
 
 %prep
 %setup -q -c -n %{packname}

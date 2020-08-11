@@ -1,10 +1,10 @@
 %global packname  anyflights
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          3%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}
 Summary:          Query `nycflights13`-Like Air Travel Data for Given Years andAirports
 
 License:          CC0
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-glue 
@@ -27,12 +26,12 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-Rd2roxygen 
+BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 Requires:         R-utils 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-glue 
@@ -40,7 +39,8 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-Rd2roxygen 
+Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-progress 
 
 %description
 Supplies a set of functions to query air travel data for user- specified
@@ -51,6 +51,8 @@ planes, and weather.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -58,17 +60,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

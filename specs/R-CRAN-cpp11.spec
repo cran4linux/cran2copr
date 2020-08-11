@@ -1,9 +1,9 @@
 %global packname  cpp11
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}
 Summary:          A C++11 Interface for R's C Interface
 
@@ -17,7 +17,7 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Provides a header only, C++11 interface to R's C interface. Compared to
+Provides a header only, C++11 interface to R's C interface.  Compared to
 other approaches 'cpp11' strives to be safe against long jumps from the C
 API as well as C++ exceptions, conform to normal R function semantics and
 supports interaction with 'ALTREP' vectors.

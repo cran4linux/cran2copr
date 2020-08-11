@@ -1,10 +1,10 @@
 %global packname  flattabler
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          Obtaining a Flat Table from Pivot Tables
 
 License:          MIT + file LICENSE
@@ -20,16 +20,18 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xlsx 
 Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xlsx 
 
 %description
-Transformations that allow obtaining a flat table from reports in text
-format that contain data in the form of pivot tables. They can be defined
-for a single report and applied to a set of reports.
+Transformations that allow obtaining a flat table from reports in text or
+Excel format that contain data in the form of pivot tables. They can be
+defined for a single report and applied to a set of reports.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  radiant.model
-%global packver   1.3.10
+%global packver   1.3.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.10
-Release:          2%{?dist}
+Version:          1.3.13
+Release:          1%{?dist}
 Summary:          Model Menu for Radiant: Business Analytics using R and Shiny
 
 License:          AGPL-3 | file LICENSE
@@ -37,8 +37,8 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-tidyr >= 0.8.2
 BuildRequires:    R-CRAN-ggrepel >= 0.8
 BuildRequires:    R-CRAN-data.tree >= 0.7.4
+BuildRequires:    R-CRAN-broom >= 0.7.0
 BuildRequires:    R-CRAN-pdp >= 0.7.0
-BuildRequires:    R-CRAN-broom >= 0.5.2
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-ranger >= 0.11.2
 BuildRequires:    R-CRAN-yaml 
@@ -64,8 +64,8 @@ Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-tidyr >= 0.8.2
 Requires:         R-CRAN-ggrepel >= 0.8
 Requires:         R-CRAN-data.tree >= 0.7.4
+Requires:         R-CRAN-broom >= 0.7.0
 Requires:         R-CRAN-pdp >= 0.7.0
-Requires:         R-CRAN-broom >= 0.5.2
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-ranger >= 0.11.2
 Requires:         R-CRAN-yaml 
@@ -89,9 +89,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

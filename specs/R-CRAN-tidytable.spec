@@ -1,9 +1,9 @@
 %global packname  tidytable
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}
 Summary:          Tidy Interface to 'data.table'
 
@@ -15,24 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-glue >= 1.4.0
+BuildRequires:    R-CRAN-data.table >= 1.12.6
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-vctrs >= 0.3.1
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-glue >= 1.4.0
+Requires:         R-CRAN-data.table >= 1.12.6
 Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-vctrs >= 0.3.1
 Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 
 %description
-Tidy interface to 'data.table'. 'rlang' compatible, which allows the user
-to build custom functions much like they would in the tidyverse.
+A tidy interface to 'data.table' that is 'rlang' compatible, giving users
+the speed of 'data.table' with the clean syntax of the tidyverse.
 
 %prep
 %setup -q -c -n %{packname}

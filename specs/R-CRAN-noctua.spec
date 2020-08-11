@@ -1,10 +1,10 @@
 %global packname  noctua
-%global packver   1.7.1
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
-Release:          2%{?dist}
+Version:          1.8.0
+Release:          1%{?dist}
 Summary:          Connect to 'AWS Athena' using R 'AWS SDK' 'paws' ('DBI'Interface)
 
 License:          MIT + file LICENSE

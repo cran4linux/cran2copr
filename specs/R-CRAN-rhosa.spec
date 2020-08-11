@@ -1,37 +1,29 @@
-%global packname  rbacon
-%global packver   2.4.3
+%global packname  rhosa
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Age-Depth Modelling using Bayesian Statistics
+Summary:          Higher-Order Spectral Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-coda >= 0.19.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-coda >= 0.19.1
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildArch:        noarch
 
 %description
-An approach to age-depth modelling that uses Bayesian statistics to
-reconstruct accumulation histories for deposits, through combining
-radiocarbon and other dates with prior information. See Blaauw & Christen
-(2011) <doi:10.1214/11-BA618>.
+Higher-order spectra or polyspectra of time series, such as bispectrum and
+bicoherence, have been investigated in abundant literature and applied to
+problems of signal detection in a wide range of fields. This package aims
+to provide a simple API to estimate and analyze them. The current
+implementation is based on Brillinger and Irizarry (1998)
+<doi:10.1016/S0165-1684(97)00217-X> for estimating bispectrum, with Lii
+and Helland (1981) <doi:10.1145/355958.355961> for cross-bispectrum.
 
 %prep
 %setup -q -c -n %{packname}

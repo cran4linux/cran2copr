@@ -1,10 +1,10 @@
 %global packname  chronosphere
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
-Release:          3%{?dist}
+Version:          0.3.1
+Release:          1%{?dist}
 Summary:          Earth System History Variables
 
 License:          CC BY 4.0
@@ -33,11 +33,11 @@ The purpose of the 'chronosphere' project is to facilitate spatially
 explicit analyses of (paleo)environmental/ecological research. The package
 serves as a gateway to plate tectonic reconstructions, deep time global
 climate model results as well as fossil occurrence datasets such as the
-Paleobiology Database <https://www.paleobiodb.org/> and the PaleoReefs
+Paleobiology Database <https://paleobiodb.org/> and the PaleoReefs
 Database <https://www.paleo-reefs.pal.uni-erlangen.de/>. Environmental
 data stored on a remote server can be downloaded and imported directly to
 the R environment. Query functions to the GPlates
-<http://www.gplates.org/> desktop application or the GPlates Web Service
+<https://www.gplates.org/> desktop application or the GPlates Web Service
 <https://gws.gplates.org/> allow users to reconstruct coordinates, static
 plates, and Spatial objects. A wrapper class 'RasterArray' is implemented
 around the 'RasterLayer' class, allowing the organization of spatially
@@ -50,6 +50,8 @@ Extinctions).
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -57,20 +59,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,37 +1,29 @@
-%global packname  rbacon
-%global packver   2.4.3
+%global packname  scaleAlign
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          1.0.0.0
 Release:          1%{?dist}
-Summary:          Age-Depth Modelling using Bayesian Statistics
+Summary:          Scale Alignment for Between-Items Multidimensional Rasch FamilyModels
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-coda >= 0.19.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-coda >= 0.19.1
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildArch:        noarch
 
 %description
-An approach to age-depth modelling that uses Bayesian statistics to
-reconstruct accumulation histories for deposits, through combining
-radiocarbon and other dates with prior information. See Blaauw & Christen
-(2011) <doi:10.1214/11-BA618>.
+Scale alignment is a new procedure for rescaling dimensions of
+between-items multidimensional Rasch family models so that dimensions
+scores can be compared directly (Feuerstahler & Wilson, 2019; under
+review) <doi:10.1111/jedm.12209>. This package includes functions for
+implementing delta-dimensional alignment (DDA) and logistic regression
+alignment (LRA) for dichotomous or polytomous data. This function also
+includes a wrapper for models fit using the 'TAM' package.
 
 %prep
 %setup -q -c -n %{packname}

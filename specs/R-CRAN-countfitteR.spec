@@ -1,10 +1,10 @@
 %global packname  countfitteR
-%global packver   1.0
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
-Release:          3%{?dist}
+Version:          1.2
+Release:          1%{?dist}
 Summary:          Comprehensive Automatized Evaluation of Distribution Models forCount Data
 
 License:          GPL-3
@@ -19,11 +19,13 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-MASS 
 Requires:         R-CRAN-shiny 
 Requires:         R-stats 
+Requires:         R-CRAN-pscl 
 Requires:         R-tools 
 
 %description
@@ -45,6 +47,9 @@ the most suitable counting distribution for his own data set.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -54,17 +59,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/countfitteR
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
