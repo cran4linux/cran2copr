@@ -1,33 +1,36 @@
-%global packname  RcppSimdJson
-%global packver   0.1.1
+%global packname  Require
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.6
 Release:          1%{?dist}
-Summary:          'Rcpp' Bindings for the 'simdjson' Header-Only Library for'JSON' Parsing
+Summary:          Installing and Loading R Packages for Reproducible Workflows
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table >= 1.10.4
+Requires:         R-methods 
+Requires:         R-CRAN-remotes 
 Requires:         R-utils 
 
 %description
-The 'JSON' format is ubiquitous for data interchange, and the 'simdjson'
-library written by Daniel Lemire (and many contributors) provides a
-high-performance parser for these files which by relying on parallel
-'SIMD' instruction manages to parse these files as faster than disk speed.
-See the <arXiv:1902.08318> paper for more details about 'simdjson'.  This
-package is at present still a fairly thin and not fully complete wrapper
-that does not aim to replace the existing and excellent 'JSON' packages
-for R.
+A single key function, 'Require' that wraps 'install.packages',
+'remotes::install_github', 'versions::install.versions', and
+'base::require' that allows for reproducible workflows. As with other
+functions in a reproducible workflow, this package emphasizes functions
+that return the same result whether it is the first or subsequent times
+running the function.
 
 %prep
 %setup -q -c -n %{packname}

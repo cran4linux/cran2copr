@@ -1,9 +1,9 @@
 %global packname  choroplethr
-%global packver   3.6.4
+%global packver   3.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.4
+Version:          3.7.0
 Release:          1%{?dist}
 Summary:          Simplify the Creation of Choropleth Maps in R
 
@@ -26,6 +26,10 @@ BuildRequires:    R-CRAN-WDI
 BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-RgoogleMaps 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidycensus 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-tigris >= 1.0
 Requires:         R-CRAN-acs 
@@ -37,6 +41,10 @@ Requires:         R-CRAN-WDI
 Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-RgoogleMaps 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidycensus 
 
 %description
 Choropleths are thematic maps where geographic regions, such as states,

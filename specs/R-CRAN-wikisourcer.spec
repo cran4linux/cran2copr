@@ -1,31 +1,40 @@
-%global packname  ioncopy
-%global packver   2.2.2
+%global packname  wikisourcer
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.1.5
 Release:          1%{?dist}
-Summary:          Calling Copy Number Alterations in Amplicon Sequencing Data
+Summary:          Download Public Domain Works from Wikisource
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
 
 %description
-Method for the calculation of copy numbers and calling of copy number
-alterations. The algorithm uses coverage data from amplicon sequencing of
-a sample cohort as input. The method includes significance assessment,
-correction for multiple testing and does not depend on normal DNA
-controls. Budczies (2016 Mar 15) <doi:10.18632/oncotarget.7451>.
+Download public domain works from Wikisource <https://wikisource.org/>, a
+free library from the Wikimedia Foundation project.
 
 %prep
 %setup -q -c -n %{packname}

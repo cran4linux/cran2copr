@@ -1,11 +1,11 @@
 %global packname  rplum
-%global packver   0.1.4
+%global packver   0.1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
-Release:          3%{?dist}
-Summary:          Bayesian Age-Depth Modelling of '210Pb'-Dated Cores
+Version:          0.1.5.1
+Release:          1%{?dist}
+Summary:          Bayesian Age-Depth Modelling of Cores Dated by Pb-210
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,18 +29,20 @@ Requires:         R-utils
 
 %description
 An approach to age-depth modelling that uses Bayesian statistics to
-reconstruct accumulation histories for '210Pb'-dated deposits using prior
-information. It can combine '210Pb', radiocarbon, and other dates in the
-chronologies. See Aquino 'et' 'al.' (2018)
-<doi:10.1007/s13253-018-0328-7>. Note that parts of the code underlying
-'rplum' are derived from the 'rbacon' package by the same authors.
-Subsequent versions of 'rplum' and 'rbacon' are planned to reduce
-duplication, with 'rplum' importing 'rbacon' instead.
+reconstruct accumulation histories for 210Pb-dated deposits using prior
+information. It can combine 210Pb, radiocarbon, and other dates in the
+chronologies. See Aquino et al. (2018) <doi:10.1007/s13253-018-0328-7>.
+Note that parts of the code underlying 'rplum' are derived from the
+'rbacon' package by the same authors. Subsequent versions of 'rplum' and
+'rbacon' are planned to reduce duplication, with 'rplum' importing
+'rbacon' instead.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -48,19 +50,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

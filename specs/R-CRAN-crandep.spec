@@ -1,9 +1,9 @@
 %global packname  crandep
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}
 Summary:          Network Analysis of Dependencies of CRAN Packages
 
@@ -37,8 +37,8 @@ can build, visualise, and analyse the dependency network, enabling us to
 have a bird's-eye view of the CRAN ecosystem. One aspect of interest is
 the number of reverse dependencies of the packages, or equivalently the
 in-degree distribution of the dependency network. This can be fitted by
-the power law and/or an extreme value mixture distribution, of which
-functions are provided.
+the power law and/or an extreme value mixture distribution
+<arXiv:2008.03073>, of which functions are provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,26 @@
-%global packname  ggdendro
-%global packver   0.1.21
+%global packname  AEP
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.21
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Create Dendrograms and Tree Diagrams Using 'ggplot2'
+Summary:          Statistical Modelling for Asymmetric Exponential PowerDistribution
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.2
-BuildRequires:    R-MASS 
-Requires:         R-CRAN-ggplot2 >= 0.9.2
-Requires:         R-MASS 
 
 %description
-This is a set of tools for dendrograms and tree plots using 'ggplot2'.
-The 'ggplot2' philosophy is to clearly separate data from the
-presentation. Unfortunately the plot method for dendrograms plots directly
-to a plot device without exposing the data. The 'ggdendro' package
-resolves this by making available functions that extract the dendrogram
-plot data. The package provides implementations for 'tree', 'rpart', as
-well as diana and agnes (from 'cluster') diagrams.
+Developed for Computing the probability density function, cumulative
+distribution function, random generation, estimating the parameters of
+asymmetric exponential power distribution, and robust regression analysis
+with error term that follows asymmetric exponential power distribution.
 
 %prep
 %setup -q -c -n %{packname}

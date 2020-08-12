@@ -1,10 +1,10 @@
 %global packname  nngeo
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
-Release:          3%{?dist}
+Version:          0.3.9
+Release:          1%{?dist}
 Summary:          k-Nearest Neighbor Join for Spatial Data
 
 License:          MIT + file LICENSE
@@ -20,12 +20,14 @@ BuildRequires:    R-CRAN-units
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-s2 
 Requires:         R-CRAN-sf >= 0.6
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-units 
 Requires:         R-methods 
 Requires:         R-CRAN-lwgeom 
 Requires:         R-parallel 
+Requires:         R-CRAN-s2 
 
 %description
 K-nearest neighbor search for projected and non-projected 'sf' spatial
@@ -39,6 +41,8 @@ for spatial analysis.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -46,22 +50,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/tinytest
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

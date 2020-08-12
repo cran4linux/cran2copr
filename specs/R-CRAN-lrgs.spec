@@ -1,10 +1,10 @@
 %global packname  lrgs
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
-Release:          3%{?dist}
+Version:          0.5.4
+Release:          1%{?dist}
 Summary:          Linear Regression by Gibbs Sampling
 
 License:          MIT + file LICENSE
@@ -23,11 +23,15 @@ Implements a Gibbs sampler to do linear regression with multiple
 covariates, multiple responses, Gaussian measurement errors on covariates
 and responses, Gaussian intrinsic scatter, and a covariate prior
 distribution which is given by either a Gaussian mixture of specified size
-or a Dirichlet process with a Gaussian base distribution.
+or a Dirichlet process with a Gaussian base distribution. Described
+further in Mantz (2016) <DOI:10.1093/mnras/stv3008>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -37,14 +41,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

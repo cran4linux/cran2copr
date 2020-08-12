@@ -1,9 +1,9 @@
 %global packname  gets
-%global packver   0.24
+%global packver   0.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24
+Version:          0.25
 Release:          1%{?dist}
 Summary:          General-to-Specific (GETS) Modelling and Indicator SaturationMethods
 

@@ -1,10 +1,10 @@
 %global packname  spaMM
-%global packver   3.3.0
+%global packver   3.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
-Release:          3%{?dist}
+Version:          3.4.1
+Release:          1%{?dist}
 Summary:          Mixed-Effect Models, Particularly Spatial Models
 
 License:          CeCILL-2
@@ -49,17 +49,20 @@ Requires:         R-boot
 %description
 Inference based on mixed-effect models, including generalized linear mixed
 models with spatial correlations and models with non-Gaussian random
-effects (e.g., Beta). Both classical geostatistical models, and Markov
-random field models on irregular grids, can be fitted. Variation in
-residual variance (heteroscedasticity) can itself be represented by a
-generalized linear mixed model. Various approximations of likelihood or
-restricted likelihood are implemented, in particular h-likelihood (Lee and
-Nelder 2001 <doi:10.1093/biomet/88.4.987>) and Laplace approximation.
+effects (e.g., Beta). Various approximations of likelihood or restricted
+likelihood are implemented, in particular Laplace approximation and
+h-likelihood (Lee and Nelder 2001 <doi:10.1093/biomet/88.4.987>). Both
+classical geostatistical models, and Markov random field models on
+irregular grids (as considered in the 'INLA' package,
+<http://www.r-inla.org>), can be fitted. Variation in residual variance
+(heteroscedasticity) can itself be represented by a mixed-effect model.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -67,20 +70,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

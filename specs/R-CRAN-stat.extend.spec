@@ -1,13 +1,13 @@
-%global packname  ggdendro
-%global packver   0.1.21
+%global packname  stat.extend
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.21
+Version:          0.1.1
 Release:          1%{?dist}
-Summary:          Create Dendrograms and Tree Diagrams Using 'ggplot2'
+Summary:          Highest Density Regions and Other Functions of Distributions
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.2
-BuildRequires:    R-MASS 
-Requires:         R-CRAN-ggplot2 >= 0.9.2
-Requires:         R-MASS 
+BuildRequires:    R-CRAN-sets 
+Requires:         R-CRAN-sets 
 
 %description
-This is a set of tools for dendrograms and tree plots using 'ggplot2'.
-The 'ggplot2' philosophy is to clearly separate data from the
-presentation. Unfortunately the plot method for dendrograms plots directly
-to a plot device without exposing the data. The 'ggdendro' package
-resolves this by making available functions that extract the dendrogram
-plot data. The package provides implementations for 'tree', 'rpart', as
-well as diana and agnes (from 'cluster') diagrams.
+Highest Density Regions are the smallest set in the support of a
+probability distribution with the specified coverage probability. 'HDRs'
+may contain disjoint intervals, but can be calculated efficiently using
+iterative methods. One can similarly construct optimal (i.e., shortest)
+confidence intervals for some basic inferential problems, including for
+population means, variances, or proportion parameters.
 
 %prep
 %setup -q -c -n %{packname}

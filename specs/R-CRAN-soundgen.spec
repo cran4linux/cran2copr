@@ -1,11 +1,11 @@
 %global packname  soundgen
-%global packver   1.7.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
-Release:          3%{?dist}
-Summary:          Parametric Voice Synthesis
+Version:          1.8.0
+Release:          1%{?dist}
+Summary:          Sound Synthesis and Acoustic Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -43,16 +43,19 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinyjs 
 
 %description
-Tools for sound synthesis and acoustic analysis. Performs parametric
-synthesis of sounds with harmonic and noise components such as animal
-vocalizations or human voice. Also includes tools for spectral analysis,
-pitch tracking, audio segmentation, self-similarity matrices, morphing,
-etc.
+Performs parametric synthesis of sounds with harmonic and noise components
+such as animal vocalizations or human voice. Also offers tools for
+spectral analysis, audio segmentation, self-similarity matrices,
+modulation spectra, morphing, etc., as well as interactive web apps for
+manually corrected pitch tracking and formant measurement. Reference:
+Anikin (2019) <doi:10.3758/s13428-018-1095-7>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -60,21 +63,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/shiny
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

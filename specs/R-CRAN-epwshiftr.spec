@@ -1,9 +1,9 @@
 %global packname  epwshiftr
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}
 Summary:          Create Future 'EnergyPlus' Weather Files using 'CMIP6' Data
 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-units
 %description
 Query, download climate change projection data from the 'CMIP6' (Coupled
 Model Intercomparison Project Phase 6) project
-<https://pcmdi.llnl.gov/CMIP6> in the 'ESGF' (Earth System Grid
+<https://pcmdi.llnl.gov/CMIP6/> in the 'ESGF' (Earth System Grid
 Federation) platform <https://esgf.llnl.gov>, and create future
 'EnergyPlus' <https://energyplus.net> Weather ('EPW') files adjusted from
 climate changes using data from Global Climate Models ('GCM').

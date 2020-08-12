@@ -1,33 +1,35 @@
-%global packname  ggdendro
-%global packver   0.1.21
+%global packname  KnockoffScreen
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.21
+Version:          0.1.0
 Release:          1%{?dist}
-Summary:          Create Dendrograms and Tree Diagrams Using 'ggplot2'
+Summary:          Whole-Genome Sequencing Data Analysis via Knockoff Statistics
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.2
-BuildRequires:    R-MASS 
-Requires:         R-CRAN-ggplot2 >= 0.9.2
-Requires:         R-MASS 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-seqminer 
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-SPAtest 
+Requires:         R-Matrix 
+Requires:         R-CRAN-seqminer 
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-SPAtest 
 
 %description
-This is a set of tools for dendrograms and tree plots using 'ggplot2'.
-The 'ggplot2' philosophy is to clearly separate data from the
-presentation. Unfortunately the plot method for dendrograms plots directly
-to a plot device without exposing the data. The 'ggdendro' package
-resolves this by making available functions that extract the dendrogram
-plot data. The package provides implementations for 'tree', 'rpart', as
-well as diana and agnes (from 'cluster') diagrams.
+Functions for identification of putative causal loci in whole-genome
+sequencing data. The functions allow genome-wide association scan. It also
+includes an efficient knockoff generator for genetic data.
 
 %prep
 %setup -q -c -n %{packname}
