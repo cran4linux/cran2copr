@@ -4,7 +4,7 @@
 
 Name:             {{prefix}}%{packname}
 Version:          {{version}}
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          {{summary}}
 
 License:          {{license}}
