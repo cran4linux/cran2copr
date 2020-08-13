@@ -1,10 +1,10 @@
 %global packname  dipsaus
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
-Release:          1%{?dist}
+Version:          0.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
 License:          GPL-3

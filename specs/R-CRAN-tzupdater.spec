@@ -1,31 +1,27 @@
-%global packname  tidygeocoder
-%global packver   1.0.1
+%global packname  tzupdater
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geocoding Made Easy
+Summary:          Time Zone Database Updater
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-An intuitive interface for getting data from geocoder services.
+Download and compile any version of the IANA Time Zone Database (also
+known as Olson database) and make it current in your R session. Beware: on
+Windows 'Cygwin' is required!
 
 %prep
 %setup -q -c -n %{packname}

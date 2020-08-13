@@ -1,31 +1,30 @@
-%global packname  tidygeocoder
-%global packver   1.0.1
+%global packname  graph3d
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geocoding Made Easy
+Summary:          A Wrapper of the JavaScript Library 'vis-graph3d'
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-lazyeval 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-lazyeval 
 
 %description
-An intuitive interface for getting data from geocoder services.
+Create interactive visualization charts to draw data in three dimensional
+graphs. The graphs can be included in Shiny apps and R markdown documents,
+or viewed from the R console and 'RStudio' Viewer. Based on the 'vis.js'
+Graph3d module and the 'htmlwidgets' R package.
 
 %prep
 %setup -q -c -n %{packname}

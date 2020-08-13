@@ -1,10 +1,10 @@
 %global packname  DAMOCLES
-%global packver   2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
-Release:          2%{?dist}
+Version:          2.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Assembly Model of Colonization, Local Extinction andSpeciation
 
 License:          GPL-2
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DDD >= 3.0
+BuildRequires:    R-CRAN-DDD >= 3.4
 BuildRequires:    R-CRAN-caper 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-deSolve 
@@ -26,8 +26,7 @@ BuildRequires:    R-Matrix
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-DAISIE 
-Requires:         R-CRAN-DDD >= 3.0
+Requires:         R-CRAN-DDD >= 3.4
 Requires:         R-CRAN-caper 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-deSolve 
@@ -38,7 +37,6 @@ Requires:         R-Matrix
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-DAISIE 
 
 %description
 Simulates and computes (maximum) likelihood of a dynamical model of
@@ -57,9 +55,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

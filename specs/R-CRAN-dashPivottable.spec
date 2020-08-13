@@ -1,31 +1,26 @@
-%global packname  tidygeocoder
-%global packver   1.0.1
+%global packname  dashPivottable
+%global packver   0.0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geocoding Made Easy
+Summary:          Interactive React-Based Pivot Tables for Dash
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 
 %description
-An intuitive interface for getting data from geocoder services.
+Pivot tables are useful for interactive presentation of summary statistics
+computed for data contained in another table. The 'dashPivottable' package
+wraps 'react-pivottable', making it easy to add drag-and-drop tables into
+your Dash for R applications.
 
 %prep
 %setup -q -c -n %{packname}

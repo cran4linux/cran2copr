@@ -1,31 +1,33 @@
-%global packname  tidygeocoder
-%global packver   1.0.1
+%global packname  DataEditR
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geocoding Made Easy
+Summary:          An Interactive Editor for Viewing, Entering & Editing Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-rhandsontable 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-rhandsontable 
+Requires:         R-CRAN-htmltools 
 
 %description
-An intuitive interface for getting data from geocoder services.
+An interactive editor built on 'rhandsontable' to allow the interactive
+viewing, entering and editing of data in R
+<https://dillonhammill.github.io/DataEditR/>.
 
 %prep
 %setup -q -c -n %{packname}

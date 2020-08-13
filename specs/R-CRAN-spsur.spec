@@ -1,10 +1,10 @@
 %global packname  spsur
-%global packver   1.0.1.4
+%global packver   1.0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1.4
-Release:          1%{?dist}
+Version:          1.0.1.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Seemingly Unrelated Regression Models
 
 License:          GPL-3

@@ -1,10 +1,10 @@
 %global packname  HelpersMG
-%global packver   4.2
+%global packver   4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2
-Release:          2%{?dist}
+Version:          4.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Environmental Analyses, Ecotoxicology and Various RFunctions
 
 License:          GPL-2
@@ -21,7 +21,7 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-coda 
 
 %description
-Contains many functions useful for managing 'NetCDF' files (see
+Contains miscellaneous functions useful for managing 'NetCDF' files (see
 <http://en.wikipedia.org/wiki/NetCDF>), get tide levels on any point of
 the globe, get moon phase and time for sun rise and fall, analyse and
 reconstruct periodic time series of temperature with irregular sinusoidal
@@ -34,6 +34,8 @@ content, read the contents of all files from a folder at one time.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -41,18 +43,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/shiny
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
