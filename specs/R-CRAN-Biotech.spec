@@ -1,11 +1,11 @@
-%global packname  cometr
-%global packver   0.2.0
+%global packname  Biotech
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Comet' API for R
+Summary:          Diverse Applications for Biotechnology
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,26 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.4.0
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-R6 >= 2.4.0
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-R.utils 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dr4pl 
+BuildRequires:    R-CRAN-tidyverse 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dr4pl 
+Requires:         R-CRAN-tidyverse 
 
 %description
-A convenient 'R' wrapper to the 'Comet' API, which is a cloud platform
-allowing you to track, compare, explain and optimize machine learning
-experiments and models. Experiments can be viewed on the 'Comet' online
-dashboard at <https://www.comet.ml>.
+A small collection of different functions that will ease the daily life of
+Biotechnology students. The different topics covered are: Biochemistry,
+Immunology, molecular Biology, Bioengineering and daily laboratory
+routine.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  cometr
-%global packver   0.2.0
+%global packname  WLasso
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Comet' API for R
+Summary:          Variable Selection for Highly Correlated Predictors
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,26 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.4.0
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-R6 >= 2.4.0
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-R.utils 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-genlasso 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-Matrix 
+Requires:         R-CRAN-genlasso 
+Requires:         R-CRAN-tibble 
+Requires:         R-MASS 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A convenient 'R' wrapper to the 'Comet' API, which is a cloud platform
-allowing you to track, compare, explain and optimize machine learning
-experiments and models. Experiments can be viewed on the 'Comet' online
-dashboard at <https://www.comet.ml>.
+It proposes a novel variable selection approach taking into account the
+correlations that may exist between the predictors of the design matrix in
+a high-dimensional linear model. Our approach consists in rewriting the
+initial high-dimensional linear model to remove the correlation between
+the predictors and in applying the generalized Lasso criterion. For
+further details we refer the reader to the paper <arXiv:2007.10768> (Zhu
+et al., 2020).
 
 %prep
 %setup -q -c -n %{packname}

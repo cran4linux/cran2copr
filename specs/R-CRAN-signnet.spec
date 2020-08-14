@@ -1,10 +1,10 @@
 %global packname  signnet
-%global packver   0.5.3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
-Release:          2%{?dist}
+Version:          0.6.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Methods to Analyse Signed Networks
 
 License:          MIT + file LICENSE

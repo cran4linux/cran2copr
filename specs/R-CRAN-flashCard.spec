@@ -1,13 +1,13 @@
-%global packname  estmeansd
-%global packver   0.2.1
+%global packname  flashCard
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating the Sample Mean and Standard Deviation from CommonlyReported Quantiles in Meta-Analysis
+Summary:          Create a Flash Card
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-metaBLUE 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-metaBLUE 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Implements the methods of McGrath et al. (2020)
-<doi:10.1177/0962280219889080> for estimating the sample mean and standard
-deviation from commonly reported quantiles in meta-analysis. These methods
-can be applied to studies that report the sample median, sample size, and
-one or both of (i) the sample minimum and maximum values and (ii) the
-first and third quartiles.
+Create a flip over style Flash Card with desired data frame for Shiny
+application.
 
 %prep
 %setup -q -c -n %{packname}

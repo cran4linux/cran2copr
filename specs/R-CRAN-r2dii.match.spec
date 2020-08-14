@@ -1,10 +1,10 @@
 %global packname  r2dii.match
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
-Release:          2%{?dist}
+Version:          0.0.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Match Financial Portfolios with Climate Data
 
 License:          GPL-3
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
@@ -26,7 +27,9 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
@@ -37,6 +40,7 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
 These tools implement in R a fundamental part of the software 'PACTA'
