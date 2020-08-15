@@ -1,27 +1,28 @@
-%global packname  scLink
-%global packver   1.0.0
+%global packname  geometries
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          1%{?dist}
-Summary:          Inferring Functional Gene Co-Expression Networks from SingleCell Data
+Version:          0.1.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Convert Between R Objects and Geometric Structures
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-parallel 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Uses statistical network modeling to understand the co-expression
-relationships among genes and to construct sparse gene co-expression
-networks from single-cell gene expression data.
+Geometry shapes in 'R' are typically represented by matrices (points,
+lines), with more complex shapes being lists of matrices (polygons).
+'Geometries' will convert various 'R' objects into these shapes.
+Conversion functions are available at both the 'R' level, and through
+'Rcpp'.
 
 %prep
 %setup -q -c -n %{packname}

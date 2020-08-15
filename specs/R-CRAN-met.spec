@@ -1,31 +1,30 @@
-%global packname  fabricerin
-%global packver   0.1.2
+%global packname  met
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Easily Canvas in 'shiny' and 'RMarkdown' Documents
+Summary:          Evaluating and Improving Matched Samples in ObservationalStudies
 
-License:          MIT + file LICENSE
+License:          MIT+file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-DiPs 
+Requires:         R-stats 
+Requires:         R-CRAN-DiPs 
 
 %description
-Allows the user to implement easily canvas elements within a 'shiny' app
-or an 'RMarkdown' document. The user can create shapes, images and text
-elements within the canvas which can also be used as a drawing tool for
-taking notes. The package relies on the 'fabricjs' 'JavaScript' library.
-See <http://fabricjs.com/>.
+Evaluate covariate balance of a matched sample, and suggest a new feature
+that the new match should balance if the current match is not satisfactory
+(only available with method being generalized Kolmogorov-Smirnov statistic
+on a finite set, GFKS for short).
 
 %prep
 %setup -q -c -n %{packname}

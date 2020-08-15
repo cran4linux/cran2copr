@@ -1,31 +1,23 @@
-%global packname  fabricerin
-%global packver   0.1.2
+%global packname  fastmatrix
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Easily Canvas in 'shiny' and 'RMarkdown' Documents
+Summary:          Fast Computation of some Matrices Useful in Statistics
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 
 %description
-Allows the user to implement easily canvas elements within a 'shiny' app
-or an 'RMarkdown' document. The user can create shapes, images and text
-elements within the canvas which can also be used as a drawing tool for
-taking notes. The package relies on the 'fabricjs' 'JavaScript' library.
-See <http://fabricjs.com/>.
+Small set of functions to fast computation of some matrices and operations
+useful in statistics.
 
 %prep
 %setup -q -c -n %{packname}
