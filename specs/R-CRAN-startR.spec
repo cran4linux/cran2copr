@@ -1,10 +1,10 @@
 %global packname  startR
-%global packver   0.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
-Release:          3%{?dist}
+Version:          2.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Retrieve Multidimensional Distributed Data Sets
 
 License:          LGPL-3
@@ -12,32 +12,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.1
-Requires:         R-core >= 2.14.1
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-multiApply >= 2.1.1
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-easyNCDF 
+BuildRequires:    R-CRAN-s2dverification 
+BuildRequires:    R-CRAN-ClimProjDiags 
+Requires:         R-CRAN-multiApply >= 2.1.1
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-bigmemory 
 Requires:         R-CRAN-future 
 Requires:         R-parallel 
+Requires:         R-CRAN-easyNCDF 
+Requires:         R-CRAN-s2dverification 
+Requires:         R-CRAN-ClimProjDiags 
 
 %description
-Tool to automatically fetch, transform and arrange subsets of
-multidimensional data sets (collections of files) stored in local and/or
-remote file systems or servers, using multicore capabilities where
-possible. The tool provides an interface to perceive a collection of data
-sets as a single large multidimensional data array, and enables the user
-to request for automatic retrieval, processing and arrangement of subsets
-of the large array. Wrapper functions to add support for custom file
-formats can be plugged in/out, making the tool suitable for any research
-field where large multidimensional data sets are involved.
+Tool to automatically fetch, transform and arrange subsets of multi-
+dimensional data sets (collections of files) stored in local and/or remote
+file systems or servers, using multicore capabilities where possible. The
+tool provides an interface to perceive a collection of data sets as a
+single large multidimensional data array, and enables the user to request
+for automatic retrieval, processing and arrangement of subsets of the
+large array. Wrapper functions to add support for custom file formats can
+be plugged in/out, making the tool suitable for any research field where
+large multidimensional data sets are involved.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -47,13 +58,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
