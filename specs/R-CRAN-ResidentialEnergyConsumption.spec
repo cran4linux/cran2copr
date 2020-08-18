@@ -1,25 +1,28 @@
-%global packname  rFerns
-%global packver   4.0.0
+%global packname  ResidentialEnergyConsumption
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Ferns Classifier
+Summary:          Residential Energy Consumption Data
 
-License:          GPL (>= 2)
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides the random ferns classifier by Ozuysal, Calonder, Lepetit and Fua
-(2009) <doi:10.1109/TPAMI.2009.23>, modified for generic and multi-label
-classification and featuring OOB error approximation and importance
-measure as introduced in Kursa (2014) <doi:10.18637/jss.v061.i10>.
+Datasets with energy consumption data of different data measurement
+frequencies. The data stems from several publicly funded research projects
+of the Information Systems and Energy Efficient Systems Group at the
+University of Bamberg.
 
 %prep
 %setup -q -c -n %{packname}

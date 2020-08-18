@@ -1,25 +1,31 @@
-%global packname  rFerns
-%global packver   4.0.0
+%global packname  pdxTrees
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Ferns Classifier
+Summary:          Data Package of Portland, Oregon Trees
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
 
 %description
-Provides the random ferns classifier by Ozuysal, Calonder, Lepetit and Fua
-(2009) <doi:10.1109/TPAMI.2009.23>, modified for generic and multi-label
-classification and featuring OOB error approximation and importance
-measure as introduced in Kursa (2014) <doi:10.18637/jss.v061.i10>.
+An engaging collection of datasets from Portland Parks and Recreation. The
+city of Portland inventoried every tree in over 170 parks and along the
+streets in 96 neighborhoods.
 
 %prep
 %setup -q -c -n %{packname}

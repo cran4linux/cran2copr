@@ -1,25 +1,29 @@
-%global packname  rFerns
-%global packver   4.0.0
+%global packname  dpseg
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Ferns Classifier
+Summary:          Piecewise Linear Segmentation by Dynamic Programming
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-Rcpp >= 0.12.18
 
 %description
-Provides the random ferns classifier by Ozuysal, Calonder, Lepetit and Fua
-(2009) <doi:10.1109/TPAMI.2009.23>, modified for generic and multi-label
-classification and featuring OOB error approximation and importance
-measure as introduced in Kursa (2014) <doi:10.18637/jss.v061.i10>.
+Piecewise linear segmentation of ordered data by a dynamic programming
+algorithm. The algorithm was developed for time series data, e.g. growth
+curves, and for genome-wide read-count data from next generation
+sequencing, but is broadly applicable. Generic implementations of dynamic
+programming routines allow to scan for optimal segmentation parameters and
+test custom segmentation criteria ("scoring functions").
 
 %prep
 %setup -q -c -n %{packname}
