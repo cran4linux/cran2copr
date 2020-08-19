@@ -1,29 +1,27 @@
-%global packname  pbapply
-%global packver   1.4-3
+%global packname  tTOlr
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adding Progress Bar to '*apply' Functions
+Summary:          Likelihood Ratio Statistics for One or Two Sample T-Tests
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-Requires:         R-parallel 
+BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-latticeExtra 
+Requires:         R-lattice 
+Requires:         R-CRAN-latticeExtra 
 
 %description
-A lightweight package that adds progress bar to vectorized R functions
-('*apply'). The implementation can easily be added to functions where
-showing the progress is useful (e.g. bootstrap). The type and style of the
-progress bar (with percentages or remaining time) can be set through
-options. Supports several parallel processing backends.
+Several forms of likelihood ratio calculations are available.
 
 %prep
 %setup -q -c -n %{packname}

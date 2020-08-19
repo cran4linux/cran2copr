@@ -1,29 +1,31 @@
-%global packname  pbapply
-%global packver   1.4-3
+%global packname  pathmodelfit
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adding Progress Bar to '*apply' Functions
+Summary:          Path Component Fit Indices for Latent Structural Equation Models
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-lavaan 
+Requires:         R-CRAN-lavaan 
 
 %description
-A lightweight package that adds progress bar to vectorized R functions
-('*apply'). The implementation can easily be added to functions where
-showing the progress is useful (e.g. bootstrap). The type and style of the
-progress bar (with percentages or remaining time) can be set through
-options. Supports several parallel processing backends.
+Functions for computing fit indices for evaluating the path component of
+latent variable structural equation models. Available fit indices include
+RMSEA-P and NSCI-P originally presented and evaluated by Williams and
+O'Boyle (2011) <doi:10.1177/1094428110391472> and demonstrated by O'Boyle
+and Williams (2011) <doi:10.1037/a0020539> and Williams, O'Boyle, & Yu
+(2020) <doi:10.1177/1094428117736137>. Also included are fit indices
+described by Hancock and Mueller (2011) <doi:10.1177/0013164410384856>.
 
 %prep
 %setup -q -c -n %{packname}

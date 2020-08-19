@@ -1,10 +1,10 @@
 %global packname  reproducible
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
-Release:          1%{?dist}
+Version:          1.2.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Set of Tools that Enhance Reproducibility Beyond PackageManagement
 
 License:          GPL-3
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp >= 1.4.2
 BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-fpCompare 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-utils 
 Requires:         R-CRAN-sp >= 1.4.2
 Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-fpCompare 

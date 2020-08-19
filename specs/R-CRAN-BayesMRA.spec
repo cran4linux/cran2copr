@@ -1,29 +1,36 @@
-%global packname  pbapply
-%global packver   1.4-3
+%global packname  BayesMRA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adding Progress Bar to '*apply' Functions
+Summary:          Bayesian Multi-Resolution Gaussian Process Approximations
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-parallel 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.4.6
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-igraph 
+Requires:         R-Matrix 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-spam 
 
 %description
-A lightweight package that adds progress bar to vectorized R functions
-('*apply'). The implementation can easily be added to functions where
-showing the progress is useful (e.g. bootstrap). The type and style of the
-progress bar (with percentages or remaining time) can be set through
-options. Supports several parallel processing backends.
+Software for fitting sparse Bayesian multi-resolution spatial models using
+Markov Chain Monte Carlo.
 
 %prep
 %setup -q -c -n %{packname}

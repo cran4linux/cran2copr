@@ -1,10 +1,10 @@
 %global packname  emmeans
-%global packver   1.4.8
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
-Release:          2%{?dist}
+Version:          1.5.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimated Marginal Means, aka Least-Squares Means
 
 License:          GPL-2 | GPL-3
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xtable >= 1.8.2
 BuildRequires:    R-CRAN-estimability >= 1.3

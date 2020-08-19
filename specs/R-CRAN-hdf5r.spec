@@ -1,10 +1,10 @@
 %global packname  hdf5r
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
-Release:          3%{?dist}
+Version:          1.3.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'HDF5' Binary Data Format
 
 License:          Apache License 2.0 | file LICENSE
@@ -36,6 +36,8 @@ behave very similar to their corresponding R counterparts.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -43,32 +45,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CWrappers_1.10.2
-%doc %{rlibdir}/%{packname}/CWrappers_1.10.3
-%doc %{rlibdir}/%{packname}/CWrappers_1.12.0
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/h5ex_t_enum.h5
-%doc %{rlibdir}/%{packname}/HDF5_COPYRIGHTS.txt
-%doc %{rlibdir}/%{packname}/m4
-%doc %{rlibdir}/%{packname}/test-ascii-length-bug.h5
-%doc %{rlibdir}/%{packname}/test-ascii-length-bug.py
-%doc %{rlibdir}/%{packname}/test-f32.h5
-%doc %{rlibdir}/%{packname}/test-h5link.h5
-%doc %{rlibdir}/%{packname}/test-h5link.py
-%doc %{rlibdir}/%{packname}/test-scalar.h5
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
