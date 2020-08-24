@@ -3,8 +3,8 @@
 %global rlibdir %{_datadir}/R/library
 
 Name:           R-%{packname}
-Version:        0.3.2
-Release:        4%{?dist}
+Version:        0.3.5
+Release:        1%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
@@ -42,7 +42,6 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} . \
   --configure-vars="BUILD_ROOT=%{buildroot}" \
   --configure-vars="PKG_PREF='R-CRAN-'"
-touch %{buildroot}%{rlibdir}/%{packname}/service/%{projname}.excl
 rm -f %{buildroot}%{rlibdir}/R.css
 rm -f %{buildroot}%{rlibdir}/%{packname}/service/*.in
 %py_byte_compile %{python3} %{buildroot}%{rlibdir}/%{packname}/service/backend
