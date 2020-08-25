@@ -1,37 +1,31 @@
-%global packname  bigparallelr
-%global packver   0.2.5
+%global packname  DirStats
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Parallel Tools
+Summary:          Nonparametric Methods for Directional Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-bigassertr >= 0.1.1
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-flock 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RhpcBLASctl 
-Requires:         R-CRAN-bigassertr >= 0.1.1
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-flock 
-Requires:         R-parallel 
-Requires:         R-CRAN-RhpcBLASctl 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-movMF 
+BuildRequires:    R-CRAN-rotasym 
+Requires:         R-CRAN-movMF 
+Requires:         R-CRAN-rotasym 
 
 %description
-Utility functions for easy parallelism in R. Include some reexports from
-other packages, utility functions for splitting and parallelizing over
-blocks, and choosing and setting the number of cores used.
+Nonparametric kernel density estimation, bandwidth selection, and other
+utilities for analyzing directional data. Implements the estimator in Bai,
+Rao and Zhao (1987) <doi:10.1016/0047-259X(88)90113-3>, the
+cross-validation bandwidth selectors in Hall, Watson and Cabrera (1987)
+<doi:10.1093/biomet/74.4.751> and the plug-in bandwidth selectors in
+García-Portugués (2013) <doi:10.1214/13-ejs821>.
 
 %prep
 %setup -q -c -n %{packname}

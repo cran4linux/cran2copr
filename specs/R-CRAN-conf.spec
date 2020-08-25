@@ -1,10 +1,10 @@
 %global packname  conf
-%global packver   1.6.3
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
-Release:          3%{?dist}
+Version:          1.7.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Analysis of Statistical Measures of Confidence
 
 License:          GPL (<= 2)
@@ -21,12 +21,16 @@ BuildRequires:    R-CRAN-statmod
 BuildRequires:    R-CRAN-STAR 
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-utils 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-STAR 
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-utils 
 
 %description
 Enables: (1) plotting two-dimensional confidence regions, (2) coverage
@@ -51,12 +55,19 @@ Calculates confidence interval bounds for a binomial proportion with
 binomTest(), calculates the actual coverage with binomTestCoverage(), and
 plots the actual coverage with binomTestCoveragePlot(). Calculates
 confidence interval bounds for the binomial proportion using an ensemble
-of constituent confidence intervals with binomTestEnsemble().
+of constituent confidence intervals with binomTestEnsemble(). Calculates
+confidence interval bounds for the binomial proportion using a complete
+enumeration of all possible transitions from one actual coverage
+acceptance curve to another which minimizes the root mean square error for
+n <= 15 and follows the transitions for well-known confidence intervals
+for n > 15 using binomTestMSE().
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -64,18 +75,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

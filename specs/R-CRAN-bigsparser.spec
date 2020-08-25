@@ -1,10 +1,10 @@
 %global packname  bigsparser
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          1%{?dist}
+Version:          0.4.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Matrix Format with Data on Disk
 
 License:          GPL-3
@@ -28,7 +28,8 @@ Provides a sparse matrix format with data stored on disk, to be used in
 both R and C++. This is intended for more efficient use of sparse data in
 C++ and also when parallelizing, since data on disk does not need copying.
 Only a limited number of features will be implemented. For now, conversion
-can be performed from a 'dgCMatrix' of R package 'Matrix'.
+can be performed from a 'dgCMatrix' or a 'dsCMatrix' from R package
+'Matrix'.
 
 %prep
 %setup -q -c -n %{packname}
