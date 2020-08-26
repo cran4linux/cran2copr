@@ -1,10 +1,10 @@
 %global packname  compareGroups
-%global packver   4.4.3
+%global packver   4.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.3
-Release:          2%{?dist}
+Version:          4.4.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive Analysis by Groups
 
 License:          GPL (>= 2)
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.13.1
 Requires:         R-core >= 2.13.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SNPassoc 
 BuildRequires:    R-survival 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-HardyWeinberg 
@@ -28,7 +27,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-officer 
-Requires:         R-CRAN-SNPassoc 
 Requires:         R-survival 
 Requires:         R-tools 
 Requires:         R-CRAN-HardyWeinberg 

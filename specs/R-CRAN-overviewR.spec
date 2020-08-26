@@ -1,10 +1,10 @@
 %global packname  overviewR
-%global packver   0.0.4
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
-Release:          2%{?dist}
+Version:          0.0.6
+Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Extracting Information About Your Data
 
 License:          GPL-3
@@ -15,7 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-tibble >= 3.0.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-CRAN-dplyr >= 1.0.0
 
 %description

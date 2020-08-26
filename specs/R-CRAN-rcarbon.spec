@@ -1,10 +1,10 @@
 %global packname  rcarbon
-%global packver   1.3.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
-Release:          1%{?dist}
+Version:          1.4.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Calibration and Analysis of Radiocarbon Dates
 
 License:          GPL (>= 2)

@@ -1,10 +1,10 @@
 %global packname  revulyticsR
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
-Release:          2%{?dist}
+Version:          0.0.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to Your 'Revulytics' Data
 
 License:          CC0
@@ -36,13 +36,15 @@ Requires:         R-CRAN-purrr >= 0.3.3
 Facilitates making a connection to the 'Revulytics' API and executing
 various queries. You can use it to get event data and metadata. The
 Revulytics documentation is available at
-<https://docs.flexera.com/ui551/report/>. This package is not supported by
-'Flexera' (owner of the software).
+<https://docs.revenera.com/ui551/report/>. This package is not supported
+by 'Flexera' (owner of the software).
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -50,17 +52,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

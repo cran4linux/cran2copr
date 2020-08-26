@@ -1,9 +1,9 @@
 %global packname  cdata
-%global packver   1.1.7
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fluid Data Transformations
 
@@ -31,10 +31,11 @@ Supplies higher-order coordinatized data specification and fluid transform
 operators that include pivot and anti-pivot as special cases. The
 methodology is describe in 'Zumel', 2018, "Fluid data reshaping with
 'cdata'",
-<http://winvector.github.io/FluidData/FluidDataReshapingWithCdata.html> ,
-doi:10.5281/zenodo.1173299 . This package introduces the idea of explicit
-control table specification of data transforms. Works on in-memory data or
-on remote data using 'rquery' and 'SQL' database interfaces.
+<https://winvector.github.io/FluidData/FluidDataReshapingWithCdata.html> ,
+<DOI:10.5281/zenodo.1173299> . This package introduces the idea of
+explicit control table specification of data transforms. Works on
+in-memory data or on remote data using 'rquery' and 'SQL' database
+interfaces.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  shinymanager
-%global packver   1.0.200
+%global packver   1.0.300
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.200
-Release:          3%{?dist}
+Version:          1.0.300
+Release:          1%{?dist}%{?buildtag}
 Summary:          Authentication Management for 'Shiny' Applications
 
 License:          GPL-3
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-RSQLite
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-billboarder 
+BuildRequires:    R-CRAN-scrypt 
 Requires:         R-CRAN-DT >= 0.5
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-shiny 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-RSQLite
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-billboarder 
+Requires:         R-CRAN-scrypt 
 
 %description
 Simple and secure authentification mechanism for single 'Shiny'
@@ -44,6 +46,8 @@ successful.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -51,20 +55,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/assets
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/sticker
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

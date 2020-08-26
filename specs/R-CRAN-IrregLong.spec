@@ -1,10 +1,10 @@
 %global packname  IrregLong
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
-Release:          2%{?dist}
+Version:          0.3.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Longitudinal Data with Irregular Observation Times
 
 License:          GPL-3
@@ -17,11 +17,9 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-CRAN-frailtypack 
 BuildRequires:    R-CRAN-data.table 
 Requires:         R-survival 
 Requires:         R-CRAN-geepack 
-Requires:         R-CRAN-frailtypack 
 Requires:         R-CRAN-data.table 
 
 %description
@@ -45,9 +43,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

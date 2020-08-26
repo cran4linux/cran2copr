@@ -1,10 +1,10 @@
 %global packname  WVPlots
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
-Release:          1%{?dist}
+Version:          1.2.7
+Release:          1%{?dist}%{?buildtag}
 Summary:          Common Plots for Analysis
 
 License:          GPL-2 | GPL-3

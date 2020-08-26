@@ -1,10 +1,10 @@
 %global packname  clampSeg
-%global packver   1.0-5
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
-Release:          3%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Idealisation of Patch Clamp Recordings
 
 License:          GPL-3
@@ -12,26 +12,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-stepR >= 2.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stepR >= 2.1.0
+BuildRequires:    R-CRAN-lowpassFilter 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-stepR >= 2.0.0
-Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-stepR >= 2.1.0
+Requires:         R-CRAN-lowpassFilter 
 Requires:         R-stats 
 Requires:         R-methods 
 
 %description
-Allows for idealisation of patch clamp recordings by implementing the
-non-parametric JUmp Local dEconvolution Segmentation (JULES) filter, see
-F. Pein, I. Tecuapetla-Gómez, O. Schütte, C. Steinem, and A. Munk (2017)
-<arXiv:1706.03671>.
+Implements the model-free multiscale idealisation approaches:
+Jump-Segmentation by MUltiResolution Filter (JSMURF)
+<doi:10.1109/TNB.2013.2284063>, JUmp Local dEconvolution Segmentation
+filter (JULES) <doi:10.1109/TNB.2018.2845126> and Heterogeneous
+Idealization by Local testing and DEconvolution (HILDE)
+<arXiv:2008.02658>. Further details on how to use them are given in the
+accompanying vignette.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -39,19 +46,9 @@ F. Pein, I. Tecuapetla-Gómez, O. Schütte, C. Steinem, and A. Munk (2017)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

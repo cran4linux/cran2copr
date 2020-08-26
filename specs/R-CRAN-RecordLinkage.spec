@@ -1,10 +1,10 @@
 %global packname  RecordLinkage
-%global packver   0.4-12
+%global packver   0.4-12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.12
-Release:          3%{?dist}
+Version:          0.4.12.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Record Linkage Functions for Linking and Deduplicating Data Sets
 
 License:          GPL (>= 2)
@@ -18,7 +18,6 @@ BuildRequires:    R-CRAN-data.table >= 1.7.8
 BuildRequires:    R-CRAN-RSQLite >= 1.0.0
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-ff 
-BuildRequires:    R-CRAN-ffbase 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-rpart 
 BuildRequires:    R-CRAN-ada 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-data.table >= 1.7.8
 Requires:         R-CRAN-RSQLite >= 1.0.0
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-ff 
-Requires:         R-CRAN-ffbase 
 Requires:         R-CRAN-e1071 
 Requires:         R-rpart 
 Requires:         R-CRAN-ada 
@@ -54,6 +52,8 @@ algorithms from the machine learning domain. For details, see our paper
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -61,20 +61,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

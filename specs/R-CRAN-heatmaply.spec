@@ -1,10 +1,10 @@
 %global packname  heatmaply
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
-Release:          3%{?dist}
+Version:          1.1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Cluster Heat Maps Using 'plotly'
 
 License:          GPL-2 | GPL-3
@@ -65,15 +65,17 @@ observations, correlations, missing values patterns, and more. Interactive
 'heatmaps' allow the inspection of specific value by hovering the mouse
 over a cell, as well as zooming into a region of the 'heatmap' by dragging
 a rectangle around the relevant area. This work is based on the 'ggplot2'
-and 'plotly.js' engine. It produces similar 'heatmaps' as 'heatmap.2' or
-'d3heatmap', with the advantage of speed ('plotly.js' is able to handle
-larger size matrix), the ability to zoom from the 'dendrogram' panes, and
-the placing of factor variables in the sides of the 'heatmap'.
+and 'plotly.js' engine. It produces similar 'heatmaps' as 'heatmap.2' with
+the advantage of speed ('plotly.js' is able to handle larger size matrix),
+the ability to zoom from the 'dendrogram' panes, and the placing of factor
+variables in the sides of the 'heatmap'.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -81,20 +83,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
