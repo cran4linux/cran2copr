@@ -1,11 +1,11 @@
-%global packname  torch
-%global packver   0.0.1
+%global packname  libproj
+%global packver   7.1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
-Release:          1%{?dist}
-Summary:          Tensors and Neural Networks with 'GPU' Acceleration
+Version:          7.1.0.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Generic Coordinate Transformation Library ('PROJ') C API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,26 +14,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
 
 %description
-Provides functionality to define and train neural networks similar to
-'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
-in R using the 'libtorch' library. Also supports low-level tensor
-operations and 'GPU' acceleration.
+Provides a 'PROJ' <https://proj.org> C API that can be used to write
+high-performance C and C++ coordinate transformation operations using R as
+an interface. This package contains an internal version of the 'PROJ'
+library to guarantee the best possible consistency on multiple platforms,
+and to provide a means by which 'PROJ' can be used on platforms where it
+may be impractical or impossible to install a binary version of the
+library.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  creditmodel
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
-Release:          1%{?dist}
+Version:          1.2.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for Credit Modeling, Analysis and Visualization
 
 License:          AGPL-3

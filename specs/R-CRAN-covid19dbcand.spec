@@ -1,10 +1,10 @@
 %global packname  covid19dbcand
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}
+Version:          0.1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Selected 'Drugbank' Drugs for COVID-19 Treatment Related Data inR Format
 
 License:          CC0
@@ -17,10 +17,10 @@ Requires:         R-core >= 3.1
 BuildArch:        noarch
 
 %description
-Provides 75 different datasets parsed from 'Drugbank'
-<http://drugbank.ca/covid-19> database using 'dbparser' package. It is a
-smaller version from 'dbdataset' package. It contains only information
-about COVID-19 possible treatment.
+Provides different datasets parsed from 'Drugbank'
+<https://www.drugbank.ca/covid-19> database using 'dbparser' package. It
+is a smaller version from 'dbdataset' package. It contains only
+information about COVID-19 possible treatment.
 
 %prep
 %setup -q -c -n %{packname}

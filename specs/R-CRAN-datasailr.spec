@@ -1,11 +1,11 @@
 %global packname  datasailr
-%global packver   0.8.5
+%global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
-Release:          1%{?dist}
-Summary:          Fast Row by Row Data Processing Tool, Using 'Sailr' Script
+Version:          0.8.6
+Release:          1%{?dist}%{?buildtag}
+Summary:          Row by Row Data Processing Tool, Using 'Sailr' Script
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,8 +20,8 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-Rcpp >= 0.12.18
 
 %description
-A fast row by row data processing tool. You can write data processing code
-in 'Sailr' scripting language which is specially intended for data
+A row by row data processing tool. You can write data processing code in
+'Sailr' scripting language which is specially intended for data
 manipulation. The package uses 'libsailr' (C/C++ library) for its 'Sailr'
 code parsing and its execution.
 

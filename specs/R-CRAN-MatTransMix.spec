@@ -1,10 +1,10 @@
 %global packname  MatTransMix
-%global packver   0.1.10
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
-Release:          2%{?dist}
+Version:          0.1.11
+Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering with Matrix Gaussian and Matrix TransformationMixture Models
 
 License:          GPL (>= 2)
@@ -14,6 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Provides matrix Gaussian mixture models, matrix transformation mixture

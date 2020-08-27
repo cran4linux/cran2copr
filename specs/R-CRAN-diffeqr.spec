@@ -1,10 +1,10 @@
 %global packname  diffeqr
-%global packver   0.1.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          3%{?dist}
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Solving Differential Equations (ODEs, SDEs, DDEs, DAEs)
 
 License:          MIT + file LICENSE
@@ -21,19 +21,22 @@ Requires:         R-CRAN-JuliaCall
 Requires:         R-CRAN-stringr 
 
 %description
-An interface to 'DifferentialEquations.jl'
-<http://docs.juliadiffeq.org/latest/> from the R programming language. It
-has unique high performance methods for solving ordinary differential
-equations (ODE), stochastic differential equations (SDE), delay
-differential equations (DDE), differential-algebraic equations (DAE), and
-more. Much of the functionality, including features like adaptive time
-stepping in SDEs, are unique and allow for multiple orders of magnitude
-speedup over more common methods. 'diffeqr' attaches an R interface onto
-the package, allowing seamless use of this tooling by R users.
+An interface to 'DifferentialEquations.jl' <https://diffeq.sciml.ai/dev/>
+from the R programming language. It has unique high performance methods
+for solving ordinary differential equations (ODE), stochastic differential
+equations (SDE), delay differential equations (DDE),
+differential-algebraic equations (DAE), and more. Much of the
+functionality, including features like adaptive time stepping in SDEs, are
+unique and allow for multiple orders of magnitude speedup over more common
+methods. 'diffeqr' attaches an R interface onto the package, allowing
+seamless use of this tooling by R users.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -43,17 +46,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

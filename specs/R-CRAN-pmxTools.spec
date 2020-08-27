@@ -1,10 +1,10 @@
 %global packname  pmxTools
-%global packver   1.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
-Release:          3%{?dist}
+Version:          1.2.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Pharmacometric and Pharmacokinetic Toolkit
 
 License:          GPL-2
@@ -15,20 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-chron 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-MASS 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-chron 
+Requires:         R-CRAN-xml2 
 
 %description
 Pharmacometric tools for common data analytical tasks; closed-form
@@ -44,6 +52,9 @@ Perl-speaks-NONMEM (PsN).
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -51,17 +62,9 @@ Perl-speaks-NONMEM (PsN).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/PKPDlibrary.pdf
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,9 +1,9 @@
 %global packname  robmixglm
-%global packver   1.1-1
+%global packver   1.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Generalized Linear Models (GLM) using Mixtures
 

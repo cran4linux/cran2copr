@@ -1,10 +1,10 @@
 %global packname  hydraulics
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
-Release:          1%{?dist}
+Version:          0.2.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Pipe and Open Channel Hydraulics
 
 License:          GPL (>= 3)
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-units 
 
 %description
 Functions for basic hydraulic calculations related to water flow in

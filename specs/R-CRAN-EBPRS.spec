@@ -1,10 +1,10 @@
 %global packname  EBPRS
-%global packver   2.0.4
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
-Release:          1%{?dist}
+Version:          2.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Derive Polygenic Risk Score Based on Emprical Bayes Theory
 
 License:          GPL-3
@@ -17,8 +17,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-BEDMatrix 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-ROCR 
 Requires:         R-methods 
+Requires:         R-CRAN-BEDMatrix 
+Requires:         R-CRAN-data.table 
 
 %description
 EB-PRS is a novel method that leverages information for effect sizes

@@ -1,10 +1,10 @@
 %global packname  AICcmodavg
-%global packver   2.3-0
+%global packver   2.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
-Release:          2%{?dist}
+Version:          2.3.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Model Selection and Multimodel Inference Based on (Q)AIC(c)
 
 License:          GPL (>= 2)

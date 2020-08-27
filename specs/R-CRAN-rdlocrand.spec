@@ -1,10 +1,10 @@
 %global packname  rdlocrand
-%global packver   0.7
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
-Release:          1%{?dist}
+Version:          0.7.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Local Randomization Methods for RD Designs
 
 License:          GPL-2
@@ -32,7 +32,7 @@ cutoff in which randomization is likely to hold, rdsensitivity() to assess
 the sensitivity of the results to different window lengths and null
 hypotheses and rdrbounds() to construct Rosenbaum bounds for sensitivity
 to unobserved confounders. See Cattaneo, Titiunik and Vazquez-Bare (2016)
-<https://sites.google.com/site/rdpackages/rdlocrand/Cattaneo-Titiunik-VazquezBare_2016_Stata.pdf>
+<https://rdpackages.github.io/references/Cattaneo-Titiunik-VazquezBare_2016_Stata.pdf>
 for further methodological details.
 
 %prep

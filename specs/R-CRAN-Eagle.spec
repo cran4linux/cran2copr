@@ -1,10 +1,10 @@
 %global packname  Eagle
-%global packver   2.3
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
-Release:          1%{?dist}
+Version:          2.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Locus Association Mapping on a Genome-Wide Scale
 
 License:          GPL-3
@@ -28,6 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-shinyFiles 
@@ -44,6 +45,7 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-parallel 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-plotly 
 
 %description
 An implementation of multiple-locus association mapping on a genome-wide

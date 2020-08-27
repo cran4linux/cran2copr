@@ -1,10 +1,10 @@
 %global packname  radiant.model
-%global packver   1.3.13
+%global packver   1.3.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.13
-Release:          1%{?dist}
+Version:          1.3.14
+Release:          1%{?dist}%{?buildtag}
 Summary:          Model Menu for Radiant: Business Analytics using R and Shiny
 
 License:          AGPL-3 | file LICENSE
@@ -74,7 +74,7 @@ Requires:         R-CRAN-yaml
 The Radiant Model menu includes interfaces for linear and logistic
 regression, naive Bayes, neural networks, classification and regression
 trees, model evaluation, collaborative filtering, decision analysis, and
-simulation. The application extends the functionality in radiant.data.
+simulation. The application extends the functionality in 'radiant.data'.
 
 %prep
 %setup -q -c -n %{packname}

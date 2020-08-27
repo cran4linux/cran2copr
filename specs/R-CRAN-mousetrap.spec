@@ -1,10 +1,10 @@
 %global packname  mousetrap
-%global packver   3.1.4
+%global packver   3.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.4
-Release:          2%{?dist}
+Version:          3.1.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Process and Analyze Mouse-Tracking Data
 
 License:          GPL-3
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-cstab
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-psych >= 1.2.4
 Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-Rcpp >= 0.11.4
@@ -50,6 +51,7 @@ Requires:         R-CRAN-cstab
 Requires:         R-CRAN-fastcluster 
 Requires:         R-parallel 
 Requires:         R-CRAN-fields 
+Requires:         R-CRAN-rlang 
 
 %description
 Mouse-tracking, the analysis of mouse movements in computerized
@@ -71,9 +73,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

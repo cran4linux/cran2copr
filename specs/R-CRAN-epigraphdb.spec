@@ -1,40 +1,39 @@
-%global packname  BiasCorrector
-%global packver   0.1.1
+%global packname  epigraphdb
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A GUI to Correct Measurement Bias in DNA Methylation Analyses
+Summary:          Interface Package for the 'EpiGraphDB' Platform
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rBiasCorrection 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyjs 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rBiasCorrection 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-A GUI to correct measurement bias in DNA methylation analyses. The
-'BiasCorrector' package just wraps the functions implemented in the 'R'
-package 'rBiasCorrection' into a shiny web application in order to make
-them more easily accessible.
+The interface package to access data from the 'EpiGraphDB'
+<https://epigraphdb.org> platform. It provides easy access to the
+'EpiGraphDB' platform with functions that query the corresponding REST
+endpoints on the API <https://api.epigraphdb.org> and return the response
+data in the 'tibble' data frame format.
 
 %prep
 %setup -q -c -n %{packname}
