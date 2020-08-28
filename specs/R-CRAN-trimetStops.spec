@@ -1,32 +1,25 @@
-%global packname  season
-%global packver   0.3.12
+%global packname  trimetStops
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seasonal Analysis of Health Data
+Summary:          Information on all of the TriMet Stops in the Portland MetroArea
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.3
-BuildRequires:    R-MASS 
-BuildRequires:    R-survival 
-Requires:         R-CRAN-ggplot2 >= 0.9.3
-Requires:         R-MASS 
-Requires:         R-survival 
 
 %description
-Routines for the seasonal analysis of health data, including regression
-models, time-stratified case-crossover, plotting functions and residual
-checks, see Barnett and Dobson (2010) ISBN 978-3-642-10748-1. Thanks to
-Yuming Guo for checking the case-crossover code.
+Information on all of the TriMet stops in the Portland Metro Area. It
+includes information such as the longitude, latitude, cross street, and
+direction of the stop. TriMet has catalogued these stops, 6880 in total.
 
 %prep
 %setup -q -c -n %{packname}

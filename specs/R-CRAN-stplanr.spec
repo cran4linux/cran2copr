@@ -1,10 +1,10 @@
 %global packname  stplanr
-%global packver   0.6.2
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
-Release:          2%{?dist}
+Version:          0.7.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Sustainable Transport Planning
 
 License:          MIT + file LICENSE
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-curl >= 3.2
 BuildRequires:    R-CRAN-raster >= 2.6.7
 BuildRequires:    R-CRAN-geosphere >= 1.5.7
@@ -58,7 +58,7 @@ and non-motorized modes. Enables common transport planning tasks
 including: downloading and cleaning transport datasets; creating
 geographic "desire lines" from origin-destination (OD) data; route
 assignment, locally and via interfaces to routing services such as
-<http://cyclestreets.net/>; calculation of route segment attributes such
+<https://cyclestreets.net/>; calculation of route segment attributes such
 as bearing and aggregate flow; and 'travel watershed' analysis. See
 Lovelace and Ellison (2018) <doi:10.32614/RJ-2018-053>.
 

@@ -1,32 +1,28 @@
-%global packname  season
-%global packver   0.3.12
+%global packname  rmdwc
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.12
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seasonal Analysis of Health Data
+Summary:          Count Words, Chars and Non-Whitespace Chars in R Markdown Docs
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.3
-BuildRequires:    R-MASS 
-BuildRequires:    R-survival 
-Requires:         R-CRAN-ggplot2 >= 0.9.3
-Requires:         R-MASS 
-Requires:         R-survival 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-knitr 
 
 %description
-Routines for the seasonal analysis of health data, including regression
-models, time-stratified case-crossover, plotting functions and residual
-checks, see Barnett and Dobson (2010) ISBN 978-3-642-10748-1. Thanks to
-Yuming Guo for checking the case-crossover code.
+If you are using R Markdown documents then you have sometimes restrictions
+about the size of the documents, e.g. number of words, number of
+characters or non-whitespace characters. rmdcount() computes these counts
+with and without code chunks and returns the result as data frame.
 
 %prep
 %setup -q -c -n %{packname}

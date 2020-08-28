@@ -1,10 +1,10 @@
 %global packname  rotasym
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
-Release:          1%{?dist}
+Version:          1.0.9
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tests for Rotational Symmetry on the Hypersphere
 
 License:          GPL-3

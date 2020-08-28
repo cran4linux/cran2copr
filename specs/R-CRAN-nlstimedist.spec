@@ -1,13 +1,13 @@
-%global packname  g3viz
-%global packver   1.1.3
+%global packname  nlstimedist
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactively Visualize Genetic Mutation Data using aLollipop-Diagram
+Summary:          Non-Linear Model Fitting of Time Distribution of BiologicalPhenomena
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cgdsr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-htmlwidgets 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cgdsr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
+BuildRequires:    R-CRAN-minpack.lm >= 1.2.0
+BuildRequires:    R-CRAN-nlstools >= 1.0.2
+BuildRequires:    R-CRAN-poorman >= 0.2.1
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 >= 2.1.0
+Requires:         R-CRAN-minpack.lm >= 1.2.0
+Requires:         R-CRAN-nlstools >= 1.0.2
+Requires:         R-CRAN-poorman >= 0.2.1
+Requires:         R-stats 
 
 %description
-R interface for 'g3-lollipop' JavaScript library. Visualize genetic
-mutation data using an interactive lollipop diagram in RStudio or your
-browser.
+Fit biologically meaningful distribution functions to time-sequence data
+(phenology), estimate parameters to draw the cumulative distribution
+function and probability density function and calculate standard
+statistical moments and percentiles. These methods are described in Steer
+et al. (2019) <doi:10.1111/2041-210X.13293>.
 
 %prep
 %setup -q -c -n %{packname}

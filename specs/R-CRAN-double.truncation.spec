@@ -1,10 +1,10 @@
 %global packname  double.truncation
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
-Release:          1%{?dist}
+Version:          1.6
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Doubly-Truncated Data
 
 License:          GPL-2
@@ -23,7 +23,8 @@ and Petrosian (1999) <doi:10.1080/01621459.1999.10474187> and Emura,
 Konno, and Michimae (2015) <doi:10.1007/s10985-014-9297-5>. Parametric
 models from the special exponential family (SEF) are based on Hu and Emura
 (2015) <doi:10.1007/s00180-015-0564-z> and Emura, Hu and Konno (2017)
-<doi:10.1007/s00362-015-0730-y>.
+<doi:10.1007/s00362-015-0730-y>. The parametric location-scale models are
+based on Dorre et al. (2020-).
 
 %prep
 %setup -q -c -n %{packname}

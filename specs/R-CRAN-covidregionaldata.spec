@@ -1,10 +1,10 @@
 %global packname  covidregionaldata
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
-Release:          1%{?dist}
+Version:          0.6.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Subnational Data for the Covid-19 Outbreak
 
 License:          MIT + file LICENSE
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
@@ -23,7 +24,6 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-readxl 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-countrycode 
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
@@ -39,7 +40,6 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-readxl 
@@ -54,14 +54,12 @@ countries supported, this includes a daily time-series of cases. Wherever
 available we also provide data on deaths, hospitalisations, and tests.
 National level data is also supported using a range of data sources as
 well as linelist data and links to intervention data sets. Data sources
-included: WHO
-<https://dashboards-dev.sprinklr.com/data/9043/global-covid19-who-gis.json>,
-<https://covid19.who.in>; ACAPS interventions
+included: WHO <https://covid19.who.int>; ACAPS interventions
 <https://data.humdata.org/dataset/acaps-covid19-government-measures-dataset>;
 patient linelist: <https://github.com/beoutbreakprepared/nCoV2019>),
 regional data (Afghanistan:
 <https://data.humdata.org/dataset/afghanistan-covid-19-statistics-per-province>;
-Belgium: <https://epistat.wiv-isp.be/covid>; Brazil:
+Belgium: <https://epistat.wiv-isp.be/covid/>; Brazil:
 <https://github.com/wcota/covid19br>; Canada:
 <https://health-infobase.canada.ca/>; Colombia:
 <https://github.com/danielcs88/colombia_covid-19>; Germany:
@@ -69,8 +67,7 @@ Belgium: <https://epistat.wiv-isp.be/covid>; Brazil:
 India: <https://api.covid19india.org/>; Italy:
 <https://github.com/pcm-dpc/COVID-19>; Russia:
 <https://github.com/grwlf/COVID-19_plus_Russia>; UK:
-<https://coronavirus.data.gov.uk>,
-<https://github.com/tomwhite/covid-19-uk-data>; USA:
+<https://coronavirus.data.gov.uk>; USA:
 <https://github.com/nytimes/covid-19-data>), and geocoding data (Colombia:
 <https://en.wikipedia.org/wiki/ISO_3166-2:CO>; Russia:
 <https://en.wikipedia.org/wiki/ISO_3166-2:RU>).

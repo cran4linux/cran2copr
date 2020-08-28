@@ -1,9 +1,9 @@
 %global packname  WeightIt
-%global packver   0.10.1
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighting for Covariate Balance in Observational Studies
 

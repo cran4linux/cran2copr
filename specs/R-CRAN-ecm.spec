@@ -1,10 +1,10 @@
 %global packname  ecm
-%global packver   4.5.0
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.0
-Release:          2%{?dist}
+Version:          5.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Build Error Correction Models
 
 License:          GPL (>= 2)
@@ -16,8 +16,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-car 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-car 
 
 %description

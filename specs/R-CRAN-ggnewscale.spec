@@ -1,10 +1,10 @@
 %global packname  ggnewscale
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
-Release:          1%{?dist}
+Version:          0.4.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Fill and Colour Scales in 'ggplot2'
 
 License:          GPL-3

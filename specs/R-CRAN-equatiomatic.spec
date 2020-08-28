@@ -1,36 +1,30 @@
-%global packname  haplo.stats
-%global packver   1.8.2
+%global packname  equatiomatic
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Analysis of Haplotypes with Traits and Covariateswhen Linkage Phase is Ambiguous
+Summary:          Transform Models into 'LaTeX' Equations
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-broom >= 0.7.0
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-arsenal 
-BuildRequires:    R-CRAN-rms 
-Requires:         R-methods 
+Requires:         R-CRAN-broom >= 0.7.0
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-arsenal 
-Requires:         R-CRAN-rms 
 
 %description
-Routines for the analysis of indirectly measured haplotypes. The
-statistical methods assume that all subjects are unrelated and that
-haplotypes are ambiguous (due to unknown linkage phase of the genetic
-markers). The main functions are: haplo.em(), haplo.glm(), haplo.score(),
-and haplo.power(); all of which have detailed examples in the vignette.
+The goal of 'equatiomatic' is to reduce the pain associated with writing
+'LaTeX' formulas from fitted models. The primary function of the package,
+extract_eq(), takes a fitted model object as its input and returns the
+corresponding 'LaTeX' code for the model.
 
 %prep
 %setup -q -c -n %{packname}

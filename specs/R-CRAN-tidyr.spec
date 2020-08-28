@@ -1,10 +1,10 @@
 %global packname  tidyr
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
-Release:          1%{?dist}
+Version:          1.1.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Messy Data
 
 License:          MIT + file LICENSE
@@ -18,6 +18,7 @@ BuildRequires:    R-CRAN-tibble >= 2.1.1
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.2
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-CRAN-cpp11 >= 0.2.1
 BuildRequires:    R-CRAN-ellipsis >= 0.1.0
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-dplyr >= 0.8.2

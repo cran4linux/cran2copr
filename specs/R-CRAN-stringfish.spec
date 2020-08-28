@@ -1,10 +1,10 @@
 %global packname  stringfish
-%global packver   0.13.3
+%global packver   0.14.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.3
-Release:          1%{?dist}
+Version:          0.14.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Alt String Implementation
 
 License:          GPL-3
@@ -15,11 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18.3
+BuildRequires:    R-CRAN-RcppParallel 
 Requires:         R-CRAN-Rcpp >= 0.12.18.3
+Requires:         R-CRAN-RcppParallel 
 
 %description
-Provides an extendable and performant 'alt-string' implementation backed
-by 'C++' vectors and strings.
+Provides an extendable, performant and multithreaded 'alt-string'
+implementation backed by 'C++' vectors and strings.
 
 %prep
 %setup -q -c -n %{packname}

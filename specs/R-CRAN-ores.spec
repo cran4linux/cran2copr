@@ -1,10 +1,10 @@
 %global packname  ores
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          3%{?dist}
+Version:          0.3.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Connector to the Objective Revision Evaluation Service (ORES)
 
 License:          MIT + file LICENSE
@@ -19,14 +19,17 @@ BuildRequires:    R-CRAN-httr
 Requires:         R-CRAN-httr 
 
 %description
-A connector to ORES (<http://ores.wmflabs.org/>), an AI project to provide
-edit scoring for content on Wikipedia and other Wikimedia projects. This
-lets a researcher identify if edits are likely to be reverted, damaging,
-or made in good faith.
+A connector to ORES (<https://ores.wmflabs.org/>), an AI project to
+provide edit scoring for content on Wikipedia and other Wikimedia
+projects. This lets a researcher identify if edits are likely to be
+reverted, damaging, or made in good faith.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -34,19 +37,9 @@ or made in good faith.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

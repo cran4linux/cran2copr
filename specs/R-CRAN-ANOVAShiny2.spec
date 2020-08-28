@@ -1,40 +1,40 @@
-%global packname  labelled
-%global packver   2.6.0
+%global packname  ANOVAShiny2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulating Labelled Data
+Summary:          Interactive Document for Working with Analysis of Variance
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.3.1
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-haven >= 2.3.1
+BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-rhandsontable 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-HH 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-tidyr 
+Requires:         R-datasets 
+Requires:         R-CRAN-rhandsontable 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-HH 
 
 %description
-Work with labelled data imported from 'SPSS' or 'Stata' with 'haven' or
-'foreign'. This package provides useful functions to deal with
-"haven_labelled" and "haven_labelled_spss" classes introduced by 'haven'
-package.
+An interactive document on the topic of one-way and two-way analysis of
+variance using 'rmarkdown' and 'shiny' packages. Runtime examples are
+provided in the package function as well as at
+<https://kartikeyab.shinyapps.io/ANOVAShiny/>.
 
 %prep
 %setup -q -c -n %{packname}

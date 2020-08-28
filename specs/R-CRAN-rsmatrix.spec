@@ -1,32 +1,31 @@
-%global packname  season
-%global packver   0.3.12
+%global packname  rsmatrix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seasonal Analysis of Health Data
+Summary:          Matrices for Repeat-Sales Price Indexes
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.3
-BuildRequires:    R-MASS 
-BuildRequires:    R-survival 
-Requires:         R-CRAN-ggplot2 >= 0.9.3
-Requires:         R-MASS 
-Requires:         R-survival 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-Matrix 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Routines for the seasonal analysis of health data, including regression
-models, time-stratified case-crossover, plotting functions and residual
-checks, see Barnett and Dobson (2010) ISBN 978-3-642-10748-1. Thanks to
-Yuming Guo for checking the case-crossover code.
+A small package for calculating the matrices in Shiller (1991,
+<doi:10.1016/S1051-1377(05)80028-2>) that serve as the foundation for many
+repeat-sales price indexes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  photobiology
-%global packver   0.10.4
+%global packver   0.10.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.4
-Release:          3%{?dist}
+Version:          0.10.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Photobiological Calculations
 
 License:          GPL (>= 2)
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-lubridate >= 1.7.8
 BuildRequires:    R-CRAN-polynom >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-splus2R >= 1.2.2
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-stats 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-lubridate >= 1.7.8
 Requires:         R-CRAN-polynom >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-splus2R >= 1.2.2
+Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-stats 
@@ -52,6 +54,8 @@ angles and day length. Colours and vision. This package is part of the
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -59,20 +63,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

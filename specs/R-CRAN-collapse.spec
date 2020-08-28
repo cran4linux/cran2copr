@@ -1,10 +1,10 @@
 %global packname  collapse
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
-Release:          1%{?dist}
+Version:          1.3.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced and Fast Data Transformation
 
 License:          GPL (>= 2) | file LICENSE
