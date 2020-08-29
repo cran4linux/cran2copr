@@ -1,10 +1,10 @@
 %global packname  SwimmeR
-%global packver   0.3.1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          1%{?dist}
+Version:          0.4.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Data Import, Cleaning, and Conversions for Swimming Results
 
 License:          MIT + file LICENSE
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
@@ -37,19 +38,21 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-readr 
 
 %description
-There are two goals for 'SwimmeR' as presently constructed.  The first is
-reading in swimming results from html or pdf sources and returning tidy
-dataframes.  The second is working with the resulting data.  To this end
-'SwimmeR' converts swimming times (performances) between the
-computationally useful format of seconds, reported to the 100ths place
-(e.g. 95.37), and the conventional reporting format (1:35.37) used in the
-swimming community, as well as providing tools for assigning team names
-etc. Additionally 'SwimmeR' has functions for drawing single-elimination
-brackets and also converts times between the various pool sizes used in
-competitive swimming, namely 50m length (LCM), 25m length (SCM) and 25y
-length (SCY).
+The goal for of the 'SwimmeR' package is to provide means of acquiring,
+and then analyzing, data from swimming (and diving) competitions.  To that
+end 'SwimmeR' allows results to be read in from .html sources, like
+'Hy-Tek' real time results pages, '.pdf' files, and now (on a development
+basis) '.hy3' files.  Once read in, 'SwimmeR' can convert swimming times
+(performances) between the computationally useful format of seconds
+reported to the '100ths' place (e.g. 95.37), and the conventional
+reporting format (1:35.37) used in the swimming community.  'SwimmeR' can
+also score meets in a variety of formats with user defined point values,
+convert times between courses ('LCM', 'SCM', 'SCY') and draw single
+elimination brackets, as well as providing a suite of tools for working
+cleaning swimming data.  This is a developmental package, not yet mature.
 
 %prep
 %setup -q -c -n %{packname}

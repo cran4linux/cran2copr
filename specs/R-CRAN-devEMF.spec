@@ -1,10 +1,10 @@
 %global packname  devEMF
-%global packver   3.8
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8
-Release:          2%{?dist}
+Version:          4.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          EMF Graphics Output Device
 
 License:          GPL-3

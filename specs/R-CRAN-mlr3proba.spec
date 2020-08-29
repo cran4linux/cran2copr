@@ -1,10 +1,10 @@
 %global packname  mlr3proba
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          1%{?dist}
+Version:          0.2.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Supervised Learning for 'mlr3'
 
 License:          LGPL-3
@@ -12,26 +12,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-distr6 >= 1.4.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-distr6 >= 1.4.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
-BuildRequires:    R-CRAN-mlr3 >= 0.3.0
+BuildRequires:    R-CRAN-mlr3 >= 0.5.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.1.7
 BuildRequires:    R-CRAN-paradox >= 0.1.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-mlr3pipelines 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-survival 
-Requires:         R-CRAN-distr6 >= 1.4.2
+Requires:         R-CRAN-distr6 >= 1.4.3
 Requires:         R-CRAN-Rcpp >= 1.0.4
-Requires:         R-CRAN-mlr3 >= 0.3.0
+Requires:         R-CRAN-mlr3 >= 0.5.0
 Requires:         R-CRAN-mlr3misc >= 0.1.7
 Requires:         R-CRAN-paradox >= 0.1.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-mlr3pipelines 
 Requires:         R-CRAN-R6 
 Requires:         R-survival 
 

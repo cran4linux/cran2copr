@@ -1,10 +1,10 @@
 %global packname  blocksdesign
-%global packver   4.3
+%global packver   4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3
-Release:          1%{?dist}
+Version:          4.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Nested and Crossed Block Designs for Factorial and UnstructuredTreatment Sets
 
 License:          GPL (>= 2)

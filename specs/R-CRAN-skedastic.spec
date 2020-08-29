@@ -1,10 +1,10 @@
 %global packname  skedastic
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          1%{?dist}
+Version:          1.0.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Heteroskedasticity Diagnostics for Linear Regression Models
 
 License:          MIT + file LICENSE
@@ -17,13 +17,9 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-MASS >= 7.3.47
 BuildRequires:    R-CRAN-quantreg >= 5.55
-BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-pracma >= 2.2.9
-BuildRequires:    R-CRAN-plm >= 2.2.0
 BuildRequires:    R-CRAN-cubature >= 2.0.4
-BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-CompQuadForm >= 1.4.3
-BuildRequires:    R-CRAN-shiny >= 1.4.0.2
 BuildRequires:    R-boot >= 1.3.24
 BuildRequires:    R-CRAN-berryFunctions >= 1.17
 BuildRequires:    R-CRAN-data.table >= 1.12.8
@@ -32,19 +28,16 @@ BuildRequires:    R-CRAN-mvtnorm >= 1.1.0
 BuildRequires:    R-CRAN-qpdf >= 1.1
 BuildRequires:    R-CRAN-bazar >= 1.0.11
 BuildRequires:    R-CRAN-expm >= 0.999.4
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-Rmpfr >= 0.8.0
 BuildRequires:    R-CRAN-broom >= 0.5.6
 BuildRequires:    R-CRAN-gmp >= 0.5.13
 BuildRequires:    R-CRAN-Rdpack >= 0.11.1
 Requires:         R-MASS >= 7.3.47
 Requires:         R-CRAN-quantreg >= 5.55
-Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-pracma >= 2.2.9
-Requires:         R-CRAN-plm >= 2.2.0
 Requires:         R-CRAN-cubature >= 2.0.4
-Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-CompQuadForm >= 1.4.3
-Requires:         R-CRAN-shiny >= 1.4.0.2
 Requires:         R-boot >= 1.3.24
 Requires:         R-CRAN-berryFunctions >= 1.17
 Requires:         R-CRAN-data.table >= 1.12.8
@@ -53,6 +46,7 @@ Requires:         R-CRAN-mvtnorm >= 1.1.0
 Requires:         R-CRAN-qpdf >= 1.1
 Requires:         R-CRAN-bazar >= 1.0.11
 Requires:         R-CRAN-expm >= 0.999.4
+Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-Rmpfr >= 0.8.0
 Requires:         R-CRAN-broom >= 0.5.6
 Requires:         R-CRAN-gmp >= 0.5.13

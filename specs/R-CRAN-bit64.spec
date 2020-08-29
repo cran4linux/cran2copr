@@ -1,10 +1,10 @@
 %global packname  bit64
-%global packver   4.0.2
+%global packver   4.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
-Release:          1%{?dist}
+Version:          4.0.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          A S3 Class for Vectors of 64bit Integers
 
 License:          GPL-2 | GPL-3

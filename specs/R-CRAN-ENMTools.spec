@@ -1,10 +1,10 @@
 %global packname  ENMTools
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
-Release:          1%{?dist}
+Version:          1.0.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Niche Evolution using Niche and Distribution Models
 
 License:          GPL-2
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-forcats 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-dismo 
 Requires:         R-CRAN-rgeos 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-forcats 
 
 %description
 Description: Tools for constructing niche models and analyzing patterns of

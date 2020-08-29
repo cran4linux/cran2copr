@@ -1,10 +1,10 @@
 %global packname  SubTite
-%global packver   3.0.2
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
-Release:          2%{?dist}
+Version:          4.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Subgroup Specific Optimal Dose Assignment
 
 License:          GPL-2

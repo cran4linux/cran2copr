@@ -1,35 +1,36 @@
-%global packname  barsurf
-%global packver   0.6.1
+%global packname  haplo.stats
+%global packver   1.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.8.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Function Visualization and Smooth Multiband ColorInterpolation
+Summary:          Statistical Analysis of Haplotypes with Traits and Covariateswhen Linkage Phase is Ambiguous
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-kubik 
-BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-arsenal 
+BuildRequires:    R-CRAN-rms 
 Requires:         R-methods 
-Requires:         R-CRAN-kubik 
-Requires:         R-CRAN-colorspace 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-arsenal 
+Requires:         R-CRAN-rms 
 
 %description
-Combined contour/heatmap plots, 3d bar/surface plots, isosurface plots,
-triangular plots and 2d/3d vector fields. Builds on the colorspace package
-(Zeileis, A., et al. (2019) <arxiv.org/abs/1903.06490>), by supporting
-smooth multiband color interpolation, in sRGB, HSV and HCL color spaces.
-The default color functions for heatmaps, use HCL (Zeileis, A., et al.
-(2009) <doi:10.1016/j.csda.2008.11.033>) and support near-uniform
-perception.
+Routines for the analysis of indirectly measured haplotypes. The
+statistical methods assume that all subjects are unrelated and that
+haplotypes are ambiguous (due to unknown linkage phase of the genetic
+markers). The main functions are: haplo.em(), haplo.glm(), haplo.score(),
+and haplo.power(); all of which have detailed examples in the vignette.
 
 %prep
 %setup -q -c -n %{packname}

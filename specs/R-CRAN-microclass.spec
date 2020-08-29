@@ -1,39 +1,40 @@
-%global packname  COVID19
-%global packver   2.3.0
+%global packname  microclass
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to COVID-19 Data Hub
+Summary:          Methods for Taxonomic Classification of Prokaryotes
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp >= 0.11.1
+BuildRequires:    R-CRAN-microseq 
+BuildRequires:    R-CRAN-microcontax 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-wbstats 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-utils 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.11.1
+Requires:         R-CRAN-microseq 
+Requires:         R-CRAN-microcontax 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-wbstats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-tibble 
 
 %description
-Download COVID-19 data across governmental sources at national, regional,
-and city level, as described in Guidotti and Ardia (2020)
-<doi:10.21105/joss.02376>. Includes policy measures by 'Oxford COVID-19
-Government Response Tracker'
-<https://www.bsg.ox.ac.uk/research/research-projects/coronavirus-government-response-tracker>.
-Provides a seamless integration with 'World Bank Open Data'
-<https://data.worldbank.org/>, 'Google Mobility Reports'
-<https://www.google.com/covid19/mobility/>, 'Apple Mobility Reports'
-<https://covid19.apple.com/mobility>.
+Functions for assigning 16S sequence data to a taxonomic level in the
+tree-of-life for prokaryotes.
 
 %prep
 %setup -q -c -n %{packname}

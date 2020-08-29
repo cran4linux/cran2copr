@@ -1,10 +1,10 @@
 %global packname  EMSS
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
-Release:          3%{?dist}
+Version:          1.0.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Some EM-Type Estimation Methods for the Heckman Selection Model
 
 License:          GPL-2
@@ -26,7 +26,7 @@ selection model are provided in the package. Such algorithms are as
 follow: ECM(Expectation/Conditional Maximization), ECM(NR)(the
 Newton-Raphson method is adapted to the ECM) and
 ECME(Expectation/Conditional Maximization Either). Since the algorithms
-are based on the EM algorithm, they also have EM’s main advantages,
+are based on the EM algorithm, they also have EM's main advantages,
 namely, stability and ease of implementation. Further details and
 explanations of the algorithms can be found in Zhao et al. (2020) <doi:
 10.1016/j.csda.2020.106930>.
@@ -35,6 +35,8 @@ explanations of the algorithms can be found in Zhao et al. (2020) <doi:
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -42,17 +44,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

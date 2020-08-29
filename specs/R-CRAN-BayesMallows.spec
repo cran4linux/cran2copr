@@ -1,10 +1,10 @@
 %global packname  BayesMallows
-%global packver   0.4.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
-Release:          1%{?dist}
+Version:          0.5.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Preference Learning with the Mallows Rank Model
 
 License:          GPL-3
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-igraph >= 1.2.2
+BuildRequires:    R-CRAN-igraph >= 1.2.5
 BuildRequires:    R-CRAN-PerMallows >= 1.13
 BuildRequires:    R-CRAN-tidyr >= 1.1.1
 BuildRequires:    R-CRAN-sets >= 1.0.18
 BuildRequires:    R-CRAN-dplyr >= 1.0.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-cowplot >= 0.9.3
-BuildRequires:    R-CRAN-Rdpack >= 0.8
+BuildRequires:    R-CRAN-cowplot >= 1.0.0
+BuildRequires:    R-CRAN-Rdpack >= 1.0
 BuildRequires:    R-CRAN-relations >= 0.6.8
 BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-CRAN-purrr >= 0.3.0
@@ -30,14 +30,14 @@ BuildRequires:    R-CRAN-HDInterval >= 0.2.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-igraph >= 1.2.2
+Requires:         R-CRAN-igraph >= 1.2.5
 Requires:         R-CRAN-PerMallows >= 1.13
 Requires:         R-CRAN-tidyr >= 1.1.1
 Requires:         R-CRAN-sets >= 1.0.18
 Requires:         R-CRAN-dplyr >= 1.0.1
 Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-cowplot >= 0.9.3
-Requires:         R-CRAN-Rdpack >= 0.8
+Requires:         R-CRAN-cowplot >= 1.0.0
+Requires:         R-CRAN-Rdpack >= 1.0
 Requires:         R-CRAN-relations >= 0.6.8
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-CRAN-purrr >= 0.3.0
@@ -47,7 +47,7 @@ Requires:         R-stats
 %description
 An implementation of the Bayesian version of the Mallows rank model
 (Vitelli et al., Journal of Machine Learning Research, 2018
-<http://jmlr.org/papers/v18/15-481.html>; Crispino et al., Annals of
+<https://jmlr.org/papers/v18/15-481.html>; Crispino et al., Annals of
 Applied Statistics, 2019 <doi:10.1214/18-AOAS1203>). Both Cayley,
 footrule, Hamming, Kendall, Spearman, and Ulam distances are supported in
 the models. The rank data to be analyzed can be in the form of complete

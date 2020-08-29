@@ -1,10 +1,10 @@
 %global packname  pchc
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
-Release:          2%{?dist}
+Version:          0.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Learning with the PCHC Algorithm
 
 License:          GPL (>= 2)
@@ -17,11 +17,9 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bnlearn 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-bnlearn 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
 
 %description

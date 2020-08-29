@@ -1,10 +1,10 @@
 %global packname  gausscov
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
-Release:          1%{?dist}
+Version:          0.0.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          The Gaussian Covariate Method for Variable Selection
 
 License:          GPL-3
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
 Requires:         R-stats 
 
