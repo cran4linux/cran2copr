@@ -1,10 +1,10 @@
 %global packname  GET
-%global packver   0.1-7
+%global packver   0.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
-Release:          3%{?dist}
+Version:          0.1.8
+Release:          1%{?dist}%{?buildtag}
 Summary:          Global Envelopes
 
 License:          GPL-3
@@ -46,7 +46,7 @@ test of correspondence of distribution functions), for central regions of
 functional or multivariate data (e.g. outlier detection, functional
 boxplot) and for global confidence and prediction bands (e.g. confidence
 band in polynomial regression, Bayesian posterior prediction). See
-Myllymäki and Mrkvička (2019) <arXiv:1911.06583>, Myllymäki et al. (2017)
+Myllymäki and Mrkvička (2020) <arXiv:1911.06583>, Myllymäki et al. (2017)
 <doi: 10.1111/rssb.12172>, Mrkvička et al. (2017) <doi:
 10.1007/s11222-016-9683-9>, Mrkvička et al. (2016) <doi:
 10.1016/j.spasta.2016.04.005>, Mrkvička et al. (2018) <arXiv:1612.03608>,
@@ -57,6 +57,8 @@ Mrkvička et al. (2019) <arXiv:1906.09004>, Mrkvička et al. (2019)
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -64,18 +66,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

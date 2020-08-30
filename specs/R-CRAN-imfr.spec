@@ -1,10 +1,10 @@
 %global packname  imfr
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
-Release:          1%{?dist}
+Version:          0.1.9
+Release:          1%{?dist}%{?buildtag}
 Summary:          Download Data from the International Monetary Fund's Data API
 
 License:          GPL (>= 3)
