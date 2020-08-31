@@ -1,10 +1,10 @@
 %global packname  officer
-%global packver   0.3.12
+%global packver   0.3.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.12
-Release:          2%{?dist}
+Version:          0.3.13
+Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulation of Microsoft Word and PowerPoint Documents
 
 License:          GPL-3
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zip >= 2.0.3
+BuildRequires:    R-CRAN-zip >= 2.1.0
 BuildRequires:    R-CRAN-xml2 >= 1.1.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-grDevices 
@@ -24,7 +24,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-zip >= 2.0.3
+Requires:         R-CRAN-zip >= 2.1.0
 Requires:         R-CRAN-xml2 >= 1.1.0
 Requires:         R-CRAN-R6 
 Requires:         R-grDevices 

@@ -1,9 +1,9 @@
 %global packname  bit64
-%global packver   4.0.4
+%global packver   4.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.4
+Version:          4.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A S3 Class for Vectors of 64bit Integers
 
