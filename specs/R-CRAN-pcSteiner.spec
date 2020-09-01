@@ -1,33 +1,32 @@
-%global packname  ROI.plugin.quadprog
-%global packver   1.0-0
+%global packname  pcSteiner
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'quadprog' Plug-in for the 'R' Optimization Infrastructure
+Summary:          Convenient Tool for Solving the Prize-Collecting Steiner TreeProblem
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ROI >= 0.3.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-slam 
-Requires:         R-CRAN-ROI >= 0.3.0
-Requires:         R-methods 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-slam 
+BuildRequires:    R-CRAN-igraph >= 0.6.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-igraph >= 0.6.0
+Requires:         R-stats 
 
 %description
-Enhances the R Optimization Infrastructure ('ROI') package by registering
-the 'quadprog' solver. It allows for solving quadratic programming (QP)
-problems.
+The Prize-Collecting Steiner Tree problem asks to find a subgraph
+connecting a given set of vertices with the most expensive nodes and least
+expensive edges. Since it is proven to be NP-hard, exact and efficient
+algorithm does not exist. This package provides convenient functionality
+for obtaining an approximate solution to this problem using loopy belief
+propagation algorithm.
 
 %prep
 %setup -q -c -n %{packname}

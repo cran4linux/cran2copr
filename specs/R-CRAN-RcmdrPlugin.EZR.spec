@@ -1,10 +1,10 @@
 %global packname  RcmdrPlugin.EZR
-%global packver   1.51
+%global packver   1.52
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.51
-Release:          1%{?dist}
+Version:          1.52
+Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plug-in for the EZR (Easy R) Package
 
 License:          GPL (>= 2)
@@ -16,9 +16,9 @@ BuildRequires:    xorg-x11-server-Xvfb
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcmdr >= 2.6.0
+BuildRequires:    R-CRAN-Rcmdr >= 2.7.0
 BuildRequires:    R-CRAN-readstata13 
-Requires:         R-CRAN-Rcmdr >= 2.6.0
+Requires:         R-CRAN-Rcmdr >= 2.7.0
 Requires:         R-CRAN-readstata13 
 
 %description

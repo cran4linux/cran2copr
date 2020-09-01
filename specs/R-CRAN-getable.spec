@@ -1,33 +1,24 @@
-%global packname  ROI.plugin.quadprog
-%global packver   1.0-0
+%global packname  getable
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'quadprog' Plug-in for the 'R' Optimization Infrastructure
+Summary:          Fetching Tabular Data "Onload" in Compiled R Markdown HTMLDocuments
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ROI >= 0.3.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-slam 
-Requires:         R-CRAN-ROI >= 0.3.0
-Requires:         R-methods 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-slam 
 
 %description
-Enhances the R Optimization Infrastructure ('ROI') package by registering
-the 'quadprog' solver. It allows for solving quadratic programming (QP)
-problems.
+Dynamically retrieve data from the web to render HTML tables on inspection
+in R Markdown HTML documents.
 
 %prep
 %setup -q -c -n %{packname}

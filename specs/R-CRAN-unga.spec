@@ -1,11 +1,11 @@
-%global packname  ROI.plugin.quadprog
-%global packver   1.0-0
+%global packname  unga
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'quadprog' Plug-in for the 'R' Optimization Infrastructure
+Summary:          Makes Multiple Contingency Tables of a Data Frame
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,19 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ROI >= 0.3.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-slam 
-Requires:         R-CRAN-ROI >= 0.3.0
-Requires:         R-methods 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-slam 
 
 %description
-Enhances the R Optimization Infrastructure ('ROI') package by registering
-the 'quadprog' solver. It allows for solving quadratic programming (QP)
-problems.
+Makes it easy to extract data from a survey. You can use an explanatory
+variable and make multiple contingency tables for all variables in a data
+frame. You can also summarize response alternatives. URL:
+<https://en.wikipedia.org/wiki/Contingency_table>.
 
 %prep
 %setup -q -c -n %{packname}

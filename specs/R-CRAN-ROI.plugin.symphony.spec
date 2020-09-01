@@ -1,11 +1,11 @@
 %global packname  ROI.plugin.symphony
-%global packver   0.2-5
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
-Release:          3%{?dist}
-Summary:          ROI Plug-in SYMPHONY
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          'SYMPHONY' Plug-in for the 'R' Optimization Interface
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -13,15 +13,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    coin-or-SYMPHONY-devel >= 5.6.16
-Requires:         coin-or-SYMPHONY
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ROI >= 0.2.5
+BuildRequires:    R-CRAN-ROI >= 0.3.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rsymphony 
 BuildRequires:    R-CRAN-slam 
-Requires:         R-CRAN-ROI >= 0.2.5
+Requires:         R-CRAN-ROI >= 0.3.0
 Requires:         R-methods 
 Requires:         R-CRAN-Rsymphony 
 Requires:         R-CRAN-slam 
@@ -35,6 +34,9 @@ variants/combinations of LP, IP.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -42,16 +44,9 @@ variants/combinations of LP, IP.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

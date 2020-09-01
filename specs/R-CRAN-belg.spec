@@ -1,10 +1,10 @@
 %global packname  belg
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
-Release:          1%{?dist}
+Version:          1.4.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Boltzmann Entropy of a Landscape Gradient
 
 License:          MIT + file LICENSE

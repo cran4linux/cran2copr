@@ -1,33 +1,41 @@
-%global packname  ROI.plugin.quadprog
-%global packver   1.0-0
+%global packname  torch
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'quadprog' Plug-in for the 'R' Optimization Infrastructure
+Summary:          Tensors and Neural Networks with 'GPU' Acceleration
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ROI >= 0.3.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-slam 
-Requires:         R-CRAN-ROI >= 0.3.0
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-bit64 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-rlang 
 Requires:         R-methods 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-slam 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-bit64 
 
 %description
-Enhances the R Optimization Infrastructure ('ROI') package by registering
-the 'quadprog' solver. It allows for solving quadratic programming (QP)
-problems.
+Provides functionality to define and train neural networks similar to
+'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
+in R using the 'libtorch' library. Also supports low-level tensor
+operations and 'GPU' acceleration.
 
 %prep
 %setup -q -c -n %{packname}

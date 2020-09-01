@@ -1,10 +1,10 @@
 %global packname  garma
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
-Release:          1%{?dist}
+Version:          0.9.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting and Forecasting Gegenbauer ARMA Time Series Models
 
 License:          GPL-3

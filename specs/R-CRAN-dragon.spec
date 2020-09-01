@@ -1,10 +1,10 @@
 %global packname  dragon
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
-Release:          1%{?dist}
+Version:          1.0.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Time Redox Analysis of the Geobiology Ontology Network
 
 License:          GPL-3
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-ggforce
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-promises 
@@ -70,6 +71,7 @@ Requires:         R-CRAN-ggforce
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-htmltools 
 Requires:         R-stats 
 Requires:         R-CRAN-promises 

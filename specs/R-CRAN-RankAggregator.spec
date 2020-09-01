@@ -1,33 +1,32 @@
-%global packname  ROI.plugin.quadprog
-%global packver   1.0-0
+%global packname  RankAggregator
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'quadprog' Plug-in for the 'R' Optimization Infrastructure
+Summary:          Aggregation of (Partial) Ordinal Rankings
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ROI >= 0.3.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-slam 
-Requires:         R-CRAN-ROI >= 0.3.0
-Requires:         R-methods 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-slam 
 
 %description
-Enhances the R Optimization Infrastructure ('ROI') package by registering
-the 'quadprog' solver. It allows for solving quadratic programming (QP)
-problems.
+Easily compute an aggregate ranking (also called a median ranking or a
+consensus ranking) according to the axiomatic approach presented by Cook
+et al. (2007). This approach minimises the number of violations between
+all candidate consensus rankings and all input (partial) rankings, and
+draws on a branch and bound algorithm and a heuristic algorithm to
+drastically improve speed. The package also provides an option to
+bootstrap a consensus ranking based on resampling input rankings (with
+replacement). Input rankings can be either incomplete (partial) or
+complete. Reference: Cook, W.D., Golany, B., Penn, M. and Raviv, T. (2007)
+<doi:10.1016/j.cor.2005.05.030>.
 
 %prep
 %setup -q -c -n %{packname}

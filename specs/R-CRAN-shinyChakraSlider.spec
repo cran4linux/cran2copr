@@ -1,11 +1,11 @@
-%global packname  ROI.plugin.quadprog
-%global packver   1.0-0
+%global packname  shinyChakraSlider
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'quadprog' Plug-in for the 'R' Optimization Infrastructure
+Summary:          Combined Slider and Numeric Input for 'Shiny'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,19 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ROI >= 0.3.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-slam 
-Requires:         R-CRAN-ROI >= 0.3.0
-Requires:         R-methods 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-slam 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-reactR 
+Requires:         R-grDevices 
+Requires:         R-utils 
 
 %description
-Enhances the R Optimization Infrastructure ('ROI') package by registering
-the 'quadprog' solver. It allows for solving quadratic programming (QP)
-problems.
+Provides a combined slider and numeric input for usage in a 'Shiny' app.
+The slider and the numeric input are linked together: each one is updated
+when the other one changes. Many styling properties are customizable (e.g.
+colors and size).
 
 %prep
 %setup -q -c -n %{packname}

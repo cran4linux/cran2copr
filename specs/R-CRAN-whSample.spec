@@ -1,9 +1,9 @@
 %global packname  whSample
-%global packver   0.8.9
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Sampling
 
@@ -21,16 +21,14 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-rChoiceDialogs 
-BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-tools 
-Requires:         R-CRAN-rChoiceDialogs 
-Requires:         R-CRAN-rJava 
+Requires:         R-utils 
 
 %description
 Interactive tools for generating random samples. Users select an .xlsx or

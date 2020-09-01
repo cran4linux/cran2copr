@@ -1,10 +1,10 @@
 %global packname  brinton
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          2%{?dist}
+Version:          0.2.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Graphical EDA Tool
 
 License:          GPL-3
