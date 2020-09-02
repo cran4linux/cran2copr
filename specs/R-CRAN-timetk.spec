@@ -1,10 +1,10 @@
 %global packname  timetk
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
-Release:          1%{?dist}
+Version:          2.2.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool Kit for Working with Time Series in R
 
 License:          GPL (>= 3)
@@ -40,6 +40,7 @@ BuildRequires:    R-CRAN-timeDate
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-tibble >= 3.0.3
 Requires:         R-CRAN-zoo >= 1.7.14
 Requires:         R-CRAN-lubridate >= 1.6.0
@@ -65,6 +66,7 @@ Requires:         R-CRAN-timeDate
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-generics 
 
 %description
 Easy visualization, wrangling, and feature engineering of time series data

@@ -1,30 +1,32 @@
-%global packname  TTR
-%global packver   0.24.2
+%global packname  ROI.plugin.ipop
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Technical Trading Rules
+Summary:          'ipop' Plug-in for the 'R' Optimization Interface
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-xts >= 0.10.0
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-xts >= 0.10.0
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-curl 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ROI >= 0.3.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-slam 
+Requires:         R-CRAN-ROI >= 0.3.0
+Requires:         R-methods 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-slam 
 
 %description
-A collection of over 50 technical indicators for creating technical
-trading rules. The package also provides fast implementations of common
-rolling-window functions, and several volatility calculations.
+Enhances the 'R' Optimization Infrastructure ('ROI') package by
+registering the 'ipop' solver from package 'kernlab'.
 
 %prep
 %setup -q -c -n %{packname}

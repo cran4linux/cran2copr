@@ -1,10 +1,10 @@
 %global packname  qwraps2
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
-Release:          3%{?dist}
+Version:          0.5.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Quick Wraps 2
 
 License:          GPL-2
@@ -12,25 +12,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.11
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.11
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-xfun 
 
 %description
 A collection of (wrapper) functions the creator found useful for quickly
@@ -47,6 +45,9 @@ scope of the functions within 'qwraps2'
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -54,19 +55,9 @@ scope of the functions within 'qwraps2'
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/templates
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

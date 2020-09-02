@@ -1,10 +1,10 @@
 %global packname  ds4psy
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
-Release:          2%{?dist}
+Version:          0.5.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Data Science for Psychologists
 
 License:          CC BY-SA 4.0
@@ -31,8 +31,8 @@ students of psychology and other biological or social sciences. The
 'ds4psy' package primarily provides datasets, but also functions for data
 generation and manipulation (e.g., of text and time data) and graphics
 that are used in the book and its exercises. All functions included in
-'ds4psy' are designed to be instructive and entertaining, rather than
-elegant or efficient.
+'ds4psy' are designed to be explicit and instructive, rather than elegant
+or efficient.
 
 %prep
 %setup -q -c -n %{packname}

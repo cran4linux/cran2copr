@@ -1,35 +1,33 @@
-%global packname  QCA
-%global packver   3.9
+%global packname  agtboost
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Qualitative Comparative Analysis
+Summary:          Adaptive and Automatic Gradient Boosting Computations
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-admisc >= 0.8
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-venn 
-Requires:         R-CRAN-admisc >= 0.8
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-methods 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-venn 
 
 %description
-An extensive set of functions to perform Qualitative Comparative Analysis:
-crisp sets ('csQCA'), temporal ('tQCA'), multi-value ('mvQCA') and fuzzy
-sets ('fsQCA'), using a GUI - graphical user interface. 'QCA' is a
-methodology that bridges the qualitative and quantitative divide in social
-science research. It uses a Boolean algorithm that results in a minimal
-causal combination that explains a given phenomenon.
+Fast and automatic gradient tree boosting designed to avoid manual tuning
+and cross-validation by utilizing an information theoretic approach. This
+makes the algorithm adaptive to the dataset at hand; it is completely
+automatic, and with minimal worries of overfitting. Consequently, the
+speed-ups relative to state-of-the-art implementations can be in the
+thousands while mathematical and technical knowledge required on the user
+are minimized.
 
 %prep
 %setup -q -c -n %{packname}

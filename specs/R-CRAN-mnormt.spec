@@ -1,10 +1,10 @@
 %global packname  mnormt
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
-Release:          2%{?dist}
+Version:          2.0.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          The Multivariate Normal and t Distributions, and Their TruncatedVersions
 
 License:          GPL-2 | GPL-3
@@ -12,20 +12,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.2.0
+Requires:         R-core >= 2.2.0
 BuildRequires:    R-CRAN-tmvnsim >= 1.0.2
 Requires:         R-CRAN-tmvnsim >= 1.0.2
 
 %description
 Functions are provided for computing the density and the distribution
 function of d-dimensional normal and "t" random variables, possibly
-truncated (on one side or two sides, with componentwise choice), and for
-generating random vectors sampled from these distributions, except
-sampling from the truncated "t". Moments of arbitrary order of a truncated
-normal are computed, and converted to cumulants up to order 4.
-Probabilities are computed via non-Monte Carlo methods; different routines
-are used in the case d=1, d=2, d=3, d>3, if d denotes the dimensionality.
+truncated (on one side or two sides), and for generating random vectors
+sampled from these distributions, except sampling from the truncated "t".
+Moments of arbitrary order of a multivariate truncated normal are
+computed, and converted to cumulants up to order 4. Probabilities are
+computed via non-Monte Carlo methods; different routines are used in the
+case d=1, d=2, d=3, d>3, if d denotes the dimensionality.
 
 %prep
 %setup -q -c -n %{packname}

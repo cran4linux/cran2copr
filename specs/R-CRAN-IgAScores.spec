@@ -1,30 +1,28 @@
-%global packname  TTR
-%global packver   0.24.2
+%global packname  IgAScores
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Technical Trading Rules
+Summary:          Score Taxon-Level IgA Binding in IgA-Seq Experiments
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-xts >= 0.10.0
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-xts >= 0.10.0
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-A collection of over 50 technical indicators for creating technical
-trading rules. The package also provides fast implementations of common
-rolling-window functions, and several volatility calculations.
+Functions to calculate indices used to score immunoglobulin A (IgA)
+binding of bacteria in IgA sequencing (IgA-Seq) experiments. This includes
+the original Kau and Palm indices and more recent methods as described in
+Jackson et al. (2020) <doi:10.1101/2020.08.19.257501>. Additionally the
+package contains a function to simulate IgA-Seq data and an example
+experimental data set for method testing.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  rMVP
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
-Release:          1%{?dist}
+Version:          1.0.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Memory-Efficient, Visualize-Enhanced, Parallel-Accelerated GWASTool
 
 License:          Apache License 2.0

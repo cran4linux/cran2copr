@@ -1,10 +1,10 @@
 %global packname  tidyfst
-%global packver   0.9.8
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
-Release:          1%{?dist}
+Version:          0.9.9
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Verbs for Fast Data Manipulation
 
 License:          MIT + file LICENSE

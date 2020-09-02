@@ -1,10 +1,10 @@
 %global packname  SpatialVx
-%global packver   0.6-6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
-Release:          1%{?dist}
+Version:          0.7
+Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Forecast Verification
 
 License:          GPL (>= 2)

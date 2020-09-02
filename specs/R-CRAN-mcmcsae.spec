@@ -1,29 +1,37 @@
-%global packname  RNifti
-%global packver   1.2.1
+%global packname  mcmcsae
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast R and C++ Access to NIfTI Images
+Summary:          Markov Chain Monte Carlo Small Area Estimation
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-loo >= 2.0.0
+BuildRequires:    R-Matrix >= 1.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-GIGrvg 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-loo >= 2.0.0
+Requires:         R-Matrix >= 1.2.0
 Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-methods 
+Requires:         R-CRAN-GIGrvg 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Provides very fast read and write access to images stored in the NIfTI-1,
-NIfTI-2 and ANALYZE-7.5 formats, with seamless synchronisation of
-in-memory image objects between compiled C and interpreted R code. Also
-provides a simple image viewer, and a C/C++ API that can be used by other
-packages. Not to be confused with 'RNiftyReg', which performs image
-registration and applies spatial transformations.
+Fit multi-level models with possibly correlated random effects using
+Markov Chain Monte Carlo simulation. Such models allow smoothing over
+space and time and are useful in, for example, small area estimation.
 
 %prep
 %setup -q -c -n %{packname}

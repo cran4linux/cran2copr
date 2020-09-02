@@ -1,30 +1,28 @@
-%global packname  TTR
-%global packver   0.24.2
+%global packname  scSorter
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Technical Trading Rules
+Summary:          Implementation of 'scSorter' Algorithm
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-xts >= 0.10.0
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-xts >= 0.10.0
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-stats >= 3.6.0
+Requires:         R-stats >= 3.6.0
 
 %description
-A collection of over 50 technical indicators for creating technical
-trading rules. The package also provides fast implementations of common
-rolling-window functions, and several volatility calculations.
+Implements the algorithm described in Guo, H., and Li, J. (Not yet
+published), "scSorter: assigning cells to known cell types according to
+known marker genes". Clusters cells to known cell types based on marker
+genes specified for each cell type.
 
 %prep
 %setup -q -c -n %{packname}

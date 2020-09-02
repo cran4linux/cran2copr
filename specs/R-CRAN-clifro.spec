@@ -1,10 +1,10 @@
 %global packname  clifro
-%global packver   3.2-2
+%global packver   3.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
-Release:          3%{?dist}
+Version:          3.2.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Download and Visualise Climate Data from CliFlo
 
 License:          GPL-2
@@ -25,6 +25,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rvest 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-methods 
 Requires:         R-CRAN-lubridate 
@@ -35,6 +36,7 @@ Requires:         R-utils
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rvest 
 
 %description
 CliFlo is a web portal to the New Zealand National Climate Database and
@@ -50,6 +52,9 @@ sought.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -59,19 +64,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

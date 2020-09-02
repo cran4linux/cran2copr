@@ -1,10 +1,10 @@
 %global packname  assist
-%global packver   3.1.6
+%global packver   3.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.6
-Release:          3%{?dist}
+Version:          3.1.7
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Suite of R Functions Implementing Spline Smoothing Techniques
 
 License:          GPL-2
@@ -20,12 +20,19 @@ Requires:         R-nlme
 Requires:         R-lattice 
 
 %description
-A comprehensive package for fitting various non-parametric/semi-parametric
-linear/nonlinear fixed/mixed smoothing spline models.
+Fit various smoothing spline models. Includes an ssr() function for
+smoothing spline regression, an nnr() function for nonparametric nonlinear
+regression, an snr() function for semiparametric nonlinear regression, an
+slm() function for semiparametric linear mixed-effects models, and an
+snm() function for semiparametric nonlinear mixed-effects models. See Wang
+(2011) <doi:10.1201/b10954> for an overview.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -33,18 +40,9 @@ linear/nonlinear fixed/mixed smoothing spline models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

@@ -1,35 +1,40 @@
-%global packname  reactable
-%global packver   0.2.1
+%global packname  downlit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Data Tables Based on 'React Table'
+Summary:          Syntax Highlighting and Automatic Linking
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-brio 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-CRAN-evaluate 
+BuildRequires:    R-CRAN-fansi 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-brio 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-reactR 
+Requires:         R-CRAN-evaluate 
+Requires:         R-CRAN-fansi 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-yaml 
 
 %description
-Interactive data tables for R, based on the 'React Table' JavaScript
-library. Provides an HTML widget that can be used in 'R Markdown'
-documents and 'Shiny' applications, or viewed from an R console.
+Syntax highlighting of R code, specifically designed for the needs of
+'RMarkdown' packages like 'pkgdown', 'hugodown', and 'bookdown'. It
+includes linking of function calls to their documentation on the web, and
+automatic translation of ANSI escapes in output to the equivalent HTML.
 
 %prep
 %setup -q -c -n %{packname}

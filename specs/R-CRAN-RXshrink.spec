@@ -1,10 +1,10 @@
 %global packname  RXshrink
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
-Release:          1%{?dist}
+Version:          1.4.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or LeastAngle Regression Methods
 
 License:          GPL-2
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lars 
+BuildRequires:    R-CRAN-ellipse 
 Requires:         R-CRAN-lars 
+Requires:         R-CRAN-ellipse 
 
 %description
 Functions are provided to calculate and display ridge TRACE diagnostics
@@ -29,11 +31,14 @@ used by the qm.ridge(), aug.lars() and uc.lars() functions. Optimally
 biased predictions can be made using RXpredict() for all five types of
 RXshrink linear model TRACE diagnostics. Functions MLboot(), MLcalc(),
 MLhist() and MLtrue() provide insights into the true bias and MSE risk
-characteristics of non-linear Shrinkage estimators. The correct.signs()
-function provides estimates with "correct" numerical signs when
-ill-conditioned (nearly multicollinear) models yield OLS estimates that
-disagree with the signs of the observed correlations between the y-outcome
-and the selected x-predictor variables.
+characteristics of non-linear Shrinkage estimators. Functions unr.aug()
+and unr.biv() augment the calculations made by unr.ridge() to provide
+plots of the bivariate confidence ellipses corresponding to any of the
+p*(p-1) possible pairs of shrunken regression coefficients. The
+correct.signs() function provides estimates with "correct" numerical signs
+when ill-conditioned (nearly multicollinear) models yield OLS estimates
+that disagree with the signs of the observed correlations between the
+y-outcome and the selected x-predictor variables.
 
 %prep
 %setup -q -c -n %{packname}

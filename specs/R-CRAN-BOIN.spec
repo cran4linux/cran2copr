@@ -1,10 +1,10 @@
 %global packname  BOIN
-%global packver   2.6.8
+%global packver   2.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.8
-Release:          2%{?dist}
+Version:          2.6.9
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Optimal INterval (BOIN) Design for Single-Agent andDrug- Combination Phase I Clinical Trials
 
 License:          GPL-2
@@ -31,7 +31,8 @@ be implemented in a simple way similar to the traditional 3+3 design. The
 BOIN design yields an average performance that is comparable to that of
 the continual reassessment method (CRM, one of the best model-based
 designs) in terms of selecting the MTD, but has a substantially lower risk
-of assigning patients to subtherapeutic or overly toxic doses.
+of assigning patients to subtherapeutic or overly toxic doses. For
+tutorial, please check Yan et al. (2020) <doi:10.18637/jss.v094.i13>.
 
 %prep
 %setup -q -c -n %{packname}

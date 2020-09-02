@@ -1,10 +1,10 @@
 %global packname  grainscape
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
-Release:          3%{?dist}
+Version:          0.4.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Landscape Connectivity, Habitat, and Protected Area Networks
 
 License:          GPL (>= 2)
@@ -36,15 +36,19 @@ Requires:         R-CRAN-rgdal
 Requires:         R-utils 
 
 %description
-Given a landscape resistance surface, creates grains of connectivity
-(Galpern et al. (2012) <doi:10.1111/j.1365-294X.2012.05677.x>) and minimum
-planar graph (Fall et al. (2007) <doi:10.1007/s10021-007-9038-7>) models
-that can be used to calculate effective distances for landscape
-connectivity at multiple scales.
+Given a landscape resistance surface, creates minimum planar graph (Fall
+et al. (2007) <doi:10.1007/s10021-007-9038-7>) and grains of connectivity
+(Galpern et al. (2012) <doi:10.1111/j.1365-294X.2012.05677.x>) models that
+can be used to calculate effective distances for landscape connectivity at
+multiple scales. Documentation is provided by several vignettes, and a
+paper (Chubaty, Galpern & Doctolero (2020) <doi:10.1111/2041-210X.13350>).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -52,23 +56,9 @@ connectivity at multiple scales.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
