@@ -5,7 +5,7 @@
 Name:             R-CRAN-%{packname}
 Version:          7.0.1
 Release:          3%{?dist}
-Summary:          A Framework for Data-Driven Stochastic Disease SpreadSimulations
+Summary:          A Framework for Data-Driven Stochastic Disease Spread Simulations
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
