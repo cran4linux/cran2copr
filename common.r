@@ -381,7 +381,7 @@ create_spec <- function(pkg, cran=available_packages()) {
   tpl <- sub("\\{\\{packname\\}\\}", pkg, tpl)
   tpl <- sub("\\{\\{packver\\}\\}", desc$Version, tpl)
   tpl <- sub("\\{\\{version\\}\\}", gsub("-", ".", desc$Version), tpl)
-  tpl <- sub("\\{\\{summary\\}\\}", gsub("\n", "", desc$Title), tpl)
+  tpl <- sub("\\{\\{summary\\}\\}", gsub("\n", " ", desc$Title), tpl)
   tpl <- sub("\\{\\{license\\}\\}", desc$License, tpl)
   tpl <- sub("\\{\\{dependencies\\}\\}", paste(deps, collapse="\n"), tpl)
   tpl <- sub("\\{\\{description\\}\\}", paste(description, collapse="\n"), tpl)
