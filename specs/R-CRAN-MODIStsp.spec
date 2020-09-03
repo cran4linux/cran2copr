@@ -1,11 +1,11 @@
 %global packname  MODIStsp
-%global packver   1.4.0
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
-Release:          3%{?dist}
-Summary:          A Tool for Automating Download and Preprocessing of MODIS LandProducts Data
+Version:          2.0.2
+Release:          1%{?dist}%{?buildtag}
+Summary:          A Tool for Automating Download and Preprocessing of MODIS Land Products Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,36 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster >= 2.5.2
-BuildRequires:    R-CRAN-mapview >= 2.3.0
+BuildRequires:    R-CRAN-raster >= 3.3.13
 BuildRequires:    R-CRAN-data.table >= 1.9.6
+BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-httr >= 1.1.0
 BuildRequires:    R-CRAN-bitops >= 1.0.6
 BuildRequires:    R-CRAN-stringr >= 1.0.0
 BuildRequires:    R-CRAN-xts >= 0.9.7
 BuildRequires:    R-CRAN-sf >= 0.9.3
-BuildRequires:    R-CRAN-mapedit >= 0.4.1
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-gdalUtilities 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-geojsonio 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-raster >= 2.5.2
-Requires:         R-CRAN-mapview >= 2.3.0
+Requires:         R-CRAN-raster >= 3.3.13
 Requires:         R-CRAN-data.table >= 1.9.6
+Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-httr >= 1.1.0
 Requires:         R-CRAN-bitops >= 1.0.6
 Requires:         R-CRAN-stringr >= 1.0.0
 Requires:         R-CRAN-xts >= 0.9.7
 Requires:         R-CRAN-sf >= 0.9.3
-Requires:         R-CRAN-mapedit >= 0.4.1
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-gdalUtilities 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-geojsonio 
 Requires:         R-parallel 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-shiny 
 
 %description
 Allows automating the creation of time series of rasters derived from
@@ -67,6 +63,8 @@ product whenever a new image is available.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -74,23 +72,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/ExtData
-%doc %{rlibdir}/%{packname}/Log
-%{rlibdir}/%{packname}/testdata
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

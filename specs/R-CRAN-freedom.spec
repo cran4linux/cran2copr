@@ -1,37 +1,27 @@
-%global packname  gDefrag
-%global packver   0.3
+%global packname  freedom
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph-Based Landscape De-Fragmentation
+Summary:          Demonstration of Disease Freedom (DDF)
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
 
 %description
-Provides a set of tools to help the de-fragmentation process. It works by
-prioritizing the different sections of linear infrastructures (e.g. roads,
-power-lines) to increase the available amount of a given resource.
+Implements the formulae required to calculate freedom from disease
+according to Cameron and Baldock (1998)
+<doi:10.1016/S0167-5877(97)00081-0>. These are the methods used at the
+Swedish national veterinary institute (SVA) to evaluate the performance of
+our nation animal disease surveillance programmes.
 
 %prep
 %setup -q -c -n %{packname}

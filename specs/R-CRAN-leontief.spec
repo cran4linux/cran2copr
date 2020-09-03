@@ -1,36 +1,27 @@
-%global packname  faux
-%global packver   0.0.1.4
+%global packname  leontief
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.4
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation for Factorial Designs
+Summary:          Input-Output Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Create datasets with factorial structure through simulation by specifying
-variable parameters. Extended documentation at
-<https://debruine.github.io/faux/>. Described in DeBruine(2020)
-<doi:10.5281/zenodo.2669586>.
+An implementation of the Input-Output model developed by Wassily Leontief
+that represents the interdependencies between different sectors of a
+national economy or different regional economies.
 
 %prep
 %setup -q -c -n %{packname}

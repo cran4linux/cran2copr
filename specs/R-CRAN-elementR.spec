@@ -1,11 +1,11 @@
 %global packname  elementR
-%global packver   1.3.6
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
-Release:          3%{?dist}
-Summary:          An Framework for Reducing Elemental LAICPMS Data from SolidStructures
+Version:          1.3.7
+Release:          1%{?dist}%{?buildtag}
+Summary:          An Framework for Reducing Elemental LAICPMS Data from Solid Structures
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -68,11 +68,15 @@ solid-phase LAICPMS analysis (laser ablation inductive coupled plasma mass
 spectrometry). The 'elementR' package provides a reactive and user
 friendly interface (based on a 'shiny' application) and a set of 'R6'
 classes for conducting all steps needed for an optimal data reduction
-while leaving maximum control for user.
+while leaving maximum control for user. For more details about the methods
+used in 'elementR', see Sirot et al (2017) <DOI:10.1111/2041-210X.12822>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -80,23 +84,9 @@ while leaving maximum control for user.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/AtomicMass.csv
-%doc %{rlibdir}/%{packname}/elementR_documentation.pdf
-%doc %{rlibdir}/%{packname}/Example_conversion
-%doc %{rlibdir}/%{packname}/Example_Session
-%doc %{rlibdir}/%{packname}/Results
-%doc %{rlibdir}/%{packname}/splitReplicate_example.csv
-%doc %{rlibdir}/%{packname}/www
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

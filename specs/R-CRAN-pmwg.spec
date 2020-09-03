@@ -1,11 +1,11 @@
-%global packname  MNLpred
-%global packver   0.0.4
+%global packname  pmwg
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulated Predicted Probabilities for Multinomial Logit Models
+Summary:          Particle Metropolis Within Gibbs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,20 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-condMVNorm 
 BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-condMVNorm 
 Requires:         R-MASS 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 
 %description
-Functions to easily return simulated predicted probabilities and first
-differences for multinomial logit models. It takes a specified scenario
-and a multinomial model to predict probabilities with a set of
-coefficients, drawn from a simulated sampling distribution. The simulated
-predictions allow for meaningful plots with means and confidence
-intervals. The methodological approach is based on the principles laid out
-by King, Tomz, and Wittenberg (2000) <doi:10.2307/2669316> and Hanmer and
-Ozan Kalkan (2016) <doi:10.1111/j.1540-5907.2012.00602.x>.
+Provides an R implementation of the Particle Metropolis within Gibbs
+sampler for model parameter, covariance matrix and random effect
+estimation. A more general implementation of the sampler based on the
+paper by Gunawan, D., Hawkins, G. E., Tran, M. N., Kohn, R., & Brown, S.
+D. (2020) <doi:10.1016/j.jmp.2020.102368>. An HTML tutorial document
+describing the package is available at
+<https://newcastlecl.github.io/samplerDoc/> and includes several detailed
+examples, some background and troubleshooting steps.
 
 %prep
 %setup -q -c -n %{packname}

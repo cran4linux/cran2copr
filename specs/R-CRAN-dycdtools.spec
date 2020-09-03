@@ -1,34 +1,39 @@
-%global packname  rddensity
-%global packver   2.1
+%global packname  dycdtools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation Testing Based on Density Discontinuity
+Summary:          Tools for DYRESM-CAEDYM Model Development: Auto-Calibration and Post-Processing
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-hydroGOF 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lpdensity 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-hydroGOF 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lpdensity 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-lubridate 
 
 %description
-Density discontinuity testing (a.k.a. manipulation testing) is commonly
-employed in regression discontinuity designs and other program evaluation
-settings to detect perfect self-selection (manipulation) around a cutoff
-where treatment/policy assignment changes. This package implements
-manipulation testing procedures using the local polynomial density
-estimators: rddensity() to construct test statistics and p-values given a
-prespecified cutoff, rdbwdensity() to perform data-driven bandwidth
-selection, and rdplotdensity() to construct density plots.
+Tools for DYRESM-CAEDYM model development, including auto-calibrate
+selected model parameters and visualise model output through time series
+plot, profile plot, contour plot, and scatter plot.
 
 %prep
 %setup -q -c -n %{packname}

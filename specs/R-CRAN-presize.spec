@@ -1,34 +1,36 @@
-%global packname  rddensity
-%global packver   2.1
+%global packname  presize
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation Testing Based on Density Discontinuity
+Summary:          Precision Based Sample Size Calculation
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-kappaSize >= 1.2
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lpdensity 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+Requires:         R-CRAN-kappaSize >= 1.2
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lpdensity 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
 
 %description
-Density discontinuity testing (a.k.a. manipulation testing) is commonly
-employed in regression discontinuity designs and other program evaluation
-settings to detect perfect self-selection (manipulation) around a cutoff
-where treatment/policy assignment changes. This package implements
-manipulation testing procedures using the local polynomial density
-estimators: rddensity() to construct test statistics and p-values given a
-prespecified cutoff, rdbwdensity() to perform data-driven bandwidth
-selection, and rdplotdensity() to construct density plots.
+Bland (2009) <doi:10.1136/bmj.b3985> recommended to base study sizes on
+the width of the confidence interval rather the power of a statistical
+test. The goal of 'presize' is to provide functions for such precision
+based sample size calculations. For a given sample size, the functions
+will return the precision (width of the confidence interval), and vice
+versa.
 
 %prep
 %setup -q -c -n %{packname}

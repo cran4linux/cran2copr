@@ -1,49 +1,44 @@
-%global packname  dfoliatR
-%global packver   0.2.0
+%global packname  tinyscholar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detection and Analysis of Insect Defoliation Signals in Tree Rings
+Summary:          Get and Show Personal 'Google Scholar' Profile
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplR 
+BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplR 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-MASS 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
 
 %description
-Tools to identify, quantify, analyze, and visualize growth suppression
-events in tree rings that are often produced by insect defoliation.
-Described in Guiterman et al. (2020) <doi:10.1016/j.dendro.2020.125750>.
+Provides functions to get personal 'Google Scholar' profile data from web
+API and show it in table or figure format.
 
 %prep
 %setup -q -c -n %{packname}

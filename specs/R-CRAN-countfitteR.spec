@@ -1,11 +1,11 @@
 %global packname  countfitteR
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
-Release:          1%{?dist}
-Summary:          Comprehensive Automatized Evaluation of Distribution Models forCount Data
+Version:          1.3
+Release:          1%{?dist}%{?buildtag}
+Summary:          Comprehensive Automatized Evaluation of Distribution Models for Count Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

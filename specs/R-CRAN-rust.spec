@@ -1,10 +1,10 @@
 %global packname  rust
-%global packver   1.3.9
+%global packver   1.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
-Release:          1%{?dist}
+Version:          1.3.10
+Release:          1%{?dist}%{?buildtag}
 Summary:          Ratio-of-Uniforms Simulation with Transformation
 
 License:          GPL (>= 2)

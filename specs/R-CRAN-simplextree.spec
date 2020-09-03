@@ -1,37 +1,32 @@
-%global packname  gDefrag
-%global packver   0.3
+%global packname  simplextree
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph-Based Landscape De-Fragmentation
+Summary:          Provides Tools for Working with General Simplicial Complexes
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-methods 
+Requires:         R-CRAN-magrittr 
 
 %description
-Provides a set of tools to help the de-fragmentation process. It works by
-prioritizing the different sections of linear infrastructures (e.g. roads,
-power-lines) to increase the available amount of a given resource.
+Provides an interface to a Simplex Tree data structure, which is a data
+structure aimed at enabling efficient manipulation of 'simplicial'
+complexes of any dimension. The Simplex Tree data structure was originally
+introduced by Jean-Daniel Boissonnat and Clément Maria (2014)
+<doi:10.1007/s00453-014-9887-3>.
 
 %prep
 %setup -q -c -n %{packname}

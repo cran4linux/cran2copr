@@ -1,9 +1,9 @@
 %global packname  whSample
-%global packver   0.9.0
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Sampling
 
@@ -34,9 +34,11 @@ Requires:         R-utils
 Interactive tools for generating random samples. Users select an .xlsx or
 .csv file with population data and are walked through selecting the sample
 type (Simple Random Sample or Stratified), the number of backups desired,
-and a "stratify_on" value (if desired). An .xlsx file is created with the
-sample and key metadata for reference. It is menu-driven and lets users
-pick an output directory. See vignettes for a detailed walk-through.
+and a "stratify_on" value (if desired). The sample size is determined
+using a normal approximation to the hypergeometric distribution based on
+Nicholson (1956) <doi:10.1214/aoms/1177728270>. An .xlsx file is created
+with the sample and key metadata for reference. It is menu-driven and lets
+users pick an output directory. See vignettes for a detailed walk-through.
 
 %prep
 %setup -q -c -n %{packname}

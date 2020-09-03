@@ -1,10 +1,10 @@
 %global packname  naniar
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
-Release:          2%{?dist}
+Version:          0.6.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Data Structures, Summaries, and Visualisations for Missing Data
 
 License:          MIT + file LICENSE

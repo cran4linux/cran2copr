@@ -1,34 +1,30 @@
-%global packname  rddensity
-%global packver   2.1
+%global packname  PamBinaries
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation Testing Based on Density Discontinuity
+Summary:          Read and Process 'Pamguard' Binary Data
 
-License:          GPL-2
+License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lpdensity 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lpdensity 
+Requires:         R-CRAN-dplyr 
 
 %description
-Density discontinuity testing (a.k.a. manipulation testing) is commonly
-employed in regression discontinuity designs and other program evaluation
-settings to detect perfect self-selection (manipulation) around a cutoff
-where treatment/policy assignment changes. This package implements
-manipulation testing procedures using the local polynomial density
-estimators: rddensity() to construct test statistics and p-values given a
-prespecified cutoff, rdbwdensity() to perform data-driven bandwidth
-selection, and rdplotdensity() to construct density plots.
+Functions for easily reading and processing binary data files created by
+'Pamguard' (<https://www.pamguard.org/>). All functions for directly
+reading the binary data files are based on 'MATLAB' code written by
+Michael Oswald.
 
 %prep
 %setup -q -c -n %{packname}
