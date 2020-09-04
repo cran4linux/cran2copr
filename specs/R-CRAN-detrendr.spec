@@ -1,10 +1,10 @@
 %global packname  detrendr
-%global packver   0.6.8
+%global packver   0.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
-Release:          1%{?dist}
+Version:          0.6.9
+Release:          1%{?dist}%{?buildtag}
 Summary:          Detrend Images
 
 License:          BSD_3_clause + file LICENSE

@@ -1,10 +1,10 @@
 %global packname  r2dii.analysis
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
-Release:          2%{?dist}
+Version:          0.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Calculate Climate Targets for Financial Portfolios
 
 License:          GPL-3
@@ -17,12 +17,18 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-r2dii.data 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-r2dii.data 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 These tools help you to assess if a financial portfolio aligns with

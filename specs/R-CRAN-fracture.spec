@@ -1,35 +1,30 @@
-%global packname  saeME
-%global packver   1.2.1
+%global packname  fracture
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Small Area Estimation with Measurement Error
+Summary:          Convert Decimals to Fractions
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-expm 
-Requires:         R-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A set of functions and datasets implementation of small area estimation
-when auxiliary variable is measured with error. These functions provide a
-empirical best linear unbiased prediction (EBLUP) estimator and mean
-squared error (MSE) estimator of the EBLUP. These models were developed by
-Ybarra and Lohr (2008) <doi:10.1093/biomet/asn048>.
+Provides functions for converting decimals to a matrix of numerators and
+denominators or a character vector of fractions.  Supports mixed or
+improper fractions, finding common denominators for vectors of fractions,
+limiting denominators to powers of ten, and limiting denominators to a
+maximum value.  Also includes helper functions for finding the least
+common multiple and greatest common divisor for a vector of integers.
+Implemented using C++ for maximum speed.
 
 %prep
 %setup -q -c -n %{packname}

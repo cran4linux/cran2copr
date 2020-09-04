@@ -1,10 +1,10 @@
 %global packname  processx
-%global packver   3.4.3
+%global packver   3.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.3
-Release:          2%{?dist}
+Version:          3.4.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Execute and Control System Processes
 
 License:          MIT + file LICENSE

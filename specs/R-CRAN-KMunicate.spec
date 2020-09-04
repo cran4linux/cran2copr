@@ -1,10 +1,10 @@
 %global packname  KMunicate
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
-Release:          1%{?dist}
+Version:          0.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          KMunicate-Style Kaplan–Meier Plots
 
 License:          MIT + file LICENSE

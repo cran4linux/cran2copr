@@ -1,35 +1,38 @@
-%global packname  saeME
-%global packver   1.2.1
+%global packname  sdwd
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Small Area Estimation with Measurement Error
+Summary:          Sparse Distance Weighted Discrimination
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-Matrix 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-expm 
-Requires:         R-MASS 
+BuildRequires:    R-methods 
+Requires:         R-Matrix 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
 
 %description
-A set of functions and datasets implementation of small area estimation
-when auxiliary variable is measured with error. These functions provide a
-empirical best linear unbiased prediction (EBLUP) estimator and mean
-squared error (MSE) estimator of the EBLUP. These models were developed by
-Ybarra and Lohr (2008) <doi:10.1093/biomet/asn048>.
+Formulates a sparse distance weighted discrimination (SDWD) for
+high-dimensional classification and implements a very fast algorithm for
+computing its solution path with the L1, the elastic-net, and the adaptive
+elastic-net penalties. More details about the methodology SDWD is seen on
+Wang and Zou (2016) Sparse distance weighted discrimination, Journal of
+Computational and Graphical Statistics, 25(3), 826-838.
+(<doi:10.1080/10618600.2015.1049700>).
 
 %prep
 %setup -q -c -n %{packname}

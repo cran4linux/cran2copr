@@ -1,11 +1,11 @@
 %global packname  RcppArmadillo
-%global packver   0.9.900.2.0
+%global packver   0.9.900.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.900.2.0
-Release:          1%{?dist}
-Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear AlgebraLibrary
+Version:          0.9.900.3.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

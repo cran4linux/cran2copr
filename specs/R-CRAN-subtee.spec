@@ -1,13 +1,13 @@
-%global packname  rsimsum
-%global packver   0.9.1
+%global packname  subtee
+%global packver   0.3-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Simulation Studies Including Monte Carlo Error
+Summary:          Subgroup Treatment Effect Estimation in Clinical Trials
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,27 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggridges 
+BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-MASS 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
+Requires:         R-survival 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Summarise results from simulation studies and compute Monte Carlo standard
-errors of commonly used summary statistics. This package is modelled on
-the 'simsum' user-written command in 'Stata' (White I.R., 2010
-<https://www.stata-journal.com/article.html?article=st0200>), further
-extending it with additional functionality.
+Naive and adjusted treatment effect estimation for subgroups. Model
+averaging (Bornkamp et.al, 2016 <doi:10.1002/pst.1796>) and bagging
+(Rosenkranz, 2016 <doi:10.1002/bimj.201500147>) are proposed to address
+the problem of selection bias in treatment effect estimates for subgroups.
+The package can be used for all commonly encountered type of outcomes in
+clinical trials (continuous, binary, survival, count). Additional
+functions are provided to build the subgroup variables to be used and to
+plot the results using forest plots.
 
 %prep
 %setup -q -c -n %{packname}
