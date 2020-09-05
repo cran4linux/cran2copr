@@ -1,10 +1,10 @@
 %global packname  fauxnaif
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
-Release:          1%{?dist}
+Version:          0.6.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Values to NA
 
 License:          MIT + file LICENSE
@@ -15,15 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 
 %description

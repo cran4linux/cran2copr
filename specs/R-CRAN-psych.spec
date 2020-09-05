@@ -1,11 +1,11 @@
 %global packname  psych
-%global packver   2.0.7
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
-Release:          1%{?dist}
-Summary:          Procedures for Psychological, Psychometric, and PersonalityResearch
+Version:          2.0.8
+Release:          1%{?dist}%{?buildtag}
+Summary:          Procedures for Psychological, Psychometric, and Personality Research
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -47,7 +47,7 @@ modeling.  Graphical displays of path diagrams, factor analysis and
 structural equation models are created using basic graphics. Some of the
 functions are written to support a book on psychometric theory as well as
 publications in personality research. For more information, see the
-<https://personality-project.org/r> web page.
+<https://personality-project.org/r/> web page.
 
 %prep
 %setup -q -c -n %{packname}

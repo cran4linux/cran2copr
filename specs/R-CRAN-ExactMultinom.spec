@@ -1,11 +1,11 @@
-%global packname  nanotime
-%global packver   0.3.2
+%global packname  ExactMultinom
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nanosecond-Resolution Time Support for R
+Summary:          Multinomial Goodness-of-Fit Tests
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,22 +14,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-RcppCCTZ >= 0.2.9
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppDate 
-Requires:         R-CRAN-RcppCCTZ >= 0.2.9
-Requires:         R-methods 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-stats 
 
 %description
-Full 64-bit resolution date and time functionality with nanosecond
-granularity is provided, with easy transition to and from the standard
-'POSIXct' type. Three additional classes offer interval, period and
-duration functionality for nanosecond-resolution timestamps.
+Computes exact p-values for multinomial goodness-of-fit tests based on
+multiple test statistics, namely, Pearson's chi-square, the log-likelihood
+ratio and the probability mass statistic. Implements the algorithm
+detailed in Resin (2020) <arXiv:2008.12682>. Estimates based on the
+classical asymptotic chi-square approximation or Monte-Carlo simulation
+can also be computed.
 
 %prep
 %setup -q -c -n %{packname}

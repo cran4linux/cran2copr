@@ -1,13 +1,13 @@
 %global packname  insee
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
-Release:          1%{?dist}
+Version:          0.9.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Easily Download Data from INSEE BDM Database
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,29 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rsdmx 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-readsdmx 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rsdmx 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-openssl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-readsdmx 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-openssl 
 
 %description
-Using embedded sdmx queries, get the data of more than 140 000 insee
+Using embedded sdmx queries, get the data of more than 150 000 insee
 series from bdm database. Have a look at the detailed sdmx web service
 page with the following link :
 <https://www.insee.fr/en/information/2868055>.

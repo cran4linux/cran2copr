@@ -1,11 +1,11 @@
 %global packname  synthpop
-%global packver   1.5-1
+%global packver   1.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
-Release:          3%{?dist}
-Summary:          Generating Synthetic Versions of Sensitive Microdata forStatistical Disclosure Control
+Version:          1.6.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Generating Synthetic Versions of Sensitive Microdata for Statistical Disclosure Control
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-proto 
 BuildRequires:    R-CRAN-polspline 
 BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-mipfp 
 Requires:         R-lattice 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-proto 
 Requires:         R-CRAN-polspline 
 Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-mipfp 
 
@@ -69,6 +71,9 @@ method see Nowok, Raab and Dibben (2016) <doi:10.18637/jss.v074.i11>.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -78,17 +83,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

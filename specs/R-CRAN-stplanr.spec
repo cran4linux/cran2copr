@@ -1,9 +1,9 @@
 %global packname  stplanr
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sustainable Transport Planning
 
@@ -60,7 +60,8 @@ geographic "desire lines" from origin-destination (OD) data; route
 assignment, locally and via interfaces to routing services such as
 <https://cyclestreets.net/>; calculation of route segment attributes such
 as bearing and aggregate flow; and 'travel watershed' analysis. See
-Lovelace and Ellison (2018) <doi:10.32614/RJ-2018-053>.
+Lovelace and Ellison (2018) <doi:10.32614/RJ-2018-053> and vignettes for
+details.
 
 %prep
 %setup -q -c -n %{packname}

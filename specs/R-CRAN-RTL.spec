@@ -1,10 +1,10 @@
 %global packname  RTL
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          2%{?dist}
+Version:          0.1.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Tool Library
 
 License:          GPL (>= 3)
@@ -35,7 +35,6 @@ BuildRequires:    R-CRAN-forecast
 BuildRequires:    R-CRAN-tidyquant 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-Quandl 
-BuildRequires:    R-CRAN-fGarch 
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-feasts 
@@ -43,6 +42,9 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-fabletools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-rugarch 
+BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-xts 
 Requires:         R-stats 
@@ -63,7 +65,6 @@ Requires:         R-CRAN-forecast
 Requires:         R-CRAN-tidyquant 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-Quandl 
-Requires:         R-CRAN-fGarch 
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-tsibble 
 Requires:         R-CRAN-feasts 
@@ -71,12 +72,15 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-fabletools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-rugarch 
+Requires:         R-CRAN-lpSolve 
 
 %description
 Collection of functions and metadata to complement core packages in
 Finance and Commodities, including futures expiry tables and
-<http://www.morningstarcommodity.com/> API functions. See
-<https://github.com/risktoollib/RTL>.
+<https://www.morningstar.com/products/commodities-and-energy/> API
+functions. See <https://github.com/risktoollib/RTL>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -91,9 +95,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

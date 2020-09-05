@@ -1,35 +1,34 @@
-%global packname  nanotime
-%global packver   0.3.2
+%global packname  RLumModel
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nanosecond-Resolution Time Support for R
+Summary:          Solving Ordinary Differential Equations to Understand Luminescence
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-RcppCCTZ >= 0.2.9
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-deSolve >= 1.21
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.400.2.0
+BuildRequires:    R-CRAN-Luminescence >= 0.9.0
+BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppDate 
-Requires:         R-CRAN-RcppCCTZ >= 0.2.9
+Requires:         R-CRAN-deSolve >= 1.21
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-Luminescence >= 0.9.0
+Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-zoo 
 
 %description
-Full 64-bit resolution date and time functionality with nanosecond
-granularity is provided, with easy transition to and from the standard
-'POSIXct' type. Three additional classes offer interval, period and
-duration functionality for nanosecond-resolution timestamps.
+A collection of functions to simulate luminescence signals in quartz and
+Al2O3 based on published models.
 
 %prep
 %setup -q -c -n %{packname}

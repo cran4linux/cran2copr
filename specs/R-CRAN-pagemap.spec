@@ -1,35 +1,25 @@
-%global packname  nanotime
-%global packver   0.3.2
+%global packname  pagemap
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nanosecond-Resolution Time Support for R
+Summary:          Create Mini Map for Web Pages
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-RcppCCTZ >= 0.2.9
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppDate 
-Requires:         R-CRAN-RcppCCTZ >= 0.2.9
-Requires:         R-methods 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-zoo 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Full 64-bit resolution date and time functionality with nanosecond
-granularity is provided, with easy transition to and from the standard
-'POSIXct' type. Three additional classes offer interval, period and
-duration functionality for nanosecond-resolution timestamps.
+Quickly and easily add a mini map to your 'rmarkdown' html documents.
 
 %prep
 %setup -q -c -n %{packname}

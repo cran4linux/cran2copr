@@ -1,10 +1,10 @@
 %global packname  maxLik
-%global packver   1.4-0
+%global packver   1.4-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
-Release:          1%{?dist}
+Version:          1.4.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Estimation and Related Tools
 
 License:          GPL (>= 2)

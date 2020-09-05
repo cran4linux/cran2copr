@@ -1,35 +1,34 @@
-%global packname  nanotime
-%global packver   0.3.2
+%global packname  RUVIIIC
+%global packver   1.0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nanosecond-Resolution Time Support for R
+Summary:          RUV-III-C
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-RcppCCTZ >= 0.2.9
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppDate 
-Requires:         R-CRAN-RcppCCTZ >= 0.2.9
-Requires:         R-methods 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-progress 
 
 %description
-Full 64-bit resolution date and time functionality with nanosecond
-granularity is provided, with easy transition to and from the standard
-'POSIXct' type. Three additional classes offer interval, period and
-duration functionality for nanosecond-resolution timestamps.
+Variations of Remove Unwanted Variation-III (RUV-III) known as RUV-III-C
+(RUV-III Complete). RUV-III performs normalisation using negative control
+variables and replication. RUV-III-C extends this method to cases where
+the data contains missing values, by applying RUV-III to complete subsets
+of the data. Originally designed for SWATH-MS proteomics datasets. Poulos
+et al. (2020) <doi:10.1038/s41467-020-17641-3>.
 
 %prep
 %setup -q -c -n %{packname}

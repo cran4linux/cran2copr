@@ -1,10 +1,10 @@
 %global packname  diversitree
-%global packver   0.9-13
+%global packver   0.9-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.13
-Release:          3%{?dist}
+Version:          0.9.14
+Release:          1%{?dist}%{?buildtag}
 Summary:          Comparative 'Phylogenetic' Analyses of Diversification
 
 License:          GPL (>= 2)
@@ -14,8 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    fftw-devel >= 3.1.2
 BuildRequires:    gsl-devel >= 1.15
-Requires:         fftw
-Requires:         gsl
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-deSolve >= 1.7
@@ -47,6 +45,9 @@ constant rate 'speciation' and extinction.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -54,21 +55,9 @@ constant rate 'speciation' and extinction.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/CONTRIBUTORS.md
-%doc %{rlibdir}/%{packname}/tests
-%doc %{rlibdir}/%{packname}/update-gh-pages.sh
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
