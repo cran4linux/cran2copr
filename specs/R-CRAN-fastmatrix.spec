@@ -1,9 +1,9 @@
 %global packname  fastmatrix
-%global packver   0.2-3
+%global packver   0.2-35
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.35
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Computation of some Matrices Useful in Statistics
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
 Small set of functions to fast computation of some matrices and operations

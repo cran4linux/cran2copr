@@ -1,11 +1,11 @@
 %global packname  DTSg
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
-Release:          1%{?dist}
-Summary:          A Class for Working with Time Series Based on 'data.table' and'R6' with Largely Optional Reference Semantics
+Version:          0.7.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          A Class for Working with Time Series Based on 'data.table' and 'R6' with Largely Optional Reference Semantics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
