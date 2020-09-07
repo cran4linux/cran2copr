@@ -1,10 +1,10 @@
 %global packname  paws.common
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
-Release:          1%{?dist}
+Version:          0.3.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Paws Low-Level Amazon Web Services API
 
 License:          Apache License (>= 2.0)
