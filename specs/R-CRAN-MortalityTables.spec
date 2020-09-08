@@ -1,9 +1,9 @@
 %global packname  MortalityTables
-%global packver   2.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Various Types of Mortality / Life Tables
 

@@ -1,11 +1,11 @@
-%global packname  glca
-%global packver   1.0.0
+%global packname  ONEST
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Class Analysis with Group Variable
+Summary:          Observers Needed to Evaluate Subjective Tests
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,18 +14,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-MASS 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
 
 %description
-Fits latent class analysis (LCA) including group variable and covariates.
-The group variable can be handled either by multilevel LCA described in
-Vermunt (2003) <DOI:10.1111/j.0081-1750.2003.t01-1-00131.x> or standard
-LCA at each level of group variable. The covariates can be incorporated in
-the form of logistic regression (Bandeen-Roche et al. (1997)
-<DOI:10.1080/01621459.1997.10473658>).
+This ONEST software implements the method of assessing the pathologist
+agreement in reading PD-L1 assays (Reisenbichler et al. (2020
+<doi:10.1038/s41379-020-0544-x>)), to determine the minimum number of
+evaluators needed to estimate agreement involving a large number of
+raters. Input to the program should be binary(1/0) pathology data, where
+“0” may stand for negative and “1” for positive. Additional examples were
+given using the data from Rimm et al. (2017
+<doi:10.1001/jamaoncol.2017.0013>).
 
 %prep
 %setup -q -c -n %{packname}

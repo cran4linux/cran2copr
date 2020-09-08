@@ -1,10 +1,10 @@
 %global packname  Seurat
-%global packver   3.2.0
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
-Release:          1%{?dist}
+Version:          3.2.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
 License:          GPL-3 | file LICENSE
@@ -12,17 +12,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-plotly >= 4.9.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-Matrix >= 1.2.14
 BuildRequires:    R-CRAN-leiden >= 0.3.1
 BuildRequires:    R-CRAN-sctransform >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-uwot >= 0.1.5
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-cluster 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-fitdistrplus 
@@ -41,6 +40,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-KernSmooth 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pbapply 
@@ -63,13 +63,12 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-plotly >= 4.9.0
-Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-Matrix >= 1.2.14
 Requires:         R-CRAN-leiden >= 0.3.1
 Requires:         R-CRAN-sctransform >= 0.2.0
 Requires:         R-CRAN-uwot >= 0.1.5
 Requires:         R-methods 
-Requires:         R-CRAN-ape 
 Requires:         R-cluster 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-fitdistrplus 
@@ -88,6 +87,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-KernSmooth 
 Requires:         R-CRAN-lmtest 
 Requires:         R-MASS 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pbapply 

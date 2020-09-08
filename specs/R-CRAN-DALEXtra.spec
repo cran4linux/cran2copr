@@ -1,10 +1,10 @@
 %global packname  DALEXtra
-%global packver   1.3.2
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
-Release:          1%{?dist}
+Version:          2.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Extension for 'DALEX' Package
 
 License:          GPL
@@ -18,14 +18,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DALEX >= 1.3
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-CRAN-gridExtra 
 Requires:         R-CRAN-DALEX >= 1.3
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-ggdendro 
 Requires:         R-CRAN-gridExtra 
 
 %description

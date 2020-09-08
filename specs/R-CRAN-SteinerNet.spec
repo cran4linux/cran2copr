@@ -1,31 +1,35 @@
-%global packname  glca
-%global packver   1.0.0
+%global packname  SteinerNet
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Class Analysis with Group Variable
+Summary:          Steiner Tree Approach for Graph Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-MASS 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 0.6.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-igraph >= 0.6.0
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Fits latent class analysis (LCA) including group variable and covariates.
-The group variable can be handled either by multilevel LCA described in
-Vermunt (2003) <DOI:10.1111/j.0081-1750.2003.t01-1-00131.x> or standard
-LCA at each level of group variable. The covariates can be incorporated in
-the form of logistic regression (Bandeen-Roche et al. (1997)
-<DOI:10.1080/01621459.1997.10473658>).
+A set of functions for finding and analysing Steiner trees. It has
+applications in biological pathway network analysis. Sadeghi (2013)
+<doi:10.1186/1471-2105-14-144>.
 
 %prep
 %setup -q -c -n %{packname}

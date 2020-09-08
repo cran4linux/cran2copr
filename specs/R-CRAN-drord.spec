@@ -1,26 +1,32 @@
-%global packname  RMPSS
-%global packver   1.1.1
+%global packname  drord
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recursive Modified Pattern Search on Simplex
+Summary:          Doubly-Robust Estimators for Ordinal Outcomes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-ordinal 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-MASS 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-ordinal 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Pattern search based Blackbox optimization algorithm designed to optimize
-any function with parameters belonging to unit simplex. Described in the
-paper : Das (2016) <arXiv:1604.08636> .
+Efficient covariate-adjusted estimators of quantities that are useful for
+establishing the effects of treatments on ordinal outcomes.
 
 %prep
 %setup -q -c -n %{packname}

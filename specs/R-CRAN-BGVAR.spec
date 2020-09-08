@@ -1,10 +1,10 @@
 %global packname  BGVAR
-%global packver   2.0.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
-Release:          2%{?dist}
+Version:          2.1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Global Vector Autoregressions
 
 License:          GPL-3
@@ -18,8 +18,6 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-bayesm 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-knitr 
@@ -38,8 +36,6 @@ Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-bayesm 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-GIGrvg 
 Requires:         R-graphics 
 Requires:         R-CRAN-knitr 
@@ -79,9 +75,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

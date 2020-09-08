@@ -1,10 +1,10 @@
 %global packname  vivo
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          2%{?dist}
+Version:          0.2.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Importance via Oscillations
 
 License:          GPL-2
@@ -16,10 +16,8 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ingredients 
 BuildRequires:    R-CRAN-DALEX 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ingredients 
 Requires:         R-CRAN-DALEX 
 
 %description

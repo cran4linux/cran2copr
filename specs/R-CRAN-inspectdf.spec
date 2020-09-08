@@ -1,10 +1,10 @@
 %global packname  inspectdf
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
-Release:          2%{?dist}
+Version:          0.0.9
+Release:          1%{?dist}%{?buildtag}
 Summary:          Inspection, Comparison and Visualisation of Data Frames
 
 License:          GPL-2
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-ggfittext >= 0.8.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
@@ -22,7 +21,7 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggfittext >= 0.8.0
+BuildRequires:    R-CRAN-ggfittext 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
@@ -30,6 +29,7 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggfittext 
 
 %description
 A collection of utilities for columnwise summary, comparison and

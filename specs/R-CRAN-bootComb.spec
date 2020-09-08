@@ -1,9 +1,9 @@
 %global packname  bootComb
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combine Parameter Estimates via Parametric Bootstrap
 
@@ -15,8 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HDInterval >= 0.2.2
-Requires:         R-CRAN-HDInterval >= 0.2.2
 
 %description
 Propagate uncertainty from several estimates when combining these

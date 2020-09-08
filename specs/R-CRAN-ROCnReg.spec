@@ -1,10 +1,10 @@
 %global packname  ROCnReg
-%global packver   1.0-2
+%global packver   1.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
-Release:          2%{?dist}
+Version:          1.0.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          ROC Curve Inference with and without Covariates
 
 License:          GPL

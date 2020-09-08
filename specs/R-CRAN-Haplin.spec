@@ -1,11 +1,11 @@
 %global packname  Haplin
-%global packver   7.2.2
+%global packver   7.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.2.2
-Release:          3%{?dist}
-Summary:          Analyzing Case-Parent Triad and/or Case-Control Data with SNPHaplotypes
+Version:          7.2.3
+Release:          1%{?dist}%{?buildtag}
+Summary:          Analyzing Case-Parent Triad and/or Case-Control Data with SNP Haplotypes
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,14 +18,12 @@ BuildRequires:    R-tools
 BuildRequires:    R-mgcv 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-ff 
-BuildRequires:    R-CRAN-ffbase 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
 Requires:         R-tools 
 Requires:         R-mgcv 
 Requires:         R-MASS 
 Requires:         R-CRAN-ff 
-Requires:         R-CRAN-ffbase 
 Requires:         R-CRAN-rlang 
 Requires:         R-methods 
 
@@ -49,6 +47,9 @@ effects. The models were originally described in Gjessing, HK and Lie, RT
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -56,20 +57,9 @@ effects. The models were originally described in Gjessing, HK and Lie, RT
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
