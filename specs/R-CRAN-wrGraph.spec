@@ -1,10 +1,10 @@
 %global packname  wrGraph
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
-Release:          1%{?dist}
+Version:          1.0.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Graphics in the Context of Analyzing High-Throughput Data
 
 License:          GPL-3

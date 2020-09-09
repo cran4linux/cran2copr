@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate with 'mrgsolve' in Parallel
 
 License:          GPL (>= 2)

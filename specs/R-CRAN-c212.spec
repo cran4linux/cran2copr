@@ -1,9 +1,9 @@
 %global packname  c212
-%global packver   0.97
+%global packver   0.98
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.97
+Version:          0.98
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Detecting Safety Signals in Clinical Trials Using Body-Systems (System Organ Classes)
 

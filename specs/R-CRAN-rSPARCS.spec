@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.9
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Sites, Population, and Records Cleaning Skills
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Gastric Emptying from MRI or Scintigraphy
 
 License:          GPL (>= 3)

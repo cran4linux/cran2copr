@@ -4,8 +4,8 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
-Summary:          Interval Mapping for Quantitative Trait Loci Underlying NeighborEffects
+Release:          1%{?dist}%{?buildtag}
+Summary:          Interval Mapping for Quantitative Trait Loci Underlying Neighbor Effects
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

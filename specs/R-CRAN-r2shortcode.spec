@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Shorten Package Function Names
 
 License:          MIT + file LICENSE

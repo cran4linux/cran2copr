@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Inference Tool for Antibody Haplotype
 
 License:          CC BY-SA 4.0

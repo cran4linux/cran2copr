@@ -1,9 +1,9 @@
 %global packname  neonstore
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          NEON Data Store
 
@@ -27,6 +27,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rappdirs 
@@ -39,6 +41,8 @@ Requires:         R-CRAN-tibble
 Requires:         R-stats 
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-R.utils 
+Requires:         R-tools 
 
 %description
 The National Ecological Observatory Network (NEON) provides access to its

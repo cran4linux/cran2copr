@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          An R Interface to the 'Tiingo' Stock Price API
 
 License:          MIT + file LICENSE

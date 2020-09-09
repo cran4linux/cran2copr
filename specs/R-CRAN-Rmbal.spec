@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Original Hydrocarbon in Place and Reservoir Performance
 
 License:          GPL-3

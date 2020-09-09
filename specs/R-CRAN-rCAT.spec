@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          2%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Conservation Assessment Tools
 
 License:          MIT + file LICENSE

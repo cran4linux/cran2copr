@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.2
-Release:          2%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Download DBnomics Data
 
 License:          AGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.9
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of Core Data Structures
 
 License:          GPL-3

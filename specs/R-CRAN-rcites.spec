@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to the Species+ Database
 
 License:          MIT + file LICENSE

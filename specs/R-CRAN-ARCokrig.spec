@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Autoregressive Cokriging Models for Multifidelity Codes
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Arena for the Exploration and Comparison of any ML Models
 
 License:          GPL-3
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DALEX >= 1.3.0
+BuildRequires:    R-CRAN-DALEX >= 1.3
 BuildRequires:    R-CRAN-ingredients 
 BuildRequires:    R-CRAN-iBreakDown 
 BuildRequires:    R-CRAN-gistr 
@@ -26,7 +26,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-auditor 
-Requires:         R-CRAN-DALEX >= 1.3.0
+Requires:         R-CRAN-DALEX >= 1.3
 Requires:         R-CRAN-ingredients 
 Requires:         R-CRAN-iBreakDown 
 Requires:         R-CRAN-gistr 

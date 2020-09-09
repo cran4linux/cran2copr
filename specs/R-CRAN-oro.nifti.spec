@@ -1,10 +1,10 @@
 %global packname  oro.nifti
-%global packver   0.10.3
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.3
-Release:          3%{?dist}
+Version:          0.11.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Rigorous - 'NIfTI' + 'ANALYZE' + 'AFNI' : Input / Output
 
 License:          BSD_3_clause + file LICENSE
@@ -24,7 +24,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-rticles 
 Requires:         R-CRAN-RNifti >= 0.9.0
 Requires:         R-stats 
 Requires:         R-CRAN-bitops 
@@ -34,7 +33,6 @@ Requires:         R-grDevices
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-rticles 
 
 %description
 Functions for the input/output and visualization of medical imaging data
@@ -45,6 +43,8 @@ is part of the Rigorous Analytics bundle.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -52,23 +52,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/afni
-%doc %{rlibdir}/%{packname}/anlz
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/nifti
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

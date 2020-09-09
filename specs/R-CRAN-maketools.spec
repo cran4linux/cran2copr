@@ -1,10 +1,10 @@
 %global packname  maketools
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          1%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Exploring and Testing the Toolchain and System Libraries
 
 License:          MIT + file LICENSE
@@ -19,23 +19,16 @@ BuildRequires:    R-CRAN-sys >= 3.1
 Requires:         R-CRAN-sys >= 3.1
 
 %description
-Packages with C, C++, or Fortran code require a properly configured
-toolchain and sometimes external system dependencies to build. Because
-these things vary a lot by platform, getting this all to work can be
-challenging. The 'maketools' package contains a collection of helper
-functions that interface with the appropriate system utilities to learn
-about the build environment. It lets you explore 'make' rules to test the
-local configuration, or query 'pkg-config'
-<https://www.freedesktop.org/wiki/Software/pkg-config/> to find the cflags
-and libs needed for building packages with external dependencies. It also
-contains tools to analyze which libraries that a installed R package is
-linked to, by inspecting output from 'ldd'
-<https://man7.org/linux/man-pages/man1/ldd.1.html> in combination with
-information from the distribution package manager, e.g. 'rpm' or 'dpkg'.
-For Windows there are special utilities to automatically find or install
-the suitable version of the 'Rtools'
-<https://cran.r-project.org/bin/windows/Rtools/> build environment, and
-diagnose some common problems.
+A collection of helper functions that interface with the appropriate
+system utilities to learn about the build environment. Lets you explore
+'make' rules to test the local configuration, or query 'pkg-config' to
+find compiler flags and libs needed for building packages with external
+dependencies. Also contains tools to analyze which libraries that a
+installed R package linked to by inspecting output from 'ldd' in
+combination with information from your distribution package manager, e.g.
+'rpm' or 'dpkg'. Finally the package provides Windows-specific utilities
+to automatically find or install the suitable version of the 'Rtools'
+build environment, and diagnose some common problems.
 
 %prep
 %setup -q -c -n %{packname}

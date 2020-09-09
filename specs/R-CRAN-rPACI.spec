@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Placido Analysis of Corneal Irregularity
 
 License:          GPL-3

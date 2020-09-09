@@ -1,10 +1,10 @@
 %global packname  quantreg
-%global packver   5.61
+%global packver   5.65
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.61
-Release:          1%{?dist}
+Version:          5.65
+Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Regression
 
 License:          GPL (>= 2)

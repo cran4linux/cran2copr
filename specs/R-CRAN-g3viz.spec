@@ -5,7 +5,7 @@
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactively Visualize Genetic Mutation Data using aLollipop-Diagram
+Summary:          Interactively Visualize Genetic Mutation Data using a Lollipop-Diagram
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

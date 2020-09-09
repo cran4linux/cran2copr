@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Data Retrieval from the Roper Center Data Archive
 
 License:          MIT + file LICENSE
