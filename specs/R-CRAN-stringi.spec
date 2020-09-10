@@ -1,10 +1,10 @@
 %global packname  stringi
-%global packver   1.4.6
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
-Release:          3%{?dist}
+Version:          1.5.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Character String Processing Facilities
 
 License:          file LICENSE
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libicu-devel >= 52
-Requires:         libicu
 BuildRequires:    R-devel >= 2.14
 Requires:         R-core >= 2.14
 BuildRequires:    R-tools 
@@ -24,20 +23,21 @@ Requires:         R-utils
 Requires:         R-stats 
 
 %description
-Fast, correct, consistent, portable and convenient character string/text
-processing in every locale and any native encoding. Owing to the use of
-the 'ICU' (International Components for Unicode) library, the package
-provides 'R' users with platform-independent functions known to 'Java',
-'Perl', 'Python', 'PHP' and 'Ruby' programmers. Available features
-include: pattern searching (e.g., with 'Java'-like regular expressions or
-the 'Unicode' collation algorithm), random string generation, case
-mapping, string transliteration, concatenation, Unicode normalization,
-date-time formatting and parsing and many more.
+A multitude of character string/text/natural language processing tools:
+pattern searching (e.g., with 'Java'-like regular expressions or the
+'Unicode' collation algorithm), random string generation, case mapping,
+string transliteration, concatenation, sorting, padding, wrapping, Unicode
+normalisation, date-time formatting and parsing, and many more. They are
+fast, consistent, convenient, and - owing to the use of the 'ICU'
+(International Components for Unicode) library - portable across all
+locales and platforms.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -45,22 +45,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/AUTHORS
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
-%{rlibdir}/%{packname}/include
+%{rlibdir}/%{packname}

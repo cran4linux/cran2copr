@@ -1,10 +1,10 @@
 %global packname  meta
-%global packver   4.13-0
+%global packver   4.14-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.13.0
-Release:          2%{?dist}
+Version:          4.14.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          General Package for Meta-Analysis
 
 License:          GPL (>= 2)
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-metafor >= 2.1.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-metafor >= 2.1.0
 Requires:         R-grid 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-xml2 
 
 %description
 User-friendly general package providing standard methods for meta-analysis

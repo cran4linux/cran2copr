@@ -1,31 +1,27 @@
-%global packname  policytree
-%global packver   1.0.2
+%global packname  r2symbols
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Policy Learning via Doubly Robust Empirical Welfare Maximization over Trees
+Summary:          Symbols for 'Markdown' and 'Shiny' Application
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-grf >= 1.1.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-grf >= 1.1.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Learn optimal policies via doubly robust empirical welfare maximization
-over trees. This package implements the multi-action doubly robust
-approach of Zhou, Athey and Wager (2018) <arXiv:1810.04778> in the case
-where we want to learn policies that belong to the class of depth k
-decision trees.
+Direct insertion of symbols (e.g. currencies, letters, arrows,
+mathematical symbols and so on) into 'Rmarkdown' documents and 'Shiny'
+applications by incorporating 'HTML' hex codes.
 
 %prep
 %setup -q -c -n %{packname}

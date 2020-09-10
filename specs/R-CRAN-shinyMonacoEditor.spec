@@ -1,31 +1,30 @@
-%global packname  policytree
-%global packver   1.0.2
+%global packname  shinyMonacoEditor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Policy Learning via Doubly Robust Empirical Welfare Maximization over Trees
+Summary:          The 'Monaco' Editor in 'Shiny'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-grf >= 1.1.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-grf >= 1.1.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-shiny 
 
 %description
-Learn optimal policies via doubly robust empirical welfare maximization
-over trees. This package implements the multi-action doubly robust
-approach of Zhou, Athey and Wager (2018) <arXiv:1810.04778> in the case
-where we want to learn policies that belong to the class of depth k
-decision trees.
+A 'Shiny' app including the 'Monaco' editor. The 'Monaco' editor is the
+code editor which powers 'VS Code'. It is particularly well developed for
+'JavaScript'. In addition to the 'Monaco' editor features, the app
+provides prettifiers and minifiers for multiple languages, 'SCSS' and
+'TypeScript' compilers, code checking for 'C' and 'C++' (requires
+'cppcheck').
 
 %prep
 %setup -q -c -n %{packname}

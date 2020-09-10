@@ -1,10 +1,10 @@
 %global packname  radsafer
-%global packver   2.2.2
+%global packver   2.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
-Release:          1%{?dist}
+Version:          2.2.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Radiation Safety
 
 License:          GPL-3

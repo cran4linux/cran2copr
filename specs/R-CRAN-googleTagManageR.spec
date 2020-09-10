@@ -1,11 +1,11 @@
-%global packname  fairml
-%global packver   0.3
+%global packname  googleTagManageR
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fair Models in Machine Learning
+Summary:          Access the 'Google Tag Manager' API using R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,15 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-optiSolve 
-Requires:         R-methods 
-Requires:         R-CRAN-optiSolve 
+BuildRequires:    R-CRAN-httr >= 1.3.1
+BuildRequires:    R-CRAN-googleAuthR >= 1.2.1
+BuildRequires:    R-CRAN-future >= 1.2.0
+BuildRequires:    R-CRAN-jsonlite >= 1.1
+BuildRequires:    R-CRAN-dplyr >= 0.8.0
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-httr >= 1.3.1
+Requires:         R-CRAN-googleAuthR >= 1.2.1
+Requires:         R-CRAN-future >= 1.2.0
+Requires:         R-CRAN-jsonlite >= 1.1
+Requires:         R-CRAN-dplyr >= 0.8.0
+Requires:         R-CRAN-assertthat 
+Requires:         R-utils 
+Requires:         R-CRAN-purrr 
 
 %description
-Fair machine learning regression models which take sensitive attributes
-into account in model estimation. Currently implementing Komiyama et al.
-(2018) <http://proceedings.mlr.press/v80/komiyama18a/komiyama18a.pdf>.
+Interact with the 'Google Tag Manager' API
+<https://developers.google.com/tag-manager/api/v2>, enabling scripted
+deployments and updates across multiple tags, triggers, variables and
+containers.
 
 %prep
 %setup -q -c -n %{packname}

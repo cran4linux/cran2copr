@@ -1,10 +1,10 @@
 %global packname  xfun
-%global packver   0.16
+%global packver   0.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
-Release:          1%{?dist}
+Version:          0.17
+Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions by 'Yihui Xie'
 
 License:          MIT + file LICENSE

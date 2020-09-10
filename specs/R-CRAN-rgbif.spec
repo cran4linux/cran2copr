@@ -1,10 +1,10 @@
 %global packname  rgbif
-%global packver   3.2.0
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
-Release:          1%{?dist}
+Version:          3.3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the Global 'Biodiversity' Information Facility API
 
 License:          MIT + file LICENSE

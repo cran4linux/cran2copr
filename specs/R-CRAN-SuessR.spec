@@ -1,31 +1,32 @@
-%global packname  policytree
-%global packver   1.0.2
+%global packname  SuessR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Policy Learning via Doubly Robust Empirical Welfare Maximization over Trees
+Summary:          Suess and Laws Corrections for Marine Stable Carbon Isotope Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-grf >= 1.1.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-grf >= 1.1.0
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Learn optimal policies via doubly robust empirical welfare maximization
-over trees. This package implements the multi-action doubly robust
-approach of Zhou, Athey and Wager (2018) <arXiv:1810.04778> in the case
-where we want to learn policies that belong to the class of depth k
-decision trees.
+Generates region-specific Suess and Laws corrections for stable carbon
+isotope data from marine organisms collected between 1850 and 2019.
+Version 0.1.0 of 'SuessR' contains four built-in regions: the Bering Sea
+('Bering Sea'), the Aleutian archipelago ('Aleutians Islands'), the Gulf
+of Alaska ('Gulf of Alaska'), and the subpolar North Atlantic ('Subpolar
+North Atlantic'). Users can supply their own environmental data for
+regions currently not built into the package to generate corrections for
+those regions.
 
 %prep
 %setup -q -c -n %{packname}

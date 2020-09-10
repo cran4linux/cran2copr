@@ -1,10 +1,10 @@
 %global packname  qgcomp
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
-Release:          2%{?dist}
+Version:          2.5.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile G-Computation
 
 License:          GPL (>= 2)
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-generics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-stats 
 BuildRequires:    R-survival 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-generics
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-pscl 
 Requires:         R-stats 
 Requires:         R-survival 

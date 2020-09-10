@@ -1,31 +1,26 @@
-%global packname  policytree
-%global packver   1.0.2
+%global packname  inspector
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Policy Learning via Doubly Robust Empirical Welfare Maximization over Trees
+Summary:          Validation of Arguments and Objects in User-Defined Functions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-grf >= 1.1.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-grf >= 1.1.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Learn optimal policies via doubly robust empirical welfare maximization
-over trees. This package implements the multi-action doubly robust
-approach of Zhou, Athey and Wager (2018) <arXiv:1810.04778> in the case
-where we want to learn policies that belong to the class of depth k
-decision trees.
+Utility functions that implement and automate common sets of validation
+tasks. These functions are particularly useful to validate inputs,
+intermediate objects and output values in user-defined functions,
+resulting in tidier and less verbose functions.
 
 %prep
 %setup -q -c -n %{packname}

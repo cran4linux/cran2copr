@@ -1,33 +1,33 @@
-%global packname  preference
-%global packver   1.1.6
+%global packname  dsmisc
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          2-Stage Preference Trial Design and Analysis
+Summary:          Data Science Box of Pandora Miscellaneous
 
-License:          LGPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-stringr 
 
 %description
-Design and analyze two-stage randomized trials with a continuous outcome
-measure. The package contains functions to compute the required sample
-size needed to detect a given preference, treatment, and selection effect;
-alternatively, the package contains functions that can report the study
-power given a fixed sample size. Finally, analysis functions are provided
-to test each effect using either summary data (i.e. means, variances) or
-raw study data <doi:10.18637/jss.v094.c02>.
+Tool collection for common and not so common data science use cases. This
+includes custom made algorithms for data management as well as value
+calculations that are hard to find elsewhere because of their specificity
+but would be a waste to get lost nonetheless. Currently available
+functionality: find sub-graphs in an edge list data.frame, find mode or
+modes in a vector of values, extract (a) specific regular expression
+group(s), generate ISO time stamps that play well with file names, or
+generate URL parameter lists by expanding value combinations.
 
 %prep
 %setup -q -c -n %{packname}
