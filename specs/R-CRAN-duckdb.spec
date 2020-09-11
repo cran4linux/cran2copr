@@ -1,32 +1,30 @@
-%global packname  stressaddition
-%global packver   3.0.2
+%global packname  duckdb
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Tri-Phasic Concentration-Response Relationships
+Summary:          DBI Package for the DuckDB Database Management System
 
-License:          GPL-3
+License:          MPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-drc >= 3.0
-BuildRequires:    R-CRAN-plotrix 
-Requires:         R-CRAN-drc >= 3.0
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-DBI 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-The stress addition approach is an alternative to the traditional
-concentration addition or effect addition models. It allows the modelling
-of tri-phasic concentration-response relationships either as single
-toxicant experiments, in combination with an environmental stressor or as
-mixtures of two toxicants. See Liess et al. (2019)
-<doi:10.1038/s41598-019-51645-4>.
+The DuckDB project is an embedded analytical data management system with
+support for the Structured Query Language (SQL). This package includes all
+of DuckDB and a R Database Interface (DBI) connector.
 
 %prep
 %setup -q -c -n %{packname}

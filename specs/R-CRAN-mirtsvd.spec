@@ -1,32 +1,36 @@
-%global packname  stressaddition
-%global packver   3.0.2
+%global packname  mirtsvd
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Tri-Phasic Concentration-Response Relationships
+Summary:          SVD-Based Estimation for Exploratory Item Factor Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-drc >= 3.0
-BuildRequires:    R-CRAN-plotrix 
-Requires:         R-CRAN-drc >= 3.0
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-CRAN-GPArotation 
+BuildRequires:    R-CRAN-mirtjml 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-GPArotation 
+Requires:         R-CRAN-mirtjml 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-The stress addition approach is an alternative to the traditional
-concentration addition or effect addition models. It allows the modelling
-of tri-phasic concentration-response relationships either as single
-toxicant experiments, in combination with an environmental stressor or as
-mixtures of two toxicants. See Liess et al. (2019)
-<doi:10.1038/s41598-019-51645-4>.
+Provides singular value decomposition based estimation algorithms for
+exploratory item factor analysis (IFA) based on multidimensional item
+response theory models. For more information, please refer to: Zhang, H.,
+Chen, Y., & Li, X. (2020). A note on exploratory item factor analysis by
+singular value decomposition. Psychometrika, 1-15,
+<DOI:10.1007/s11336-020-09704-7>.
 
 %prep
 %setup -q -c -n %{packname}

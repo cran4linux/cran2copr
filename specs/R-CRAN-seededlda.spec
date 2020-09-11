@@ -1,34 +1,36 @@
-%global packname  DRIP
-%global packver   1.5
+%global packname  seededlda
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discontinuous Regression and Image Processing
+Summary:          Seeded-LDA for Topic Modeling
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel >= 1.12
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-readbitmap 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-parallel 
-Requires:         R-CRAN-readbitmap 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
+BuildRequires:    R-CRAN-quanteda > 2.0
+BuildRequires:    R-methods 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+Requires:         R-CRAN-quanteda > 2.0
+Requires:         R-methods 
+Requires:         R-Matrix 
 
 %description
-This is a collection of functions for discontinuous regression analysis
-and image processing (DRIP). A recent addition is the blind image
-deblurring via jump-preserving extrapolation. This version removes the
-dependence on the GNU Scientific Library.
+Implements the seeded-LDA model (Lu, Ott, Cardie & Tsou 2010)
+<doi:10.1109/ICDMW.2011.125> using the quanteda package and the GibbsLDA++
+library for semisupervised topic modeling. Seeded-LDA allows users to
+pre-define topics with keywords to perform theory-driven analysis of
+textual data in social sciences and humanities (Watanabe & Zhou 2020)
+<doi:10.1177/0894439320907027>.
 
 %prep
 %setup -q -c -n %{packname}

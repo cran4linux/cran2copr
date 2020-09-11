@@ -1,10 +1,10 @@
 %global packname  hadron
-%global packver   3.1.0
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
-Release:          1%{?dist}
+Version:          3.1.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis Framework for Monte Carlo Simulation Data in Physics
 
 License:          GPL-3
@@ -17,13 +17,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-abind 
 Requires:         R-boot 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-stringr 
 
 %description

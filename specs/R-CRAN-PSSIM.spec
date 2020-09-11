@@ -1,32 +1,33 @@
-%global packname  stressaddition
-%global packver   3.0.2
+%global packname  PSSIM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Tri-Phasic Concentration-Response Relationships
+Summary:          Test of Independence & Image Structural Similarity Measure PSSIM
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-drc >= 3.0
-BuildRequires:    R-CRAN-plotrix 
-Requires:         R-CRAN-drc >= 3.0
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+Requires:         R-stats 
+Requires:         R-parallel 
 
 %description
-The stress addition approach is an alternative to the traditional
-concentration addition or effect addition models. It allows the modelling
-of tri-phasic concentration-response relationships either as single
-toxicant experiments, in combination with an environmental stressor or as
-mixtures of two toxicants. See Liess et al. (2019)
-<doi:10.1038/s41598-019-51645-4>.
+Test-based Image structural similarity measure and test of independence.
+This package implements the key functions of two tasks: (1) computing
+image structural similarity measure PSSIM of Wang, Maldonado and Silwal
+(2011) <DOI:10.1016/j.csda.2011.04.021>; and (2) test of independence
+between a response and a covariate in presence of heteroscedastic
+treatment effects proposed by Wang, Tolos, and Wang (2010)
+<DOI:10.1002/cjs.10068>.
 
 %prep
 %setup -q -c -n %{packname}

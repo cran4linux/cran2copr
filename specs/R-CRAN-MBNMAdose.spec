@@ -1,11 +1,11 @@
 %global packname  MBNMAdose
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
-Release:          3%{?dist}
-Summary:          Run Dose-Response MBNMA Models
+Version:          0.3.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Dose-Response MBNMA Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,26 +19,34 @@ BuildRequires:    R-CRAN-rjags >= 4.8
 BuildRequires:    R-CRAN-checkmate >= 1.8.5
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-reshape2 >= 1.4.3
+BuildRequires:    R-CRAN-igraph >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-R2jags >= 0.5.7
+BuildRequires:    R-CRAN-rgeos >= 0.5.2
 BuildRequires:    R-CRAN-Rdpack >= 0.11.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-utf8 
+BuildRequires:    R-CRAN-formatR 
 Requires:         R-CRAN-rjags >= 4.8
 Requires:         R-CRAN-checkmate >= 1.8.5
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-reshape2 >= 1.4.3
+Requires:         R-CRAN-igraph >= 1.1.2
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-R2jags >= 0.5.7
+Requires:         R-CRAN-rgeos >= 0.5.2
 Requires:         R-CRAN-Rdpack >= 0.11.0
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-utf8 
+Requires:         R-CRAN-formatR 
 
 %description
 Fits Bayesian dose-response model-based network meta-analysis (MBNMA) that
@@ -57,6 +65,8 @@ by node-splitting at the treatment level.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -64,20 +74,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/REFERENCES.bib
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

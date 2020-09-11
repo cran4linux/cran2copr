@@ -1,10 +1,10 @@
 %global packname  CCAMLRGIS
-%global packver   3.0.5
+%global packver   3.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.5
-Release:          1%{?dist}
+Version:          3.0.6
+Release:          1%{?dist}%{?buildtag}
 Summary:          Antarctic Spatial Data Manipulation
 
 License:          GPL-3

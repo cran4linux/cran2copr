@@ -1,9 +1,9 @@
 %global packname  Require
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Installing and Loading R Packages for Reproducible Workflows
 
@@ -30,7 +30,7 @@ A single key function, 'Require' that wraps 'install.packages',
 'base::require' that allows for reproducible workflows. As with other
 functions in a reproducible workflow, this package emphasizes functions
 that return the same result whether it is the first or subsequent times
-running the function.
+running the function. Maturing.
 
 %prep
 %setup -q -c -n %{packname}
