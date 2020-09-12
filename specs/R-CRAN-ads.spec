@@ -1,29 +1,34 @@
-%global packname  Copula.surv
-%global packver   1.1
+%global packname  ads
+%global packver   1.5-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Association Analysis of Bivariate Survival Data Based on Copulas
+Summary:          Spatial Point Patterns Analysis
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-ade4 
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.utils 
+BuildRequires:    R-CRAN-spatstat.data 
+Requires:         R-CRAN-ade4 
+Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.utils 
+Requires:         R-CRAN-spatstat.data 
 
 %description
-Perform association analysis of bivariate survival data based on copula
-models. Two different ways to estimate the association parameter in copula
-models are implemented. A goodness-of-fit test for a given copula model is
-implemented. See Emura, Lin and Wang (2010)
-<doi:10.1016/j.csda.2010.03.013> for details. A more general reference for
-the copula-based analysis of bivariate survival data is Emura, Matsui, and
-Rondeau (2019) <doi:10.1007/978-981-13-3516-7>.
+Perform first- and second-order multi-scale analyses derived from Ripley
+K-function (Ripley B. D. (1977) <doi:10.1111/j.2517-6161.1977.tb01615.x>),
+for univariate, multivariate and marked mapped data in rectangular,
+circular or irregular shaped sampling windows, with tests of statistical
+significance based on Monte Carlo simulations.
 
 %prep
 %setup -q -c -n %{packname}

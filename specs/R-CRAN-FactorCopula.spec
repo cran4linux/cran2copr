@@ -1,29 +1,33 @@
-%global packname  Pareto
-%global packver   2.2.1
+%global packname  FactorCopula
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Pareto, Piecewise Pareto and Generalized Pareto Distribution
+Summary:          Factor Copula Models for Mixed Continuous and Discrete Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-polycor 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-abind 
+Requires:         R-utils 
+Requires:         R-CRAN-polycor 
 
 %description
-Utilities for the Pareto, piecewise Pareto and generalized Pareto
-distribution that are useful for reinsurance pricing. In particular, the
-package provides a non-trivial algorithm that can be used to match the
-expected losses of a tower of reinsurance layers with a layer-independent
-collective risk model. The theoretical background of the matching
-algorithm and most other methods are described in Ulrich Riegel (2018)
-<doi:10.1007/s13385-018-0177-3>.
+Estimation, model selection and goodness-of-fit of factor copula models
+for mixed continuous and discrete data in Kadhem and Nikoloulopoulos
+(2019) <arXiv:1907.07395>.
 
 %prep
 %setup -q -c -n %{packname}

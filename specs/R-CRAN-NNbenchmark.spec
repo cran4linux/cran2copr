@@ -1,29 +1,32 @@
-%global packname  Pareto
-%global packver   2.2.1
+%global packname  NNbenchmark
+%global packver   3.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          3.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Pareto, Piecewise Pareto and Generalized Pareto Distribution
+Summary:          Datasets and Functions to Benchmark Neural Network Packages
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-pkgload 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-pkgload 
 
 %description
-Utilities for the Pareto, piecewise Pareto and generalized Pareto
-distribution that are useful for reinsurance pricing. In particular, the
-package provides a non-trivial algorithm that can be used to match the
-expected losses of a tower of reinsurance layers with a layer-independent
-collective risk model. The theoretical background of the matching
-algorithm and most other methods are described in Ulrich Riegel (2018)
-<doi:10.1007/s13385-018-0177-3>.
+Datasets and functions to benchmark (convergence, speed, ease of use) R
+packages dedicated to regression with neural networks (no classification
+in this version). The templates for the tested packages are available in
+the format of R, R Markdown and HTML files at
+<https://github.com/pkR-pkR/NNbenchmarkTemplates> and
+<https://akshajverma.com/NNbenchmarkWeb/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

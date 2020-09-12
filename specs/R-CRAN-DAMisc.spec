@@ -1,10 +1,10 @@
 %global packname  DAMisc
-%global packver   1.5.4
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
-Release:          3%{?dist}
+Version:          1.6.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Dave Armstrong's Miscellaneous Functions
 
 License:          GPL (>= 2)
@@ -20,7 +20,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-effects 
 BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-MASS 
 BuildRequires:    R-nnet 
@@ -34,12 +34,23 @@ BuildRequires:    R-CRAN-latticeExtra
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-clarkeTest 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-jtools 
+BuildRequires:    R-CRAN-DT 
 Requires:         R-lattice 
 Requires:         R-grid 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-effects 
 Requires:         R-CRAN-rstan 
-Requires:         R-CRAN-gdata 
+Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-MASS 
 Requires:         R-nnet 
@@ -53,6 +64,17 @@ Requires:         R-CRAN-latticeExtra
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-clarkeTest 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-jtools 
+Requires:         R-CRAN-DT 
 
 %description
 Miscellaneous set of functions I use in my teaching either at the
@@ -68,6 +90,8 @@ both LMs and binary GLMs.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -75,17 +99,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

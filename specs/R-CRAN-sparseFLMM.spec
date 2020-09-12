@@ -1,29 +1,38 @@
-%global packname  Pareto
-%global packver   2.2.1
+%global packname  sparseFLMM
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Pareto, Piecewise Pareto and Generalized Pareto Distribution
+Summary:          Functional Linear Mixed Models for Irregularly or Sparsely Sampled Data
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-mgcv >= 1.8.12
+BuildRequires:    R-CRAN-refund >= 0.1.22
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-MASS 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-mgcv >= 1.8.12
+Requires:         R-CRAN-refund >= 0.1.22
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-MASS 
+Requires:         R-Matrix 
+Requires:         R-CRAN-data.table 
 
 %description
-Utilities for the Pareto, piecewise Pareto and generalized Pareto
-distribution that are useful for reinsurance pricing. In particular, the
-package provides a non-trivial algorithm that can be used to match the
-expected losses of a tower of reinsurance layers with a layer-independent
-collective risk model. The theoretical background of the matching
-algorithm and most other methods are described in Ulrich Riegel (2018)
-<doi:10.1007/s13385-018-0177-3>.
+Estimation of functional linear mixed models for irregularly or sparsely
+sampled data based on functional principal component analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  actel
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
-Release:          1%{?dist}
+Version:          1.1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Acoustic Telemetry Data Analysis
 
 License:          GPL-3
@@ -55,14 +55,14 @@ Requires:         R-grDevices
 Requires:         R-utils 
 
 %description
-Designed for studies where fish tagged with acoustic tags are expected to
-move through receiver arrays. This package combines the advantages of
-automatic sorting and checking of fish movements with the possibility for
-user intervention on tags that deviate from expected behaviour. The three
-analysis functions (explore(), migration() and residency()) allow the
-users to analyse their data in a systematic way, making it easy to compare
-results from different studies. CJS calculations are based on Perry et al.
-(2012)
+Designed for studies where animals tagged with acoustic tags are expected
+to move through receiver arrays. This package combines the advantages of
+automatic sorting and checking of animal movements with the possibility
+for user intervention on tags that deviate from expected behaviour. The
+three analysis functions (explore(), migration() and residency()) allow
+the users to analyse their data in a systematic way, making it easy to
+compare results from different studies. CJS calculations are based on
+Perry et al. (2012)
 <https://www.researchgate.net/publication/256443823_Using_mark-recapture_models_to_estimate_survival_from_telemetry_data>.
 
 %prep

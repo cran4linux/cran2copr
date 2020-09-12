@@ -1,10 +1,10 @@
 %global packname  fmtr
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
-Release:          1%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Apply Formats to Data
 
 License:          CC0
@@ -16,7 +16,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-stats 
 
 %description
 Contains a set of functions that can be used to apply formats to data

@@ -1,46 +1,52 @@
-%global packname  eurlex
-%global packver   0.3.1
+%global packname  tidyseurat
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data on European Union Law
+Summary:          Brings Seurat to the Tidyverse
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-antiword 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Seurat 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-antiword 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Access to data on European Union laws and court decisions made easy with
-pre-defined 'SPARQL' queries and 'GET' requests.
+It creates an invisible layer that allow to see the 'Seurat' object as
+tibble and interact seamlessly with the tidyverse.
 
 %prep
 %setup -q -c -n %{packname}

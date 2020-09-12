@@ -1,29 +1,33 @@
-%global packname  gpindex
-%global packver   0.2.0
+%global packname  tsrobprep
+%global packver   0.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Price and Quantity Indexes
+Summary:          Robust Preprocessing of Time Series Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-Matrix 
+Requires:         R-CRAN-quantreg 
 
 %description
-A small package for calculating lots of different price indexes, and by
-extension quantity indexes. Provides tools to build and work with any type
-of generalized bilateral index (of which most price indexes are), along
-with a few important indexes that don't belong to the generalized family.
-Implements and extends many of the methods in Balk (2008,
-ISBN:978-1-107-40496-0) and ILO, IMF, OECD, Eurostat, UN, and World Bank
-(2004, ISBN:92-2-113699-X) for bilateral price indexes.
+Methods for handling the missing values outliers are introduced in this
+package. The recognized missing values and outliers are replaced using a
+model-based approach. The model may consist of both autoregressive
+components and external regressors. The methods work robust and efficient,
+and they are fully tunable. The primary motivation for writing the package
+was preprocessing of the energy systems data, e.g. power plant production
+time series, but the package could be used with any time series data.
 
 %prep
 %setup -q -c -n %{packname}
