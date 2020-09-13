@@ -59,6 +59,7 @@ local({
 EOF
 
 %files
+# main
 %dir %{rlibdir}/%{packname}
 %doc %{rlibdir}/%{packname}/html
 %doc %{rlibdir}/%{packname}/NEWS.md
@@ -69,6 +70,7 @@ EOF
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/help
+# python service
 %dir %{rlibdir}/%{packname}/service
 %config %{rlibdir}/%{packname}/service/%{projname}.excl
 %config %{rlibdir}/%{packname}/service/%{projname}.pref
@@ -76,8 +78,14 @@ EOF
 %config %{rlibdir}/%{packname}/service/nodiscover
 %{rlibdir}/%{packname}/service/%{packname}.py
 %{rlibdir}/%{packname}/service/backend
+# dbus files
+%dir %{_datadir}/dbus-1
+%dir %{_datadir}/dbus-1/system-services
 %{_datadir}/dbus-1/system-services/org.fedoraproject.cran2copr1.service
+%dir %{_sysconfdir}/dbus-1
+%dir %{_sysconfdir}/dbus-1/system.d
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/org.fedoraproject.cran2copr1.conf
+# Rprofile
 %config(noreplace) %{_libdir}/R/etc/Rprofile.site
 %dir %{_libdir}/R/etc/Rprofile.site.d
 %config(noreplace) %{_libdir}/R/etc/Rprofile.site.d/50-%{packname}.site
