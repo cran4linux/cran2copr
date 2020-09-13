@@ -1,11 +1,11 @@
 %global packname  SpaDES.core
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Core Utilities for Developing and Running Spatially ExplicitDiscrete Event Models
+Summary:          Core Utilities for Developing and Running Spatially Explicit Discrete Event Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-backports
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-fastdigest 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-tcltk 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-backports
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-fastdigest 
 Requires:         R-methods 
-Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-tcltk 

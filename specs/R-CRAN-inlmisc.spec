@@ -1,10 +1,10 @@
 %global packname  inlmisc
-%global packver   0.5.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
-Release:          1%{?dist}
+Version:          0.5.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for the USGS INL Project Office
 
 License:          CC0
@@ -35,6 +35,8 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tinytex 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-webshot 
+BuildRequires:    R-CRAN-wordcloud2 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-checkmate 
@@ -58,6 +60,8 @@ Requires:         R-CRAN-sp
 Requires:         R-stats 
 Requires:         R-CRAN-tinytex 
 Requires:         R-tools 
+Requires:         R-CRAN-webshot 
+Requires:         R-CRAN-wordcloud2 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-yaml 
 

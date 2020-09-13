@@ -1,11 +1,11 @@
 %global packname  poismf
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Factorization of Sparse Counts Matrices Through PoissonLikelihood
+Summary:          Factorization of Sparse Counts Matrices Through Poisson Likelihood
 
 License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

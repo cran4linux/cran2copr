@@ -1,9 +1,9 @@
 %global packname  simplextree
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides Tools for Working with General Simplicial Complexes
 
@@ -23,8 +23,8 @@ Requires:         R-CRAN-magrittr
 
 %description
 Provides an interface to a Simplex Tree data structure, which is a data
-structure aimed at enabling efficient manipulation of 'simplicial'
-complexes of any dimension. The Simplex Tree data structure was originally
+structure aimed at enabling efficient manipulation of simplicial complexes
+of any dimension. The Simplex Tree data structure was originally
 introduced by Jean-Daniel Boissonnat and Clément Maria (2014)
 <doi:10.1007/s00453-014-9887-3>.
 

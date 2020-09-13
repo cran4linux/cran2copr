@@ -1,11 +1,11 @@
 %global packname  marqLevAlg
-%global packver   2.0.2
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
-Release:          3%{?dist}
-Summary:          A Parallelized General-Purpose Optimization Based onMarquardt-Levenberg Algorithm
+Version:          2.0.4
+Release:          1%{?dist}%{?buildtag}
+Summary:          A Parallelized General-Purpose Optimization Based on Marquardt-Levenberg Algorithm
 
 License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,12 +25,15 @@ This algorithm provides a numerical solution to the problem of minimizing
 and more efficient than the Gauss-Newton-like algorithm when starting from
 points very far from the final minimum (or maximum). Each iteration is
 parallelized and convergence relies on a stringent stopping criterion
-based on the first and second derivatives.
+based on the first and second derivatives. See Philipps et al, 2020
+<arXiv:2009.03840>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -38,18 +41,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

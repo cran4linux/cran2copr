@@ -1,10 +1,10 @@
 %global packname  DetLifeInsurance
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
-Release:          1%{?dist}
+Version:          0.1.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Life Insurance Premium and Reserves Valuation
 
 License:          GPL-3
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
 Methods for valuation of life insurance premiums and reserves (including

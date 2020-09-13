@@ -1,9 +1,9 @@
 %global packname  pairwiseComparisons
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Pairwise Comparison Tests
 
@@ -15,32 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ipmisc >= 3.0.1
-BuildRequires:    R-CRAN-WRS2 >= 1.1.0
 BuildRequires:    R-CRAN-tidyBF >= 0.2.1
 BuildRequires:    R-CRAN-broomExtra 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dunn.test 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ipmisc 
 BuildRequires:    R-CRAN-PMCMRplus 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ipmisc >= 3.0.1
-Requires:         R-CRAN-WRS2 >= 1.1.0
+BuildRequires:    R-CRAN-WRS2 
 Requires:         R-CRAN-tidyBF >= 0.2.1
 Requires:         R-CRAN-broomExtra 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dunn.test 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ipmisc 
 Requires:         R-CRAN-PMCMRplus 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-WRS2 
 
 %description
 Multiple pairwise comparison tests on tidy data for one-way analysis of

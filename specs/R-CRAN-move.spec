@@ -1,10 +1,10 @@
 %global packname  move
-%global packver   4.0.2
+%global packver   4.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
-Release:          2%{?dist}
+Version:          4.0.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing and Analyzing Animal Track Data
 
 License:          GPL (>= 3)

@@ -1,10 +1,10 @@
 %global packname  plot3logit
-%global packver   2.2.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
-Release:          1%{?dist}
+Version:          3.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Ternary Plots for Trinomial Regression Models
 
 License:          GPL (>= 2)
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 

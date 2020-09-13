@@ -1,10 +1,10 @@
 %global packname  nombre
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          1%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Number Names
 
 License:          MIT + file LICENSE
@@ -15,6 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fracture >= 0.1.2
+BuildRequires:    R-CRAN-pkgconfig 
+Requires:         R-CRAN-fracture >= 0.1.2
+Requires:         R-CRAN-pkgconfig 
 
 %description
 Converts numeric vectors to character vectors of English number names.
