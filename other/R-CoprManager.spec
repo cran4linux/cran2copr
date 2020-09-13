@@ -4,7 +4,7 @@
 
 Name:           R-%{packname}
 Version:        0.3.5
-Release:        1%{?dist}%{?buildtag}
+Release:        2%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
@@ -12,7 +12,8 @@ URL:            https://github.com/Enchufa2/%{projname}
 Source0:        %{url}/archive/v%{version}/%{projname}_%{version}.tar.gz
 
 BuildRequires:  R-devel, python3-devel
-Requires:       systemd, python3-dbus, python3-gobject, python3-dnf
+Requires:       python3-dnf
+Recommends:     systemd, python3-dbus, python3-gobject
 BuildArch:      noarch
 
 %description
