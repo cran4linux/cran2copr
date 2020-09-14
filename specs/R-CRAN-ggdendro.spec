@@ -1,10 +1,10 @@
 %global packname  ggdendro
-%global packver   0.1.21
+%global packver   0.1.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.21
-Release:          1%{?dist}
+Version:          0.1.22
+Release:          1%{?dist}%{?buildtag}
 Summary:          Create Dendrograms and Tree Diagrams Using 'ggplot2'
 
 License:          GPL-2 | GPL-3

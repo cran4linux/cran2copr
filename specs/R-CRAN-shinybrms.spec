@@ -1,13 +1,13 @@
 %global packname  shinybrms
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
-Release:          1%{?dist}
+Version:          1.4.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical User Interface ('Shiny' App) for Package 'brms'
 
-License:          GPL-3
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

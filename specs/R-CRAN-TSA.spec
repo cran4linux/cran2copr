@@ -1,37 +1,33 @@
-%global packname  dalmatian
-%global packver   0.6.1
+%global packname  TSA
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automating the Fitting of Double Linear Mixed Models in 'JAGS' and 'nimble'
+Summary:          Time Series Analysis
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.5.1
+Requires:         R-core >= 2.5.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ggmcmc 
-BuildRequires:    R-CRAN-dglm 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ggmcmc 
-Requires:         R-CRAN-dglm 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-leaps 
+BuildRequires:    R-CRAN-locfit 
+BuildRequires:    R-mgcv 
+BuildRequires:    R-CRAN-tseries 
+Requires:         R-CRAN-leaps 
+Requires:         R-CRAN-locfit 
+Requires:         R-mgcv 
+Requires:         R-CRAN-tseries 
 
 %description
-Automates fitting of double GLM in 'JAGS'. Includes automatic generation
-of 'JAGS' scripts, running 'JAGS' or 'nimble' via the 'rjags' and 'nimble'
-package, and summarizing the resulting output.
+Contains R functions and datasets detailed in the book "Time Series
+Analysis with Applications in R (second edition)" by Jonathan Cryer and
+Kung-Sik Chan.
 
 %prep
 %setup -q -c -n %{packname}

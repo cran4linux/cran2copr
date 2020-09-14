@@ -1,10 +1,10 @@
 %global packname  starschemar
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          1%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Obtaining Star Schemas from Flat Tables
 
 License:          MIT + file LICENSE
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-pander 
+Requires:         R-CRAN-generics 
 
 %description
 Data in multidimensional systems is obtained from operational systems and
@@ -46,8 +48,8 @@ transformation for end users. With the tools mentioned, this
 transformation can be carried out, but it requires a lot of work. The main
 objective this package is to define transformations that allow obtaining
 star schemas from flat tables easily. In addition, it includes basic data
-cleaning operations and incremental data refresh operations, adapted to
-this context.
+cleaning, dimension enrichment, incremental data refresh and query
+operations, adapted to this context.
 
 %prep
 %setup -q -c -n %{packname}

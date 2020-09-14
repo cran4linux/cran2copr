@@ -1,35 +1,32 @@
-%global packname  reactable
-%global packver   0.2.2
+%global packname  MALDIrppa
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Data Tables Based on 'React Table'
+Summary:          MALDI Mass Spectrometry Data Robust Pre-Processing and Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-reactR 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-reactR 
+BuildRequires:    R-devel >= 3.2.5
+Requires:         R-core >= 3.2.5
+BuildRequires:    R-CRAN-MALDIquant 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-lattice 
+Requires:         R-CRAN-MALDIquant 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-robustbase 
+Requires:         R-lattice 
 
 %description
-Interactive data tables for R, based on the 'React Table' JavaScript
-library. Provides an HTML widget that can be used in 'R Markdown'
-documents and 'Shiny' applications, or viewed from an R console.
+Provides methods for quality control and robust pre-processing and
+analysis of MALDI mass spectrometry data (Palarea-Albaladejo et al. (2018)
+<doi:10.1093/bioinformatics/btx628>).
 
 %prep
 %setup -q -c -n %{packname}

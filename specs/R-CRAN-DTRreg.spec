@@ -1,11 +1,11 @@
 %global packname  DTRreg
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
-Release:          1%{?dist}
-Summary:          DTR Estimation and Inference via G-Estimation, Dynamic WOLS,Q-Learning, and Dynamic Weighted Survival Modeling (DWSurv)
+Version:          1.7
+Release:          1%{?dist}%{?buildtag}
+Summary:          DTR Estimation and Inference via G-Estimation, Dynamic WOLS, Q-Learning, and Dynamic Weighted Survival Modeling (DWSurv)
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}

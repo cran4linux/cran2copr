@@ -1,10 +1,10 @@
 %global packname  ubiquity
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
-Release:          2%{?dist}
+Version:          1.0.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          PKPD, PBPK, and Systems Pharmacology Modeling Tools
 
 License:          BSD_2_clause + file LICENSE
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-officer >= 0.3.7
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-digest 
@@ -23,19 +24,20 @@ BuildRequires:    R-CRAN-flextable
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gdata 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-PKNCA 
 BuildRequires:    R-CRAN-pso 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-officer >= 0.3.7
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-digest 
@@ -44,13 +46,13 @@ Requires:         R-CRAN-flextable
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-grid 
-Requires:         R-CRAN-gdata 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-knitr 
 Requires:         R-MASS 
 Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-PKNCA 
 Requires:         R-CRAN-pso 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-rstudioapi 

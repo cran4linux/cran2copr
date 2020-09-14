@@ -1,10 +1,10 @@
 %global packname  mlr3
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
-Release:          1%{?dist}
+Version:          0.6.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning in R - Next Generation
 
 License:          LGPL-3
@@ -19,7 +19,7 @@ BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-future.apply >= 1.5.0
 BuildRequires:    R-CRAN-data.table >= 1.12.8
-BuildRequires:    R-CRAN-mlr3misc >= 0.4.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
 BuildRequires:    R-CRAN-paradox >= 0.4.0
 BuildRequires:    R-CRAN-lgr >= 0.3.4
 BuildRequires:    R-CRAN-mlr3measures >= 0.1.3
@@ -31,7 +31,7 @@ Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-future.apply >= 1.5.0
 Requires:         R-CRAN-data.table >= 1.12.8
-Requires:         R-CRAN-mlr3misc >= 0.4.0
+Requires:         R-CRAN-mlr3misc >= 0.5.0
 Requires:         R-CRAN-paradox >= 0.4.0
 Requires:         R-CRAN-lgr >= 0.3.4
 Requires:         R-CRAN-mlr3measures >= 0.1.3

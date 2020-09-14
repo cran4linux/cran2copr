@@ -1,11 +1,11 @@
 %global packname  see
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
-Release:          1%{?dist}
-Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themesand Color Palettes for 'ggplot2'
+Version:          0.6.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themes and Color Palettes for 'ggplot2'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

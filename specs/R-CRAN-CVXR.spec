@@ -1,10 +1,10 @@
 %global packname  CVXR
-%global packver   1.0-1
+%global packver   1.0-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
-Release:          3%{?dist}
+Version:          1.0.8
+Release:          1%{?dist}%{?buildtag}
 Summary:          Disciplined Convex Optimization
 
 License:          Apache License 2.0 | file LICENSE
@@ -40,15 +40,20 @@ Requires:         R-CRAN-osqp
 
 %description
 An object-oriented modeling language for disciplined convex programming
-(DCP). It allows the user to formulate convex optimization problems in a
-natural way following mathematical convention and DCP rules. The system
-analyzes the problem, verifies its convexity, converts it into a canonical
-form, and hands it off to an appropriate solver to obtain the solution.
+(DCP) as described in Fu, Narasimhan, and Boyd (2020,
+<doi:10.18637/jss.v094.i14>). It allows the user to formulate convex
+optimization problems in a natural way following mathematical convention
+and DCP rules. The system analyzes the problem, verifies its convexity,
+converts it into a canonical form, and hands it off to an appropriate
+solver to obtain the solution. Interfaces to solvers on CRAN and elsewhere
+are provided, both commercial and open source.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -56,24 +61,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/include
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

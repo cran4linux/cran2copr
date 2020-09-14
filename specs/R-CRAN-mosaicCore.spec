@@ -1,9 +1,9 @@
 %global packname  mosaicCore
-%global packver   0.6.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Utilities for Other MOSAIC-Family Packages
 
@@ -17,13 +17,11 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 Requires:         R-MASS 
