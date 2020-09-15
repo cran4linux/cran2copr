@@ -1,10 +1,10 @@
 %global packname  eixport
-%global packver   0.4.7
+%global packver   0.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
-Release:          2%{?dist}
+Version:          0.4.9
+Release:          1%{?dist}%{?buildtag}
 Summary:          Export Emissions to Atmospheric Models
 
 License:          MIT + file LICENSE
@@ -25,6 +25,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-cptcity 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-silicate >= 0.3
 Requires:         R-CRAN-sfheaders >= 0.2.1
 Requires:         R-CRAN-sf 
@@ -35,6 +36,7 @@ Requires:         R-methods
 Requires:         R-CRAN-cptcity 
 Requires:         R-utils 
 Requires:         R-CRAN-tidyr 
+Requires:         R-parallel 
 
 %description
 Emissions are the mass of pollutants released into the atmosphere. Air

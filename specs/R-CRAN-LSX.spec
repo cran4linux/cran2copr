@@ -1,9 +1,9 @@
 %global packname  LSX
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Semantic Scaling
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-irlba
 BuildRequires:    R-CRAN-rsvd 
 BuildRequires:    R-CRAN-rsparse 
 BuildRequires:    R-CRAN-proxyC 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-irlba
 Requires:         R-CRAN-rsvd 
 Requires:         R-CRAN-rsparse 
 Requires:         R-CRAN-proxyC 
-Requires:         R-CRAN-stringi 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 

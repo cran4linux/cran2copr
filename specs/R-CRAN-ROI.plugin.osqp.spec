@@ -1,36 +1,35 @@
-%global packname  patrick
-%global packver   0.0.2
+%global packname  ROI.plugin.osqp
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parameterized Unit Testing
+Summary:          'osqp' Plugin for the 'R' Optimization Infrastructure
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-ROI >= 0.2.5
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-slam 
+BuildRequires:    R-CRAN-osqp 
+BuildRequires:    R-Matrix 
+Requires:         R-CRAN-ROI >= 0.2.5
+Requires:         R-methods 
+Requires:         R-CRAN-slam 
+Requires:         R-CRAN-osqp 
+Requires:         R-Matrix 
 
 %description
-This is an extension of the 'testthat' package that lets you add
-parameters to your unit tests. Parameterized unit tests are often easier
-to read and more reliable, since they follow the DNRY (do not repeat
-yourself) rule.
+Enhances the 'R' Optimization Infrastructure ('ROI') package with the
+quadratic solver 'OSQP'. More information about 'OSQP' can be found at
+<https://osqp.org>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,30 @@
-%global packname  patrick
-%global packver   0.0.2
+%global packname  ripserr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parameterized Unit Testing
+Summary:          Calculate Persistent Homology with Ripser-Based Engines
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-methods >= 3.0
+BuildRequires:    R-stats >= 3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0
+Requires:         R-methods >= 3.0
+Requires:         R-stats >= 3.0
+Requires:         R-CRAN-Rcpp >= 1.0
 
 %description
-This is an extension of the 'testthat' package that lets you add
-parameters to your unit tests. Parameterized unit tests are often easier
-to read and more reliable, since they follow the DNRY (do not repeat
-yourself) rule.
+Ports the Ripser <arXiv:1908.02518> and Cubical Ripser <arXiv:2005.12692>
+persistent homology calculation engines from C++. Can be used as a rapid
+calculation tool in topological data analysis pipelines.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,31 @@
-%global packname  patrick
-%global packver   0.0.2
+%global packname  GARCHIto
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parameterized Unit Testing
+Summary:          Class of GARCH-Ito Models
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-stats 
 
 %description
-This is an extension of the 'testthat' package that lets you add
-parameters to your unit tests. Parameterized unit tests are often easier
-to read and more reliable, since they follow the DNRY (do not repeat
-yourself) rule.
+Provides functions to estimate model parameters and forecast future
+volatilities using the Unified GARCH-Ito [Kim and Wang (2016)
+<doi:10.1016/j.jeconom.2016.05.003>] and Realized GARCH-Ito [Song et. al.
+(2020) <doi:10.1016/j.jeconom.2020.07.007>] models. Optimization is done
+using augmented Lagrange multiplier method.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  threshr
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Threshold Selection and Uncertainty for Extreme Value Analysis
 

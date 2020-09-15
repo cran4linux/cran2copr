@@ -1,11 +1,11 @@
 %global packname  bnviewer
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
-Release:          1%{?dist}
-Summary:          Interactive Visualization of Bayesian Networks
+Version:          0.1.6
+Release:          1%{?dist}%{?buildtag}
+Summary:          Bayesian Networks Interactive Visualization and Explainable Artificial Intelligence
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,11 +20,19 @@ BuildRequires:    R-CRAN-visNetwork >= 2.0.4
 BuildRequires:    R-CRAN-igraph >= 1.2.4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-bnlearn >= 4.3
 Requires:         R-CRAN-visNetwork >= 2.0.4
 Requires:         R-CRAN-igraph >= 1.2.4
 Requires:         R-methods 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-e1071 
+Requires:         R-graphics 
 
 %description
 Bayesian networks provide an intuitive framework for probabilistic

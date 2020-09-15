@@ -1,9 +1,9 @@
 %global packname  calendR
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ready to Print Monthly and Yearly Calendars Made with 'ggplot2'
 
@@ -18,9 +18,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-suncalc 
+BuildRequires:    R-CRAN-ggimage 
+BuildRequires:    R-CRAN-gggibbous 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-suncalc 
+Requires:         R-CRAN-ggimage 
+Requires:         R-CRAN-gggibbous 
 
 %description
 Contains the function calendR() for creating fully customizable monthly

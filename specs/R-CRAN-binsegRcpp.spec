@@ -1,36 +1,28 @@
-%global packname  patrick
-%global packver   0.0.2
+%global packname  binsegRcpp
+%global packver   2020.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          2020.9.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parameterized Unit Testing
+Summary:          Efficient Implementation of Binary Segmentation
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Rcpp 
 
 %description
-This is an extension of the 'testthat' package that lets you add
-parameters to your unit tests. Parameterized unit tests are often easier
-to read and more reliable, since they follow the DNRY (do not repeat
-yourself) rule.
+Standard template library containers are used to implement an efficient
+binary segmentation algorithm, which is log-linear on average and
+quadratic in the worst case.
 
 %prep
 %setup -q -c -n %{packname}
