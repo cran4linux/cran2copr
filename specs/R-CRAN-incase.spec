@@ -1,13 +1,13 @@
-%global packname  jfa
-%global packver   0.3.0
+%global packname  incase
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian and Classical Audit Sampling
+Summary:          Pipe-Friendly Vector Replacement with Case Statements
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plu 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plu 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements the audit sampling workflow as discussed in Derks et al. (2019)
-<doi:10.31234/osf.io/9f6ub>. The package makes it easy for an auditor to
-plan an audit sample, sample from the population, and evaluating that
-sample using various confidence bounds according to the International
-Standards on Auditing. Furthermore, the package implements Bayesian
-equivalents of these methods.
+Offers a pipe-friendly alternative to the 'dplyr' functions case_when()
+and if_else().  These functions accept a vector as an optional first
+argument, allowing conditional statements to be built using the 'magrittr'
+dot operator.  The functions also coerce all possible outputs to the same
+type, meaning you no longer have to worry about using specific typed
+variants of NA or explicitly declaring integer outputs.
 
 %prep
 %setup -q -c -n %{packname}

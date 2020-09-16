@@ -1,33 +1,36 @@
-%global packname  agtboost
-%global packver   0.9.0
+%global packname  html2R
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive and Automatic Gradient Boosting Computations
+Summary:          Convert 'HTML' to 'R' with a 'Shiny' App
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyAce 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-shinyjqui 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyAce 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-shinyjqui 
+Requires:         R-stats 
 
 %description
-Fast and automatic gradient tree boosting designed to avoid manual tuning
-and cross-validation by utilizing an information theoretic approach. This
-makes the algorithm adaptive to the dataset at hand; it is completely
-automatic, and with minimal worries of overfitting. Consequently, the
-speed-ups relative to state-of-the-art implementations can be in the
-thousands while mathematical and technical knowledge required on the user
-are minimized.
+Provides a 'Shiny' app allowing to convert 'HTML' code to 'R' code (e.g.
+'<span>Hello</span>' to 'tags$span("Hello")'), for usage in a 'Shiny' UI.
 
 %prep
 %setup -q -c -n %{packname}

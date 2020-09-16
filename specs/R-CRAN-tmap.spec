@@ -1,10 +1,10 @@
 %global packname  tmap
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
-Release:          1%{?dist}
+Version:          3.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Thematic Maps
 
 License:          GPL-3
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-widgetframe
 BuildRequires:    R-CRAN-leafsync 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-tmaptools >= 3.1
 Requires:         R-CRAN-leaflet >= 2.0.2
 Requires:         R-CRAN-sf >= 0.9.3
@@ -49,6 +50,7 @@ Requires:         R-CRAN-widgetframe
 Requires:         R-CRAN-leafsync 
 Requires:         R-stats 
 Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
 Thematic maps are geographical maps in which spatial data distributions

@@ -1,11 +1,11 @@
-%global packname  eBsc
-%global packver   4.11
+%global packname  testtwice
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.11
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Empirical Bayes Smoothing Splines with Correlated Errors
+Summary:          Testing One Hypothesis Twice in Observational Studies
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,27 +14,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Brobdingnag 
-BuildRequires:    R-parallel 
-BuildRequires:    R-nlme 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-MASS 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Brobdingnag 
-Requires:         R-parallel 
-Requires:         R-nlme 
-Requires:         R-Matrix 
-Requires:         R-MASS 
-Requires:         R-splines 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Presents a statistical method that uses a recursive algorithm for signal
-extraction. The method handles a non-parametric estimation for the
-correlation of the errors. For details on the methods see: Serra,
-Krivobokova and Rosales (2018) <arXiv:1812.06948>.
+Tests one hypothesis with several test statistics, correcting for multiple
+testing.  The central function in the package is testtwice().  In a
+sensitivity analysis, the method has the largest design sensitivity of its
+component tests.  The package implements the method and examples in
+Rosenbaum, P. R. (2012) <doi:10.1093/biomet/ass032> Testing one hypothesis
+twice in observational studies. Biometrika, 99(4), 763-774.
 
 %prep
 %setup -q -c -n %{packname}

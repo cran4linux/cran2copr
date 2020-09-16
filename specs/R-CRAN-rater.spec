@@ -1,44 +1,43 @@
-%global packname  pcFactorStan
-%global packver   1.5.2
+%global packname  rater
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stan Models for the Paired Comparison Factor Model
+Summary:          Fit Statistical Models of Repeated Categorical Rating Data
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-rstan >= 2.19.2
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstantools >= 2.0.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-rlang > 0.2.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-CRAN-rstan >= 2.19.2
+Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-rlang > 0.2.0
 Requires:         R-methods 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-loo 
-Requires:         R-CRAN-lifecycle 
 
 %description
-Provides convenience functions and pre-programmed Stan models related to
-the paired comparison factor model. Its purpose is to make fitting paired
-comparison data using Stan easy. This package is described in Pritikin
-(2020) <doi:10.1016/j.heliyon.2020.e04821>.
+Fit statistical models based on the Dawid-Skene model - Dawid and Skene
+(1979) <doi:10.2307/2346806> - to repeated categorical rating data. Full
+Bayesian inference for these models is supported through the Stan
+modelling language. 'rater' also allows the user to extract and plot key
+parameters of these models.
 
 %prep
 %setup -q -c -n %{packname}

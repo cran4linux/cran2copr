@@ -1,9 +1,9 @@
 %global packname  readabs
-%global packver   0.4.3.2
+%global packver   0.4.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3.2
+Version:          0.4.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Tidy Time Series Data from the Australian Bureau of Statistics
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-rsdmx
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-hutils >= 1.5.0
@@ -48,7 +47,6 @@ Requires:         R-CRAN-rsdmx
 Requires:         R-tools 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-xml2 
 

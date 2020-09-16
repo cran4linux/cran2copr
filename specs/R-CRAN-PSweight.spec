@@ -1,11 +1,11 @@
 %global packname  PSweight
-%global packver   0.1.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          1%{?dist}
-Summary:          Propensity Score Weighting for Causal Inference
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Propensity Score Weighting for Causal Inference with Observational Studies and Randomized Trials
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,10 +27,13 @@ Requires:         R-CRAN-numDeriv
 %description
 Supports propensity score weighting analysis of observational studies and
 randomized trials. Enables the estimation and inference of average causal
-effects among target populations with binary and multiple treatments using
-the methods developed in Li, Morgan and Zaslavsky (2018)
-<doi:10.1080/01621459.2016.1260466> and Li and Li (2019)
-<doi:10.1214/19-AOAS1282>.
+effects with binary and multiple treatments using overlap weights (ATO),
+inverse probability of treatment weights (ATE), average treatment effect
+among the treated weights (ATT), matching weights (ATM) and entropy
+weights (ATEN), with and without propensity score trimming. These weights
+are members of the family of balancing weights introduced in Li, Morgan
+and Zaslavsky (2018) <doi:10.1080/01621459.2016.1260466> and Li and Li
+(2019) <doi:10.1214/19-AOAS1282>.
 
 %prep
 %setup -q -c -n %{packname}

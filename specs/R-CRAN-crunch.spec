@@ -1,10 +1,10 @@
 %global packname  crunch
-%global packver   1.27.0
+%global packver   1.27.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.27.0
-Release:          1%{?dist}
+Version:          1.27.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Crunch.io Data Tools
 
 License:          LGPL (>= 3)
@@ -31,7 +31,7 @@ Requires:         R-grDevices
 Requires:         R-methods 
 
 %description
-The Crunch.io service <http://crunch.io/> provides a cloud-based data
+The Crunch.io service <https://crunch.io/> provides a cloud-based data
 store and analytic engine, as well as an intuitive web interface. Using
 this package, analysts can interact with and manipulate Crunch datasets
 from within R. Importantly, this allows technical researchers to

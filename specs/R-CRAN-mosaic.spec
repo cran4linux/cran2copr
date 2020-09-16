@@ -1,10 +1,10 @@
 %global packname  mosaic
-%global packver   1.7.0
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
-Release:          3%{?dist}
+Version:          1.8.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Project MOSAIC Statistics and Mathematics Teaching Utilities
 
 License:          GPL (>= 2)
@@ -15,15 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mosaicCore >= 0.5.0
+BuildRequires:    R-CRAN-mosaicCore >= 0.7.0
+BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-lattice >= 0.20.21
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggformula 
 BuildRequires:    R-CRAN-mosaicData 
 BuildRequires:    R-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggstance 
+BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-MASS 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-tidyr 
@@ -37,15 +39,17 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-leaflet 
-Requires:         R-CRAN-mosaicCore >= 0.5.0
+Requires:         R-CRAN-mosaicCore >= 0.7.0
+Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-lattice >= 0.20.21
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggformula 
 Requires:         R-CRAN-mosaicData 
 Requires:         R-Matrix 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggstance 
+Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-rlang 
 Requires:         R-MASS 
 Requires:         R-grid 
 Requires:         R-CRAN-tidyr 
@@ -72,6 +76,8 @@ which are usually taught in isolation, if at all.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -79,24 +85,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/google
-%{rlibdir}/%{packname}/otherdata
-%doc %{rlibdir}/%{packname}/rmarkdown
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,10 +1,10 @@
 %global packname  filesstrings
-%global packver   3.1.5
+%global packver   3.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.5
-Release:          3%{?dist}
+Version:          3.1.6
+Release:          1%{?dist}%{?buildtag}
 Summary:          Handy File and String Manipulation
 
 License:          GPL-3
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-stringi >= 1.3.1
 BuildRequires:    R-CRAN-strex >= 1.1.1
 BuildRequires:    R-CRAN-matrixStats >= 0.50.0
 BuildRequires:    R-CRAN-rlang >= 0.3.3
+BuildRequires:    R-CRAN-vctrs >= 0.2.2
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-withr >= 2.1.0
 Requires:         R-CRAN-tibble >= 2.0.1
@@ -34,20 +35,24 @@ Requires:         R-CRAN-stringi >= 1.3.1
 Requires:         R-CRAN-strex >= 1.1.1
 Requires:         R-CRAN-matrixStats >= 0.50.0
 Requires:         R-CRAN-rlang >= 0.3.3
+Requires:         R-CRAN-vctrs >= 0.2.2
 Requires:         R-CRAN-stringr 
 
 %description
-This started out as a package for file and string manipulation. Since
+This started out as a package for file and string manipulation.  Since
 then, the 'fs' and 'strex' packages emerged, offering functionality
 previously given by this package (but it's done better in these new ones).
 Those packages have hence almost pushed 'filesstrings' into extinction.
 However, it still has a small number of unique, handy file manipulation
-functions which can be seen in the vignette. One example is a function to
+functions which can be seen in the vignette.  One example is a function to
 remove spaces from all file names in a directory.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -57,17 +62,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

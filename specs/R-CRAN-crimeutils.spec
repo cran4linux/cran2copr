@@ -1,45 +1,50 @@
-%global packname  surveydata
-%global packver   0.2.6
+%global packname  crimeutils
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Work with Survey Data
+Summary:          A Comprehensive Set of Functions to Clean, Analyze, and Present Crime Data
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-janitor 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-gt 
+Requires:         R-grDevices 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-assertthat 
+Requires:         R-stats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-janitor 
 
 %description
-Data obtained from surveys contains information not only about the survey
-responses, but also the survey metadata, e.g. the original survey
-questions and the answer options. The 'surveydata' package makes it easy
-to keep track of this metadata, and to easily extract columns with
-specific questions.
+A collection of functions that make it easier to understand crime (or
+other) data, and assist others in understanding it. The package helps you
+read data from various sources, clean it, fix column names, and graph the
+data.
 
 %prep
 %setup -q -c -n %{packname}

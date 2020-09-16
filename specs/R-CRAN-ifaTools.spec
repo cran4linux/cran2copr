@@ -1,10 +1,10 @@
 %global packname  ifaTools
-%global packver   0.21
+%global packver   0.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21
-Release:          3%{?dist}
+Version:          0.22
+Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for Item Factor Analysis with 'OpenMx'
 
 License:          AGPL (>= 3)
@@ -29,11 +29,16 @@ Requires:         R-CRAN-reshape2
 Requires:         R-methods 
 
 %description
-Tools, tutorials, and demos of Item Factor Analysis using 'OpenMx'.
+Tools, tutorials, and demos of Item Factor Analysis using 'OpenMx'. This
+software is described in Pritikin & Falk (2020)
+<doi:10.1177/0146621620929431>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -41,20 +46,9 @@ Tools, tutorials, and demos of Item Factor Analysis using 'OpenMx'.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/example
-%doc %{rlibdir}/%{packname}/itemModelExplorer
-%doc %{rlibdir}/%{packname}/modelBuilder
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

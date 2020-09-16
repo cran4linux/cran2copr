@@ -1,10 +1,10 @@
 %global packname  NST
-%global packver   2.0.4
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
-Release:          3%{?dist}
+Version:          3.0.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Normalized Stochasticity Ratio
 
 License:          GPL-2
@@ -19,10 +19,14 @@ BuildRequires:    R-CRAN-vegan
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-permute 
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-iCAMP 
 Requires:         R-CRAN-vegan 
 Requires:         R-parallel 
 Requires:         R-CRAN-permute 
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-bigmemory 
+Requires:         R-CRAN-iCAMP 
 
 %description
 To estimate ecological stochasticity in community assembly. Understanding
@@ -45,11 +49,16 @@ is a special case of NST, used in some recent or upcoming publications,
 e.g. Liang et al (2019) <doi:10.1101/638908>. SES is calculated as
 described in Kraft et al (2011) <doi:10.1126/science.1208584>. RC is
 calculated as reported by Chase et al (2011) <doi:10.1890/es10-00117.1>
-and Stegen et al (2013) <doi:10.1038/ismej.2013.93>.
+and Stegen et al (2013) <doi:10.1038/ismej.2013.93>. Version 3 added NST
+based on phylogenetic beta diversity, used by Ning et al (2020)
+<doi:10.1101/2020.02.22.960872>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -57,18 +66,9 @@ and Stegen et al (2013) <doi:10.1038/ismej.2013.93>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

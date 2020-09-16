@@ -1,10 +1,10 @@
 %global packname  languageserver
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
-Release:          3%{?dist}
+Version:          0.3.7
+Release:          1%{?dist}%{?buildtag}
 Summary:          Language Server Protocol
 
 License:          MIT + file LICENSE
@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-roxygen2 >= 7.0.0
 BuildRequires:    R-CRAN-callr >= 3.0.0
 BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-lintr >= 2.0.0
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-collections >= 0.3.0
 BuildRequires:    R-parallel 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-roxygen2 >= 7.0.0
 Requires:         R-CRAN-callr >= 3.0.0
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-lintr >= 2.0.0
@@ -49,12 +51,14 @@ Requires:         R-utils
 An implementation of the Language Server Protocol for R. The Language
 Server protocol is used by an editor client to integrate features like
 auto completion. See
-<https://microsoft.github.io/language-server-protocol> for details.
+<https://microsoft.github.io/language-server-protocol/> for details.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -62,20 +66,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/projects
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

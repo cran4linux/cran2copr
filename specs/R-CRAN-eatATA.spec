@@ -1,28 +1,27 @@
-%global packname  jfa
-%global packver   0.3.0
+%global packname  eatATA
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian and Classical Audit Sampling
+Summary:          Create Constraints for Small Test Assembly Problems
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-Matrix 
+Requires:         R-Matrix 
 
 %description
-Implements the audit sampling workflow as discussed in Derks et al. (2019)
-<doi:10.31234/osf.io/9f6ub>. The package makes it easy for an auditor to
-plan an audit sample, sample from the population, and evaluating that
-sample using various confidence bounds according to the International
-Standards on Auditing. Furthermore, the package implements Bayesian
-equivalents of these methods.
+Provides simple functions to create constraints for small test assembly
+problems (e.g. van der Linden (2005, ISBN: 978-0-387-29054-6)) using
+sparse matrices. Currently, only 'Gurobi' is supported as an optimizer.
 
 %prep
 %setup -q -c -n %{packname}

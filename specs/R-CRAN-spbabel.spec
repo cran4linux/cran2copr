@@ -1,10 +1,10 @@
 %global packname  spbabel
-%global packver   0.5.1
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
-Release:          3%{?dist}
+Version:          0.5.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Spatial Data Using Tidy Tables
 
 License:          GPL-3
@@ -40,6 +40,8 @@ to tables of objects, parts, and unique coordinates.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -47,24 +49,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/devignette
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/sf_convert.r
-%doc %{rlibdir}/%{packname}/sf_convert2.r
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

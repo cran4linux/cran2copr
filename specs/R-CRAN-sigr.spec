@@ -1,10 +1,10 @@
 %global packname  sigr
-%global packver   1.0.8
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
-Release:          1%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Succinct and Correct Statistical Summaries for Reports
 
 License:          GPL-2 | GPL-3

@@ -1,9 +1,9 @@
 %global packname  RCarb
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dose Rate Modelling of Carbonate-Rich Samples
 
@@ -12,14 +12,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-interp >= 1.0
-BuildRequires:    R-CRAN-matrixStats >= 0.54.0
+BuildRequires:    R-CRAN-matrixStats >= 0.56.0
 BuildRequires:    R-utils 
 Requires:         R-CRAN-interp >= 1.0
-Requires:         R-CRAN-matrixStats >= 0.54.0
+Requires:         R-CRAN-matrixStats >= 0.56.0
 Requires:         R-utils 
 
 %description
