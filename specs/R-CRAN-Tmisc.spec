@@ -1,9 +1,9 @@
 %global packname  Tmisc
-%global packver   0.1.22
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.22
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Turner Miscellaneous
 
@@ -20,11 +20,15 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-methods 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
 
 %description
 Miscellaneous utility functions for data manipulation, data tidying, and

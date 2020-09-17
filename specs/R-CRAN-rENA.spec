@@ -1,10 +1,10 @@
 %global packname  rENA
-%global packver   0.2.0.1
+%global packver   0.2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0.1
-Release:          3%{?dist}
+Version:          0.2.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Epistemic Network Analysis
 
 License:          GPL-3 | file LICENSE
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-concatenate 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Rcpp 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-doParallel
 Requires:         R-parallel 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-concatenate 
 
 %description
 ENA (Shaffer, D. W. (2017) Quantitative Ethnography. ISBN: 0578191687) is
@@ -47,12 +49,15 @@ connections in coded data. Moreover, compared to other methodological
 approaches, ENA has the novelty of (1) modeling whole networks of
 connections and (2) affording both quantitative and qualitative
 comparisons between different network models.  Shaffer, D.W., Collier, W.,
-& Ruis, A.R. (2016) <doi:10.18608/jla.2016.33.3>.
+& Ruis, A.R. (2016)
+<https://learning-analytics.info/index.php/JLA/article/view/4329>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -60,27 +65,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/_pkgdown.yml
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/include
-%doc %{rlibdir}/%{packname}/rmd
-%doc %{rlibdir}/%{packname}/scripts
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

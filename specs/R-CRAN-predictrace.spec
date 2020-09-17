@@ -1,10 +1,10 @@
 %global packname  predictrace
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
-Release:          1%{?dist}
+Version:          1.2.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Predict the Race of a Given Surname Using Census Data
 
 License:          MIT + file LICENSE

@@ -1,11 +1,11 @@
 %global packname  pdynmc
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
-Release:          1%{?dist}
-Summary:          Moment Condition Based Estimation of Linear Dynamic Panel DataModels
+Version:          0.9.2
+Release:          1%{?dist}%{?buildtag}
+Summary:          Moment Condition Based Estimation of Linear Dynamic Panel Data Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

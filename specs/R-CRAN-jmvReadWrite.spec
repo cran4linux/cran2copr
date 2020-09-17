@@ -1,43 +1,33 @@
-%global packname  SSDforR
-%global packver   1.5.18
+%global packname  jmvReadWrite
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.18
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Analyze Single System Data
+Summary:          Read and Write 'jamovi' Files ('.omv')
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-TTR 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MAd 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-SingleCaseES 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-TTR 
-Requires:         R-MASS 
+Requires:         R-CRAN-rjson 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-CRAN-MAd 
-Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-SingleCaseES 
 
 %description
-Functions to visually and statistically analyze single system data.
+The free and open a statistical spreadsheet 'jamovi' (www.jamovi.org) aims
+to makes statistical analyses easy and intuitive. 'jamovi' produces syntax
+that can directly be used in R (in connection with the R-package 'jmv').
+Having import / export routines for the data files 'jamovi' produces
+('.omv') permits an easy transfer of analyses between 'jamovi' and R.
 
 %prep
 %setup -q -c -n %{packname}

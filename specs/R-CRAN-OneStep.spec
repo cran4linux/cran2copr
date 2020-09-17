@@ -1,11 +1,11 @@
 %global packname  OneStep
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
-Release:          1%{?dist}
-Summary:          One-Step Maximum Likelihood Estimation
+Version:          0.9.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          One-Step Estimation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,7 +24,8 @@ Requires:         R-CRAN-numDeriv
 Provide principally an eponymic function that numerically computes the Le
 Cam one-step estimator which is asymptotically efficient (see e.g. L. Le
 Cam (1956) <https://projecteuclid.org/euclid.bsmsp/1200501652>) and can be
-computed faster than the maximum likelihood estimator.
+computed faster than the maximum likelihood estimator for large
+observation samples.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  KTensorGraphs
-%global packver   1.1
+%global packname  RCGLS
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Tucker3 Analysis of Two Sequences of Matrices
+Summary:          Download and Open Data Provided by the Copernicus Global Land Service
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
 
 %description
-Provides a function called COTUCKER3() (Co-Inertia Analysis + Tucker3
-method) which performs a Co-Tucker3 analysis of two sequences of matrices,
-as well as other functions called PCA() (Principal Component Analysis) and
-BGA() (Between-Groups Analysis), which perform analysis of one matrix,
-COIA() (Co-Inertia Analysis), which performs analysis of two matrices,
-PTA() (Partial Triadic Analysis), STATIS(), STATISDUAL() and TUCKER3(),
-which perform analysis of a sequence of matrices, and BGCOIA()
-(Between-Groups Co-Inertia Analysis), STATICO() (STATIS method +
-Co-Inertia Analysis), COSTATIS() (Co-Inertia Analysis + STATIS method),
-which also perform analysis of two sequences of matrices.
+Download and open manifest files provided by the Copernicus Global Land
+Service data <https://land.copernicus.eu/global/>. The manifest files are
+available at: <https://land.copernicus.vgt.vito.be/manifest/>. Also see:
+<https://land.copernicus.eu/global/access/>. Before you can download the
+data, you will first need to register to create a username and password.
 
 %prep
 %setup -q -c -n %{packname}

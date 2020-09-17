@@ -1,11 +1,11 @@
-%global packname  KTensorGraphs
-%global packver   1.1
+%global packname  grpCox
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Tucker3 Analysis of Two Sequences of Matrices
+Summary:          Penalized Cox Model for High-Dimensional Data with Grouped Predictors
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,19 +14,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-Matrix >= 1.2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-Matrix >= 1.2.10
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-MASS 
+Requires:         R-CRAN-colorspace 
 
 %description
-Provides a function called COTUCKER3() (Co-Inertia Analysis + Tucker3
-method) which performs a Co-Tucker3 analysis of two sequences of matrices,
-as well as other functions called PCA() (Principal Component Analysis) and
-BGA() (Between-Groups Analysis), which perform analysis of one matrix,
-COIA() (Co-Inertia Analysis), which performs analysis of two matrices,
-PTA() (Partial Triadic Analysis), STATIS(), STATISDUAL() and TUCKER3(),
-which perform analysis of a sequence of matrices, and BGCOIA()
-(Between-Groups Co-Inertia Analysis), STATICO() (STATIS method +
-Co-Inertia Analysis), COSTATIS() (Co-Inertia Analysis + STATIS method),
-which also perform analysis of two sequences of matrices.
+Fit the penalized Cox models with both non-overlapping and overlapping
+grouped penalties including the group lasso, group smoothly clipped
+absolute deviation, and group minimax concave penalty. The algorithms
+combine the MM approach and group-wise descent with some computational
+tricks including the screening, active set, and warm-start. Different
+tuning regularization parameter methods are provided.
 
 %prep
 %setup -q -c -n %{packname}
