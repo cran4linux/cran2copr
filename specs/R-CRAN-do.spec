@@ -1,10 +1,10 @@
 %global packname  do
-%global packver   1.4.0.0
+%global packver   1.5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0.0
-Release:          1%{?dist}
+Version:          1.5.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Data Operator
 
 License:          GPL-3
@@ -18,9 +18,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-tmcn 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-tmcn 
+Requires:         R-methods 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-tidyr 
 
 %description
 Flexibly convert data between long and wide format using just two

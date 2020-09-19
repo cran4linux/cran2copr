@@ -1,9 +1,9 @@
 %global packname  hereR
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'sf'-Based Interface to the 'HERE' REST APIs
 
@@ -18,20 +18,20 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 4.3
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.13.0
+BuildRequires:    R-CRAN-data.table >= 1.12.6
 BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-flexpolyline >= 0.1.1
 Requires:         R-CRAN-curl >= 4.3
 Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.13.0
+Requires:         R-CRAN-data.table >= 1.12.6
 Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-flexpolyline >= 0.1.1
 
 %description
 Interface to the 'HERE' REST APIs
 <https://developer.here.com/develop/rest-apis>: (1) geocode and
-autocomplete addresses or reverse geocode POIs using the 'Geocoder' API;
+autosuggest addresses or reverse geocode POIs using the 'Geocoder' API;
 (2) route directions, travel distance or time matrices and isolines using
 the 'Routing' API; (3) request real-time traffic flow and incident
 information from the 'Traffic' API; (4) find request public transport

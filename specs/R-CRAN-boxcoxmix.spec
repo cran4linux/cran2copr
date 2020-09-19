@@ -1,11 +1,11 @@
 %global packname  boxcoxmix
-%global packver   0.21
+%global packver   0.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21
-Release:          3%{?dist}
-Summary:          Box-Cox-Type Transformations for Linear and Logistic Models withRandom Effects
+Version:          0.28
+Release:          1%{?dist}%{?buildtag}
+Summary:          Box-Cox-Type Transformations for Linear and Logistic Models with Random Effects
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,11 +25,15 @@ Requires:         R-CRAN-npmlreg >= 0.46.1
 %description
 Box-Cox-type transformations for linear and logistic models with random
 effects using non-parametric profile maximum likelihood estimation. The
-main functions are optim.boxcox() and boxcoxtype().
+main functions are optim.boxcox() for linear models with random effects
+and boxcoxtype() for logistic models with random effects.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -39,14 +43,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

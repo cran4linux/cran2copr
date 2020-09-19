@@ -1,10 +1,10 @@
 %global packname  ioanalysis
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
-Release:          2%{?dist}
+Version:          0.3.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Input Output Analysis
 
 License:          GPL (>= 2)

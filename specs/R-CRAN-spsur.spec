@@ -1,9 +1,9 @@
 %global packname  spsur
-%global packver   1.0.1.5
+%global packver   1.0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1.5
+Version:          1.0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Seemingly Unrelated Regression Models
 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-car >= 3.0.8
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-gmodels >= 2.18.1
+BuildRequires:    R-CRAN-rmarkdown >= 2.1
+BuildRequires:    R-CRAN-knitr >= 1.28
 BuildRequires:    R-CRAN-minqa >= 1.2.4
 BuildRequires:    R-CRAN-Formula >= 1.2.3
 BuildRequires:    R-Matrix >= 1.2.16
@@ -31,6 +33,7 @@ BuildRequires:    R-CRAN-spdep >= 1.1.3
 BuildRequires:    R-CRAN-lmtest >= 0.9.37
 BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-CRAN-sparseMVN >= 0.2.1.1
+BuildRequires:    R-CRAN-Rdpack >= 0.11.1
 Requires:         R-MASS >= 7.3.51.4
 Requires:         R-methods >= 3.5
 Requires:         R-stats >= 3.5
@@ -39,6 +42,8 @@ Requires:         R-CRAN-car >= 3.0.8
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-gmodels >= 2.18.1
+Requires:         R-CRAN-rmarkdown >= 2.1
+Requires:         R-CRAN-knitr >= 1.28
 Requires:         R-CRAN-minqa >= 1.2.4
 Requires:         R-CRAN-Formula >= 1.2.3
 Requires:         R-Matrix >= 1.2.16
@@ -47,6 +52,7 @@ Requires:         R-CRAN-spdep >= 1.1.3
 Requires:         R-CRAN-lmtest >= 0.9.37
 Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-CRAN-sparseMVN >= 0.2.1.1
+Requires:         R-CRAN-Rdpack >= 0.11.1
 
 %description
 A collection of functions to test and estimate Seemingly Unrelated

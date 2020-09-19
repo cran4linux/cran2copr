@@ -1,9 +1,9 @@
 %global packname  TreeDist
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distances Between Phylogenetic Trees
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-TreeTools >= 1.1.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-phangorn >= 2.2.1
@@ -27,6 +28,7 @@ Requires:         R-CRAN-TreeTools >= 1.1.0
 Requires:         R-stats 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Implements measures of tree similarity, including information-based

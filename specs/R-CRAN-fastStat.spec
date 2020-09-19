@@ -1,10 +1,10 @@
 %global packname  fastStat
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
-Release:          3%{?dist}
+Version:          1.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Faster for Statistic Work
 
 License:          GPL-3
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survC1 
 BuildRequires:    R-CRAN-set 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-do 
@@ -25,6 +26,9 @@ BuildRequires:    R-CRAN-tseries
 BuildRequires:    R-survival 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-PredictABEL 
+BuildRequires:    R-CRAN-survIDINRI 
+Requires:         R-CRAN-survC1 
 Requires:         R-CRAN-set 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-do 
@@ -35,6 +39,8 @@ Requires:         R-CRAN-tseries
 Requires:         R-survival 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-PredictABEL 
+Requires:         R-CRAN-survIDINRI 
 
 %description
 When we do statistic work, we need to see the structure of the data.
@@ -48,6 +54,9 @@ mv_logit() and mv_cox() will carry out multivariable regression analysis.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -55,16 +64,9 @@ mv_logit() and mv_cox() will carry out multivariable regression analysis.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

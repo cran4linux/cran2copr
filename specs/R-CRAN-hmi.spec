@@ -1,10 +1,10 @@
 %global packname  hmi
-%global packver   0.9.19
+%global packver   0.9.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.19
-Release:          1%{?dist}
+Version:          0.9.20
+Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Multiple Imputation
 
 License:          GPL-3

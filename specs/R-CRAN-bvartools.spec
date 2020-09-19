@@ -1,10 +1,10 @@
 %global packname  bvartools
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
-Release:          1%{?dist}
+Version:          0.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference of Vector Autoregressive Models
 
 License:          GPL (>= 2)
@@ -18,23 +18,25 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-CRAN-coda 
 Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-Matrix 
+Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-stats 
 
 %description
 Assists in the set-up of algorithms for Bayesian inference of vector
 autoregressive (VAR) models. Functions for posterior simulation,
 forecasting, impulse response analysis and forecast error variance
-decomposition are largely based on the introductory texts of Koop and
-Korobilis (2010) <doi:10.1561/0800000013> and Luetkepohl (2007, ISBN:
-9783540262398).
+decomposition are largely based on the introductory texts of Chan, Koop,
+Poirier and Tobias (2019, ISBN: 9781108437493), Koop and Korobilis (2010)
+<doi:10.1561/0800000013> and Luetkepohl (2006, ISBN: 9783540262398).
 
 %prep
 %setup -q -c -n %{packname}

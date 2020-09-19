@@ -1,10 +1,10 @@
 %global packname  devtools
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
-Release:          1%{?dist}
+Version:          2.3.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Make Developing R Packages Easier
 
 License:          GPL (>= 2)
@@ -15,50 +15,50 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-roxygen2 >= 7.1.0
-BuildRequires:    R-CRAN-covr >= 3.5.0
-BuildRequires:    R-CRAN-callr >= 3.4.3
+BuildRequires:    R-CRAN-roxygen2 >= 7.1.1
+BuildRequires:    R-CRAN-covr >= 3.5.1
+BuildRequires:    R-CRAN-callr >= 3.4.4
 BuildRequires:    R-CRAN-testthat >= 2.3.2
 BuildRequires:    R-CRAN-remotes >= 2.2.0
-BuildRequires:    R-CRAN-withr >= 2.1.2
+BuildRequires:    R-CRAN-withr >= 2.2.0
 BuildRequires:    R-CRAN-cli >= 2.0.2
-BuildRequires:    R-CRAN-rversions >= 2.0.1
-BuildRequires:    R-CRAN-jsonlite >= 1.6.1
-BuildRequires:    R-CRAN-usethis >= 1.6.0
-BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-rversions >= 2.0.2
+BuildRequires:    R-CRAN-jsonlite >= 1.7.1
+BuildRequires:    R-CRAN-usethis >= 1.6.3
+BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-rcmdcheck >= 1.3.3
 BuildRequires:    R-CRAN-desc >= 1.2.0
 BuildRequires:    R-CRAN-sessioninfo >= 1.1.1
 BuildRequires:    R-CRAN-memoise >= 1.1.0
-BuildRequires:    R-CRAN-pkgbuild >= 1.0.6
-BuildRequires:    R-CRAN-pkgload >= 1.0.2
-BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-ellipsis >= 0.3.0
-BuildRequires:    R-CRAN-DT >= 0.13
+BuildRequires:    R-CRAN-pkgbuild >= 1.1.0
+BuildRequires:    R-CRAN-pkgload >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 0.4.7
+BuildRequires:    R-CRAN-ellipsis >= 0.3.1
+BuildRequires:    R-CRAN-DT >= 0.15
 BuildRequires:    R-CRAN-rstudioapi >= 0.11
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-roxygen2 >= 7.1.0
-Requires:         R-CRAN-covr >= 3.5.0
-Requires:         R-CRAN-callr >= 3.4.3
+Requires:         R-CRAN-roxygen2 >= 7.1.1
+Requires:         R-CRAN-covr >= 3.5.1
+Requires:         R-CRAN-callr >= 3.4.4
 Requires:         R-CRAN-testthat >= 2.3.2
 Requires:         R-CRAN-remotes >= 2.2.0
-Requires:         R-CRAN-withr >= 2.1.2
+Requires:         R-CRAN-withr >= 2.2.0
 Requires:         R-CRAN-cli >= 2.0.2
-Requires:         R-CRAN-rversions >= 2.0.1
-Requires:         R-CRAN-jsonlite >= 1.6.1
-Requires:         R-CRAN-usethis >= 1.6.0
-Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-rversions >= 2.0.2
+Requires:         R-CRAN-jsonlite >= 1.7.1
+Requires:         R-CRAN-usethis >= 1.6.3
+Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-rcmdcheck >= 1.3.3
 Requires:         R-CRAN-desc >= 1.2.0
 Requires:         R-CRAN-sessioninfo >= 1.1.1
 Requires:         R-CRAN-memoise >= 1.1.0
-Requires:         R-CRAN-pkgbuild >= 1.0.6
-Requires:         R-CRAN-pkgload >= 1.0.2
-Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-ellipsis >= 0.3.0
-Requires:         R-CRAN-DT >= 0.13
+Requires:         R-CRAN-pkgbuild >= 1.1.0
+Requires:         R-CRAN-pkgload >= 1.1.0
+Requires:         R-CRAN-rlang >= 0.4.7
+Requires:         R-CRAN-ellipsis >= 0.3.1
+Requires:         R-CRAN-DT >= 0.15
 Requires:         R-CRAN-rstudioapi >= 0.11
 Requires:         R-stats 
 Requires:         R-tools 

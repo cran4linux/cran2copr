@@ -1,13 +1,13 @@
 %global packname  texPreview
-%global packver   1.4.4
+%global packver   1.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
-Release:          3%{?dist}%{?buildtag}
+Version:          1.4.6
+Release:          1%{?dist}%{?buildtag}
 Summary:          Compile and Preview Snippets of 'LaTeX'
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

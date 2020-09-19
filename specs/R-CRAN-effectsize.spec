@@ -1,10 +1,10 @@
 %global packname  effectsize
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
-Release:          1%{?dist}
+Version:          0.3.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Indices of Effect Size and Standardized Parameters
 
 License:          GPL-3
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.9.0
-BuildRequires:    R-CRAN-parameters >= 0.8.2
+BuildRequires:    R-CRAN-insight >= 0.9.5
+BuildRequires:    R-CRAN-parameters >= 0.8.5
 BuildRequires:    R-CRAN-bayestestR >= 0.7.2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.9.0
-Requires:         R-CRAN-parameters >= 0.8.2
+Requires:         R-CRAN-insight >= 0.9.5
+Requires:         R-CRAN-parameters >= 0.8.5
 Requires:         R-CRAN-bayestestR >= 0.7.2
 Requires:         R-stats 
 Requires:         R-utils 

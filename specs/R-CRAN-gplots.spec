@@ -1,10 +1,10 @@
 %global packname  gplots
-%global packver   3.0.4
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
-Release:          2%{?dist}
+Version:          3.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Various R Programming Tools for Plotting Data
 
 License:          GPL-2
@@ -16,12 +16,10 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-gdata 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-KernSmooth 
 Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-gdata 
 Requires:         R-stats 
 Requires:         R-CRAN-caTools 
 Requires:         R-KernSmooth 

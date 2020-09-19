@@ -1,11 +1,11 @@
 %global packname  openssl
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
-Release:          2%{?dist}
-Summary:          Toolkit for Encryption, Signatures and Certificates Based onOpenSSL
+Version:          1.4.3
+Release:          1%{?dist}%{?buildtag}
+Summary:          Toolkit for Encryption, Signatures and Certificates Based on OpenSSL
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

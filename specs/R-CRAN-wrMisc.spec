@@ -1,10 +1,10 @@
 %global packname  wrMisc
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
-Release:          1%{?dist}
+Version:          1.3.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Experimental High-Throughput (Omics) Data
 
 License:          GPL-3
@@ -29,8 +29,8 @@ The efficient treatment and convenient analysis of experimental
 high-throughput (omics) data gets facilitated through this collection of
 diverse functions. Several functions address advanced object-conversions,
 like manipulating lists of lists or lists of arrays, reorganizing lists to
-arrays or into separate vectors, merging of multiple entries, etc.
-Another set of functions provides speed-optimized calculation of standard
+arrays or into separate vectors, merging of multiple entries, etc. Another
+set of functions provides speed-optimized calculation of standard
 deviation (sd), coefficient of variance (CV) or standard error of the mean
 (SEM) for data in matrixes or means per line with respect to additional
 grouping (eg n groups of replicates). Other functions facilitate dealing

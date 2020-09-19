@@ -1,10 +1,10 @@
 %global packname  TBRDist
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
-Release:          1%{?dist}
+Version:          1.0.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Rearrangement Distances Between Unrooted Phylogenetic Trees
 
 License:          GPL (>= 3)
@@ -16,11 +16,13 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-TreeTools >= 1.1.0
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-TreeDist 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-TreeTools >= 1.1.0
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-TreeDist 
 
 %description

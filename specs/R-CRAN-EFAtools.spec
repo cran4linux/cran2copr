@@ -1,11 +1,11 @@
 %global packname  EFAtools
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          1%{?dist}
-Summary:          Fast and Flexible Implementations of Exploratory Factor AnalysisTools
+Version:          0.2.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Fast and Flexible Implementations of Exploratory Factor Analysis Tools
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

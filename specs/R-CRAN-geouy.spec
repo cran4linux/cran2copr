@@ -1,10 +1,10 @@
 %global packname  geouy
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
-Release:          1%{?dist}
+Version:          0.2.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Information of Uruguay
 
 License:          GPL-3
@@ -16,7 +16,6 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-testthat >= 2.1.0
-BuildRequires:    R-CRAN-sf >= 0.9
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,10 +27,10 @@ BuildRequires:    R-CRAN-ggspatial
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-testthat >= 2.1.0
-Requires:         R-CRAN-sf >= 0.9
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-dplyr 
@@ -43,6 +42,7 @@ Requires:         R-CRAN-ggspatial
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-viridis 
 
