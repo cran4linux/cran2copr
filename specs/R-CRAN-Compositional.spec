@@ -1,10 +1,10 @@
 %global packname  Compositional
-%global packver   3.9
+%global packver   4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9
-Release:          2%{?dist}
+Version:          4.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
 License:          GPL (>= 2)
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-codalm 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-emplik 
 BuildRequires:    R-CRAN-FlexDir 
@@ -22,12 +23,14 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-mda 
 BuildRequires:    R-CRAN-mixture 
+BuildRequires:    R-nnet 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-codalm 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-emplik 
 Requires:         R-CRAN-FlexDir 
@@ -35,6 +38,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-MASS 
 Requires:         R-CRAN-mda 
 Requires:         R-CRAN-mixture 
+Requires:         R-nnet 
 Requires:         R-parallel 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-Rfast 
@@ -70,10 +74,10 @@ compositional data with compositional data as predictor variables with or
 without zero values. Journal of Data Science, 17(1): 219--238.
 <doi:10.6339/JDS.201901_17(1).0010>. i) Tsagris M. and Stewart C. (2020).
 A folded model for compositional data analysis. Australian and New Zealand
-Journal of Statistics (to appear). <arXiv:1802.07330>. j) Tsagris M.,
-Alenazi A. and Stewart C. (2020). The alpha-k-NN regression for
-compositional data. <arXiv:2002.05137>. We further include functions for
-percentages (or proportions).
+Journal of Statistics, 62(2):249--277. <doi:10.1111/anzs.12289>. j)
+Tsagris M., Alenazi A. and Stewart C. (2020). The alpha-k-NN regression
+for compositional data. <arXiv:2002.05137>. We further include functions
+for percentages (or proportions).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  diffcor
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fisher's z-Tests Concerning Difference of Correlations
 

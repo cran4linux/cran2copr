@@ -1,11 +1,11 @@
 %global packname  DisImpact
-%global packver   0.0.13
+%global packver   0.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.13
+Version:          0.0.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculates Disproportionate Impact When Binary Success Data areDisaggregated by Subgroups
+Summary:          Calculates Disproportionate Impact When Binary Success Data are Disaggregated by Subgroups
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

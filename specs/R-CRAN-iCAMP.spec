@@ -1,9 +1,9 @@
 %global packname  iCAMP
-%global packver   1.2.8
+%global packver   1.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infer Community Assembly Mechanisms by Phylogenetic-Bin-Based Null Model Analysis
 
@@ -37,7 +37,7 @@ Requires:         R-stats4
 %description
 To implement a general framework to quantitatively infer Community
 Assembly Mechanisms by Phylogenetic-bin-based null model analysis,
-abbreviated as 'iCAMP' (Ning et al 2020) <doi:10.1101/2020.02.22.960872>.
+abbreviated as 'iCAMP' (Ning et al 2020) <doi:10.1038/s41467-020-18560-z>.
 It can quantitatively assess the relative importance of different
 community assembly processes, such as selection, dispersal, and drift, for
 both communities and each phylogenetic group ('bin'). Each bin usually

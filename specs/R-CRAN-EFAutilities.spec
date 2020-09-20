@@ -1,9 +1,9 @@
 %global packname  EFAutilities
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Exploratory Factor Analysis
 
@@ -14,22 +14,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildArch:        noarch
 BuildRequires:    R-CRAN-GPArotation 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-MASS 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-GPArotation 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-plyr 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-MASS 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 A number of utility function for exploratory factor analysis are included

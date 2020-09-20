@@ -1,10 +1,10 @@
 %global packname  fpc
-%global packver   2.2-7
+%global packver   2.2-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.7
-Release:          2%{?dist}
+Version:          2.2.8
+Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Procedures for Clustering
 
 License:          GPL

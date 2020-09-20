@@ -1,10 +1,10 @@
 %global packname  phytools
-%global packver   0.7-47
+%global packver   0.7-70
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.47
-Release:          2%{?dist}
+Version:          0.7.70
+Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Tools for Comparative Biology (and Other Things)
 
 License:          GPL (>= 2)
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ape >= 4.0
 BuildRequires:    R-CRAN-phangorn >= 2.3.1
 BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-animation 
 BuildRequires:    R-CRAN-clusterGeneration 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-combinat 
@@ -38,7 +37,6 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-ape >= 4.0
 Requires:         R-CRAN-phangorn >= 2.3.1
 Requires:         R-CRAN-maps 
-Requires:         R-CRAN-animation 
 Requires:         R-CRAN-clusterGeneration 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-combinat 
@@ -89,9 +87,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}
