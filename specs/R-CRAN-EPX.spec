@@ -1,10 +1,10 @@
 %global packname  EPX
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
-Release:          1%{?dist}
+Version:          1.0.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble of Phalanxes
 
 License:          GPL-3
@@ -16,15 +16,15 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-nnet 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-rngtools 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-doRNG 
 Requires:         R-nnet 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-rngtools 
 
 %description

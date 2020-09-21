@@ -1,36 +1,35 @@
-%global packname  bomWater
-%global packver   0.4.1
+%global packname  nspmix
+%global packver   1.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Australian Bureau of Meteorology Water Data
+Summary:          Nonparametric and Semiparametric Mixture Estimation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-jsonlite >= 1.6.1
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-jsonlite >= 1.6.1
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-lsei 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-lsei 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-An R interface to the Australian Bureau of Meteorology Water Data Online
-web service.
+Mainly for maximum likelihood estimation of nonparametric and
+semiparametric mixture models, but can also be used for fitting finite
+mixtures. The algorithms are developed in Wang (2007)
+<doi:10.1111/j.1467-9868.2007.00583.x> and Wang (2010)
+<doi:10.1007/s11222-009-9117-z>.
 
 %prep
 %setup -q -c -n %{packname}

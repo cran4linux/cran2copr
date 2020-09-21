@@ -1,10 +1,10 @@
 %global packname  DMCfun
-%global packver   0.12.1
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
-Release:          2%{?dist}
+Version:          0.15.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Diffusion Model of Conflict (DMC) in Reaction Time Tasks
 
 License:          MIT + file LICENSE
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-optimr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-dplyr >= 1.0.0
@@ -27,7 +26,6 @@ Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-optimr 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description

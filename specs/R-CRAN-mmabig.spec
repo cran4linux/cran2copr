@@ -1,27 +1,35 @@
-%global packname  lisa
-%global packver   0.1.2
+%global packname  mmabig
+%global packver   3.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Color Palettes from Color Lisa
+Summary:          Multiple Mediation Analysis for Big Data Sets
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.14.1
+Requires:         R-core >= 2.14.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-mma 
+BuildRequires:    R-splines 
+BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-gplots 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-mma 
+Requires:         R-splines 
+Requires:         R-survival 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-gplots 
 
 %description
-Contains 128 palettes from Color Lisa. All palettes are based on
-masterpieces from the worlds greatest artists. For more information, see
-<http://colorlisa.com/>.
+Used for general multiple mediation analysis with big data sets.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  PROsetta
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
-Release:          2%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Linking Patient-Reported Outcomes Measures
 
 License:          GPL-3
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-mirt
 BuildRequires:    R-CRAN-plink 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mvnfast 
 Requires:         R-CRAN-equate 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-mirt 
 Requires:         R-CRAN-plink 
 Requires:         R-CRAN-psych 
 Requires:         R-methods 
+Requires:         R-CRAN-mvnfast 
 
 %description
 Perform scale linking to establish relationships between instruments that

@@ -1,9 +1,9 @@
 %global packname  FCSlib
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Fluorescence Fluctuation Spectroscopy Analysis Methods
 

@@ -1,10 +1,10 @@
 %global packname  LTRCforests
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
-Release:          2%{?dist}
+Version:          0.5.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Methods for Survival Data with Time-Varying Covariates
 
 License:          GPL (>= 2)
