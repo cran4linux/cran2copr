@@ -1,10 +1,10 @@
 %global packname  periscope
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
-Release:          2%{?dist}
+Version:          0.5.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Enterprise Streamlined 'Shiny' Application Framework
 
 License:          GPL-3
@@ -15,24 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openxlsx >= 3.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-lubridate >= 1.6
+BuildRequires:    R-CRAN-writexl >= 1.3
 BuildRequires:    R-CRAN-shiny >= 1.1
 BuildRequires:    R-CRAN-shinyBS >= 0.61
 BuildRequires:    R-CRAN-shinydashboard >= 0.5
 BuildRequires:    R-CRAN-shinydashboardPlus >= 0.5
 BuildRequires:    R-CRAN-DT >= 0.2
 BuildRequires:    R-methods 
-Requires:         R-CRAN-openxlsx >= 3.0
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-lubridate >= 1.6
+Requires:         R-CRAN-writexl >= 1.3
 Requires:         R-CRAN-shiny >= 1.1
 Requires:         R-CRAN-shinyBS >= 0.61
 Requires:         R-CRAN-shinydashboard >= 0.5
 Requires:         R-CRAN-shinydashboardPlus >= 0.5
 Requires:         R-CRAN-DT >= 0.2
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
 An enterprise-targeted scalable and UI-standardized 'shiny' framework

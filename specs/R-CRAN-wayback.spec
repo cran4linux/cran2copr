@@ -1,13 +1,13 @@
-%global packname  ImportExport
-%global packver   1.3
+%global packname  wayback
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import and Export Data
+Summary:          Rock Solid Package Installation for Legacy R Versions
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,27 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-chron 
-BuildRequires:    R-CRAN-RODBC 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-chron 
-Requires:         R-CRAN-RODBC 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-haven 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-checkpoint 
+Requires:         R-CRAN-checkpoint 
 
 %description
-Import and export data from the most common statistical formats by using R
-functions that guarantee the least loss of the data information, giving
-special attention to the date variables and the labelled ones.
+Make sure packages are available at runtime without any setup. Package
+installation, reproducibility and exchanging code can be frustrating
+especially if code is used on older R versions. Often it is hard to puzzle
+out which package versions are able to work together after some years have
+passed and packages evolved further and further. The 'wayback' package
+aims to make this process as painless and robust as possible by using
+'MRAN's 'CRAN' snapshots to build local package libraries from way back.
 
 %prep
 %setup -q -c -n %{packname}

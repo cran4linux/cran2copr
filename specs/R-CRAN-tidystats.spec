@@ -1,34 +1,38 @@
-%global packname  RUVIIIC
-%global packver   1.0.17
+%global packname  tidystats
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.17
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          RUV-III-C
+Summary:          Save Output of Statistical Tests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
 
 %description
-Variations of Remove Unwanted Variation-III (RUV-III) known as RUV-III-C
-(RUV-III Complete). RUV-III performs normalisation using negative control
-variables and replication. RUV-III-C extends this method to cases where
-the data contains missing values, by applying RUV-III to complete subsets
-of the data. Originally designed for SWATH-MS proteomics datasets. Poulos
-et al. (2020) <doi:10.1038/s41467-020-17641-3>.
+Save the output of statistical tests in an organized file that can be
+shared with others or used to report statistics in scientific papers.
 
 %prep
 %setup -q -c -n %{packname}

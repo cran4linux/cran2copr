@@ -1,9 +1,9 @@
 %global packname  bnlearn
-%global packver   4.6
+%global packver   4.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6
+Version:          4.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Structure Learning, Parameter Learning and Inference
 

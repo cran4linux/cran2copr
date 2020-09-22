@@ -1,13 +1,13 @@
 %global packname  RcmdrPlugin.WorldFlora
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
-Release:          2%{?dist}
+Version:          1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plug-in for the 'WorldFlora' Package
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

@@ -1,10 +1,10 @@
 %global packname  HSAUR3
-%global packver   1.0-9
+%global packver   1.0-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
-Release:          3%{?dist}
+Version:          1.0.10
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Handbook of Statistical Analyses Using R (3rd Edition)
 
 License:          GPL-2
@@ -32,6 +32,9 @@ The publishers web page is
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -41,20 +44,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/cache
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/LaTeXBibTeX
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/rawdata
-%doc %{rlibdir}/%{packname}/slides
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

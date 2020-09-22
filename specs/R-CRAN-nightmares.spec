@@ -1,9 +1,9 @@
 %global packname  nightmares
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Analysis with Remote Sensing Data
 
@@ -28,12 +28,13 @@ conversion from digital numbers to radiance, reflectance, and
 temperature). It includes several algorithms to calculate the albedo:
 Liang (2000) <doi:10.1016/S0034-4257(00)00205-4>, Silva et al. (2016)
 <doi:10.32614/RJ-2016-051>, Tasumi et al. (2008)
-<doi:10.1061/(ASCE)1084-0699(2008)13:2(51)>, among others. Although the
-current version implements basic functions, it will be expandable to a
-more robust tool for water cycle modeling (e.g., to include surface runoff
-and evapotranspiration calculations) in the near future. This package is
-under development at the Institute about Natural Resources Research
-(INIRENA) from the Universidad Michoacana de San Nicolas de Hidalgo.
+<doi:10.1061/(ASCE)1084-0699(2008)13:2(51)>, among others; and include
+functions to derive several spectral indices. Although the current version
+implements basic functions, it will be expandable to a more robust tool
+for water cycle modeling (e.g., to include surface runoff and
+evapotranspiration calculations) in the near future. This package is under
+development at the Institute about Natural Resources Research (INIRENA)
+from the Universidad Michoacana de San Nicolas de Hidalgo.
 
 %prep
 %setup -q -c -n %{packname}

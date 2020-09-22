@@ -1,9 +1,9 @@
 %global packname  freesurferformats
-%global packver   0.1.12
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write 'FreeSurfer' Neuroimaging File Formats
 

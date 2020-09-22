@@ -1,29 +1,34 @@
-%global packname  AGHmatrix
-%global packver   2.0.0
+%global packname  Neighboot
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Matrices for Diploid and Autopolyploid Species
+Summary:          Neighborhood Bootstrap Method for RDS
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo >= 1.8.6
-BuildRequires:    R-Matrix >= 1.2.7.1
-Requires:         R-CRAN-zoo >= 1.8.6
-Requires:         R-Matrix >= 1.2.7.1
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RDStreeboot 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-RDS 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-RDStreeboot 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-RDS 
+Requires:         R-CRAN-dplyr 
 
 %description
-Computation of A (pedigree), G (genomic-base), and H (A corrected by G)
-relationship matrices for diploid and autopolyploid species. Several
-methods are implemented considering additive and non-additive models.
+A bootstrap method for Respondent-Driven Sampling (RDS) that relies on the
+underlying structure of the RDS network to estimate uncertainty.
 
 %prep
 %setup -q -c -n %{packname}

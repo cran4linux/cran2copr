@@ -1,38 +1,36 @@
-%global packname  sdwd
-%global packver   1.0.4
+%global packname  SlidingWindows
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Distance Weighted Discrimination
+Summary:          Methods for Time Series Analysis
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-Matrix 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-Matrix 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-DCCA 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
+BuildRequires:    R-CRAN-nonlinearTseries 
 Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-CRAN-DCCA 
+Requires:         R-CRAN-PerformanceAnalytics 
+Requires:         R-CRAN-nonlinearTseries 
 
 %description
-Formulates a sparse distance weighted discrimination (SDWD) for
-high-dimensional classification and implements a very fast algorithm for
-computing its solution path with the L1, the elastic-net, and the adaptive
-elastic-net penalties. More details about the methodology SDWD is seen on
-Wang and Zou (2016) Sparse distance weighted discrimination, Journal of
-Computational and Graphical Statistics, 25(3), 826-838.
-(<doi:10.1080/10618600.2015.1049700>).
+A collection of functions to perform Detrended Fluctuation Analysis (DFA
+exponent), GUEDES et al. (2019) <doi:10.1016/j.physa.2019.04.132> ,
+Detrended cross-correlation coefficient (RHODCCA), GUEDES & ZEBENDE (2019)
+<doi:10.1016/j.physa.2019.121286>, and Detrended Multiple
+cross-correlation coefficient (DMC), ZEBENDE & SILVA-FILHO (2018)
+<doi:10.1016/j.physa.2018.06.119>, both with sliding windows approach.
 
 %prep
 %setup -q -c -n %{packname}
