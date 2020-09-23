@@ -1,10 +1,10 @@
 %global packname  emba
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
-Release:          2%{?dist}
+Version:          0.1.7
+Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Boolean Model Biomarker Analysis
 
 License:          MIT + file LICENSE
@@ -16,35 +16,35 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Ckmeans.1d.dp >= 4.2.2
+BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-visNetwork >= 2.0.9
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-readr >= 1.3.0
 BuildRequires:    R-CRAN-igraph >= 1.2.4
 BuildRequires:    R-CRAN-rje >= 1.10
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-usefun >= 0.4.3
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-Ckmeans.1d.dp >= 4.2.2
+Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-visNetwork >= 2.0.9
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-readr >= 1.3.0
 Requires:         R-CRAN-igraph >= 1.2.4
 Requires:         R-CRAN-rje >= 1.10
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-usefun >= 0.4.3
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 
 %description
 Analysis and visualization of an ensemble of boolean models for biomarker

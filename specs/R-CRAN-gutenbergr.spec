@@ -1,36 +1,37 @@
-%global packname  rticles
-%global packver   0.16
+%global packname  gutenbergr
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Article Formats for R Markdown
+Summary:          Download and Process Public Domain Works from Project Gutenberg
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.30
-BuildRequires:    R-CRAN-rmarkdown >= 1.18
-BuildRequires:    R-CRAN-tinytex >= 0.19
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr >= 1.30
-Requires:         R-CRAN-rmarkdown >= 1.18
-Requires:         R-CRAN-tinytex >= 0.19
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lazyeval 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lazyeval 
 
 %description
-A suite of custom R Markdown formats and templates for authoring journal
-articles and conference submissions.
+Download and process public domain works in the Project Gutenberg
+collection <http://www.gutenberg.org/>. Includes metadata for all Project
+Gutenberg works, so that they can be searched and retrieved.
 
 %prep
 %setup -q -c -n %{packname}

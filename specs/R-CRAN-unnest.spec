@@ -1,36 +1,23 @@
-%global packname  rticles
-%global packver   0.16
+%global packname  unnest
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Article Formats for R Markdown
+Summary:          Unnest Hierarchical Data Structures
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.30
-BuildRequires:    R-CRAN-rmarkdown >= 1.18
-BuildRequires:    R-CRAN-tinytex >= 0.19
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr >= 1.30
-Requires:         R-CRAN-rmarkdown >= 1.18
-Requires:         R-CRAN-tinytex >= 0.19
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-xfun 
 
 %description
-A suite of custom R Markdown formats and templates for authoring journal
-articles and conference submissions.
+Fast flattening of hierarchical data structures (e.g. JSON and XML
+documents) into data.frames with a flexible spec language.
 
 %prep
 %setup -q -c -n %{packname}

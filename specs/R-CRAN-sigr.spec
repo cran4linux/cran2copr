@@ -1,9 +1,9 @@
 %global packname  sigr
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Succinct and Correct Statistical Summaries for Reports
 
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.1
 Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wrapr >= 2.0.0
+BuildRequires:    R-CRAN-wrapr >= 2.0.2
 BuildRequires:    R-stats 
-Requires:         R-CRAN-wrapr >= 2.0.0
+Requires:         R-CRAN-wrapr >= 2.0.2
 Requires:         R-stats 
 
 %description

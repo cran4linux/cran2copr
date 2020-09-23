@@ -1,36 +1,32 @@
-%global packname  rticles
-%global packver   0.16
+%global packname  bravo
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Article Formats for R Markdown
+Summary:          Bayesian Screening and Variable Selection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.30
-BuildRequires:    R-CRAN-rmarkdown >= 1.18
-BuildRequires:    R-CRAN-tinytex >= 0.19
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr >= 1.30
-Requires:         R-CRAN-rmarkdown >= 1.18
-Requires:         R-CRAN-tinytex >= 0.19
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-Matrix >= 1.2.17
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-methods 
+BuildRequires:    R-compiler 
+Requires:         R-Matrix >= 1.2.17
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-methods 
+Requires:         R-compiler 
 
 %description
-A suite of custom R Markdown formats and templates for authoring journal
-articles and conference submissions.
+Performs Bayesian variable selection with embedded screening for
+ultra-high dimensional Gaussian linear regression models. The methodology
+is described in Li, Dutta and Roy (2020) <arXiv:2006.07561>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,36 @@
-%global packname  rticles
-%global packver   0.16
+%global packname  faux
+%global packver   0.0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Article Formats for R Markdown
+Summary:          Simulation for Factorial Designs
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.4
+Requires:         R-core >= 3.2.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.30
-BuildRequires:    R-CRAN-rmarkdown >= 1.18
-BuildRequires:    R-CRAN-tinytex >= 0.19
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr >= 1.30
-Requires:         R-CRAN-rmarkdown >= 1.18
-Requires:         R-CRAN-tinytex >= 0.19
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-truncnorm 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-truncnorm 
 
 %description
-A suite of custom R Markdown formats and templates for authoring journal
-articles and conference submissions.
+Create datasets with factorial structure through simulation by specifying
+variable parameters. Extended documentation at
+<https://debruine.github.io/faux/>. Described in DeBruine (2020)
+<doi:10.5281/zenodo.2669586>.
 
 %prep
 %setup -q -c -n %{packname}

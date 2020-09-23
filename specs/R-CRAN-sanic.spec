@@ -1,36 +1,32 @@
-%global packname  rticles
-%global packver   0.16
+%global packname  sanic
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Article Formats for R Markdown
+Summary:          Solving Ax = b Nimbly in C++
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.30
-BuildRequires:    R-CRAN-rmarkdown >= 1.18
-BuildRequires:    R-CRAN-tinytex >= 0.19
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr >= 1.30
-Requires:         R-CRAN-rmarkdown >= 1.18
-Requires:         R-CRAN-tinytex >= 0.19
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-Matrix 
+Requires:         R-methods 
 
 %description
-A suite of custom R Markdown formats and templates for authoring journal
-articles and conference submissions.
+Routines for solving large systems of linear equations in R. Direct and
+iterative solvers from the Eigen C++ library are made available. Solvers
+include Cholesky, LU, QR, and Krylov subspace methods (Conjugate Gradient,
+BiCGSTAB). Both dense and sparse problems are supported.
 
 %prep
 %setup -q -c -n %{packname}

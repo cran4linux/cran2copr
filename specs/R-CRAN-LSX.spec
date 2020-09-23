@@ -1,11 +1,11 @@
 %global packname  LSX
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Semantic Scaling
+Summary:          Model for Semisupervised Text Analysis Based on Word Embeddings
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -49,10 +49,10 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-e1071 
 
 %description
-A word embeddings-based semisupervised model for document scaling Watanabe
-(2017) <doi:10.1177/0267323117695735>. LSS allows users to analyze large
-and complex corpora on arbitrary dimensions with seed words exploiting
-efficiency of word embeddings (SVD, Glove).
+A word embeddings-based semisupervised models for document scaling
+Watanabe (2017) <doi:10.1177/0267323117695735>. LSS allows users to
+analyze large and complex corpora on arbitrary dimensions with seed words
+exploiting efficiency of word embeddings (SVD, Glove).
 
 %prep
 %setup -q -c -n %{packname}

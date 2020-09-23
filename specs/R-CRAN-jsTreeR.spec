@@ -1,9 +1,9 @@
 %global packname  jsTreeR
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper of the JavaScript Library 'jsTree'
 
@@ -16,13 +16,25 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shinyAce 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-tools 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shinyAce 
+Requires:         R-CRAN-miniUI 
+Requires:         R-tools 
+Requires:         R-stats 
+Requires:         R-CRAN-base64enc 
+Requires:         R-utils 
 
 %description
 Creates interactive trees that can be included in 'Shiny' apps and R
@@ -31,7 +43,8 @@ contents of a directory). Similar to the 'shinyTree' package but offers
 more features and options, such as the grid extension, restricting the
 drag-and-drop behavior, and settings for the search functionality. It is
 possible to attach some data to the nodes of a tree and then to get these
-data in 'Shiny' when a node is selected.
+data in 'Shiny' when a node is selected. Also provides a 'Shiny' gadget
+allowing to manipulate one or more folders.
 
 %prep
 %setup -q -c -n %{packname}

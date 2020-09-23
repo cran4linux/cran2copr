@@ -1,42 +1,39 @@
-%global packname  knitr
-%global packver   1.30
+%global packname  SDCNway
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.30
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A General-Purpose Package for Dynamic Report Generation in R
+Summary:          Tools to Evaluate Disclosure Risk
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
-Requires:         pandoc-citeproc
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml >= 2.1.19
-BuildRequires:    R-CRAN-stringr >= 0.6
-BuildRequires:    R-CRAN-xfun >= 0.15
-BuildRequires:    R-CRAN-evaluate >= 0.10
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-markdown 
+BuildRequires:    R-MASS >= 3.6.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
+BuildRequires:    R-CRAN-plyr >= 1.8.5
+BuildRequires:    R-CRAN-dplyr >= 0.8.4
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-methods 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-yaml >= 2.1.19
-Requires:         R-CRAN-stringr >= 0.6
-Requires:         R-CRAN-xfun >= 0.15
-Requires:         R-CRAN-evaluate >= 0.10
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-markdown 
+Requires:         R-MASS >= 3.6.0
+Requires:         R-CRAN-ggplot2 >= 3.2.1
+Requires:         R-CRAN-plyr >= 1.8.5
+Requires:         R-CRAN-dplyr >= 0.8.4
+Requires:         R-CRAN-Rdpack 
 Requires:         R-methods 
-Requires:         R-tools 
 
 %description
-Provides a general-purpose tool for dynamic report generation in R using
-Literate Programming techniques.
+Tools for calculating disclosure risk measures, including record-level
+measures primarily using exhaustive tabulation, as well as file-level
+measures using a loglinear model. Funded by the National Center for
+Education Statistics. See El Emam (2011) <doi:10.1186/gm239> for a
+description of risk measures.
 
 %prep
 %setup -q -c -n %{packname}

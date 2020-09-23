@@ -1,30 +1,40 @@
-%global packname  rdbnomics
-%global packver   0.6.3
+%global packname  BiasCorrector
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download DBnomics Data
+Summary:          A GUI to Correct Measurement Bias in DNA Methylation Analyses
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rBiasCorrection 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyjs 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rBiasCorrection 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyjs 
 
 %description
-R access to hundreds of millions data series from DBnomics API
-(<https://db.nomics.world/>).
+A GUI to correct measurement bias in DNA methylation analyses. The
+'BiasCorrector' package just wraps the functions implemented in the 'R'
+package 'rBiasCorrection' into a shiny web application in order to make
+them more easily accessible.
 
 %prep
 %setup -q -c -n %{packname}

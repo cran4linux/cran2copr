@@ -1,11 +1,11 @@
 %global packname  tinytex
-%global packver   0.25
+%global packver   0.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.25
-Release:          1%{?dist}
-Summary:          Helper Functions to Install and Maintain TeX Live, and CompileLaTeX Documents
+Version:          0.26
+Release:          1%{?dist}%{?buildtag}
+Summary:          Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

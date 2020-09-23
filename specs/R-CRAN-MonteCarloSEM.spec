@@ -1,11 +1,11 @@
-%global packname  rticles
-%global packver   0.16
+%global packname  MonteCarloSEM
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Article Formats for R Markdown
+Summary:          Monte Carlo Data Simulation Package
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,22 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.30
-BuildRequires:    R-CRAN-rmarkdown >= 1.18
-BuildRequires:    R-CRAN-tinytex >= 0.19
+BuildRequires:    R-Matrix 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr >= 1.30
-Requires:         R-CRAN-rmarkdown >= 1.18
-Requires:         R-CRAN-tinytex >= 0.19
+BuildRequires:    R-CRAN-lavaan 
+Requires:         R-Matrix 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-lavaan 
 
 %description
-A suite of custom R Markdown formats and templates for authoring journal
-articles and conference submissions.
+Monte Carlo simulation allows to test different conditions given to the
+correct structural equation models. This package runs Monte Carlo
+simulations under different conditions (such as sample size or normality
+of data). Within the package data sets can be simulated and run based on
+the given model. First, continuous and normal data sets are generated
+based on the given model. Later Fleishman's power method (1978)
+<DOI:10.1007/BF02293811> is used to add non-normality if exists. When data
+generation is completed (or when generated data sets are given) model test
+can also be run.
 
 %prep
 %setup -q -c -n %{packname}

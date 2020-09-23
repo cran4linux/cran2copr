@@ -1,36 +1,39 @@
-%global packname  rticles
-%global packver   0.16
+%global packname  Riemann
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Article Formats for R Markdown
+Summary:          Learning with Data on Riemannian Manifolds
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.30
-BuildRequires:    R-CRAN-rmarkdown >= 1.18
-BuildRequires:    R-CRAN-tinytex >= 0.19
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RiemBase 
+BuildRequires:    R-CRAN-maotai 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr >= 1.30
-Requires:         R-CRAN-rmarkdown >= 1.18
-Requires:         R-CRAN-tinytex >= 0.19
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-RiemBase 
+Requires:         R-CRAN-maotai 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-xfun 
 
 %description
-A suite of custom R Markdown formats and templates for authoring journal
-articles and conference submissions.
+We provide a variety of algorithms for manifold-valued data, including
+Fréchet summaries, hypothesis testing, clustering, visualization, and
+other learning tasks. See Bhattacharya and Bhattacharya (2012)
+<doi:10.1017/CBO9781139094764> for general exposition to statistics on
+manifolds.
 
 %prep
 %setup -q -c -n %{packname}
