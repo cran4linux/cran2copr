@@ -1,34 +1,37 @@
-%global packname  centrifugeR
-%global packver   0.1.5
+%global packname  tibblify
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Trivial Balance of Centrifuge Rotors
+Summary:          Rectangle Nested Lists
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.2.9
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pracma >= 2.2.9
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 
 %description
-Find the numbers of tubes that can be loaded in centrifuge rotors in a
-single operation and show how to balance these tubes in cases of equal or
-unequal masses. Refer to Pham (2020) <doi:10.31224/osf.io/4xs38> for more
-information on package functionality.
+A tool to rectangle a nested list, that is to convert it into a tibble.
+This is done automatically or according to a given specification. A common
+use case is for nested lists coming from parsing JSON files or the JSON
+response of REST APIs. It is supported by the 'vctrs' package and
+therefore offers a wide support of vector types.
 
 %prep
 %setup -q -c -n %{packname}

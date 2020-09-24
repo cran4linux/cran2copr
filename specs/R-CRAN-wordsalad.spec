@@ -1,28 +1,33 @@
-%global packname  cronR
-%global packver   0.4.2
+%global packname  wordsalad
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schedule R Scripts and Processes with the 'cron' Job Scheduler
+Summary:          Provide Tools to Extract and Analyze Word Vectors
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         cronie
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-text2vec 
+BuildRequires:    R-CRAN-word2vec 
+BuildRequires:    R-CRAN-fastTextR 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-text2vec 
+Requires:         R-CRAN-word2vec 
+Requires:         R-CRAN-fastTextR 
 
 %description
-Create, edit, and remove 'cron' jobs on your unix-alike system. The
-package provides a set of easy-to-use wrappers to 'crontab'. It also
-provides an RStudio add-in to easily launch and schedule your scripts.
+Provides access to various word embedding methods (GloVe, fasttext and
+word2vec) to extract word vectors using a unified framework to increase
+reproducibility and correctness.
 
 %prep
 %setup -q -c -n %{packname}

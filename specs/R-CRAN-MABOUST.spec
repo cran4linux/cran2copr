@@ -1,28 +1,27 @@
-%global packname  cronR
-%global packver   0.4.2
+%global packname  MABOUST
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schedule R Scripts and Processes with the 'cron' Job Scheduler
+Summary:          Multi-Armed Bayesian Ordinal Utility-Based Sequential Trial
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         cronie
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.18
 
 %description
-Create, edit, and remove 'cron' jobs on your unix-alike system. The
-package provides a set of easy-to-use wrappers to 'crontab'. It also
-provides an RStudio add-in to easily launch and schedule your scripts.
+Conducts and simulates the MABOUST design, including making interim
+decisions to stop a treatment for inferiority or stop the trial early for
+superiority or equivalency.
 
 %prep
 %setup -q -c -n %{packname}

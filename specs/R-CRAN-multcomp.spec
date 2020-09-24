@@ -1,10 +1,10 @@
 %global packname  multcomp
-%global packver   1.4-13
+%global packver   1.4-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.13
-Release:          3%{?dist}
+Version:          1.4.14
+Release:          1%{?dist}%{?buildtag}
 Summary:          Simultaneous Inference in General Parametric Models
 
 License:          GPL-2
@@ -41,6 +41,8 @@ Hothorn, Westfall, 2010, CRC Press).
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -48,25 +50,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/deprecated
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/MCMT
-%doc %{rlibdir}/%{packname}/multcomp_coxme.R
-%doc %{rlibdir}/%{packname}/multcomp_VA.R
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

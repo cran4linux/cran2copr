@@ -1,28 +1,29 @@
-%global packname  cronR
-%global packver   0.4.2
+%global packname  twenty48
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schedule R Scripts and Processes with the 'cron' Job Scheduler
+Summary:          Play a Game of 2048 in the Console
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         cronie
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-R6 
 
 %description
-Create, edit, and remove 'cron' jobs on your unix-alike system. The
-package provides a set of easy-to-use wrappers to 'crontab'. It also
-provides an RStudio add-in to easily launch and schedule your scripts.
+Generates a game of 2048 that can be played in the console.  Supports
+grids of arbitrary sizes, undoing the last move, and resuming a game that
+was exited during the current session.
 
 %prep
 %setup -q -c -n %{packname}

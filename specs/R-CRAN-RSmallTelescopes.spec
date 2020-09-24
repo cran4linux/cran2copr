@@ -1,28 +1,27 @@
-%global packname  cronR
-%global packver   0.4.2
+%global packname  RSmallTelescopes
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schedule R Scripts and Processes with the 'cron' Job Scheduler
+Summary:          Empirical Small Telescopes Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         cronie
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
 
 %description
-Create, edit, and remove 'cron' jobs on your unix-alike system. The
-package provides a set of easy-to-use wrappers to 'crontab'. It also
-provides an RStudio add-in to easily launch and schedule your scripts.
+We provide functions to perform an empirical small telescopes analysis.
+This package contains 2 functions, SimulatePower() and EstimatePower().
+Users only need to call SimulatePower() to conduct the analysis. For more
+information on small telescopes analysis see Uri Simonsohn (2015)
+<doi:10.1177/0956797614567341>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,36 @@
-%global packname  rBiasCorrection
-%global packver   0.2.3
+%global packname  corona
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correct Bias in DNA Methylation Analyses
+Summary:          Coronavirus ('Rona') Data Exploration
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-nls2 
-BuildRequires:    R-CRAN-polynom 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-qicharts2 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-nls2 
-Requires:         R-CRAN-polynom 
-Requires:         R-stats 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-qicharts2 
+Requires:         R-CRAN-reshape2 
 
 %description
-Implementation of the algorithms (with minor modifications) to correct
-bias in quantitative DNA methylation analyses as described by Moskalev et
-al. (2011) <doi:10.1093/nar/gkr213>.
+Manipulate and view coronavirus data and other societally relevant data at
+a basic level.
 
 %prep
 %setup -q -c -n %{packname}

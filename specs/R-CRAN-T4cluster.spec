@@ -1,28 +1,38 @@
-%global packname  cronR
-%global packver   0.4.2
+%global packname  T4cluster
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schedule R Scripts and Processes with the 'cron' Job Scheduler
+Summary:          Tools for Cluster Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         cronie
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Rdimtools 
+BuildRequires:    R-CRAN-maotai 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdimtools 
+Requires:         R-CRAN-maotai 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Create, edit, and remove 'cron' jobs on your unix-alike system. The
-package provides a set of easy-to-use wrappers to 'crontab'. It also
-provides an RStudio add-in to easily launch and schedule your scripts.
+Cluster analysis is one of the most fundamental problems in data science.
+We provide a variety of algorithms from clustering to the learning on the
+space of partitions. See Hennig, Meila, and Rocci (2016,
+ISBN:9781466551886) for general exposition to cluster analysis.
 
 %prep
 %setup -q -c -n %{packname}

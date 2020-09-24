@@ -1,11 +1,11 @@
 %global packname  SailoR
-%global packver   1.1.2
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
-Release:          1%{?dist}
-Summary:          An Extension of the Taylor Diagram to Two-Dimensional VectorData
+Version:          1.2
+Release:          1%{?dist}%{?buildtag}
+Summary:          An Extension of the Taylor Diagram to Two-Dimensional Vector Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

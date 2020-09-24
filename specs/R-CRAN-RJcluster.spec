@@ -1,39 +1,46 @@
-%global packname  MAPITR
-%global packver   1.1.1
+%global packname  RJcluster
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          MArginal ePIstasis Test for Regions
+Summary:          RJ Clustering Algorithm
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-infotheo 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-profvis 
+BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-infotheo 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-profvis 
+Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
 
 %description
-A genetic analysis tool and variance component model for identifying
-marginal epistasis between pathways and the rest of the genome. 'MAPITR'
-uses as input a matrix of genotypes, a vector of phenotypes, and a list of
-pathways. 'MAPITR' then iteratively tests each pathway for epistasis
-between any variants within the pathway versus any variants remaining in
-the rest of the genome. 'MAPITR' returns results in the form of p-values
-for every pathway indicating whether the null model of there being no
-epistatic interactions between a pathway and the rest of the genome can be
-rejected.
+Clustering algorithm for high dimensional data. This algorithm is ideal
+for data where n << p.
 
 %prep
 %setup -q -c -n %{packname}

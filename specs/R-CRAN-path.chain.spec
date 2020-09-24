@@ -1,28 +1,33 @@
-%global packname  cronR
-%global packver   0.4.2
+%global packname  path.chain
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schedule R Scripts and Processes with the 'cron' Job Scheduler
+Summary:          Concise Structure for Chainable Paths
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         cronie
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-logger 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-logger 
 
 %description
-Create, edit, and remove 'cron' jobs on your unix-alike system. The
-package provides a set of easy-to-use wrappers to 'crontab'. It also
-provides an RStudio add-in to easily launch and schedule your scripts.
+Provides path_chain class and functions, which facilitates loading and
+saving directory structure in YAML configuration files via 'config'
+package. The file structure you created during exploration can be
+transformed into legible section in the config file, and then easily
+loaded for further usage.
 
 %prep
 %setup -q -c -n %{packname}

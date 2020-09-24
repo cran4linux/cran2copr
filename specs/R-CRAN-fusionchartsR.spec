@@ -1,28 +1,30 @@
-%global packname  cronR
-%global packver   0.4.2
+%global packname  fusionchartsR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schedule R Scripts and Processes with the 'cron' Job Scheduler
+Summary:          Embedding 'FusionCharts Javascript' Library in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         cronie
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
 
 %description
-Create, edit, and remove 'cron' jobs on your unix-alike system. The
-package provides a set of easy-to-use wrappers to 'crontab'. It also
-provides an RStudio add-in to easily launch and schedule your scripts.
+FusionCharts provides awesome and minimalist functions to make beautiful
+interactive charts <https://www.fusioncharts.com/>.
 
 %prep
 %setup -q -c -n %{packname}

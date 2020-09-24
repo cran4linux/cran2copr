@@ -1,11 +1,11 @@
 %global packname  ojsr
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          2%{?dist}
-Summary:          Crawler and Scraper for Open Journal System ('OJS')
+Version:          0.1.2
+Release:          1%{?dist}%{?buildtag}
+Summary:          Crawler and Data Scraper for Open Journal System ('OJS')
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,22 +18,16 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-oai 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tidyr >= 1.0
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-oai 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-urltools 
-Requires:         R-utils 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
@@ -41,7 +35,7 @@ Requires:         R-CRAN-rlang
 %description
 Crawler for 'OJS' pages and scraper for meta-data from articles. You can
 crawl 'OJS' archives, issues, articles, galleys, and search results. You
-can scrap articles meta-data from their head tag in html, or from Open
+can scrape articles metadata from their head tag in html, or from Open
 Archives Initiative ('OAI') records. Most of these functions rely on 'OJS'
 routing conventions
 (<https://docs.pkp.sfu.ca/dev/documentation/en/architecture-routes>).

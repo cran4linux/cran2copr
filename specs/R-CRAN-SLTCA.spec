@@ -1,31 +1,37 @@
-%global packname  aziztest
-%global packver   0.2.0
+%global packname  SLTCA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Novel Statistical Test for Aberration Enrichment
+Summary:          Scalable and Robust Latent Trajectory Class Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-stats 
+Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-VGAM 
+Requires:         R-Matrix 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Testing for heterogeneous effects in a case-control setting. The aim here
-to discover an association that is beyond a mean difference between all
-cases and all controls. Instead, the signal of interest here is present in
-only a proportion of the cases. This test should be more powerful than a
-t-test or Wilcoxon test in this heterogeneous setting. Please cite the
-corresponding paper: Mezlini et al. (2020)
-<doi:10.1101/2020.03.23.002972>.
+Conduct latent trajectory class analysis with longitudinal data. Our
+method supports longitudinal continuous, binary and count data. For more
+methodological details, please refer to Hart, K.R., Fei, T. and Hanfelt,
+J.J. (2020), Scalable and robust latent trajectory class analysis using
+artificial likelihood. Biometrics <doi:10.1111/biom.13366>.
 
 %prep
 %setup -q -c -n %{packname}

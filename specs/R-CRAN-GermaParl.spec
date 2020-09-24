@@ -1,11 +1,11 @@
 %global packname  GermaParl
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
-Release:          1%{?dist}
-Summary:          Download and Augment the Corpus of Plenary Protocols of theGerman Bundestag
+Version:          1.5.2
+Release:          1%{?dist}%{?buildtag}
+Summary:          Download and Augment the Corpus of Plenary Protocols of the German Bundestag
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,8 +16,12 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cwbtools >= 0.3.0
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-zen4R 
 Requires:         R-CRAN-cwbtools >= 0.3.0
+Requires:         R-tools 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-zen4R 
 
 %description
