@@ -1,10 +1,10 @@
 %global packname  SemNetCleaner
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
-Release:          3%{?dist}
+Version:          1.3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          An Automated Cleaning Tool for Semantic and Linguistic Data
 
 License:          GPL (>= 3.0)
@@ -17,22 +17,24 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SemNetDictionaries >= 0.1.5
 BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-hunspell 
 BuildRequires:    R-CRAN-searcher 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-foreign 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-R.matlab 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-easycsv 
 Requires:         R-CRAN-SemNetDictionaries >= 0.1.5
 Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-hunspell 
 Requires:         R-CRAN-searcher 
 Requires:         R-tcltk 
 Requires:         R-foreign 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-R.matlab 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-easycsv 
 
 %description
 Implements several functions that automates the cleaning and
@@ -45,6 +47,8 @@ cleaning process more accurate, efficient, and reproducible.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -52,20 +56,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

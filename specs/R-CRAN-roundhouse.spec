@@ -1,11 +1,11 @@
 %global packname  roundhouse
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Wrapper to the 'ICNDb' API
+Summary:          Random Chuck Norris Facts
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,14 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 
 %description
-An R wrapper to the 'Internet Chuck Norris database' ('ICNDb') API for
-generating random Chuck Norris facts.
+R functions for generating and/or displaying random Chuck Norris facts.
+Based on data from the 'Internet Chuck Norris database' ('ICNDb').
 
 %prep
 %setup -q -c -n %{packname}

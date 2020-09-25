@@ -1,10 +1,10 @@
 %global packname  import
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
-Release:          3%{?dist}
+Version:          1.2.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          An Import Mechanism for R
 
 License:          MIT + file LICENSE
@@ -17,17 +17,18 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-This is an alternative mechanism for importing objects from packages. The
-syntax allows for importing multiple objects from a package with a single
-command in an expressive way. The import package bridges some of the gap
-between using library (or require) and direct (single-object) imports.
-Furthermore the imported objects are not placed in the current
-environment. It is also possible to import objects from stand-alone .R
-files. For more information, refer to the package vignette.
+Alternative mechanism for importing objects from packages and R modules.
+The syntax allows for importing multiple objects with a single command in
+an expressive way. The import package bridges some of the gap between
+using library (or require) and direct (single-object) imports. Furthermore
+the imported objects are not placed in the current environment.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -37,16 +38,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

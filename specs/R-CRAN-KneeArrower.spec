@@ -1,26 +1,26 @@
-%global packname  gSeg
-%global packver   1.0
+%global packname  KneeArrower
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph-Based Change-Point Detection (g-Segmentation)
+Summary:          Finds Cutoff Points on Knee Curves
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-signal 
+Requires:         R-CRAN-signal 
 
 %description
-Using an approach based on similarity graph to estimate change-point(s)
-and the corresponding p-values.  Can be applied to any type of data
-(high-dimensional, non-Euclidean, etc.) as long as a reasonable similarity
-measure is available.
+Given a set of points around a knee curve, analyzes first and second
+derivatives to find knee points.
 
 %prep
 %setup -q -c -n %{packname}

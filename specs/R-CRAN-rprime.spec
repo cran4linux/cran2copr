@@ -1,13 +1,13 @@
 %global packname  rprime
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Working with 'Eprime' Text Files
 
-License:          GPL-2 | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,15 +16,17 @@ BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr >= 1.0.0
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-stringr >= 1.0.0
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-plyr 
-Requires:         R-tools 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-stringi 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 'Eprime' is a set of programs for administering psychological experiments

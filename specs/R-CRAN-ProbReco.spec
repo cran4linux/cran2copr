@@ -1,9 +1,9 @@
 %global packname  ProbReco
-%global packver   0.1.0
+%global packver   0.1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Score Optimal Probabilistic Forecast Reconciliation
 
@@ -18,11 +18,13 @@ BuildRequires:    R-CRAN-StanHeaders >= 2.19.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Training of reconciliation weights for probabilistic forecasts to optimise

@@ -1,26 +1,31 @@
-%global packname  gSeg
-%global packver   1.0
+%global packname  irt
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph-Based Change-Point Detection (g-Segmentation)
+Summary:          Item Response Theory and Computerized Adaptive Testing Functions
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-parallel 
 
 %description
-Using an approach based on similarity graph to estimate change-point(s)
-and the corresponding p-values.  Can be applied to any type of data
-(high-dimensional, non-Euclidean, etc.) as long as a reasonable similarity
-measure is available.
+A collection of Item Response Theory (IRT) and Computerized Adaptive
+Testing (CAT) functions that are used in psychometrics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  opencv
-%global packver   0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
-Release:          2%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to 'OpenCV' Computer Vision Library
 
 License:          MIT + file LICENSE
@@ -23,9 +23,10 @@ Requires:         R-CRAN-magrittr
 
 %description
 Experimenting with computer vision and machine learning in R. This package
-exposes some of the available 'OpenCV' vision algorithms, such as edge,
-body or face detection. These can either be applied to analyze static
-images, or to filter live video footage from a camera device.
+exposes some of the available 'OpenCV' <https://opencv.org/> algorithms,
+such as edge, body or face detection. These can either be applied to
+analyze static images, or to filter live video footage from a camera
+device.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,9 +41,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

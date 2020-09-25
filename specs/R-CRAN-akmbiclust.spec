@@ -1,26 +1,24 @@
-%global packname  gSeg
-%global packver   1.0
+%global packname  akmbiclust
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph-Based Change-Point Detection (g-Segmentation)
+Summary:          Alternating K-Means Biclustering
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Using an approach based on similarity graph to estimate change-point(s)
-and the corresponding p-values.  Can be applied to any type of data
-(high-dimensional, non-Euclidean, etc.) as long as a reasonable similarity
-measure is available.
+Implements the alternating k-means biclustering algorithm in Fraiman and
+Li (2020) <arXiv:2009.04550>.
 
 %prep
 %setup -q -c -n %{packname}

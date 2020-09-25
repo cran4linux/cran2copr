@@ -1,9 +1,9 @@
 %global packname  nflfastR
-%global packver   2.2.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Efficiently Access NFL Play by Play Data
 

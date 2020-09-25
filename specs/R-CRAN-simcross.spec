@@ -1,31 +1,33 @@
-%global packname  prioritylasso
-%global packver   0.2.4
+%global packname  simcross
+%global packver   0.3-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyzing Multiple Omics Data with an Offset Approach
+Summary:          Simulate Experimental Crosses
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildArch:        noarch
-BuildRequires:    R-survival 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-utils 
-Requires:         R-survival 
-Requires:         R-CRAN-glmnet 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 0.12.17
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Fits successive Lasso models for several blocks of (omics) data with
-different priorities and takes the predicted values as an offset for the
-next block.
+Simulate and plot general experimental crosses. The focus is on simulating
+genotypes with an aim towards flexibility rather than speed. Meiosis is
+simulated following the Stahl model, in which chiasma locations are the
+superposition of two processes: a proportion p coming from a process
+exhibiting no interference, and the remainder coming from a process
+following the chi-square model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  MAINT.Data
-%global packver   2.4.1
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
-Release:          2%{?dist}
+Version:          2.5.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Model and Analyse Interval Data
 
 License:          GPL-2
@@ -17,8 +17,8 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-sn >= 1.3.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.500.2.0
-BuildRequires:    R-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-MASS 
 BuildRequires:    R-CRAN-miscTools 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-rrcov 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-GGally 
 Requires:         R-CRAN-sn >= 1.3.0
 Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-MASS 
 Requires:         R-methods 
+Requires:         R-MASS 
 Requires:         R-CRAN-miscTools 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-rrcov 
