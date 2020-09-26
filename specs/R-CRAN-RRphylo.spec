@@ -1,10 +1,10 @@
 %global packname  RRphylo
-%global packver   2.4.7
+%global packver   2.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.7
-Release:          1%{?dist}
+Version:          2.4.11
+Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Ridge Regression Methods for Comparative Studies
 
 License:          GPL-2

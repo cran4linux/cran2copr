@@ -1,10 +1,10 @@
 %global packname  neonUtilities
-%global packver   1.3.6
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
-Release:          1%{?dist}
+Version:          1.3.7
+Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Working with NEON Data
 
 License:          AGPL-3
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gdata >= 2.18
 BuildRequires:    R-CRAN-dplyr >= 0.7.1
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-pbapply
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-gdata >= 2.18
 Requires:         R-CRAN-dplyr >= 0.7.1
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 

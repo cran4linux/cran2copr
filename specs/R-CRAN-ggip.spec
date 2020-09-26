@@ -1,40 +1,39 @@
-%global packname  term
-%global packver   0.3.0
+%global packname  ggip
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create, Manipulate and Query Parameter Terms
+Summary:          Data Visualization for IP Addresses and Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ipaddress >= 0.5.1
+BuildRequires:    R-CRAN-rlang >= 0.4.2
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-chk 
-BuildRequires:    R-CRAN-extras 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-universals 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ipaddress >= 0.5.1
+Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-chk 
-Requires:         R-CRAN-extras 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-universals 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-tidyr 
 
 %description
-Creates, manipulates, queries and repairs vectors of parameter terms.
-Parameter terms are the labels used to reference values in vectors,
-matrices and arrays. They represent the names in coefficient tables and
-the column names in 'mcmc' and 'mcmc.list' objects.
+A 'ggplot2' extension that enables visualization of IP (Internet Protocol)
+addresses and networks. The address space is mapped onto the Cartesian
+coordinate system using a space-filling curve. Offers full support for
+both IPv4 and IPv6 (Internet Protocol versions 4 and 6) address spaces.
 
 %prep
 %setup -q -c -n %{packname}

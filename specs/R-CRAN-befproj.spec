@@ -1,32 +1,28 @@
-%global packname  sparklyr.flint
-%global packver   0.2.0
+%global packname  befproj
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparklyr Extension for 'Flint'
+Summary:          Makes a Local Population Projection
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr >= 1.3
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-sparklyr >= 1.3
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-dplyr >= 0.8.5
 
 %description
-This sparklyr extension makes 'Flint' time series library functionalities
-(<https://github.com/twosigma/flint>) easily accessible through R.
+This is a sub national population projection model for calculating
+population development. The model uses a cohort component method. Further
+reading: Stanley K. Smith: A Practitioner's Guide to State and Local
+Population Projections. 2013.  <doi:10.1007/978-94-007-7551-0>.
 
 %prep
 %setup -q -c -n %{packname}

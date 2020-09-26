@@ -1,32 +1,33 @@
-%global packname  sparklyr.flint
-%global packver   0.2.0
+%global packname  miRecSurv
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparklyr Extension for 'Flint'
+Summary:          Left-Censored Recurrent Events Survival Models
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr >= 1.3
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-sparklyr >= 1.3
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-COMPoissonReg 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-COMPoissonReg 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-survival 
+Requires:         R-CRAN-stringi 
 
 %description
-This sparklyr extension makes 'Flint' time series library functionalities
-(<https://github.com/twosigma/flint>) easily accessible through R.
+Fitting recurrent events survival models for left-censored data with
+multiple imputation of the number of previous episodes. See
+Hernández-Herrera G, Moriña D, Navarro A. (2020) <arXiv:2007.15031>.
 
 %prep
 %setup -q -c -n %{packname}

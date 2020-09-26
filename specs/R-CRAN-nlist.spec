@@ -1,10 +1,10 @@
 %global packname  nlist
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          2%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Lists of Numeric Atomic Objects
 
 License:          MIT + file LICENSE
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-term >= 0.2.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-term 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-purrr 
@@ -26,9 +26,9 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-universals 
 BuildRequires:    R-CRAN-extras 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-term >= 0.2.0
 Requires:         R-stats 
 Requires:         R-CRAN-chk 
+Requires:         R-CRAN-term 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-purrr 

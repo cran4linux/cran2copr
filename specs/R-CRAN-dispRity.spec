@@ -1,9 +1,9 @@
 %global packname  dispRity
-%global packver   1.4.2
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Disparity
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ade4 
@@ -26,10 +26,12 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-phyclust 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ape 
 Requires:         R-stats 
 Requires:         R-CRAN-ade4 
@@ -42,10 +44,12 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-CRAN-mnormt 
+Requires:         R-parallel 
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-phyclust 
 Requires:         R-utils 
 Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-scales 
 
 %description
 A modular package for measuring disparity (multidimensional space

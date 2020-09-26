@@ -1,10 +1,10 @@
 %global packname  redland
-%global packver   1.0.17-11
+%global packver   1.0.17-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.17.11
-Release:          3%{?dist}
+Version:          1.0.17.12
+Release:          1%{?dist}%{?buildtag}
 Summary:          RDF Library Bindings in R
 
 License:          Apache License 2.0
@@ -13,7 +13,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    redland-devel >= 1.0.14
-Requires:         redland
 BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
 BuildRequires:    R-methods 
@@ -24,7 +23,7 @@ Requires:         R-CRAN-roxygen2
 %description
 Provides methods to parse, query and serialize information stored in the
 Resource Description Framework (RDF). RDF is described at
-<http://www.w3.org/TR/rdf-primer>. This package supports RDF by
+<https://www.w3.org/TR/rdf-primer/>. This package supports RDF by
 implementing an R interface to the Redland RDF C library, described at
 <http://librdf.org/docs/api/index.html>. In brief, RDF provides a
 structured graph consisting of Statements composed of Subject, Predicate,
@@ -33,6 +32,9 @@ and Object Nodes.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -40,24 +42,9 @@ and Object Nodes.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/NOTICE
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

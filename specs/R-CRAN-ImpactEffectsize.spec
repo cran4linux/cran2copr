@@ -1,10 +1,10 @@
 %global packname  ImpactEffectsize
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
-Release:          1%{?dist}
+Version:          0.6.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation and Visualization of the Impact Effect Size Measure
 
 License:          GPL-3

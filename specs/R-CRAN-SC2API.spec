@@ -1,37 +1,31 @@
-%global packname  RiemGrassmann
-%global packver   0.1.0
+%global packname  SC2API
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference, Learning, and Optimization on Grassmann Manifold
+Summary:          Blizzard SC2 API Wrapper
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RiemBase 
-BuildRequires:    R-CRAN-RiemBaseExt 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RiemBase 
-Requires:         R-CRAN-RiemBaseExt 
-Requires:         R-utils 
-Requires:         R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Grassmann manifold is a set of k-planes or linear subspaces in Euclidean
-space. We provide algorithms for statistical inference, optimization, and
-learning over the Grassmann manifold. For general exposition to the
-statistics on the manifold, see the book by Chikuse (2003)
-<doi:10.1007/978-0-387-21540-2>.
+A wrapper for Blizzard's Starcraft II (a 2010 real-time strategy game)
+Application Programming Interface (API). All documented API calls are
+implemented in an easy-to-use and consistent manner.
 
 %prep
 %setup -q -c -n %{packname}

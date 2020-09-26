@@ -1,38 +1,33 @@
-%global packname  RiemStiefel
+%global packname  globalKinhom
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference, Learning, and Optimization on Stiefel Manifold
+Summary:          Inhomogeneous K- And Pair Correlation Functions Using Global Estimators
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-RiemBase 
-BuildRequires:    R-CRAN-RiemBaseExt 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-RiemBase 
-Requires:         R-CRAN-RiemBaseExt 
-Requires:         R-utils 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-spatstat 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
-Stiefel manifold is a set of orthonormal frames in Euclidean space. We
-provide algorithms for statistical inference, optimization, and learning
-over the Stiefel manifold. For general exposition to the statistics on the
-manifold, see the book by Chikuse (2003) <doi:10.1007/978-0-387-21540-2>.
+Second-order summary statistics K- and pair-correlation functions describe
+interactions in point pattern data. This package provides computations to
+estimate those statistics on inhomogeneous point processes, using the
+methods of in T Shaw, J Møller, R Waagepetersen, 2020 <arXiv:2004.00527>.
 
 %prep
 %setup -q -c -n %{packname}

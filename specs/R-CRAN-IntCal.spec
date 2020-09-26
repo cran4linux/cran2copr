@@ -1,32 +1,26 @@
-%global packname  sparklyr.flint
-%global packver   0.2.0
+%global packname  IntCal
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparklyr Extension for 'Flint'
+Summary:          Radiocarbon Calibration Curves
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr >= 1.3
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-sparklyr >= 1.3
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
 
 %description
-This sparklyr extension makes 'Flint' time series library functionalities
-(<https://github.com/twosigma/flint>) easily accessible through R.
+The IntCal20 radiocarbon calibration curves (Reimer et al. 2020
+<doi:10.1017/RDC.2020.68>) are provided here in a single data package,
+together with previous IntCal curves (IntCal13, IntCal09, IntCal04,
+IntCal98) and postbomb curves.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,25 @@
-%global packname  sparklyr.flint
-%global packver   0.2.0
+%global packname  rle
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparklyr Extension for 'Flint'
+Summary:          Common Functions for Run-Length Encoded Vectors
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr >= 1.3
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-sparklyr >= 1.3
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-This sparklyr extension makes 'Flint' time series library functionalities
-(<https://github.com/twosigma/flint>) easily accessible through R.
+Common 'base' and 'stats' methods for 'rle' objects, aiming to make it
+possible to treat them transparently as vectors.
 
 %prep
 %setup -q -c -n %{packname}
