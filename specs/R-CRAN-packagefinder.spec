@@ -1,9 +1,9 @@
 %global packname  packagefinder
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comfortable Search for R Packages on CRAN, Either Directly from the R Console or with an R Studio Add-in
 

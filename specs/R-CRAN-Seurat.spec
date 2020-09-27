@@ -1,9 +1,9 @@
 %global packname  Seurat
-%global packver   3.2.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -18,7 +18,7 @@ BuildRequires:    R-CRAN-plotly >= 4.9.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-Matrix >= 1.2.14
 BuildRequires:    R-CRAN-leiden >= 0.3.1
-BuildRequires:    R-CRAN-sctransform >= 0.2.0
+BuildRequires:    R-CRAN-sctransform >= 0.3
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-uwot >= 0.1.5
 BuildRequires:    R-methods 
@@ -66,7 +66,7 @@ Requires:         R-CRAN-plotly >= 4.9.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-Matrix >= 1.2.14
 Requires:         R-CRAN-leiden >= 0.3.1
-Requires:         R-CRAN-sctransform >= 0.2.0
+Requires:         R-CRAN-sctransform >= 0.3
 Requires:         R-CRAN-uwot >= 0.1.5
 Requires:         R-methods 
 Requires:         R-cluster 
