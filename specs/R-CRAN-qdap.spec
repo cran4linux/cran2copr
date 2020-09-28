@@ -1,11 +1,11 @@
 %global packname  qdap
-%global packver   2.4.1
+%global packver   2.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
-Release:          3%{?dist}
-Summary:          Bridging the Gap Between Qualitative Data and QuantitativeAnalysis
+Version:          2.4.3
+Release:          1%{?dist}%{?buildtag}
+Summary:          Bridging the Gap Between Qualitative Data and Quantitative Analysis
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,12 +25,12 @@ BuildRequires:    R-CRAN-openNLP >= 0.2.1
 BuildRequires:    R-CRAN-qdapRegex >= 0.1.2
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-chron 
-BuildRequires:    R-CRAN-gdata 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-NLP 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-RCurl 
@@ -42,7 +42,6 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-venneuler 
 BuildRequires:    R-CRAN-wordcloud 
-BuildRequires:    R-CRAN-xlsx 
 BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-ggplot2 >= 2.1.0
 Requires:         R-CRAN-qdapTools >= 1.3.1
@@ -54,12 +53,12 @@ Requires:         R-CRAN-openNLP >= 0.2.1
 Requires:         R-CRAN-qdapRegex >= 0.1.2
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-chron 
-Requires:         R-CRAN-gdata 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
 Requires:         R-CRAN-NLP 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-parallel 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-RCurl 
@@ -71,7 +70,6 @@ Requires:         R-tools
 Requires:         R-utils 
 Requires:         R-CRAN-venneuler 
 Requires:         R-CRAN-wordcloud 
-Requires:         R-CRAN-xlsx 
 Requires:         R-CRAN-XML 
 
 %description
@@ -91,6 +89,8 @@ Processing.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -98,21 +98,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/Rmd_vignette
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

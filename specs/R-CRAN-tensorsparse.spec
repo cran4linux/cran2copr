@@ -1,10 +1,10 @@
 %global packname  tensorsparse
-%global packver   2.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
-Release:          3%{?dist}
+Version:          3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multiway Clustering via Tensor Block Models
 
 License:          GPL (>= 2)
@@ -14,30 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-HDCI 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-HDCI 
 Requires:         R-parallel 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-viridis 
-Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 Implements the multiway sparse clustering approach of M. Wang and Y. Zeng,
@@ -48,6 +28,8 @@ Information Processing System 32 (NeurIPS), 715-725, 2019.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -55,19 +37,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/REFERENCES.bib
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
