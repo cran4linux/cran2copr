@@ -1,9 +1,9 @@
 %global packname  icesVocab
-%global packver   1.1.7
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          ICES Vocabularies Database Web Services
 
@@ -16,9 +16,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-utils 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-xml2 
 
 %description
 R interface to access the RECO POX web services of the ICES (International

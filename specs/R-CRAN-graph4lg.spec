@@ -1,10 +1,10 @@
 %global packname  graph4lg
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          1%{?dist}
+Version:          1.0.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Build Graphs for Landscape Genetics Analysis
 
 License:          GPL-2
@@ -15,8 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-adegenet 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-Matrix 
@@ -25,8 +29,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pegas 
 BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
@@ -36,8 +38,13 @@ BuildRequires:    R-CRAN-gdistance
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-foreign 
 BuildRequires:    R-CRAN-ecodist 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-adegenet 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
 Requires:         R-CRAN-spatstat 
 Requires:         R-Matrix 
@@ -46,8 +53,6 @@ Requires:         R-utils
 Requires:         R-methods 
 Requires:         R-CRAN-pegas 
 Requires:         R-MASS 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
@@ -57,6 +62,7 @@ Requires:         R-CRAN-gdistance
 Requires:         R-CRAN-raster 
 Requires:         R-foreign 
 Requires:         R-CRAN-ecodist 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Build graphs for landscape genetics analysis. This set of functions can be
@@ -69,7 +75,7 @@ weight their links with several genetic distances, plot and analyse
 graphs, compare them with other graphs. It uses functions from other
 packages such as 'adegenet' (Jombart, 2008)
 <doi:10.1093/bioinformatics/btn129> and 'igraph' (Csardi et Nepusz, 2006)
-<https://bit.ly/35a3V3H>. It also implements methods commonly used in
+<https://igraph.org/>. It also implements methods commonly used in
 landscape genetics to create graphs, described by Dyer et Nason (2004)
 <doi:10.1111/j.1365-294X.2004.02177.x> and Greenbaum et Fefferman (2017)
 <doi:10.1111/mec.14059>, and to analyse distance data (van Strien et al.,

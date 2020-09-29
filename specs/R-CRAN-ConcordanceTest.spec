@@ -1,37 +1,32 @@
-%global packname  fakemake
-%global packver   1.8.0
+%global packname  ConcordanceTest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mock the Unix Make Utility
+Summary:          An Alternative to the Kruskal-Wallis Test Based on the Kendall Tau Ideas
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.3.2
+Requires:         R-core >= 3.3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MakefileR 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-callr 
+Requires:         R-CRAN-Rglpk 
+Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MakefileR 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
-Use R as a minimal build system. This might come in handy if you are
-developing R packages and can not use a proper build system. Stay away if
-you can (use a proper build system).
+The Concordance Test is a non-parametric method for testing whether two o
+more samples originate from the same distribution. It extends the Kendall
+Tau correlation coefficient when there are only two groups. For details,
+see Monge (2019) <arXiv:1912.12880v1>.
 
 %prep
 %setup -q -c -n %{packname}

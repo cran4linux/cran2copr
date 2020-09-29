@@ -1,13 +1,13 @@
-%global packname  SimSurvNMarker
-%global packver   0.1.0
+%global packname  lazygreedy
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Survival Time and Markers
+Summary:          Applying the Lazy-Greedy Spanning Algorithm
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,10 +19,9 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rcpp 
 
 %description
-Provides functions to simulate from joint survival and marker models. The
-user can specific all basis functions of time, random or deterministic
-covariates, random or deterministic left-truncation and right-censoring
-times, and model parameters.
+Provides an R wrapper for an efficient C++ implementation of the
+Lazy-Greedy spanning algorithm of Bouts, ten Brink, and Buchin (2014)
+<DOI:10.1145/2582112.2582154>.
 
 %prep
 %setup -q -c -n %{packname}

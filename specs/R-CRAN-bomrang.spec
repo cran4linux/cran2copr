@@ -1,10 +1,10 @@
 %global packname  bomrang
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
-Release:          3%{?dist}
+Version:          0.7.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Australian Government Bureau of Meteorology ('BOM') Data Client
 
 License:          MIT + file LICENSE
@@ -56,7 +56,7 @@ Requires:         R-utils
 
 %description
 Provides functions to interface with Australian Government Bureau of
-Meteorology ('BOM') data, fetching data and returning a tidy data frame of
+Meteorology ('BOM') data, fetching data and returning a data frame of
 precis forecasts, historical and current weather data from stations,
 agriculture bulletin data, 'BOM' 0900 or 1500 weather bulletins and
 downloading and importing radar and satellite imagery files.  Data (c)
@@ -67,6 +67,9 @@ See <http://www.bom.gov.au/other/copyright.shtml> for further details.
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -74,24 +77,9 @@ See <http://www.bom.gov.au/other/copyright.shtml> for further details.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/error_images
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/paper
-%doc %{rlibdir}/%{packname}/vector
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

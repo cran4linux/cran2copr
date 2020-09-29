@@ -1,43 +1,37 @@
-%global packname  torch
-%global packver   0.1.0
+%global packname  DynComm
+%global packver   2020.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2020.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tensors and Neural Networks with 'GPU' Acceleration
+Summary:          Dynamic Network Communities Detection and Generation
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.15
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp >= 0.12.15
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-magrittr 
 
 %description
-Provides functionality to define and train neural networks similar to
-'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
-in R using the 'libtorch' library. Also supports low-level tensor
-operations and 'GPU' acceleration.
+Used for evolving network analysis regarding community detection.
+Implements several algorithms that calculate communities for graphs whose
+nodes and edges change over time. Edges, which can have new nodes, can be
+added or deleted. Changes in the communities are calculated without
+recalculating communities for the entire graph. REFERENCE: M. Cordeiro et
+al. (2016) <DOI:10.1007/s13278-016-0325-1> G. Rossetti et al. (2017)
+<DOI:10.1007/s10994-016-5582-8> G. Rossetti (2017)
+<DOI:10.1093/comnet/cnx016> R. Sarmento (2019) <arXiv:1904.12593>.
 
 %prep
 %setup -q -c -n %{packname}

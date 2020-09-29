@@ -1,43 +1,44 @@
-%global packname  torch
-%global packver   0.1.0
+%global packname  atakrig
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tensors and Neural Networks with 'GPU' Acceleration
+Summary:          Area-to-Area Kriging
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-snow 
+BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-snow 
+Requires:         R-CRAN-FNN 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-magrittr 
+Requires:         R-MASS 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides functionality to define and train neural networks similar to
-'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
-in R using the 'libtorch' library. Also supports low-level tensor
-operations and 'GPU' acceleration.
+Point-scale variogram deconvolution from irregular/regular spatial support
+according to Goovaerts, P., (2008) <doi: 10.1007/s11004-007-9129-1>;
+ordinary area-to-area (co)Kriging and area-to-point (co)Kriging.
 
 %prep
 %setup -q -c -n %{packname}

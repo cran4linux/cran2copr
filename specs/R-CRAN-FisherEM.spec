@@ -1,11 +1,11 @@
 %global packname  FisherEM
-%global packver   1.5.2
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
-Release:          1%{?dist}
-Summary:          The FisherEM Algorithm to Simultaneously Cluster and VisualizeHigh-Dimensional Data
+Version:          1.6
+Release:          1%{?dist}%{?buildtag}
+Summary:          The FisherEM Algorithm to Simultaneously Cluster and Visualize High-Dimensional Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,9 +18,15 @@ BuildArch:        noarch
 BuildRequires:    R-MASS 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-elasticnet 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-MASS 
 Requires:         R-parallel 
 Requires:         R-CRAN-elasticnet 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ellipse 
+Requires:         R-CRAN-plyr 
 
 %description
 The FisherEM algorithm, proposed by Bouveyron & Brunet (2012)

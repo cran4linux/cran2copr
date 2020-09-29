@@ -1,30 +1,32 @@
-%global packname  ripserr
-%global packver   0.1.0
+%global packname  ACEsearch
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Persistent Homology with Ripser-Based Engines
+Summary:          'ACE' Search Engine API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods >= 3.0
-BuildRequires:    R-stats >= 3.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0
-Requires:         R-methods >= 3.0
-Requires:         R-stats >= 3.0
-Requires:         R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-testthat 
 
 %description
-Ports the Ripser <arXiv:1908.02518> and Cubical Ripser <arXiv:2005.12692>
-persistent homology calculation engines from C++. Can be used as a rapid
-calculation tool in topological data analysis pipelines.
+'ACE' (Advanced Cohort Engine) is a powerful tool that allows constructing
+cohorts of patients extremely quickly and efficiently. This package is
+designed to interface directly with an instance of 'ACE' search engine and
+facilitates API queries and data dumps. Prerequisite is a good knowledge
+of the temporal language to be able to efficiently construct a query. More
+information available at <https://shahlab.stanford.edu/start>.
 
 %prep
 %setup -q -c -n %{packname}
