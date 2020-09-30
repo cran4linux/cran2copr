@@ -42,7 +42,7 @@ install.packages("car") # from CRAN to user lib
 
 This project works with a set of R scripts around the `copr-cli` Python tool, which is rather limited yet.
 
-SPECs are generated from a standard template (see `specfile.tpl`), a list of system requirements (currently manually maintained; see the `TODO` list for a possible replacement), and a handful of fixes for particular cases (because, despite all the good work by the CRAN team, still some bad practices sneak in).
+SPECs are generated from a standard template (see `spec.in`), a list of system requirements (currently manually maintained; see the `TODO` list for a possible replacement), and a handful of fixes for particular cases (because, despite all the good work by the CRAN team, still some bad practices sneak in).
 
 All in all, this procedure must work in an automated way for ~15k packages (as of Feb. 2020), which means that this project needs to relax some packaging guidelines that are otherwise enforced in the official Fedora repos. Particularly,
 

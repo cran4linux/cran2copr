@@ -4,7 +4,7 @@ options(
   copr.clone.url   = "https://github.com/Enchufa2/cran2copr",
   copr.subdir      = "specs",
   copr.prefix      = "R-CRAN-",
-  copr.tpl         = "specfile.tpl",
+  copr.tpl         = "spec.in",
   copr.bflags      = "",
   copr.chroots     = NULL,
   copr.watch       = FALSE,
