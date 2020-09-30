@@ -22,7 +22,7 @@ $ sudo dnf install R-CoprManager
 By default, CoprManager is enabled, and you can install packages in R as you normally do, e.g.,
 
 ```r
-> install.packages("car")
+install.packages("car")
 ```
 
 In the background, a D-Bus service installs the available packages from this Copr repo, and the remaining ones, from CRAN, all within the same call. On the other hand, `remove.packages` will still remove only packages installed in your user library. If you want to remove system packages, run:
