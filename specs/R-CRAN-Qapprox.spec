@@ -1,13 +1,13 @@
-%global packname  pdfboxr
-%global packver   2.0.19
+%global packname  Qapprox
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.19
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'PDFBox'
+Summary:          Approximation to the Survival Functions of Quadratic Forms of Gaussian Variables
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,16 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava >= 0.9.6
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-rJava >= 0.9.6
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Interface to the 'Apache' 'PDFBox' library <https://pdfbox.apache.org/>.
-'PDFBox' is an open source 'Java' tool for working with 'PDF' documents.
-Currently 'pdfboxr' only implements functions to extract data from
-'PDF'-files.
+Calculates the right-tail probability of quadratic forms of Gaussian
+variables using the skewness-kurtosis ratio matching method, modified
+Liu-Tang-Zhang method and Satterthwaite-Welch method. The technical
+details can be found in Hong Zhang, Judong Shen and Zheyang Wu (2020)
+<arXiv:2005.00905>.
 
 %prep
 %setup -q -c -n %{packname}

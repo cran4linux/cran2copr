@@ -1,27 +1,34 @@
-%global packname  xfun
-%global packver   0.18
+%global packname  N2R
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions by 'Yihui Xie'
+Summary:          Fast and Scalable Approximate k-Nearest Neighbor Search Methods using 'N2' Library
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-Requires:         R-stats 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-RcppSpdlog 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-Matrix 
 
 %description
-Miscellaneous functions commonly used in other packages maintained by
-'Yihui Xie'.
+Implements methods to perform fast approximate K-nearest neighbor search
+on input matrix. Algorithm based on the 'N2' implementation of an
+approximate nearest neighbor search using hierarchical Navigable Small
+World (NSW) graphs. The original algorithm is described in "Efficient and
+Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable
+Small World Graphs", Y. Malkov and D. Yashunin,
+<doi:10.1109/TPAMI.2018.2889473>, <arXiv:1603.09320>.
 
 %prep
 %setup -q -c -n %{packname}

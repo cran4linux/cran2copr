@@ -1,11 +1,11 @@
 %global packname  fastpos
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
-Release:          1%{?dist}
-Summary:          Finds the Critical Sequential Point of Stability for a PearsonCorrelation
+Version:          0.4.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Finds the Critical Sequential Point of Stability for a Pearson Correlation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

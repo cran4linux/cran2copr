@@ -1,9 +1,9 @@
 %global packname  dragon
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Time Redox Analysis of the Geobiology Ontology Network
 
@@ -85,7 +85,7 @@ Requires:         R-CRAN-tidyselect
 %description
 Create, visualize, manipulate, and analyze bipartite mineral-chemistry
 networks for set of focal element(s) across deep-time on Earth. The method
-is described in Spielman and Moore (2020) <doi:10.31223/osf.io/z7k9q>.
+is described in Spielman and Moore (2020) <doi:10.3389/feart.2020.585087>.
 
 %prep
 %setup -q -c -n %{packname}

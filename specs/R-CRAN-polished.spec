@@ -1,10 +1,10 @@
 %global packname  polished
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}
+Version:          0.2.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Authentication and Administration for 'shiny' Apps
 
 License:          MIT + file LICENSE
@@ -15,12 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-apexcharter 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jose 
 BuildRequires:    R-CRAN-jsonlite 
@@ -39,13 +37,10 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-apexcharter 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jose 
 Requires:         R-CRAN-jsonlite 
@@ -64,7 +59,6 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-xts 
 
 %description
 Easily add modern authentication and user administration to your 'shiny'

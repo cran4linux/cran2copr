@@ -1,25 +1,35 @@
-%global packname  rsBayes
-%global packver   0.1.0
+%global packname  Spillover
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Models for Remotely Sensed Data
+Summary:          Spillover Index Based on VAR Modelling
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-coda 
-Requires:         R-CRAN-coda 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-vars 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-fastSOM 
+Requires:         R-CRAN-vars 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-fastSOM 
 
 %description
-Models and associated tools for Bayesian inference of remotely sensed
-variables.
+A user-friendly tool for estimating both total and directional volatility
+spillovers based on Diebold and Yilmaz (2009, 2012). It also provides the
+user with rolling estimation for total and net indices. User can find both
+orthogonalized and generalized versions for each kind of measures. See
+Diebold and Yilmaz (2009, 2012) find them at
+<doi:10.1111/j.1468-0297.2008.02208.x> and
+<doi:10.1016/j.ijforecast.2011.02.006>.
 
 %prep
 %setup -q -c -n %{packname}

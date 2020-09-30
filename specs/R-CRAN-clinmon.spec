@@ -1,32 +1,27 @@
-%global packname  gtfsrouter
-%global packver   0.0.4
+%global packname  clinmon
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Routing with GTFS (General Transit Feed Specification) Data
+Summary:          Calculation of Hemodynamic Indexes from Clinical Monitoring
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.6
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.6
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Use GTFS (General Transit Feed Specification) data for routing from
-nominated start and end stations, and for extracting isochrones from
-nominated start station.
+Every research team have their own script for calculation of hemodynamic
+indexes. This package makes it possible to insert a long-format dataframe,
+and add both periods of interest (trigger-periods), and delete artifacts
+with deleter-files. The calculation methods are based on Czosnyka et al.
+(1996) <doi:10.1161/01.str.27.10.1829>.
 
 %prep
 %setup -q -c -n %{packname}

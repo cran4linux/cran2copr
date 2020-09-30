@@ -1,32 +1,31 @@
-%global packname  gtfsrouter
-%global packver   0.0.4
+%global packname  BayesProject
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Routing with GTFS (General Transit Feed Specification) Data
+Summary:          Fast Projection Direction for Multivariate Changepoint Detection
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.6
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.6
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.13
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.12.13
+Requires:         R-CRAN-Rdpack 
 
 %description
-Use GTFS (General Transit Feed Specification) data for routing from
-nominated start and end stations, and for extracting isochrones from
-nominated start station.
+Implementations in 'cpp' of the BayesProject algorithm (see G. Hahn, P.
+Fearnhead, I.A. Eckley (2020) <doi:10.1007/s11222-020-09966-2>) which
+implements a fast approach to compute a projection direction for
+multivariate changepoint detection, as well as the sum-cusum and max-cusum
+methods, and a wild binary segmentation wrapper for all algorithms.
 
 %prep
 %setup -q -c -n %{packname}

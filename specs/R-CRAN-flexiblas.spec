@@ -1,32 +1,25 @@
-%global packname  gtfsrouter
-%global packver   0.0.4
+%global packname  flexiblas
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Routing with GTFS (General Transit Feed Specification) Data
+Summary:          'FlexiBLAS' API Interface
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.6
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.6
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Use GTFS (General Transit Feed Specification) data for routing from
-nominated start and end stations, and for extracting isochrones from
-nominated start station.
+Provides functions to switch the 'BLAS'/'LAPACK' optimized backend and
+change the number of threads without leaving the R session, which needs to
+be linked against the 'FlexiBLAS' wrapper library
+<https://www.mpi-magdeburg.mpg.de/projects/flexiblas>.
 
 %prep
 %setup -q -c -n %{packname}

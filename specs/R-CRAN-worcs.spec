@@ -1,10 +1,10 @@
 %global packname  worcs
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          2%{?dist}
+Version:          0.1.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Workflow for Open Reproducible Code in Science
 
 License:          GPL (>= 3)

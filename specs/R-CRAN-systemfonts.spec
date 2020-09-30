@@ -1,9 +1,9 @@
 %global packname  systemfonts
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          System Native Font Finding
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cpp11 
 
 %description
 Provides system native access to the font catalogue. As font handling

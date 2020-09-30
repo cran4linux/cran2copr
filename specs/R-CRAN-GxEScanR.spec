@@ -1,34 +1,31 @@
-%global packname  statgenGWAS
-%global packver   1.0.5
+%global packname  GxEScanR
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genome Wide Association Studies
+Summary:          Run GWAS/GWEIS Scans Using Binary Dosage Files
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-sommer >= 3.7.3
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-prodlim 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-sommer >= 3.7.3
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-prodlim 
 
 %description
-Fast single trait Genome Wide Association Studies (GWAS) following the
-method described in Kang et al. (2010), <doi:10.1038/ng.548>. One of a
-series of statistical genetic packages for streamlining the analysis of
-typical plant breeding experiments developed by Biometris.
+Tools to run genome-wide association study (GWAS) and genome-wide by
+environment interaction study (GWEIS) scans using the genetic data stored
+in a binary dosage file. The user provides a data frame with the subject's
+covariate data and the information about the binary dosage file returned
+by the BinaryDosage::getbdinfo() routine.
 
 %prep
 %setup -q -c -n %{packname}

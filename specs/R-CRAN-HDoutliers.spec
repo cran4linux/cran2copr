@@ -1,11 +1,11 @@
 %global packname  HDoutliers
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
-Release:          1%{?dist}
-Summary:          Leland Wilkinson's Algorithm for Detecting MultidimensionalOutliers
+Version:          1.0.3
+Release:          1%{?dist}%{?buildtag}
+Summary:          Leland Wilkinson's Algorithm for Detecting Multidimensional Outliers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

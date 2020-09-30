@@ -1,10 +1,10 @@
 %global packname  anomaly
-%global packver   3.0.2
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
-Release:          1%{?dist}
+Version:          4.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting Anomalies in Data
 
 License:          GPL
@@ -41,7 +41,8 @@ Implements Collective And Point Anomaly (CAPA) <arXiv:1806.01947>,
 Multi-Variate Collective And Point Anomaly (MVCAPA) <arXiv:1909.01691>,
 Proportion Adaptive Segment Selection (PASS) <doi:10.1093/biomet/ass059>,
 and Bayesian Abnormal Region Detector (BARD) <doi:10.1214/16-BA998>
-methods for the detection of anomalies in time series data.
+methods for the detection of anomalies in time series data. Also includes
+sequential versions of CAPA and MVCAPA <arXiv:2009.06670>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,26 @@
-%global packname  statgenGWAS
-%global packver   1.0.5
+%global packname  mapchina
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genome Wide Association Studies
+Summary:          China Administrative Divisions Geospatial Shapefile Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-sommer >= 3.7.3
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-sommer >= 3.7.3
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-sf 
 
 %description
-Fast single trait Genome Wide Association Studies (GWAS) following the
-method described in Kang et al. (2010), <doi:10.1038/ng.548>. One of a
-series of statistical genetic packages for streamlining the analysis of
-typical plant breeding experiments developed by Biometris.
+Geospatial shapefile data of China administrative divisions to the
+county/district-level.
 
 %prep
 %setup -q -c -n %{packname}

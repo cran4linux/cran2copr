@@ -1,11 +1,11 @@
 %global packname  metasens
-%global packver   0.4-1
+%global packver   0.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
-Release:          2%{?dist}
-Summary:          Advanced Statistical Methods to Model and Adjust for Bias inMeta-Analysis
+Version:          0.5.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Advanced Statistical Methods to Model and Adjust for Bias in Meta-Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 4.9.5
-Requires:         R-CRAN-meta >= 4.9.5
+BuildRequires:    R-CRAN-meta >= 4.14.0
+Requires:         R-CRAN-meta >= 4.14.0
 
 %description
 The following methods are implemented to evaluate how sensitive the
