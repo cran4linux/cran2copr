@@ -1,23 +1,29 @@
-%global packname  bda
-%global packver   15.1.7
+%global packname  robservable
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binned Data Analysis
+Summary:          Import an Observable Notebook as HTML Widget
 
-License:          Unlimited
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Algorithms developed for binned data analysis, gene expression data
-analysis and measurement error models for ordinal data analysis.
+Allows loading and displaying an Observable notebook (online JavaScript
+notebooks powered by <https://observablehq.com>) as an HTML Widget in an R
+session, 'shiny' application or 'rmarkdown' document.
 
 %prep
 %setup -q -c -n %{packname}

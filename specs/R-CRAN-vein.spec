@@ -1,10 +1,10 @@
 %global packname  vein
-%global packver   0.8.9
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
-Release:          3%{?dist}
+Version:          0.9.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Vehicular Emissions Inventories
 
 License:          MIT + file LICENSE
@@ -19,13 +19,11 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-units 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-methods 
 
 %description
 Elaboration of vehicular emissions inventories, consisting in four stages,
@@ -41,6 +39,8 @@ download a template to create a structure of directories and scripts.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -48,24 +48,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/README.html
-%doc %{rlibdir}/%{packname}/README.Rmd
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

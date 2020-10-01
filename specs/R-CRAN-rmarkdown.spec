@@ -1,10 +1,10 @@
 %global packname  rmarkdown
-%global packver   2.3
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
-Release:          2%{?dist}
+Version:          2.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Documents for R
 
 License:          GPL-3
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-evaluate >= 0.13
 BuildRequires:    R-CRAN-tinytex >= 0.11
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-xfun 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-evaluate >= 0.13
 Requires:         R-CRAN-tinytex >= 0.11
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-xfun 
@@ -51,6 +49,8 @@ Convert R Markdown documents into a variety of formats.
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -58,24 +58,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/COPYING
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NOTICE
-%doc %{rlibdir}/%{packname}/rmarkdown
-%doc %{rlibdir}/%{packname}/rmd
-%doc %{rlibdir}/%{packname}/rstudio
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

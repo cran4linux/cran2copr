@@ -1,10 +1,10 @@
 %global packname  MendelianRandomization
-%global packver   0.4.3
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
-Release:          1%{?dist}
+Version:          0.5.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Mendelian Randomization Package
 
 License:          GPL-2 | GPL-3
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-quantreg >= 5.01
 BuildRequires:    R-CRAN-plotly >= 3.6.0
 BuildRequires:    R-Matrix >= 1.2
 BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
@@ -24,6 +25,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-quantreg >= 5.01
 Requires:         R-CRAN-plotly >= 3.6.0
 Requires:         R-Matrix >= 1.2
 Requires:         R-CRAN-ggplot2 >= 1.0.1
@@ -33,6 +36,7 @@ Requires:         R-methods
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-glmnet 
 
 %description
 Encodes several methods for performing Mendelian randomization analyses

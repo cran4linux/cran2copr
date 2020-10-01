@@ -1,41 +1,35 @@
-%global packname  rlc
-%global packver   0.3.0
+%global packname  localFDA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Linked Charts with Minimal Code
+Summary:          Localization Processes for Functional Data Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jrc >= 0.4.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-hwriter 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-jrc >= 0.4.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-hwriter 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-R6 
+Requires:         R-graphics 
 
 %description
-An easy-to-use tool to employ interactivity in every-day exploratory
-analysis. It contains a collection of most commonly used types of charts
-(such as scatter plots, line plots, heatmaps, bar charts), which can be
-linked to each other or to other interactive elements with just few lines
-of code.
+Implementation of a theoretically supported alternative to k-nearest
+neighbors for functional data to solve problems of estimating unobserved
+segments of a partially observed functional data sample, functional
+classification and outlier detection. The approximating neighbor curves
+are piecewise functions built from a functional sample. Instead of a
+distance on a function space we use a locally defined distance function
+that satisfies stabilization criteria. The package allows the
+implementation of the methodology and the replication of the results in
+Elías, A., Jiménez, R. and Yukich, J. (2020) <arXiv:2007.16059>.
 
 %prep
 %setup -q -c -n %{packname}

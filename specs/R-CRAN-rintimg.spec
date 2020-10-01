@@ -1,23 +1,30 @@
-%global packname  bda
-%global packver   15.1.7
+%global packname  rintimg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binned Data Analysis
+Summary:          View Images on Full Screen in 'RMarkdown' Documents and 'shiny' Applications
 
-License:          Unlimited
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-glue 
 
 %description
-Algorithms developed for binned data analysis, gene expression data
-analysis and measurement error models for ordinal data analysis.
+Allows the user to view an image in full screen when clicking on it in
+'RMarkdown' documents and 'shiny' applications. The package relies on the
+'JavaScript' library 'intense-images'. See
+<https://tholman.com/intense-images/> for more information.
 
 %prep
 %setup -q -c -n %{packname}

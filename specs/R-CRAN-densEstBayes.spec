@@ -1,11 +1,11 @@
-%global packname  EpiILM
-%global packver   1.5.2
+%global packname  densEstBayes
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial and Network Based Individual Level Models for Epidemics
+Summary:          Density Estimation via Bayesian Inference Engines
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,26 +14,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-adaptMCMC 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-MASS 
+BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-adaptMCMC 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-StanHeaders 
+Requires:         R-MASS 
+Requires:         R-nlme 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
+Requires:         R-CRAN-rstan 
 
 %description
-Provides tools for simulating from discrete-time individual level models
-for infectious disease data analysis. This epidemic model class contains
-spatial and contact-network based models with two disease types:
-Susceptible-Infectious (SI) and Susceptible-Infectious-Removed (SIR).
+Bayesian density estimates for univariate continuous random samples are
+provided using the Bayesian inference engine paradigm. The engine options
+are: Hamiltonian Monte Carlo, the no U-turn sampler, semiparametric mean
+field variational Bayes and slice sampling. The methodology is described
+in Wand and Yu (2020) <arXiv:2009.06182>.
 
 %prep
 %setup -q -c -n %{packname}

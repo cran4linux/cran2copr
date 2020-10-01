@@ -1,9 +1,9 @@
 %global packname  countfitteR
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Automatized Evaluation of Distribution Models for Count Data
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-MASS 
 Requires:         R-CRAN-shiny 
 Requires:         R-stats 
 Requires:         R-CRAN-pscl 
 Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 A large number of measurements generate count data. This is a statistical

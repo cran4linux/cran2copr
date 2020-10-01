@@ -1,23 +1,24 @@
-%global packname  bda
-%global packver   15.1.7
+%global packname  MLGdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binned Data Analysis
+Summary:          Datasets for Use with Salvan, Sartori and Pace (2020)
 
-License:          Unlimited
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Algorithms developed for binned data analysis, gene expression data
-analysis and measurement error models for ordinal data analysis.
+Contains the datasets for use with the book Salvan, Sartori and Pace
+(2020, ISBN:978-88-470-4002-1) "Modelli Lineari Generalizzati".
 
 %prep
 %setup -q -c -n %{packname}

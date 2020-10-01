@@ -1,23 +1,30 @@
-%global packname  bda
-%global packver   15.1.7
+%global packname  LearnClust
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.1.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binned Data Analysis
+Summary:          Learning Hierarchical Clustering Algorithms
 
 License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magick 
+Requires:         R-CRAN-magick 
 
 %description
-Algorithms developed for binned data analysis, gene expression data
-analysis and measurement error models for ordinal data analysis.
+Classical hierarchical clustering algorithms, agglomerative and divisive
+clustering. Algorithms are implemented as a theoretical way, step by step.
+It includes some detailed functions that explain each step. Every function
+allows options to get different results using different techniques. The
+package explains non expert users how hierarchical clustering algorithms
+work.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,23 +1,32 @@
-%global packname  bda
-%global packver   15.1.7
+%global packname  svyVGAM
+%global packver   0.222-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.1.7
+Version:          0.222.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binned Data Analysis
+Summary:          Design-Based Inference in Vector Generalised Linear Models
 
-License:          Unlimited
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-survey 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Algorithms developed for binned data analysis, gene expression data
-analysis and measurement error models for ordinal data analysis.
+Provides design-based inference for the wide range of parametric models in
+the 'VGAM' package.
 
 %prep
 %setup -q -c -n %{packname}

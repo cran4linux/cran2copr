@@ -1,23 +1,32 @@
-%global packname  bda
-%global packver   15.1.7
+%global packname  rsparkling
+%global packver   0.2.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.1.7
+Version:          0.2.19
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binned Data Analysis
+Summary:          R Interface for H2O Sparkling Water
 
-License:          Unlimited
+License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+Requires:         java
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-h2o >= 3.8.3.3
+BuildRequires:    R-CRAN-sparklyr >= 0.3
+BuildRequires:    R-utils 
+Requires:         R-CRAN-h2o >= 3.8.3.3
+Requires:         R-CRAN-sparklyr >= 0.3
+Requires:         R-utils 
 
 %description
-Algorithms developed for binned data analysis, gene expression data
-analysis and measurement error models for ordinal data analysis.
+An extension package for 'sparklyr' that provides an R interface to H2O
+Sparkling Water machine learning library (see
+<https://github.com/h2oai/sparkling-water> for more information).
 
 %prep
 %setup -q -c -n %{packname}
