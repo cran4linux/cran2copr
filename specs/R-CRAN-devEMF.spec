@@ -1,9 +1,9 @@
 %global packname  devEMF
-%global packver   4.0-1
+%global packver   4.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          4.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          EMF Graphics Output Device
 

@@ -1,9 +1,9 @@
 %global packname  rfacebookstat
-%global packver   2.1.7
+%global packver   2.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Data from Facebook API Marketing
 

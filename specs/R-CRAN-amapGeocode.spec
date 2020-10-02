@@ -1,11 +1,11 @@
-%global packname  otpr
-%global packver   0.4.2
+%global packname  amapGeocode
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Wrapper for the 'OpenTripPlanner' REST API
+Summary:          An Interface to the 'AutoNavi Maps' API Geocoding Services
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +15,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-geojsonsf 
-BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sjmisc 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-geojsonsf 
-Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sjmisc 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lifecycle 
 
 %description
-A wrapper for the 'OpenTripPlanner' <http://www.opentripplanner.org/> REST
-API. Queries are submitted to the relevant 'OpenTripPlanner' API resource,
-the response is parsed and useful R objects are returned.
+Getting and parsing data of location geocode/reverse-geocode and
+administrative regions from 'AutoNavi
+Maps'<https://lbs.amap.com/api/webservice/summary> API.
 
 %prep
 %setup -q -c -n %{packname}

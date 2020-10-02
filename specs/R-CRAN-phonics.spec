@@ -1,10 +1,10 @@
 %global packname  phonics
-%global packver   1.3.6
+%global packver   1.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
-Release:          2%{?dist}
+Version:          1.3.8
+Release:          1%{?dist}%{?buildtag}
 Summary:          Phonetic Spelling Algorithms
 
 License:          BSD_2_clause + file LICENSE
@@ -22,7 +22,8 @@ Requires:         R-CRAN-data.table
 
 %description
 Provides a collection of phonetic algorithms including Soundex, Metaphone,
-NYSIIS, Caverphone, and others.
+NYSIIS, Caverphone, and others.  The package is documented in
+<doi:10.18637/jss.v095.i08>.
 
 %prep
 %setup -q -c -n %{packname}

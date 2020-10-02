@@ -1,34 +1,32 @@
-%global packname  GetoptLong
-%global packver   1.0.3
+%global packname  IsoCorr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsing Command-Line Arguments and Simple Variable Interpolation
+Summary:          Correcting Drift and Carry-over in Continuous Isotopic Measurements
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         perl(Getopt::Long)
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.0
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-GlobalOptions >= 0.1.0
-Requires:         R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-This is a command-line argument parser which wraps the powerful Perl
-module Getopt::Long and with some adaptations for easier use in R. It also
-provides a simple way for variable interpolation in R.
+A series of functions that allow an easy and fast correction for drift and
+carry-over in continuous isotopic measurements. This implementation
+provides queries allowing users to perform the implemented corrections
+according to their needs. These functions further enable the processing of
+large datasets and can provides apt visualizations of the corrections
+performed.
 
 %prep
 %setup -q -c -n %{packname}

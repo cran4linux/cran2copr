@@ -1,11 +1,11 @@
 %global packname  JFE
-%global packver   2.1.3
+%global packver   2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
-Release:          2%{?dist}
-Summary:          Tools and GUI for Analyzing Data of Just Finance andEconometrics
+Version:          2.5.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Tools and GUI for Analyzing Time Series Data of Just Finance and Econometrics
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,39 +18,22 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fPortfolio 
 BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-BurStFin 
-BuildRequires:    R-CRAN-fAssets 
-BuildRequires:    R-CRAN-fBasics 
-BuildRequires:    R-CRAN-FRAPO 
-BuildRequires:    R-CRAN-iClick 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-quantmod 
-BuildRequires:    R-CRAN-rugarch 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-tcltk2 
-BuildRequires:    R-CRAN-timeDate 
-BuildRequires:    R-CRAN-timeSeries 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-fPortfolio 
 Requires:         R-CRAN-xts 
-Requires:         R-CRAN-BurStFin 
-Requires:         R-CRAN-fAssets 
-Requires:         R-CRAN-fBasics 
-Requires:         R-CRAN-FRAPO 
-Requires:         R-CRAN-iClick 
-Requires:         R-MASS 
-Requires:         R-CRAN-quantmod 
-Requires:         R-CRAN-rugarch 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-magrittr 
 Requires:         R-tcltk 
 Requires:         R-CRAN-tcltk2 
-Requires:         R-CRAN-timeDate 
-Requires:         R-CRAN-timeSeries 
 Requires:         R-CRAN-zoo 
 
 %description
-Support the analysis of global assets selection and portfolio backtesting,
-we also enhance the computation of some performance ratios of
-'PerformanceAnalytics'.
+Support the analysis of financial and econometric time series, including
+recursive forecasts for machine learning.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,9 +48,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

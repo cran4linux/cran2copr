@@ -1,11 +1,11 @@
 %global packname  nptest
-%global packver   1.0-1
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Tests via Permutations
+Summary:          Nonparametric Bootstrap and Permutation Tests
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,12 +19,14 @@ BuildRequires:    R-parallel
 Requires:         R-parallel 
 
 %description
-Robust permutation tests for location, correlation, and regression
-problems, as described in Helwig (2019a) <doi:10.1002/wics.1457> and
-Helwig (2019b) <doi:10.1016/j.neuroimage.2019.116030>. Univariate and
-multivariate tests are supported. For each problem, exact tests and Monte
-Carlo approximations are available. Parallel computing is implemented via
-the 'parallel' package.
+Robust nonparametric bootstrap and permutation tests for location,
+correlation, and regression problems, as described in Helwig (2019a)
+<doi:10.1002/wics.1457> and Helwig (2019b)
+<doi:10.1016/j.neuroimage.2019.116030>. Univariate and multivariate tests
+are supported. For each problem, exact tests and Monte Carlo
+approximations are available. Five different nonparametric bootstrap
+confidence intervals are implemented. Parallel computing is implemented
+via the 'parallel' package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,31 @@
-%global packname  GetoptLong
-%global packver   1.0.3
+%global packname  microclustr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsing Command-Line Arguments and Simple Variable Interpolation
+Summary:          Entity Resolution with Random Partition Priors for Microclustering
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         perl(Getopt::Long)
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.0
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-GlobalOptions >= 0.1.0
-Requires:         R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-devel >= 3.2.4
+Requires:         R-core >= 3.2.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-stats 
 
 %description
-This is a command-line argument parser which wraps the powerful Perl
-module Getopt::Long and with some adaptations for easier use in R. It also
-provides a simple way for variable interpolation in R.
+An implementation of the model in Betancourt, Zanella, Steorts (2020)
+<arXiv:2004.02008>, which performs microclustering models for categorical
+data. The package provides a vignette for two proposed methods in the
+paper as well as two standard Bayesian non-parametric clustering
+approaches for entity resolution. The experiments are reproducible and
+illustrated using a simple vignette. LICENSE: GPL-3 + file license.
 
 %prep
 %setup -q -c -n %{packname}

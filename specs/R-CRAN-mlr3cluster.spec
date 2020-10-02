@@ -1,39 +1,41 @@
-%global packname  otpr
-%global packver   0.4.2
+%global packname  mlr3cluster
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Wrapper for the 'OpenTripPlanner' REST API
+Summary:          Cluster Extension for 'mlr3'
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-backports >= 1.1.10
+BuildRequires:    R-CRAN-mlr3 >= 0.5.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.4.0
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-geojsonsf 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-clusterCrit 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-backports >= 1.1.10
+Requires:         R-CRAN-mlr3 >= 0.5.0
+Requires:         R-CRAN-mlr3misc >= 0.4.0
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-geojsonsf 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-clusterCrit 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-R6 
 
 %description
-A wrapper for the 'OpenTripPlanner' <http://www.opentripplanner.org/> REST
-API. Queries are submitted to the relevant 'OpenTripPlanner' API resource,
-the response is parsed and useful R objects are returned.
+Extends the 'mlr3' package with cluster analysis.
 
 %prep
 %setup -q -c -n %{packname}

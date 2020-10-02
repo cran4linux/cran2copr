@@ -1,34 +1,27 @@
-%global packname  GetoptLong
-%global packver   1.0.3
+%global packname  pkdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsing Command-Line Arguments and Simple Variable Interpolation
+Summary:          Creates Pharmacokinetic/Pharmacodynamic (PK/PD) Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         perl(Getopt::Long)
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.0
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-GlobalOptions >= 0.1.0
-Requires:         R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-lubridate 
 
 %description
-This is a command-line argument parser which wraps the powerful Perl
-module Getopt::Long and with some adaptations for easier use in R. It also
-provides a simple way for variable interpolation in R.
+Prepare pharmacokinetic/pharmacodynamic (PK/PD) data for PK/PD analyses.
+This package provides functions to standardize infusion and bolus dose
+data while linking it to drug level or concentration data.
 
 %prep
 %setup -q -c -n %{packname}

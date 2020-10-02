@@ -1,34 +1,39 @@
-%global packname  GetoptLong
-%global packver   1.0.3
+%global packname  FoReco
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsing Command-Line Arguments and Simple Variable Interpolation
+Summary:          Point Forecast Reconciliation
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         perl(Getopt::Long)
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.0
-BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-osqp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-GlobalOptions >= 0.1.0
-Requires:         R-CRAN-rjson 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-Matrix 
+Requires:         R-CRAN-osqp 
+Requires:         R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-corpcor 
 Requires:         R-methods 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-pracma 
 
 %description
-This is a command-line argument parser which wraps the powerful Perl
-module Getopt::Long and with some adaptations for easier use in R. It also
-provides a simple way for variable interpolation in R.
+Provides classical (bottom-up), optimal and heuristic combination forecast
+reconciliation procedures for cross-sectional, temporal, and
+cross-temporal linearly constrained time series.
 
 %prep
 %setup -q -c -n %{packname}

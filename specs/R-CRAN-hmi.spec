@@ -1,9 +1,9 @@
 %global packname  hmi
-%global packver   0.9.20
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.20
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Multiple Imputation
 
@@ -57,11 +57,12 @@ Requires:         R-CRAN-coda >= 0.19.1
 Requires:         R-utils 
 
 %description
-Runs single level and multilevel imputation models. The user just has to
-pass the data to the main function and, optionally, his analysis model.
-Basically the package then translates this analysis model into commands to
-impute the data according to it with functions from 'mice', 'MCMCglmm' or
-routines build for this package.
+Runs single level and multilevel imputation models as described in
+Speidel, Drechsler and Jolani (2020) <doi:10.18637/jss.v095.i09>. The user
+just has to pass the data to the main function and, optionally, his
+analysis model. Basically the package then translates this analysis model
+into commands to impute the data according to it with functions from
+'mice', 'MCMCglmm' or routines build for this package.
 
 %prep
 %setup -q -c -n %{packname}

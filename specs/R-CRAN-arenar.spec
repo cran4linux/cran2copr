@@ -1,9 +1,9 @@
 %global packname  arenar
-%global packver   0.1.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Arena for the Exploration and Comparison of any ML Models
 
@@ -26,6 +26,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-auditor 
+BuildRequires:    R-CRAN-fairmodels 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-DALEX >= 1.3
 Requires:         R-CRAN-ingredients 
 Requires:         R-CRAN-iBreakDown 
@@ -37,6 +39,8 @@ Requires:         R-utils
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-auditor 
+Requires:         R-CRAN-fairmodels 
+Requires:         R-graphics 
 
 %description
 Generates data for challenging machine learning models in 'Arena'

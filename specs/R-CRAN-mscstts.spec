@@ -1,19 +1,19 @@
 %global packname  mscstts
-%global packver   0.5.6
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
-Release:          1%{?dist}
-Summary:          R Client for the Microsoft Cognitive Services 'Text-to-Speech'REST API
+Version:          0.6.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          R Client for the Microsoft Cognitive Services 'Text-to-Speech' REST API
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -26,8 +26,9 @@ Requires:         R-CRAN-tuneR
 R Client for the Microsoft Cognitive Services 'Text-to-Speech' REST API,
 including voice synthesis. A valid account must be registered at the
 Microsoft Cognitive Services website
-<https://www.microsoft.com/cognitive-services/> in order to obtain a
-(free) API key. Without an API key, this package will not work properly.
+<https://azure.microsoft.com/services/cognitive-services/> in order to
+obtain a (free) API key. Without an API key, this package will not work
+properly.
 
 %prep
 %setup -q -c -n %{packname}

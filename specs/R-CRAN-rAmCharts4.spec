@@ -1,9 +1,9 @@
 %global packname  rAmCharts4
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the JavaScript Library 'amCharts 4'
 
@@ -48,8 +48,8 @@ R markdown documents, or viewed from the R console and 'RStudio' viewer.
 Based on the JavaScript library 'amCharts 4' and the R packages
 'htmlwidgets' and 'reactR'. Currently available types of chart are:
 vertical and horizontal bar chart, radial bar chart, vertical and
-horizontal Dumbbell chart, line chart, scatter chart, and range area
-chart.
+horizontal Dumbbell chart, line chart, scatter chart, range area chart,
+and gauge chart.
 
 %prep
 %setup -q -c -n %{packname}

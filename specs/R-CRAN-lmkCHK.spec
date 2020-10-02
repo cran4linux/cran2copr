@@ -1,34 +1,33 @@
-%global packname  GetoptLong
-%global packver   1.0.3
+%global packname  lmkCHK
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsing Command-Line Arguments and Simple Variable Interpolation
+Summary:          Tools to Visualize and Screen 2D/3D Landmark Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         perl(Getopt::Long)
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.0
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-GlobalOptions >= 0.1.0
-Requires:         R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-geomorph 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Morpho 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-geomorph 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Morpho 
+Requires:         R-CRAN-shiny 
 
 %description
-This is a command-line argument parser which wraps the powerful Perl
-module Getopt::Long and with some adaptations for easier use in R. It also
-provides a simple way for variable interpolation in R.
+Provides visual and interactive tools to screen 2D/3D landmark data. Meant
+to supplement other geometric morphometric packages by making vibrant
+visuals easy/automatic.
 
 %prep
 %setup -q -c -n %{packname}
