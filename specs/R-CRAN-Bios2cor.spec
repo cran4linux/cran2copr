@@ -1,11 +1,11 @@
 %global packname  Bios2cor
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
-Release:          3%{?dist}
-Summary:          From Biological Sequences and Simulations to CorrelationAnalysis
+Version:          2.2
+Release:          1%{?dist}%{?buildtag}
+Summary:          From Biological Sequences and Simulations to Correlation Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,16 +37,21 @@ correlation/covariation matrix through a variety of tools including
 network representation and principal components analysis. In addition,
 several utility functions are based on the R graphical environment to
 provide friendly tools for help in data interpretation. Examples of
-sequence covariation analysis and utility tools are provided in: (1) Pele
-J, Moreau M, Abdi H, Rodien P, Castel H, Chabbert M (2014)
-<doi:10.1002/prot.24570> and (2) Taddese B, Deniaud M, Garnier A, Tiss A,
-Guissouma H, Abdi H, Henrion D, Chabbert M (2018) <doi:
-10.1371/journal.pcbi.1006209>. This work was supported by the French
-National Research Agency (Grant number: ANR-11-BSV2-026).
+sequence covariation analysis are provided in: (1) Pele J, Moreau M, Abdi
+H, Rodien P, Castel H, Chabbert M (2014) <doi:10.1002/prot.24570> and (2)
+Taddese B, Deniaud M, Garnier A, Tiss A, Guissouma H, Abdi H, Henrion D,
+Chabbert M (2018) <doi: 10.1371/journal.pcbi.1006209>. An example of side
+chain correlated motion analysis is provided in: Taddese B, Garnier A,
+Abdi H, Henrion D, Chabbert M (2020) <doi: 10.1038/s41598-020-72766-1>.
+This work was supported by the French National Research Agency (Grant
+number: ANR-11-BSV2-026) and by GENCI (Grant number: 100567).
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -54,18 +59,9 @@ National Research Agency (Grant number: ANR-11-BSV2-026).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/msa
-%doc %{rlibdir}/%{packname}/rotamer
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

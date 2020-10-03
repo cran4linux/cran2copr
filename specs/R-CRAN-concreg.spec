@@ -1,34 +1,28 @@
-%global packname  scidb
-%global packver   3.0.0
+%global packname  concreg
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Interface to SciDB
+Summary:          Concordance Regression
 
-License:          AGPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-survival 
+Requires:         R-survival 
 
 %description
-An R interface to the 'SciDB' array database <https://www.paradigm4.com>.
+Implements concordance regression which can be used to estimate
+generalized odds of concordance. Can be used for non- and semi-parametric
+survival analysis with non-proportional hazards, for binary and for
+continuous outcome data. The method was introduced by Dunkler, Schemper
+and Heinze (2010) <doi:10.1093/bioinformatics/btq035>.
 
 %prep
 %setup -q -c -n %{packname}

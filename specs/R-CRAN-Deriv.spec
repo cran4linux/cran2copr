@@ -1,9 +1,9 @@
 %global packname  Deriv
-%global packver   4.0.1
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Symbolic Differentiation
 

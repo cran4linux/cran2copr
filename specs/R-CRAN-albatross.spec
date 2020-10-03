@@ -1,9 +1,9 @@
 %global packname  albatross
-%global packver   0.1-1
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          PARAFAC Analysis of Fluorescence Excitation-Emission Matrices
 
@@ -23,16 +23,15 @@ Requires:         R-CRAN-pracma
 Requires:         R-lattice 
 
 %description
-Perform parallel factor analysis (PARAFAC: Harshman, 2005)
-<doi:10.1121/1.1977523>) on fluorescence excitation-emission matrices
-(FEEMs): handle scattering signal (Bahram, 2007) <doi:10.1002/cem.978> and
-inner filter effect (Kothawala, 2013) <doi:10.4319/lom.2013.11.616>, scale
-the dataset, fit the model; perform split-half validation (DeSarbo, 1984)
-<https://papers.ssrn.com/abstract=2783446> or jack-knifing (Riu, 2003)
-<doi:10.1016/S0169-7439(02)00090-4>. The package has a low dependency
-footprint (only two direct dependencies not in core or recommended; four
-total non-core/recommended dependencies) and has been tested on a wide
-range of R versions (including R as old as 3.3.3 from Debian Stretch).
+Perform parallel factor analysis (PARAFAC: Hitchcock, 1927)
+<doi:10.1002/sapm192761164> on fluorescence excitation-emission matrices
+(FEEMs): handle scattering signal and inner filter effect, scale the
+dataset, fit the model; perform split-half validation or jack-knifing. A
+modified approach called "randomised split-half" is also available. The
+package has a low dependency footprint (only two direct dependencies not
+in core or recommended; four total non-core/recommended dependencies) and
+has been tested on a wide range of R versions (including R as old as 3.3.3
+from Debian Stretch).
 
 %prep
 %setup -q -c -n %{packname}

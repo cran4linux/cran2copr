@@ -1,11 +1,11 @@
 %global packname  getable
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fetching Tabular Data "Onload" in Compiled R Markdown HTMLDocuments
+Summary:          Fetching Tabular Data "Onload" in Compiled R Markdown HTML Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-knitr 
 
 %description
 Dynamically retrieve data from the web to render HTML tables on inspection

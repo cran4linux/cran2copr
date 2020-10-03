@@ -1,9 +1,9 @@
 %global packname  ProcMod
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Informative Procrustean Matrix Correlation
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-permute
 BuildRequires:    R-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-MASS 
 Requires:         R-CRAN-permute 
 Requires:         R-Matrix 
 Requires:         R-stats 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Estimates corrected Procrustean correlation between matrices for removing

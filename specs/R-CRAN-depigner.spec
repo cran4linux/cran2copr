@@ -1,10 +1,10 @@
 %global packname  depigner
-%global packver   0.8.1
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
-Release:          2%{?dist}
+Version:          0.8.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Utility Package to Help you Deal with "Pignas"
 
 License:          GPL-3
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-progress >= 1.2.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.7
-BuildRequires:    R-CRAN-broom >= 0.5.0
 BuildRequires:    R-CRAN-purrr >= 0.2.5
 BuildRequires:    R-CRAN-rlang >= 0.2.2
 BuildRequires:    R-CRAN-desc 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-progress >= 1.2.0
 Requires:         R-CRAN-tidyr >= 0.8.1
 Requires:         R-CRAN-dplyr >= 0.7.7
-Requires:         R-CRAN-broom >= 0.5.0
 Requires:         R-CRAN-purrr >= 0.2.5
 Requires:         R-CRAN-rlang >= 0.2.2
 Requires:         R-CRAN-desc 

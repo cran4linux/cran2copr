@@ -1,9 +1,9 @@
 %global packname  swagger
-%global packver   3.33.0
+%global packver   3.33.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.33.0
+Version:          3.33.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamically Generates Documentation from a 'Swagger' Compliant API
 

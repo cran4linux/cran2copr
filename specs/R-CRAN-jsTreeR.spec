@@ -1,9 +1,9 @@
 %global packname  jsTreeR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper of the JavaScript Library 'jsTree'
 
@@ -25,6 +25,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-R.utils 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-htmltools 
@@ -35,6 +36,7 @@ Requires:         R-tools
 Requires:         R-stats 
 Requires:         R-CRAN-base64enc 
 Requires:         R-utils 
+Requires:         R-CRAN-R.utils 
 
 %description
 Creates interactive trees that can be included in 'Shiny' apps and R

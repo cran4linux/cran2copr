@@ -1,10 +1,10 @@
 %global packname  mlogit
-%global packver   1.1-0
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
-Release:          3%{?dist}
+Version:          1.1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multinomial Logit Models
 
 License:          GPL (>= 2)
@@ -31,14 +31,16 @@ Requires:         R-MASS
 Requires:         R-CRAN-Rdpack 
 
 %description
-Maximum Likelihood estimation of random utility discrete choice models, as
-described in Kenneth Train (2009) Discrete Choice Methods with Simulations
-<doi:10.1017/CBO9780511805271>.
+Maximum likelihood estimation of random utility discrete choice models.
+The software is described in Croissant (2020) <doi:10.18637/jss.v095.i11>
+and the underlying methods in Train (2009) <doi:10.1017/CBO9780511805271>.
 
 %prep
 %setup -q -c -n %{packname}
 
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -46,20 +48,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/REFERENCES.bib
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
