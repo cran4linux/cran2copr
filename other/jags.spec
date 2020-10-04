@@ -1,6 +1,14 @@
+%if 0%{?fedora} >= 33 || 0%{?rhel} >= 9
+%global blaslib flexiblas
+%global blasvar %{nil}
+%else
+%global blaslib openblas
+%global blasvar o
+%endif
+
 Name:             jags
 Version:          4.3.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Just Another Gibbs Sampler
 
 License:          GPLv2
@@ -8,7 +16,7 @@ URL:              http://mcmc-jags.sourceforge.net
 Source0:          https://downloads.sourceforge.net/mcmc-jags/JAGS-%{version}.tar.gz
 
 BuildRequires:    gcc-c++, gcc-gfortran, libtool-ltdl
-BuildRequires:    blas-devel, lapack-devel
+BuildRequires:    %{blaslib}-devel
 
 %description
 JAGS (Just Another Gibbs Sampler) is a program for the analysis of
@@ -27,17 +35,19 @@ Requires:         gcc-c++, gcc-gfortran
 %description devel
 Header files for %{name}.
 
-%prep 
+%prep
 %setup -q -n JAGS-%{version}
 export F77=gfortran
 
-%configure 
+%configure \
+  --with-blas=-l%{blaslib}%{blasvar} \
+  --with-lapack=-l%{blaslib}%{blasvar}
 
 %build
 make
 
 %install
-make install DESTDIR=${RPM_BUILD_ROOT} 
+make install DESTDIR=${RPM_BUILD_ROOT}
 
 %files
 %{_bindir}/jags
@@ -62,6 +72,9 @@ make install DESTDIR=${RPM_BUILD_ROOT}
 /sbin/ldconfig
 
 %changelog
+* Sun Oct 04 2020 Iñaki Úcar <iucar@fedoraproject.org> - 4.3.0-2
+- Build against optimized BLAS
+
 * Wed Aug 14 2019 Iñaki Úcar <iucar@fedoraproject.org> - 4.3.0-1
 - Some cleaning
 
