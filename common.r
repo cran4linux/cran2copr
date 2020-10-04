@@ -324,12 +324,9 @@ pkg_exceptions <- function(tpl, pkg, path) {
     rhli = "rm -f %{packname}/src/Makevars*",
     spcosa = "sed -i '/Sexpr/d' %{packname}/man/spcosa-package.Rd",
     rgexf = "sed -i '/system.file/d' %{packname}/man/plot.gexf.Rd",
-    TexExamRandomizer=, SCORPIUS = paste(
-      "find %{packname} -type f -exec",
-      "sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \\;"),
     svSocket = paste(
       "find %{packname} -type f -exec",
-      "sed -Ei 's@/local/bin/tclsh8.4@/bin/tclsh@g' {} \\;")
+      "sed -Ei 's@/bin/tclsh8.4@/bin/tclsh@g' {} \\;")
   ))
 
   # install
@@ -362,7 +359,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
   tpl
 }
 
-create_spec <- function(pkg, cran=available_packages()) {
+create_spec <- function(pkg, cran=available_packages(), write=TRUE) {
   tarfile <- download.packages(pkg, tempdir(), cran, quiet=TRUE)[,2]
   untar(tarfile, exdir=tempdir())
   path <- file.path(tempdir(), pkg)
@@ -397,7 +394,10 @@ create_spec <- function(pkg, cran=available_packages()) {
     tpl[inst] <- paste("xvfb-run", tpl[inst])
   }
 
-  tpl
+  pkg <- paste0(getOption("copr.prefix"), pkg)
+  dest <- paste0(getOption("copr.subdir"), "/", pkg, ".spec")
+  if (write) writeLines(tpl, dest)
+  list(pkg=pkg, dest=dest, spec=tpl)
 }
 
 get_url_copr <- function() paste(

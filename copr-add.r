@@ -24,11 +24,8 @@ for (pkgs in blist) {
 
   ids <- sapply(pkgs, function(pkg) {
     spec <- create_spec(pkg, cran)
-    pkg <- paste0(getOption("copr.prefix"), pkg)
-    dest <- paste0(getOption("copr.subdir"), "/", pkg, ".spec")
-    if (!pkg %in% copr) add_pkg_scm(pkg)
-    writeLines(spec, dest)
-    build_spec(dest)
+    if (!spec$pkg %in% copr) add_pkg_scm(spec$pkg)
+    build_spec(spec$dest)
   })
 
   message("Waiting for ", length(pkgs), " packages of ", n, " remaining...")

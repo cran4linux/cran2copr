@@ -20,7 +20,7 @@ for (i in seq_along(blist)) {
 ids <- sapply(strsplit(df.fail[, chroots[i]], " "), "[", 1)
 url <- get_url_builds(list(ids, df.fail$Package), chroots[i])
 # sapply(paste0(url, "/builder-live.log.gz"), browseURL)
-# pkg <- "pexm"; writeLines(create_spec(pkg), paste0("specs/R-CRAN-", pkg, ".spec"))
+# create_spec("pexm")
 # sapply(df.fail$Package, build_pkg, chroots[i])
 pkgs <- unlist(get_build_list(sub("R-CRAN-", "", df.fail$Package)))
 sapply(paste0("R-CRAN-", pkgs), build_pkg, chroots[i])
