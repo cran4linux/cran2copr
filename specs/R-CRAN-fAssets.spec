@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.84
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Rmetrics - Analysing and Modelling Financial Assets
 
 License:          GPL (>= 2)

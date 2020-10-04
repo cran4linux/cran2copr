@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          SEER and Atomic Bomb Survivor Data Analysis Tools
 
 License:          GPL (>= 2)

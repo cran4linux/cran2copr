@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Calling Copy Number Alterations in Amplicon Sequencing Data
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Global ENvironmental ASsessment Information System (GENASIS)computational tools
 
 License:          GPL (>= 2)

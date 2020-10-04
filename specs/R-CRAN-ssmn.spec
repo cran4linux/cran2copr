@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Skew Scale Mixtures of Normal Distributions
 
 License:          GPL (>= 2)

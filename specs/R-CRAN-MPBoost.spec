@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Treatment Allocation in Clinical Trials by the Maximal Procedure
 
 License:          GPL (>= 2)

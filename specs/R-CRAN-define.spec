@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Create FDA-Style Data and Program Definitions
 
 License:          GPL-3

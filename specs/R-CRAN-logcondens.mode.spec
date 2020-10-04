@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Compute MLE of Log-Concave Density on R with Fixed Mode, andPerform Inference for the Mode.
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Interface to C API of GLPK
 
 License:          GPL-3

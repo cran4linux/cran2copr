@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Variable Selection for Model-Based Clustering of Mixed-Type DataSet with Missing Values
 
 License:          GPL (>= 2)

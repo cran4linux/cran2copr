@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Execution Functions for Tick Data Back Test
 
 License:          GPL-3

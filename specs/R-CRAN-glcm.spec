@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculate Textures from Grey-Level Co-Occurrence Matrices(GLCMs)
 
 License:          GPL (>= 3)

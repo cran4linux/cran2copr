@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Access Small ForestGEO Datasets For Examples
 
 License:          GPL-3

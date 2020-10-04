@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Create Interactive Graphs with 'Echarts JavaScript' Version 4
 
 License:          Apache License (>= 2.0)

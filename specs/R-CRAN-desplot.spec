@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Field Plans for Agricultural Experiments
 
 License:          GPL-3

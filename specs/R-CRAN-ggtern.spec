@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Extension to 'ggplot2', for the Creation of Ternary Diagrams
 
 License:          GPL-2 | file LICENSE

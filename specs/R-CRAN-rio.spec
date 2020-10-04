@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Swiss-Army Knife for Data I/O
 
 License:          GPL-2

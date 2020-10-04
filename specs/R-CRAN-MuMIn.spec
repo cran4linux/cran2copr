@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.43.17
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multi-Model Inference
 
 License:          GPL-2

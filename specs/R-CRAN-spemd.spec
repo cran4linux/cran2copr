@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Bi-Dimensional Implementation of the Empirical ModeDecomposition for Spatial Data
 
 License:          GPL-3

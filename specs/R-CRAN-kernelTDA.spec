@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistical Learning with Kernel for Persistence Diagrams
 
 License:          GPL-3

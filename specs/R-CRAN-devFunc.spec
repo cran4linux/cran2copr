@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Clear and Condense Argument Check for User-Defined Functions
 
 License:          GPL-3

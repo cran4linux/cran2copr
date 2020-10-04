@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Murphy Diagrams for Forecast Comparisons
 
 License:          GPL-3

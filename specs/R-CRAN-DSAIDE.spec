@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Dynamical Systems Approach to Infectious Disease Epidemiology(Ecology/Evolution)
 
 License:          GPL-3

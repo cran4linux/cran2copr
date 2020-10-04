@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Supervised Component Generalized Linear Regression
 
 License:          CeCILL-2 | GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.87
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimating multistate models using gamboost()
 
 License:          GPL (>= 2)

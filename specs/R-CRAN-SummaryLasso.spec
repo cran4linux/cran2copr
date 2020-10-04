@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Building Polygenic Risk Score Using GWAS Summary Statistics
 
 License:          GPL-3

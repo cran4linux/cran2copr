@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Regression with Multiple Change Points
 
 License:          GPL-2

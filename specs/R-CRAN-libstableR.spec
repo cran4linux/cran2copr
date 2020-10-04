@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast and Accurate Evaluation, Random Number Generation andParameter Estimation of Skew Stable Distributions
 
 License:          GPL-3

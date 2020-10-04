@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.20
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Scores Features for Feature Selection
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.8.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Version of GENetic Optimization Using Derivatives
 
 License:          GPL-3

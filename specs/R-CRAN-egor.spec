@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.20.06
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Import and Analyse Ego-Centered Network Data
 
 License:          AGPL-3

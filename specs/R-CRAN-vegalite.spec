@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools to Encode Visualizations with the 'Grammar ofGraphics'-Like 'Vega-Lite' 'Spec'
 
 License:          AGPL + file LICENSE

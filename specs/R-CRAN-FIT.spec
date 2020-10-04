@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Transcriptomic Dynamics Models in Field Conditions
 
 License:          MPL (>= 2) | file LICENSE

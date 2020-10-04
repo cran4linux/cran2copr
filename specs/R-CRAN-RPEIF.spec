@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Computation and Plots of Influence Functions for Risk andPerformance Measures
 
 License:          GPL (>= 2)

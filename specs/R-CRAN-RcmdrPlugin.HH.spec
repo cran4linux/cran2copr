@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.47
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Rcmdr Support for the HH Package
 
 License:          GPL (>= 2)

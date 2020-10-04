@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Creates an envelope that surrounds a set of points plotted in atwo dimensional space.
 
 License:          GPL-2

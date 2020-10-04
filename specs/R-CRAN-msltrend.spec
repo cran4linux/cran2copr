@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Improved Techniques to Estimate Trend, Velocity and Accelerationfrom Sea Level Records
 
 License:          GPL (>= 3)

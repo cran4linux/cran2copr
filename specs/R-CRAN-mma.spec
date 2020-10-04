@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          10.3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multiple Mediation Analysis
 
 License:          GPL (>= 2)

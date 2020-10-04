@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Rotations for Sphere-Sphere Regression
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Molecular Biology Visualization Tools for 'Shiny' Apps
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Programmatic Access to Data and Statistics from the World BankAPI
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          CCDr Algorithm for Learning Sparse Gaussian Bayesian Networks
 
 License:          GPL (>= 2)

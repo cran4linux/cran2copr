@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistical Tests and Utilities for Genetic Association
 
 License:          GPL (>= 2)

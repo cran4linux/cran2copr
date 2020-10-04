@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data Manipulation Verbs for the Spatial Classes
 
 License:          GPL-3

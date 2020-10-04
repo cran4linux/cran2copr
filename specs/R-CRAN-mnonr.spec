@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Generator of Multivariate Non-Normal Random Numbers
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multiple Imputation by Chained Equations with Random Forests
 
 License:          MIT + file LICENSE

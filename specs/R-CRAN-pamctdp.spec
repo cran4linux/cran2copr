@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Principal Axes Methods for Contingency Tables with PartitionStructures on Rows and Columns
 
 License:          GPL (>= 2)

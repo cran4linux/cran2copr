@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0.0.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Wrapper for 'SUNDIALS' Solving ODE and Sensitivity Problem
 
 License:          GPL (>= 2)

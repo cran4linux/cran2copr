@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Classification Trees with Imprecise Probabilities
 
 License:          GPL (>= 2)

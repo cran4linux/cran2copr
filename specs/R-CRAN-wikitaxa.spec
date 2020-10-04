@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Taxonomic Information from 'Wikipedia'
 
 License:          MIT + file LICENSE

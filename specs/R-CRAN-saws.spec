@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.6.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Small-Sample Adjustments for Wald Tests Using SandwichEstimators
 
 License:          GPL (>= 2)

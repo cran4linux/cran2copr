@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Quantile Treatment Effects
 
 License:          GPL-2

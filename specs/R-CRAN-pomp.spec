@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Statistical Inference for Partially Observed Markov Processes
 
 License:          GPL-3

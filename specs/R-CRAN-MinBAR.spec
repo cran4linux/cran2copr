@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Determining the Minimal Background Area for Species DistributionModels
 
 License:          GPL-3

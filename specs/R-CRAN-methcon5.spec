@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Identify and Rank CpG DNA Methylation Conservation Along theHuman Genome
 
 License:          MIT + file LICENSE

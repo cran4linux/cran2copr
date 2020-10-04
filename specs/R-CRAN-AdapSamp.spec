@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Adaptive Sampling Algorithms
 
 License:          GPL-2

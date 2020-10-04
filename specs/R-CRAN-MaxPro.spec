@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Maximum Projection Designs
 
 License:          LGPL-2.1

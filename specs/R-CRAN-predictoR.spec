@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Predictive Data Analysis System
 
 License:          GPL (>= 2)

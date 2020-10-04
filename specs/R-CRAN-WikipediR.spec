@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A MediaWiki API Wrapper
 
 License:          MIT + file LICENSE

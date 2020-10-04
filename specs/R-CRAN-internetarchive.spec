@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An API Client for the Internet Archive
 
 License:          MIT + file LICENSE

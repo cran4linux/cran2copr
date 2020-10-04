@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Empirical Distribution Ordering Inference Framework (EDOIF)
 
 License:          BSD_3_clause + file LICENSE

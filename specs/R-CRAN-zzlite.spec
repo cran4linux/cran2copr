@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Lite Wrapper for the 'Zamzar File Conversion' API
 
 License:          GPL-3

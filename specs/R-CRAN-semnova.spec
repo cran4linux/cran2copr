@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Latent Repeated Measures ANOVA
 
 License:          GPL (>= 2)

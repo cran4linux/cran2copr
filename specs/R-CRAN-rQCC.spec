@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.20.7
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Robust Quality Control Chart
 
 License:          GPL-2 | GPL-3

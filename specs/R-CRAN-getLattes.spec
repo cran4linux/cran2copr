@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Import and Process Data from the 'Lattes' Curriculum Platform
 
 License:          GPL-3

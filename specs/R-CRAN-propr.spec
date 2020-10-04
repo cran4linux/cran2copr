@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculating Proportionality Between Vectors of CompositionalData
 
 License:          GPL-2

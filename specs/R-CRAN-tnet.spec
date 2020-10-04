@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Weighted, Two-Mode, and Longitudinal Networks Analysis
 
 License:          GPL-3

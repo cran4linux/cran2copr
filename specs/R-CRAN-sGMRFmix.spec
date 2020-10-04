@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sparse Gaussian Markov Random Field Mixtures for AnomalyDetection
 
 License:          MIT + file LICENSE

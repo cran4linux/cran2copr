@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.19
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Numerical Standard Errors Computation in R
 
 License:          GPL (>= 2)

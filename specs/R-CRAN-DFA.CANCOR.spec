@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Linear Discriminant Function and Canonical Correlation Analysis
 
 License:          GPL (>= 2)

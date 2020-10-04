@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.6
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Distances and Routes on Geographical Grids
 
 License:          GPL (>= 2)

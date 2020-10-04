@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Port of the S+ "Robust Library"
 
 License:          GPL-2

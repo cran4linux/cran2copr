@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Programming with Big Data -- MPI Profiling Tools
 
 License:          Mozilla Public License 2.0

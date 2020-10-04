@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Supplemental U.S. 2010 Census Tract Boundaries for 20 EasternStates (including DC and PR) without Registries for'SeerMapper'
 
 License:          GPL (>= 2)

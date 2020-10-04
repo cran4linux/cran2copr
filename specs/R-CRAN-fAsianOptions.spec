@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.82
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Rmetrics - EBM and Asian Option Valuation
 
 License:          GPL (>= 2)

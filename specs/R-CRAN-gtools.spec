@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.8.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Various R Programming Tools
 
 License:          GPL-2

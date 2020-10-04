@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interactive Interpretation of Linear Regression Models
 
 License:          GPL-2

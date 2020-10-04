@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.16.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Display and Analyze ROC Curves
 
 License:          GPL (>= 3)

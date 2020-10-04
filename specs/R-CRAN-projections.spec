@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Project Future Case Incidence
 
 License:          MIT + file LICENSE

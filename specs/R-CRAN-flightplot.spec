@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Plotting Flight Paths on Maps
 
 License:          GPL-3 | file LICENSE

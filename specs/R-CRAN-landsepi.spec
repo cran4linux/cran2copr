@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Landscape Epidemiology and Evolution
 
 License:          GPL (>= 2) | file LICENSE

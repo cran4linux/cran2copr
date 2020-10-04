@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Simulating Phylogenetic Trees
 
 License:          GPL-2

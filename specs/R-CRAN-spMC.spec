@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.10
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Continuous-Lag Spatial Markov Chains
 
 License:          GPL (>= 2)

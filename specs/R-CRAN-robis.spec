@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.9
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Ocean Biodiversity Information System (OBIS) Client
 
 License:          MIT + file LICENSE

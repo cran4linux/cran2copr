@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          IDI and NRI for comparing competing risk prediction models withcensored survival data
 
 License:          GPL-2

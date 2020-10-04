@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Process Accelerometer Data for Physical Activity Measurement
 
 License:          GPL (>= 3)

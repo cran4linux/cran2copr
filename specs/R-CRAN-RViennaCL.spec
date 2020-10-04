@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.1.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'ViennaCL' C++ Header Files
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Systemic Scenario Selection for Stress Testing
 
 License:          CC0

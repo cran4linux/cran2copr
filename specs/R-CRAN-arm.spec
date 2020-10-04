@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.11.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis Using Regression and Multilevel/HierarchicalModels
 
 License:          GPL (> 2)

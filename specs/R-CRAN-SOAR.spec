@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Memory management in R by delayed assignments
 
 License:          GPL-2 | GPL-3

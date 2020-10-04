@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Variable-Group Methods for Agglomerative Hierarchical Clustering
 
 License:          LGPL-2.1

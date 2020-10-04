@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.5.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Causal Mediation Analysis
 
 License:          GPL (>= 2)

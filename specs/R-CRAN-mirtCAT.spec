@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Computerized Adaptive Testing with Multidimensional ItemResponse Theory
 
 License:          GPL (>= 3)

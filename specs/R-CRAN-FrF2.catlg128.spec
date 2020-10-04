@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Catalogues of resolution IV 128 run 2-level fractionalfactorials up to 33 factors that do have 5-letter words
 
 License:          GPL (>= 2)

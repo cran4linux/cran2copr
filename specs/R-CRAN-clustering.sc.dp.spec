@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Optimal Distance-Based Clustering for Multidimensional Data withSequential Constraint
 
 License:          LGPL (>= 3)

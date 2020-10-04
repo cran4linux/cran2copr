@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multiple Imputation for Interval Censored Data
 
 License:          GPL-3

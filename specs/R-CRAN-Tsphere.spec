@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Transposable Sphering for Large-Scale Inference with CorrelatedData.
 
 License:          GPL-2

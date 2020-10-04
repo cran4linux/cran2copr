@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nonlinear Conditional Independence Tests
 
 License:          GPL

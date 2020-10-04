@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Data Frames
 
 License:          MIT + file LICENSE

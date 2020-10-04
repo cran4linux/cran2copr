@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.22.7
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Convert Data among QTL Mapping Packages
 
 License:          GPL-3

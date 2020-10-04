@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modelization for Functional AutoRegressive Processes
 
 License:          LGPL-2.1

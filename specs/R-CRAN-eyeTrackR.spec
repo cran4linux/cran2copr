@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Organising and Analysing Eye-Tracking Data
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Strategic Selection Estimator
 
 License:          GPL (>= 2)

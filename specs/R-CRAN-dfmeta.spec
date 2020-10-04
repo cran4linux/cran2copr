@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Meta-Analysis of Phase I Dose-Finding Early Clinical Trials
 
 License:          GPL (>= 3) | file LICENSE

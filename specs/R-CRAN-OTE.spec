@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Optimal Trees Ensembles for Regression, Classification and ClassMembership Probability Estimation
 
 License:          GPL (>= 3)

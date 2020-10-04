@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions for Generating Periodic Curves
 
 License:          GPL-3

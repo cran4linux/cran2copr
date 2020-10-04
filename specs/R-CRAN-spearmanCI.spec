@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Jackknife Euclidean / Empirical Likelihood Inference forSpearman's Rho
 
 License:          GPL (>= 3)

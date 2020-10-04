@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.46.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Animal Dominance Hierarchies by Elo Rating
 
 License:          GPL (>= 2)

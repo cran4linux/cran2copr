@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Adaptive, Sine-Multitaper Power Spectral Density and CrossSpectrum Estimation
 
 License:          GPL (>= 2)

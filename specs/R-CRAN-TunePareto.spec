@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multi-Objective Parameter Tuning for Classifiers
 
 License:          GPL-2

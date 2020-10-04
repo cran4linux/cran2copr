@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Streams of Random Numbers
 
 License:          GPL-2

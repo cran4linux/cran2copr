@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Change-Point Estimation for Expensive and High-DimensionalModels
 
 License:          GPL (>= 2)

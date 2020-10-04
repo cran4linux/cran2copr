@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Parse, Format, and Validate International Phone Numbers
 
 License:          GPL-3

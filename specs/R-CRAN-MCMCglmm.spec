@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.29
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          MCMC Generalised Linear Mixed Models
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Whitening and High-Dimensional Canonical Correlation Analysis
 
 License:          GPL (>= 3)

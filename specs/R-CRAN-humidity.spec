@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculate Water Vapor Measures from Temperature and Dew Point
 
 License:          GPL-3

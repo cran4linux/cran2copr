@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Wavelet Routines for Global and Local Multiple Regression andCorrelation
 
 License:          GPL-3

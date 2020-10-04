@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Simulate Controlled Outliers
 
 License:          GPL-3

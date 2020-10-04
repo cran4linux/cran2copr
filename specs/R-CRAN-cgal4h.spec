@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          'CGAL' Version 4 C++ Header Files
 
 License:          GPL-3 | file LICENSE

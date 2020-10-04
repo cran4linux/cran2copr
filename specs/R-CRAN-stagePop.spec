@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modelling the Population Dynamics of a Stage-Structured Speciesin Continuous Time
 
 License:          GPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Applied Econometrics with R
 
 License:          GPL-2 | GPL-3

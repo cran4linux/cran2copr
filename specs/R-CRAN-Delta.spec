@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Measure of Agreement Between Two Raters
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Adaptive Sum of Powered Correlation Test (aSPC) for GlobalAssociation Between Two Random Vectors
 
 License:          GPL-3

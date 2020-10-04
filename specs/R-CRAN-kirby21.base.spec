@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Example Data from the Multi-Modal MRI 'Reproducibility' Resource
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Wrapper Package for Design of Experiments Functionality
 
 License:          GPL (>= 2)

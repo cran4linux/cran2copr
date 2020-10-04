@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.13.6.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Inference Tests for TExPosition
 
 License:          GPL-2

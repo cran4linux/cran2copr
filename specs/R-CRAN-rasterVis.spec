@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.48
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Visualization Methods for Raster Data
 
 License:          GPL-3

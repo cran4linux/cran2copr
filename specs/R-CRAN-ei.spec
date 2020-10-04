@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Ecological Inference
 
 License:          GPL (>= 2)

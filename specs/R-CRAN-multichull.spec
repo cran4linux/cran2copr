@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Generic Convex-Hull-Based Model Selection Method
 
 License:          GPL (>= 2)

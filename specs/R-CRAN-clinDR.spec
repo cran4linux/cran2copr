@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Simulation and Analysis Tools for Clinical Dose ResponseModeling
 
 License:          GPL (>= 2)

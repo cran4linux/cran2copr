@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Implementation of Non-Dominated Sorting Genetic Algorithm IIIfor Feature Selection
 
 License:          GPL-3

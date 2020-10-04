@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Extract and Visualize the Results of Multivariate Data Analyses
 
 License:          GPL-2

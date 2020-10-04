@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Parse Darwin Core Files
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Hierarchical Non-Negative Matrix Factorization
 
 License:          GPL-3

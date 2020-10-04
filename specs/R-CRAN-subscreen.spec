@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Screening of Study Data for Subgroup Effects
 
 License:          GPL-3

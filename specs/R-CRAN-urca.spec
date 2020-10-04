@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Unit Root and Cointegration Tests for Time Series Data
 
 License:          GPL (>= 2)

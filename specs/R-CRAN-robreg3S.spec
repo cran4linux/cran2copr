@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Three-Step Regression and Inference for Cellwise and CasewiseContamination
 
 License:          GPL (>= 2)

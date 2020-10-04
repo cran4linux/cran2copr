@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simulation of High-Dimensional Data and Parallelized RepeatedPenalized Regression
 
 License:          GPL (>= 2)

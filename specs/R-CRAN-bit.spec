@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Classes and Methods for Fast Memory-Efficient Boolean Selections
 
 License:          GPL-2 | GPL-3

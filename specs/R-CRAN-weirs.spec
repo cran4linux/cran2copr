@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.25
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Hydraulics Package to Compute Open-Channel Flow over Weirs
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.30.10
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Access the Bioconductor Project Package Repository
 
 License:          Artistic-2.0

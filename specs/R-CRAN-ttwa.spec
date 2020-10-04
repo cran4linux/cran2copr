@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.5.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Travel To Work Area.
 
 License:          GPL (>= 2.0)

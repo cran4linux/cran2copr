@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Lazy Learning for Local Regression
 
 License:          GPL (>= 2)

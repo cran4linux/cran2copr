@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Semiparametric regression analysis of panel count data usingmonotone splines
 
 License:          GPL (>= 2)

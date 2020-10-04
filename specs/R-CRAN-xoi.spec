@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.69.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools for Analyzing Crossover Interference
 
 License:          GPL-3

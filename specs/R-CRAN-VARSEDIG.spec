@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Algorithm for Morphometric Characters Selection andStatistical Validation in Morphological Taxonomy
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Item Analysis Package with Standard Errors
 
 License:          Artistic-2.0

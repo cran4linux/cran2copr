@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.5.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Linear Group Fixed Effects
 
 License:          Artistic-2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Constrained L1-minimization for Inverse (covariance) MatrixEstimation
 
 License:          GPL-2

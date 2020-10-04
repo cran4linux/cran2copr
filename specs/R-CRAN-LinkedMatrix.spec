@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Column-Linked and Row-Linked Matrices
 
 License:          MIT + file LICENSE

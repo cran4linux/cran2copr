@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Compound Poisson Linear Models
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Find, Characterize, and Explore Extreme Events in ClimateProjections
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Hurst-Kolmogorov Process
 
 License:          GPL-3

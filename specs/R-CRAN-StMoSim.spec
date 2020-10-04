@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Quantile-Quantile Plot with Several Gaussian Simulations
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Colour List and Colour Metric Based on the ISCC-NBS System ofColor Designation
 
 License:          GPL-2 | GPL-3

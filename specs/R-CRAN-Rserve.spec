@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Binary R server
 
 License:          GPL-2 | file LICENSE

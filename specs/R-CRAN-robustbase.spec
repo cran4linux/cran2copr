@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.93.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Basic Robust Statistics
 
 License:          GPL (>= 2)

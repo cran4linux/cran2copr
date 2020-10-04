@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Asynchronous Disk-Based Representation of Massive Data
 
 License:          Apache License 2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.47
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Time Series Analysis and Computational Finance
 
 License:          GPL-2

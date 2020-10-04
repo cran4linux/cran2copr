@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.32
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Models for Rare Variant Association Analysis
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistical Depth Functions for Multivariate Analysis
 
 License:          GPL-2

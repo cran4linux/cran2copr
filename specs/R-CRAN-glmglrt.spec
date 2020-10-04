@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          GLRT P-Values in Generalized Linear Models
 
 License:          GPL-2

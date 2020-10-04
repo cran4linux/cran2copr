@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Utility Functions for Davidian Curves
 
 License:          GPL-3

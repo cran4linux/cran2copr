@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Design of Rotatable Central Composite Experiments and ResponseSurface Analysis
 
 License:          MIT + file LICENSE

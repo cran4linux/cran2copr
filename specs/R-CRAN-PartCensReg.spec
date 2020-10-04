@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.39
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimation and Diagnostics for Partially Linear CensoredRegression Models Based on Heavy-Tailed Distributions
 
 License:          GPL (>= 2)

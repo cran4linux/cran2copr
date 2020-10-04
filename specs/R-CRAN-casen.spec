@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Metodos De Estimacion Con Disenio Probabilistico y Estratificadoen Encuesta CASEN (Estimation Methods with ProbabilisticStratified Sampling in CASEN Survey)
 
 License:          GPL-3

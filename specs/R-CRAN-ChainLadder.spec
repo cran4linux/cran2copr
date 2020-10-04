@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistical Methods and Models for Claims Reserving in GeneralInsurance
 
 License:          GPL (>= 2)

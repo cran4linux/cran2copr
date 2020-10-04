@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Multilevel Exponential-Family Random Graph Models
 
 License:          GPL-3

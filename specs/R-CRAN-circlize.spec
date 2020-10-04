@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.10
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Circular Visualization
 
 License:          MIT + file LICENSE

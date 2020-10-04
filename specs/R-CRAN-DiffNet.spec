@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Detection of Statistically Significant Changes in ComplexBiological Networks
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Backward Pipe (Right-to-Left) Operator
 
 License:          GPL-2 | file LICENSE

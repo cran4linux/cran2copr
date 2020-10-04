@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Parsing and Writing Configuration File(JSON/INI/YAML/TOML)
 
 License:          MIT + file LICENSE

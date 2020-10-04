@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nonparametric Smooth ROC Curves for Continuous Data
 
 License:          GPL (>= 3)

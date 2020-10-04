@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multivariate Analysis of Mixed Data
 
 License:          GPL (>= 2.0)

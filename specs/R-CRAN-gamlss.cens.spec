@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fitting an Interval Response Variable Using `gamlss.family'Distributions
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multivariate Pseudo-Random Number Generation
 
 License:          GPL-2 | GPL-3

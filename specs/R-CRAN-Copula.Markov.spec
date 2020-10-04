@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Copula-Based Estimation and Statistical Process Control forSerially Correlated Time Series
 
 License:          GPL-2

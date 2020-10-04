@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.20
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Coarsened Exact Matching
 
 License:          GPL-2

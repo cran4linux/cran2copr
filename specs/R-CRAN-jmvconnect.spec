@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.18
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Connect to the 'jamovi' Statistical Spreadsheet
 
 License:          GPL (>= 2)

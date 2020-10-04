@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Obtain and Visualize Regulome-Gene Expression Correlations inCancer
 
 License:          GPL-3

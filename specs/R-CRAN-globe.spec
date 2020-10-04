@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Plot 2D and 3D Views of the Earth, Including Major Coastline
 
 License:          GPL (>= 2.0)

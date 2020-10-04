@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Survival Model with Lasso Shrinkage Using GeneralizedWeibull Regression
 
 License:          GPL (>= 2)

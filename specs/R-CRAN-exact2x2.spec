@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Exact Tests and Confidence Intervals for 2x2 Tables
 
 License:          GPL-3

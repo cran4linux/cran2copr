@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multi-Site Auto-Regressive Weather GENerator
 
 License:          GPL (>= 2)

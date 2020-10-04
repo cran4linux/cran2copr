@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modeling Over Dispersed Binomial Outcome Data Using BMD and ABD
 
 License:          GPL-2

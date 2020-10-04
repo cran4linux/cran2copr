@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Setup, Run and Analyze 'NetLogo' Model Simulations from 'R' via'XML'
 
 License:          GPL-3

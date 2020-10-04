@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Causal Inference in the Presence of Treatment NoncomplianceUnder the Binary Instrumental Variable Model
 
 License:          GPL (>= 3)

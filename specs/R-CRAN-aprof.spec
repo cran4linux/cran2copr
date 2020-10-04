@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Amdahl's Profiler, Directed Optimization Made Easy
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nonparametric Preprocessing for Parametric Causal Inference
 
 License:          GPL (>= 2)

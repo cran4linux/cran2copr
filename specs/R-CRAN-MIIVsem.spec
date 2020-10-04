@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Model Implied Instrumental Variable (MIIV) Estimation ofStructural Equation Models
 
 License:          GPL-2

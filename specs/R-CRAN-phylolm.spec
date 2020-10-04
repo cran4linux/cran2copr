@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Phylogenetic Linear Regression
 
 License:          GPL (>= 2) | file LICENSE

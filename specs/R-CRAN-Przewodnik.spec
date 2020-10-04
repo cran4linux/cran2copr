@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.16.12
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Datasets and Functions Used in the Book 'Przewodnik po PakiecieR'
 
 License:          GPL-2

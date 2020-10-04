@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Managing, Querying and Analyzing Tokenized Text
 
 License:          GPL-3

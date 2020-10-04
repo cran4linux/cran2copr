@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'MLflow'
 
 License:          Apache License 2.0

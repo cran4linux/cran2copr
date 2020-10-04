@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Simultaneous Tolerance Bounds
 
 License:          GPL (>= 3)

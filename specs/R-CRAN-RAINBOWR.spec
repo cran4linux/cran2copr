@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.19
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Genome-Wide Association Study with SNP-Set Methods
 
 License:          MIT + file LICENSE

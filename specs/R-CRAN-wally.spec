@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.10
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          The Wally Calibration Plot for Risk Prediction Models
 
 License:          GPL (>= 2)

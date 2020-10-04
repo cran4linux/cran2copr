@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.20
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Create Blogs and Websites with R Markdown
 
 License:          GPL-3

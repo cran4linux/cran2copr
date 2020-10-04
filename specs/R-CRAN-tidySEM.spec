@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Tidy Structural Equation Modeling
 
 License:          GPL (>= 3)

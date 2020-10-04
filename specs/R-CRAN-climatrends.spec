@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Climate Variability Indices for Ecological Modelling
 
 License:          MIT + file LICENSE

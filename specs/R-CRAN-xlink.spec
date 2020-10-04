@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Genetic Association Models for X-Chromosome SNPS on Continuous,Binary and Survival Outcomes
 
 License:          GPL-2

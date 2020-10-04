@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sensitivity Analyses for Unmeasured Confounding in Meta-Analyses
 
 License:          GPL-2

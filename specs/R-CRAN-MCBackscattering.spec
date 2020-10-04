@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Monte Carlo Simulation for Surface Backscattering
 
 License:          LGPL-2.1

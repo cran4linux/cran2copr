@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Method for Clustering Partially Observed Data
 
 License:          MIT + file LICENSE

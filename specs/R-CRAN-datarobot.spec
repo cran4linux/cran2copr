@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.17.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          'DataRobot' Predictive Modeling API
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Table Monster
 
 License:          GPL (>= 2)

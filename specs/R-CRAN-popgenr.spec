@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Accompaniment to the Book Population Genetics with R: AnIntroduction for Life Scientists
 
 License:          CC0

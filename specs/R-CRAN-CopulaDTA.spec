@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Copula Based Bivariate Beta-Binomial Model for Diagnostic TestAccuracy Studies
 
 License:          GPL-2

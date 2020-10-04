@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.20.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Variance Estimation for Sample Surveys by the Ultimate ClusterMethod
 
 License:          EUPL

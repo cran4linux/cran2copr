@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools to Generate Daily-Precipitation Time Series
 
 License:          GPL (>= 2)

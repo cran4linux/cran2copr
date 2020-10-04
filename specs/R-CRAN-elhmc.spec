@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sampling from a Empirical Likelihood Bayesian Posterior ofParameters Using Hamiltonian Monte Carlo
 
 License:          GPL-2

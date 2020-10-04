@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.30.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Install 'OpenCV'
 
 License:          GPL-3

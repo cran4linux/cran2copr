@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nonnegative Integer Solutions of Linear Diophantine Equationswith Applications
 
 License:          GPL (>= 2)

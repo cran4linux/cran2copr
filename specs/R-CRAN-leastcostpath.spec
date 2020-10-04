@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling Pathways and Movement Potential Within a Landscape(Version 1.7.4)
 
 License:          GPL (>= 2)

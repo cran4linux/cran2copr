@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.29
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Kernel-Based Machine Learning Lab
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simple Client for the DuckDuckGo Instant Answer API
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Developing a core collections
 
 License:          GPL (>= 2)

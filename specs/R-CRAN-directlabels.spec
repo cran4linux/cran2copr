@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.6.17
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Direct Labels for Multicolor Plots
 
 License:          GPL-3

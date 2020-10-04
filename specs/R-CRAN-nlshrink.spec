@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Non-Linear Shrinkage Estimation of Population Eigenvalues andCovariance Matrices
 
 License:          GPL-3

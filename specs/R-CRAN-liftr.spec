@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Containerize R Markdown Documents for Continuous Reproducibility
 
 License:          GPL-3 | file LICENSE

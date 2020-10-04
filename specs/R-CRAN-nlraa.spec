@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.73
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nonlinear Regression for Agricultural Applications
 
 License:          GPL-3

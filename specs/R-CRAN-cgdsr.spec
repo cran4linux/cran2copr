@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R-Based API for Accessing the MSKCC Cancer Genomics Data Server(CGDS)
 
 License:          LGPL-3

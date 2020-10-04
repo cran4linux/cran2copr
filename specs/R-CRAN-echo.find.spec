@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Finding Rhythms Using Extended Circadian Harmonic Oscillators(ECHO)
 
 License:          MIT + file LICENSE

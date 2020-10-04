@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Twitter Collector for R and Export to 'SQLite', 'postGIS' and'GIS' Format
 
 License:          GPL-3 | file LICENSE

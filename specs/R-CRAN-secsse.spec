@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Several Examined and Concealed States-Dependent Speciation andExtinction
 
 License:          GPL-3

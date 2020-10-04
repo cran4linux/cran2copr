@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.4.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Compute scagnostics - scatterplot diagnostics
 
 License:          file LICENSE

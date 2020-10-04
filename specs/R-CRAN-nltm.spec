@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Non-Linear Transformation Models
 
 License:          GPL-2

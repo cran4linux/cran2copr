@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Partition/Decomposition of Breeding Values by Paths ofInformation
 
 License:          GPL (>= 2)

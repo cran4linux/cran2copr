@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Segmenting Multiple Time Series by Contemporaneous LinearTransformation
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Exact Test and Visualization of Multi-Set Intersections
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Model Agnostic Explainers for Individual Predictions
 
 License:          GPL-2

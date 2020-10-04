@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Reading and Writing ISO/OGC Geographic Metadata
 
 License:          MIT + file LICENSE

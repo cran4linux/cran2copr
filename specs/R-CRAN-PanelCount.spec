@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Random Effects and/or Sample Selection Models for Panel CountData
 
 License:          GPL (>= 3)

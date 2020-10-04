@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Spectral Response of Water Wells to Harmonic Strain and PressureSignals
 
 License:          GPL (>= 2)

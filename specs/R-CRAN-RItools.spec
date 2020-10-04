@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.17
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Randomization Inference Tools
 
 License:          GPL (>= 2)

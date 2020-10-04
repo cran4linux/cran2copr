@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.98.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          General Network (HTTP/FTP/...) Client Interface for R
 
 License:          BSD_3_clause + file LICENSE

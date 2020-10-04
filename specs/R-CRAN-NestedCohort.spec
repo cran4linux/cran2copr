@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Survival Analysis for Cohorts with Missing Covariate Information
 
 License:          GPL (>= 2)

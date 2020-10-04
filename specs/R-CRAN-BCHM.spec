@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.00
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Clinical Trial Calculation Based on BCHM Design
 
 License:          LGPL-2

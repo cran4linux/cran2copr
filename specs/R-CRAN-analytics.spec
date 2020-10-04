@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Outlier Detection, Stationary Bootstrap, Testing WeakStationarity, NA Imputation, and Other Tools for Data Analysis
 
 License:          GPL-2

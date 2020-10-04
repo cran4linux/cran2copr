@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Average and Conditional Effects
 
 License:          GPL (>= 2)

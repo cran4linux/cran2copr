@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Projected t-SNE for Batch Correction
 
 License:          GPL-3

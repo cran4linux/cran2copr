@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Adaptive Multivariate Integration over Hypercubes
 
 License:          GPL-3

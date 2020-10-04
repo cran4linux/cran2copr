@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Download Image Files from the 'NeuroImaging Tools and ResourcesCollaboratory'
 
 License:          GPL-2

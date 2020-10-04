@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Mixture Survival Models using AdditiveMixture-of-Weibull Hazards, with Lasso Shrinkage andStratification
 
 License:          GPL (>= 2)

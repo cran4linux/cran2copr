@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.23
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Dependencies for the 'jamovi' Framework
 
 License:          GPL (>= 2)

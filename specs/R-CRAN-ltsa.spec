@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Linear Time Series Analysis
 
 License:          GPL (>= 2)

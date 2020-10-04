@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interface to 'Glassdoor' API
 
 License:          GPL-2

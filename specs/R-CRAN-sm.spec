@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.5.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Smoothing Methods for Nonparametric Regression and DensityEstimation
 
 License:          GPL (>= 2)

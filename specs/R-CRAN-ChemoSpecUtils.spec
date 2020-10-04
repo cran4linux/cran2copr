@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.51
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions Supporting Packages ChemoSpec and ChemoSpec2D
 
 License:          GPL-3

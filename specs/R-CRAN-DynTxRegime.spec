@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Estimating Optimal Dynamic Treatment Regimes
 
 License:          GPL-2

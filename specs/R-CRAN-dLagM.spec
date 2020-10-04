@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Regression Models with Distributed Lag Models
 
 License:          GPL-3

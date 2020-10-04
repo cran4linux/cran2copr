@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.12
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Support Functions and Data for "Ecological Models and Data"
 
 License:          GPL

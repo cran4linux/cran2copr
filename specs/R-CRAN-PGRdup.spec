@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Discover Probable Duplicates in Plant Genetic ResourcesCollections
 
 License:          GPL-2 | GPL-3

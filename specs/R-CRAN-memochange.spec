@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Testing for Structural Breaks under Long Memory and Testing forChanges in Persistence
 
 License:          GPL-2

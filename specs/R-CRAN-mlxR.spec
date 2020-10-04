@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simulation of Longitudinal Data
 
 License:          BSD_2_clause + file LICENSE

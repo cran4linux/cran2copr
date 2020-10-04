@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Comparison of Cumulative Incidence Between Two Groups UnderCompeting Risks
 
 License:          GPL-2

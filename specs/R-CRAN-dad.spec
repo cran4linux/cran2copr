@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Three-Way / Multigroup Data Analysis Through Densities
 
 License:          GPL (>= 2)

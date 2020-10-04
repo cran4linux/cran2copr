@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The H-Measure and Other Scalar Classification PerformanceMetrics
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Define and Work with Parameter Spaces for Complex Algorithms
 
 License:          LGPL-3

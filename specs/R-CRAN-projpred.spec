@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Projection Predictive Feature Selection
 
 License:          GPL-3

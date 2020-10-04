@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          VAR modelling: estimation, testing, and prediction
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Solve Systems of Nonlinear Equations
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.13
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Spatially Balanced Samples of Spatial Objects
 
 License:          GNU General Public License

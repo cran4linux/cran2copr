@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5.19
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Test Analysis Modules
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Inventory Analytics and Cost Calculations
 
 License:          GPL-3

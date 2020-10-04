@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Download Occurrence Data of Vascular Plants in Germany from theFLORKART Database
 
 License:          GPL-2

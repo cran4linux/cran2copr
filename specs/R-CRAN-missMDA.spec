@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.17
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Handling Missing Values with Multivariate Data Analysis
 
 License:          GPL (>= 2)

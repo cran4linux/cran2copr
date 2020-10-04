@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating a Survival Distribution in the Presence of DependentLeft Truncation and Right Censoring
 
 License:          GPL (>= 3)

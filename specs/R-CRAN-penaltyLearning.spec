@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.5.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Penalty Learning
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Methods for Analyzing Binned Income Data
 
 License:          GPL (>= 3.0)

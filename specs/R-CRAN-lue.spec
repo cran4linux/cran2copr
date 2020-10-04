@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Light Use Efficiency Model to Estimate Biomass and YIELD withand Without Vapour Pressure Deficit
 
 License:          GPL-2

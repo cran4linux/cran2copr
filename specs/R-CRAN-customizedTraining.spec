@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Customized Training for Lasso and Elastic-Net RegularizedGeneralized Linear Models
 
 License:          GPL-2

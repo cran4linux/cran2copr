@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.8
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Versatile Curation of Table Metadata
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Microbiome Based Sum of Powered Score (MiSPU) Tests
 
 License:          GPL-2

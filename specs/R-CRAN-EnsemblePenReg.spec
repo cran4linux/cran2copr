@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Extensible Classes and Methods for Penalized-Regression-BasedIntegration of Base Learners
 
 License:          GPL (>= 2)

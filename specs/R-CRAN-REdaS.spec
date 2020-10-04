@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Companion Package to the Book 'R: Einführung durch angewandteStatistik'
 
 License:          GPL-2

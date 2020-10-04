@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          web tool for estimating under-five deaths caused by poor-qualityantimalarials in sub-Saharan Africa
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Rule-Based Conformance Checking of Business Process Event Data
 
 License:          MIT + file LICENSE

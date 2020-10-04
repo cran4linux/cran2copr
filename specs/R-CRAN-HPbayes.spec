@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Heligman Pollard mortality model parameter estimation usingBayesian Melding with Incremental Mixture Importance Sampling
 
 License:          Unlimited

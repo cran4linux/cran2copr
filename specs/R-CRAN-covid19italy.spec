@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Italy Dataset
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Interface to 'SUNDIALS' Ordinary Differential Equation (ODE)Solvers
 
 License:          BSD_3_clause + file LICENSE

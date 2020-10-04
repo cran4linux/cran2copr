@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Translate English Words into Chinese, or Translate Chinese Wordsinto English
 
 License:          MIT + file LICENSE

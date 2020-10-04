@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Fast and Scalable Joint Estimator for Learning MultipleRelated Sparse Gaussian Graphical Models
 
 License:          GPL-2

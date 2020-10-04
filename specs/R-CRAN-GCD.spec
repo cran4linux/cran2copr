@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Global Charcoal Database
 
 License:          GPL (>= 2)

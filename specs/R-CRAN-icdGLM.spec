@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          EM by the Method of Weights for Incomplete Categorical Data inGenerlized Linear Models
 
 License:          GPL (>= 2)

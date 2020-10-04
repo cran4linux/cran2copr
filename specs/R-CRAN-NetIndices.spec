@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimating network indices, including trophic structure offoodwebs in R
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.17
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Agricultural Datasets
 
 License:          CC BY-SA 4.0

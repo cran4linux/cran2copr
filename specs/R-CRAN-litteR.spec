@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Litter Analysis
 
 License:          GPL (>= 3)

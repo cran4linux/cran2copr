@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Useful functions for (batch) file conversion and data resamplingin microsatellite datasets
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Variance-Covariance Matrices and Standard Errors
 
 License:          GPL (>= 2) | file LICENSE

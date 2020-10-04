@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The SecKW Distribution
 
 License:          MIT + file LICENSE

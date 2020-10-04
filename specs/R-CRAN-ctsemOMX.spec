@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time SEM - 'OpenMx' Based Functions
 
 License:          GPL-3

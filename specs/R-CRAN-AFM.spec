@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Atomic Force Microscope Image Analysis
 
 License:          AGPL-3

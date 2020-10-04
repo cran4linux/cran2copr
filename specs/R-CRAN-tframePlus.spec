@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2016.7.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Time Frame Coding Kernel Extensions
 
 License:          GPL-2

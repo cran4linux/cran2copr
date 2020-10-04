@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simultaneous Inference for Diversity Indices
 
 License:          GPL (>= 2)

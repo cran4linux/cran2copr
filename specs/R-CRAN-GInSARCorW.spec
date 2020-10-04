@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.15.6
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          GACOS InSAR Correction Workflow
 
 License:          GPL-3

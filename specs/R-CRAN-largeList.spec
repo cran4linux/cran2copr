@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Serialization Interface for Large List Objects
 
 License:          GPL (>= 2)

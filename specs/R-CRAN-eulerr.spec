@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Area-Proportional Euler and Venn Diagrams with Ellipses
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Single-Case Visual Analysis
 
 License:          GPL (>= 2)

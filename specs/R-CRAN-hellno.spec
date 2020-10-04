@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Providing 'stringsAsFactors=FALSE' Variants of 'data.frame()'and 'as.data.frame()'
 
 License:          MIT + file LICENSE

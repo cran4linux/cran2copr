@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Identify and Correct Invalid HGNC Human Gene Symbols and MGIMouse Gene Symbols
 
 License:          GPL (>= 2.0)

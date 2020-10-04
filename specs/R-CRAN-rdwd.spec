@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Select and Download Climate Data from 'DWD' (German WeatherService)
 
 License:          GPL (>= 2)

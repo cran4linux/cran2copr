@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimate Lower Extreme Quantile with the Censored Weibull MLEand Censored Weibull Mixture
 
 License:          GPL (>= 2)

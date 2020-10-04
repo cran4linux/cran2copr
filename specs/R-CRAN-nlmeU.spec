@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.70.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Datasets and utility functions enhancing functionality of nlmepackage.
 
 License:          GPL (>= 2)

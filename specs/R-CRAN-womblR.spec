@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Boundary Detection Model for Areal Unit Data
 
 License:          GPL (>= 2)

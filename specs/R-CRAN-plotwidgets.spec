@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Spider Plots, ROC Curves, Pie Charts and More for Use in OtherPlots
 
 License:          GPL (>= 2.0)

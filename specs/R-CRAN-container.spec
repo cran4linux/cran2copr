@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Deque, Set, and Dict - R6 Based Container Classes with Iterators
 
 License:          GPL-3

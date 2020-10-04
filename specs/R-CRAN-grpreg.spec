@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Regularization Paths for Regression Models with GroupedCovariates
 
 License:          GPL-3

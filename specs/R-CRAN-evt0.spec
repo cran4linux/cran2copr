@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Mean of order p, peaks over random threshold Hill and highquantile estimates
 
 License:          GPL (>= 2)

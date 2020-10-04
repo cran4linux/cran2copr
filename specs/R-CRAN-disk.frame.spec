@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Larger-than-RAM Disk-Based Data Manipulation Framework
 
 License:          MIT + file LICENSE

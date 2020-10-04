@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Download Data from the European Social Survey on the Fly
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.94
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Subset AR Model Fitting
 
 License:          GPL (>= 2)

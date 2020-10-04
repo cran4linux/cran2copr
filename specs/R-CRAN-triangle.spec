@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Provides the Standard Distribution Functions for the TriangleDistribution
 
 License:          GPL (>= 2)

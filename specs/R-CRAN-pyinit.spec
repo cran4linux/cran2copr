@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Pena-Yohai Initial Estimator for Robust S-Regression
 
 License:          GPL (>= 2)

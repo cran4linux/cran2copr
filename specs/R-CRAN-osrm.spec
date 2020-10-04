@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interface Between R and the OpenStreetMap-Based Routing ServiceOSRM
 
 License:          GPL-3

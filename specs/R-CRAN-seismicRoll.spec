@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Fast Rolling Functions for Seismology using 'Rcpp'
 
 License:          GPL (>= 2)

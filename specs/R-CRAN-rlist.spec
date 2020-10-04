@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.6.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Toolbox for Non-Tabular Data Manipulation
 
 License:          MIT + file LICENSE

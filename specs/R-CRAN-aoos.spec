@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Another Object Orientation System
 
 License:          MIT + file LICENSE

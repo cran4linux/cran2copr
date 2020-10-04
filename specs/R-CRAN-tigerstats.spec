@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          R Functions for Elementary Statistics
 
 License:          GPL (>= 3)

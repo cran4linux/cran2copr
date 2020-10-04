@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.6.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Models for Network Evolution Based onExponential-Family Random Graph Models
 
 License:          GPL-3 + file LICENSE

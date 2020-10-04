@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analysis of Multiple ChIP-Seq Data
 
 License:          GPL-2

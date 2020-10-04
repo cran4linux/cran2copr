@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Detect Line Segments in Images
 
 License:          AGPL-3

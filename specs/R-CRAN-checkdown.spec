@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Check-Fields and Check-Boxes for 'rmarkdown'
 
 License:          GPL (>= 2)

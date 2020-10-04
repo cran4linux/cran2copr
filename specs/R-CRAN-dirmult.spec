@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimation in Dirichlet-Multinomial distribution.
 
 License:          GPL (>= 2)

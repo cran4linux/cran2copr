@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Fast Way to Calculate the p-Value of One or MultipleLog-Rank-Tests
 
 License:          GPL-3

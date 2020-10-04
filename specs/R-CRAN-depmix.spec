@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Dependent Mixture Models
 
 License:          GPL-3

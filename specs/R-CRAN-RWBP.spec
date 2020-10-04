@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Detects spatial outliers using a Random Walk on Bipartite Graph
 
 License:          GPL (>= 2)

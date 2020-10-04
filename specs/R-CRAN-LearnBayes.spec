@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.15.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions for Learning Bayesian Inference
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.95.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluate Function Calls on HPC Schedulers (LSF, SGE, SLURM,PBS/Torque)
 
 License:          Apache License (== 2.0) | file LICENSE

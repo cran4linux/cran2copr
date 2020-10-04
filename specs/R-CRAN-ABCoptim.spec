@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Implementation of Artificial Bee Colony (ABC) Optimization
 
 License:          MIT + file LICENSE

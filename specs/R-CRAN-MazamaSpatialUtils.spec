@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Spatial Data Download and Utility Functions
 
 License:          GPL-2

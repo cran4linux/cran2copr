@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Mixed Data Sampling Regression
 
 License:          GPL-2 | MIT + file LICENCE

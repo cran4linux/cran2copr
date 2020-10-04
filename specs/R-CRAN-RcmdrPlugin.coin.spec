@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.22
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Rcmdr Coin Plug-In
 
 License:          GPL (>= 2)

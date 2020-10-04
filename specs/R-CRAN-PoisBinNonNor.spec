@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data Generation with Poisson, Binary and Continuous Components
 
 License:          GPL-2 | GPL-3

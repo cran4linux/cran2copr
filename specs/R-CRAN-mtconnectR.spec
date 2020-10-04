@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Read Data from Delimited 'MTConnect' Data Files and Perform someAnalysis
 
 License:          AGPL-3

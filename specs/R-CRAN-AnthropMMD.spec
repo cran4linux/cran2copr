@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Smith's Mean Measure of Divergence (MMD)
 
 License:          CeCILL-2 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          K-Means for Longitudinal Data
 
 License:          GPL (>= 2)

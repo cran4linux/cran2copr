@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Classify Multilingual Labour Market Free-Text to StandardizedHierarchical Occupations
 
 License:          GPL-3

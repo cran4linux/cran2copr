@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Fitting Autoregressive Censored Mixed-Effects Models
 
 License:          GPL (>= 2)

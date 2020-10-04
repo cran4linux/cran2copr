@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Mediation Analysis Confidence Intervals
 
 License:          GPL-2

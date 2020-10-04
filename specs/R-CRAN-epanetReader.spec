@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Read Epanet Files into R
 
 License:          MIT + file LICENSE

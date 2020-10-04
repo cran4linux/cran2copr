@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Prepare MCMCtree Analyses and Plot Bayesian Divergence TimeAnalyses Estimates on Trees
 
 License:          GPL (>= 2)

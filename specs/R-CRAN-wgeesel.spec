@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Weighted Generalized Estimating Equations and Model Selection
 
 License:          GPL-2

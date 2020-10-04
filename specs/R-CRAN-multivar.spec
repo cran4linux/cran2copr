@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Estimation and Forecasting of Multiple Subject VectorAutoregressive (multi-VAR) Models
 
 License:          GPL (>= 2)

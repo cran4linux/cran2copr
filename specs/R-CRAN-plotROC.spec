@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generate Useful ROC Curve Charts for Print and Interactive Use
 
 License:          MIT + file LICENSE

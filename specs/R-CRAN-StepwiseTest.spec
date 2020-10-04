@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multiple Testing Method to Control Generalized Family-Wise ErrorRate and False Discovery Proportion
 
 License:          GPL (>= 2)

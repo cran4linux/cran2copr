@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Robust and Powerful Test of Abnormal Stock Returns inLong-Horizon Event Studies
 
 License:          BSD_3_clause + file LICENSE

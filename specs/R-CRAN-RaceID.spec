@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Identification of Cell Types and Inference of Lineage Trees fromSingle-Cell RNA-Seq Data
 
 License:          GPL-3

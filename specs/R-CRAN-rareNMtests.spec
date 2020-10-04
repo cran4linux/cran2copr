@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Ecological and biogeographical null model tests for comparingrarefaction curves
 
 License:          GPL (>= 2)

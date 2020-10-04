@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Target Inhibition Interaction using Maximization andMinimization Averaging
 
 License:          Artistic License 2.0

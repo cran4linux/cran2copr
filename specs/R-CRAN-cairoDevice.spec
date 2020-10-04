@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.28.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Embeddable Cairo Graphics Device Driver
 
 License:          GPL

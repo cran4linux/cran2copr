@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Safe, Multiple, Simultaneous String Substitution
 
 License:          MIT + file LICENSE

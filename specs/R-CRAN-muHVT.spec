@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Constructing Hierarchical Voronoi Tessellations and OverlayHeatmap for Data Analysis
 
 License:          Apache License 2.0

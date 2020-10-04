@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Chandler-Bate Sandwich Loglikelihood Adjustment
 
 License:          GPL (>= 2)

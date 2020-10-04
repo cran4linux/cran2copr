@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data Generation with Binary and Continuous Non-Normal Components
 
 License:          GPL-2 | GPL-3

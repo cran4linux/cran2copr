@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools to Visualize, Manipulate, and Summarize MCMC Output
 
 License:          GPL-3

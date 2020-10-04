@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Simulation of Correlated Data with Multiple Variable TypesIncluding Continuous and Count Mixture Distributions
 
 License:          GPL-2

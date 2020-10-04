@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Foreach Parallel Adaptor for 'parallel'
 
 License:          GPL-2

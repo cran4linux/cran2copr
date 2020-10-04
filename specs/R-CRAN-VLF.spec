@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Frequency Matrix Approach for Assessing Very Low FrequencyVariants in Sequence Records
 
 License:          GPL (>= 3)

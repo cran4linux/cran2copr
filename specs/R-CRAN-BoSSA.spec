@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Bunch of Structure and Sequence Analysis
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions for Benchmarking Time Series Prediction
 
 License:          GPL (>= 2)

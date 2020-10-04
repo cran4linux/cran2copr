@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.17
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Correct Overloaded Peaks from GC-APCI-MS Data
 
 License:          GPL-3

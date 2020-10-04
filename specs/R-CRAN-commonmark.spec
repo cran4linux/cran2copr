@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          High Performance CommonMark and Github Markdown Rendering in R
 
 License:          BSD_2_clause + file LICENSE

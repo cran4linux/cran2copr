@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          R Parallel Implementation of Local Outlier Factor(LOF)
 
 License:          GPL (>= 2)

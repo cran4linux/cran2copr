@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sampling Design for Spatially Explicit Capture-Recapture
 
 License:          GPL (>= 2)

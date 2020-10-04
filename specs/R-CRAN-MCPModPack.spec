@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation-Based Design and Analysis of Dose-Finding Trials
 
 License:          GPL-3

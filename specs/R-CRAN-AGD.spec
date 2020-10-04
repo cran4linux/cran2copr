@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.39
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analysis of Growth Data
 
 License:          GPL-2 | GPL-3

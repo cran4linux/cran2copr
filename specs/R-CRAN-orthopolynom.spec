@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Collection of functions for orthogonal and orthonormalpolynomials
 
 License:          GPL (>= 2)

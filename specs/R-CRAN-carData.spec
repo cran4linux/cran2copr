@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Companion to Applied Regression Data Sets
 
 License:          GPL (>= 2)

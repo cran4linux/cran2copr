@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Distance Between Phylogenetic Histories
 
 License:          BSD_3_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Methods for likelihood-based dimension reduction in regression
 
 License:          GPL (>= 2)

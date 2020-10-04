@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to Allow Full Use of the Environment Modules Systemfor Unix
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sample Size Calculation Method for Cost-Effectiveness StudiesBased on Expected Value of Perfect Information
 
 License:          GPL-3

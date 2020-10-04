@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          R interface to Oracle Data Mining
 
 License:          LGPL (>= 2)

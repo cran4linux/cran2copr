@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Extensible Markov Model for Modelling Temporal RelationshipsBetween Clusters
 
 License:          GPL-2

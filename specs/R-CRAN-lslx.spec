@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.10
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Semi-Confirmatory Structural Equation Modeling via PenalizedLikelihood or Least Squares
 
 License:          GPL-3

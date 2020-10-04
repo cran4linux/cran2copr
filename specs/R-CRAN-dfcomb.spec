@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Phase I/II Adaptive Dose-Finding Design for Combination Studies
 
 License:          GPL-3

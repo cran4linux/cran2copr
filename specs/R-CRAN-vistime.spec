@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Pretty Timelines
 
 License:          GPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modelling Dependence with Multivariate Archimax (or anyUser-Defined Continuous) Copulas
 
 License:          GPL-2

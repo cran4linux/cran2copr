@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Estimate Correlations Between Repeatedly Measured Endpoints(E.g., Reliability) Based on Linear Mixed-Effects Models
 
 License:          GPL (>= 2)

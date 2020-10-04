@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multiple Testing Methods for Exploratory Research
 
 License:          GPL (>= 2)

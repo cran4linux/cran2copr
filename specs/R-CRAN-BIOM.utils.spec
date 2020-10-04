@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Utilities for the BIOM (Biological Observation Matrix) Format
 
 License:          BSD_2_clause + file LICENSE

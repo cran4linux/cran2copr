@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          The IsoSpec Algorithm
 
 License:          BSD_2_clause + file LICENCE

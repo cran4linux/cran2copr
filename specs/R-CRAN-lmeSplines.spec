@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.10
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Add smoothing spline modelling capability to nlme.
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.03
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Orderbook visualization/Charting software
 
 License:          GPL (>= 2)

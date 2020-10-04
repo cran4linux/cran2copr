@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modeling Data with Functional Programming
 
 License:          LGPL-3

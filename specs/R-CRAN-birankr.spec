@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Ranking Nodes in Bipartite and Weighted Networks
 
 License:          MIT + file LICENSE

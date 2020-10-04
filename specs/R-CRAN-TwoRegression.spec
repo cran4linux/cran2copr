@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Process Data from Wearable Research Devices Using Two-RegressionAlgorithms
 
 License:          GPL-3 | file LICENSE

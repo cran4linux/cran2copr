@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Observational Database Study Planning using Exact SequentialAnalysis for Poisson and Binomial Data
 
 License:          GPL-2

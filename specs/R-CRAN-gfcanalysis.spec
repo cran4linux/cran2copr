@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Tools for Working with Hansen et al. Global Forest ChangeDataset
 
 License:          GPL (>= 3)

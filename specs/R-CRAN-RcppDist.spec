@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration of Additional Probability Distributions
 
 License:          GPL (>= 2.0)

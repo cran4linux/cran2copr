@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Measurement Error Modeling Tools
 
 License:          GPL (>= 2) | file LICENSE

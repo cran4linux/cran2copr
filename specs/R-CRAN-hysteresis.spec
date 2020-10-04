@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools for Modeling Rate-Dependent Hysteretic Processes andEllipses
 
 License:          GPL (>= 2)

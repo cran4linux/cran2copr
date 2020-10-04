@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Markov Random Field Models for Image Analysis
 
 License:          GPL-3

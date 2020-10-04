@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Snow Profile Analysis for Snowpack and Avalanche Research
 
 License:          CC BY-SA 4.0

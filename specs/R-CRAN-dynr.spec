@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.15.25
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Dynamic Modeling in R
 
 License:          GPL-3

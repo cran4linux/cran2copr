@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.28
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Entropy-Based Local Indicator of Spatial Association
 
 License:          GPL (>= 3)

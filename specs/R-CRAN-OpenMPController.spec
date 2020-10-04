@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Control Number of OpenMP Threads Dynamically
 
 License:          GPL-2

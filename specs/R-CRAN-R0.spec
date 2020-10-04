@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimation of R0 and Real-Time Reproduction Number fromEpidemics
 
 License:          GPL (>= 2)

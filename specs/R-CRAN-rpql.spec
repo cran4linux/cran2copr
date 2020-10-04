@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Regularized PQL for Joint Selection in GLMMs
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools and Palettes for Bivariate Thematic Mapping
 
 License:          GPL-3

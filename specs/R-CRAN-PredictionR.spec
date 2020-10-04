@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.12
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Prediction for Future Data from any Continuous Distribution
 
 License:          GPL (>= 2)

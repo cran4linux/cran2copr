@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Framework for the Analysis of Kinetic Visual Field Data
 
 License:          GPL (>= 2)

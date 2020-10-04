@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Drawing SVG Graphics to Visualize and Map Genome-Wide Data onIdiograms
 
 License:          Artistic-2.0

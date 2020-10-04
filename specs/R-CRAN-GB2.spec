@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generalized Beta Distribution of the Second Kind: Properties,Likelihood, Estimation
 
 License:          GPL (>= 2)

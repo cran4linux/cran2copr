@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.10
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Obtain, Organize, and Visualize NCEP Weather Data
 
 License:          GPL (>= 2)

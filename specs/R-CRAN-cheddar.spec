@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.636
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analysis and Visualisation of Ecological Communities
 
 License:          BSD_2_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Historical Populations of European Cities, 1500-1800
 
 License:          CC0

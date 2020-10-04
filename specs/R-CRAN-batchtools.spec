@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools for Computation on Batch Systems
 
 License:          LGPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modeler for linear programs (LP) and mixed integer linearprograms (MILP)
 
 License:          GPL (>= 2) | BSD_2_clause + file LICENSE

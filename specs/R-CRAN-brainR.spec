@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Helper Functions to 'misc3d' and 'rgl' Packages for BrainImaging
 
 License:          GPL-2

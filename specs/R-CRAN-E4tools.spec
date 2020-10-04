@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Management and Processing Tools for Data Produced by theEmpatica E4
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.14
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Primal or Dual Cone Projections with Routines for ConstrainedRegression
 
 License:          GPL (>= 2)

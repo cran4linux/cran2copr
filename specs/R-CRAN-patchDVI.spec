@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Package to Patch '.dvi' or '.synctex' Files
 
 License:          GPL-2

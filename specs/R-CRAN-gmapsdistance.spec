@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Distance and Travel Time Between Two Points from Google Maps
 
 License:          GPL (>= 2)

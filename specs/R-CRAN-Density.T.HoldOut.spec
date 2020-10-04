@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.00
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Density.T.HoldOut: Non-combinatorial T-estimation Hold-Out fordensity estimation
 
 License:          GPL (>= 2)

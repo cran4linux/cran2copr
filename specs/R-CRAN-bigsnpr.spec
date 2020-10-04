@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Analysis of Massive SNP Arrays
 
 License:          GPL-3

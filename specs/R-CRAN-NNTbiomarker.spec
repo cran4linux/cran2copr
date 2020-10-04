@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.29.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculate Design Parameters for Biomarker Validation Studies
 
 License:          GPL-3

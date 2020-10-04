@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.83.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Rmetrics - Portfolio Selection and Optimization
 
 License:          GPL (>= 2)

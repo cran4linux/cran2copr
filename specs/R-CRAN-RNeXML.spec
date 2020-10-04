@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Semantically Rich I/O for the 'NeXML' Format
 
 License:          BSD_3_clause + file LICENSE

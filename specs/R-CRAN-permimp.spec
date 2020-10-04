@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Conditional Permutation Importance
 
 License:          GPL-2 | GPL-3

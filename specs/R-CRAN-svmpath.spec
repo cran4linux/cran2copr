@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.970
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          The SVM Path Algorithm
 
 License:          GPL-2

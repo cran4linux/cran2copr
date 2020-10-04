@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Dimension Reduction of Non-Normally Distributed Data
 
 License:          LGPL (>= 3) | file LICENSE

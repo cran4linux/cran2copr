@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2017.08.15
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Dynamic Programming Algorithm for Peak Detection in ChIP-SeqData
 
 License:          GPL-3

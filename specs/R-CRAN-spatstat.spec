@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.64.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Spatial Point Pattern Analysis, Model-Fitting, Simulation, Tests
 
 License:          GPL (>= 2)

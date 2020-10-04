@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.4.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Clustering and Classification with the Contaminated Normal
 
 License:          GPL-2

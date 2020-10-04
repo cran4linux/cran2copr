@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multiple Peak Alignment for 2D Gas Chromatography MassSpectrometry Metabolomics Analysis
 
 License:          MIT + file LICENSE

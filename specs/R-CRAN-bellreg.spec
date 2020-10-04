@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Count Regression Models Based on the Bell Distribution
 
 License:          GPL (>= 2)

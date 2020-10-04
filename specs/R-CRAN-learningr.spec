@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.29.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data and Functions to Accompany the Book "Learning R"
 
 License:          Unlimited

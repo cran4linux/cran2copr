@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          16.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Complete Environment for Bayesian Inference
 
 License:          MIT + file LICENSE

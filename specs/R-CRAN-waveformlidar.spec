@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Waveform LiDAR Data Processing and Analysis
 
 License:          GPL (>= 2)

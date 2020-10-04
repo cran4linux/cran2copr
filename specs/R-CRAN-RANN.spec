@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast Nearest Neighbour Search (Wraps ANN Library) Using L2Metric
 
 License:          GPL (>= 3)

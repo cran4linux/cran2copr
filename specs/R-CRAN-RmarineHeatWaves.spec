@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Detect Marine Heat Waves and Marine Cold Spells
 
 License:          MIT + file LICENSE

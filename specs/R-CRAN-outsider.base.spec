@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Base Package for 'Outsider'
 
 License:          MIT + file LICENSE

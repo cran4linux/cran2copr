@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Approximate POMDP Planning Software
 
 License:          GPL-2

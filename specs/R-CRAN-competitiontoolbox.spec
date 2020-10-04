@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          A Graphical User Interface for Antitrust and Trade Practitioners
 
 License:          Unlimited

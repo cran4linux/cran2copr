@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Secure Shell (SSH) Client for R
 
 License:          MIT + file LICENSE

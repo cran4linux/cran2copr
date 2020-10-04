@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Lasso Method for RCON(V,E) Models
 
 License:          GPL (>= 2)

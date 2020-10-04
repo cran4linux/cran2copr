@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Virtual Machines in 'Azure'
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Exploring Election and Census Highly Informative Data Nationallyfor Australia
 
 License:          GPL (>= 2)

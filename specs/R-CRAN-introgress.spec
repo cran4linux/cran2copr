@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          methods for analyzing introgression between divergent lineages
 
 License:          GPL (>= 2)

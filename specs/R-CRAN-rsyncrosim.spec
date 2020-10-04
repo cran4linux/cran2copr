@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The R Interface to 'SyncroSim'
 
 License:          MIT + file LICENSE

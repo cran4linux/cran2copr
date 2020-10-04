@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2015.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Constrained Nonlinear Optimization
 
 License:          GPL (>= 2)

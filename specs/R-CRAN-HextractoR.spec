@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Integrated Tool for Hairping Extraction of RNA Sequences
 
 License:          Apache License 2.0

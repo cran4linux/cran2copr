@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Datasets from Hosmer, Lemeshow and Sturdivant, "Applied LogisticRegression" (3rd Ed., 2013)
 
 License:          GPL-3

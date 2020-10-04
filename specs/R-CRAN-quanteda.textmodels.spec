@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Scaling Models and Classifiers for Textual Data
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.999
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interface to the "Geonames" Spatial Query Web Service
 
 License:          GPL-3

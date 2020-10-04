@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Stochastic Process Model for Analysis of Longitudinal andTime-to-Event Outcomes
 
 License:          GPL

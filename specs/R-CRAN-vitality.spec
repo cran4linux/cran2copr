@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fitting Routines for the Vitality Family of Mortality Models
 
 License:          GPL (>= 2)

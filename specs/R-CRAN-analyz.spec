@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Model Layer for Automatic Data Analysis via CSV FileInterpretation
 
 License:          GPL (>= 2)

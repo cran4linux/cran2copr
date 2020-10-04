@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Methods to perform Common Principal Component Analysis (CPCA)
 
 License:          GPL (>= 3)

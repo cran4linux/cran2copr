@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.12
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Heat Maps for Projected Coordinates
 
 License:          GPL (>= 2)

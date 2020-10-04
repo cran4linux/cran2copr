@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Permutation-Based FDR Point and Confidence Interval Estimation
 
 License:          Artistic-2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.9.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multivariate and Propensity Score Matching with BalanceOptimization
 
 License:          GPL-3

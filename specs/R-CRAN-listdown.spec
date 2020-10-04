@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.21
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Create R Markdown from Lists
 
 License:          Apache License (>= 2.0)

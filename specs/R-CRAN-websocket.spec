@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          'WebSocket' Client Library
 
 License:          GPL-2

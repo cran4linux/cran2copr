@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.03.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Methods to Test Hypotheses on the Distribution of Spatial PointProcesses
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Music Chords Extraction
 
 License:          MIT + file LICENSE

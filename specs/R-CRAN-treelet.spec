@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Adaptive Multi-Scale Basis for High-Dimensional, Sparse andUnordered Data
 
 License:          GPL (>= 2)

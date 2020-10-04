@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Detecting Differentially Expressed Genes in Time Course RNA-SeqData
 
 License:          GPL (>= 2)

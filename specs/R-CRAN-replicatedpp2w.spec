@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Two-Way ANOVA-Like Method to Analyze Replicated Point Patterns
 
 License:          GPL (>= 2)

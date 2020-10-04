@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          13.0.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Unicode Data and Utilities
 
 License:          GPL-2

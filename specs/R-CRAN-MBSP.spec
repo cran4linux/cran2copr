@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multivariate Bayesian Model with Shrinkage Priors
 
 License:          GPL-3

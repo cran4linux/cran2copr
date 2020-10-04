@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Simulates SPSO and Efftox Phase 12 Trials with CorrelatedOutcomes
 
 License:          GPL-2

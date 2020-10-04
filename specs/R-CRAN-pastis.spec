@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Phylogenetic Assembly with Soft Taxonomic Inferences
 
 License:          GPL (>= 3)

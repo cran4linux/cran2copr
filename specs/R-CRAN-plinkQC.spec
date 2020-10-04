@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Genotype Quality Control with 'PLINK'
 
 License:          MIT + file LICENSE

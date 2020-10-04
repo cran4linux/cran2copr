@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Package for Network Changepoint Analysis
 
 License:          GPL-3

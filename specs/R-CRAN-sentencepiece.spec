@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Text Tokenization using Byte Pair Encoding and Unigram Modelling
 
 License:          MPL-2.0

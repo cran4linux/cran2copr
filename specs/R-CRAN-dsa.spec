@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.74.18
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Seasonal Adjustment of Daily Time Series
 
 License:          GPL-3

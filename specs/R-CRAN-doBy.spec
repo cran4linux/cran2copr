@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.6.7
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Groupwise Statistics, LSmeans, Linear Contrasts, Utilities
 
 License:          GPL (>= 2)

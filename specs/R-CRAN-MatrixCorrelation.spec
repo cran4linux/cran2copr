@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Matrix Correlation Coefficients
 
 License:          GPL-2

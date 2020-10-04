@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Work with 'GitHub' 'Gists'
 
 License:          MIT + file LICENSE

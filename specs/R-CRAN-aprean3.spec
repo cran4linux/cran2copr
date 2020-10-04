@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Datasets from Draper and Smith "Applied Regression Analysis"(3rd Ed., 1998)
 
 License:          GPL-3

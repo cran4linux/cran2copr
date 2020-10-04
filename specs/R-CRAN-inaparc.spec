@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Initialization Algorithms for Partitioning Cluster Analysis
 
 License:          GPL (>= 2)

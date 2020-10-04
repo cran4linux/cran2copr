@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Tests of Hierarchical F-Statistics
 
 License:          GPL (>= 2)

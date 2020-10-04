@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Parametric Causal Effects of Feasible Interventions Based onModified Treatment Policies
 
 License:          MIT + file LICENSE

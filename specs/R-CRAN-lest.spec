@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Vectorised Nested if-else Statements Similar to CASE WHEN in'SQL'
 
 License:          MIT + file LICENSE

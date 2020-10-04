@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Self-Organizing Map
 
 License:          GPL (>= 3)

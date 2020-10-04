@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast Multivariate Normal and Student's t Methods
 
 License:          GPL (>= 2.0)

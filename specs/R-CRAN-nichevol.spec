@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.19
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Tools for Ecological Niche Evolution Assessment ConsideringUncertainty
 
 License:          GPL-3

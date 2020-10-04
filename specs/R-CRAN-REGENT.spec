@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Risk Estimation for Genetic and Environmental Traits
 
 License:          GPL

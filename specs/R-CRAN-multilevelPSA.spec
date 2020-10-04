@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Multilevel Propensity Score Analysis
 
 License:          GPL (>= 2)

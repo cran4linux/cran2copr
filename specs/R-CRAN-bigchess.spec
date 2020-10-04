@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Write, Manipulate, Explore Chess PGN Files and R API toUCI Chess Engines
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Fast Extraction from Raster Datasets using Polygons
 
 License:          Apache License (== 2.0)

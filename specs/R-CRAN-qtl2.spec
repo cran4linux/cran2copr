@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.22.11
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Trait Locus Mapping in Experimental Crosses
 
 License:          GPL-3

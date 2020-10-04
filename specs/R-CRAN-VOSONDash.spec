@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          User Interface for Collecting and Analysing Social Networks
 
 License:          GPL (>= 3)

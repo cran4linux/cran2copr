@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A 'Sparklyr' Extension for 'VariantSpark'
 
 License:          Apache License 2.0 | file LICENSE

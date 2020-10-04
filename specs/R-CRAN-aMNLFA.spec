@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Automated Fitting of Moderated Nonlinear Factor Analysis Throughthe 'Mplus' Program
 
 License:          GPL-2

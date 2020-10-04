@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Forensic Glass Transfer Probabilities
 
 License:          GPL-2

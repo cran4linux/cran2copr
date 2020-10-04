@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Mark-Recapture Analysis for Survival and Abundance Estimation
 
 License:          GPL (>= 2)

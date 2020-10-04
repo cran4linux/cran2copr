@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Micro-RNA Quality Control and Diagnosis
 
 License:          GPL-3

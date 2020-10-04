@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Identifying Unique Multilocus Genotypes where Genotyping Errorand Missing Data may be Present
 
 License:          GPL-3

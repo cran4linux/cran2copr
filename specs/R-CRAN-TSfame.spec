@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2015.4.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'TSdbi' Extensions for Fame
 
 License:          GPL-2

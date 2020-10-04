@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.15
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Parametric Time Warping
 
 License:          GPL (>= 2)

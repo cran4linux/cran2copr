@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools for creating D3 JavaScript network, tree, dendrogram, andSankey graphs from R
 
 License:          GPL (>= 3)

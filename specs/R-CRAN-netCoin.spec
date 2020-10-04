@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.25
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interactive Analytic Networks
 
 License:          GPL-2 | GPL-3

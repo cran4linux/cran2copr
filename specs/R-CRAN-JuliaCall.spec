@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Seamless Integration Between R and 'Julia'
 
 License:          MIT + file LICENSE

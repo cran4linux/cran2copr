@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Path-Based BCD for Proximal Function of Latent Group Lasso
 
 License:          GPL-3

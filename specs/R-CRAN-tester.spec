@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tests and checks characteristics of R objects
 
 License:          GPL-3

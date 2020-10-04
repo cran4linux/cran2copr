@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Export 'grid' Graphics as SVG
 
 License:          GPL

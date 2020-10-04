@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Forward-Pipe Operator for R
 
 License:          MIT + file LICENSE

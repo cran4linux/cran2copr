@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.74
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Identifying Stocks in Genetic Data
 
 License:          GPL (>= 2)

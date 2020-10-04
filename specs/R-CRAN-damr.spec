@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interface to Drosophila Activity Monitor System Result Files
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.21
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Text Analysis Utilities
 
 License:          GPL-2

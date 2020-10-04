@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Geographically Weighted Non-Negative Principal ComponentsAnalysis
 
 License:          GPL (>= 2)

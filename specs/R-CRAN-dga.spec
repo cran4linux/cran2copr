@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Capture-Recapture Estimation using Bayesian Model Averaging
 
 License:          GPL (>= 2)

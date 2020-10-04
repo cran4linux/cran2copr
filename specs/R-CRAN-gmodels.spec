@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.18.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Various R Programming Tools for Model Fitting
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Convert a SpatialLinesDataFrame Object to an 'igraph'-ClassObject
 
 License:          GPL (>= 2)

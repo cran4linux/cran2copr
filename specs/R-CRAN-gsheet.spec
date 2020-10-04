@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Download Google Sheets Using Just the URL
 
 License:          GPL-3

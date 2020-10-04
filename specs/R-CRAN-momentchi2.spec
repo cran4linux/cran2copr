@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Moment-Matching Methods for Weighted Sums of Chi-Squared RandomVariables
 
 License:          GPL-2 | GPL-3

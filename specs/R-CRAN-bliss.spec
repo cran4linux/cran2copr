@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Functional Linear Regression with Sparse Step Functions
 
 License:          GPL-3

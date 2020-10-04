@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.111
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Utilities for Working with Air Quality Monitoring Data
 
 License:          GPL-3

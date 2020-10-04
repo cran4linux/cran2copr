@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.12
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Mailmerge using R, LaTeX, and the Web
 
 License:          GPL-3 | file LICENSE

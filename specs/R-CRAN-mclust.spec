@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.4.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Gaussian Mixture Modelling for Model-Based Clustering,Classification, and Density Estimation
 
 License:          GPL (>= 2)

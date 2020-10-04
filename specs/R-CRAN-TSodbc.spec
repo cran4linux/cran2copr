@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2015.4.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          'TSdbi' Extensions for ODBC
 
 License:          GPL-2

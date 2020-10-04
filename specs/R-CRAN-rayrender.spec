@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Build and Raytrace 3D Scenes
 
 License:          GPL-3

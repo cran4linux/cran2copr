@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Providing Interactive Interpretations and Explanations ofStatistical Results
 
 License:          GPL-3

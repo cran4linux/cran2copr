@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Cost-Sensitive Multi-Criteria Ensemble Selection for UncertainCost Conditions
 
 License:          GPL (>= 2)

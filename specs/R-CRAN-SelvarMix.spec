@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Regularization for Variable Selection in Model-Based Clusteringand Discriminant Analysis
 
 License:          GPL (>= 3)

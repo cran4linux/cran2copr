@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Table, Apply, and Split Functionality for Matrix and'big.matrix' Objects
 
 License:          LGPL-3 | Apache License 2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Degrees of Freedom Adjustment for Robust Standard Errors
 
 License:          MIT + file LICENSE

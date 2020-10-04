@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.32
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Black Box Optimization and Exploration of Parameter Space
 
 License:          CeCILL-2

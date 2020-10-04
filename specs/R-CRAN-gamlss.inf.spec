@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fitting Mixed (Inflated and Adjusted) Distributions
 
 License:          GPL-2 | GPL-3

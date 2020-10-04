@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Working with URLs and HTTP
 
 License:          MIT + file LICENSE

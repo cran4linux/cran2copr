@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          PCIC Implementation of Climdex Routines
 
 License:          GPL-3

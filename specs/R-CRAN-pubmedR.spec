@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Gathering Metadata About Publications, Grants, Clinical Trialsfrom 'PubMed' Database
 
 License:          GPL-3

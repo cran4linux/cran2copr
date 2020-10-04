@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.15
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A User-Friendly Biodiversity Data Cleaning App for theInexperienced R User
 
 License:          GPL-3

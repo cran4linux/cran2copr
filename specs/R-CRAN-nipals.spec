@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA,with Gram-Schmidt Orthogonalization
 
 License:          GPL-3

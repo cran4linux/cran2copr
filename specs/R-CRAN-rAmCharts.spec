@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          JavaScript Charts Tool
 
 License:          GPL (>= 2)

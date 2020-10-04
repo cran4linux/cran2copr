@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.81
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Request <https://openblender.io> API Services
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Stan-Based Fit to Gastric Emptying Curves
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Normalized Laplacian Matrix and Laplacian Map
 
 License:          GNU General Public License version 2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load the 'Tidymodels' Packages
 
 License:          GPL-3 | file LICENSE

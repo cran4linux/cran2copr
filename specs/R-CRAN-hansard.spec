@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Provides Easy Downloading Capabilities for the UK Parliament API
 
 License:          MIT + file LICENSE

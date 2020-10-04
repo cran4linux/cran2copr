@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.8.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Regression Smoothing with Local or Global Plug-inBandwidth
 
 License:          GPL (>= 2)

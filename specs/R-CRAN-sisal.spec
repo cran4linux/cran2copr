@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.48
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sequential Input Selection Algorithm
 
 License:          GPL (>= 2)

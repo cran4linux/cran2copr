@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tcl/Tk Additions
 
 License:          LGPL-3 + file LICENSE

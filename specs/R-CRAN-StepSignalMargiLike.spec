@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Step-Wise Signal Extraction via Marginal Likelihood
 
 License:          GPL (>= 2)

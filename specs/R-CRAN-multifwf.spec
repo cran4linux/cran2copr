@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Read Fixed Width Format Files Containing Lines of Different Type
 
 License:          GPL (>= 2)

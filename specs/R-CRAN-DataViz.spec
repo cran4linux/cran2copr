@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data Visualisation Using an HTML Page and 'D3.js'
 
 License:          GPL (>= 2)

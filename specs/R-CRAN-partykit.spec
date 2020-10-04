@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.9
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Recursive Partytioning
 
 License:          GPL-2 | GPL-3

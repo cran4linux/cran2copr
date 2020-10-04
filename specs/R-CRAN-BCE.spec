@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian composition estimator: estimating sample (taxonomic)composition from biomarker data
 
 License:          GPL (>= 2)

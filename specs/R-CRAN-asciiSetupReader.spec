@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Reads Fixed-Width ASCII Data Files (.txt or .dat) that HaveAccompanying Setup Files (.sps or .sas)
 
 License:          MIT + file LICENSE

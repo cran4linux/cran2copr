@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Process and Analyze Agilent Cary 620 FTIR Microscope Images
 
 License:          GPL-3

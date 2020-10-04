@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.5.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Weighted Scores Method for Regression Models with Dependent Data
 
 License:          GPL (>= 2)

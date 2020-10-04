@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Pre-Processing and Analysis of Mid-Infrared Spectral Region
 
 License:          GPL-2

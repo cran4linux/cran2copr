@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Cox Model with Interval-Censored Starting Time of a Covariate
 
 License:          GPL (>= 2)

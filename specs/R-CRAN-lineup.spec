@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.37.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Lining Up Two Sets of Measurements
 
 License:          GPL-3

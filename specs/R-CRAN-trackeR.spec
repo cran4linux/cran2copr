@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Infrastructure for Running, Cycling and Swimming Data fromGPS-Enabled Tracking Devices
 
 License:          GPL-3

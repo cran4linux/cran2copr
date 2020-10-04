@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Exactly Computing the Tail of the Poisson-Binomial Distribution
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Insertion Deletion Analysis While Accounting for PossibleMissing Data
 
 License:          GPL (>= 2)

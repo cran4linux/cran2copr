@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Modeling Correlational Magnitude Transformations inDiscretization Contexts
 
 License:          GPL-2 | GPL-3

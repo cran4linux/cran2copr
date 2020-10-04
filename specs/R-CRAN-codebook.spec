@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Automatic Codebooks from Metadata Encoded in Dataset Attributes
 
 License:          MIT + file LICENSE

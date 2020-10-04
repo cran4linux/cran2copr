@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.32
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Determine and Evaluate Optimal Cutpoints in BinaryClassification Tasks
 
 License:          GPL-3

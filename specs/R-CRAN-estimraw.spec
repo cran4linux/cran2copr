@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Four-Fold Table Cell Frequencies (Raw Data) fromEffect Size Measures
 
 License:          GPL-2

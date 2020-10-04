@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Request Data from the U.S. Bureau of Labor Statistics API
 
 License:          GPL (>= 2)

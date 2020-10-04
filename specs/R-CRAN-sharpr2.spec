@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimating Regulatory Scores and Identifying ATAC-STARR Data
 
 License:          GPL (>= 2)

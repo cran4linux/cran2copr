@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Interface to the Nexus Class Library
 
 License:          BSD_2_clause + file LICENSE

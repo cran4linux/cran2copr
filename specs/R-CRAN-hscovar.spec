@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of Covariance Between Markers for Half-Sib Families
 
 License:          GPL (>= 2)

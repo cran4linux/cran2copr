@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamical Systems Approach to Immune Response Modeling
 
 License:          GPL-3

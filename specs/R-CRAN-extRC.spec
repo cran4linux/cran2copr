@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Extended RC Models for Contingency Tables
 
 License:          GPL (>= 2)

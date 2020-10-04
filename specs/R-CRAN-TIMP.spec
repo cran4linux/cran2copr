@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.13.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fitting Separable Nonlinear Models in Spectroscopy andMicroscopy
 
 License:          GPL (>= 2)

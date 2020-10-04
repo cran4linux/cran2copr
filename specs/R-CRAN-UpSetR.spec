@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A More Scalable Alternative to Venn and Euler Diagrams forVisualizing Intersecting Sets
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Latent Budget Analysis for Compositional Data
 
 License:          GPL (>= 2)

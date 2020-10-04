@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.36.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Advanced Tensor Arithmetic with Named Indices
 
 License:          GPL (>= 2)

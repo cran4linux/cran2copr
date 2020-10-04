@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Finding and plotting simple basis vectors for multivariate data
 
 License:          AGPL-3

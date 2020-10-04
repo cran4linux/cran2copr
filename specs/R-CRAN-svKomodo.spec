@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.63
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          SciViews GUI API - Functions to interface with Komodo Edit/IDE
 
 License:          GPL-2

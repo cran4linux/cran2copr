@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          General Markov Chain Monte Carlo for Bayesian Inference usingadaptive Metropolis-Hastings sampling
 
 License:          GPL (>= 3)

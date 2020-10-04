@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Simple R Package for Classical Parametric Statistical Testsand Confidence Intervals in Large Samples
 
 License:          GPL (>= 2)

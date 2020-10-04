@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fitting Exact Conditional Logistic Regression with Lasso andElastic Net Penalties
 
 License:          GPL-2

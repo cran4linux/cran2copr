@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Differential Network Analysis using Gene Pathways
 
 License:          GPL-2 | GPL-3

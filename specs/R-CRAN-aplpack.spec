@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Another Plot Package: 'Bagplots', 'Iconplots', 'Summaryplots',Slider Functions and Others
 
 License:          GPL (>= 2)

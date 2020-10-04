@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.70.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analysis of Heavy Tailed Distributions
 
 License:          GPL-2 | GPL-3

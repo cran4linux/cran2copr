@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Creating and Working with Pedigrees and Marker Data
 
 License:          GPL-3

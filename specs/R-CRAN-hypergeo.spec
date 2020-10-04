@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The Gauss Hypergeometric Function
 
 License:          GPL-2

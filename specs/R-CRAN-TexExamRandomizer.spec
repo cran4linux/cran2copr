@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Personalizes and Randomizes Exams Written in 'LaTeX'
 
 License:          MIT + file LICENSE

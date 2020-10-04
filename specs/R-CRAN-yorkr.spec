@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analyze Cricket Performances Based on Data from Cricsheet
 
 License:          MIT + file LICENSE

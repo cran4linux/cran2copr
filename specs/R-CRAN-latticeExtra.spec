@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.29
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Extra Graphical Utilities Based on Lattice
 
 License:          GPL (>= 2)

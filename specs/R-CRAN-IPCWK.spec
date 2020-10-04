@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Kendall's Tau Partial Corr. for Survival Trait and Biomarkers
 
 License:          GPL (>= 2)

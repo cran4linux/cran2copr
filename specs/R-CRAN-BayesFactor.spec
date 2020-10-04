@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.12.4.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Computation of Bayes Factors for Common Designs
 
 License:          GPL-2

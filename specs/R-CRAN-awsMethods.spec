@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Class and Methods Definitions for Packages 'aws', 'adimpro','fmri', 'dwi'
 
 License:          GPL (>= 2)

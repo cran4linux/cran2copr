@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Distribution Function of Quadratic Forms in Normal Variables
 
 License:          GPL (>= 2)

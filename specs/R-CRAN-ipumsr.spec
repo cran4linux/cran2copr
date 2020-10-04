@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Read 'IPUMS' Extract Files
 
 License:          Mozilla Public License 2.0

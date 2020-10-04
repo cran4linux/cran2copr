@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Embedding Interactive Charts Generated with ECharts Library intoShiny Applications
 
 License:          GPL-2

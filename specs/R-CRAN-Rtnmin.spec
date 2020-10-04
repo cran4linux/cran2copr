@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2016.7.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Truncated Newton Function Minimization with Bounds Constraints
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Easy Analysis and Visualization of Factorial Experiments
 
 License:          GPL (>= 2)

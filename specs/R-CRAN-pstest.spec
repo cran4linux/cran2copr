@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3.900
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Specification Tests for Parametric Propensity Score Models
 
 License:          GPL-2

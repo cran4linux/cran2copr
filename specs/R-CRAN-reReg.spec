@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Recurrent Event Regression
 
 License:          GPL (>= 3)

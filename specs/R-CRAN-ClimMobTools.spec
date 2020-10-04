@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          API Client for the 'ClimMob' Platform
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          An 'SVG' Graphics Device
 
 License:          GPL (>= 2)

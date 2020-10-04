@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Power Calculations for GxE and GxG Interactions for GWAS
 
 License:          GPL (>= 2)

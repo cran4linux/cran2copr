@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.41
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Individual Tree Growth Modeling
 
 License:          GPL-2

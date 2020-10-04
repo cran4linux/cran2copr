@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Oblique Random Forests from Recursive Linear Model Splits
 
 License:          GPL (>= 2)

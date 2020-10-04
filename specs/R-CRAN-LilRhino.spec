@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          For Implementation of Feed Reduction, Learning Examples, NLP andCode Management
 
 License:          GPL-2

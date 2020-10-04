@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.232
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Workspace Organization, Code and Documentation Editing, PackagePrep and Editing, Etc
 
 License:          GPL (>= 2)

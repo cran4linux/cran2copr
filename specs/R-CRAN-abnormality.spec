@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Measure a Subject's Abnormality with Respect to a ReferencePopulation
 
 License:          MIT + file LICENSE

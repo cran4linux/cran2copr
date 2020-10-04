@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.30.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analysis of Agreement in Method Comparison Studies
 
 License:          GPL (>= 2)

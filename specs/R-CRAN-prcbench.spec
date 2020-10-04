@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Testing Workbench for Precision-Recall Curves
 
 License:          GPL-3

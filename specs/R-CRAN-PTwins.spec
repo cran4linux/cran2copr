@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Percentile Estimation of Fetal Weight for Twins by Chorionicity
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Composite-Likelihood Based Analysis of Random Fields
 
 License:          GPL (>= 2)

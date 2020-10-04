@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Storage Management in 'Azure'
 
 License:          MIT + file LICENSE

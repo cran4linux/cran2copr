@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Assertive Programming for R Analysis Pipelines
 
 License:          MIT + file LICENSE

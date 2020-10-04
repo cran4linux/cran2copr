@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Tool to Facilitate Diagnostic Plots for NLMEModels
 
 License:          GPL-2

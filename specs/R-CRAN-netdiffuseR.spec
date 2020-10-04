@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.22.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analysis of Diffusion and Contagion Processes on Networks
 
 License:          MIT + file LICENSE

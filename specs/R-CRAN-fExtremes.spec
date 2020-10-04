@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.82
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Rmetrics - Modelling Extreme Events in Finance
 
 License:          GPL (>= 2)

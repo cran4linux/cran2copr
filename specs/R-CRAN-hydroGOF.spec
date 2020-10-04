@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit Functions for Comparison of Simulated andObserved Hydrological Time Series
 
 License:          GPL (>= 2)

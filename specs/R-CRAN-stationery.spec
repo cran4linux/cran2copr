@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.98.30
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Working Examples for Reproducible Research Documents
 
 License:          CC BY-SA 4.0

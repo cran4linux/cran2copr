@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Performs the Joint Graphical Lasso for Sparse Inverse CovarianceEstimation on Multiple Classes
 
 License:          GPL-2

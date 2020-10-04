@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An R Interface to Open-Access Malaria Data, Hosted by the'Malaria Atlas Project'
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          User Friendly Bayesian Data Analysis for Psychology
 
 License:          GPL (>= 3)

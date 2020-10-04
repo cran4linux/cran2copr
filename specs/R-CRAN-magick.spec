@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Advanced Graphics and Image-Processing in R
 
 License:          MIT + file LICENSE

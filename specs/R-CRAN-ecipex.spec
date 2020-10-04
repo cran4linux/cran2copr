@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Efficient Calculation of Fine Structure Isotope Patterns viaFourier Transforms of Simplex-Based Elemental Models
 
 License:          GPL (>= 2)

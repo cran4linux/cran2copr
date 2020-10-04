@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Classical Test Theory via Shiny
 
 License:          GPL-3

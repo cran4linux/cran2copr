@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis of Finite Mixtures of Plackett-Luce Models forPartial Rankings/Orderings
 
 License:          GPL (>= 2)

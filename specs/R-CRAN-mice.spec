@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.11.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Imputation by Chained Equations
 
 License:          GPL-2 | GPL-3

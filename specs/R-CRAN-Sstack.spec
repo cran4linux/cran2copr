@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bootstrap Stacking of Random Forest Models for HeterogeneousData
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interface Between GRASS 6+ Geographical Information System and R
 
 License:          GPL (>= 2)

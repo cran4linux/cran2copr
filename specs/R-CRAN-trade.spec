@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Tools for Trade Practitioners
 
 License:          Unlimited

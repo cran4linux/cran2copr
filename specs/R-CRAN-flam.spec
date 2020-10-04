@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fits Piecewise Constant Models with Data-Adaptive Knots
 
 License:          GPL (>= 2)

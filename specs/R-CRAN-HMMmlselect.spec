@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Determine the Number of States in Hidden Markov Models viaMarginal Likelihood
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions for Mapping Key-Value Pairs, Many-to-Many,One-to-Many, and Many-to-One Relations
 
 License:          MIT + file LICENSE

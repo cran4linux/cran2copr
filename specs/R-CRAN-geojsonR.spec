@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A GeoJson Processing Toolkit
 
 License:          MIT + file LICENSE

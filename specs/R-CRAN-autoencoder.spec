@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sparse Autoencoder for Automatic Learning of RepresentativeFeatures from Unlabeled Data
 
 License:          GPL-2

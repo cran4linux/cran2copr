@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Resampling-Based Analysis of Multivariate Data and RepeatedMeasures Designs
 
 License:          GPL-2 | GPL-3

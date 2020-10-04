@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Parallel Analysis and Other Non Graphical Solutions to theCattell Scree Test
 
 License:          GPL (>= 3.5.0)

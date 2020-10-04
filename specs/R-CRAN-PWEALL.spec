@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Design and Monitoring of Survival Trials Accounting for ComplexSituations
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Retrieval Functions for USGS and EPA Hydrologic and WaterQuality Data
 
 License:          CC0

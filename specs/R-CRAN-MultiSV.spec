@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.67
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          MultiSV: an R package for identification of structuralvariations in multiple populations based on whole genomeresequencing
 
 License:          LGPL (>= 3)

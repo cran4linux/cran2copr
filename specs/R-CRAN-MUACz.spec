@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Generate MUAC and BMI z-Scores and Percentiles for Children andAdolescents
 
 License:          GPL-3

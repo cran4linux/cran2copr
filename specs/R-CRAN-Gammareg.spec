@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Classic Gamma Regression: Joint Modeling of Mean and ShapeParameters
 
 License:          GPL (>= 2)

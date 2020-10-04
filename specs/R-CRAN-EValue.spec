@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Sensitivity Analyses for Unmeasured Confounding or SelectionBias in Observational Studies and Meta-Analyses
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          provide an easy to use framework to conduct simulation
 
 License:          GPL (>= 2)

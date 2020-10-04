@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Mini Bubble Plots for Comparison of Discrete Data with 'ggplot2'
 
 License:          LGPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
 
 License:          GPL-3

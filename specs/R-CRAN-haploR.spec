@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Query 'HaploReg', 'RegulomeDB'
 
 License:          GPL-3

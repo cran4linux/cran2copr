@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Damped Anderson Acceleration with Epsilon Monotonicity forAccelerating EM-Like Monotone Algorithms
 
 License:          GPL-2

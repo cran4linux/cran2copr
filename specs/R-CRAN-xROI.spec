@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.17
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Delineate Region of Interests (ROI's) and Extract Time-SeriesData from Digital Repeat Photography Images
 
 License:          AGPL-3

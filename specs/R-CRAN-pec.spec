@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.11.03
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Prediction Error Curves for Risk Prediction Models in SurvivalAnalysis
 
 License:          GPL (>= 2)

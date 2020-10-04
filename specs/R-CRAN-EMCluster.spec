@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.12
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          EM Algorithm for Model-Based Clustering of Finite MixtureGaussian Distribution
 
 License:          Mozilla Public License 2.0

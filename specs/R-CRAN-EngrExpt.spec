@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data sets from "Introductory Statistics for EngineeringExperimentation"
 
 License:          GPL (>= 2)

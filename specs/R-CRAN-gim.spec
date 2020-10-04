@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.33.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generalized Integration Model
 
 License:          MIT + file LICENSE

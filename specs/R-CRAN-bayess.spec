@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Bayesian Essentials with R
 
 License:          GPL-2

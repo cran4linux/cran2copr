@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.12.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Create 'Table 1' to Describe Baseline Characteristics with orwithout Propensity Score Weights
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Local Average Response Functions for Instrumental VariableEstimation of Treatment Effects
 
 License:          GPL-3

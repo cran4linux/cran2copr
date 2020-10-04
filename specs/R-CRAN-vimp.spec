@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Perform Inference on Algorithm-Agnostic Variable Importance
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Cross-Validation for the SVD (Bi-Cross-Validation)
 
 License:          BSD_3_clause + file LICENSE

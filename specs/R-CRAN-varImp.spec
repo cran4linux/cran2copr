@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          RF Variable Importance for Arbitrary Measures
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Decrypt Passwords from Gnome Keyring, Windows Data ProtectionAPI and macOS Keychain
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.92
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Flexible Cluster-Weighted Modeling
 
 License:          GPL-2

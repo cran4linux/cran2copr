@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11.0.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'TensorFlow Probability'
 
 License:          Apache License (>= 2.0)

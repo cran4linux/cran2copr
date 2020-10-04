@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.15
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimation of (Local) False Discovery Rates and Higher Criticism
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          MetaPCA: Meta-analysis in the Dimension Reduction of Genomicdata
 
 License:          GPL-2

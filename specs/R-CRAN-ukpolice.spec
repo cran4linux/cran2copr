@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Download Data on UK Police and Crime
 
 License:          MIT + file LICENSE

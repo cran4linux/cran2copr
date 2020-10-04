@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Finite Difference Method for Multi-Asset Option Valuation
 
 License:          GPL-2 | GPL-3

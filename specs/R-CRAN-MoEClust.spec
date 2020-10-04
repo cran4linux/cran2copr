@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Gaussian Parsimonious Clustering Models with Covariates and aNoise Component
 
 License:          GPL (>= 2)

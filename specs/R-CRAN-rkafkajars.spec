@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          External Jars Required for Package 'rkafka'
 
 License:          Apache License 2.0 | file LICENSE

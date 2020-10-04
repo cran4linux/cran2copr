@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Item Based Collaborative Filtering for Multi-Trait andMulti-Environment Data
 
 License:          LGPL-3

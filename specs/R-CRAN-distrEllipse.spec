@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          S4 Classes for Elliptically Contoured Distributions
 
 License:          LGPL-3

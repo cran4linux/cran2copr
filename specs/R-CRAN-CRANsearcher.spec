@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          RStudio Addin for Searching Packages in CRAN Database Based onKeywords
 
 License:          MIT + file LICENSE

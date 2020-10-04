@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Plots of the Empirical Attainment Function
 
 License:          GPL (>= 2)

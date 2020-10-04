@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculating Effective Sizes Based on Known DemographicParameters of a Population
 
 License:          GPL-2

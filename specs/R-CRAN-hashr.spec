@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Hash R Objects to Integers Fast
 
 License:          GPL-3

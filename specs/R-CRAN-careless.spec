@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Procedures for Computing Indices of Careless Responding
 
 License:          MIT + file LICENSE

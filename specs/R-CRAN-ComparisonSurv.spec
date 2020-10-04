@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.9
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Comparison of Survival Curves Between Two Groups
 
 License:          GPL-2

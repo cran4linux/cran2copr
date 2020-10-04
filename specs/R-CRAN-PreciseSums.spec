@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Accurate Floating Point Sums and Products
 
 License:          GPL (>= 2)

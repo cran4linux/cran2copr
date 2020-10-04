@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Compute the Personalized Activity Index Based on a FlexibleBayesian Negative Binomial Model
 
 License:          GPL (>= 2)

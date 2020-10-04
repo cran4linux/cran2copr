@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Missing not at Random Imputation Models for Multiple Imputationby Chained Equation
 
 License:          GPL-2 | GPL-3

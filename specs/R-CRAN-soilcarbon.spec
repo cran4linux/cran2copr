@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools to Analyze Soil Carbon Database Created by Powell CenterWorking Group
 
 License:          GPL-2

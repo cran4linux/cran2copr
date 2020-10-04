@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Post-Processing of the Markov Chain Simulated by 'ChronoModel','Oxcal' or 'BCal'
 
 License:          GPL-3

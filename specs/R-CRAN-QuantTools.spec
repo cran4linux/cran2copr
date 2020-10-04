@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Enhanced Quantitative Trading Modelling
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Random Fields (and Bridges) Simulations
 
 License:          GPL (>= 3)

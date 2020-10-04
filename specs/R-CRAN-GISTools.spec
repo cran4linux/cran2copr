@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Some further GIS capabilities for R
 
 License:          GPL (>= 2)

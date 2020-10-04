@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Wrap R Tools for Debugging and Parametric Programming
 
 License:          GPL-2 | GPL-3

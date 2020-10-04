@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Local Interpretable (Model-Agnostic) Visual Explanations
 
 License:          MIT + file LICENSE

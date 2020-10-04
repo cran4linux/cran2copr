@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Joint Maximum Likelihood Estimation for High-Dimensional ItemFactor Analysis
 
 License:          GPL-3

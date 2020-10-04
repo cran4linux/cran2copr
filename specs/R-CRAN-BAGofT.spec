@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Binary Regression Adaptive Goodness-of-Fit Test (BAGofT)
 
 License:          GPL-3

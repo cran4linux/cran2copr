@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Dashboard to Visualize Scientific Workflows in 'Cromwell'
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Math, Plotting, Printing,Statistics, Strings, and Tools
 
 License:          GPL (>= 2)

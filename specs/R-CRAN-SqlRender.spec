@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.8
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Rendering Parameterized SQL and Translation to Dialects
 
 License:          Apache License 2.0

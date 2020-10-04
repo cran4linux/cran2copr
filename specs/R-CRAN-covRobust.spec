@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Robust Covariance Estimation via Nearest Neighbor Cleaning
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculation of Minimum Averaged Mean Squared Error (MAMSE)Weights
 
 License:          GPL-2

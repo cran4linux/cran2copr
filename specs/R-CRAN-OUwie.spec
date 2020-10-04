@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Evolutionary Rates in an OU Framework
 
 License:          GPL (>= 2)

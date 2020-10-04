@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.6.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Jump Q-Learning for Individualized Interval-Valued Dose Rule
 
 License:          LGPL-3

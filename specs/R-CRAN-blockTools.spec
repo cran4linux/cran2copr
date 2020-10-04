@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Block, Assign, and Diagnose Potential Interference in RandomizedExperiments
 
 License:          GPL (>= 2) | file LICENSE

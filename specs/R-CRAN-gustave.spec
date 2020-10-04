@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A User-Oriented Statistical Toolkit for Analytical VarianceEstimation
 
 License:          GPL-3

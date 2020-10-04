@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Phasing, Pedigree Reconstruction, Sire Imputation andRecombination Events Identification of Half-sib Families UsingSNP Data
 
 License:          GPL-3

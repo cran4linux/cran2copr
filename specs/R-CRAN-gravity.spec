@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.9
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation Methods for Gravity Models
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Data Analysis for Chemometrics
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast, Low Memory-Footprint Digests of R Objects
 
 License:          Artistic-2.0

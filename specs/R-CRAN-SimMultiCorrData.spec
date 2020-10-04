@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Simulation of Correlated Data with Multiple Variable Types
 
 License:          GPL-2

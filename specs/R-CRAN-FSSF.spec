@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generate Fully-Sequential Space-Filling Designs Inside a UnitHypercube
 
 License:          GPL-2

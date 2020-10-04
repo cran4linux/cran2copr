@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Simple Graphical Representation of the Relative Occurrence andCo-Occurrence of Events
 
 License:          GPL (>= 2.0)

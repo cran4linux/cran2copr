@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.5.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Multinomial Logit Models, with or without Random Effects orOverdispersion
 
 License:          GPL-2

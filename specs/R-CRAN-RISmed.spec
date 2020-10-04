@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Download Content from NCBI Databases
 
 License:          GPL (>= 2)

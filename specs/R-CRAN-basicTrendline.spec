@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Add Trendline and Confidence Interval of Basic Regression Modelsto Plot
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.0.142
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Times and Dates from S-PLUS
 
 License:          BSD_3_clause + file LICENSE

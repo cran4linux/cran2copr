@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.63
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Argos locations filter
 
 License:          GPL (>= 2)

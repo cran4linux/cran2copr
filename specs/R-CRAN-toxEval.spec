@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Exploring Biological Relevance of Environmental ChemistryObservations
 
 License:          CC0

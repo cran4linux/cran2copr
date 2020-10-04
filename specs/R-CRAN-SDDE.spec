@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Shortcuts, Detours and Dead Ends (SDDE) Path Types in GenomeSimilarity Networks
 
 License:          GPL-3

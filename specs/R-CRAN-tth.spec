@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.12.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          TeX-to-HTML/MathML Translators TtH/TtM
 
 License:          GPL-2

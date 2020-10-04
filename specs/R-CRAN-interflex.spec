@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multiplicative Interaction Models Diagnostics and Visualization
 
 License:          MIT + file LICENSE

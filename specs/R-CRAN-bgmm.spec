@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Gaussian Mixture Modeling Algorithms and the Belief-BasedMixture Modeling
 
 License:          GPL-3

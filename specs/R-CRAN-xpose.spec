@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.11
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostics for Pharmacometric Models
 
 License:          LGPL-3

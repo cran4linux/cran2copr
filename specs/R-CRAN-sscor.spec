@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Robust Correlation Estimation and Testing Based on Spatial Signs
 
 License:          GPL-2 | GPL-3

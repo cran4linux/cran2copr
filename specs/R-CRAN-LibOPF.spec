@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Design of Optimum-Path Forest Classifiers
 
 License:          BSD_2_clause + file LICENSE

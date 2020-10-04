@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The MCFS-ID Algorithm for Feature Selection and InterdependencyDiscovery
 
 License:          GPL-3

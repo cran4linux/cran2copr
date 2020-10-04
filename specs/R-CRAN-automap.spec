@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.14
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Automatic interpolation package
 
 License:          GPL

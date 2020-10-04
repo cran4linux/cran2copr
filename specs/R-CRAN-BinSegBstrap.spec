@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Piecewise Smooth Regression by Bootstrapped Binary Segmentation
 
 License:          GPL-3

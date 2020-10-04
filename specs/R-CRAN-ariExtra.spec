@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.11
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating Automated Courses
 
 License:          GPL-3

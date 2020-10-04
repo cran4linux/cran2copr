@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Package for Learning Statistics
 
 License:          GPL-2

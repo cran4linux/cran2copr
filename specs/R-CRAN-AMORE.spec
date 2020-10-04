@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Artificial Neural Network Training and Simulating
 
 License:          GPL (>= 2)

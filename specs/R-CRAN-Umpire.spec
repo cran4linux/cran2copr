@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.9
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Simulating Realistic Gene Expression and Clinical Data
 
 License:          Apache License (== 2.0)

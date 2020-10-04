@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Plotting Methods for 'simmer'
 
 License:          MIT + file LICENSE

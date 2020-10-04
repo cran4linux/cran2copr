@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Density Based Clustering of Applications with Noise (DBSCAN) andRelated Algorithms
 
 License:          GPL (>= 2)

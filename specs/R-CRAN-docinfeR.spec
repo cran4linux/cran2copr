@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Automatic Reporter for Inference Analysis
 
 License:          GPL-2

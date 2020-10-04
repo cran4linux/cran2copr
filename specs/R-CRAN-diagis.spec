@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Diagnostic Plot and Multivariate Summary Statistics of WeightedSamples from Importance Sampling
 
 License:          GPL (>= 2)

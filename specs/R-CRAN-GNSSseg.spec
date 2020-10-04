@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Homogenization of GNSS Series
 
 License:          GPL-3

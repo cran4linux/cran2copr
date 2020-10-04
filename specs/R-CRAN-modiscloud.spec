@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R tools for processing Level 2 Cloud Mask products from MODIS
 
 License:          GPL (>= 2)

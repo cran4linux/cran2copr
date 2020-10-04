@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          'tint' is not 'Tufte'
 
 License:          GPL-3

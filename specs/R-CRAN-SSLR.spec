@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Supervised Classification and Regression Methods
 
 License:          GPL-3

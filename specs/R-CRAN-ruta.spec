@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Implementation of Unsupervised Neural Architectures
 
 License:          GPL (>= 3) | file LICENSE

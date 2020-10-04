@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Synthetic Control Methods with Micro- And Meso-Level Data
 
 License:          GPL-3

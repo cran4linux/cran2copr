@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Ridge-Type Penalized Estimation of a Potpourri of Models
 
 License:          GPL (>= 2)

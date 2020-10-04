@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculating and Visualizing ROC and PR Curves Across Multi-ClassClassifications
 
 License:          GPL-3

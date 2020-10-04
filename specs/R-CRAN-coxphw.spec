@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Weighted Estimation in Cox Regression
 
 License:          GPL-3

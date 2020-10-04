@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.6.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Flexible Modelling Environment for Inverse Modelling,Sensitivity, Identifiability and Monte Carlo Analysis
 
 License:          GPL (>= 2)

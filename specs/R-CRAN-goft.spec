@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.6
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Tests of Fit for some Probability Distributions
 
 License:          GPL (>= 3)

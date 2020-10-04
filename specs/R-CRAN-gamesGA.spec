@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Genetic Algorithm for Sequential Symmetric Games
 
 License:          MIT + file LICENSE

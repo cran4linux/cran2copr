@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast and Cached Import of Data from 'Quandl' Using the 'jsonAPI'
 
 License:          GPL-2

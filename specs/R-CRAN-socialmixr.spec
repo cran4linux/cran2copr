@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Social Mixing Matrices for Infectious Disease Modelling
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.17.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analogue and Weighted Averaging Methods for Palaeoecology
 
 License:          GPL-2

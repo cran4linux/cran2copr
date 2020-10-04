@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Testing 'DBI' 'Backends'
 
 License:          LGPL (>= 2.1)

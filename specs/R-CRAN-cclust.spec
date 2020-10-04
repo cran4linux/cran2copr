@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.21
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Convex Clustering Methods and Clustering Indexes
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.37.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Best Subset GLM and Regression Utilities
 
 License:          GPL (>= 2)

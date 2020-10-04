@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Phase I/II Adaptive Dose-Finding Design for MTA
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Import and Export 'SPSS', 'Stata' and 'SAS' Files
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Generate and Modify Interoperable Geometric Shapes
 
 License:          GPL-3

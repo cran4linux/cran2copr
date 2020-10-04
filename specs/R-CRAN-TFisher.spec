@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Optimal Thresholding Fisher's P-Value Combination Method
 
 License:          GPL-2

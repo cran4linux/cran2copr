@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generates Various Protein Descriptors for Machine LearningAlgorithms
 
 License:          BSD 3-clause License + file LICENSE

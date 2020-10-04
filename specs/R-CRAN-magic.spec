@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Create and Investigate Magic Squares
 
 License:          GPL-2

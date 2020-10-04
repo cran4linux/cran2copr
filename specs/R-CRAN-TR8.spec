@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.21
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Tool for Downloading Functional Traits Data for Plant Species
 
 License:          GPL (>= 2)

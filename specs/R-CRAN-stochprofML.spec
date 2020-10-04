@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Stochastic Profiling using Maximum Likelihood Estimation
 
 License:          GPL (>= 2)

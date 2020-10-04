@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multi-Step Adaptive Estimation Methods for Sparse Regressions
 
 License:          GPL-3 | file LICENSE

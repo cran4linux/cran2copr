@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions to Work with NCBI Accessions and Taxonomy
 
 License:          GPL (>= 2) | file LICENSE

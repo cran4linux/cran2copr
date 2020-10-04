@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Meta-Analysis of Studies with Non-Statistically SignificantUnreported Effects
 
 License:          GPL-3

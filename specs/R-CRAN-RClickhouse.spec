@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A 'DBI' Interface to the 'Yandex Clickhouse' Database ProvidingBasic 'dplyr' Support
 
 License:          GPL-2

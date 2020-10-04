@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generic N-Dimensional Hyperplane Fitting with HeteroscedasticCovariant Errors and Intrinsic Scatter
 
 License:          GPL-3

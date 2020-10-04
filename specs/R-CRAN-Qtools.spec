@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Utilities for Quantiles
 
 License:          GPL (>= 2)

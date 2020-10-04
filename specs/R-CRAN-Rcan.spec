@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.82
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Cancer Registry Data Analysis and Visualisation
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.17.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Machine Learning in R
 
 License:          BSD_2_clause + file LICENSE

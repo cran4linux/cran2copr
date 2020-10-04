@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.54
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Hidden correlation check
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.61
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Twitter Bootstrap Components for Shiny
 
 License:          GPL-3

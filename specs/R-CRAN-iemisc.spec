@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.9
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Irucka Embry's Miscellaneous Functions
 
 License:          GPL (>= 3) | file LICENSE

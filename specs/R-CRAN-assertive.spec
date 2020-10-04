@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Readable Check Functions to Ensure Code Integrity
 
 License:          GPL (>= 3)

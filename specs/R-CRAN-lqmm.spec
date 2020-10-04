@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Linear Quantile Mixed Models
 
 License:          GPL (>= 2)

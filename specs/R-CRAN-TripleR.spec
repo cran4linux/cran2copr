@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Social Relation Model (SRM) Analyses for Single or MultipleGroups
 
 License:          GPL (>= 2)

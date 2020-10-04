@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Amazon 'Kinesis' Consumer Application for Stream Processing
 
 License:          AGPL-3

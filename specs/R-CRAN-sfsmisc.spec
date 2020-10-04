@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Utilities from 'Seminar fuer Statistik' ETH Zurich
 
 License:          GPL (>= 2)

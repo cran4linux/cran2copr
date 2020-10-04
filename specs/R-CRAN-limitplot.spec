@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Jitter/CI Plot with Ordered Points Below the Limit of Detection
 
 License:          GPL-2

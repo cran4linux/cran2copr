@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Scoring Algorithm for the Implicit Association Test (IAT)
 
 License:          MIT + file LICENSE

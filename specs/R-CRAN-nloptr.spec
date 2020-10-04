@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          R Interface to NLopt
 
 License:          LGPL-3

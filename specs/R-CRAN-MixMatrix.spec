@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Classification with Matrix Variate Normal and t Distributions
 
 License:          GPL-3

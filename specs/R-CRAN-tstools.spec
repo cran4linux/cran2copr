@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Time Series Toolbox for Official Statistics
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.20.137
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Control the Number of Threads on 'BLAS'
 
 License:          AGPL-3

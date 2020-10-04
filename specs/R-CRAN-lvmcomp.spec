@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Stochastic EM Algorithms for Latent Variable Models with aHigh-Dimensional Latent Space
 
 License:          GPL-3

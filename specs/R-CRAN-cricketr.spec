@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.23
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analyze Cricketers and Cricket Teams Based on ESPN CricinfoStatsguru
 
 License:          MIT + file LICENSE

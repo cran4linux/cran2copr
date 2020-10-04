@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Modular, Integrated Approach to Maximum Entropy DistributionModeling
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Clustering of Omics Data of Multiple Types with a MultilayerNetwork Representation
 
 License:          GPL-3

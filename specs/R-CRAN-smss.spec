@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Datasets for Agresti and Finlay's "Statistical Methods for theSocial Sciences"
 
 License:          GPL-3

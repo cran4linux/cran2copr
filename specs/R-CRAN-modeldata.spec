@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Data Sets Used Useful for Modeling Packages
 
 License:          MIT + file LICENSE

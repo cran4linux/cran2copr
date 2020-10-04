@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.3.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal, Fast, and Reproducible Univariate Clustering
 
 License:          LGPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Unified Algorithm for Non-convex Penalized Estimation forGeneralized Linear Models
 
 License:          GPL (>= 3)

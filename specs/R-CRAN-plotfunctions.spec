@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Various Functions to Facilitate Visualization of Data andAnalysis
 
 License:          GPL (>= 2)

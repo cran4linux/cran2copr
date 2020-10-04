@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Breast Cancer Risk Assessment
 
 License:          GPL (>= 2)

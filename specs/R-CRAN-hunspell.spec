@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          High-Performance Stemmer, Tokenizer, and Spell Checker
 
 License:          GPL-2 | LGPL-2.1 | MPL-1.1

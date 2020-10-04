@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sobol Sequences with Better Two-Dimensional Projections
 
 License:          BSD_3_clause + file LICENSE

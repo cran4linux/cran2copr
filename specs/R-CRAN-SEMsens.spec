@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for Sensitivity Analysis in Structural Equation Modeling
 
 License:          GPL-3

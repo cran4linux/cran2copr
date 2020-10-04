@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools for Simulating Direct Behavioral Observation RecordingProcedures Based on Alternating Renewal Processes
 
 License:          GPL-3

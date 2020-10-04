@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functional Data Analysis for Density Functions by Transformationto a Hilbert Space
 
 License:          BSD_3_clause + file LICENSE

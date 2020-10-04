@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'Opal' Data Repository Client and 'DataSHIELD' Utils
 
 License:          GPL-3

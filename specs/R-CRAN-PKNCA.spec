@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Perform Pharmacokinetic Non-Compartmental Analysis
 
 License:          AGPL-3

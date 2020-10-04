@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Reporting Tools for Sensitivity Analysis of Evidence Factors inObservational Studies
 
 License:          MIT + file LICENSE

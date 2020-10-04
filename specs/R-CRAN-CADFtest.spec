@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Package to Perform Covariate Augmented Dickey-Fuller Unit RootTests
 
 License:          GPL (>= 2)

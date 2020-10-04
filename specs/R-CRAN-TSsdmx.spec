@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2016.8.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'TSdbi' Extension to Connect with 'SDMX'
 
 License:          GPL-2

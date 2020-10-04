@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Rank Normal Transformation Omnibus Test
 
 License:          GPL-3

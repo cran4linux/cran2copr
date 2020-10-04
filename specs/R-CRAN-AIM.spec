@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.01
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          AIM: adaptive index model
 
 License:          LGPL-2

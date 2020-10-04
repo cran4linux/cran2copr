@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Parallel Clustering Non-Uniform Memory Access ('NUMA')Optimized Package
 
 License:          Apache License 2.0

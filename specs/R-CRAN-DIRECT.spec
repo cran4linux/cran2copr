@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Clustering of Multivariate Data Under theDirichlet-Process Prior
 
 License:          GPL (>= 2)

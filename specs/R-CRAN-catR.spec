@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generation of IRT Response Patterns under Computerized AdaptiveTesting
 
 License:          GPL (>= 2)

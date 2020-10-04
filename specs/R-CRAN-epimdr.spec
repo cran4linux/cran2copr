@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions and Data for "Epidemics: Models and Data in R"
 
 License:          GPL-3

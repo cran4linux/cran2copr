@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Concurrent Generation of Binary, Ordinal and Continuous Data
 
 License:          GPL-2 | GPL-3

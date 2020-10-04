@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.57
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Regression Discontinuity Estimation
 
 License:          Apache License (== 2.0)

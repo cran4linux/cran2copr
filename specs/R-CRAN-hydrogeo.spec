@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Groundwater Data Presentation and Interpretation
 
 License:          BSD_2_clause + file LICENCE

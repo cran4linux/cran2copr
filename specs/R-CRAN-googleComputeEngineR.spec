@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          R Interface with Google Compute Engine
 
 License:          MIT + file LICENSE

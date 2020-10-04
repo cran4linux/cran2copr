@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Measuring Agreement Using Sklar's Omega Coefficient
 
 License:          GPL (>= 2)

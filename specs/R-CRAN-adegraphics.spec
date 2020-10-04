@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.15
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An S4 Lattice-Based Package for the Representation ofMultivariate Data
 
 License:          GPL (>= 2)

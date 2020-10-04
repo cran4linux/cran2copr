@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Structural Equation Modeling Tables
 
 License:          GPL-2

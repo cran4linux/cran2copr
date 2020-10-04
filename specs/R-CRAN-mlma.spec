@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.1.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Mediation Analysis
 
 License:          GPL (>= 2)

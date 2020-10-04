@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Distribution Free Multivariate Control Chart Based on EnergyTest
 
 License:          GPL (>= 3)

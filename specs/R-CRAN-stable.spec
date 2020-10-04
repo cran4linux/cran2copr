@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Probability Functions and Generalized Regression Models forStable Distributions
 
 License:          GPL (>= 2)

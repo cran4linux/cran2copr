@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.49
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Raster Time Series Analysis
 
 License:          GPL (>= 3)

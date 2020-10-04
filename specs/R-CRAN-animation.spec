@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Gallery of Animations in Statistics and Utilities to CreateAnimations
 
 License:          GPL

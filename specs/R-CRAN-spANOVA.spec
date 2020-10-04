@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Spatial Analysis of Field Trials Experiments using Geostatisticsand Spatial Autoregressive Model
 
 License:          GPL-3

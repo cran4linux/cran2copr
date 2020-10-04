@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Effect Size Targeted Bayesian Two-Sample t-Tests via MarkovChain Monte Carlo in Gaussian Mixture Models
 
 License:          GPL-3

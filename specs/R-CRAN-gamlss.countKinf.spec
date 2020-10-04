@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generating and Fitting K-Inflated 'discrete gamlss.family'Distributions
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.57.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Interface to the CSDP Semidefinite Programming Library
 
 License:          CPL-1.0

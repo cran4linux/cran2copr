@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculates "vectorial Kappa", an index of congruence betweenpatchy mosaics.
 
 License:          GPL (>= 2)

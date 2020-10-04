@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Processing Acoustic Startle Experimental Data
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fisheries Stock Assessment Simulation Testing with StockSynthesis
 
 License:          MIT + file LICENSE

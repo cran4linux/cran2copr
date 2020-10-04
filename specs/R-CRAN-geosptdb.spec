@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Spatio-Temporal; Inverse Distance Weighting and Radial BasisFunctions with Distance-Based Regression
 
 License:          GPL (>= 2)

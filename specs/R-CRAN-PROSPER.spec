@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Simulation of Weed Population Dynamics
 
 License:          GPL-3

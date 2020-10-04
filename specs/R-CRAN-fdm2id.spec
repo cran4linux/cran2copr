@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data Mining and R Programming for Beginners
 
 License:          GPL-3

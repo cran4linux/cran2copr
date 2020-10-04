@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.9
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Regression Data Analysis System
 
 License:          GPL (>= 2)

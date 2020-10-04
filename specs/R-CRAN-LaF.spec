@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast Access to Large ASCII Files
 
 License:          GPL-3

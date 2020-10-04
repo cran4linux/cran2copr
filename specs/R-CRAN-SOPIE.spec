@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Non-Parametric Estimation of the Off-Pulse Interval of a Pulsar
 
 License:          GPL-3

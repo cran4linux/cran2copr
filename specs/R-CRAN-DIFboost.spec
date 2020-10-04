@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Detection of Differential Item Functioning (DIF) in Rasch Modelsby Boosting Techniques
 
 License:          GPL-2

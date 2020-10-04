@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Southwest Fisheries Science Center
 
 License:          GPL (>= 2)

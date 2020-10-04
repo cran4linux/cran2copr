@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Plot Maps from Switzerland by Swiss Federal Statistical Office
 
 License:          GPL (>= 2)

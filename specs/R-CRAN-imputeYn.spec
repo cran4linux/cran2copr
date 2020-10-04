@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Imputing the Last Largest Censored Observation(s) Under WeightedLeast Squares
 
 License:          GPL-2

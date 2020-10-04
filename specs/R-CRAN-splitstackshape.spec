@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Stack and Reshape Datasets After Splitting Concatenated Values
 
 License:          GPL-3

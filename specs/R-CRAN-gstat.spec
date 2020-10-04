@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Spatial and Spatio-Temporal Geostatistical Modelling, Predictionand Simulation
 
 License:          GPL (>= 2.0)

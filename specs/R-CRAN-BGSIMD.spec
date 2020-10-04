@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Block Gibbs Sampler with Incomplete Multinomial Distribution
 
 License:          GPL (>= 2)

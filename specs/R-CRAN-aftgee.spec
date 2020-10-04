@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Accelerated Failure Time Model with Generalized EstimatingEquations
 
 License:          GPL (>= 3)

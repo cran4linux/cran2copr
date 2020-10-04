@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          A 'shiny' Module for Creating Charts of Various Types
 
 License:          MIT + file LICENSE

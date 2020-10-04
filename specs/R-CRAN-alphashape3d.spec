@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Implementation of the 3D Alpha-Shape for the Reconstruction of3D Sets from a Point Cloud
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.93
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Datasets for the Book Graphical Data Analysis with R
 
 License:          GPL (>= 2)

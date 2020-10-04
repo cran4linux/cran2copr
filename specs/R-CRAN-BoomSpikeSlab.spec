@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          MCMC for Spike and Slab Regression
 
 License:          LGPL-2.1 | file LICENSE

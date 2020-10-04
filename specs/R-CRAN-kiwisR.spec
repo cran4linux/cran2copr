@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper for Querying KISTERS 'WISKI' Databases via the 'KiWIS'API
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Significance analysis of sequencing data based on a Poisson loglinear model
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Airborne LiDAR Filtering Method Based on Cloth Simulation
 
 License:          Apache License 2.0

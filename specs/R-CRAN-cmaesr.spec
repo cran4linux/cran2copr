@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Covariance Matrix Adaptation Evolution Strategy
 
 License:          BSD_2_clause + file LICENSE

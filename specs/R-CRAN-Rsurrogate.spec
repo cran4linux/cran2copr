@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Robust Estimation of the Proportion of Treatment EffectExplained by Surrogate Marker Information
 
 License:          GPL

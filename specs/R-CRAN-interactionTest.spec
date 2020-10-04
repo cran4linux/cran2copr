@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculates Critical Test Statistics to Control False DiscoveryRates in Marginal Effects Plots
 
 License:          GPL

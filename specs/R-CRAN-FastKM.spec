@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Fast Multiple-Kernel Method Based on a Low-Rank Approximation
 
 License:          GPL-2

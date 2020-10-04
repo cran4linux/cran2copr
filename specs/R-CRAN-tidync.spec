@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Tidy Approach to 'NetCDF' Data Exploration and Extraction
 
 License:          GPL-3

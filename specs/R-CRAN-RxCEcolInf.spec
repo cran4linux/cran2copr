@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'R x C Ecological Inference With Optional Incorporation ofSurvey Information'
 
 License:          GPL

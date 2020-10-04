@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate and Manage Empirical Distributions
 
 License:          GPL-2

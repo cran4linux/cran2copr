@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Probabilistic Forecasting using Ensembles and Bayesian ModelAveraging
 
 License:          GPL (>= 2)

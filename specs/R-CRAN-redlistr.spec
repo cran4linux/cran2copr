@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools for the IUCN Red List of Ecosystems and Species
 
 License:          GPL (>= 3) | file LICENSE

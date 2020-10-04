@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Confidence intervals for the Kaplan-Meier estimator
 
 License:          GPL (>= 2)

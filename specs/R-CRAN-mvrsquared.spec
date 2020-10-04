@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Compute the Coefficient of Determination for Vector or MatrixOutcomes
 
 License:          MIT + file LICENSE

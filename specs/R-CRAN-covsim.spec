@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          VITA and IG Simulation for Given Covariance and Marginals
 
 License:          GPL (>= 2)

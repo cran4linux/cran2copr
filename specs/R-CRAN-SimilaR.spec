@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          R Source Code Similarity Evaluation
 
 License:          GPL (>= 3)

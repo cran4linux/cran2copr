@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Detecting Isotope, Adduct and Homologue Relations in LC-MS Data
 
 License:          GPL-3

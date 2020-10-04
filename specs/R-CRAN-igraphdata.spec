@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Collection of Network Data Sets for the 'igraph' Package
 
 License:          CC BY-SA 4.0 + file LICENSE

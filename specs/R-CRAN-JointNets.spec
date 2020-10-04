@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          End-to-End Sparse Gaussian Graphical Model Simulation,Estimation, Visualization, Evaluation and Application
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Client for the 'DataCite' API
 
 License:          MIT + file LICENSE

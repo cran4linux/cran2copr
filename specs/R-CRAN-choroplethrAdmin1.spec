@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Contains an Administrative-Level-1 Map of the World
 
 License:          BSD_3_clause + file LICENSE

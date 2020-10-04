@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Weighted Linear Fixed Effects Regression Models for CausalInference
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Explainable Outlier Detection Through Decision Tree Conditioning
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.18
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Extraction of Business Financial Information from 'XBRL'Documents
 
 License:          GPL (>= 2)

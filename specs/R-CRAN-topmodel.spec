@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Implementation of the Hydrological Model TOPMODEL in R
 
 License:          GPL (>= 2)

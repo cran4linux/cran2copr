@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Wavelet-Based Enhanced FDR for Detecting Signals from Completeor Incomplete Spatially Aggregated Data
 
 License:          GPL (>= 2)

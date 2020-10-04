@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An R-Shiny Application for Calculating Cohen's and Fleiss' Kappa
 
 License:          GPL (>= 2)

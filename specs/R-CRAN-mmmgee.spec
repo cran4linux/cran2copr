@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.20
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simultaneous Inference for Multiple Linear Contrasts in GEEModels
 
 License:          GPL-3

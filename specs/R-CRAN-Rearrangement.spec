@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Monotonize Point and Interval Functional Estimates byRearrangement
 
 License:          GPL (>= 2)

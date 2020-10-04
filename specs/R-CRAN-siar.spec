@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Stable Isotope Analysis in R
 
 License:          GPL (>= 2)

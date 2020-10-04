@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.03.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Selected ISO Codes
 
 License:          GPL-2

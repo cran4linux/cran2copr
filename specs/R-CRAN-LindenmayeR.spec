@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions to Explore L-Systems (Lindenmayer Systems)
 
 License:          GPL (>= 3)

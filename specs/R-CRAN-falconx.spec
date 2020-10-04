@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Finding Allele-Specific Copy Number in Whole-Exome SequencingData
 
 License:          GPL (>= 2)

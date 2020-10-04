@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          11.2.2.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for 'MicroStrategy' REST API
 
 License:          Apache License 2.0 | file LICENSE

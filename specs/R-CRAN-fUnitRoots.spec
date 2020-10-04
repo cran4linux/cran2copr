@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.79
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Rmetrics - Modelling Trends and Unit Roots
 
 License:          GPL (>= 2)

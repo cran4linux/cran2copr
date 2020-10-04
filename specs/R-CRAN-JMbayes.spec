@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.85
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Joint Modeling of Longitudinal and Time-to-Event Data under aBayesian Approach
 
 License:          GPL (>= 2)

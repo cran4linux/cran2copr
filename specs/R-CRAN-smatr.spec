@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          (Standardised) Major Axis Estimation and Testing Routines
 
 License:          GPL-2

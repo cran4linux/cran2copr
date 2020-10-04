@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generalized Two-Stage Designs for Phase II Single-Arm Studies
 
 License:          GPL (>= 2)

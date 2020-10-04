@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Effect Displays for Linear, Generalized Linear, and Other Models
 
 License:          GPL (>= 2)

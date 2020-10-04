@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Assessing Skill of Climate Forecasts on Seasonal-to-DecadalTimescales
 
 License:          Apache License 2.0

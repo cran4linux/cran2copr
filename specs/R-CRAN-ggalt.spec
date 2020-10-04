@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Extra Coordinate Systems, 'Geoms', Statistical Transformations,Scales and Fonts for 'ggplot2'
 
 License:          AGPL + file LICENSE

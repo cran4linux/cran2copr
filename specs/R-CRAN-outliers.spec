@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tests for outliers
 
 License:          GPL (>= 2)

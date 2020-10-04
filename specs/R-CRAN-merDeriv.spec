@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Case-Wise and Cluster-Wise Derivatives for Mixed Effects Models
 
 License:          GPL (>= 2)

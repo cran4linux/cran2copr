@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.28
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          SYMPHONY in R
 
 License:          EPL

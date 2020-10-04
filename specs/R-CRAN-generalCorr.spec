@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Generalized Correlations and Plausible Causal Paths
 
 License:          GPL (>= 2)

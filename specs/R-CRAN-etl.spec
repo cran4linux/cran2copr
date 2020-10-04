@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Extract-Transform-Load Framework for Medium Data
 
 License:          CC0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.8.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Analysis of Contextual Multi-Armed BanditPolicies
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Selection of Samples and Parameter Estimation in FinitePopulation
 
 License:          GPL (>= 2)

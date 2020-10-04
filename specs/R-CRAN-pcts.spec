@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.14.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Periodically Correlated and Periodically Integrated Time Series
 
 License:          GPL (>= 2)

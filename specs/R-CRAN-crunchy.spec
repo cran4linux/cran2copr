@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny Apps on Crunch
 
 License:          LGPL (>= 3)

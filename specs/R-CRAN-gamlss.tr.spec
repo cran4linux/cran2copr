@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.1.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Generating and Fitting Truncated `gamlss.family' Distributions
 
 License:          GPL-2 | GPL-3

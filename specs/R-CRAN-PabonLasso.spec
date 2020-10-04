@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Pabon Lasso Graphs and Comparing Situations of a Unit in TwoDifferent Times
 
 License:          GPL (>= 2)

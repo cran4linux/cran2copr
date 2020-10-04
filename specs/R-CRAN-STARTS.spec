@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.35
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Functions for the STARTS Model
 
 License:          GPL (>= 2)

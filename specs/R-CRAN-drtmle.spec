@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Doubly-Robust Nonparametric Estimation and Inference
 
 License:          MIT + file LICENSE

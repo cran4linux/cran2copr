@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Linear Student-t Mixed-Effects Models with Censored Data
 
 License:          GPL (>= 3.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Convenience Functions for Botanists to Create Specimens Indices
 
 License:          MIT + file LICENSE

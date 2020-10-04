@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Weighting and Estimation for Panel Data with Non-Response
 
 License:          GPL-2

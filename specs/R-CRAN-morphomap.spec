@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Morphometric Maps, Bone Landmarking and Cross Sectional Geometry
 
 License:          GPL-2

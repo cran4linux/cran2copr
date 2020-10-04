@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.25
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Paleontological and Phylogenetic Analyses of Evolution
 
 License:          CC0

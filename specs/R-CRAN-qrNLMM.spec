@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Quantile Regression for Nonlinear Mixed-Effects Models
 
 License:          GPL (>= 2)

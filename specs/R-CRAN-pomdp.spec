@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Solver for Partially Observable Markov Decision Processes(POMDP)
 
 License:          GPL (>= 3)

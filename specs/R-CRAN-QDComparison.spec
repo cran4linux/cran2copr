@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modern Nonparametric Tools for Two-Sample Quantile andDistribution Comparisons
 
 License:          GPL-2

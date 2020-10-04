@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimates, Plots and Evaluates Leaf Angle DistributionFunctions, Calculates Extinction Coefficients
 
 License:          GPL

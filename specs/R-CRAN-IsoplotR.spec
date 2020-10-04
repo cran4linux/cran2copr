@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Statistical Toolbox for Radiometric Geochronology
 
 License:          GPL-3

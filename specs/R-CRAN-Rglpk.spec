@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R/GNU Linear Programming Kit Interface
 
 License:          GPL-2 | GPL-3

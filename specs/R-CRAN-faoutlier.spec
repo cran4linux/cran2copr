@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Influential Case Detection Methods for Factor Analysis andStructural Equation Models
 
 License:          GPL (>= 2)

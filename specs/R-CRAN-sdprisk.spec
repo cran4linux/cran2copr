@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Measures of Risk for the Compound Poisson Risk Process withDiffusion
 
 License:          AGPL-3

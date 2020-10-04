@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Simultaneous Generation of Multivariate Binary and NormalVariates
 
 License:          GPL-2

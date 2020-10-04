@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An API Wrapper for the Bureau of Labor Statistics (BLS)
 
 License:          MIT + file LICENSE

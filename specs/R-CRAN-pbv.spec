@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.22
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Probabilities for Bivariate Normal Distribution
 
 License:          GPL (>= 2)

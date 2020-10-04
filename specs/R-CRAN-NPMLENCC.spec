@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Non-Parametric Maximum Likelihood Estimate for Cohort Samplings
 
 License:          GPL (>= 2)

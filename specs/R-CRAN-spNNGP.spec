@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Spatial Regression Models for Large Datasets using NearestNeighbor Gaussian Processes
 
 License:          GPL (>= 2)

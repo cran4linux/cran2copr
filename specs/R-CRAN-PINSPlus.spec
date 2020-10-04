@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering Algorithm for Data Integration and Disease Subtyping
 
 License:          LGPL

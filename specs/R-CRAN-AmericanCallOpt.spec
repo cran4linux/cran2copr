@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.95
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          This package includes pricing function for selected Americancall options with underlying assets that generate payouts.
 
 License:          GPL-3

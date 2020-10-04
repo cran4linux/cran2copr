@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Utilities for Scheduling Functions to Execute Later with EventLoops
 
 License:          GPL (>= 2)

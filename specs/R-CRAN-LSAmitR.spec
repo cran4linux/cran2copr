@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Daten, Beispiele und Funktionen zu 'Large-Scale Assessment mitR'
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A R Convenience Layer for CouchDB 2.0
 
 License:          MIT + file LICENSE

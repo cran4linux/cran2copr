@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Entropy Based Method for the Detection of Significant Variationin Gene Expression Data
 
 License:          GPL-3

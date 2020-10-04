@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Vaccine Induced Cellular Immunogenicity with Bivariate Modeling
 
 License:          GPL-3

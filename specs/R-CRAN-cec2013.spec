@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Benchmark functions for the Special Session and Competition onReal-Parameter Single Objective Optimization at CEC-2013
 
 License:          GPL (>= 3)

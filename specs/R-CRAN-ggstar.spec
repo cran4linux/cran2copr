@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.9
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Star Layer for 'ggplot2'
 
 License:          Artistic-2.0

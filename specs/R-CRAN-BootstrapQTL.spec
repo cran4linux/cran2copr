@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bootstrap cis-QTL Method that Corrects for the Winner's Curse
 
 License:          GPL-2

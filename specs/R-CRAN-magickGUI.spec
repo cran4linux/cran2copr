@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          GUI Tools for Interactive Image Processing with 'magick'
 
 License:          GPL-3

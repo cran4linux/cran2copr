@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Quantifying Systematic Heterogeneity in Meta-Analysis
 
 License:          MIT + file LICENSE

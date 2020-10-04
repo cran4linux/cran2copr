@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Integrative Pathway Enrichment Analysis of Multivariate OmicsData
 
 License:          GPL-3

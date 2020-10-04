@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Likelihood-ratio Tests for Two-Sample Comparisons
 
 License:          GPL (>= 2)

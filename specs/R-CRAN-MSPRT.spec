@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Modified Sequential Probability Ratio Test (MSPRT)
 
 License:          GPL (>= 2)

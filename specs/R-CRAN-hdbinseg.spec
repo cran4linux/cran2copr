@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Change-Point Analysis of High-Dimensional Time Series via BinarySegmentation
 
 License:          GPL (>= 3)

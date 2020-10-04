@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          API Client and Dataset Management for the Demographic and HealthSurvey (DHS) Data
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Matching Methods for Causal Inference with Time-SeriesCross-Sectional Data
 
 License:          GPL (>= 3)

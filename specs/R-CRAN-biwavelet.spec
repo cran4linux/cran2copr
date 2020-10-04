@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.20.19
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Conduct Univariate and Bivariate Wavelet Analyses
 
 License:          GPL (>= 2)

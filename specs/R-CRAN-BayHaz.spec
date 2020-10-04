@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Functions for Bayesian Hazard Rate Estimation
 
 License:          GPL (>= 2)

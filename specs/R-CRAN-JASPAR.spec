@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R modules for JASPAR databases: a collection of transcriptionfactor DNA-binding preferences, modeled as matrices.
 
 License:          GPL (>= 2)

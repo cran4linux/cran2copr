@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Environments Behaving (Almost) as Lists
 
 License:          LGPL (>= 2.1)

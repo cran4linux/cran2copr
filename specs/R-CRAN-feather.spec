@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Bindings to the Feather 'API'
 
 License:          Apache License 2.0

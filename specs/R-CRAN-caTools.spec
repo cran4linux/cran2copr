@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.18.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools: Moving Window Statistics, GIF, Base64, ROC AUC, etc
 
 License:          GPL-3

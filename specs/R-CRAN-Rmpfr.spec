@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R MPFR - Multiple Precision Floating-Point Reliable
 
 License:          GPL (>= 2)

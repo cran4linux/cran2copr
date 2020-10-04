@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          (Precipitation) Frequency Analysis and Variability withL-Moments from 'lmom'
 
 License:          GPL (>= 3)

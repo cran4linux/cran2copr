@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Linking Geographic Information Systems, Remote Sensing and OtherCommand Line Tools
 
 License:          GPL (>= 3) | file LICENSE

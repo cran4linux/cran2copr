@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Future API for Parallel and Distributed Processing using'batchtools'
 
 License:          LGPL (>= 2.1)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Keyword Assisted Topic Model
 
 License:          GPL-3

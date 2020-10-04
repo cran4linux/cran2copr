@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2013.2.21
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Conjugate Gradient Minimization of Nonlinear Functions
 
 License:          GPL (>= 2)

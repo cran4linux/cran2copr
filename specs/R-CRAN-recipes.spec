@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.13
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Preprocessing Tools to Create Design Matrices
 
 License:          GPL-2

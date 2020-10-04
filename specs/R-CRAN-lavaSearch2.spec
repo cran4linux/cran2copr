@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Model Specification in the Latent Variable Framework
 
 License:          GPL-3

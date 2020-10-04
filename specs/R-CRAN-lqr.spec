@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Robust Linear Quantile Regression
 
 License:          GPL (>= 2)

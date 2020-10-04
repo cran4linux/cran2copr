@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Creation of Arrays by Mixed Integer Programming
 
 License:          GPL (>= 2)

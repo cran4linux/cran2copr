@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Causal Inference Test
 
 License:          Artistic-2.0

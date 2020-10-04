@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Gene Annotation of Rice (Oryza Sativa L.spp.japonica)
 
 License:          Artistic-2.0

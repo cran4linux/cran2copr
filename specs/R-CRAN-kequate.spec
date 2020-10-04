@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The Kernel Method of Test Equating
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nelson-Aalen Estimator of the Cumulative Hazard in MultistateModels
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Convert Between Spatial Objects and Well-Known Binary Geometry
 
 License:          BSD_3_clause + file LICENSE

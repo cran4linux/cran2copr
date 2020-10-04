@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2016.8.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'TSdbi' Extensions to Wrap Miscellaneous Data Sources
 
 License:          GPL-2

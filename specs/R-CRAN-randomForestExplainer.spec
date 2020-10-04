@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Explaining and Visualizing Random Forests in Terms of VariableImportance
 
 License:          GPL

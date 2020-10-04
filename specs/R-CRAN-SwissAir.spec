@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Air Quality Data of Switzerland for One Year in 30 MinResolution
 
 License:          GPL (>= 3)

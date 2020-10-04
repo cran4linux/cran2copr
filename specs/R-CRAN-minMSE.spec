@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Implementation of the minMSE Treatment Assignment Method for Oneor Multiple Treatment Groups
 
 License:          GNU General Public License

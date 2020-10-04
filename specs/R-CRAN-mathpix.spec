@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Support for the 'Mathpix' API (Image to 'LaTeX')
 
 License:          GPL (>= 3)

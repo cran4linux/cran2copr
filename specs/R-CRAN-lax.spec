@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Loglikelihood Adjustment for Extreme Value Models
 
 License:          GPL (>= 2)

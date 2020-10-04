@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2016.3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions for Nonlinear Least Squares Solutions
 
 License:          GPL-2

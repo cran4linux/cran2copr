@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multivariate Normal Functions for Sparse Covariance andPrecision Matrices
 
 License:          MPL (>= 2.0)

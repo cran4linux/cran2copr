@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Post Hoc Analysis for Pearson's Chi-Squared Test for CountData
 
 License:          GPL-3

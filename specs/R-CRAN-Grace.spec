@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Graph-Constrained Estimation and Hypothesis Tests
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Convenience Functions and Tests for Working With the NetPromoter Score (NPS)
 
 License:          GPL (>= 2)

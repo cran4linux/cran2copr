@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.7.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analysis of Data with Mixed Measurement Error andMisclassification in Covariates
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          World Register of Marine Species (WoRMS) Client
 
 License:          MIT + file LICENSE

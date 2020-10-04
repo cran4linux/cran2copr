@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Concordance Correlation Coefficient for Repeated (andNon-Repeated) Measures
 
 License:          GPL (>= 2)

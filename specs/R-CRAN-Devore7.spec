@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data sets from Devore's "Prob and Stat for Eng (7th ed)"
 
 License:          GPL (>= 2)

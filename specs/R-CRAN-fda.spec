@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.1.5.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Data Analysis
 
 License:          GPL (>= 2)

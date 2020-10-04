@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Peak Picking for High Resolution Mass Spectrometry Data
 
 License:          GPL (>= 2)

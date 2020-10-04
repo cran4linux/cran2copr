@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R We There Yet? Visualizing MCMC Convergence in Phylogenetics
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions for Computing Wavelet Filters, Wavelet Transforms andMultiresolution Analyses
 
 License:          GPL (>= 2)

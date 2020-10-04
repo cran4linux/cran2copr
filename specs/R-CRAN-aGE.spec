@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Adaptive Set-Based Gene-Environment Interaction Test for RareVariants
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.60
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Code for Simulation of GLMDM
 
 License:          GPL

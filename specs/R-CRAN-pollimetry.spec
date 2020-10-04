@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimate Pollinator Body Size and Co-Varying Ecological Traits
 
 License:          GPL (>= 2)

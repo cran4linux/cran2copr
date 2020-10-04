@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.86
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Rmetrics - Pricing and Evaluating Basic Options
 
 License:          GPL (>= 2)

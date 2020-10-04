@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interact with the UK AIR Pollution Database from DEFRA
 
 License:          GPL-3

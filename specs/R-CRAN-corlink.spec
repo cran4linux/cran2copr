@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Record Linkage, Incorporating Imputation for Missing AgreementPatterns, and Modeling Correlation Patterns Between Fields
 
 License:          CC0

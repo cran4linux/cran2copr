@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Build and Run Spatially Explicit Agent-Based Models
 
 License:          GPL-3

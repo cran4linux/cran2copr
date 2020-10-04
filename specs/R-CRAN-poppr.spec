@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.8.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Genetic Analysis of Populations with Mixed Reproduction
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Geometric Median, k-Median Clustering and Robust Median PCA
 
 License:          GPL (>= 2)

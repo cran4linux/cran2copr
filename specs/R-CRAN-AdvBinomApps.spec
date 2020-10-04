@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Upper Clopper-Pearson Confidence Limits for Burn-in Studiesunder Additional Available Information
 
 License:          GPL-3

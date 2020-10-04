@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tide Analysis and Prediction of Predominantly Semi-Diurnal Tides
 
 License:          GPL-3

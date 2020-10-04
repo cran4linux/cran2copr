@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          10-Year Cardiovascular Disease Risk Calculator (QRISK3 2017)
 
 License:          GPL-3

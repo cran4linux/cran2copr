@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.32
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Electrical Properties of Resistor Networks
 
 License:          GPL-2

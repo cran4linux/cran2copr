@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.02.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Random General Linear Model Prediction
 
 License:          GPL (>= 2)

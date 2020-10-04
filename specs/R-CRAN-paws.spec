@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Amazon Web Services Software Development Kit
 
 License:          Apache License (>= 2.0)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.21
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Package for Analysis of Space-Time Ecological Series
 
 License:          GPL-2

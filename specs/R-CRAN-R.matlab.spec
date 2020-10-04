@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.6.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Read and Write MAT Files and Call MATLAB from Within R
 
 License:          LGPL (>= 2.1)

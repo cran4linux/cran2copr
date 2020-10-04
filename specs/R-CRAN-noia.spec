@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.97.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Implementation of the Natural and Orthogonal InterAction (NOIA)model
 
 License:          GPL-2

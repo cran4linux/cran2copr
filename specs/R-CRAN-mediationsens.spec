@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Simulation-Based Sensitivity Analysis for Causal MediationStudies
 
 License:          GPL-2

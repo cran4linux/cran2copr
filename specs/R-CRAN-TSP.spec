@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.10
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Traveling Salesperson Problem (TSP)
 
 License:          GPL-3

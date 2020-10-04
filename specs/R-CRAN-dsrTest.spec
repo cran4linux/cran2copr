@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tests and Confidence Intervals on Directly Standardized Ratesfor Several Methods
 
 License:          GPL (>= 2)

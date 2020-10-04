@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Functions for Analysis of Data with General Recognition Theory
 
 License:          GPL (>= 2)

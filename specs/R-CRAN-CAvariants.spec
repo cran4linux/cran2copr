@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Correspondence Analysis Variants
 
 License:          GPL (> 2)

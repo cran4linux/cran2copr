@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Amend, Augment and Aid Analysis of John Snow's Cholera Map
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.22.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Declare and Diagnose Research Designs
 
 License:          MIT + file LICENSE

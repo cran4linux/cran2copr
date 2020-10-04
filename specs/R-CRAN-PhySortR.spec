@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          A Fast, Flexible Tool for Sorting Phylogenetic Trees
 
 License:          GPL (>= 3)

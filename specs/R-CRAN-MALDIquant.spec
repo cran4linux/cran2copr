@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.19.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Quantitative Analysis of Mass Spectrometry Data
 
 License:          GPL (>= 3)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Add Loading Animations to a 'shiny' Output While It'sRecalculating
 
 License:          MIT + file LICENSE

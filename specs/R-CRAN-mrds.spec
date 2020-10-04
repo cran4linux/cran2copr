@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Mark-Recapture Distance Sampling
 
 License:          GPL (>= 2)

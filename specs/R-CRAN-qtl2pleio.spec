@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Testing Pleiotropy in Multiparental Populations
 
 License:          MIT + file LICENSE

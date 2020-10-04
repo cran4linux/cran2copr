@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Dunnett-Tukey-Kramer Pairwise Multiple Comparison Test Adjustedfor Unequal Variances and Unequal Sample Sizes
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Reads in 'Neuroimaging' 'GIFTI' Files with Geometry Information
 
 License:          GPL-2

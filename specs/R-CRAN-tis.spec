@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.38
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Time Indexes and Time Indexed Series
 
 License:          Unlimited

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fit and Compare Species-Area Relationship Models UsingMultimodel Inference
 
 License:          GPL-3 | file LICENSE

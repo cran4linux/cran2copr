@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.21
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interface for FAME Time Series Database
 
 License:          Unlimited

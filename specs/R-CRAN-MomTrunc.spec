@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.89
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Moments of Folded and Doubly Truncated MultivariateDistributions
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Searching Parsimony Models with Genetic Algorithms
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.144
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Regression Estimation and Presentation
 
 License:          GPL (>= 3.0)

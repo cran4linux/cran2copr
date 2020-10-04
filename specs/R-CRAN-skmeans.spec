@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.12
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Spherical k-Means Clustering
 
 License:          GPL-2

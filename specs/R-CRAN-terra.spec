@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Analysis
 
 License:          GPL (>= 3)

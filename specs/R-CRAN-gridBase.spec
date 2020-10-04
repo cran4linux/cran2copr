@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Integration of base and grid graphics
 
 License:          GPL

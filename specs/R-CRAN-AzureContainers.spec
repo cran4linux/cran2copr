@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interface to 'Container Instances', 'Docker Registry' and'Kubernetes' in 'Azure'
 
 License:          MIT + file LICENSE

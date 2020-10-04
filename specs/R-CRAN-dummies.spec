@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Create dummy/indicator variables flexibly and efficiently
 
 License:          GPL (>= 2)

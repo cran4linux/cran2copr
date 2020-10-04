@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Estimation for Gene-by-Measured EnvironmentInteraction Models
 
 License:          GPL-2

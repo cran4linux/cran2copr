@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Access Cropland Data Layer Data via the 'CropScape' Web Service
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Coloured Formatting for Columns
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Supervised Data Transformation by Means of Neural Network HiddenLayer
 
 License:          GPL (>= 2)

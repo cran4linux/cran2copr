@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Web Application Framework for R
 
 License:          GPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimation of caribou abundance based on large scaleaggregations monitored by radio telemetry
 
 License:          GPL-2

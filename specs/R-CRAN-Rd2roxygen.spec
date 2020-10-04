@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.11
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Convert Rd to 'Roxygen' Documentation
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Estimates of Small Ectotherm Temperature RegulationEffectiveness
 
 License:          MIT + file LICENSE

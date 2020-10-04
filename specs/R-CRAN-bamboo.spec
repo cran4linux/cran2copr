@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.25
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Protein Secondary Structure Prediction Using the Bamboo Method
 
 License:          GPL-3

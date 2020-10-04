@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Automated Spectral Deconvolution, Alignment, and MetaboliteIdentification in GC/MS-Based Untargeted Metabolomics
 
 License:          GPL (>= 2)

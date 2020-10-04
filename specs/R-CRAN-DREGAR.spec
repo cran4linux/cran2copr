@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Regularized Estimation of Dynamic Linear Regression in thePresence of Autocorrelated Residuals (DREGAR)
 
 License:          GPL (>= 2)

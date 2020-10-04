@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetics for the Environmental Sciences
 
 License:          GPL-3

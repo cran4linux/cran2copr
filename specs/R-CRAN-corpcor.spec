@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Efficient Estimation of Covariance and (Partial) Correlation
 
 License:          GPL (>= 3)

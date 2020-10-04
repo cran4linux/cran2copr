@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Grouped Weighted Quantile Sum Regression
 
 License:          GPL-3

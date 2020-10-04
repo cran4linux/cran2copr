@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Statistical Models Using Hamiltonian Monte Carlo
 
 License:          GPL-3

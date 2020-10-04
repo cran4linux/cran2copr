@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.46.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools for Analyzing QTL Experiments
 
 License:          GPL-3

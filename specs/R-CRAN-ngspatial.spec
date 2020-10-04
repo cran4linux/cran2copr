@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fitting the Centered Autologistic and Sparse Spatial GeneralizedLinear Mixed Models for Areal Data
 
 License:          GPL (>= 2)

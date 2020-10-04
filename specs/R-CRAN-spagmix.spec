@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Artificial Spatial and Spatiotemporal Densities on BoundedWindows
 
 License:          GPL (>= 2)

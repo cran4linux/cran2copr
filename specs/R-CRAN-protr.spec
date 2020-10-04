@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generating Various Numerical Representation Schemes for ProteinSequences
 
 License:          BSD_3_clause + file LICENSE

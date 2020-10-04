@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Model Tropical Cyclone Wind Speeds
 
 License:          GPL (>= 2)

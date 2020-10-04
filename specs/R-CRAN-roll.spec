@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Rolling and Expanding Statistics
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.19.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit Test for Weibull Distribution (Weibullness)
 
 License:          GPL-2 | GPL-3

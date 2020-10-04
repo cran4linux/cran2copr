@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.22
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions for Dyadic Sequence Analyses
 
 License:          GPL-3

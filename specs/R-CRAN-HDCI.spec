@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          High Dimensional Confidence Interval Based on Lasso andBootstrap
 
 License:          GNU General Public License version 2

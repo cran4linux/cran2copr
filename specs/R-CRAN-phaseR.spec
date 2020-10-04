@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Phase Plane Analysis of One- And Two-Dimensional Autonomous ODESystems
 
 License:          MIT + file LICENSE

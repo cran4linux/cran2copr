@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Classification Roll Call Analysis Software
 
 License:          GPL-2

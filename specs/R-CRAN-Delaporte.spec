@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          7.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistical Functions for the Delaporte Distribution
 
 License:          BSD_2_clause + file LICENSE

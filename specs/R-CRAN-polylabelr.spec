@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Find the Pole of Inaccessibility (Visual Center) of a Polygon
 
 License:          MIT + file LICENSE

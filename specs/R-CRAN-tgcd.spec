@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Thermoluminescence Glow Curve Deconvolution
 
 License:          GPL-2 | GPL-3

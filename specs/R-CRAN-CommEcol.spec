@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Community Ecology Analyses
 
 License:          GPL-2

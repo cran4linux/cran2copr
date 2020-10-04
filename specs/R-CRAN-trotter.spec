@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Pseudo-Vectors Containing All Permutations, Combinations andSubsets of Objects Taken from a Vector.
 
 License:          GPL-3

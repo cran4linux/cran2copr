@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast Spatial Ancestry via Flexible Allele Frequency Surfaces
 
 License:          GPL (>= 2)

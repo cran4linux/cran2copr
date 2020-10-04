@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Tests for Error Autocorrelation, ARCH Errors, and Cointegrationin Vector Autoregressive Models
 
 License:          GPL (>= 3)

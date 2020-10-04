@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Hypothesis Testing and Power Calculations for ComparingMetagenomic Samples from HMP
 
 License:          Apache License (== 2.0)

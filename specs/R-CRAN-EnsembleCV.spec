@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Extensible Package for Cross-Validation-Based Integration ofBase Learners
 
 License:          GPL (>= 2)

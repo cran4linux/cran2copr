@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The Integration Between 'IBM COGNOS TM1' and R
 
 License:          GPL (>= 2)

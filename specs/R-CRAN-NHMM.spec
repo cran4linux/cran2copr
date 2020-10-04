@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.11
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Bayesian Non-Homogeneous Markov and Mixture Models for MultipleTime Series
 
 License:          GPL (>= 3)

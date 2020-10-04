@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simultaneous Model-Based Clustering and Imputation via aProgressive Expectation-Maximization Algorithm
 
 License:          GPL (>= 2)

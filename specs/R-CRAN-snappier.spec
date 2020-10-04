@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Compress and Decompress 'Snappy' Encoded Data
 
 License:          BSD_3_clause + file LICENSE

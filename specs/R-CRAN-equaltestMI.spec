@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Examine Measurement Invariance via Equivalence Testing andProjection Method
 
 License:          GPL-3

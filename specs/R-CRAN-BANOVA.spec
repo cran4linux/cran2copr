@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.8
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Bayesian ANOVA Models
 
 License:          GPL (>= 2)

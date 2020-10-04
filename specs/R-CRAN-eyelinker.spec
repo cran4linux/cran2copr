@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Import ASC Files from EyeLink Eye Trackers
 
 License:          GPL-3 | file LICENCE

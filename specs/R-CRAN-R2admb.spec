@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.16.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'ADMB' to R Interface Functions
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Genotype Plus Genotype-by-Environment Biplots
 
 License:          GPL-3

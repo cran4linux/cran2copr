@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Interpreting Time Series and Autocorrelated Data Using GAMMs
 
 License:          GPL (>= 2)

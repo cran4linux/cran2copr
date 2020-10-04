@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.37
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generalised log-Linear Model
 
 License:          GPL-2 | GPL-3

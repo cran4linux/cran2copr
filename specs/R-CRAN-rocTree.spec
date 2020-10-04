@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Receiver Operating Characteristic (ROC)-Guided Classificationand Survival Tree
 
 License:          GPL (>= 3)

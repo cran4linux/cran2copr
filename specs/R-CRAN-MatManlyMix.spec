@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Matrix Clustering with Gaussian and Manly Mixture Models
 
 License:          GPL (>= 2)

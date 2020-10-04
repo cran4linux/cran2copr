@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Memory-Efficient Storage of Large Data on Disk and Fast AccessFunctions
 
 License:          GPL-2 | GPL-3 | file LICENSE

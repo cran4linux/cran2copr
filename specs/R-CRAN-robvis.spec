@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Visualize the Results of Risk-of-Bias (ROB) Assessments
 
 License:          MIT + file LICENSE

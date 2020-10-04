@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Variance-Covariance Matrix for Multivariate Meta-Analysis
 
 License:          GPL (>= 2)

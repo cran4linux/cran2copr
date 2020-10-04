@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Methods for Computing Spatial, Temporal, and SpatiotemporalStatistics
 
 License:          GPL (>= 2)

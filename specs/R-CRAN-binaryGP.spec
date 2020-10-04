@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fit and Predict a Gaussian Process Model with (Time-Series)Binary Response
 
 License:          GPL-2 | GPL-3

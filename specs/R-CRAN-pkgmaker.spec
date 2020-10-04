@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.31.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Development Utilities for R Packages
 
 License:          GPL (>= 2)

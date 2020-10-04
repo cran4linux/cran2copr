@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.32
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nearest Neighbor Observation Imputation and Evaluation Tools
 
 License:          GPL (>= 2)

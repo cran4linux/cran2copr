@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fits Cubic Bezier Spline Functions to Intertemporal and RiskyChoice Data
 
 License:          GPL-3

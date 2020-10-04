@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sample Size Calculations for Complex Surveys
 
 License:          GPL (>= 2)

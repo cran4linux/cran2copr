@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.22.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Database Storage of Genotype Probabilities for QTL Mapping
 
 License:          GPL-3

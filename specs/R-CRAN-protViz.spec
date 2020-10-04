@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Visualizing and Analyzing Mass Spectrometry Related Data inProteomics
 
 License:          GPL-3

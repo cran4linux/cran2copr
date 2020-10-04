@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Some Nonparametric CUSUM Tests for Change-Point Detection inPossibly Multivariate Observations
 
 License:          GPL (>= 3) | file LICENCE

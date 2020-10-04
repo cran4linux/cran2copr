@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.6.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Full Feature Implementation of Hash/AssociatedArrays/Dictionaries
 
 License:          GPL (>= 2)

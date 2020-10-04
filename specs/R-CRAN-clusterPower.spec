@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.111
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Power Calculations for Cluster-Randomized and Cluster-RandomizedCrossover Trials
 
 License:          GPL (>= 2)

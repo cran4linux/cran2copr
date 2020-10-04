@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.53
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Computationally Efficient Mean Shift Implementation
 
 License:          GPL (>= 2)

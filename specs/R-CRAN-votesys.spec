@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Voting Systems, Instant-Runoff Voting, Borda Method, VariousCondorcet Methods
 
 License:          GPL-3

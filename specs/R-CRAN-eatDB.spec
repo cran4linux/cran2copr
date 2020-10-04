@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Spreadsheet Interface for Relational Databases
 
 License:          GPL (>= 2)

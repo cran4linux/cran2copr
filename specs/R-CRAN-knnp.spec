@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Time Series Prediction using K-Nearest Neighbors Algorithm(Parallel)
 
 License:          AGPL-3

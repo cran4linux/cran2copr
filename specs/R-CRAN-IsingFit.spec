@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Fitting Ising Models Using the ELasso Method
 
 License:          GPL-2

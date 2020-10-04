@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Extension (for Package 'SigTree') of Some of the Classes inPackage 'phylobase'
 
 License:          GPL-3

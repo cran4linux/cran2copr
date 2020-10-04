@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Tool for 'Shiny' Applications Developed with Modules
 
 License:          MIT + file LICENSE

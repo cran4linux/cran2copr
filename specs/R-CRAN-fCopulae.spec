@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3042.82.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Rmetrics - Bivariate Dependence Structures with Copulae
 
 License:          GPL (>= 2)

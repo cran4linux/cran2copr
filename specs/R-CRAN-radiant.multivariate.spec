@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Multivariate Menu for Radiant: Business Analytics using R andShiny
 
 License:          AGPL-3 | file LICENSE

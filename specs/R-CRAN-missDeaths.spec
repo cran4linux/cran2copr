@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simulating and Analyzing Time to Event Data in the Presence ofPopulation Mortality
 
 License:          GPL (>= 2)

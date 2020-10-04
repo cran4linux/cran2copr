@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Utilizes the Black-Scholes Option Pricing Model to PerformStrategic Option Analysis and Plot Option Strategies
 
 License:          GPL-3

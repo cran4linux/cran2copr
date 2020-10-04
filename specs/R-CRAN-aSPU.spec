@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.49
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Adaptive Sum of Powered Score Test
 
 License:          GPL-3

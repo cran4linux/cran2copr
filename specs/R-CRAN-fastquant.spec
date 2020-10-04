@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Backtest Investment Strategies with 3 Lines of Code
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Common Infrastructure for Extensions of Exponential Random GraphModels
 
 License:          GPL (>= 2)

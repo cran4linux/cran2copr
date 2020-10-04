@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.99
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Adjacency-Constrained Clustering of a Block-Diagonal SimilarityMatrix
 
 License:          GPL-3

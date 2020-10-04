@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tree Ring Analysis of Disturbance Events in R
 
 License:          GPL-2 | GPL-3

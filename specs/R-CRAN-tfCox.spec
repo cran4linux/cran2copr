@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fits Piecewise Polynomial with Data-Adaptive Knots in Cox Model
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Wrapper for 'TCdata360' and 'Govdata360' API
 
 License:          MIT + file LICENSE

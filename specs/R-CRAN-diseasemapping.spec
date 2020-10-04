@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modelling Spatial Variation in Disease Risk for Areal Data
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.17
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interface to Unidata netCDF (Version 4 or Earlier) Format DataFiles
 
 License:          GPL (>= 3)

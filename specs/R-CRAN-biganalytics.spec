@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.21
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Utilities for 'big.matrix' Objects from Package 'bigmemory'
 
 License:          LGPL-3 | Apache License 2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.9.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Viewing of Spatial Data in R
 
 License:          GPL (>= 3) | file LICENSE

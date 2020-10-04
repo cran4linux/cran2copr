@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions for Drawing Ellipses and Ellipse-Like ConfidenceRegions
 
 License:          GPL (>= 2)

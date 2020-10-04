@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Markov Model for Online Multi-Channel Attribution
 
 License:          GPL-3 | file LICENSE

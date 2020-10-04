@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Entropy Partitioning to Measure Diversity
 
 License:          GNU General Public License

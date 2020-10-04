@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A factory of self-describing properties.
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.81
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimate Permutation p-Values for Random Forest ImportanceMetrics
 
 License:          GPL (>= 2)

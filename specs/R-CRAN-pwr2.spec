@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Power and Sample Size Analysis for One-way and Two-way ANOVAModels
 
 License:          GPL-2

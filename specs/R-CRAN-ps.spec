@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          List, Query, Manipulate System Processes
 
 License:          BSD_3_clause + file LICENSE

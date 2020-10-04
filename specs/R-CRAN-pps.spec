@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.94
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions for PPS sampling
 
 License:          GPL (>= 2)

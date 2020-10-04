@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Total Survey Error Under Multiple, Different Weighting Schemes
 
 License:          GPL (>= 2)

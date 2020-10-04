@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Spline Functions and Classes
 
 License:          GPL (>= 3)

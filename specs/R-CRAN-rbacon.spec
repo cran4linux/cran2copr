@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Age-Depth Modelling using Bayesian Statistics
 
 License:          GPL (>= 2)

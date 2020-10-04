@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A collection of functions for estimating centrographicstatistics and computational geometries for spatial pointpatterns
 
 License:          GPL (>= 2)

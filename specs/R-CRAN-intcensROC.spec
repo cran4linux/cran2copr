@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast Spline Function Based Constrained Maximum LikelihoodEstimator for AUC Estimation of Interval Censored Survival Data
 
 License:          GPL (>= 2)

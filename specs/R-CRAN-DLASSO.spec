@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Implementation of Adaptive or Non-Adaptive Differentiable Lassoand SCAD Penalties in Linear Models
 
 License:          GPL (>= 2)

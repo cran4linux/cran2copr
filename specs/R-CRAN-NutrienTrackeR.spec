@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Food Composition Information and Dietary Assessment
 
 License:          GPL-3

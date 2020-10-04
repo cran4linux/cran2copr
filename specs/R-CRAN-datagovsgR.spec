@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Calls Real Time APIs from Data Gov Singapore
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Cross-Entropy Clustering
 
 License:          GPL-3

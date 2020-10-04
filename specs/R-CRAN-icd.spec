@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.0.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Comorbidity Calculations and Tools for ICD-9 and ICD-10 Codes
 
 License:          GPL-3

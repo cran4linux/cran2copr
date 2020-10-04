@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Computing, Fitting and Validating the PPS Distribution
 
 License:          GPL-2 | GPL-3

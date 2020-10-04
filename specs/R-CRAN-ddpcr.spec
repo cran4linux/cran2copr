@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.15
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Droplet Digital PCR in R and onthe Web
 
 License:          MIT + file LICENSE

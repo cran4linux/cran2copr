@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistical analysis for Methylation-sensitive AmplificationPolymorphism data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Lake Temperatures Collected by Situ and Satellite Methods from1985-2009
 
 License:          CC0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Perceptual Analysis, Visualization and Organization of SpectralColour Data
 
 License:          GPL (>= 2)

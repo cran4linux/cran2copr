@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.11
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions from Alexey Shipunov
 
 License:          GPL (>= 2)

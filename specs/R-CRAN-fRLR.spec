@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Fit Repeated Linear Regressions
 
 License:          GPL (>= 2)

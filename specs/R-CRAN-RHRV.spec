@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Heart Rate Variability Analysis of ECG Data
 
 License:          GPL-2

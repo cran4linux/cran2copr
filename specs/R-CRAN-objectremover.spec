@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'RStudio' Addin for Removing Objects from the Global EnvironmentBased on Patterns and Object Type
 
 License:          GPL-3

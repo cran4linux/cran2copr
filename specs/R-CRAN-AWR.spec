@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.11.189
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'AWS' Java 'SDK' for R
 
 License:          AGPL-3

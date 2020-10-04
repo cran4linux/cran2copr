@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.4.30
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayes Screening and Model Discrimination
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Construct Modeling Packages
 
 License:          MIT + file LICENSE

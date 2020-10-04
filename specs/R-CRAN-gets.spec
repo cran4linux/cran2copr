@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.25
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          General-to-Specific (GETS) Modelling and Indicator SaturationMethods
 
 License:          GPL (>= 2)

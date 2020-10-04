@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Programs for Analyzing Fourier Transform-Ion Cyclotron ResonanceMass Spectrometry Data
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nonparametric Interaction Tests for Factorial Designs withRepeated Measures
 
 License:          GPL (>= 2)

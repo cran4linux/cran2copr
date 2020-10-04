@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Parametric Estimation in Mixed-Effects Stochastic DifferentialEquations
 
 License:          GPL (>= 2)

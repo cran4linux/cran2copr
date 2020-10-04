@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.665.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Vehicular Emissions by Top-Down Methods
 
 License:          MIT + file LICENSE

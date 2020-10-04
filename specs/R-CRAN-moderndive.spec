@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tidyverse-Friendly Introductory Linear Regression
 
 License:          GPL-3

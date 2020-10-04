@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interpolation Grids for Packages of the 'RobASt' - Family ofPackages
 
 License:          LGPL-3

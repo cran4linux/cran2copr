@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing High-Throughput Single Cell Sequencing Data
 
 License:          GPL-2

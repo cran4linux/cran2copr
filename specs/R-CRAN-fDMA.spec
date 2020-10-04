@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Model Averaging and Dynamic Model Selection forContinuous Outcomes
 
 License:          GPL-3

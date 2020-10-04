@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Interact with BioUML Server
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Emissions and Statistics in R for Wastewater and Pollutants inCombined Sewer Systems
 
 License:          GPL (>= 3)

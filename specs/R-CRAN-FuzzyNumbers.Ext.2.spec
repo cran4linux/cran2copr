@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Apply Two Fuzzy Numbers on a Monotone Function
 
 License:          LGPL (>= 3)

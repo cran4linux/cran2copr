@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Daily Based Morgan-Morgan-Finney (DMMF) Soil Erosion Model
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.90
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistics of Extremes
 
 License:          GPL (>= 3)

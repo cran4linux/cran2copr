@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Understand and Describe Bayesian Models and PosteriorDistributions
 
 License:          GPL-3

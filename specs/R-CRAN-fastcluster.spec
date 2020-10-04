@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.25
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast Hierarchical Clustering Routines for R and 'Python'
 
 License:          FreeBSD | GPL-2 | file LICENSE

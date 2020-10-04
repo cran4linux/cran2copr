@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Seamless R and C++ Integration
 
 License:          GPL (>= 2)

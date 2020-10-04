@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Novel Quantile Regression Approach for eQTL Discovery
 
 License:          GPL (>= 2)

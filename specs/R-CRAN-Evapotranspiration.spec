@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.15
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modelling Actual, Potential and Reference CropEvapotranspiration
 
 License:          GPL (>= 2)

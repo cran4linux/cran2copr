@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Knowledge Synthesis in Agriculture - From Experimental Networkto Meta-Analysis
 
 License:          LGPL-3

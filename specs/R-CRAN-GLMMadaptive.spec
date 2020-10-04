@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Generalized Linear Mixed Models using Adaptive GaussianQuadrature
 
 License:          GPL (>= 3)

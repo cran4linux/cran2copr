@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.5.2.0.17.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Interface to 'lp_solve' Version 5.5.2.0
 
 License:          LGPL-2

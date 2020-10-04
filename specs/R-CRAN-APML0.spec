@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Augmented and Penalized Minimization Method L0
 
 License:          GPL (>= 2)

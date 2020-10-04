@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Bookmaker Odds to Probabilities
 
 License:          GPL-3

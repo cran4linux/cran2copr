@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Significance Analysis of Event-Related Potentials Data
 
 License:          GPL (>= 2)

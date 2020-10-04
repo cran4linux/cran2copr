@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.28.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Support for Metrological Applications
 
 License:          GPL (>= 2)

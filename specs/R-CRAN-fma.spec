@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data Sets from "Forecasting: Methods and Applications" byMakridakis, Wheelwright & Hyndman (1998)
 
 License:          GPL-3

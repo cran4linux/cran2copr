@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.20
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generate High-Resolution Venn and Euler Plots
 
 License:          GPL-2

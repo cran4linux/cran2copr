@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A GUI-Based Program to Compute Probabilities Regarding GroupSequential Designs
 
 License:          GPL (>= 2)

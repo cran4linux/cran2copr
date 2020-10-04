@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Implementation of the 'Instagram' API Using Tidy Principles
 
 License:          MIT + file LICENSE

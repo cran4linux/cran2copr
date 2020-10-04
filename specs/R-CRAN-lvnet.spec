@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Latent Variable Network Modeling
 
 License:          GPL-2

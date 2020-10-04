@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Conversion Between Attitude Representations of DCM, EulerAngles, Quaternions, and Euler Vectors
 
 License:          GPL (>= 3)

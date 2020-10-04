@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.20
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Database Interface and 'MySQL' Driver for R
 
 License:          GPL-2

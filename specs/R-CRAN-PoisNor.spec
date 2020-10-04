@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simultaneous Generation of Multivariate Data with Poisson andNormal Marginals
 
 License:          GPL-2

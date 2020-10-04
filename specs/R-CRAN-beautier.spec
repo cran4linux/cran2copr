@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          'BEAUti' from R
 
 License:          GPL-3

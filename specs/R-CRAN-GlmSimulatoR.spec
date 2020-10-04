@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Creates Ideal Data for Generalized Linear Models
 
 License:          GPL-3

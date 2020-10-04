@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Google Analytics API into R
 
 License:          MIT + file LICENSE

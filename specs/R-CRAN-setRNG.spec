@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2013.9.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Set (Normal) Random Number Generator and Seed
 
 License:          GPL-2 | file LICENSE

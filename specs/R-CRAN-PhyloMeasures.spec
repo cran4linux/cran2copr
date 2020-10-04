@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast and Exact Algorithms for Computing PhylogeneticBiodiversity Measures
 
 License:          GPL-3

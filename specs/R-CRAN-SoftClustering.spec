@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1902.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Soft Clustering Algorithms
 
 License:          GPL-2

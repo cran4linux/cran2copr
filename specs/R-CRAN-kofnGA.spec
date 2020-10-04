@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Genetic Algorithm for Fixed-Size Subset Selection
 
 License:          GPL-2

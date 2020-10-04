@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Single to Double Arm Transition Design for Phase II ClinicalTrials
 
 License:          GPL (>= 2)

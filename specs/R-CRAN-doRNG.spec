@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.8.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generic Reproducible Parallel Backend for 'foreach' Loops
 
 License:          GPL (>= 2)

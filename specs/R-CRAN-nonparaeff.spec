@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.8
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Nonparametric Methods for Measuring Efficiency and Productivity
 
 License:          GPL (>= 2)

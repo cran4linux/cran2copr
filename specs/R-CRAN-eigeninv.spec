@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2011.8.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Generates (dense) matrices that have a given set of eigenvalues
 
 License:          GPL (>= 2)

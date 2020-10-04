@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.10
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Orthogonalizing EM: Penalized Regression for Big Tall Data
 
 License:          GPL (>= 2)

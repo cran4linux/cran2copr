@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The W-Test for Genetic Interactions Testing
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Extremal Dependence Models
 
 License:          GPL (>= 2)

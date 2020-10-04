@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simulation and Parameter Estimation of Randomized SierpinskiCarpets using the p-p-p-q-Model
 
 License:          GPL (>= 2)

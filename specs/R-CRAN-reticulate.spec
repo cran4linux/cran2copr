@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interface to 'Python'
 
 License:          Apache License 2.0

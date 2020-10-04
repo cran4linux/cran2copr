@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Verbal Autopsy Data Transformation for InSilicoVA and InterVA5Algorithms
 
 License:          GPL-3

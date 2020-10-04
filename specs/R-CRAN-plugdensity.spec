@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Plug-in Kernel Density Estimation
 
 License:          GPL (>= 2)

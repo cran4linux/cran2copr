@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools for Importing Files in the Triple-s (Standard SurveyStructure) Format
 
 License:          GPL-2 | GPL-3

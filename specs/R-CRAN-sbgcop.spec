@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.980
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Semiparametric Bayesian Gaussian Copula Estimation andImputation
 
 License:          GPL (>= 2)

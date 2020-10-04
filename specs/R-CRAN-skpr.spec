@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.64.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Design of Experiments Suite: Generate and Evaluate OptimalDesigns
 
 License:          GPL-3

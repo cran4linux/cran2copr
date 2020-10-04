@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Imputation Methods for Multivariate Multinomial Data
 
 License:          GPL-3

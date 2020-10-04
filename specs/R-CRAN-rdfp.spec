@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Implementation of the 'DoubleClick for Publishers' API
 
 License:          MIT + file LICENSE

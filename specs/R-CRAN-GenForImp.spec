@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          The Forward Imputation: A Sequential Distance-Based Approach forImputing Missing Data
 
 License:          GPL-3

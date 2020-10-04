@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Maximum Likelihood Approach to the Analysis of Modularity
 
 License:          MIT + file LICENSE

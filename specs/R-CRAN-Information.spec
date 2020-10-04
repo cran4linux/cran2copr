@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data Exploration with Information Theory (Weight-of-Evidence andInformation Value)
 
 License:          GPL (>= 3)

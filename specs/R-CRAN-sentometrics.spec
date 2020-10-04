@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          An Integrated Framework for Textual Sentiment Time SeriesAggregation and Prediction
 
 License:          GPL (>= 2)

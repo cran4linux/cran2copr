@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Biogeographic Regionalization and Macroecology
 
 License:          AGPL-3

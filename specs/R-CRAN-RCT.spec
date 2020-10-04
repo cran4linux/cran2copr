@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Assign Treatments, Power Calculations, Balances, ImpactEvaluation of Experiments
 
 License:          GPL-2

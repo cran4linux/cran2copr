@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Animation of Observed Trajectories Using Spline-BasedInterpolation
 
 License:          GPL-3

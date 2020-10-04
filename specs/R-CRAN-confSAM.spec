@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimates and Bounds for the False Discovery Proportion, byPermutation
 
 License:          GNU General Public License

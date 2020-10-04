@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          New Plots Based on 'ggplot2' and Functions to Create RegularShapes
 
 License:          GPL-3

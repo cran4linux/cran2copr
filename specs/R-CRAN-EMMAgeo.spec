@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          End-Member Modelling of Grain-Size Data
 
 License:          GPL-3

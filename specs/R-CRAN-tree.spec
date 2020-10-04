@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.40
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Classification and Regression Trees
 
 License:          GPL-2 | GPL-3

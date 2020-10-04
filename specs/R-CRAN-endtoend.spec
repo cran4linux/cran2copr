@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.29
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Transmissions and Receptions in an End to End Network
 
 License:          GPL (>= 2)

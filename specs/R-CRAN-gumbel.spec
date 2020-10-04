@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The Gumbel-Hougaard Copula
 
 License:          GPL (>= 2)

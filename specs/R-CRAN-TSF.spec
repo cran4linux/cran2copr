@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Two Stage Forecasting (TSF) for Long Memory Time Series inPresence of Structural Break
 
 License:          GPL

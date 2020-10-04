@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Core Functions to Read and Fit 13c Time Series from Breath Tests
 
 License:          GPL-3

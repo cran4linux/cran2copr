@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Companion to the e-Book "YaRrr!: The Pirate's Guide to R"
 
 License:          GPL-2

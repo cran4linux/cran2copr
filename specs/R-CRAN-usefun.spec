@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Collection of Useful Functions by John
 
 License:          MIT + file LICENSE

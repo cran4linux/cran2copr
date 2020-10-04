@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.82.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Combines 'data.table' and 'matrix' Classes
 
 License:          GPL-2

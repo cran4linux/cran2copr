@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Leveraging Learning to Automatically Manage Algorithms
 
 License:          BSD_3_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Set of Datasets Used in My Classes or in the Book 'ModeleLiniowe i Mieszane w R, Wraz z Przykladami w Analizie Danych'
 
 License:          GPL (>= 2)

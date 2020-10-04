@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Prediction and Accuracy Measures for Nonlinear Models and forRight-Censored Time-to-Event Data
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.14
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Recursive Partitioning for Structural Equation Models
 
 License:          GPL-3

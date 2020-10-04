@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Power and Sample Size for Two Sample Mean Tests
 
 License:          GPL (>= 2)

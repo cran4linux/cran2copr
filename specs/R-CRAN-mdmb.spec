@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.12
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Model Based Treatment of Missing Data
 
 License:          GPL (>= 2)

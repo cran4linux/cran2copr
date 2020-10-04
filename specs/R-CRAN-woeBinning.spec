@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Supervised Weight of Evidence Binning of Numeric Variables andFactors
 
 License:          GPL (>= 2)

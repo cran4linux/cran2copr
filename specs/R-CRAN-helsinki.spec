@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.29
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Tools for Helsinki Open Data
 
 License:          BSD_2_clause + file LICENSE

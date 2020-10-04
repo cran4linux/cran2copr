@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Dose Titration Algorithm Tuning
 
 License:          MIT + file LICENSE

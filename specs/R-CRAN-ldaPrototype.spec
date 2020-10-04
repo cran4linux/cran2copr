@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Prototype of Multiple Latent Dirichlet Allocation Runs
 
 License:          GPL (>= 3)

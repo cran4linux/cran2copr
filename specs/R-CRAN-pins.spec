@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Pin, Discover and Share Resources
 
 License:          Apache License 2.0

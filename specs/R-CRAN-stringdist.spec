@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Approximate String Matching, Fuzzy Text Search, and StringDistance Functions
 
 License:          GPL-3

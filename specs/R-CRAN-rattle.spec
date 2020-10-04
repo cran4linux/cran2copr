@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.4.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Graphical User Interface for Data Science in R
 
 License:          GPL (>= 2)

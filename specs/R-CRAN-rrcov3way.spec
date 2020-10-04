@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.18
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Robust Methods for Multiway Data Analysis, Applicable also forCompositional Data
 
 License:          GPL (>= 2)

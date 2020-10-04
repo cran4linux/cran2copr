@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'ProPublica' U.S. Congress Bills API Wrapper
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Supplemental U.S. 2000 Census Tract Boundaries for 19 Stateswith Seer Registries for 'SeerMapper'
 
 License:          GPL (>= 2)

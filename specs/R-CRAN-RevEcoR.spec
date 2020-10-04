@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.99.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Reverse Ecology Analysis on Microbiome
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Multiple Imputation Using Weighted Quantile Sum Regression
 
 License:          GPL-3

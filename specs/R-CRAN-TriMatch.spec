@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.9
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Propensity Score Matching of Non-Binary Treatments
 
 License:          GPL (>= 2)

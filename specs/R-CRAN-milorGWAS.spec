@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Mixed Logistic Regression for Genome-Wide Analysis Studies(GWAS)
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Export or Graph and Tables to 'Microsoft' Office and ImportFigures and Tables
 
 License:          GPL-2

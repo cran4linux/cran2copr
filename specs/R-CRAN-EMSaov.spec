@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The Analysis of Variance with EMS
 
 License:          GPL (>= 2)

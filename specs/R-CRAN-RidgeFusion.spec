@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Package for Ridge Fusion in Statistical Learning
 
 License:          MIT + file LICENSE

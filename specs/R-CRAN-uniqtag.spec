@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Abbreviate Strings to Short, Unique Identifiers
 
 License:          MIT + file LICENSE

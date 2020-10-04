@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bridging and Extending the CytobankAPI Package in R to theCytobank Web Application
 
 License:          Artistic-2.0

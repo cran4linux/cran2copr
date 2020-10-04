@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Range Ancestral State Estimation for Phylogeography andComparative Analyses
 
 License:          GPL (>= 2)

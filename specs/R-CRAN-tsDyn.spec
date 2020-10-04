@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          10.1.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Nonlinear Time Series Models with Regime Switching
 
 License:          GPL (>= 2)

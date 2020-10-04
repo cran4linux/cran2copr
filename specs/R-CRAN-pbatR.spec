@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Pedigree/Family-Based Genetic Association Tests Analysis andPower
 
 License:          GPL

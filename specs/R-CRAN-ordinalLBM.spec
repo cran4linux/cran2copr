@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Co-Clustering of Ordinal Data via Latent Continuous RandomVariables
 
 License:          GPL (>= 2)

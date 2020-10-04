@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.29.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'Neuroconductor' Base Package with Helper Functions for 'nifti'Objects
 
 License:          GPL-2

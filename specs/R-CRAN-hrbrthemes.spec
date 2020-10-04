@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Additional Themes, Theme Components and Utilities for 'ggplot2'
 
 License:          MIT + file LICENSE

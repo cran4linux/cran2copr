@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Different Types of Estimators to Deal with Multicollinearity
 
 License:          GPL-2 | GPL-3

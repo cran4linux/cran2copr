@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Estimating birth and death rates based on phylogenies
 
 License:          GPL-2

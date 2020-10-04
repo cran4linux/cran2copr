@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Code for Mark Analysis
 
 License:          GPL (>= 2)

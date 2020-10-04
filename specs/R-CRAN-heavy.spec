@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.38.196
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Robust Estimation Using Heavy-Tailed Distributions
 
 License:          GPL (>= 2)

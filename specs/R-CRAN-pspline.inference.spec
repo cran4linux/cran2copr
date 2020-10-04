@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Characteristics of Seasonal and SporadicInfectious Disease Outbreaks Using Generalized AdditiveModeling with Penalized Basis Splines
 
 License:          Apache License 2.0

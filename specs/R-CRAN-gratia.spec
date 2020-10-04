@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Graceful 'ggplot'-Based Graphics and Other Functions for GAMsFitted Using 'mgcv'
 
 License:          MIT + file LICENSE

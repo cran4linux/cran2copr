@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings for the 'Corpus Workbench' ('CWB')
 
 License:          GPL-3

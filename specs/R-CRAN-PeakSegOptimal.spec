@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2018.05.25
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Optimal Segmentation Subject to Up-Down Constraints
 
 License:          GPL-3

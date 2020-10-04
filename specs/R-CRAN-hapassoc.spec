@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Inference of Trait Associations with SNP Haplotypes and OtherAttributes using the EM Algorithm
 
 License:          GPL-2

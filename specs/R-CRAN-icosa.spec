@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Global Triangular and Penta-Hexagonal Grids Based on TessellatedIcosahedra
 
 License:          GPL-3

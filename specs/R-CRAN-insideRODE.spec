@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          insideRODE includes buildin functions with deSolve solver andC/FORTRAN interfaces to nlme, together with compiled codes.
 
 License:          LGPL (> 2.0)

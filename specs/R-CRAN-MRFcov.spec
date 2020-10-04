@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.37
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Markov Random Fields with Additional Covariates
 
 License:          GPL-3

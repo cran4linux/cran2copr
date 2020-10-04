@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Additional Tools for Developing Spatially Explicit DiscreteEvent Simulation (SpaDES) Models
 
 License:          GPL-3

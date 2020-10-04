@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.7.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Selection Models for Amino Acid and/or Codon Evolution
 
 License:          GPL

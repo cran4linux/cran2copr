@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Spatial Terms in Generalized Additive Models for Location Scaleand Shape Models
 
 License:          GPL-2 | GPL-3

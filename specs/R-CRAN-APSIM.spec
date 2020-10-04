@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          General Utility Functions for the 'Agricultural ProductionSystems Simulator'
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Cost Constrained Flux Balance Analysis (ccFBA): MetabOlicModeling with ENzyme kineTics (MOMENT)
 
 License:          GPL-3

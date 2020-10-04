@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Fitting and Simulating Non-Stationary ARFIMA Models
 
 License:          GPL (>= 3)

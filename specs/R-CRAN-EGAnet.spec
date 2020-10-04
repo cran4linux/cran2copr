@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Graph Analysis - A Framework for Estimating theNumber of Dimensions in Multivariate Data Using NetworkPsychometrics
 
 License:          GPL (>= 3.0)

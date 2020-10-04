@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.9
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Minimal Tool Set for Gathering USDA Quick Stat Data forAnalysis and Visualization
 
 License:          MIT + file LICENSE

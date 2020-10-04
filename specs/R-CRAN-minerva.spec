@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Maximal Information-Based Nonparametric Exploration for VariableAnalysis
 
 License:          GPL-3

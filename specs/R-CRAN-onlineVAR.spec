@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Online Fitting of Time-Adaptive Lasso Vector Auto Regression
 
 License:          GPL-2 | GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.7
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Simulate Genetic Sequence Data for Pedigrees
 
 License:          GNU General Public License

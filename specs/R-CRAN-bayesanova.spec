@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Inference in the Analysis of Variance via Markov ChainMonte Carlo in Gaussian Mixture Models
 
 License:          GPL-2

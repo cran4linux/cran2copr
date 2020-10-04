@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Retrieve Flu Season Data from the United States Centers forDisease Control and Prevention ('CDC') 'FluView' Portal
 
 License:          MIT + file LICENSE

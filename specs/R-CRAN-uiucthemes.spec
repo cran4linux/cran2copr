@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          'R' 'Markdown' Themes for 'UIUC' Documents and Presentations
 
 License:          MIT + file LICENSE

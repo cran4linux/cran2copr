@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Read in 'SAS' Data ('.sas7bdat' Files) into 'Apache Spark'
 
 License:          GPL-3

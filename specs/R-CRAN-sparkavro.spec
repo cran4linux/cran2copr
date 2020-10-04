@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Load Avro file into 'Apache Spark'
 
 License:          Apache License 2.0 | file LICENSE

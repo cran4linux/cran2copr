@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.10.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          GOV.UK Style Templates for R Markdown
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.28.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Hexagonal Binning Routines
 
 License:          GPL-2

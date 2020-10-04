@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Regular Expression Removal, Extraction, and Replacement Tools
 
 License:          GPL-2

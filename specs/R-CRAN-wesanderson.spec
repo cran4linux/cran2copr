@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Wes Anderson Palette Generator
 
 License:          MIT + file LICENSE

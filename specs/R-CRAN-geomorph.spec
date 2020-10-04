@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.3.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Geometric Morphometric Analyses of 2D/3D Landmark Data
 
 License:          GPL (>= 2)

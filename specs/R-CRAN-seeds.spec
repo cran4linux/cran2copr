@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Hidden Inputs using the Dynamic Elastic Net
 
 License:          MIT + file LICENSE

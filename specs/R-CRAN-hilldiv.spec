@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Integral Analysis of Diversity Based on Hill Numbers
 
 License:          GPL-3

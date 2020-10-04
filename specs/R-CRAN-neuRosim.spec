@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.12
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functions to Generate fMRI Data Including Activated Data, NoiseData and Resting State Data
 
 License:          GPL (>= 2)

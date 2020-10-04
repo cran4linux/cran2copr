@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simulate Dynamic Networks using Exponential Random Graph Models(ERGM) Family
 
 License:          GPL-3

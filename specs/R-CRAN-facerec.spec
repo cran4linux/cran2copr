@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          An Interface for Face Recognition
 
 License:          MIT + file LICENSE

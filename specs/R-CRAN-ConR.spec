@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Computation of Parameters Used in Preliminary Assessment ofConservation Status
 
 License:          GPL-2

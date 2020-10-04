@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.03
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          US Census 2000 Designated Places Shapefiles and AdditionalDemographic Data
 
 License:          GPL (>= 2)

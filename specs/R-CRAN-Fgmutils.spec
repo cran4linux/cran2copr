@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Forest Growth Model Utilities
 
 License:          GPL-2

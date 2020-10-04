@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Goodness-of-fit and two sample comparison tests using sampleentropy
 
 License:          GPL (>= 2)

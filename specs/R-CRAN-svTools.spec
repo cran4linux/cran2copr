@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Wrappers for Tools in Other Packages for IDE Friendliness
 
 License:          GPL-2

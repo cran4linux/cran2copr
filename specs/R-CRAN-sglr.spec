@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An R package for power and boundary calculations inpre-licensure vaccine trials using a sequential generalizedlikelihood ratio test
 
 License:          GPL (>= 2)

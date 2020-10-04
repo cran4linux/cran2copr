@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          MLE of a Truncated Normal Distribution with Censored Data
 
 License:          MIT + file LICENSE

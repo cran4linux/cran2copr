@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multiple Sclerosis Lesion Segmentation using Magnetic ResonanceImaging (MRI)
 
 License:          GPL-2

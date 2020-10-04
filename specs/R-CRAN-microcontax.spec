@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          The ConTax Data Package
 
 License:          GPL-2

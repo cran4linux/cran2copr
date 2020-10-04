@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Applies Multiclass AdaBoost.M1, SAMME and Bagging
 
 License:          GPL (>= 2)

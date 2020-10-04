@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.22.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Mixture Autoregressive Models
 
 License:          GPL (>= 2)

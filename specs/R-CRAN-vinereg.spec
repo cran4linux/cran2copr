@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.0
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          D-Vine Quantile Regression
 
 License:          GPL-3

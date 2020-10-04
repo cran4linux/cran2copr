@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Pipeline to Define Gene Families in Legumes and Beyond
 
 License:          MIT + file LICENSE

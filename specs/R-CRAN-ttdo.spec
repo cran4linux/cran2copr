@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Extend 'tinytest' with 'diffobj'
 
 License:          GPL (>= 2)

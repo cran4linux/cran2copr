@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Interface to the Statistical Disclosure Control Package'sdcTable'
 
 License:          Apache License 2.0 | file LICENSE

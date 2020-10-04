@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.25
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Recursively Partitioned Mixture Model
 
 License:          GPL (>= 2)

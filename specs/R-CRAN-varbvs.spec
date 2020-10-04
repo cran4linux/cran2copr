@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Large-Scale Bayesian Variable Selection Using VariationalMethods
 
 License:          GPL (>= 3)

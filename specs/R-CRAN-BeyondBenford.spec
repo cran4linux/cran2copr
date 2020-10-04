@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Compare the Goodness of Fit of Benford's and Blondeau Da Silva'sDigit Distributions to a Given Dataset
 
 License:          GPL-2

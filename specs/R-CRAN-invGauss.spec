@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Threshold regression that fits the (randomized drift) inverseGaussian distribution to survival data.
 
 License:          GPL (>= 2)

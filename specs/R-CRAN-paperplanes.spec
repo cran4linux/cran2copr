@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Distance Recordings from a Paper Plane Folding/Flying Experiment
 
 License:          GPL-3

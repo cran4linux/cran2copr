@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.8
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Drawing Survival Curves using 'ggplot2'
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Generate 'CodeMeta' Metadata for R Packages
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Random Uniform Forests for Classification, Regression andUnsupervised Learning
 
 License:          BSD_3_clause + file LICENSE

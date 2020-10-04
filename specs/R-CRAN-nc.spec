@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2020.8.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Named Capture to Data Tables
 
 License:          GPL-3

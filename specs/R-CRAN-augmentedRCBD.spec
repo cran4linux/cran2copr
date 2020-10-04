@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Augmented Randomised Complete Block Designs
 
 License:          GPL-2 | GPL-3

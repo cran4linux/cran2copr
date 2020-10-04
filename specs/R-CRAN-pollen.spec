@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.72.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analysis of Aerobiological Data
 
 License:          MIT + file LICENSE

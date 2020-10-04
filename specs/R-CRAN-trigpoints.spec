@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data Set of Trig Points in Great Britain in British NationalGrid Coordinates
 
 License:          MIT + file LICENSE

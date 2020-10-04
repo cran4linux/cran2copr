@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.44
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Metropolis Sampler and Supporting Functions for EstimatingAnimal Movement from Archival Tags and Satellite Fixes
 
 License:          GPL-3

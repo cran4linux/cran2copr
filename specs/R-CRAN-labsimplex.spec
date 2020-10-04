@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simplex Optimization Algorithms for Laboratory and ManufacturingProcesses
 
 License:          GPL (>= 2)

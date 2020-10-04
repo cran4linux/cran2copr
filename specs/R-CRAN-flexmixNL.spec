@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Finite Mixture Modeling of Generalized Nonlinear Models
 
 License:          GPL-2 | GPL-3

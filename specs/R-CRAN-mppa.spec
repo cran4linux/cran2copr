@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistics for analysing multiple simultaneous point processeson the real line
 
 License:          GPL (>= 2)

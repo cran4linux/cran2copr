@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Wrapper for the 'Wufoo.com' - The Form Building Service
 
 License:          Apache License 2.0

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Mediation Analysis Using Natural Effect Models
 
 License:          GPL-2

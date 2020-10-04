@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistics for Long-Memory Processes (Book Jan Beran), andRelated Functionality
 
 License:          GPL (>= 2)

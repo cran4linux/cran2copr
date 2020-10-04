@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Identify, Ping, and Log Internet Provider Connection Data
 
 License:          MIT + file LICENSE

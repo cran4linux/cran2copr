@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An R Plug-in for the Distributed Hydrological Model GEOtop
 
 License:          GPL (>= 2)

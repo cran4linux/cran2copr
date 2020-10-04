@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Model-Free Functional Chi-Squared and Exact Tests
 
 License:          LGPL (>= 3)

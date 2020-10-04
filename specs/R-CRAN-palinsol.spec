@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.93
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Insolation for Palaeoclimate Studies
 
 License:          file LICENSE

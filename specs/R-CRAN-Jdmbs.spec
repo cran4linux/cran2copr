@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo Option Pricing Algorithms for Jump Diffusion Modelswith Correlational Companies
 
 License:          GPL (>= 2)

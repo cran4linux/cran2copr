@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Method Functions for Confidence Intervals and to DistillInformation from an Object
 
 License:          GPL (>= 2)

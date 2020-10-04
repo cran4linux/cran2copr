@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Power Calculations for Assessing Correlates of Risk in ClinicalEfficacy Trials
 
 License:          GPL-2

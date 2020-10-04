@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R Binding for the 'Certifiably Optimal RulE ListS (Corels)'Learner
 
 License:          GPL (>= 2)

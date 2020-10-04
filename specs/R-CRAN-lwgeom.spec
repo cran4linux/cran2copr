@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Bindings to Selected 'liblwgeom' Functions for Simple Features
 
 License:          GPL-2

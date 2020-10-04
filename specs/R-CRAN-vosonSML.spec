@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.29.13
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Collecting Social Media Data and Generating Networks forAnalysis
 
 License:          GPL (>= 3)

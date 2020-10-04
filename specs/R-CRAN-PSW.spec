@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Propensity Score Weighting Methods for Dichotomous Treatments
 
 License:          GPL (>= 2)

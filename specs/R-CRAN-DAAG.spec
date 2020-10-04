@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.24
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data Analysis and Graphics Data and Functions
 
 License:          GPL-3

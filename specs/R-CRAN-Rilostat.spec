@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          ILO Open Data via Ilostat Bulk Download Facility or SDMX WebService
 
 License:          BSD_2_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.10.28
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Some Additional Multiple Imputation Functions, Especially for'mice'
 
 License:          GPL (>= 2)

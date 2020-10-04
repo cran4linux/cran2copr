@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Quantile, Composite Quantile Regression and Regularized Versions
 
 License:          GPL (>= 2)

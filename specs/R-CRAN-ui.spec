@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Uncertainty Intervals and Sensitivity Analysis for Missing Data
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Convert R Markdown Files to DataCamp Light HTML Files
 
 License:          MIT + file LICENSE

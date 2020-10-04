@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Useful Tools for Structural Equation Modeling
 
 License:          GPL (>= 2)

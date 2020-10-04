@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Microcluster-Based Detector of Anomalies in Edge Streams
 
 License:          Apache License (>= 2)

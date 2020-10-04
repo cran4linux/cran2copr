@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.13
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Robust Geostatistical Analysis of Spatial Data
 
 License:          GPL (>= 2) | LGPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Generalized Linear Mixed Models via Monte Carlo LikelihoodApproximation
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          An Interface for Microclimate Time Series Analysis
 
 License:          GPL (>= 2)

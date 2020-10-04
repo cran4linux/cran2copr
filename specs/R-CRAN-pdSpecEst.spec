@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Analysis Toolbox for Hermitian Positive Definite Matrices
 
 License:          GPL-2

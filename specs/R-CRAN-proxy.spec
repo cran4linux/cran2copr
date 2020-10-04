@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.24
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Distance and Similarity Measures
 
 License:          GPL-2

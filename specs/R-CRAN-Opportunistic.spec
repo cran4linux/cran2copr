@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Routing Distribution, Broadcasts, Transmissions and Receptionsin an Opportunistic Network
 
 License:          GPL (>= 2)

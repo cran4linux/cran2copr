@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Auto-Adaptive Parentage Inference Software Tolerant to MissingParents
 
 License:          GPL

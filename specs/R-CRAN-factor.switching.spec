@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Post-Processing MCMC Outputs of Bayesian Factor Analytic Models
 
 License:          GPL-2

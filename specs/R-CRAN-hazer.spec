@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Identifying Foggy and Cloudy Images by Quantifying Haziness
 
 License:          AGPL-3 | file LICENSE

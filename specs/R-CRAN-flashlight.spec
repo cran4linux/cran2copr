@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Shed Light on Black Box Machine Learning Models
 
 License:          GPL (>= 2)

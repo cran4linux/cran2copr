@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.15
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Poisson-Gamma Additive Models
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.13.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Extension of `data.frame`
 
 License:          MPL-2.0 | file LICENSE

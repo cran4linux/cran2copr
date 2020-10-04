@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Analysis of Subjective Perspectives Using Q Methodology
 
 License:          GPL (>= 2)

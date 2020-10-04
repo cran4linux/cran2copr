@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Bayesian Monotonic Regression Using a Marked Point ProcessConstruction
 
 License:          GPL (>= 2)

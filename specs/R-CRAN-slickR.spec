@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Create Interactive Carousels with the JavaScript 'Slick' Library
 
 License:          MIT + file LICENSE

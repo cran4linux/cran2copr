@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.17
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Patient Rule Induction Method (PRIM)
 
 License:          GPL-2 | GPL-3

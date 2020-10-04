@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Ridit Analysis (An extension of the Kruskal-Wallis Test.)
 
 License:          GPL-2 | GPL-3

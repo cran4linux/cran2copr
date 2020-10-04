@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Genomic Region Processing using Tools Such as 'BEDTools','BEDOPS' and 'Tabix'
 
 License:          GPL-2

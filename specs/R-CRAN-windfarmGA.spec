@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.3
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Genetic Algorithm for Wind Farm Layout Optimization
 
 License:          MIT + file LICENSE

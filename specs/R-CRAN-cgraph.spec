@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Computational Graphs
 
 License:          Apache License 2.0

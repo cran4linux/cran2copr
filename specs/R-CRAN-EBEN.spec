@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Empirical Bayesian Elastic Net
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.6
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of DIF Tests for Multistage Tests
 
 License:          GPL-2 | GPL-3

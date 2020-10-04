@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          An R Front End for 'ACER ConQuest'
 
 License:          GPL-3

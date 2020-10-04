@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bagplots, Boxplots and Rainbow Plots for Functional Data
 
 License:          GPL-3

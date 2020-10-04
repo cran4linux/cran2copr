@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multi-Scale Motions Separation with Kolmogorov-ZurbenkoPeriodogram Signals
 
 License:          GPL (>= 2)

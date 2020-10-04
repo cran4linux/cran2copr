@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Quadratic Programming Solver using the 'OSQP' Library
 
 License:          Apache License 2.0 | file LICENSE

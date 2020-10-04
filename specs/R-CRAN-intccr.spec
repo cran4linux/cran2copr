@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Semiparametric Competing Risks Regression under IntervalCensoring
 
 License:          GPL (>= 2)

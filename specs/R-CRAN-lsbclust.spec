@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Least-Squares Bilinear Clustering for Three-Way Data
 
 License:          GPL (>= 2)

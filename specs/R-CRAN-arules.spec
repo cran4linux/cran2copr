@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Mining Association Rules and Frequent Itemsets
 
 License:          GPL-3

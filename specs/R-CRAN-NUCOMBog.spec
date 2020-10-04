@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          NUtrient Cycling and COMpetition Model Undisturbed Open BogEcosystems in a Temperate to Sub-Boreal Climate
 
 License:          GPL

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simulate Bipartite Graphs with Fixed Marginals ThroughSequential Importance Sampling
 
 License:          GPL (>= 2)

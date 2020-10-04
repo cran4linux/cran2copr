@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Variable Selection for Supervised Classification in HighDimension
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Blind Source Separation and Supervised Dimension Reduction forTime Series
 
 License:          GPL (>= 2)

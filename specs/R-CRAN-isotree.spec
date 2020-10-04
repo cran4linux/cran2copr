@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.18
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Isolation-Based Outlier Detection
 
 License:          BSD_2_clause + file LICENSE

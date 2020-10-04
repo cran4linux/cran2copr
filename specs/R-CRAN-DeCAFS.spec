@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Detecting Changes in Autocorrelated and Fluctuating Signals
 
 License:          GPL (>= 2)

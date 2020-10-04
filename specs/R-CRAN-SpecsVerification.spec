@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Forecast Verification Routines for Ensemble Forecasts of Weatherand Climate
 
 License:          GPL (>= 2)

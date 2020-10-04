@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The Probability of Being in Response Function and Its VarianceEstimates
 
 License:          GPL (>= 2)

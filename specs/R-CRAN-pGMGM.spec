@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimating Multiple Gaussian Graphical Models (GGM) in PenalizedGaussian Mixture Models (GMM)
 
 License:          GPL-2

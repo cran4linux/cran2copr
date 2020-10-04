@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.9
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Best Subset Selection in Linear, Logistic and CoxPH Models
 
 License:          GPL-3

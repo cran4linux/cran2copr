@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modelling Tools for Reproduction and Survival Data inEcotoxicology
 
 License:          GPL (>= 2)

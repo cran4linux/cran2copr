@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Parameter Estimation for the Averaging Model of InformationIntegration Theory
 
 License:          GPL (>= 2)

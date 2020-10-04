@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Modeling via Frequentist Goodness-of-Fit
 
 License:          GPL-2

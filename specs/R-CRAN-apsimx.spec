@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.946
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Inspect, Read, Edit and Run 'APSIM' "Next Generation" and'APSIM' Classic
 
 License:          GPL-3

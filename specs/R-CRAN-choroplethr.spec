@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.7.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Simplify the Creation of Choropleth Maps in R
 
 License:          BSD_3_clause + file LICENSE

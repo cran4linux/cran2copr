@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.9.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Supplementary Distributions
 
 License:          GPL (>= 2)

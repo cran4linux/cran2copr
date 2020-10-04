@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Animate 'shiny' Elements when They Scroll into View using the'scrollrevealjs' Library
 
 License:          MIT + file LICENSE

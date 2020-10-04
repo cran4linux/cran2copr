@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.41
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          3D Scatter Plot
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.12
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Tools to Analyze Repertory Grid Data
 
 License:          GPL (>= 2)

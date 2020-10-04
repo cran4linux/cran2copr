@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Mutual Information Estimation for Gene NetworkReconstruction
 
 License:          AGPL-3

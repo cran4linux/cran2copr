@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.13.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Age-Structured Spatio-Temporal Models for Infectious DiseaseCounts
 
 License:          GPL-2

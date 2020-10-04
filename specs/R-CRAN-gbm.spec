@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.8
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Boosted Regression Models
 
 License:          GPL (>= 2) | file LICENSE

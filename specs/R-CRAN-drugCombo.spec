@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Drug Interaction Modeling Based on Loewe Additivity FollowingHarbron's Approach
 
 License:          GPL-3

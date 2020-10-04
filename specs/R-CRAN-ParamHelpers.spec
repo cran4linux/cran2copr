@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.14
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Helpers for Parameters in Black-Box Optimization, Tuning andMachine Learning
 
 License:          BSD_2_clause + file LICENSE

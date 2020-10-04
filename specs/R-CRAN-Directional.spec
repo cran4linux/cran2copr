@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Directional Statistics
 
 License:          GPL-2

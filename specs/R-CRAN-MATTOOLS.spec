@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Modern Calibration Functions for the Modern Analog Technique(MAT)
 
 License:          GPL (>= 2)

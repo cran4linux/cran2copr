@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Dose-Finding Designs using Pharmacokinetics (PK) forPhase I Clinical Trials
 
 License:          GPL (>= 3) | file LICENSE

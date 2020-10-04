@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Determine Phytoplankton Functional Groups Based on FunctionalTraits
 
 License:          GPL-2 | GPL-3

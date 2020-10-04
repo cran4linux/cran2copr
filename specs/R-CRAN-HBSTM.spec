@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Hierarchical Bayesian Space-Time models for Gaussian space-timedata.
 
 License:          GPL (>= 2.0)

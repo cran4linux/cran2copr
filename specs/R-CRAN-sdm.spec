@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.89
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Species Distribution Modelling
 
 License:          GPL (>= 3)

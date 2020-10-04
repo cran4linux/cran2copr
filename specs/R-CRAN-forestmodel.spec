@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Plots from Regression Models
 
 License:          GPL-2

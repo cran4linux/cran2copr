@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.6
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Install the 'Natverse' Packages from Scratch
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Cleaning Up Messy Files
 
 License:          GPL-3

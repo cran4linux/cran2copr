@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Evaluation of the Proportional Hazards Assumption with aStandardized Score Process
 
 License:          GPL (>= 2.0)

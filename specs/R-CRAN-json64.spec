@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A 'Base64' Encode/Decode Package with Support for JSONOutput/Input and UTF-8
 
 License:          MIT + file LICENSE

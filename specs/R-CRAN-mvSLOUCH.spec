@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Multivariate Stochastic Linear Ornstein-Uhlenbeck Models forPhylogenetic Comparative Hypotheses
 
 License:          GPL (>= 2) | file LICENCE

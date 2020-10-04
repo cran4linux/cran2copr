@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.25
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Create Compact Hash Digests of R Objects
 
 License:          GPL (>= 2)

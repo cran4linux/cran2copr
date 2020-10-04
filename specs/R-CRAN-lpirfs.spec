@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.9
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Local Projections Impulse Response Functions
 
 License:          GPL (>= 2)

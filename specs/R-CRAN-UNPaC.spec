@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Non-Parametric Cluster Significance Testing with Reference to aUnimodal Null Distribution
 
 License:          GPL (>= 2)

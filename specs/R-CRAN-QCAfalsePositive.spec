@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tests for Type I Error in Qualitative Comparative Analysis (QCA)
 
 License:          GPL-3

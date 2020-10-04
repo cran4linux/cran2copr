@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Toy Example of S4 Package
 
 License:          GPL (>= 2)

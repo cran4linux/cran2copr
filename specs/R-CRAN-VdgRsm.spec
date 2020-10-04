@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Plots of Scaled Prediction Variances for Response SurfaceDesigns
 
 License:          GPL (>= 2)

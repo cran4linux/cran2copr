@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A 'shiny' Application for the (Audio-)Visualization of AdverseEvent Profiles
 
 License:          GPL-3

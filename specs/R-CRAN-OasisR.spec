@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.0.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Outright Tool for the Analysis of Spatial Inequalities andSegregation
 
 License:          GPL-2 | GPL-3

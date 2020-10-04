@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Default Color Maps from 'matplotlib' (Lite Version)
 
 License:          MIT + file LICENSE

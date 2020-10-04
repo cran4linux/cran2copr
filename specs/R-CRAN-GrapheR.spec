@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.86
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Multi-Platform GUI for Drawing Customizable Graphs in R
 
 License:          GPL-2

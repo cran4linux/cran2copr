@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Statistical Comparison of Two Networks Based on Three InvarianceMeasures
 
 License:          GPL-2

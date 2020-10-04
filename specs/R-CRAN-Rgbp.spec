@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Hierarchical Modeling and Frequency Method Checking onOverdispersed Gaussian, Poisson, and Binomial Data
 
 License:          GPL-2

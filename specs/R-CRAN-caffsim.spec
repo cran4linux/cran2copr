@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simulation of Plasma Caffeine Concentrations by Using PopulationPharmacokinetic Model
 
 License:          GPL-3 | file LICENSE

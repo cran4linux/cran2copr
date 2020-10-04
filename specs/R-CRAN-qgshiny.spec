@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          A 'shiny' Application for Active Learning Instruction inIntroductory Quantitative Genetics
 
 License:          MIT + file LICENSE

@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Framework for Dimensionality Reduction
 
 License:          GPL-3 | file LICENSE

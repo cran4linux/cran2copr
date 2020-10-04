@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          Numeric and Visual Comparisons of Heterogeneity in ParametricModels
 
 License:          GPL-3

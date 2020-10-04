@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering Big Data using Expectation Maximization Star (EM*)Algorithm
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interface Utilities, Model Templates, Parallel Computing Methodsand Additional Distributions for MCMC Models in JAGS
 
 License:          GPL-2

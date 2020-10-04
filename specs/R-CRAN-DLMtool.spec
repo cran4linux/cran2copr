@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.4.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Data-Limited Methods Toolkit
 
 License:          GPL-2

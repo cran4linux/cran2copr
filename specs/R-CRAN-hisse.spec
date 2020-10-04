@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.8
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Hidden State Speciation and Extinction
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Composable Preprocessing Operators and Pipelines for MachineLearning
 
 License:          BSD_2_clause + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Inference of Chromosome-Length Haplotypes Using Genomic Data ofSingle Gamete Cells
 
 License:          GPL-3

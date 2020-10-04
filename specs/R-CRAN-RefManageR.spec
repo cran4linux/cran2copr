@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.12
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Straightforward 'BibTeX' and 'BibLaTeX' Bibliography Management
 
 License:          GPL-2 | GPL-3 | BSD_3_clause + file LICENSE

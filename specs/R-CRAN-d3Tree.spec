@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Create Interactive Collapsible Trees with the JavaScript 'D3'Library
 
 License:          GPL-2 | GPL-3

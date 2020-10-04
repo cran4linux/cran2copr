@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Two-Step Kernel Ridge Regression for Network Predictions
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.8
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to Download Meteorological (and Hydrological) Datasets
 
 License:          MIT + file LICENSE

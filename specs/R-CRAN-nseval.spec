@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Clean API for Lazy and Non-Standard Evaluation
 
 License:          GPL (>= 2.0)

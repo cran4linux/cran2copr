@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Provides datasets for Introduction to Statistical Data Analysisfor the Life Sciences
 
 License:          GPL-2

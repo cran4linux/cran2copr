@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The Bee Swarm Plot, an Alternative to Stripchart
 
 License:          Artistic-2.0

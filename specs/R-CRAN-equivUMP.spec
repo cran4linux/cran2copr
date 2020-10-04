@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Uniformly Most Powerful Invariant Tests of Equivalence
 
 License:          GPL (>= 2)

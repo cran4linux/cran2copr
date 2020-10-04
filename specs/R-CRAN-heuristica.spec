@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Heuristics Including Take the Best and Unit-Weight Linear
 
 License:          MIT + file LICENSE

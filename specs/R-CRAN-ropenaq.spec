@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.10
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Accesses Air Quality Data from the Open Data Platform OpenAQ
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          C++ Implementations of Phylogenetic Cladogenesis Calculations
 
 License:          GPL (>= 2)

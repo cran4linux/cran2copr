@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nonparametric Tests for Main Effects, Simple Effects andInteraction Effect in a Factorial Design with Censored Data
 
 License:          GPL-2

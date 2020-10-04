@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          9.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistical Methods for the Item Count Technique and ListExperiment
 
 License:          GPL (>= 2)

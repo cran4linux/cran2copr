@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          'MsgPack' C++ Header Files and Interface Functions for R
 
 License:          GPL (>= 2)

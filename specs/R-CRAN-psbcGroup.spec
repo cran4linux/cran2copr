@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Penalized Parametric and Semiparametric Bayesian Survival Modelswith Shrinkage and Grouping Priors
 
 License:          GPL (>= 2)

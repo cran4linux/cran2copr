@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Advanced 'tryCatch()' and 'try()' Functions
 
 License:          GPL-3 | file LICENSE

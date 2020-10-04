@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.10
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced Forest Plot Using 'grid' Graphics
 
 License:          GPL-2

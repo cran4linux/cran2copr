@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Meta-Analysis using Structural Equation Modeling
 
 License:          GPL (>= 2)

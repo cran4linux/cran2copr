@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.15
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Reverse Geocoding with the Photon Geocoder for OpenStreetMap,Google Maps, and Bing
 
 License:          GPL (>= 3.0)

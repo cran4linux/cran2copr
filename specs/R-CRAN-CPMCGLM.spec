@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Correction of the P-Value after Multiple Coding in GeneralizedLinear Models
 
 License:          GPL (> 2)

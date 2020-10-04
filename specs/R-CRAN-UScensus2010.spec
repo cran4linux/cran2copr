@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          US Census 2010 Suite of R Packages
 
 License:          GPL (>= 2)

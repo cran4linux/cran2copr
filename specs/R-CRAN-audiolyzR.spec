@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          audiolyzR: Give your data a listen
 
 License:          GPL-2

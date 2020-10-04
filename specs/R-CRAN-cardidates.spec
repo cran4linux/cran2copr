@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Identification of Cardinal Dates in Ecological Time Series
 
 License:          GPL (>= 2)

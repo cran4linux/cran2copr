@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Non-Parametric Multiple Change-Point Analysis of MultivariateData
 
 License:          GPL (>= 2)

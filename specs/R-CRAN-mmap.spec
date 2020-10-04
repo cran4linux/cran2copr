@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.19
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Map Pages of Memory
 
 License:          GPL-3

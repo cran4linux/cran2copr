@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.24.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Convert R Models to PMML
 
 License:          AGPL-3

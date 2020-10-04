@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.19
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Algorithms for Quantitative Pedology
 
 License:          GPL (>= 3)

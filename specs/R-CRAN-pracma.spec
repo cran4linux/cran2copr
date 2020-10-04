@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Practical Numerical Math Functions
 
 License:          GPL (>= 3)

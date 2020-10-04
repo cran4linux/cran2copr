@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Applications of the Qn Estimator to Time Series (Univariate andMultivariate)
 
 License:          GPL (>= 2)

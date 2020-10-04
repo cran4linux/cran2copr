@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculation of probabilities for inadequate and excessivegestational weight gain
 
 License:          GPL (>= 2)

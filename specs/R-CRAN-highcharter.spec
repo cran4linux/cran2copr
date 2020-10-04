@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper for the 'Highcharts' Library
 
 License:          MIT + file LICENSE

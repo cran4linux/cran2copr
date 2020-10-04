@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.1.23
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Paired Response Curve
 
 License:          GPL (>= 2)

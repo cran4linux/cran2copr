@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.8
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Wavelet Lifting Estimators of the Hurst Exponent for Regularlyand Irregularly Sampled Time Series
 
 License:          GPL-2

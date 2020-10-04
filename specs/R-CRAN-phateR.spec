@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          PHATE - Potential of Heat-Diffusion for Affinity-BasedTransition Embedding
 
 License:          GPL-2 | file LICENSE

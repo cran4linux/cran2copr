@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.45
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Management of GUI Widgets, Windows, and Other GUI Resources
 
 License:          GPL-2

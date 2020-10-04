@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.19.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Create Maps and Visualize Data in 2D and 3D
 
 License:          GPL-3

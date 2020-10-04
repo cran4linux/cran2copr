@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multivariate Nonparametric Cramer-Test for theTwo-Sample-Problem
 
 License:          GPL (>= 2)

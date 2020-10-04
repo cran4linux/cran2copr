@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.6
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Measuring Concreteness in Natural Language
 
 License:          MIT + file LICENSE

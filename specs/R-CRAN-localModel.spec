@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.12
-Release:          4%{?dist}
+Release:          4%{?dist}%{?buildtag}
 Summary:          LIME-Based Explanations with Interpretable Inputs Based onCeteris Paribus Profiles
 
 License:          GPL

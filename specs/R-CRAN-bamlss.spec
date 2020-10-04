@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Additive Models for Location, Scale, and Shape (andBeyond)
 
 License:          GPL-2 | GPL-3

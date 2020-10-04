@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Creating Contact and Social Networks
 
 License:          CC0

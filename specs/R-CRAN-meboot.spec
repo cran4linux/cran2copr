@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.8
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Maximum Entropy Bootstrap for Time Series
 
 License:          GPL (>= 2)

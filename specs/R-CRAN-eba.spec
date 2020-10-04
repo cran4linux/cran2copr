@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Elimination-by-Aspects Models
 
 License:          GPL (>= 2)

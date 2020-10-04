@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Interaction Prediction Between Groundwater and Quarry ExtensionUsing Discrete Choice Models and Artificial Neural Networks
 
 License:          GPL-2

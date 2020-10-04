@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.20
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Univariate Feature Selection and Compound Covariate forPredicting Survival
 
 License:          GPL-2

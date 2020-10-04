@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Fetches Data on Covid-19 Mobility Trends from Different Sources
 
 License:          MIT + file LICENSE

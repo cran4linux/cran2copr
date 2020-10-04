@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates the Minimum Sample Size Required for Developing aMultivariable Prediction Model
 
 License:          GPL (>= 3)

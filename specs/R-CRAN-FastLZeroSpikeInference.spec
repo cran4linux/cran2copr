@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2018.12.10
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fast Nonconvex Deconvolution of Calcium Imaging Data
 
 License:          GPL-3

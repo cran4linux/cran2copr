@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Data Sets from Ramsey and Schafer's "Statistical Sleuth (2ndEd)"
 
 License:          GPL (>= 2)

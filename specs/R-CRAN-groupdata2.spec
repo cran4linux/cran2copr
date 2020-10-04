@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Creating Groups from Data
 
 License:          MIT + file LICENSE

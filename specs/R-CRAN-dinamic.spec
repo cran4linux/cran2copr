@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          DiNAMIC A Method To Analyze Recurrent DNA Copy NumberAberrations in Tumors
 
 License:          GPL-2

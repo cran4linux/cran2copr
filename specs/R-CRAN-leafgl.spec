@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          High-Performance 'WebGl' Rendering for Package 'leaflet'
 
 License:          MIT + file LICENSE

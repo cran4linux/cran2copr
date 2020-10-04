@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.18.7.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Robustified t-Test
 
 License:          GPL-2 | GPL-3

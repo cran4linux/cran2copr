@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          An Adaptive Test on High Dimensional Parameters in GeneralizedLinear Models
 
 License:          GPL-2

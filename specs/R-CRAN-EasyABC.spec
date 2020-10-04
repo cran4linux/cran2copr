@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Efficient Approximate Bayesian Computation Sampling Schemes
 
 License:          GPL-3

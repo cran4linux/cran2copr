@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Missing Item Responses Imputation for Test and Assessment Data
 
 License:          GPL (>= 2)

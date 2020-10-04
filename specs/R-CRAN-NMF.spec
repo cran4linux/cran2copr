@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.21.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Algorithms and Framework for Nonnegative Matrix Factorization(NMF)
 
 License:          GPL (>= 2)

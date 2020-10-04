@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Connectivity to 'Alfresco' Content Management Repositories
 
 License:          GPL-3 | file LICENSE

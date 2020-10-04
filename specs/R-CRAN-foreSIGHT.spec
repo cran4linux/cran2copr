@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.81
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Systems Insights from Generation of Hydroclimatic Timeseries
 
 License:          GPL-3

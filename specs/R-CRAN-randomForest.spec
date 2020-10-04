@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.6.14
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Breiman and Cutler's Random Forests for Classification andRegression
 
 License:          GPL (>= 2)

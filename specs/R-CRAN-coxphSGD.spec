@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Stochastic Gradient Descent log-Likelihood Estimation in CoxProportional Hazards Model
 
 License:          GPL-2

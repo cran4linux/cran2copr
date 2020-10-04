@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Regularized and Sparse Generalized Canonical CorrelationAnalysis for Multiblock Data
 
 License:          GPL (>= 2)

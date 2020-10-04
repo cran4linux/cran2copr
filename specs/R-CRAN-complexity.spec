@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Calculate the Proportion of Permutations in Line with anInformative Hypothesis
 
 License:          GPL (>= 2)

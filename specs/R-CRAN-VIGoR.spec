@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Variational Bayesian Inference for Genome-Wide Regression
 
 License:          MIT + file LICENSE

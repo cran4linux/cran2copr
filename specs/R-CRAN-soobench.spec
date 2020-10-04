@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.9.18
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Single Objective Optimization Benchmark Functions
 
 License:          BSD_2_clause + file LICENSE

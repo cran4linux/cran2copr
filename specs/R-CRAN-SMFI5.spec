@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R functions and data from Chapter 5 of 'Statistical Methods forFinancial Engineering'
 
 License:          GPL (>= 2)

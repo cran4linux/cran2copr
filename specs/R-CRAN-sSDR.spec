@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools Developed for Structured Sufficient Dimension Reduction(sSDR)
 
 License:          GPL (>= 2)

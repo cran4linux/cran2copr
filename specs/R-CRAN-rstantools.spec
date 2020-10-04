@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Tools for Developing R Packages Interfacing with 'Stan'
 
 License:          GPL (>= 3)

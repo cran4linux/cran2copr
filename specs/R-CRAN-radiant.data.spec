@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.10
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Data Menu for Radiant: Business Analytics using R and Shiny
 
 License:          AGPL-3 | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Plackett-Luce Models for Rankings
 
 License:          GPL-3

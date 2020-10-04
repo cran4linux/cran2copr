@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Estimation of the Derivatives of a RegressionFunction
 
 License:          GPL (>= 2)

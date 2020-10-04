@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Semiparametric Factor and Regression Models for SymmetricRelational Data
 
 License:          GPL-2

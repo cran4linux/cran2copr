@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Prometheus' Client for R Using the 'OpenMetrics' Format
 
 License:          MIT + file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Identification of Dichotomous Differential Item Functioning(DIF) using Angoff's Delta Plot Method
 
 License:          GPL (>= 2)

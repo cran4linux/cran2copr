@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.11
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Structural Equation Models
 
 License:          GPL (>= 2)

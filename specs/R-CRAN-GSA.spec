@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.03.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Gene Set Analysis
 
 License:          LGPL

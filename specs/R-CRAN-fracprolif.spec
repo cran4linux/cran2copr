@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Fraction Proliferation via a Quiescent Growth Model
 
 License:          GPL-2 | file LICENSE

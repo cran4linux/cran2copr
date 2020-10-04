@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          An Interface to the 'AutoDesk' 'API' Platform
 
 License:          Apache License | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Finding Cancer Driver Proteins with Enriched Mutations inPost-Translational Modification Sites
 
 License:          GPL (>= 2)

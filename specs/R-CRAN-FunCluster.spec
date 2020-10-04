@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.09
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Functional Profiling of Microarray Expression Data
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Basketball Data
 
 License:          GPL (>= 2.0)

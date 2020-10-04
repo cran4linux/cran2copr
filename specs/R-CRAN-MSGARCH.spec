@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.42
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Markov-Switching GARCH Models
 
 License:          GPL (>= 2)

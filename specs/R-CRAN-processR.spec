@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Implementation of the 'PROCESS' Macro
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.6
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Calculation of Region-Specific Fixation Index to DetectLocal Adaptation
 
 License:          GPL-2

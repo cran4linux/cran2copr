@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.6
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Disease-Drived Differential Proteins Co-Expression NetworkAnalysis
 
 License:          GPL-2

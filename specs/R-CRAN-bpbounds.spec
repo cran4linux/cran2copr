@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nonparametric Bounds for the Average Causal Effect Due to Balkeand Pearl and Extensions
 
 License:          GPL-3

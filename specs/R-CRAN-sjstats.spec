@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.18.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Collection of Convenient Functions for Common StatisticalComputations
 
 License:          GPL-3

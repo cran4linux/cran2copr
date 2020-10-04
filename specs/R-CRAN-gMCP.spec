@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.15
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Graph Based Multiple Comparison Procedures
 
 License:          GPL (>= 2)

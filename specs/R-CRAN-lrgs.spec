@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Regression by Gibbs Sampling
 
 License:          MIT + file LICENSE

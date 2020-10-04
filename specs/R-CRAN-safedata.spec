@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.7
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to Data from the SAFE Project
 
 License:          GPL-3

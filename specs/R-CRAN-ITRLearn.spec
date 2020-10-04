@@ -5,7 +5,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Statistical Learning for Individualized Treatment Regime
 
 License:          GPL-2

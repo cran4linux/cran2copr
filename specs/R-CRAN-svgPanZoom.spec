@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R 'Htmlwidget' to Add Pan and Zoom to Almost any R Graphic
 
 License:          MIT + file LICENSE

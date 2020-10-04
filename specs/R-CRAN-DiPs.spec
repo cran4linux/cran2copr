@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Directional Penalties for Optimal Matching in ObservationalStudies
 
 License:          MIT+file LICENSE

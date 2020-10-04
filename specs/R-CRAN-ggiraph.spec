@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.8
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Make 'ggplot2' Graphics Interactive
 
 License:          GPL-3

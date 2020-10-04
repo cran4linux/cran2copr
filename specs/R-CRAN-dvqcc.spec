@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Dynamic VAR - Based Control Charts for Batch Process Monitoring
 
 License:          GPL-3

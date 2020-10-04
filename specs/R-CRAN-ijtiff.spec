@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.2.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive TIFF I/O with Full Support for 'ImageJ' TIFF Files
 
 License:          GPL-3

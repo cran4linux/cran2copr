@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.27
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimation of optimal number of biomarkers for two-groupmicroarray based classifications at a given error tolerancelevel for various classification rules
 
 License:          GPL (>= 2)

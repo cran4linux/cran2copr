@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.7
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Routines for Writing Greek Letters and Mathematical Symbols onthe 'RStudio' and 'RGui'
 
 License:          GPL (>= 3.0)

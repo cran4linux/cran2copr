@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Construction and Analysis of Matrix Population Models
 
 License:          GPL-3

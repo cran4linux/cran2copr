@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          General-Purpose MCMC and SMC Samplers and Tools for BayesianStatistics
 
 License:          GPL-3

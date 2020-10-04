@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.29
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Tools of the Trade for Discriminant Analysis
 
 License:          GPL-3

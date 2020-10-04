@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Build Machine Learning Models Like Using Python's Scikit-LearnLibrary in R
 
 License:          GPL-3 | file LICENSE

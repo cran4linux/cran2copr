@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Convert R Graphics to Flash Animations
 
 License:          GPL-2

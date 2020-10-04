@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimate Streamflow Depletion Due to Groundwater Pumping
 
 License:          BSD_3_clause + file LICENSE

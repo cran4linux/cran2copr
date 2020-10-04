@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.5
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          An Easy Way to Report ROC Analysis
 
 License:          GPL-3

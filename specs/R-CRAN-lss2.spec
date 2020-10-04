@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          The Accelerated Failure Time Model to Right Censored Data Basedon Least-Squares Principle
 
 License:          GPL (>= 2)

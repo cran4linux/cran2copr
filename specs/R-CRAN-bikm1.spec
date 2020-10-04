@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Co-Clustering Adjusted Rand Index and Bikm1 Procedure forContingency and Binary Data-Sets
 
 License:          GPL-2

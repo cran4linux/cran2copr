@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Stochastic Rainfall Generator Bartlett-Lewis Rectangular PulseModel
 
 License:          GPL (>= 2)

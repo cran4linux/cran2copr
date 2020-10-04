@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Crosstab and Statistical Tests for OII MSc Stats Course
 
 License:          MIT + file LICENSE

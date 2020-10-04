@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.2.0.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Subpopulation Treatment Effect Pattern Plot (STEPP)
 
 License:          GPL (>= 2)

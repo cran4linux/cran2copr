@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.8.5
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Sensitivity Analysis for Comparative Methods
 
 License:          GPL-2

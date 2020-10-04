@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          selects significant non-additive interaction between twovariables using fast GLM implementation.
 
 License:          GPL-2

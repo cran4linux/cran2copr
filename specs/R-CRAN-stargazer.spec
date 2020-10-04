@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.2.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Well-Formatted Regression and Summary Statistics Tables
 
 License:          GPL (>= 2)

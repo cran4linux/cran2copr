@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.12
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Constrained Inference for Linear Mixed Effects Models
 
 License:          GPL-3

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Forecasting Using State Space Models
 
 License:          GPL (>= 2)

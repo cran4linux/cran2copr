@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Searching for Optimal MDS Procedure for Metric andInterval-Valued Data
 
 License:          GPL (>= 2)

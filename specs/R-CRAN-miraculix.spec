@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.20
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Algebraic and Statistical Functions for Genetics
 
 License:          GPL (>= 3)

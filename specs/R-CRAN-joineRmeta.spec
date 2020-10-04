@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Joint Modelling for Meta-Analytic (Multi-Study) Data
 
 License:          GPL-3 | file LICENSE

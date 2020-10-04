@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          MCMC Sampling from 'TMB' Model Object using 'Stan'
 
 License:          GPL (>= 3)

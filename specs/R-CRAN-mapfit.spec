@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          A Tool for PH/MAP Parameter Estimation
 
 License:          GPL (>= 2)

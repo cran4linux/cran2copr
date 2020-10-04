@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Data and Code Behind the Stories and Interactives at'FiveThirtyEight'
 
 License:          MIT + file LICENSE

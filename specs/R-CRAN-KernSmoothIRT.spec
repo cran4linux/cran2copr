@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          6.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Nonparametric Item Response Theory
 
 License:          GPL-2

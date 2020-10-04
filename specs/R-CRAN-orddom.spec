@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Ordinal Dominance Statistics
 
 License:          GPL-2

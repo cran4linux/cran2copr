@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          EM Algorithm for Maximum Likelihood Estimation by Non-PreciseInformation
 
 License:          LGPL (>= 3)

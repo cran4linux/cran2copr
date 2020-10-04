@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.16.1.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          'Asio' C++ Header Files
 
 License:          BSL-1.0

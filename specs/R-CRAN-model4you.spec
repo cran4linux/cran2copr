@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Stratified and Personalised Models Based on Model-Based Treesand Forests
 
 License:          GPL-2 | GPL-3

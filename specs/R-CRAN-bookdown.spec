@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.20
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Authoring Books and Technical Documents with R Markdown
 
 License:          GPL-3

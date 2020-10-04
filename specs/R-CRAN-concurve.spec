@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.5.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Computes and Plots Compatibility (Confidence) Intervals,P-Values, S-Values, & Likelihood Intervals to Form Consonance,Surprisal, & Likelihood Functions
 
 License:          GPL-3 | file LICENSE

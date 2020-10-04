@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Forecasting Long-Term Growth of the U.S. Stock Market andBusiness Cycles
 
 License:          Artistic-2.0

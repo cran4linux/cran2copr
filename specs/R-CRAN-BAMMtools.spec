@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.7
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Macroevolutionary Dynamics onPhylogenetic Trees
 
 License:          GPL (>= 2)

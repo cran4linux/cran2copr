@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          3.1.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          'SBML' Integration in Package 'Sybil'
 
 License:          GPL-3 | file LICENSE

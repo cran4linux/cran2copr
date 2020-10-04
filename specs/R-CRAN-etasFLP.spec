@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed FLP and ML Estimation of ETAS Space-Time Point Processesfor Earthquake Description
 
 License:          GPL (>= 2)

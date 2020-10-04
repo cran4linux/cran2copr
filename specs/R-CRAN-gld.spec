@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.6.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Estimation and Use of the Generalised (Tukey) LambdaDistribution
 
 License:          GPL (>= 2)

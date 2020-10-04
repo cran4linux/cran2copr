@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          R-Squared Measure Based on Partial LR Statistic, for the Cox PHRegression Model
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Summarizes Provenance Related to Inputs and Outputs of a Scriptor Console Commands
 
 License:          GPL-3 | file LICENSE

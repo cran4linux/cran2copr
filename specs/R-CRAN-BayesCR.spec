@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.1
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis of Censored Regression Models Under ScaleMixture of Skew Normal Distributions
 
 License:          GPL-3

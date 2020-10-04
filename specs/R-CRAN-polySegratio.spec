@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Simulate and Test Marker Dosage for Dominant Markers inAutopolyploids
 
 License:          GPL-3

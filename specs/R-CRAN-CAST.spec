@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4.2
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          'caret' Applications for Spatial-Temporal Models
 
 License:          GPL (>= 3) | file LICENSE

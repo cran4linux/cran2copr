@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Reweighted Marginal Hypothesis Tests for Clustered Data
 
 License:          MIT + file LICENSE

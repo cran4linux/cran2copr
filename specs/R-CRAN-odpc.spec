@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.0.3
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          One-Sided Dynamic Principal Components
 
 License:          GPL (>= 2)

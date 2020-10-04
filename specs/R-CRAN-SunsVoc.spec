@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Constructing Suns-Voc from Outdoor Time-Series I-V Curves
 
 License:          BSD_3_clause + file LICENSE

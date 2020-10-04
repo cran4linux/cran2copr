@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Imprecise Dirichlet Process for Survival Analysis
 
 License:          GPL (>= 3) | file LICENSE

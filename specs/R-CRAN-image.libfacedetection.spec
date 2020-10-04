@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Convolutional Neural Network for Face Detection
 
 License:          BSD_3_clause + file LICENSE

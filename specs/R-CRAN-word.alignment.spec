@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Computing Word Alignment Using IBM Model 1 (and Symmetrization)for a Given Parallel Corpus and Its Evaluation
 
 License:          GPL (>= 2)

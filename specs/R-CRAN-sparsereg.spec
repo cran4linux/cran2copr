@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sparse Bayesian Models for Regression, Subgroup Analysis, andPanel Data
 
 License:          GPL (>= 2)

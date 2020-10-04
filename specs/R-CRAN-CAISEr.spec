@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.16
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Comparison of Algorithms with Iterative Sample Size Estimation
 
 License:          GPL-2

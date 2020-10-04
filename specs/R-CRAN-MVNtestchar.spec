@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Test for Multivariate Normal Distribution Based on aCharacterization
 
 License:          GPL (>= 2)

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.3.21
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Gaussian Linear Models with Linear Covariance Structure
 
 License:          GPL-2

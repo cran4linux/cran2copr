@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.31
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Run Reports, Models, and Scripts from a Mobile Device
 
 License:          GPL-3

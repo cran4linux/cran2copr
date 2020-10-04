@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          MCMC, Particle Filtering, and Programmable Hierarchical Modeling
 
 License:          BSD_3_clause + file LICENSE | GPL (>= 2)

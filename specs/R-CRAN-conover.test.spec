@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Conover-Iman Test of Multiple Comparisons Using Rank Sums
 
 License:          GPL-2

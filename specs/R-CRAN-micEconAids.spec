@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.6.18
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Demand Analysis with the Almost Ideal Demand System (AIDS)
 
 License:          GPL (>= 2)

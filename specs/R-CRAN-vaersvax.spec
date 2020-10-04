@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          US Vaccine Adverse Event Reporting System (VAERS) Vaccine Datafor Present
 
 License:          CC0

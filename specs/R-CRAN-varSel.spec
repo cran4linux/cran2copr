@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Sequential Forward Floating Selection using Jeffries-MatusitaDistance
 
 License:          GPL-3

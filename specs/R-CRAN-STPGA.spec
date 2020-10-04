@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          5.2.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Selection of Training Populations by Genetic Algorithm
 
 License:          GPL-3

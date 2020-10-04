@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.73.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Latent Semantic Analysis
 
 License:          GPL (>= 2)

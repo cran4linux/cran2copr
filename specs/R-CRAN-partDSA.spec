@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9.14
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Partitioning Using Deletion, Substitution, and Addition Moves
 
 License:          GPL-2

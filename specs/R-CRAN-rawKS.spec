@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Easily Get True-Positive Rate and False-Positive Rate and KSStatistic
 
 License:          MIT + file LICENSE

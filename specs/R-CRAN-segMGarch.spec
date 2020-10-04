@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Multiple Change-Point Detection for High-Dimensional GARCHProcesses
 
 License:          GPL (>= 2)

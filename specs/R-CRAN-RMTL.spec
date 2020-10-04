@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.9
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Regularized Multi-Task Learning
 
 License:          GPL-3

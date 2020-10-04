@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2.4
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Plot and add custom coloring to Venn diagrams for 2-dimensional,3-dimensional and 4-dimensional data.
 
 License:          GPL-2

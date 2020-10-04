@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.5.2
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Recurrent Event Data Analysis
 
 License:          GPL (>= 3)

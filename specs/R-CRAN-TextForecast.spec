@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Regression Analysis and Forecasting Using Textual Data from aTime-Varying Dictionary
 
 License:          GPL-3

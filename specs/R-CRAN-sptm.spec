@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          2019.11.25
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          SemiParametric Transformation Model Methods
 
 License:          GPL (>= 2)

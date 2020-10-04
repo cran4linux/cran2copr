@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Convert Dates to MMWR Day, Week, and Year
 
 License:          GPL (>= 2) | file LICENSE

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.4
-Release:          2%{?dist}
+Release:          2%{?dist}%{?buildtag}
 Summary:          Structural Equation Modeling Using the Reticular Action Model(RAM) Notation
 
 License:          GPL-2

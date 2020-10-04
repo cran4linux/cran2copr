@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Network Assisted Algorithm for Epigenetic Studies Using Mean andVariance Combined Signals
 
 License:          GPL-2

@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          4.5
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Software to perform Haar Fisz transforms
 
 License:          GPL (>= 2)

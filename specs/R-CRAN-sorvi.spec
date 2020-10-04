@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          0.7.26
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Finnish Open Government Data Toolkit
 
 License:          BSD_2_clause + file LICENSE

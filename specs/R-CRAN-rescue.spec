@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Imputation for Single-Cell RNA-Seq Data
 
 License:          GPL-2 | GPL-3

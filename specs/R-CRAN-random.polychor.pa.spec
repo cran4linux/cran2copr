@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.4.4
-Release:          1%{?dist}
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Parallel Analysis with Polychoric Correlation Matrices
 
 License:          GPL (>= 2)

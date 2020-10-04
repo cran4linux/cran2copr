@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.9
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Finds "Local Subnetworks" Within an Interaction Network whichShow Enrichment for Differentially Expressed Genes
 
 License:          GPL-3

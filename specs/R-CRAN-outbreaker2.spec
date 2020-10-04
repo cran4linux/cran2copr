@@ -4,7 +4,7 @@
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
-Release:          3%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Bayesian Reconstruction of Disease Outbreaks by CombiningEpidemiologic and Genomic Data
 
 License:          MIT + file LICENSE
