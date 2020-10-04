@@ -1,30 +1,25 @@
-%global packname  textshaping
-%global packver   0.1.1
+%global packname  KernSmooth
+%global packver   2.23-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.23.17
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings to the 'HarfBuzz' and 'Fribidi' Libraries for Text Shaping
+Summary:          Functions for Kernel Smoothing Supporting Wand & Jones (1995)
 
-License:          MIT + file LICENSE
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    harfbuzz-devel
-BuildRequires:    fribidi-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-systemfonts >= 0.3.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-systemfonts >= 0.3.0
+BuildRequires:    R-devel >= 2.5.0
+Requires:         R-core >= 2.5.0
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides access to the text shaping functionality in the 'HarfBuzz'
-library and the bidirectional algorithm in the 'Fribidi' library.
-'textshaping' is a low-level utility package mainly for graphic devices
-that expands upon the font tool-set provided by the 'systemfonts' package.
+Functions for kernel smoothing (and density estimation) corresponding to
+the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
 
 %prep
 %setup -q -c -n %{packname}

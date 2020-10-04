@@ -1,30 +1,30 @@
-%global packname  textshaping
-%global packver   0.1.1
+%global packname  nlme
+%global packver   3.1-149
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          3.1.149
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings to the 'HarfBuzz' and 'Fribidi' Libraries for Text Shaping
+Summary:          Linear and Nonlinear Mixed Effects Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2) | file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    harfbuzz-devel
-BuildRequires:    fribidi-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-systemfonts >= 0.3.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-systemfonts >= 0.3.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-lattice 
 
 %description
-Provides access to the text shaping functionality in the 'HarfBuzz'
-library and the bidirectional algorithm in the 'Fribidi' library.
-'textshaping' is a low-level utility package mainly for graphic devices
-that expands upon the font tool-set provided by the 'systemfonts' package.
+Fit and compare Gaussian linear and nonlinear mixed-effects models.
 
 %prep
 %setup -q -c -n %{packname}

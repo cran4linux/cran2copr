@@ -1,43 +1,37 @@
-%global packname  densEstBayes
-%global packver   1.0-1
+%global packname  Matrix
+%global packver   1.2-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Density Estimation via Bayesian Inference Engines
+Summary:          Sparse and Dense Matrix Classes and Methods
 
-License:          GPL (>= 2)
+License:          GPL (>= 2) | file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstantools
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-MASS 
-BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-StanHeaders 
-Requires:         R-MASS 
-Requires:         R-nlme 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lattice 
 Requires:         R-methods 
-Requires:         R-CRAN-rstan 
+Requires:         R-graphics 
+Requires:         R-grid 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-lattice 
 
 %description
-Bayesian density estimates for univariate continuous random samples are
-provided using the Bayesian inference engine paradigm. The engine options
-are: Hamiltonian Monte Carlo, the no U-turn sampler, semiparametric mean
-field variational Bayes and slice sampling. The methodology is described
-in Wand and Yu (2020) <arXiv:2009.06182>.
+A rich hierarchy of matrix classes, including triangular, symmetric, and
+diagonal matrices, both dense and sparse and with pattern, logical and
+numeric entries.  Numerous methods for and operations on these matrices,
+using 'LAPACK' and 'SuiteSparse' libraries.
 
 %prep
 %setup -q -c -n %{packname}

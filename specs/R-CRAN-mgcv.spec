@@ -1,43 +1,42 @@
-%global packname  densEstBayes
-%global packver   1.0-1
+%global packname  mgcv
+%global packver   1.8-33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.8.33
 Release:          1%{?dist}%{?buildtag}
-Summary:          Density Estimation via Bayesian Inference Engines
+Summary:          Mixed GAM Computation Vehicle with Automatic Smoothness Estimation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstantools
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-MASS 
-BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
+BuildRequires:    R-CRAN-nlme >= 3.1.64
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-StanHeaders 
-Requires:         R-MASS 
-Requires:         R-nlme 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-splines 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-nlme >= 3.1.64
 Requires:         R-methods 
-Requires:         R-CRAN-rstan 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-Matrix 
+Requires:         R-splines 
+Requires:         R-utils 
 
 %description
-Bayesian density estimates for univariate continuous random samples are
-provided using the Bayesian inference engine paradigm. The engine options
-are: Hamiltonian Monte Carlo, the no U-turn sampler, semiparametric mean
-field variational Bayes and slice sampling. The methodology is described
-in Wand and Yu (2020) <arXiv:2009.06182>.
+Generalized additive (mixed) models, some of their extensions and other
+generalized ridge regression with multiple smoothing parameter estimation
+by (Restricted) Marginal Likelihood, Generalized Cross Validation and
+similar, or using iterated nested Laplace approximation for fully Bayesian
+inference. See Wood (2017) <doi:10.1201/9781315370279> for an overview.
+Includes a gam() function, a wide variety of smoothers, 'JAGS' support and
+distributions beyond the exponential family.
 
 %prep
 %setup -q -c -n %{packname}

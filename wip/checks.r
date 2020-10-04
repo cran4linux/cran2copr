@@ -6,7 +6,7 @@ check_copr()
 chroots <- get_chroots()
 df.mon <- get_monitor()
 
-i <- 3
+i <- 2
 df.fail <- subset_failed(df.mon[, c("Package", chroots[i])])
 df.fail.common <- subset_failed(df.mon[, c("Package", chroots[2:3])])
 no.common <- !df.fail$Package %in% df.fail.common$Package
@@ -23,6 +23,7 @@ url <- get_url_builds(list(ids, df.fail$Package), chroots[i])
 # create_spec("pexm")
 # sapply(df.fail$Package, build_pkg, chroots[i])
 pkgs <- unlist(get_build_list(sub("R-CRAN-", "", df.fail$Package)))
+# sapply(paste0("https://copr.fedorainfracloud.org/coprs/iucar/cran/package/R-CRAN-", pkgs), browseURL)
 sapply(paste0("R-CRAN-", pkgs), build_pkg, chroots[i])
 
 # search for packages in rawhide built against v3.6.3

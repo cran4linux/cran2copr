@@ -97,7 +97,7 @@ available_packages <- function(...) {
 with_deps <- function(pkgs, cran=available_packages(), reverse=FALSE) {
   if (!length(pkgs)) return(list())
 
-  base <- rownames(installed.packages(priority="high"))
+  base <- rownames(installed.packages(priority="base"))
   excl <- unlist(sapply(dir(pattern="excl-.*\\.txt"), readLines))
   if (!is.null(excl))
     excl <- sapply(strsplit(excl, " "), head, 1)
@@ -141,7 +141,7 @@ with_deps <- function(pkgs, cran=available_packages(), reverse=FALSE) {
 }
 
 get_build_list <- function(pkgs, cran=available_packages()) {
-  base <- rownames(installed.packages(priority="high"))
+  base <- rownames(installed.packages(priority="base"))
   pkgs <- lapply(tools::package_dependencies(pkgs, db=cran), setdiff, base)
   pkgs <- lapply(Filter(Negate(is.null), pkgs), intersect, names(pkgs))
 
@@ -237,10 +237,13 @@ pkg_deps <- function(desc, cran=available_packages()) {
   x <- .sys_deps(desc)
   deps <- .r_deps(desc, cran)
 
+  if ("rstan" %in% deps$pkg)
+    deps <- rbind(deps, c(pkg="rstantools", ver=""))
+
   rdep <- deps$pkg == "R"
   rver <- deps[rdep, "ver"]
   deps <- deps[!rdep,]
-  inbase <- deps$pkg %in% rownames(installed.packages(priority="high"))
+  inbase <- deps$pkg %in% rownames(installed.packages(priority="base"))
   deps$pkg[inbase] <- paste0("R-", deps$pkg[inbase])
   deps$pkg[!inbase] <- paste0(getOption("copr.prefix"), deps$pkg[!inbase])
 
@@ -305,7 +308,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
     rgeolocate = "echo \"PKG_LIBS += -lrt\" >> %{packname}/src/Makevars.in",
     h2o = "cp %{SOURCE1} %{packname}/inst/java",
     nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=,ndl=,scrobbler=,
-    chromoR=,uavRmp=,SoilR=,dynwrap=,RcppRedis=,protViz=,PRISMA=paste(
+    chromoR=,SoilR=,dynwrap=,RcppRedis=,protViz=,PRISMA=paste(
       "find %{packname} -type f -exec",
       "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
     shinyAce=, googleComputeEngineR =
@@ -326,7 +329,12 @@ pkg_exceptions <- function(tpl, pkg, path) {
     rgexf = "sed -i '/system.file/d' %{packname}/man/plot.gexf.Rd",
     svSocket = paste(
       "find %{packname} -type f -exec",
-      "sed -Ei 's@/bin/tclsh8.4@/bin/tclsh@g' {} \\;")
+      "sed -Ei 's@/bin/tclsh8.4@/bin/tclsh@g' {} \\;"),
+    datasailr = "autoreconf -i %{packname}/src/Onigmo",
+    uavRmp = paste0(
+      "sed -i '1d' %{packname}/inst/python/io_solo_params_community.py\n",
+      "find %{packname} -type f -exec ",
+      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;")
   ))
 
   # install

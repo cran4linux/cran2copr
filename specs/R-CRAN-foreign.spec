@@ -1,43 +1,30 @@
-%global packname  densEstBayes
-%global packver   1.0-1
+%global packname  foreign
+%global packver   0.8-80
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.8.80
 Release:          1%{?dist}%{?buildtag}
-Summary:          Density Estimation via Bayesian Inference Engines
+Summary:          Read Data Stored by 'Minitab', 'S', 'SAS', 'SPSS', 'Stata', 'Systat', 'Weka', 'dBase', ...
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstantools
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-MASS 
-BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-StanHeaders 
-Requires:         R-MASS 
-Requires:         R-nlme 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-rstan 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Bayesian density estimates for univariate continuous random samples are
-provided using the Bayesian inference engine paradigm. The engine options
-are: Hamiltonian Monte Carlo, the no U-turn sampler, semiparametric mean
-field variational Bayes and slice sampling. The methodology is described
-in Wand and Yu (2020) <arXiv:2009.06182>.
+Reading and writing data stored by some versions of 'Epi Info', 'Minitab',
+'S', 'SAS', 'SPSS', 'Stata', 'Systat', 'Weka', and for reading and writing
+some 'dBase' files.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,36 @@
-%global packname  densEstBayes
-%global packver   1.0-1
+%global packname  survival
+%global packver   3.2-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          3.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Density Estimation via Bayesian Inference Engines
+Summary:          Survival Analysis
 
-License:          GPL (>= 2)
+License:          LGPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstantools
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-MASS 
-BuildRequires:    R-nlme 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-StanHeaders 
-Requires:         R-MASS 
-Requires:         R-nlme 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-rstan 
+Requires:         R-splines 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Bayesian density estimates for univariate continuous random samples are
-provided using the Bayesian inference engine paradigm. The engine options
-are: Hamiltonian Monte Carlo, the no U-turn sampler, semiparametric mean
-field variational Bayes and slice sampling. The methodology is described
-in Wand and Yu (2020) <arXiv:2009.06182>.
+Contains the core survival analysis routines, including definition of Surv
+objects, Kaplan-Meier and Aalen-Johansen (multi-state) curves, Cox models,
+and parametric accelerated failure time models.
 
 %prep
 %setup -q -c -n %{packname}

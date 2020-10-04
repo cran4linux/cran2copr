@@ -1,30 +1,32 @@
-%global packname  textshaping
-%global packver   0.1.1
+%global packname  cluster
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings to the 'HarfBuzz' and 'Fribidi' Libraries for Text Shaping
+Summary:          "Finding Groups in Data": Cluster Analysis Extended Rousseeuw et al.
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    harfbuzz-devel
-BuildRequires:    fribidi-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-systemfonts >= 0.3.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-systemfonts >= 0.3.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides access to the text shaping functionality in the 'HarfBuzz'
-library and the bidirectional algorithm in the 'Fribidi' library.
-'textshaping' is a low-level utility package mainly for graphic devices
-that expands upon the font tool-set provided by the 'systemfonts' package.
+Methods for Cluster analysis.  Much extended the original from Peter
+Rousseeuw, Anja Struyf and Mia Hubert, based on Kaufman and Rousseeuw
+(1990) "Finding Groups in Data".
 
 %prep
 %setup -q -c -n %{packname}
