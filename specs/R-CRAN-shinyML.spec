@@ -1,11 +1,11 @@
 %global packname  shinyML
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compare H20 or Spark Supervised Regression Models Using Shiny App
+Summary:          Compare Supervised Machine Learning Models Using Shiny App
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,6 +18,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.0.3
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-argonDash 
+BuildRequires:    R-CRAN-argonR 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-h2o 
 BuildRequires:    R-CRAN-shinyWidgets 
@@ -28,9 +31,15 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-shiny >= 1.0.3
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-argonDash 
+Requires:         R-CRAN-argonR 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-h2o 
 Requires:         R-CRAN-shinyWidgets 
@@ -41,15 +50,17 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-graphics 
 
 %description
-Implementation of a shiny app to easily compare supervised regression
-model performances. You provide the data and configure each model
-parameter directly on the shiny app. Four main supervised learning
+Implementation of a shiny app to easily compare supervised machine
+learning model performances. You provide the data and configure each model
+parameter directly on the shiny app. Different supervised learning
 algorithms can be tested either on Spark or H2O frameworks to suit your
-regression problem on a given time series. Implementation of these time
-series forecasting methods on R has been done by Shmueli and Lichtendahl
-(2015, ISBN:0991576632).
+regression and classification tasks. Implementation of available machine
+learning models on R has been done by Lantz (2013, ISBN:9781782162148).
 
 %prep
 %setup -q -c -n %{packname}

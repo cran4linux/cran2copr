@@ -1,10 +1,10 @@
 %global packname  BetaBit
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
-Release:          3%{?dist}
+Version:          1.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Mini Games from Adventures of Beta and Bit
 
 License:          GPL-2
@@ -32,11 +32,14 @@ This time seven sub-tasks are pushing the bar much higher. Do you accept
 the challenge? In regression you will test your modeling skills in a
 series of eight sub-tasks. Try only if ANOVA is your close friend. It's a
 part of Beta and Bit project. You will find more about the Beta and Bit
-project at <http://betabit.wiki>.
+project at <https://betabit.wiki>.
 
 %prep
 %setup -q -c -n %{packname}
 
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 
 %build
 
@@ -46,14 +49,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,13 +1,13 @@
-%global packname  mscstts
-%global packver   0.6.1
+%global packname  collidr
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Client for the Microsoft Cognitive Services 'Text-to-Speech' REST API
+Summary:          Check for Namespace Collisions Across Packages and Functions on CRAN
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tuneR 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tuneR 
+Requires:         R-utils 
 
 %description
-R Client for the Microsoft Cognitive Services 'Text-to-Speech' REST API,
-including voice synthesis. A valid account must be registered at the
-Microsoft Cognitive Services website
-<https://azure.microsoft.com/services/cognitive-services/> in order to
-obtain a (free) API key. Without an API key, this package will not work
-properly.
+Check for namespace collisions between a string input (your function or
+package name) and half a million packages and functions on CRAN.
 
 %prep
 %setup -q -c -n %{packname}

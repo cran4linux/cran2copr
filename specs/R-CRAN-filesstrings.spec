@@ -1,9 +1,9 @@
 %global packname  filesstrings
-%global packver   3.1.6
+%global packver   3.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.6
+Version:          3.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handy File and String Manipulation
 
@@ -16,27 +16,21 @@ BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.1.0
-BuildRequires:    R-CRAN-tibble >= 2.0.1
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-ore >= 1.4.0
-BuildRequires:    R-CRAN-stringi >= 1.3.1
-BuildRequires:    R-CRAN-strex >= 1.1.1
-BuildRequires:    R-CRAN-matrixStats >= 0.50.0
+BuildRequires:    R-CRAN-stringi >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.4
+BuildRequires:    R-CRAN-strex >= 1.3.1
 BuildRequires:    R-CRAN-rlang >= 0.3.3
-BuildRequires:    R-CRAN-vctrs >= 0.2.2
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-withr >= 2.1.0
-Requires:         R-CRAN-tibble >= 2.0.1
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-ore >= 1.4.0
-Requires:         R-CRAN-stringi >= 1.3.1
-Requires:         R-CRAN-strex >= 1.1.1
-Requires:         R-CRAN-matrixStats >= 0.50.0
+Requires:         R-CRAN-stringi >= 1.5
+Requires:         R-CRAN-stringr >= 1.4
+Requires:         R-CRAN-strex >= 1.3.1
 Requires:         R-CRAN-rlang >= 0.3.3
-Requires:         R-CRAN-vctrs >= 0.2.2
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr >= 0.3.0
 
 %description
 This started out as a package for file and string manipulation.  Since

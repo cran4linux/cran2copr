@@ -1,10 +1,10 @@
 %global packname  mcvis
-%global packver   1.0.4
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
-Release:          2%{?dist}
+Version:          1.0.6
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Collinearity Visualization
 
 License:          GPL-3
@@ -38,7 +38,8 @@ Requires:         R-CRAN-rlang
 
 %description
 Visualize the relationship between linear regression variables and causes
-of multi-collinearity.
+of multi-collinearity. Implements the method in Lin et. al. (2020)
+<doi:10.1080/10618600.2020.1779729>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,9 +54,9 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

@@ -1,10 +1,10 @@
 %global packname  mexhaz
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
-Release:          2%{?dist}
+Version:          1.9
+Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed Effect Excess Hazard Models
 
 License:          GPL (>= 2)

@@ -1,10 +1,10 @@
 %global packname  GpGp
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
-Release:          1%{?dist}
+Version:          0.3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Gaussian Process Computation Using Vecchia's Approximation
 
 License:          MIT + file LICENSE
@@ -17,6 +17,7 @@ Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-FNN 
 

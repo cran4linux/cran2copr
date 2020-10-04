@@ -1,10 +1,10 @@
 %global packname  spaMM
-%global packver   3.4.1
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
-Release:          1%{?dist}
+Version:          3.5.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed-Effect Models, Particularly Spatial Models
 
 License:          CeCILL-2
