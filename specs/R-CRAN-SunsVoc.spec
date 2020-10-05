@@ -1,10 +1,10 @@
 %global packname  SunsVoc
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          2%{?dist}%{?buildtag}
+Version:          0.1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Constructing Suns-Voc from Outdoor Time-Series I-V Curves
 
 License:          BSD_3_clause + file LICENSE
@@ -36,7 +36,7 @@ characteristics of the diode of photovoltaic cells without the effect of
 series resistance. Here, Suns-Voc curves can be constructed with outdoor
 time-series I-V curves [1,2,3] of full-size photovoltaic (PV) modules
 instead of having to be measured in the lab. Time series of four different
-power loss modes can be calculated based on obtained Suns-Voc curves. This
+power loss modes can be calculated based on obtained Isc-Voc curves. This
 material is based upon work supported by the U.S. Department of Energy's
 Office of Energy Efficiency and Renewable Energy (EERE) under Solar Energy
 Technologies Office (SETO) Agreement Number DE-EE0008172. Jennifer L.
@@ -51,9 +51,13 @@ al, 2016. <doi:10.1117/12.2236939>.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -63,6 +67,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
