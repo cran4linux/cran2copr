@@ -392,6 +392,7 @@ create_spec <- function(pkg, cran=available_packages(), write=TRUE) {
     cran[cran[,"Package"] == desc$Package, "NeedsCompilation"] = "no"
   deps <- pkg_deps(desc, cran)
   description <- strwrap(desc$Description, 75)
+  description <- gsub("%", "%%", description)
 
   tpl <- sub("\\{\\{prefix\\}\\}", getOption("copr.prefix"), tpl)
   tpl <- sub("\\{\\{packname\\}\\}", pkg, tpl)
