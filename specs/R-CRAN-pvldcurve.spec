@@ -1,29 +1,31 @@
-%global packname  qs
-%global packver   0.23.3
+%global packname  pvldcurve
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.3
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quick Serialization of R Objects
+Summary:          Simplifies the Analysis of Pressure Volume and Leaf Drying Curves
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-stringfish >= 0.14.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RApiSerialize 
-Requires:         R-CRAN-stringfish >= 0.14.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RApiSerialize 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides functions for quickly writing and reading any R object to and
-from disk.
+Simplifies the manufacturing, analysis and display of pressure volume and
+leaf drying curves. From the progression of the curves turgor loss point,
+osmotic potential, apoplastic fraction as well as minimum conductance and
+stomatal closure can be derived. Methods adapted from Bartlett, Scoffoni,
+Sack (2012) <doi:10.1111/j.1461-0248.2012.01751.x> and Sack, Scoffoni,
+PrometheusWikiContributors (2011)
+<http://prometheuswiki.org/tiki-index.php?page=Minimum+epidermal+conductance+%%28gmin%%2C+a.k.a.+cuticular+conductance%%29>.
 
 %prep
 %setup -q -c -n %{packname}

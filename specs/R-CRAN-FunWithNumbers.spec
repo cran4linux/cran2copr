@@ -1,29 +1,30 @@
-%global packname  qs
-%global packver   0.23.3
+%global packname  FunWithNumbers
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quick Serialization of R Objects
+Summary:          Fun with Fractions and Number Sequences
 
-License:          GPL-3 | file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-stringfish >= 0.14.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RApiSerialize 
-Requires:         R-CRAN-stringfish >= 0.14.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RApiSerialize 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-gmp 
+Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-gmp 
 
 %description
-Provides functions for quickly writing and reading any R object to and
-from disk.
+A collection of toys to do things like generate Collatz sequences, convert
+a fraction to "continued fraction" form, calculate a fraction which is a
+close approximation to some value (e.g., 22/7 or 355/113 or pi), and so
+on.
 
 %prep
 %setup -q -c -n %{packname}

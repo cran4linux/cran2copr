@@ -1,29 +1,31 @@
-%global packname  qs
-%global packver   0.23.3
+%global packname  REPPlabShiny
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quick Serialization of R Objects
+Summary:          'REPPlab' via a Shiny Application
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-stringfish >= 0.14.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RApiSerialize 
-Requires:         R-CRAN-stringfish >= 0.14.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RApiSerialize 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-REPPlab 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-REPPlab 
 
 %description
-Provides functions for quickly writing and reading any R object to and
-from disk.
+Performs exploratory projection pursuit via 'REPPlab' (Daniel Fischer,
+Alain Berro, Klaus Nordhausen & Anne Ruiz-Gazen (2019)
+<doi:10.1080/03610918.2019.1626880>) using a Shiny app.
 
 %prep
 %setup -q -c -n %{packname}

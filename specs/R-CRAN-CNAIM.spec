@@ -1,48 +1,49 @@
-%global packname  questionr
-%global packver   0.7.3
+%global packname  CNAIM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Make Surveys Processing Easier
+Summary:          Common Network Asset Indices Methodology (CNAIM)
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         xclip
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-labelled >= 2.6.0
-BuildRequires:    R-CRAN-shiny >= 1.0.5
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-styler 
-BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-htmlwidgets >= 1.2
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-labelled >= 2.6.0
-Requires:         R-CRAN-shiny >= 1.0.5
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-styler 
-Requires:         R-CRAN-classInt 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-r2d3 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-widgetframe 
+Requires:         R-CRAN-htmlwidgets >= 1.2
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-htmltools 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-r2d3 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-widgetframe 
 
 %description
-Set of functions to make the processing and analysis of surveys easier :
-interactive shiny apps and addins for data recoding, contingency tables,
-dataset metadata handling, and several convenience functions.
+Implementation of the CNAIM standard in R. Contains a series of algorithms
+which determine the probability of failure, consequences of failure and
+monetary risk associated with electricity distribution companies' assets
+such as transformers and cables. Results are visualized in an
+easy-to-understand risk matrix.
 
 %prep
 %setup -q -c -n %{packname}
