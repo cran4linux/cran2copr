@@ -1,43 +1,41 @@
-%global packname  igraph
-%global packver   1.2.6
+%global packname  treeducken
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Analysis and Visualization
+Summary:          Nested Phylogenetic Tree Simulator
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    libxml2-devel
-BuildRequires:    glpk-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-pkgconfig >= 2.0.0
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-apTreeshape 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pkgconfig >= 2.0.0
-Requires:         R-methods 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-apTreeshape 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-methods 
 
 %description
-Routines for simple graphs and network analysis. It can handle large
-graphs very well and provides functions for generating random and regular
-graphs, graph visualization, centrality methods and much more.
+Simulates nested phylogenetic trees (gene trees in species tree, symbiont
+trees in host trees) using birth-death processes and transfers between
+lineages. Simulations of gene trees within species trees are performed
+using a three-tree model with species trees, locus trees, and gene trees.
+The cophylogenetic birth-death process is used to simulate sets of host
+and symbiont trees with extant associations between tips. For more
+information about the three-tree model see: Mallo et al. (2015)
+<doi:10.1093/sysbio/syv082>, Rasmussen and Kellis (2012)
+<doi:10.1101/gr.123901.111>.
 
 %prep
 %setup -q -c -n %{packname}

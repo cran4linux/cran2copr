@@ -1,32 +1,38 @@
-%global packname  servr
-%global packver   0.19
+%global packname  blink
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          Record Linkage for Empirically Motivated Priors
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-plyr 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+An implementation of the model in Steorts (2015) <DOI:10.1214/15-BA965SI>,
+which performs Bayesian entity resolution for categorical and text data,
+for any distance function defined by the user. In addition, the precision
+and recall are in the package to allow one to compare to any other
+comparable method such as logistic regression, Bayesian additive
+regression trees (BART), or random forests. The experiments are
+reproducible and illustrated using a simple vignette. LICENSE: GPL-3 +
+file license.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,40 @@
-%global packname  servr
-%global packver   0.19
+%global packname  sivs
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          Seed Independent Variable Selection
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-varhandle 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-varhandle 
+Requires:         R-utils 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+An iterative feature selection method (manuscript submitted) that
+internally utilizes various Machine Learning methods that have embedded
+feature reduction in order to shrink down the feature space into a small
+and yet robust set.
 
 %prep
 %setup -q -c -n %{packname}
