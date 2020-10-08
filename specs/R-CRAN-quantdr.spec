@@ -1,29 +1,35 @@
-%global packname  usmap
-%global packver   0.5.1
+%global packname  quantdr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          US Maps Including Alaska and Hawaii
+Summary:          Dimension Reduction Techniques for Conditional Quantiles
 
-License:          GPL-3 | file LICENSE
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dr 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-MTS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-CRAN-dr 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-MTS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-quantreg 
 
 %description
-Obtain United States map data frames of varying region types (e.g. county,
-state). The map data frames include Alaska and Hawaii conveniently placed
-to the bottom left, as they appear in most maps of the US. Convenience
-functions for plotting choropleths and working with FIPS codes are also
-provided.
+An implementation of dimension reduction techniques for conditional
+quantiles. Nonparametric estimation of conditional quantiles is also
+available.
 
 %prep
 %setup -q -c -n %{packname}

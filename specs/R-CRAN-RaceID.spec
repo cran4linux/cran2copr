@@ -1,22 +1,22 @@
 %global packname  RaceID
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identification of Cell Types and Inference of Lineage Trees fromSingle-Cell RNA-Seq Data
+Summary:          Identification of Cell Types and Inference of Lineage Trees from Single-Cell RNA-Seq Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-coop 
-BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-FateID 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-fpc 
@@ -27,9 +27,8 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-locfit 
 BuildRequires:    R-methods 
-BuildRequires:    R-MASS 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-CRAN-NlcOptim 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pheatmap 
 BuildRequires:    R-CRAN-propr 
@@ -40,7 +39,7 @@ BuildRequires:    R-CRAN-Rtsne
 BuildRequires:    R-CRAN-umap 
 BuildRequires:    R-CRAN-vegan 
 Requires:         R-CRAN-coop 
-Requires:         R-cluster 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-FateID 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-fpc 
@@ -51,9 +50,8 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-locfit 
 Requires:         R-methods 
-Requires:         R-MASS 
-Requires:         R-Matrix 
-Requires:         R-CRAN-NlcOptim 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-parallel 
 Requires:         R-CRAN-pheatmap 
 Requires:         R-CRAN-propr 
@@ -73,9 +71,13 @@ lineage trees by he StemID2 algorithm. Herman, J.S., Sagar, Grün D. (2018)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -85,6 +87,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

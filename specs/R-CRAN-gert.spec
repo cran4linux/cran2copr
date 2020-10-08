@@ -1,10 +1,10 @@
 %global packname  gert
-%global packver   0.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Git Client for R
 
 License:          MIT + file LICENSE
@@ -13,26 +13,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libgit2-devel >= 0.26
-Requires:         libgit2
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-zip >= 2.1.0
 BuildRequires:    R-CRAN-openssl >= 1.4.1
-BuildRequires:    R-CRAN-credentials >= 1.0
+BuildRequires:    R-CRAN-credentials >= 1.2.1
+BuildRequires:    R-CRAN-rstudioapi >= 0.11
 BuildRequires:    R-CRAN-askpass 
+Requires:         R-CRAN-zip >= 2.1.0
 Requires:         R-CRAN-openssl >= 1.4.1
-Requires:         R-CRAN-credentials >= 1.0
+Requires:         R-CRAN-credentials >= 1.2.1
+Requires:         R-CRAN-rstudioapi >= 0.11
 Requires:         R-CRAN-askpass 
 
 %description
-Simple git client based on 'libgit2' with user-friendly authentication and
-support for both SSH and HTTPS remotes on all platforms. User credentials
+Simple git client for R based on 'libgit2' with support for SSH and HTTPS
+remotes. All functions in 'gert' use basic R data types (such as vectors
+and data-frames) for their arguments and return values. User credentials
 are shared with command line 'git' through the git-credential store and
 ssh keys stored on disk or ssh-agent. On Linux, a somewhat recent version
-of 'libgit2' is required.
+of 'libgit2' is required; we provide a 'PPA' for older Ubuntu 'LTS'
+versions.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -40,19 +52,10 @@ of 'libgit2' is required.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

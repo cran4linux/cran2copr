@@ -1,42 +1,46 @@
-%global packname  mlr3tuning
-%global packver   0.4.0
+%global packname  skynet
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tuning for 'mlr3'
+Summary:          Generates Networks from BTS Data
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
-BuildRequires:    R-CRAN-paradox >= 0.3.0
-BuildRequires:    R-CRAN-bbotk >= 0.2.0
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-CRAN-mlr3 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-mlr3misc >= 0.5.0
-Requires:         R-CRAN-paradox >= 0.3.0
-Requires:         R-CRAN-bbotk >= 0.2.0
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-leaflet 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lgr 
-Requires:         R-CRAN-mlr3 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-leaflet 
 
 %description
-Implements methods for hyperparameter tuning with 'mlr3', e.g. Grid
-Search, Random Search, or Simulated Annealing. Various termination
-criteria can be set and combined.  The class 'AutoTuner' provides a
-convenient way to perform nested resampling in combination with 'mlr3'.
+A flexible tool that allows generating bespoke air transport statistics
+for urban studies based on publicly available data from the Bureau of
+Transport Statistics (BTS) in the United States
+<https://www.transtats.bts.gov/databases.asp?Mode_ID=1&Mode_Desc=Aviation&Subject_ID2=0>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,58 @@
 %global packname  cmsaf
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
-Release:          3%{?dist}%{?buildtag}
-Summary:          Tools for CM SAF NetCDF Data
+Version:          3.0.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          A Toolbox for CM SAF NetCDF Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fields >= 9.6
-BuildRequires:    R-CRAN-raster >= 2.8
-BuildRequires:    R-CRAN-sp >= 1.3
-BuildRequires:    R-CRAN-ncdf4 >= 1.16
+BuildRequires:    R-tcltk >= 3.5
+BuildRequires:    R-CRAN-maps >= 3.3
+BuildRequires:    R-CRAN-raster >= 3.0
+BuildRequires:    R-CRAN-R.utils >= 2.9
+BuildRequires:    R-CRAN-fields >= 10.3
+BuildRequires:    R-CRAN-colorspace >= 1.4
+BuildRequires:    R-CRAN-shiny >= 1.4
+BuildRequires:    R-CRAN-sp >= 1.4
+BuildRequires:    R-CRAN-mapproj >= 1.2
+BuildRequires:    R-CRAN-ncdf4 >= 1.17
 BuildRequires:    R-CRAN-FNN >= 1.1
-BuildRequires:    R-CRAN-rainfarmr >= 0.1
-Requires:         R-CRAN-fields >= 9.6
-Requires:         R-CRAN-raster >= 2.8
-Requires:         R-CRAN-sp >= 1.3
-Requires:         R-CRAN-ncdf4 >= 1.16
+BuildRequires:    R-CRAN-shinyjs >= 1.1
+BuildRequires:    R-CRAN-shinythemes >= 1.1
+BuildRequires:    R-CRAN-rworldxtra >= 1.01
+BuildRequires:    R-CRAN-cmsafops >= 1.0.0
+BuildRequires:    R-CRAN-cmsafvis >= 1.0.0
+BuildRequires:    R-CRAN-colourpicker >= 1.0
+BuildRequires:    R-CRAN-maptools >= 0.9
+BuildRequires:    R-CRAN-shinyFiles >= 0.8.0
+Requires:         R-tcltk >= 3.5
+Requires:         R-CRAN-maps >= 3.3
+Requires:         R-CRAN-raster >= 3.0
+Requires:         R-CRAN-R.utils >= 2.9
+Requires:         R-CRAN-fields >= 10.3
+Requires:         R-CRAN-colorspace >= 1.4
+Requires:         R-CRAN-shiny >= 1.4
+Requires:         R-CRAN-sp >= 1.4
+Requires:         R-CRAN-mapproj >= 1.2
+Requires:         R-CRAN-ncdf4 >= 1.17
 Requires:         R-CRAN-FNN >= 1.1
-Requires:         R-CRAN-rainfarmr >= 0.1
+Requires:         R-CRAN-shinyjs >= 1.1
+Requires:         R-CRAN-shinythemes >= 1.1
+Requires:         R-CRAN-rworldxtra >= 1.01
+Requires:         R-CRAN-cmsafops >= 1.0.0
+Requires:         R-CRAN-cmsafvis >= 1.0.0
+Requires:         R-CRAN-colourpicker >= 1.0
+Requires:         R-CRAN-maptools >= 0.9
+Requires:         R-CRAN-shinyFiles >= 0.8.0
 
 %description
 The Satellite Application Facility on Climate Monitoring (CM SAF) is a
@@ -36,20 +62,26 @@ Application Facilities. The CM SAF contributes to the sustainable
 monitoring of the climate system by providing essential climate variables
 related to the energy and water cycle of the atmosphere
 (<http://www.cmsaf.eu>). It is a joint cooperation of eight National
-Meteorological and Hydrological Services. The 'cmsaf' R-package provides a
-collection of R-operators for the analysis and manipulation of CM SAF
-NetCDF formatted data. The 'cmsaf' R-package is tested for CM SAF NetCDF
-data. Other CF conform NetCDF data should be applicable, but there is no
-guarantee for an error-free application. The 'cmsaf' R-package includes a
-'shiny' based interface for an easy application of the 'cmsaf' package
-operators and the preparation and visualization of CM SAF NetCDF data. CM
-SAF climate data records are provided for free via
-(<https://wui.cmsaf.eu>). Detailed information and test data are provided
-on the CM SAF webpage (<http://www.cmsaf.eu/R_toolbox>).
+Meteorological and Hydrological Services. The 'cmsaf' R-package includes a
+'shiny' based interface for an easy application of the 'cmsafops' and
+'cmsafvis' packages - the CM SAF R Toolbox. The Toolbox offers an easy way
+to prepare, manipulate, analyse and visualize CM SAF NetCDF formatted
+data. Other CF conform NetCDF data with time, longitude and latitude
+dimension should be applicable, but there is no guarantee for an
+error-free application. CM SAF climate data records are provided for free
+via (<https://wui.cmsaf.eu>). Detailed information and test data are
+provided on the CM SAF webpage (<http://www.cmsaf.eu/R_toolbox>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -57,19 +89,10 @@ on the CM SAF webpage (<http://www.cmsaf.eu/R_toolbox>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/toolbox
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

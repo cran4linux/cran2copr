@@ -1,9 +1,9 @@
 %global packname  simstudy
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Study Data
 
@@ -12,20 +12,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-backports 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-backports 
 
 %description
 Simulates data sets in order to explore modeling techniques or better

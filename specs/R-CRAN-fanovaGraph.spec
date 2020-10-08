@@ -1,29 +1,37 @@
-%global packname  usmap
-%global packver   0.5.1
+%global packname  fanovaGraph
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          US Maps Including Alaska and Hawaii
+Summary:          Building Kriging Models from FANOVA Graphs
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-DiceKriging >= 1.4
+BuildRequires:    R-CRAN-sensitivity 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-DiceKriging >= 1.4
+Requires:         R-CRAN-sensitivity 
+Requires:         R-CRAN-igraph 
 
 %description
-Obtain United States map data frames of varying region types (e.g. county,
-state). The map data frames include Alaska and Hawaii conveniently placed
-to the bottom left, as they appear in most maps of the US. Convenience
-functions for plotting choropleths and working with FIPS codes are also
-provided.
+Estimation and plotting of a function's FANOVA graph to identify the
+interaction structure and fitting, prediction and simulation of a Kriging
+model modified by the identified structure. The interactive function
+plotManipulate() can only be run on the 'RStudio IDE' with 'RStudio'
+package 'manipulate' loaded. 'RStudio' is freely available
+(<https://rstudio.com/>), and includes package 'manipulate'. The
+equivalent function plotTk() bases on CRAN Repository packages only. For
+further information on the method see Fruth, J., Roustant, O., Kuhnt, S.
+(2014) <doi:10.1016/j.jspi.2013.11.007>.
 
 %prep
 %setup -q -c -n %{packname}

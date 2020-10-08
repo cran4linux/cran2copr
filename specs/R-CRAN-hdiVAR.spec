@@ -1,29 +1,34 @@
-%global packname  usmap
-%global packver   0.5.1
+%global packname  hdiVAR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          US Maps Including Alaska and Hawaii
+Summary:          Statistical Inference for Noisy Vector Autoregression
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-abind 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-abind 
 
 %description
-Obtain United States map data frames of varying region types (e.g. county,
-state). The map data frames include Alaska and Hawaii conveniently placed
-to the bottom left, as they appear in most maps of the US. Convenience
-functions for plotting choropleths and working with FIPS codes are also
-provided.
+The model is high-dimensional vector autoregression with measurement
+error, also known as linear gaussian state-space model. Provable sparse
+expectation-maximization algorithm is provided for the estimation of
+transition matrix and noise variances. Global and simultaneous testings
+are implemented for transition matrix with false discovery rate control.
+For more information, see the accompanying paper: Lyu, X., Kang, J., & Li,
+L. (2020). "Statistical inference for high-dimensional vector
+autoregression with measurement error", arXiv preprint <arXiv:2009.08011>.
 
 %prep
 %setup -q -c -n %{packname}
