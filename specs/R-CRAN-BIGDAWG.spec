@@ -1,38 +1,40 @@
-%global packname  dbnR
-%global packver   0.5.2
+%global packname  BIGDAWG
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Bayesian Network Learning and Inference
+Summary:          Case-Control Analysis of Multi-Allelic Loci
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-bnlearn >= 4.5
-BuildRequires:    R-CRAN-R6 >= 2.4.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-bnlearn >= 4.5
-Requires:         R-CRAN-R6 >= 2.4.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-Rcpp >= 1.0.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-haplo.stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-haplo.stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-knitr 
 
 %description
-Learning and inference over dynamic Bayesian networks of arbitrary
-Markovian order. Extends some of the functionality offered by the
-'bnlearn' package to learn the networks from data and perform exact
-inference. It offers two structure learning algorithms for dynamic
-Bayesian networks and the possibility to perform forecasts of arbitrary
-length. A tool for visualizing the structure of the net is also provided
-via the 'visNetwork' package.
+Data sets and functions for chi-squared Hardy-Weinberg and case-control
+association tests of highly polymorphic genetic data [e.g., human
+leukocyte antigen (HLA) data]. Performs association tests at multiple
+levels of polymorphism (haplotype, locus and HLA amino-acids) as described
+in Pappas DJ, Marin W, Hollenbach JA, Mack SJ (2016)
+<doi:10.1016/j.humimm.2015.12.006>. Combines rare variants to a common
+class to account for sparse cells in tables as described by Hollenbach JA,
+Mack SJ, Thomson G, Gourraud PA (2012) <doi:10.1007/978-1-61779-842-9_14>.
 
 %prep
 %setup -q -c -n %{packname}

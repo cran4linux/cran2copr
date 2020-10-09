@@ -1,11 +1,11 @@
-%global packname  analogsea
-%global packver   0.9.0
+%global packname  quickerstats
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Digital Ocean'
+Summary:          An 'R' Client for the 'USDA NASS Quick Stats API'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,23 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.2.0
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-httr >= 1.2.0
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-curl >= 4.2
+BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-readr >= 1.3.1
+Requires:         R-CRAN-curl >= 4.2
+Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-readr >= 1.3.1
 
 %description
-Provides a set of functions for interacting with the 'Digital Ocean' API
-<https://www.digitalocean.com/>, including creating images, destroying
-them, rebooting, getting details on regions, and available images.
+Provides several convenience functions for searching and pulling data from
+the 'USDA NASS Quick Stats API' <https://quickstats.nass.usda.gov/api>.
+Users can easily search for specific data items, and then download
+county-level or state-level Census of Agricultural data from a specified
+year.
 
 %prep
 %setup -q -c -n %{packname}

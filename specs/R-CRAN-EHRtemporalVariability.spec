@@ -1,10 +1,10 @@
 %global packname  EHRtemporalVariability
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Delineating Temporal Dataset Shifts in Electronic Health Records
 
 License:          Apache License 2.0 | file LICENSE
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-methods 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-zoo 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-scales 
 Requires:         R-methods 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
 Functions to delineate temporal dataset shifts in Electronic Health
@@ -51,13 +51,19 @@ through visual analytics formats such as Data Temporal heatmaps and
 Information Geometric Temporal (IGT) plots. An additional
 'EHRtemporalVariability' Shiny app can be used to load and explore the
 package results and even to allow the use of these functions to those
-users non-experienced in R coding. Preprint published in medRxiv (Sáez et
-al. 2020) <doi:10.1101/2020.04.07.20056564>.
+users non-experienced in R coding. (Sáez et al. 2020)
+<doi:10.1093/gigascience/giaa079>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -65,20 +71,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

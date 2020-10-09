@@ -1,13 +1,13 @@
-%global packname  analogsea
-%global packver   0.9.0
+%global packname  sketch
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Digital Ocean'
+Summary:          Interactive Sketches
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,23 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.2.0
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-httr >= 1.2.0
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-shiny 
 
 %description
-Provides a set of functions for interacting with the 'Digital Ocean' API
-<https://www.digitalocean.com/>, including creating images, destroying
-them, rebooting, getting details on regions, and available images.
+Creates static / animated / interactive visualisations embeddable in R
+Markdown documents. It implements an R-to-JavaScript transpiler and
+enables users to write JavaScript applications using the syntax of R.
 
 %prep
 %setup -q -c -n %{packname}

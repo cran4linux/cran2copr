@@ -1,9 +1,9 @@
 %global packname  brms
-%global packver   2.13.5
+%global packver   2.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.5
+Version:          2.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regression Models using 'Stan'
 
@@ -20,16 +20,16 @@ BuildRequires:    R-CRAN-loo >= 2.3.1
 BuildRequires:    R-CRAN-rstan >= 2.19.2
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
-BuildRequires:    R-mgcv >= 1.8.13
+BuildRequires:    R-CRAN-mgcv >= 1.8.13
 BuildRequires:    R-CRAN-bayesplot >= 1.5.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-Matrix >= 1.1.1
+BuildRequires:    R-CRAN-Matrix >= 1.1.1
 BuildRequires:    R-CRAN-bridgesampling >= 0.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-future 
@@ -38,21 +38,22 @@ BuildRequires:    R-utils
 BuildRequires:    R-parallel 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-shinystan >= 2.4.0
 Requires:         R-CRAN-loo >= 2.3.1
 Requires:         R-CRAN-rstan >= 2.19.2
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-ggplot2 >= 2.0.0
-Requires:         R-mgcv >= 1.8.13
+Requires:         R-CRAN-mgcv >= 1.8.13
 Requires:         R-CRAN-bayesplot >= 1.5.0
 Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-Matrix >= 1.1.1
+Requires:         R-CRAN-Matrix >= 1.1.1
 Requires:         R-CRAN-bridgesampling >= 0.3.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-nleqslv 
-Requires:         R-nlme 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-future 
@@ -61,6 +62,7 @@ Requires:         R-utils
 Requires:         R-parallel 
 Requires:         R-grDevices 
 Requires:         R-CRAN-backports 
+Requires:         R-CRAN-rstantools
 
 %description
 Fit Bayesian generalized (non-)linear multivariate multilevel models using
@@ -82,9 +84,13 @@ Carpenter et al. (2017) <doi:10.18637/jss.v076.i01>.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -94,6 +100,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

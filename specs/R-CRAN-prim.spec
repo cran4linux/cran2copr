@@ -1,9 +1,9 @@
 %global packname  prim
-%global packver   1.0.18
+%global packver   1.0.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.18
+Version:          1.0.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Patient Rule Induction Method (PRIM)
 

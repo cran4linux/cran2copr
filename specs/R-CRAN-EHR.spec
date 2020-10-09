@@ -1,37 +1,42 @@
-%global packname  analogsea
-%global packver   0.9.0
+%global packname  EHR
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Digital Ocean'
+Summary:          Electronic Health Record (EHR) Data Processing and Analysis Tool
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.2.0
-BuildRequires:    R-CRAN-jsonlite >= 1.1
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-httr >= 1.2.0
-Requires:         R-CRAN-jsonlite >= 1.1
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
 
 %description
-Provides a set of functions for interacting with the 'Digital Ocean' API
-<https://www.digitalocean.com/>, including creating images, destroying
-them, rebooting, getting details on regions, and available images.
+Process and analyze Electronic Health Record (EHR) data. The 'EHR' package
+provides modules to perform diverse medication-related studies using data
+from EHR databases. Especially, the package includes modules to perform
+pharmacokinetic/pharmacodynamic (PK/PD) analyses using EHRs, as outlined
+in Choi, Beck, McNeer, Weeks, Williams, James, Niu, Abou-Khalil, Birdwell,
+Roden, Stein, Bejan, Denny, and Van Driest (2020) <doi:10.1002/cpt.1787>.
+Additional modules will be added in future. In addition, this package
+provides various functions useful to perform Phenome Wide Association
+Study (PheWAS) to explore associations between drug exposure and
+phenotypes obtained from EHR data, as outlined in Choi, Carroll, Beck,
+Mosley, Roden, Denny, and Van Driest (2018)
+<doi:10.1093/bioinformatics/bty306>.
 
 %prep
 %setup -q -c -n %{packname}

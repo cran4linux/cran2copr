@@ -1,37 +1,34 @@
-%global packname  analogsea
-%global packver   0.9.0
+%global packname  MSGARCHelm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Digital Ocean'
+Summary:          Hybridization of MS-GARCH and ELM Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.2.0
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-httr >= 1.2.0
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-nnfor 
+BuildRequires:    R-CRAN-MSGARCH 
+BuildRequires:    R-CRAN-forecast 
+Requires:         R-CRAN-nnfor 
+Requires:         R-CRAN-MSGARCH 
+Requires:         R-CRAN-forecast 
 
 %description
-Provides a set of functions for interacting with the 'Digital Ocean' API
-<https://www.digitalocean.com/>, including creating images, destroying
-them, rebooting, getting details on regions, and available images.
+Implements the three parallel forecast combinations of Markov Switching
+GARCH and extreme learning machine model along with the selection of
+appropriate model for volatility forecasting. For method details see Hsiao
+C, Wan SK (2014). <doi:10.1016/j.jeconom.2013.11.003>, Hansen BE (2007).
+<doi:10.1111/j.1468-0262.2007.00785.x>, Elliott G, Gargano A, Timmermann A
+(2013). <doi:10.1016/j.jeconom.2013.04.017>.
 
 %prep
 %setup -q -c -n %{packname}
