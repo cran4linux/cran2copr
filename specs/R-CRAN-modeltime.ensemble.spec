@@ -1,9 +1,9 @@
 %global packname  modeltime.ensemble
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Algorithms for Time Series Forecasting with Modeltime
 

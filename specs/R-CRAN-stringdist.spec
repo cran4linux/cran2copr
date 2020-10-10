@@ -1,11 +1,11 @@
 %global packname  stringdist
-%global packver   0.9.6
+%global packver   0.9.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate String Matching, Fuzzy Text Search, and StringDistance Functions
+Summary:          Approximate String Matching, Fuzzy Text Search, and String Distance Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,14 +27,19 @@ Jaro-Winkler). An implementation of soundex is provided as well. Distances
 can be computed between character vectors while taking proper care of
 encoding or between integer vectors representing generic sequences. This
 package is built for speed and runs in parallel by using 'openMP'. An API
-for C or C++ is exposed as well.
+for C or C++ is exposed as well. Reference: MPJ van der Loo (2014)
+<doi:10.32614/RJ-2014-011>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -44,6 +49,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
