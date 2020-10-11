@@ -1,9 +1,9 @@
 %global packname  strex
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra String Manipulation Functions
 
@@ -17,17 +17,15 @@ Requires:         R-core >= 3.1
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringi >= 1.5
-BuildRequires:    R-CRAN-stringr >= 1.2.0
+BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-rlang >= 0.3.3
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringi >= 1.5
-Requires:         R-CRAN-stringr >= 1.2.0
+Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-rlang >= 0.3.3
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 There are some things that I wish were easier with the 'stringr' or
@@ -41,9 +39,13 @@ functions that cannot be found in 'stringi' or 'stringr'.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -53,6 +55,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,9 +1,9 @@
 %global packname  ijtiff
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive TIFF I/O with Full Support for 'ImageJ' TIFF Files
 
@@ -16,12 +16,12 @@ BuildRequires:    libtiff-devel
 BuildRequires:    libjpeg-turbo-devel
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-filesstrings >= 3.1.5
-BuildRequires:    R-CRAN-withr >= 2.1.0
+BuildRequires:    R-CRAN-withr >= 2.1
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-fs >= 1.3.1
-BuildRequires:    R-CRAN-stringr >= 1.2.0
+BuildRequires:    R-CRAN-strex >= 1.3.1
 BuildRequires:    R-CRAN-rlang >= 0.3.3
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
@@ -31,12 +31,12 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-filesstrings >= 3.1.5
-Requires:         R-CRAN-withr >= 2.1.0
+Requires:         R-CRAN-withr >= 2.1
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-fs >= 1.3.1
-Requires:         R-CRAN-stringr >= 1.2.0
+Requires:         R-CRAN-strex >= 1.3.1
 Requires:         R-CRAN-rlang >= 0.3.3
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
@@ -58,9 +58,13 @@ text image I/O.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -70,6 +74,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

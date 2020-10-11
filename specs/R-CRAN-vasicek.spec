@@ -1,26 +1,26 @@
-%global packname  logr
-%global packver   1.1.1
+%global packname  vasicek
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates Log Files
+Summary:          Miscellaneous Functions for Vasicek Distribution
 
-License:          CC0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.3
+Requires:         R-core >= 3.3.3
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Contains functions to help create log files.  The package aims to overcome
-the difficulty of the base R sink() command.  The log_print() function
-will print to both the console and the file log, without interfering in
-other write operations.
+Provide a collection of miscellaneous R functions related to the Vasicek
+distribution with the intent to make the lives of risk modelers easier.
 
 %prep
 %setup -q -c -n %{packname}

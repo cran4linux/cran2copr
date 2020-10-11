@@ -1,9 +1,9 @@
 %global packname  shattering
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate the Shattering Coefficient for a Particular Dataset
 
@@ -17,7 +17,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-pdist 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-base 
 BuildRequires:    R-CRAN-Ryacas 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-pdist 
-Requires:         R-Matrix 
+Requires:         R-CRAN-slam 
 Requires:         R-grDevices 
 Requires:         R-base 
 Requires:         R-CRAN-Ryacas 
@@ -61,9 +61,13 @@ on the Statistical Learning Theory".
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -73,6 +77,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

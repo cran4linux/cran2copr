@@ -1,26 +1,35 @@
-%global packname  logr
-%global packver   1.1.1
+%global packname  MKclass
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates Log Files
+Summary:          Statistical Classification
 
-License:          CC0
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Contains functions to help create log files.  The package aims to overcome
-the difficulty of the base R sink() command.  The log_print() function
-will print to both the console and the file log, without interfering in
-other write operations.
+Performance measures and scores for statistical classification such as
+accuracy, sensitivity, specificity, recall, similarity coefficients, AUC,
+GINI index, Brier score and many more. Calculation of optimal cut-offs and
+decision stumps (Iba and Langley (1991),
+<doi:10.1016/B978-1-55860-247-2.50035-8>) for all implemented performance
+measures. Hosmer-Lemeshow goodness of fit tests (Lemeshow and Hosmer
+(1982), <doi:10.1093/oxfordjournals.aje.a113284>; Hosmer et al (1997),
+<doi:10.1002/(SICI)1097-0258(19970515)16:9%%3C965::AID-SIM509%%3E3.0.CO;2-O>).
+Statistical and epidemiological risk measures such as relative risk, odds
+ratio, number needed to treat (Porta (2014),
+<doi:10.1093%%2Facref%%2F9780199976720.001.0001>).
 
 %prep
 %setup -q -c -n %{packname}

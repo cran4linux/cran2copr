@@ -1,13 +1,13 @@
-%global packname  logr
-%global packver   1.1.1
+%global packname  tidyCpp
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates Log Files
+Summary:          Tidy C++ Header-Only Definitions for Parts of the C API of R
 
-License:          CC0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,10 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Contains functions to help create log files.  The package aims to overcome
-the difficulty of the base R sink() command.  The log_print() function
-will print to both the console and the file log, without interfering in
-other write operations.
+Core parts of the C API of R are wrapped in a C++ namespace via a set of
+inline functions giving a tidier representation of the underlying data
+structures and functionality using a header-only implementation without
+additional dependencies.
 
 %prep
 %setup -q -c -n %{packname}

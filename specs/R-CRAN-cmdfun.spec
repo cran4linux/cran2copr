@@ -1,13 +1,13 @@
-%global packname  precommit
-%global packver   0.1.3
+%global packname  cmdfun
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pre-Commit Hooks
+Summary:          Framework for Building Interfaces to Shell Commands
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,36 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-usethis >= 1.6.0
-BuildRequires:    R-CRAN-docopt 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R.cache 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-usethis >= 1.6.0
-Requires:         R-CRAN-docopt 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-here 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R.cache 
+Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-usethis 
+Requires:         R-utils 
 
 %description
-Useful git hooks for R building on top of the multi-language framework
-'pre-commit' for hook management. This package provides git hooks for
-common tasks like formatting files with 'styler' or spell checking as well
-as wrapper functions to access the 'pre-commit' executable.
+Writing interfaces to command line software is cumbersome. 'cmdfun'
+provides a framework for building function calls to seamlessly interface
+with shell commands by allowing lazy evaluation of command line arguments.
+'cmdfun' also provides methods for handling user-specific paths to tool
+installs or secrets like API keys. Its focus is to equally serve package
+builders who wish to wrap command line software, and to help analysts stay
+inside R when they might usually leave to execute non-R software.
 
 %prep
 %setup -q -c -n %{packname}
