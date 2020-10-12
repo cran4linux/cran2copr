@@ -22,7 +22,7 @@ googleformr
 gifski cargo
 baseflow cargo
 traitdataform
-freetypeharfbuzz
+freetypeharfbuzz internet
 pcaL1
 wrswoR.benchmark
 GeneBook
