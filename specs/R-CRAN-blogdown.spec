@@ -1,10 +1,10 @@
 %global packname  blogdown
-%global packver   0.20
+%global packver   0.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
-Release:          2%{?dist}%{?buildtag}
+Version:          0.21
+Release:          1%{?dist}%{?buildtag}
 Summary:          Create Blogs and Websites with R Markdown
 
 License:          GPL-3
@@ -17,34 +17,40 @@ Requires:         pandoc
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown >= 2.4
 BuildRequires:    R-CRAN-yaml >= 2.1.19
 BuildRequires:    R-CRAN-httpuv >= 1.4.0
 BuildRequires:    R-CRAN-knitr >= 1.25
-BuildRequires:    R-CRAN-rmarkdown >= 1.16
-BuildRequires:    R-CRAN-servr >= 0.15
+BuildRequires:    R-CRAN-servr >= 0.19
+BuildRequires:    R-CRAN-xfun >= 0.18
 BuildRequires:    R-CRAN-bookdown >= 0.14
-BuildRequires:    R-CRAN-xfun >= 0.10
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-later 
+Requires:         R-CRAN-rmarkdown >= 2.4
 Requires:         R-CRAN-yaml >= 2.1.19
 Requires:         R-CRAN-httpuv >= 1.4.0
 Requires:         R-CRAN-knitr >= 1.25
-Requires:         R-CRAN-rmarkdown >= 1.16
-Requires:         R-CRAN-servr >= 0.15
+Requires:         R-CRAN-servr >= 0.19
+Requires:         R-CRAN-xfun >= 0.18
 Requires:         R-CRAN-bookdown >= 0.14
-Requires:         R-CRAN-xfun >= 0.10
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-later 
 
 %description
 Write blog posts and web pages in R Markdown. This package supports the
 static site generator 'Hugo' (<https://gohugo.io>) best, and it also
-supports 'Jekyll' (<http://jekyllrb.com>) and 'Hexo' (<https://hexo.io>).
+supports 'Jekyll' (<https://jekyllrb.com>) and 'Hexo' (<https://hexo.io>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -52,9 +58,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}
