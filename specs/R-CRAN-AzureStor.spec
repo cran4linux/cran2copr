@@ -1,9 +1,9 @@
 %global packname  AzureStor
-%global packver   3.2.3
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Storage Management in 'Azure'
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-xml2
 
 %description
 Manage storage in Microsoft's 'Azure' cloud:
-<https://azure.microsoft.com/services/storage>. On the admin side,
+<https://azure.microsoft.com/services/storage/>. On the admin side,
 'AzureStor' includes features to create, modify and delete storage
 accounts. On the client side, it includes an interface to blob storage,
 file storage, and 'Azure Data Lake Storage Gen2': upload and download
@@ -44,9 +44,13 @@ of packages.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -56,6 +60,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

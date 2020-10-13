@@ -1,9 +1,9 @@
 %global packname  partykit
-%global packver   1.2-9
+%global packver   1.2-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          1.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Recursive Partytioning
 
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-rpart >= 4.1.11
+BuildRequires:    R-CRAN-rpart >= 4.1.11
 BuildRequires:    R-CRAN-Formula >= 1.2.1
 BuildRequires:    R-CRAN-libcoin >= 1.0.0
 BuildRequires:    R-CRAN-inum >= 1.0.0
@@ -24,8 +24,8 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-survival 
-Requires:         R-rpart >= 4.1.11
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-rpart >= 4.1.11
 Requires:         R-CRAN-Formula >= 1.2.1
 Requires:         R-CRAN-libcoin >= 1.0.0
 Requires:         R-CRAN-inum >= 1.0.0
@@ -35,7 +35,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-survival 
+Requires:         R-CRAN-survival 
 
 %description
 A toolkit with infrastructure for representing, summarizing, and
@@ -47,14 +47,18 @@ improved reimplementations of conditional inference trees (ctree()) and
 model-based recursive partitioning (mob()) from the 'party' package are
 provided based on the new infrastructure. A description of this package
 was published by Hothorn and Zeileis (2015)
-<http://jmlr.org/papers/v16/hothorn15a.html>.
+<https://jmlr.org/papers/v16/hothorn15a.html>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -64,6 +68,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

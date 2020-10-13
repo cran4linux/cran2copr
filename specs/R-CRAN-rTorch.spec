@@ -1,9 +1,9 @@
 %global packname  rTorch
-%global packver   0.4.0
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Bindings to 'PyTorch'
 
@@ -29,11 +29,11 @@ Requires:         R-methods
 %description
 'R' implementation and interface of the Machine Learning platform
 'PyTorch' <https://pytorch.org/> developed in 'Python'. It requires a
-'conda' environment with 'torch' and 'torchvision' to provide 'PyTorch'
-functions, methods and classes. The key object in 'PyTorch' is the tensor
-which is in essence a multidimensional array. These tensors are fairly
-flexible to perform calculations in CPUs as well as 'GPUs' to accelerate
-the process.
+'conda' environment with 'torch' and 'torchvision' Python packages to
+provide 'PyTorch' functions, methods and classes. The key object in
+'PyTorch' is the tensor which is in essence a multidimensional array.
+These tensors are fairly flexible in performing calculations in CPUs as
+well as 'GPUs' to accelerate tensor operations.
 
 %prep
 %setup -q -c -n %{packname}

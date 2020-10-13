@@ -1,9 +1,9 @@
 %global packname  bkmrhat
-%global packver   0.1.16
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.16
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Chain Tools for Bayesian Kernel Machine Regression
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-coda
 BuildRequires:    R-CRAN-bkmr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-bkmr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-rstantools
 
 %description
 Bayesian kernel machine regression (from the 'bkmr' package) is a Bayesian
@@ -38,9 +40,13 @@ of multiple concurrent exposures via Bayesian kernel machine regression. ;
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -50,6 +56,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
