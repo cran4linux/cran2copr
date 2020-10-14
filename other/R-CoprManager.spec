@@ -3,8 +3,8 @@
 %global rlibdir %{_datadir}/R/library
 
 Name:           R-%{packname}
-Version:        0.3.5
-Release:        2%{?dist}%{?buildtag}
+Version:        0.3.6
+Release:        1%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
@@ -49,8 +49,10 @@ rm -f %{buildroot}%{rlibdir}/%{packname}/service/*.in
 
 # enable by default
 mkdir -p %{buildroot}%{_libdir}/R/etc/Rprofile.site.d
-echo "suppressMessages(%{packname}::enable())" \
-  > %{buildroot}%{_libdir}/R/etc/Rprofile.site.d/50-%{packname}.site
+cat <<EOF > %{buildroot}%{_libdir}/R/etc/Rprofile.site.d/50-%{packname}.site
+suppressMessages(%{packname}::enable())
+options(CoprManager.always.install.deps=TRUE)
+EOF
 cat <<EOF > %{buildroot}%{_libdir}/R/etc/Rprofile.site
 local({
   for (startup_file in Sys.glob(R.home("etc/Rprofile.site.d/*.site")))
