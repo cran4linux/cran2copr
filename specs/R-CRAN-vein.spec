@@ -1,38 +1,39 @@
-%global packname  dbnR
-%global packver   0.5.3
+%global packname  vein
+%global packver   0.9.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.9.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Bayesian Network Learning and Inference
+Summary:          Vehicular Emissions Inventories
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-bnlearn >= 4.5
-BuildRequires:    R-CRAN-R6 >= 2.4.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-bnlearn >= 4.5
-Requires:         R-CRAN-R6 >= 2.4.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-units 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Learning and inference over dynamic Bayesian networks of arbitrary
-Markovian order. Extends some of the functionality offered by the
-'bnlearn' package to learn the networks from data and perform exact
-inference. It offers two structure learning algorithms for dynamic
-Bayesian networks and the possibility to perform forecasts of arbitrary
-length. A tool for visualizing the structure of the net is also provided
-via the 'visNetwork' package.
+Elaboration of vehicular emissions inventories, consisting in four stages,
+pre-processing activity data, preparing emissions factors, estimating the
+emissions and post-processing of emissions in maps and databases. More
+details in Ibarra-Espinosa et al (2018) <doi:10.5194/gmd-11-2209-2018>.
+Before using VEIN you need to know the vehicular composition of your study
+area, in other words, the combination of of type of vehicles, size and
+fuel of the fleet. Then, it is recommended to start with the project to
+download a template to create a structure of directories and scripts.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,32 @@
-%global packname  dbnR
-%global packver   0.5.3
+%global packname  giscoR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Bayesian Network Learning and Inference
+Summary:          Download Geospatial Data from GISCO API - Eurostat
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-bnlearn >= 4.5
-BuildRequires:    R-CRAN-R6 >= 2.4.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-bnlearn >= 4.5
-Requires:         R-CRAN-R6 >= 2.4.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geojsonsf >= 2.0
+BuildRequires:    R-CRAN-countrycode >= 1.2.0
+BuildRequires:    R-CRAN-sf >= 0.9
+Requires:         R-CRAN-geojsonsf >= 2.0
+Requires:         R-CRAN-countrycode >= 1.2.0
+Requires:         R-CRAN-sf >= 0.9
 
 %description
-Learning and inference over dynamic Bayesian networks of arbitrary
-Markovian order. Extends some of the functionality offered by the
-'bnlearn' package to learn the networks from data and perform exact
-inference. It offers two structure learning algorithms for dynamic
-Bayesian networks and the possibility to perform forecasts of arbitrary
-length. A tool for visualizing the structure of the net is also provided
-via the 'visNetwork' package.
+Tools to download data from the GISCO (Geographic Information System of
+the Commission) Eurostat database
+<https://ec.europa.eu/eurostat/web/gisco>. This package is in no way
+officially related to or endorsed by Eurostat.
 
 %prep
 %setup -q -c -n %{packname}

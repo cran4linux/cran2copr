@@ -1,38 +1,36 @@
-%global packname  dbnR
-%global packver   0.5.3
+%global packname  RRBoost
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Bayesian Network Learning and Inference
+Summary:          A Robust Boosting Algorithm
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-bnlearn >= 4.5
-BuildRequires:    R-CRAN-R6 >= 2.4.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-bnlearn >= 4.5
-Requires:         R-CRAN-R6 >= 2.4.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-Rcpp >= 1.0.2
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-RobStatTM 
+Requires:         R-stats 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-RobStatTM 
 
 %description
-Learning and inference over dynamic Bayesian networks of arbitrary
-Markovian order. Extends some of the functionality offered by the
-'bnlearn' package to learn the networks from data and perform exact
-inference. It offers two structure learning algorithms for dynamic
-Bayesian networks and the possibility to perform forecasts of arbitrary
-length. A tool for visualizing the structure of the net is also provided
-via the 'visNetwork' package.
+An implementation of robust boosting algorithms for regression in R. This
+includes the RRBoost method proposed in the paper "Robust Boosting for
+Regression Problems" (Ju X and Salibian-Barrera M. 2020)
+<doi:10.1016/j.csda.2020.107065> (to appear in Computational Statistics
+and Data Science). It also implements previously proposed boosting
+algorithms in the simulation section of the paper: L2Boost, LADBoost,
+MBoost (Friedman, J. H. (2001) <doi:10.1214/aos/1013203451>) and Robloss
+(Lutz et al. (2008) <doi:10.1016/j.csda.2007.11.006>).
 
 %prep
 %setup -q -c -n %{packname}

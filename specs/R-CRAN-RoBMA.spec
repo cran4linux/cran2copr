@@ -1,9 +1,9 @@
 %global packname  RoBMA
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Bayesian Meta-Analyses
 
@@ -45,7 +45,7 @@ Requires:         R-CRAN-Rdpack
 A framework for estimating ensembles of meta-analytic models (assuming
 either presence or absence of the effect, heterogeneity, and publication
 bias) and using Bayesian model averaging to combine them. The ensembles
-use Bayes Factors to test for the presence or absence of the individual
+use Bayes factors to test for the presence or absence of the individual
 components (e.g., effect vs. no effect) and model-averages parameter
 estimates based on posterior model probabilities (Maier, Bartoš &
 Wagenmakers, 2020, <doi:10.31234/osf.io/u4cns>). The user can define a

@@ -1,38 +1,28 @@
-%global packname  corrgrapher
-%global packver   1.0.4
+%global packname  cora
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Explore Correlations Between Variables in a Machine Learning Model
+Summary:          Cora Data for Entity Resolution
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-visNetwork 
-BuildRequires:    R-CRAN-ingredients 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-visNetwork 
-Requires:         R-CRAN-ingredients 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
 
 %description
-When exploring data or models we often examine variables one by one. This
-analysis is incomplete if the relationship between these variables is not
-taken into account. The 'corrgrapher' package facilitates simultaneous
-exploration of the Partial Dependence Profiles and the correlation between
-variables in the model. The package 'corrgrapher' is a part of the
-'DrWhy.AI' universe.
+Duplicated publication data (pre-processed and formatted) for entity
+resolution. This data set contains a total of 1879 records. The following
+variables are included in the data set: id, title, book title, authors,
+address, date, year, editor, journal, volume, pages, publisher,
+institution, type, tech, note. The data set has a respective gold data set
+that provides information on which records match based on id.
 
 %prep
 %setup -q -c -n %{packname}

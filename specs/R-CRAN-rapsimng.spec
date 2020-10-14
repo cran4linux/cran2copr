@@ -1,35 +1,40 @@
-%global packname  isotree
-%global packver   0.1.20
+%global packname  rapsimng
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.20
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Isolation-Based Outlier Detection
+Summary:          APSIM Next Generation
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-Rcereal 
-Requires:         R-CRAN-Rcpp >= 1.0.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Fast and multi-threaded implementation of isolation forest (Liu, Ting,
-Zhou (2008) <doi:10.1109/ICDM.2008.17>), extended isolation forest
-(Hariri, Kind, Brunner (2018) <arXiv:1811.02141>), SCiForest (Liu, Ting,
-Zhou (2010) <doi:10.1007/978-3-642-15883-4_18>), and fair-cut forest
-(Cortes (2019) <arXiv:1911.06646>), for isolation-based outlier detection,
-clustered outlier detection, distance or similarity approximation (Cortes
-(2019) <arXiv:1910.12362>), and imputation of missing values (Cortes
-(2019) <arXiv:1911.06646>), based on random or guided decision tree
-splitting. Provides simple heuristics for fitting the model to categorical
-columns and handling missing data, and offers options for varying between
-random and guided splits, and for using different splitting criteria.
+The Agricultural Production Systems sIMulator ('APSIM') is a widely used
+to simulate the agricultural systems for multiple crops. This package is
+designed to create, modify and run 'apsimx' files in the 'APSIM' Next
+Generation <https://www.apsim.info/>.
 
 %prep
 %setup -q -c -n %{packname}

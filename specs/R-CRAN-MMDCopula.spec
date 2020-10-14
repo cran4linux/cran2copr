@@ -1,38 +1,34 @@
-%global packname  dbnR
-%global packver   0.5.3
+%global packname  MMDCopula
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Bayesian Network Learning and Inference
+Summary:          Robust Estimation of Copulas by Maximum Mean Discrepancy
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-bnlearn >= 4.5
-BuildRequires:    R-CRAN-R6 >= 2.4.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-bnlearn >= 4.5
-Requires:         R-CRAN-R6 >= 2.4.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-VineCopula 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-pcaPP 
+BuildRequires:    R-CRAN-randtoolbox 
+Requires:         R-CRAN-VineCopula 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-pcaPP 
+Requires:         R-CRAN-randtoolbox 
 
 %description
-Learning and inference over dynamic Bayesian networks of arbitrary
-Markovian order. Extends some of the functionality offered by the
-'bnlearn' package to learn the networks from data and perform exact
-inference. It offers two structure learning algorithms for dynamic
-Bayesian networks and the possibility to perform forecasts of arbitrary
-length. A tool for visualizing the structure of the net is also provided
-via the 'visNetwork' package.
+Provides functions for the robust estimation of parametric families of
+copulas using minimization of the Maximum Mean Discrepancy, following the
+article Alquier, Chérief-Abdellatif, Derumigny and Fermanian (2020)
+<arXiv:2010.00408>.
 
 %prep
 %setup -q -c -n %{packname}

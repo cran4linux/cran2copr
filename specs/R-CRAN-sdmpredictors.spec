@@ -1,38 +1,38 @@
-%global packname  corrgrapher
-%global packver   1.0.4
+%global packname  sdmpredictors
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.2.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Explore Correlations Between Variables in a Machine Learning Model
+Summary:          Species Distribution Modelling Predictor Datasets
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.5
+Requires:         R-core >= 3.2.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-visNetwork 
-BuildRequires:    R-CRAN-ingredients 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-visNetwork 
-Requires:         R-CRAN-ingredients 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-raster >= 2.5.8
+BuildRequires:    R-CRAN-R.utils >= 2.4.0
+BuildRequires:    R-CRAN-rgdal >= 1.1.10
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RCurl 
+Requires:         R-CRAN-raster >= 2.5.8
+Requires:         R-CRAN-R.utils >= 2.4.0
+Requires:         R-CRAN-rgdal >= 1.1.10
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-RCurl 
 
 %description
-When exploring data or models we often examine variables one by one. This
-analysis is incomplete if the relationship between these variables is not
-taken into account. The 'corrgrapher' package facilitates simultaneous
-exploration of the Partial Dependence Profiles and the correlation between
-variables in the model. The package 'corrgrapher' is a part of the
-'DrWhy.AI' universe.
+Terrestrial and marine predictors for species distribution modelling from
+multiple sources, including WorldClim <https://www.worldclim.org/>,,
+ENVIREM <https://envirem.github.io/>, Bio-ORACLE <https://bio-oracle.org/>
+and MARSPEC <http://www.marspec.org/>.
 
 %prep
 %setup -q -c -n %{packname}

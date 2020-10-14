@@ -1,38 +1,44 @@
-%global packname  corrgrapher
-%global packver   1.0.4
+%global packname  fxTWAPLS
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Explore Correlations Between Variables in a Machine Learning Model
+Summary:          An Improved Version of WA-PLS
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-visNetwork 
-BuildRequires:    R-CRAN-ingredients 
-BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-visNetwork 
-Requires:         R-CRAN-ingredients 
-Requires:         R-CRAN-htmltools 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-tictoc 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-parallel 
+Requires:         R-CRAN-tictoc 
 
 %description
-When exploring data or models we often examine variables one by one. This
-analysis is incomplete if the relationship between these variables is not
-taken into account. The 'corrgrapher' package facilitates simultaneous
-exploration of the Partial Dependence Profiles and the correlation between
-variables in the model. The package 'corrgrapher' is a part of the
-'DrWhy.AI' universe.
+The goal of this package is to provide an improved version of WA-PLS
+(Weighted Averaging Partial Least Squares) by including the tolerances of
+taxa and the frequency of the sampled climate variable. This package also
+provides a way of leave-out cross-validation that removes both the test
+site and sites that are both geographically close and climatically close
+for each cycle, to avoid the risk of pseudo-replication.
 
 %prep
 %setup -q -c -n %{packname}
