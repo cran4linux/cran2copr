@@ -1,36 +1,38 @@
-%global packname  haplo.stats
-%global packver   1.8.6
+%global packname  groupr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous
+Summary:          Groups with Inapplicable Values
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-arsenal 
-BuildRequires:    R-CRAN-rms 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-arsenal 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
 
 %description
-Routines for the analysis of indirectly measured haplotypes. The
-statistical methods assume that all subjects are unrelated and that
-haplotypes are ambiguous (due to unknown linkage phase of the genetic
-markers). The main functions are: haplo.em(), haplo.glm(), haplo.score(),
-and haplo.power(); all of which have detailed examples in the vignette.
+The 'groupr' package provides a more powerful version of grouped tibbles
+from 'dplyr'. It allows groups to be marked inapplicable, which is a
+simple but widely useful way to express structure in a dataset. It also
+provides powerful pivoting and other group manipulation functions.
 
 %prep
 %setup -q -c -n %{packname}

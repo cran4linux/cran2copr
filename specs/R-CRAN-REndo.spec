@@ -1,11 +1,11 @@
 %global packname  REndo
-%global packver   2.4.0
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Fitting Linear Models with Endogenous Regressors using LatentInstrumental Variables
+Version:          2.4.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Fitting Linear Models with Endogenous Regressors using Latent Instrumental Variables
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,7 +20,7 @@ BuildRequires:    R-utils >= 3.4
 BuildRequires:    R-CRAN-optimx >= 2013.8.7
 BuildRequires:    R-CRAN-corpcor >= 1.6.9
 BuildRequires:    R-CRAN-AER >= 1.2.5
-BuildRequires:    R-Matrix >= 1.2.14
+BuildRequires:    R-CRAN-Matrix >= 1.2.14
 BuildRequires:    R-CRAN-Formula >= 1.2
 BuildRequires:    R-CRAN-data.table >= 1.11.8
 BuildRequires:    R-CRAN-lme4 >= 1.1.18.1
@@ -34,7 +34,7 @@ Requires:         R-utils >= 3.4
 Requires:         R-CRAN-optimx >= 2013.8.7
 Requires:         R-CRAN-corpcor >= 1.6.9
 Requires:         R-CRAN-AER >= 1.2.5
-Requires:         R-Matrix >= 1.2.14
+Requires:         R-CRAN-Matrix >= 1.2.14
 Requires:         R-CRAN-Formula >= 1.2
 Requires:         R-CRAN-data.table >= 1.11.8
 Requires:         R-CRAN-lme4 >= 1.1.18.1
@@ -59,7 +59,13 @@ usability but break backwards compatibility.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -67,20 +73,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

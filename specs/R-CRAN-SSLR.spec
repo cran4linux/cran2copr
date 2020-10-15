@@ -1,11 +1,11 @@
 %global packname  SSLR
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Supervised Classification and Regression Methods
+Summary:          Semi-Supervised Classification, Regression and Clustering Methods
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,6 +28,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-RSSL 
+BuildRequires:    R-CRAN-conclust 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dplyr >= 0.8.0.1
@@ -44,21 +45,26 @@ Requires:         R-utils
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-RSSL 
+Requires:         R-CRAN-conclust 
 
 %description
-Providing a collection of techniques for semi-supervised classification
-and regression. In semi-supervised problem, both labeled and unlabeled
-data are used to train a classifier. The package includes a collection of
-semi-supervised learning techniques: self-training, co-training,
-democratic, decision tree, random forest, 'S3VM' ... etc, with a fairly
-intuitive interface that is easy to use.
+Providing a collection of techniques for semi-supervised classification,
+regression and clustering. In semi-supervised problem, both labeled and
+unlabeled data are used to train a classifier. The package includes a
+collection of semi-supervised learning techniques: self-training,
+co-training, democratic, decision tree, random forest, 'S3VM' ... etc,
+with a fairly intuitive interface that is easy to use.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -68,6 +74,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

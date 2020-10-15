@@ -1,36 +1,35 @@
-%global packname  haplo.stats
-%global packver   1.8.6
+%global packname  qqr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous
+Summary:          Data from Brazilian Soccer Championship
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-arsenal 
-BuildRequires:    R-CRAN-rms 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-arsenal 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
 
 %description
-Routines for the analysis of indirectly measured haplotypes. The
-statistical methods assume that all subjects are unrelated and that
-haplotypes are ambiguous (due to unknown linkage phase of the genetic
-markers). The main functions are: haplo.em(), haplo.glm(), haplo.score(),
-and haplo.power(); all of which have detailed examples in the vignette.
+Get data about the Brazilian soccer championship since 2014. Official data
+can be found at
+<https://www.cbf.com.br/futebol-brasileiro/competicoes/campeonato-brasileiro-serie-a/>.
 
 %prep
 %setup -q -c -n %{packname}

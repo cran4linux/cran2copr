@@ -1,36 +1,35 @@
-%global packname  haplo.stats
-%global packver   1.8.6
+%global packname  rfacts
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.6
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous
+Summary:          R Interface to 'FACTS' on Unix-Like Systems
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-arsenal 
-BuildRequires:    R-CRAN-rms 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-arsenal 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-xml2 >= 1.2.2
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-xml2 >= 1.2.2
+Requires:         R-utils 
 
 %description
-Routines for the analysis of indirectly measured haplotypes. The
-statistical methods assume that all subjects are unrelated and that
-haplotypes are ambiguous (due to unknown linkage phase of the genetic
-markers). The main functions are: haplo.em(), haplo.glm(), haplo.score(),
-and haplo.power(); all of which have detailed examples in the vignette.
+The 'rfacts' package is an R interface to the Fixed and Adaptive Clinical
+Trial Simulator ('FACTS') on Unix-like systems. It programmatically
+invokes 'FACTS' to run clinical trial simulations, and it aggregates
+simulation output data into tidy data frames. These capabilities provide
+end-to-end automation for large-scale simulation workflows, and they
+enhance computational reproducibility. For more information on 'FACTS'
+itself, please visit <https://www.berryconsultants.com/software/>.
 
 %prep
 %setup -q -c -n %{packname}

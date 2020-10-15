@@ -1,36 +1,37 @@
-%global packname  haplo.stats
-%global packver   1.8.6
+%global packname  rinat
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.6
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous
+Summary:          Access 'iNaturalist' Data Through APIs
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-arsenal 
-BuildRequires:    R-CRAN-rms 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-arsenal 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-sp 
 
 %description
-Routines for the analysis of indirectly measured haplotypes. The
-statistical methods assume that all subjects are unrelated and that
-haplotypes are ambiguous (due to unknown linkage phase of the genetic
-markers). The main functions are: haplo.em(), haplo.glm(), haplo.score(),
-and haplo.power(); all of which have detailed examples in the vignette.
+A programmatic interface to the API provided by the 'iNaturalist' website
+<https://www.inaturalist.org/> to download species occurrence data
+submitted by citizen scientists.
 
 %prep
 %setup -q -c -n %{packname}

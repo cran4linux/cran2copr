@@ -1,11 +1,11 @@
 %global packname  e1071
-%global packver   1.7-3
+%global packver   1.7-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
-Release:          3%{?dist}%{?buildtag}
-Summary:          Misc Functions of the Department of Statistics, ProbabilityTheory Group (Formerly: E1071), TU Wien
+Version:          1.7.4
+Release:          1%{?dist}%{?buildtag}
+Summary:          Misc Functions of the Department of Statistics, Probability Theory Group (Formerly: E1071), TU Wien
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,13 +16,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-class 
+BuildRequires:    R-CRAN-class 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-class 
+Requires:         R-CRAN-class 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
@@ -35,6 +35,13 @@ clustering, naive Bayes classifier, ...
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,19 +49,10 @@ clustering, naive Bayes classifier, ...
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
