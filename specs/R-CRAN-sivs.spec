@@ -1,11 +1,11 @@
 %global packname  sivs
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seed Independent Variable Selection
+Summary:          Stable Iterative Variable Selection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

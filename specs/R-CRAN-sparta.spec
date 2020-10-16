@@ -1,37 +1,25 @@
-%global packname  AzureQstor
-%global packver   1.0.1
+%global packname  sparta
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Azure Queue Storage'
+Summary:          Sparse Tables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildArch:        noarch
-BuildRequires:    R-CRAN-AzureStor >= 3.0.0
-BuildRequires:    R-CRAN-AzureRMR >= 2.0.0
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-AzureStor >= 3.0.0
-Requires:         R-CRAN-AzureRMR >= 2.0.0
-Requires:         R-utils 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-An interface to 'Azure Queue Storage'. This is a cloud service for storing
-large numbers of messages, for example from automated sensors, that can be
-accessed remotely via authenticated calls using HTTP or HTTPS. Queue
-storage is often used to create a backlog of work to process
-asynchronously. Part of the 'AzureR' family of packages.
+Fast Multiplication and Division of Sparse Tables.
 
 %prep
 %setup -q -c -n %{packname}

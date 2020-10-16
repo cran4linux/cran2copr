@@ -1,37 +1,38 @@
-%global packname  AzureQstor
-%global packver   1.0.1
+%global packname  rameritrade
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Azure Queue Storage'
+Summary:          'TD Ameritrade' API Interface for R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AzureStor >= 3.0.0
-BuildRequires:    R-CRAN-AzureRMR >= 2.0.0
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-urltools >= 1.7.3
 BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-AzureStor >= 3.0.0
-Requires:         R-CRAN-AzureRMR >= 2.0.0
-Requires:         R-utils 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-urltools >= 1.7.3
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
 
 %description
-An interface to 'Azure Queue Storage'. This is a cloud service for storing
-large numbers of messages, for example from automated sensors, that can be
-accessed remotely via authenticated calls using HTTP or HTTPS. Queue
-storage is often used to create a backlog of work to process
-asynchronously. Part of the 'AzureR' family of packages.
+Use R to interface with the 'TD Ameritrade' API, including authentication,
+trading, price requests, account information, and option chains. A user
+will need a TD brokerage account and TD Ameritrade developer app. See
+README for authentication process and examples.
 
 %prep
 %setup -q -c -n %{packname}

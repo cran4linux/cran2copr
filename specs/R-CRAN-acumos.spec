@@ -1,37 +1,40 @@
-%global packname  AzureQstor
-%global packver   1.0.1
+%global packname  acumos
+%global packver   0.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Azure Queue Storage'
+Summary:          'Acumos' R Interface
 
-License:          MIT + file LICENSE
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AzureStor >= 3.0.0
-BuildRequires:    R-CRAN-AzureRMR >= 2.0.0
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-AzureStor >= 3.0.0
-Requires:         R-CRAN-AzureRMR >= 2.0.0
-Requires:         R-utils 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RProtoBuf 
+BuildRequires:    R-CRAN-Rserve 
+BuildRequires:    R-CRAN-RestRserve 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RProtoBuf 
+Requires:         R-CRAN-Rserve 
+Requires:         R-CRAN-RestRserve 
+Requires:         R-CRAN-yaml 
 
 %description
-An interface to 'Azure Queue Storage'. This is a cloud service for storing
-large numbers of messages, for example from automated sensors, that can be
-accessed remotely via authenticated calls using HTTP or HTTPS. Queue
-storage is often used to create a backlog of work to process
-asynchronously. Part of the 'AzureR' family of packages.
+Create, upload and run 'Acumos' R models. 'Acumos'
+(<https://www.acumos.org>) is a platform and open source framework
+intended to make it easy to build, share, and deploy AI apps. 'Acumos' is
+part of the 'LF AI Foundation', an umbrella organization within The Linux
+Foundation. With this package, user can create a component, and push it to
+an 'Acumos' platform.
 
 %prep
 %setup -q -c -n %{packname}
