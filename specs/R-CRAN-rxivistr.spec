@@ -1,35 +1,34 @@
-%global packname  desctable
-%global packver   0.1.9
+%global packname  rxivistr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Produce Descriptive and Comparative Tables Easily
+Summary:          Tool for the 'Rxivist' API
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-pander 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Easily create descriptive and comparative tables. It makes use and
-integrates directly with the tidyverse family of packages, and pipes.
-Tables are produced as data frames/lists of data frames for easy
-manipulation after creation, and ready to be saved as csv, or piped to
-DT::datatable() or pander::pander() to integrate into reports.
+Client for Rxivist API <https://rxivist.org/docs>, used for accessing
+information about preprints and their authors. Rxivist indexes preprints
+from bioRxiv, a free online archive for preprints in biology and life
+sciences, by Cold Spring Harbor Laboratory.
 
 %prep
 %setup -q -c -n %{packname}

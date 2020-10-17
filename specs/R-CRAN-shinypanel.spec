@@ -1,35 +1,35 @@
-%global packname  desctable
-%global packver   0.1.9
+%global packname  shinypanel
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Produce Descriptive and Comparative Tables Easily
+Summary:          Shiny Control Panel
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-pander 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Easily create descriptive and comparative tables. It makes use and
-integrates directly with the tidyverse family of packages, and pipes.
-Tables are produced as data frames/lists of data frames for easy
-manipulation after creation, and ready to be saved as csv, or piped to
-DT::datatable() or pander::pander() to integrate into reports.
+Add shiny inputs with one or more inline buttons that grow and shrink with
+inputs. Also add tool tips to input buttons and styling and messages for
+input validation.
 
 %prep
 %setup -q -c -n %{packname}

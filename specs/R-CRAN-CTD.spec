@@ -1,35 +1,36 @@
-%global packname  desctable
-%global packver   0.1.9
+%global packname  CTD
+%global packver   0.99.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.99.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Produce Descriptive and Comparative Tables Easily
+Summary:          A Method for 'Connecting The Dots' in Weighted Graphs
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-pander 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-htmltools 
+BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-gmp 
+Requires:         R-CRAN-igraph 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Easily create descriptive and comparative tables. It makes use and
-integrates directly with the tidyverse family of packages, and pipes.
-Tables are produced as data frames/lists of data frames for easy
-manipulation after creation, and ready to be saved as csv, or piped to
-DT::datatable() or pander::pander() to integrate into reports.
+A method for pattern discovery in weighted graphs. Two use cases are
+achieved: 1) Given a weighted graph and a subset of its nodes, do the
+nodes show significant connectedness? 2) Given a weighted graph and two
+subsets of its nodes, are the subsets close neighbors or distant?
 
 %prep
 %setup -q -c -n %{packname}

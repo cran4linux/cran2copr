@@ -1,9 +1,9 @@
 %global packname  shattering
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate the Shattering Coefficient for a Particular Dataset
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-FNN
 BuildRequires:    R-CRAN-pdist 
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-base 
 BuildRequires:    R-CRAN-Ryacas 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-pracma 
@@ -28,7 +27,6 @@ Requires:         R-CRAN-FNN
 Requires:         R-CRAN-pdist 
 Requires:         R-CRAN-slam 
 Requires:         R-grDevices 
-Requires:         R-base 
 Requires:         R-CRAN-Ryacas 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-pracma 

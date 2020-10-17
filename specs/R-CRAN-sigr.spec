@@ -1,9 +1,9 @@
 %global packname  sigr
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Succinct and Correct Statistical Summaries for Reports
 
@@ -23,17 +23,19 @@ Requires:         R-stats
 %description
 Succinctly and correctly format statistical summaries of various models
 and tests (F-test, Chi-Sq-test, Fisher-test, T-test, and
-rank-significance).  The main purpose is unified reporting of experimental
-results, working around issue such as the difficulty of extracting model
-summary facts (such as with 'lm'/'glm').  This package also includes
-empirical tests, such as bootstrap estimates.
+rank-significance). This package also includes empirical tests, such as
+Monte Carlo and bootstrap distribution estimates.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,6 +45,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

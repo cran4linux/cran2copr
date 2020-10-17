@@ -1,35 +1,33 @@
-%global packname  desctable
-%global packver   0.1.9
+%global packname  GARCOM
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Produce Descriptive and Comparative Tables Easily
+Summary:          Gene and Region Counting of Mutations ("GARCOM")
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-pander 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-htmltools 
+BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-vcfR >= 1.12.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-vcfR >= 1.12.0
+Requires:         R-stats 
 
 %description
-Easily create descriptive and comparative tables. It makes use and
-integrates directly with the tidyverse family of packages, and pipes.
-Tables are produced as data frames/lists of data frames for easy
-manipulation after creation, and ready to be saved as csv, or piped to
-DT::datatable() or pander::pander() to integrate into reports.
+Gene and Region Counting of Mutations (GARCOM) package computes mutation
+(or alleles) counts per gene per individuals based on gene annotation or
+genomic base pair boundaries. It comes with features to accept data
+formats in plink(.raw) and VCF. It provides users flexibility to extract
+and filter individuals, mutations and genes of interest.
 
 %prep
 %setup -q -c -n %{packname}
