@@ -1,31 +1,32 @@
-%global packname  digest
-%global packver   0.6.26
+%global packname  representr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.26
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Compact Hash Digests of R Objects
+Summary:          Create Representative Records After Entity Resolution
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-dplyr 
 
 %description
-Implementation of a function 'digest()' for the creation of hash digests
-of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
-'xxhash', 'murmurhash', 'spookyhash' and 'blake3' algorithms) permitting
-easy comparison of R language objects, as well as functions such
-as'hmac()' to create hash-based message authentication code. Please note
-that this package is not meant to be deployed for cryptographic purposes
-for which more comprehensive (and widely tested) libraries such as
-'OpenSSL' should be used.
+An implementation of Kaplan, Betancourt, Steorts (2020) <arXiv:1810.01538>
+that creates representative records for use in downstream tasks after
+entity resolution is performed. Multiple methods for creating the
+representative records (data sets) are provided.
 
 %prep
 %setup -q -c -n %{packname}

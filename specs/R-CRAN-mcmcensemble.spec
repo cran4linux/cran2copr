@@ -1,31 +1,27 @@
-%global packname  digest
-%global packver   0.6.26
+%global packname  mcmcensemble
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.26
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Compact Hash Digests of R Objects
+Summary:          Ensemble Sampler for Affine-Invariant MCMC
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Implementation of a function 'digest()' for the creation of hash digests
-of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
-'xxhash', 'murmurhash', 'spookyhash' and 'blake3' algorithms) permitting
-easy comparison of R language objects, as well as functions such
-as'hmac()' to create hash-based message authentication code. Please note
-that this package is not meant to be deployed for cryptographic purposes
-for which more comprehensive (and widely tested) libraries such as
-'OpenSSL' should be used.
+Provides ensemble samplers for affine-invariant Monte Carlo Markov Chain,
+which allow a faster convergence for badly scaled estimation problems. Two
+samplers are proposed: the 'differential.evolution' sampler from ter Braak
+and Vrugt (2008) <doi:10.1007/s11222-008-9104-9> and the 'stretch' sampler
+from Goodman and Weare (2010) <doi:10.2140/camcos.2010.5.65>.
 
 %prep
 %setup -q -c -n %{packname}

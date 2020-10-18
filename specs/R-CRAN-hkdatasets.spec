@@ -1,31 +1,27 @@
-%global packname  digest
-%global packver   0.6.26
+%global packname  hkdatasets
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.26
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Compact Hash Digests of R Objects
+Summary:          Datasets Related to Hong Kong
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Implementation of a function 'digest()' for the creation of hash digests
-of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
-'xxhash', 'murmurhash', 'spookyhash' and 'blake3' algorithms) permitting
-easy comparison of R language objects, as well as functions such
-as'hmac()' to create hash-based message authentication code. Please note
-that this package is not meant to be deployed for cryptographic purposes
-for which more comprehensive (and widely tested) libraries such as
-'OpenSSL' should be used.
+Datasets related to Hong Kong, including information on the 2019 elected
+District Councillors (<https://www.districtcouncils.gov.hk> and
+<https://dce2019.hk01.com/>) and traffic collision data from the Hong Kong
+Department of Transport (<https://www.td.gov.hk/>). All of the data in
+this package is available in the public domain.
 
 %prep
 %setup -q -c -n %{packname}

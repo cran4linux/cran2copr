@@ -1,9 +1,9 @@
 %global packname  strex
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra String Manipulation Functions
 
@@ -12,17 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringi >= 1.5
+BuildRequires:    R-CRAN-stringi >= 1.4.6
 BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-rlang >= 0.3.3
 BuildRequires:    R-stats 
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringi >= 1.5
+Requires:         R-CRAN-stringi >= 1.4.6
 Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-rlang >= 0.3.3
 Requires:         R-stats 

@@ -1,30 +1,41 @@
-%global packname  WriteXLS
-%global packver   6.0.0
+%global packname  lucas
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform Perl Based R Function to Create Excel 2003 (XLS) and Excel 2007 (XLSX) Files
+Summary:          Package to Download and Create the DB of LUCAS Data Harmonized
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         perl
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-rpostgis 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-DBI 
+Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-rpostgis 
+Requires:         R-CRAN-plyr 
 Requires:         R-utils 
+Requires:         R-CRAN-DBI 
 
 %description
-Cross-platform Perl based R function to create Excel 2003 (XLS) and Excel
-2007 (XLSX) files from one or more data frames. Each data frame will be
-written to a separate named worksheet in the Excel spreadsheet. The
-worksheet name will be the name of the data frame it contains or can be
-specified by the user.
+Reproduces the harmonized DB of the ESTAT survey of the same name. The
+survey data is served as separate spreadsheets with noticeable differences
+in the collected attributes. The tool here presented carries out a series
+of instructions that harmonize the attributes in terms of name, meaning,
+and occurrence, while also introducing a series of new variables,
+instrumental to adding value to the product. Outputs include one
+harmonized table with all the years, and three separate geometries,
+corresponding to the theoretical point, the gps location where the
+measurement was made and the 250m east-facing transect.
 
 %prep
 %setup -q -c -n %{packname}
