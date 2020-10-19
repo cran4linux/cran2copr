@@ -1,9 +1,9 @@
 %global packname  quantreg
-%global packver   5.73
+%global packver   5.74
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.73
+Version:          5.74
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Regression
 
@@ -18,14 +18,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MatrixModels 
 BuildRequires:    R-CRAN-conquer 
 Requires:         R-stats 
 Requires:         R-CRAN-SparseM 
 Requires:         R-methods 
 Requires:         R-graphics 
-Requires:         R-Matrix 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MatrixModels 
 Requires:         R-CRAN-conquer 
 
@@ -39,9 +39,13 @@ methods based on expected shortfall risk are also now included.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -51,6 +55,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

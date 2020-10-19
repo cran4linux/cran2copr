@@ -1,9 +1,9 @@
 %global packname  filesstrings
-%global packver   3.2.0
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handy File and String Manipulation
 
@@ -12,13 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.1.0
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringi >= 1.5
+BuildRequires:    R-CRAN-stringi >= 1.4.6
 BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-strex >= 1.4
 BuildRequires:    R-CRAN-rlang >= 0.3.3
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-withr >= 2.1.0
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringi >= 1.5
+Requires:         R-CRAN-stringi >= 1.4.6
 Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-strex >= 1.4
 Requires:         R-CRAN-rlang >= 0.3.3

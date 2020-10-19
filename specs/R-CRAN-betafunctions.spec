@@ -1,9 +1,9 @@
 %global packname  betafunctions
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Working with Two- And Four-Parameter Beta Probability Distributions
 
@@ -17,13 +17,15 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Package providing a number of functions for working with the Two- and
-Four- parameter Beta distributions, including alternative
-parameterizations and calculation of moments. Includes functions for
-estimating classification accuracy, diagnostic performance and
-consistency, using what's known as the Livingston and Lewis approach in
-the educational-measurement literature as the base method. Livingston and
-Lewis (1995) <doi:10.1111/j.1745-3984.1995.tb00462.x>. Hanson (1991)
+Package providing a number of functions for working with Two- and
+Four-parameter Beta distributions, including alternative
+parameterizations, calculation of moments, and fitting of Beta
+distributions to vectors of values. Also includes functions for estimating
+classification accuracy, diagnostic performance and consistency, using
+what is generally known as the "Livingston and Lewis approach" in the
+psychometric literature as the foundational method, which makes extensive
+use of the Beta distribution. Livingston and Lewis (1995)
+<doi:10.1111/j.1745-3984.1995.tb00462.x>. Hanson (1991)
 <https://files.eric.ed.gov/fulltext/ED344945.pdf>. Glas, Lijmer, Prins,
 Bonsel and Bossuyt (2003) <doi:10.1016/S0895-4356(03)00177-X>.
 

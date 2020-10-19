@@ -1,10 +1,10 @@
 %global packname  iNZightTS
-%global packver   1.5.2
+%global packver   1.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
-Release:          3%{?dist}%{?buildtag}
+Version:          1.5.7
+Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series for 'iNZight'
 
 License:          GPL-3
@@ -15,34 +15,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-egg 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-egg 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-egg 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-glue 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-egg 
+Requires:         R-methods 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 Provides a collection of functions for working with time series data,
@@ -58,7 +66,13 @@ statistics, available in both desktop and online versions. Holt (1957)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -66,17 +80,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
