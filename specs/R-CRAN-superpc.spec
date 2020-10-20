@@ -1,27 +1,35 @@
-%global packname  data.table
-%global packver   1.13.2
+%global packname  superpc
+%global packver   1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.2
+Version:          1.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension of `data.frame`
+Summary:          Supervised Principal Components
 
-License:          MPL-2.0 | file LICENSE
+License:          GPL (>= 3) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins,
-fast add/modify/delete of columns by group using no copies at all, list
-columns, friendly and fast character-separated-value read/write. Offers a
-natural and flexible syntax, for faster development.
+Does prediction in the case of a censored survival outcome, or a
+regression outcome, using the "supervised principal component" approach.
+'Superpc' is especially useful for high-dimensional data when the number
+of features p dominates the number of samples n (p >> n paradigm), as
+generated, for instance, by high-throughput technologies.
 
 %prep
 %setup -q -c -n %{packname}

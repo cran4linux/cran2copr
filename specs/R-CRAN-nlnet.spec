@@ -1,11 +1,11 @@
-%global packname  bst
-%global packver   0.3-22
+%global packname  nlnet
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.22
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gradient Boosting
+Summary:          Nonlinear Network, Clustering, and Variable Selection Based on DCOL
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,23 +15,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-TSP 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-fdrtool 
+BuildRequires:    R-CRAN-coin 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-gbm 
-Requires:         R-CRAN-rpart 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-e1071 
+Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-TSP 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-fdrtool 
+Requires:         R-CRAN-coin 
 Requires:         R-methods 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-gbm 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-earth 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-e1071 
 
 %description
-Functional gradient descent algorithm for a variety of convex and
-non-convex loss functions, for both classical and robust regression and
-classification problems. See Wang (2011) <doi:10.2202/1557-4679.1304>,
-Wang (2012) <doi:10.3414/ME11-02-0020>, Wang (2018)
-<doi:10.1080/10618600.2018.1424635>, Wang (2018) <doi:10.1214/18-EJS1404>.
+It includes four methods: DCOL-based K-profiles clustering, non-linear
+network reconstruction, non-linear hierarchical clustering, and variable
+selection for generalized additive model. References: Tianwei Yu
+(2018)<DOI: 10.1002/sam.11381>; Haodong Liu and others (2016)<DOI:
+10.1371/journal.pone.0158247>; Kai Wang and others (2015)<DOI:
+10.1155/2015/918954>; Tianwei Yu and others (2010)<DOI:
+10.1109/TCBB.2010.73>.
 
 %prep
 %setup -q -c -n %{packname}

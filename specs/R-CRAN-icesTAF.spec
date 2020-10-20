@@ -1,27 +1,44 @@
-%global packname  data.table
-%global packver   1.13.2
+%global packname  icesTAF
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.2
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension of `data.frame`
+Summary:          Functions to Support the ICES Transparent Assessment Framework
 
-License:          MPL-2.0 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lattice 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins,
-fast add/modify/delete of columns by group using no copies at all, list
-columns, friendly and fast character-separated-value read/write. Offers a
-natural and flexible syntax, for faster development.
+Functions to support the ICES Transparent Assessment Framework
+<https://taf.ices.dk> to organize data, methods, and results used in ICES
+assessments. ICES is an organization facilitating international
+collaboration in marine science.
 
 %prep
 %setup -q -c -n %{packname}

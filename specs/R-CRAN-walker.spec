@@ -1,11 +1,11 @@
 %global packname  walker
-%global packver   0.4.1-3
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Generalized Linear Models with Time-VaryingCoefficients
+Summary:          Bayesian Generalized Linear Models with Time-Varying Coefficients
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-KFAS
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.9
@@ -40,6 +41,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-KFAS 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstantools
 
 %description
 Bayesian generalized linear models with time-varying coefficients.
@@ -49,14 +51,18 @@ provided by Stan, using a state space representation of the model in order
 to marginalise over the coefficients for efficient sampling. For
 non-Gaussian models, the package uses the importance sampling type
 estimators based on approximate marginal MCMC as in Vihola, Helske, Franks
-(2020, <arXiv:1609.02541>).
+(2020, <doi:10.1111/sjos.12492>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -66,6 +72,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,32 +1,44 @@
-%global packname  argparse
-%global packver   2.0.3
+%global packname  tidycwl
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Command Line Optional and Positional Argument Parser
+Summary:          Tidy Common Workflow Language Tools and Workflows
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         python3 >= 3.2
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-findpython 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-findpython 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-webshot 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-webshot 
 
 %description
-A command line parser to be used with Rscript to write "#!" shebang
-scripts that gracefully accept positional and optional arguments and
-automatically generate usage.
+The Common Workflow Language <https://www.commonwl.org/> is an open
+standard for describing data analysis workflows. This package takes the
+raw Common Workflow Language workflows encoded in JSON or 'YAML' and turns
+the workflow elements into tidy data frames or lists. A graph
+representation for the workflow can be constructed and visualized with the
+parsed workflow inputs, outputs, and steps. Users can embed the
+visualizations in their 'Shiny' applications, and export them as HTML
+files or static images.
 
 %prep
 %setup -q -c -n %{packname}

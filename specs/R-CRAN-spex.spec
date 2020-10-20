@@ -1,27 +1,42 @@
-%global packname  data.table
-%global packver   1.13.2
+%global packname  spex
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.2
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension of `data.frame`
+Summary:          Spatial Extent Tools
 
-License:          MPL-2.0 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.2.5
+Requires:         R-core >= 3.2.5
+BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-quadmesh 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-reproj 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-crsmeta 
 Requires:         R-methods 
+Requires:         R-CRAN-quadmesh 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-reproj 
+Requires:         R-CRAN-sp 
+Requires:         R-stats 
+Requires:         R-CRAN-crsmeta 
 
 %description
-Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins,
-fast add/modify/delete of columns by group using no copies at all, list
-columns, friendly and fast character-separated-value read/write. Offers a
-natural and flexible syntax, for faster development.
+Functions to produce a fully fledged 'geo-spatial' object extent as a
+'SpatialPolygonsDataFrame'. Also included are functions to generate
+polygons from raster data using 'quadmesh' techniques, a round number
+buffered extent, and general spatial-extent and 'raster-like' extent
+helpers missing from the originating packages. Some latitude-based tools
+for polar maps are included.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,54 @@
-%global packname  auk
-%global packver   0.4.2
+%global packname  i2dash
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          eBird Data Extraction and Processing in R
+Summary:          Iterative and Interactive Dashboards
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-countrycode >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 0.8.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.8
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-flexdashboard 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-assertive.sets 
+BuildRequires:    R-CRAN-assertive.types 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ymlthis 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-countrycode >= 1.0.0
-Requires:         R-CRAN-tidyr >= 0.8.0
-Requires:         R-CRAN-dplyr >= 0.7.8
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-flexdashboard 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-assertive.sets 
+Requires:         R-CRAN-assertive.types 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ymlthis 
+Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Extract and process bird sightings records from eBird
-(<http://ebird.org>), an online tool for recording bird observations.
-Public access to the full eBird database is via the eBird Basic Dataset
-(EBD; see <http://ebird.org/ebird/data/download> for access), a
-downloadable text file. This package is an interface to AWK for extracting
-data from the EBD based on taxonomic, spatial, or temporal filters, to
-produce a manageable file size that can be imported into R.
+Create customized, web-based dashboards for data presentation, exploration
+and sharing. 'i2dash' integrates easily into existing data analysis
+pipelines and can organize scientific findings thematically across
+different pages and layouts.
 
 %prep
 %setup -q -c -n %{packname}

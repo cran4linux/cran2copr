@@ -1,27 +1,29 @@
-%global packname  data.table
-%global packver   1.13.2
+%global packname  BET
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension of `data.frame`
+Summary:          Binary Expansion Testing
 
-License:          MPL-2.0 | file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-Rcpp >= 0.12.3
 
 %description
-Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins,
-fast add/modify/delete of columns by group using no copies at all, list
-columns, friendly and fast character-separated-value read/write. Offers a
-natural and flexible syntax, for faster development.
+Nonparametric detection of nonuniformity and dependence with Binary
+Expansion Testing (BET). See Kai Zhang (2019) BET on Independence, Journal
+of the American Statistical Association, 114:528, 1620-1637,
+<DOI:10.1080/01621459.2018.1537921> and Zhigen Zhao, Michael Baiocchi, Kai
+Zhang. SorBET: A Fast and Powerful Algorithm to Test Dependence of
+Variables.
 
 %prep
 %setup -q -c -n %{packname}

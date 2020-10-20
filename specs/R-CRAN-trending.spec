@@ -1,27 +1,31 @@
-%global packname  data.table
-%global packver   1.13.2
+%global packname  trending
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.2
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension of `data.frame`
+Summary:          Model Temporal Trends
 
-License:          MPL-2.0 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins,
-fast add/modify/delete of columns by group using no copies at all, list
-columns, friendly and fast character-separated-value read/write. Offers a
-natural and flexible syntax, for faster development.
+Provides a coherent interface to multiple modelling tools for fitting
+trends along with a standardised approach for generating confidence and
+prediction intervals.
 
 %prep
 %setup -q -c -n %{packname}

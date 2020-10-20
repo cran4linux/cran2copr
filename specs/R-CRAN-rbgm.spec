@@ -1,37 +1,43 @@
-%global packname  RCzechia
-%global packver   1.6.0
+%global packname  rbgm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Objects of the Czech Republic
+Summary:          Tools for 'Box Geometry Model' (BGM) Files and Topology for the Atlantis Ecosystem Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reproj 
+BuildRequires:    R-CRAN-sfheaders 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-reproj 
+Requires:         R-CRAN-sfheaders 
 
 %description
-Administrative regions and other spatial objects of the Czech Republic.
+Facilities for working with Atlantis box-geometry model (BGM) files.
+Atlantis is a deterministic, biogeochemical, whole-of-ecosystem model.
+Functions are provided to read from BGM files directly, preserving their
+internal topology, as well as helper functions to generate spatial data
+from these mesh forms. This functionality aims to simplify the creation
+and modification of box and geometry as well as the ability to integrate
+with other data sources.
 
 %prep
 %setup -q -c -n %{packname}

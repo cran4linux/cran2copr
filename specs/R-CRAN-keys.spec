@@ -1,27 +1,30 @@
-%global packname  data.table
-%global packver   1.13.2
+%global packname  keys
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension of `data.frame`
+Summary:          Keyboard Shortcuts for 'shiny'
 
-License:          MPL-2.0 | file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins,
-fast add/modify/delete of columns by group using no copies at all, list
-columns, friendly and fast character-separated-value read/write. Offers a
-natural and flexible syntax, for faster development.
+Assign and listen to keyboard shortcuts in 'shiny' using the 'Mousetrap'
+Javascript library.
 
 %prep
 %setup -q -c -n %{packname}

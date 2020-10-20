@@ -1,27 +1,36 @@
-%global packname  data.table
-%global packver   1.13.2
+%global packname  growthcurver
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension of `data.frame`
+Summary:          Simple Metrics to Summarize Growth Curves
 
-License:          MPL-2.0 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-stats >= 4.0
+BuildRequires:    R-graphics >= 4.0
+BuildRequires:    R-grDevices >= 4.0
+BuildRequires:    R-CRAN-minpack.lm >= 1.2
+Requires:         R-stats >= 4.0
+Requires:         R-graphics >= 4.0
+Requires:         R-grDevices >= 4.0
+Requires:         R-CRAN-minpack.lm >= 1.2
 
 %description
-Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins,
-fast add/modify/delete of columns by group using no copies at all, list
-columns, friendly and fast character-separated-value read/write. Offers a
-natural and flexible syntax, for faster development.
+Fits the logistic equation to microbial growth curve data (e.g., repeated
+absorbance measurements taken from a plate reader over time). From this
+fit, a variety of metrics are provided, including the maximum growth rate,
+the doubling time, the carrying capacity, the area under the logistic
+curve, and the time to the inflection point. Method described in
+Sprouffske and Wagner (2016) <doi:10.1186/s12859-016-1016-7>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,23 @@
-%global packname  data.table
-%global packver   1.13.2
+%global packname  PROJ
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension of `data.frame`
+Summary:          Generic Coordinate System Transformations Using 'PROJ'
 
-License:          MPL-2.0 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 
 %description
-Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins,
-fast add/modify/delete of columns by group using no copies at all, list
-columns, friendly and fast character-separated-value read/write. Offers a
-natural and flexible syntax, for faster development.
+Currently non-operational, a harmless wrapper to allow package 'reproj' to
+install and function while relying on the 'proj4' package.
 
 %prep
 %setup -q -c -n %{packname}
