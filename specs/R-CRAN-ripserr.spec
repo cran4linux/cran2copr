@@ -1,28 +1,30 @@
-%global packname  SKAT
-%global packver   2.0.1
+%global packname  ripserr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          SNP-Set (Sequence) Kernel Association Test
+Summary:          Calculate Persistent Homology with Ripser-Based Engines
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-SPAtest 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-SPAtest 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-methods >= 3.0
+BuildRequires:    R-stats >= 3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0
+Requires:         R-methods >= 3.0
+Requires:         R-stats >= 3.0
+Requires:         R-CRAN-Rcpp >= 1.0
 
 %description
-Functions for kernel-regression-based association tests including Burden
-test, SKAT and SKAT-O. These methods aggregate individual SNP score
-statistics in a SNP set and efficiently compute SNP-set level p-values.
+Ports the Ripser <arXiv:1908.02518> and Cubical Ripser <arXiv:2005.12692>
+persistent homology calculation engines from C++. Can be used as a rapid
+calculation tool in topological data analysis pipelines.
 
 %prep
 %setup -q -c -n %{packname}

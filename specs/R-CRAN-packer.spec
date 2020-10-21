@@ -1,13 +1,13 @@
-%global packname  representr
-%global packver   0.1.1
+%global packname  packer
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Representative Records After Entity Resolution
+Summary:          An Opinionated Framework for Using 'JavaScript'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-An implementation of Kaplan, Betancourt, Steorts (2020) <arXiv:1810.01538>
-that creates representative records for use in downstream tasks after
-entity resolution is performed. Multiple methods for creating the
-representative records (data sets) are provided.
+Enforces good practice and provides convenience functions to make work
+with 'JavaScript' not just easier but also scalable. It is a robust
+wrapper to 'NPM' and 'webpack' that enables to compartmentalize
+'JavaScript' code, leverage 'NPM' packages, and much more.
 
 %prep
 %setup -q -c -n %{packname}

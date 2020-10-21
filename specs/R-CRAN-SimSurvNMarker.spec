@@ -1,28 +1,28 @@
-%global packname  SKAT
-%global packver   2.0.1
+%global packname  SimSurvNMarker
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          SNP-Set (Sequence) Kernel Association Test
+Summary:          Simulate Survival Time and Markers
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-SPAtest 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-SPAtest 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Functions for kernel-regression-based association tests including Burden
-test, SKAT and SKAT-O. These methods aggregate individual SNP score
-statistics in a SNP set and efficiently compute SNP-set level p-values.
+Provides functions to simulate from joint survival and marker models. The
+user can specific all basis functions of time, random or deterministic
+covariates, random or deterministic left-truncation and right-censoring
+times, and model parameters.
 
 %prep
 %setup -q -c -n %{packname}

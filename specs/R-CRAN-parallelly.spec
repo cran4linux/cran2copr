@@ -1,25 +1,38 @@
-%global packname  winch
-%global packver   0.0.1
+%global packname  parallelly
+%global packver   1.20.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.20.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Portable Native and Joint Stack Traces
+Summary:          Enhancing the 'parallel' Package
 
-License:          GPL-3
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-procmaps >= 0.0.2
-Requires:         R-CRAN-procmaps >= 0.0.2
+BuildArch:        noarch
+BuildRequires:    R-parallel 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-parallel 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Obtain the native stack trace and fuse it with R's stack trace for easier
-debugging of R packages with native code.
+Utility functions that enhances the 'parallel' packages and that are used
+for the built-in parallel backends of the 'future' package.  For example,
+availableCores() gives the number of CPU cores available to your R process
+as given by relevant R options and environment variables including those
+set by job schedulers on high-performance compute clusters. If none is
+set, it will fall back to parallel::detectCores(). Another example is
+makeClusterPSOCK(), which is backward compatible with
+parallel::makePSOCKcluster() while doing a better job in setting up a
+remote cluster workers without the need for configuring the firewall to do
+port-forwarding to your local computer.
 
 %prep
 %setup -q -c -n %{packname}
