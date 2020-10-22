@@ -1,9 +1,9 @@
 %global packname  occCite
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Querying and Managing Large Biodiversity Occurrence Datasets
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rgbif >= 3.1
-BuildRequires:    R-CRAN-RefManageR 
 BuildRequires:    R-CRAN-bib2df 
 BuildRequires:    R-CRAN-BIEN 
 BuildRequires:    R-CRAN-bit64 
@@ -38,7 +37,6 @@ BuildRequires:    R-CRAN-RPostgreSQL
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-waffle 
 Requires:         R-CRAN-rgbif >= 3.1
-Requires:         R-CRAN-RefManageR 
 Requires:         R-CRAN-bib2df 
 Requires:         R-CRAN-BIEN 
 Requires:         R-CRAN-bit64 

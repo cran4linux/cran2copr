@@ -1,9 +1,9 @@
 %global packname  redland
-%global packver   1.0.17-13
+%global packver   1.0.17-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.17.13
+Version:          1.0.17.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          RDF Library Bindings in R
 

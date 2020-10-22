@@ -1,9 +1,9 @@
 %global packname  SDAR
-%global packver   0.9-5
+%global packver   0.9-55
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.55
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratigraphic Data Analysis
 

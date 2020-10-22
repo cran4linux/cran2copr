@@ -1,9 +1,9 @@
 %global packname  rmarkdown
-%global packver   2.4
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Documents for R
 
@@ -21,25 +21,23 @@ BuildRequires:    R-CRAN-yaml >= 2.1.19
 BuildRequires:    R-CRAN-knitr >= 1.22
 BuildRequires:    R-CRAN-stringr >= 1.2.0
 BuildRequires:    R-CRAN-htmltools >= 0.3.5
+BuildRequires:    R-CRAN-xfun >= 0.15
 BuildRequires:    R-CRAN-evaluate >= 0.13
 BuildRequires:    R-CRAN-tinytex >= 0.11
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-yaml >= 2.1.19
 Requires:         R-CRAN-knitr >= 1.22
 Requires:         R-CRAN-stringr >= 1.2.0
 Requires:         R-CRAN-htmltools >= 0.3.5
+Requires:         R-CRAN-xfun >= 0.15
 Requires:         R-CRAN-evaluate >= 0.13
 Requires:         R-CRAN-tinytex >= 0.11
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-mime 
-Requires:         R-CRAN-xfun 
 Requires:         R-methods 
 
 %description
@@ -48,9 +46,13 @@ Convert R Markdown documents into a variety of formats.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,6 +62,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

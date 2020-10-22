@@ -1,10 +1,10 @@
 %global packname  RaSEn
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Random Subspace Ensemble Classification
 
 License:          GPL-2
@@ -15,54 +15,65 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-class 
+BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-nnet 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-rpart 
+BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-formatR 
-Requires:         R-MASS 
+BuildRequires:    R-CRAN-FNN 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-caret 
-Requires:         R-class 
+Requires:         R-CRAN-class 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-foreach 
-Requires:         R-nnet 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-randomForest 
-Requires:         R-rpart 
+Requires:         R-CRAN-rpart 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-formatR 
+Requires:         R-CRAN-FNN 
 
 %description
-We propose a new model-free ensemble classification framework, RaSE
-algorithm, for the sparse classification problem. In RaSE algorithm, for
-each weak learner, some random subspaces are generated and the optimal one
-is chosen to train the model on the basis of some criterion. To be adapted
-to the problem, a novel criterion, ratio information criterion (RIC) is
-put up with based on Kullback-Leibler divergence. Besides minimizing RIC,
+We propose a flexible ensemble classification framework, RaSE algorithm,
+for the sparse classification problem. In RaSE algorithm, for each weak
+learner, some random subspaces are generated and the optimal one is chosen
+to train the model on the basis of some criterion. To be adapted to the
+problem, a novel criterion, ratio information criterion (RIC) is put up
+with based on Kullback-Leibler divergence. Besides minimizing RIC,
 multiple criteria can be applied, for instance, minimizing extended
 Bayesian information criterion (eBIC), minimizing training error,
 minimizing the validation error, minimizing the cross-validation error,
 minimizing leave-one-out error. And the choices of base classifiers are
 also various, for instance, linear discriminant analysis, quadratic
-discriminant analysis, k-nearest neighbour, logistic regression, decision
+discriminant analysis, k-nearest neighbor, logistic regression, decision
 trees, random forest, support vector machines. RaSE algorithm can also be
 applied to do feature ranking, providing us the importance of each feature
-based on the selected percentage in multiple subspaces.
+based on the selected percentage in multiple subspaces. In addition, to
+relax the requirement of the number of random subspaces to be generated,
+we propose an iterative version of RaSE, which is shown to be effective
+under many sparse binary classification settings.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -70,17 +81,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

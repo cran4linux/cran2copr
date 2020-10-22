@@ -1,10 +1,10 @@
 %global packname  batchtools
-%global packver   0.9.13
+%global packver   0.9.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.13
-Release:          3%{?dist}%{?buildtag}
+Version:          0.9.14
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Computation on Batch Systems
 
 License:          LGPL-3
@@ -49,21 +49,27 @@ Requires:         R-utils
 As a successor of the packages 'BatchJobs' and 'BatchExperiments', this
 package provides a parallel implementation of the Map function for high
 performance computing systems managed by schedulers 'IBM Spectrum LSF'
-(<https://www.ibm.com/us-en/marketplace/hpc-workload-management>),
-'OpenLava' (<http://www.openlava.org/>), 'Univa Grid Engine'/'Oracle Grid
-Engine' (<http://www.univa.com/>), 'Slurm' (<http://slurm.schedmd.com/>),
+(<https://www.ibm.com/products/hpc-workload-management>), 'OpenLava'
+(<https://www.openlava.org/>), 'Univa Grid Engine'/'Oracle Grid Engine'
+(<https://www.univa.com/>), 'Slurm' (<https://slurm.schedmd.com/>),
 'TORQUE/PBS'
 (<https://adaptivecomputing.com/cherry-services/torque-resource-manager/>),
-or 'Docker Swarm' (<https://docs.docker.com/swarm/>). A multicore and
-socket mode allow the parallelization on a local machines, and multiple
-machines can be hooked up via SSH to create a makeshift cluster. Moreover,
-the package provides an abstraction mechanism to define large-scale
-computer experiments in a well-organized and reproducible way.
+or 'Docker Swarm' (<https://docs.docker.com/engine/swarm/>). A multicore
+and socket mode allow the parallelization on a local machines, and
+multiple machines can be hooked up via SSH to create a makeshift cluster.
+Moreover, the package provides an abstraction mechanism to define
+large-scale computer experiments in a well-organized and reproducible way.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -71,22 +77,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/bin
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/templates
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
