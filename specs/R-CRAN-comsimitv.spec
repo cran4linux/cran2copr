@@ -1,26 +1,29 @@
-%global packname  Pijavski
-%global packver   1.0.3
+%global packname  comsimitv
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Univariate Minimization
+Summary:          Flexible Framework for Simulating Community Assembly
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-vegan 
 
 %description
-Global univariate minimization of Lipschitz functions is performed by
-using Pijavski method, which was published in Pijavski (1972)
-<DOI:10.1016/0041-5553(72)90115-2>.
+Flexible framework for trait-based simulation of community assembly, where
+components could be replaced by user-defined function and that allows
+variation of traits within species.
 
 %prep
 %setup -q -c -n %{packname}

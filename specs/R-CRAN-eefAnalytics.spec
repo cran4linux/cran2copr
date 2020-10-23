@@ -1,42 +1,43 @@
-%global packname  xmeta
-%global packver   1.2-1
+%global packname  eefAnalytics
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolbox for Multivariate Meta-Analysis
+Summary:          Robust Analytical Methods for Evaluating Educational Interventions using Randomised Controlled Trials Designs
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-aod 
-BuildRequires:    R-CRAN-glmmML 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-mvmeta 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-aod 
-Requires:         R-CRAN-glmmML 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-rstanarm 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-mvmeta 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rstanarm 
 
 %description
-A toolbox for meta-analysis. This package includes a collection of
-functions for (1) implementing robust multivariate meta-analysis of
-continuous or binary outcomes; and (2) a bivariate Egger's test for
-detecting small study effects.
+The eefAnalytics provides tools for analysing data from evaluations of
+educational interventions using a randomised controlled trial designs. It
+provides analytical tools to perform sensitivity analysis using different
+methods(e.g. frequentist models with bootstrapping and permutations
+options, Bayesian models). The functions contained in this package can be
+used for simple individual randomised trials, cluster randomised trials
+and multisite trials. The methods can also be used more widely beyond
+education trials. This package can be used to evaluate other interventions
+designs using Frequentist and Bayesian multilevel models.
 
 %prep
 %setup -q -c -n %{packname}

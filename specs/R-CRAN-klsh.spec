@@ -1,26 +1,40 @@
-%global packname  Pijavski
-%global packver   1.0.3
+%global packname  klsh
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Univariate Minimization
+Summary:          Blocking for Record Linkage
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-blink 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-SnowballC 
+Requires:         R-CRAN-blink 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-SnowballC 
 
 %description
-Global univariate minimization of Lipschitz functions is performed by
-using Pijavski method, which was published in Pijavski (1972)
-<DOI:10.1016/0041-5553(72)90115-2>.
+An implementation of the blocking algorithm KLSH in Steorts, Ventura,
+Sadinle, Fienberg (2014) <DOI:10.1007/978-3-319-11257-2_20>, which is a
+k-means variant of locality sensitive hashing. The method is illustrated
+with examples and a vignette.
 
 %prep
 %setup -q -c -n %{packname}

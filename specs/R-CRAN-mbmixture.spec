@@ -1,26 +1,32 @@
-%global packname  Pijavski
-%global packver   1.0.3
+%global packname  mbmixture
+%global packver   0.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Univariate Minimization
+Summary:          Microbiome Mixture Analysis
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Global univariate minimization of Lipschitz functions is performed by
-using Pijavski method, which was published in Pijavski (1972)
-<DOI:10.1016/0041-5553(72)90115-2>.
+Evaluate whether a microbiome sample is a mixture of two samples, by
+fitting a model for the number of read counts as a function of single
+nucleotide polymorphism (SNP) allele and the genotypes of two potential
+source samples. Lobo et al. (2019) <doi:10.1101/529040>.
 
 %prep
 %setup -q -c -n %{packname}

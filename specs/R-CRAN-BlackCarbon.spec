@@ -1,26 +1,27 @@
-%global packname  Pijavski
-%global packver   1.0.3
+%global packname  BlackCarbon
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Univariate Minimization
+Summary:          Processing Raw Black Carbon Concentration
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Global univariate minimization of Lipschitz functions is performed by
-using Pijavski method, which was published in Pijavski (1972)
-<DOI:10.1016/0041-5553(72)90115-2>.
+The functions in this package are designed to be used in the processing of
+black carbon concentration collected by a specific type of a personal
+monitor. The package includes functions for processing of the data by
+applying Optimized noise reduction averaging algorithm along with filter
+loading correction and with an option of filter change adjustment.
 
 %prep
 %setup -q -c -n %{packname}

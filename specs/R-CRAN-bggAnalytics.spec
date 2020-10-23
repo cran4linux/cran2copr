@@ -1,26 +1,42 @@
-%global packname  Pijavski
-%global packver   1.0.3
+%global packname  bggAnalytics
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Univariate Minimization
+Summary:          BoardGameGeek's Board Game Data Analysis Tools
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-Global univariate minimization of Lipschitz functions is performed by
-using Pijavski method, which was published in Pijavski (1972)
-<DOI:10.1016/0041-5553(72)90115-2>.
+Tools for analysing board game data. Mainly focused on providing an
+interface for BoardGameGeek's XML API2 through R6 class system objects.
+More details about the BoardGameGeek's API can be obtained here
+<https://boardgamegeek.com/wiki/page/BGG_XML_API2>.
 
 %prep
 %setup -q -c -n %{packname}

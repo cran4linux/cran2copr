@@ -1,26 +1,26 @@
-%global packname  Pijavski
-%global packver   1.0.3
+%global packname  asymptor
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Univariate Minimization
+Summary:          Estimate Asymptomatic Cases via Capture/Recapture Methods
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Global univariate minimization of Lipschitz functions is performed by
-using Pijavski method, which was published in Pijavski (1972)
-<DOI:10.1016/0041-5553(72)90115-2>.
+Estimate the lower and upper bound of asymptomatic cases in an epidemic
+using the capture/recapture methods from Böhning et al. (2020)
+<doi:10.1016/j.ijid.2020.06.009> and Rocchetti et al. (2020)
+<doi:10.1101/2020.07.14.20153445>.
 
 %prep
 %setup -q -c -n %{packname}

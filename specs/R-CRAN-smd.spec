@@ -1,26 +1,29 @@
-%global packname  Pijavski
-%global packver   1.0.3
+%global packname  smd
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Univariate Minimization
+Summary:          Compute Standardized Mean Differences
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.3.50
+BuildRequires:    R-methods >= 3.5.1
+Requires:         R-CRAN-MASS >= 7.3.50
+Requires:         R-methods >= 3.5.1
 
 %description
-Global univariate minimization of Lipschitz functions is performed by
-using Pijavski method, which was published in Pijavski (1972)
-<DOI:10.1016/0041-5553(72)90115-2>.
+Computes standardized mean differences and confidence intervals for
+multiple data types based on Yang, D., & Dalton, J. E. (2012)
+<http://www.lerner.ccf.org/qhs/software/lib/stddiff.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

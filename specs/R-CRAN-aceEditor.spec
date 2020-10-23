@@ -1,26 +1,35 @@
-%global packname  Pijavski
-%global packver   1.0.3
+%global packname  aceEditor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Univariate Minimization
+Summary:          The 'Ace' Editor as a HTML Widget
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-reactR 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-tools 
 
 %description
-Global univariate minimization of Lipschitz functions is performed by
-using Pijavski method, which was published in Pijavski (1972)
-<DOI:10.1016/0041-5553(72)90115-2>.
+Wraps the 'Ace' editor in a HTML widget. The 'Ace' editor has support for
+many languages. It can be opened in the viewer pane of 'RStudio', and this
+provides a second source editor.
 
 %prep
 %setup -q -c -n %{packname}

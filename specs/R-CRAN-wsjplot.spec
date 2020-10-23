@@ -1,26 +1,40 @@
-%global packname  Pijavski
-%global packver   1.0.3
+%global packname  wsjplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Univariate Minimization
+Summary:          Style Time Series Plots Like the Wall Street Journal
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-Rcpp >= 0.12.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
 
 %description
-Global univariate minimization of Lipschitz functions is performed by
-using Pijavski method, which was published in Pijavski (1972)
-<DOI:10.1016/0041-5553(72)90115-2>.
+Easily override the default visual choices in 'ggplot2' to make your time
+series plots look more like the Wall Street Journal. Specific theme design
+choices include omitting x-axis grid lines and displaying sparse light
+grey y-axis grid lines. Additionally, this allows to label the y-axis
+scales with your units only displayed on the top-most number, while also
+removing the bottom most number (unless specifically overridden). The goal
+is visual simplicity, because who has time to waste looking at a cluttered
+graph?
 
 %prep
 %setup -q -c -n %{packname}
