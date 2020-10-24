@@ -1,24 +1,41 @@
-%global packname  fun
-%global packver   0.3
+%global packname  EnvExpInd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use R for Fun
+Summary:          Environmental Exposure on the Individual Level
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-zoo 
 
 %description
-This is a collection of R games and other funny stuff, such as the classic
-Mine sweeper and sliding puzzles.
+Tools for the assessment of the environmental exposure. The package
+provides three methods (nearest monitoring site, inverse distance weighted
+as described in Li Wu (2017) <doi:10.1016/j.envint.2016.11.013>,and
+ordinary kriging) to calculate the environmental exposure (e.g. air
+pollution) on the individual level.
 
 %prep
 %setup -q -c -n %{packname}

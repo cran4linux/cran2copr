@@ -1,41 +1,41 @@
-%global packname  PowerTOST
-%global packver   1.5-1
+%global packname  MPGE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size for (Bio)Equivalence Studies
+Summary:          A Two-Step Approach to Testing Overall Effect of Gene-Environment Interaction for Multiple Phenotypes
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cubature >= 1.3.6
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-TeachingDemos 
-Requires:         R-CRAN-cubature >= 1.3.6
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-TeachingDemos 
 
 %description
-Contains functions to calculate power and sample size for various study
-designs used in bioequivalence studies. Use known.designs() to see the
-designs supported. Power and sample size can be obtained based on
-different methods, amongst them prominently the TOST procedure (two
-one-sided t-tests). See README and NEWS for further information.
+Interaction between a genetic variant (e.g., a single nucleotide
+polymorphism) and an environmental variable (e.g., physical activity) can
+have a shared effect on multiple phenotypes (e.g., blood lipids). We
+implement a two-step method to test for an overall interaction effect on
+multiple phenotypes. In first step, the method tests for an overall
+marginal genetic association between the genetic variant and the
+multivariate phenotype. The genetic variants which show an evidence of
+marginal overall genetic effect in the first step are prioritized while
+testing for an overall gene-environment interaction effect in the second
+step. Methodology is available from: A Majumdar, KS Burch, S Sankararaman,
+B Pasaniuc, WJ Gauderman, JS Witte (2020) <doi:10.1101/2020.07.06.190256>.
 
 %prep
 %setup -q -c -n %{packname}

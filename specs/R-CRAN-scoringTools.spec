@@ -1,13 +1,13 @@
-%global packname  fun
-%global packver   0.3
+%global packname  scoringTools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use R for Fun
+Summary:          Credit Scoring Tools
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,10 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-discretization 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-discretization 
+Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
 
 %description
-This is a collection of R games and other funny stuff, such as the classic
-Mine sweeper and sliding puzzles.
+Grouping essential tools for credit scoring. These statistical tools may
+be useful for other use-cases as well but were primarily designed for it.
+First, there are Reject Inference methods (Ehrhardt et al. (2017)
+<arXiv:1903.10855>). Second, we build upon the already CRAN-available
+package 'discretization' to automate discretization of continuous
+features.
 
 %prep
 %setup -q -c -n %{packname}

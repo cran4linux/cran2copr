@@ -1,9 +1,9 @@
 %global packname  knitrdata
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Language Engine for 'knitr' / 'rmarkdown'
 
@@ -12,13 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel > 3.5.0
+Requires:         R-core > 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-xfun >= 0.16
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-xfun 
+Requires:         R-CRAN-xfun >= 0.16
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-xfun 
 
 %description
 Implements a data language engine for incorporating data directly in
