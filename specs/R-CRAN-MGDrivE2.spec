@@ -1,34 +1,37 @@
-%global packname  gemma2
-%global packver   0.1.3
+%global packname  MGDrivE2
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          GEMMA Multivariate Linear Mixed Model
+Summary:          Mosquito Gene Drive Explorer 2
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-deSolve 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-deSolve 
 
 %description
-Fits a multivariate linear mixed effects model that uses a polygenic term,
-after Zhou & Stephens (2014)
-(<https://www.nature.com/articles/nmeth.2848>). Of particular interest is
-the estimation of variance components with restricted maximum likelihood
-(REML) methods. Genome-wide efficient mixed-model association (GEMMA), as
-implemented in the package 'gemma2', uses an expectation-maximization
-algorithm for variance components inference for use in quantitative trait
-locus studies.
+A simulation modeling framework which significantly extends capabilities
+from the 'MGDrivE' simulation package via a new mathematical and
+computational framework based on stochastic Petri nets. For more
+information about 'MGDrivE', see our publication:
+<https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13318>.
+Some of the notable capabilities of 'MGDrivE2' include: incorporation of
+human populations, epidemiological dynamics, time-varying parameters, and
+a continuous-time simulation framework with various sampling algorithms
+for both deterministic and stochastic interpretations. 'MGDrivE2' relies
+on the genetic inheritance structures provided in package 'MGDrivE', so we
+suggest installing that package initially.
 
 %prep
 %setup -q -c -n %{packname}

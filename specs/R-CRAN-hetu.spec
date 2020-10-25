@@ -1,31 +1,24 @@
-%global packname  digest
-%global packver   0.6.27
+%global packname  hetu
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.27
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Compact Hash Digests of R Objects
+Summary:          Structural Handling of Finnish Personal Identity Numbers
 
-License:          GPL (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 
 %description
-Implementation of a function 'digest()' for the creation of hash digests
-of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
-'xxhash', 'murmurhash', 'spookyhash' and 'blake3' algorithms) permitting
-easy comparison of R language objects, as well as functions such
-as'hmac()' to create hash-based message authentication code. Please note
-that this package is not meant to be deployed for cryptographic purposes
-for which more comprehensive (and widely tested) libraries such as
-'OpenSSL' should be used.
+Structural handling of Finnish identity numbers (persons and companies);
+extract information, check ID validity and diagnostics.
 
 %prep
 %setup -q -c -n %{packname}

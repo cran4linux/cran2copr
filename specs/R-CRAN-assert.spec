@@ -1,31 +1,28 @@
-%global packname  digest
-%global packver   0.6.27
+%global packname  assert
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.27
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Compact Hash Digests of R Objects
+Summary:          Validate Function Arguments
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-rlang 
 
 %description
-Implementation of a function 'digest()' for the creation of hash digests
-of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
-'xxhash', 'murmurhash', 'spookyhash' and 'blake3' algorithms) permitting
-easy comparison of R language objects, as well as functions such
-as'hmac()' to create hash-based message authentication code. Please note
-that this package is not meant to be deployed for cryptographic purposes
-for which more comprehensive (and widely tested) libraries such as
-'OpenSSL' should be used.
+Lightweight validation tool for checking function arguments and validating
+data analysis scripts. This is an alternative to stopifnot() from the
+'base' package and to assert_that() from the 'assertthat' package. It
+provides more informative error messages and facilitates debugging.
 
 %prep
 %setup -q -c -n %{packname}

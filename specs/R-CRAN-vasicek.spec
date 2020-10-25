@@ -1,9 +1,9 @@
 %global packname  vasicek
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Vasicek Distribution
 
@@ -12,11 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.3
-Requires:         R-core >= 3.3.3
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Provide a collection of miscellaneous R functions related to the Vasicek

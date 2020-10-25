@@ -1,9 +1,9 @@
 %global packname  fixest
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Fixed-Effects Estimations
 
@@ -14,24 +14,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-dreamerr >= 1.2.0
+BuildRequires:    R-CRAN-dreamerr >= 1.2.1
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-dreamerr >= 1.2.0
+Requires:         R-CRAN-dreamerr >= 1.2.1
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-methods 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-nlme 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-Rcpp 
 
@@ -49,9 +51,13 @@ estimations with intuitive design to cluster the standard-errors.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -61,6 +67,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

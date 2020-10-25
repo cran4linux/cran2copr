@@ -1,9 +1,9 @@
 %global packname  GET
-%global packver   0.1-8
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Envelopes
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
@@ -34,7 +34,7 @@ Requires:         R-utils
 
 %description
 Implementation of global envelopes for a set of general d-dimensional
-vectors T in various applications. A 100(1-alpha)% global envelope is a
+vectors T in various applications. A 100(1-alpha)%% global envelope is a
 band bounded by two vectors such that the probability that T falls outside
 this envelope in any of the d points is equal to alpha. Global means that
 the probability is controlled simultaneously for all the d elements of the
@@ -48,17 +48,22 @@ boxplot) and for global confidence and prediction bands (e.g. confidence
 band in polynomial regression, Bayesian posterior prediction). See
 Myllymäki and Mrkvička (2020) <arXiv:1911.06583>, Myllymäki et al. (2017)
 <doi: 10.1111/rssb.12172>, Mrkvička et al. (2017) <doi:
-10.1007/s11222-016-9683-9>, Mrkvička et al. (2016) <doi:
-10.1016/j.spasta.2016.04.005>, Mrkvička et al. (2018) <arXiv:1612.03608>,
-Mrkvička et al. (2019) <arXiv:1906.09004>, Mrkvička et al. (2019)
-<arXiv:1902.04926>.
+10.1007/s11222-016-9683-9>, Mrkvička et al. (2020) <doi:
+10.14736/kyb-2020-3-0432>, Mrkvička et al. (2019) <doi:
+10.1007/s11009-019-09756-y>, Mrkvička et al. (2019) <arXiv:1902.04926>,
+Mrkvička et al. (2016) <doi: 10.1016/j.spasta.2016.04.005>, and Myllymäki
+et al. (2020) <doi: 10.1016/j.spasta.2020.100436>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -68,6 +73,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

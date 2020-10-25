@@ -1,36 +1,46 @@
-%global packname  survivalMPLdc
-%global packver   0.1.1
+%global packname  APML
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalised Likelihood for Survival Analysis with Dependent Censoring
+Summary:          An Approach for Machine-Learning Modelling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-splines2 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-h2o 
+BuildRequires:    R-CRAN-DMwR 
+BuildRequires:    R-CRAN-dummies 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-matrixcalc 
-Requires:         R-CRAN-copula 
-Requires:         R-stats 
-Requires:         R-CRAN-splines2 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-h2o 
+Requires:         R-CRAN-DMwR 
+Requires:         R-CRAN-dummies 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-survival 
-Requires:         R-graphics 
-Requires:         R-CRAN-matrixcalc 
 
 %description
-Fitting Cox proportional hazard model under dependent right censoring
-using copula and maximum penalised likelihood methods.
+We include 1) data cleaning including variable scaling, missing values and
+unbalanced variables identification and removing, and strategies for
+variable balance improving; 2) modeling based on random forest and
+gradient boosted model including feature selection, model training,
+cross-validation and external testing. For more information, please see
+H2O.ai (Oct. 2016). R Interface for H2O, R package version 3.10.0.8.
+<https://github.com/h2oai/h2o-3>; Zhang W (2016).
+<doi:10.1016/j.scitotenv.2016.02.023>.
 
 %prep
 %setup -q -c -n %{packname}

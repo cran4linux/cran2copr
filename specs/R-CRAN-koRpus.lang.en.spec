@@ -1,10 +1,10 @@
 %global packname  koRpus.lang.en
-%global packver   0.1-3
+%global packver   0.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          3%{?dist}%{?buildtag}
+Version:          0.1.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Language Support for 'koRpus' Package: English
 
 License:          GPL (>= 3)
@@ -26,11 +26,18 @@ Requires:         R-CRAN-sylly.en
 Adds support for the English language to the 'koRpus' package. To ask for
 help, report bugs, suggest feature improvements, or discuss the global
 development of the package, please consider subscribing to the koRpus-dev
-mailing list (<http://korpusml.reaktanz.de>).
+mailing list (<https://korpusml.reaktanz.de>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -38,18 +45,10 @@ mailing list (<http://korpusml.reaktanz.de>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
