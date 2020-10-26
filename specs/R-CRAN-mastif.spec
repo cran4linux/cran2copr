@@ -1,29 +1,36 @@
-%global packname  ecespa
-%global packver   1.1-12
+%global packname  mastif
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Spatial Point Pattern Analysis
+Summary:          Mast Inference and Forecasting
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-spatstat 
-Requires:         R-CRAN-spatstat 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-repmis 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.5
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-repmis 
 
 %description
-Some wrappers, functions and data sets for for spatial point pattern
-analysis (mainly based on 'spatstat'), used in the book "Introduccion al
-Analisis Espacial de Datos en Ecologia y Ciencias Ambientales: Metodos y
-Aplicaciones" and in the papers by De la Cruz et al. (2008)
-<doi:10.1111/j.0906-7590.2008.05299.x> and Olano et al. (2009)
-<doi:10.1051/forest:2008074>.
+Analyzes production and dispersal of seeds dispersed from trees and
+recovered in seed traps.  Motivated by long-term inventory plots where
+seed collections are used to infer seed production by each individual
+plant.
 
 %prep
 %setup -q -c -n %{packname}

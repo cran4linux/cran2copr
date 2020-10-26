@@ -1,29 +1,33 @@
-%global packname  ecespa
-%global packver   1.1-12
+%global packname  PRIMME
+%global packver   3.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Spatial Point Pattern Analysis
+Summary:          Eigenvalues and Singular Values and Vectors from Large Matrices
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-spatstat 
-Requires:         R-CRAN-spatstat 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Some wrappers, functions and data sets for for spatial point pattern
-analysis (mainly based on 'spatstat'), used in the book "Introduccion al
-Analisis Espacial de Datos en Ecologia y Ciencias Ambientales: Metodos y
-Aplicaciones" and in the papers by De la Cruz et al. (2008)
-<doi:10.1111/j.0906-7590.2008.05299.x> and Olano et al. (2009)
-<doi:10.1051/forest:2008074>.
+R interface to 'PRIMME' <http://www.cs.wm.edu/~andreas/software/>, a C
+library for computing a few eigenvalues and their corresponding
+eigenvectors of a real symmetric or complex Hermitian matrix, or
+generalized Hermitian eigenproblem.  It can also compute singular values
+and vectors of a square or rectangular matrix. 'PRIMME' finds largest,
+smallest, or interior singular/eigenvalues and can use preconditioning to
+accelerate convergence. General description of the methods are provided in
+the papers Stathopoulos (2010, <doi:10.1145/1731022.1731031>) and Wu
+(2017, <doi:10.1137/16M1082214>). See 'citation("PRIMME")' for details.
 
 %prep
 %setup -q -c -n %{packname}

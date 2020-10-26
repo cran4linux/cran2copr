@@ -1,42 +1,46 @@
-%global packname  ipmisc
-%global packver   4.1.0
+%global packname  swissdd
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Data Cleaning and Analysis
+Summary:          Get Swiss Federal and Cantonal Vote Results from Opendata.swiss
 
-License:          GPL-3 | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-zeallot 
+Requires:         R-CRAN-curl 
 
 %description
-Provides functions needed for data cleaning and formatting and forms data
-cleaning and wrangling backend for the following packages: 'broomExtra',
-'ggstatsplot', 'groupedstats', 'pairwiseComparisons', 'statsExpressions',
-and 'tidyBF'.
+Builds upon the real time data service as well as the archive for national
+votes
+<https://opendata.swiss/api/3/action/package_show?id=echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen>
+and cantonal votes
+<https://opendata.swiss/api/3/action/package_show?id=echtzeitdaten-am-abstimmungstag-zu-kantonalen-abstimmungsvorlagen>.
+It brings the results of Swiss popular votes, aggregated at the
+geographical level of choice, into R. Additionally, it allows to retrieve
+data from the Swissvotes-Database, one of the most comprehensive data
+platforms on Swiss referendums and initiatives
+<https://swissvotes.ch/page/dataset/swissvotes_dataset.csv>.
 
 %prep
 %setup -q -c -n %{packname}
