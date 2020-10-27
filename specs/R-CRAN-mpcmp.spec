@@ -1,9 +1,9 @@
 %global packname  mpcmp
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mean-Parametrized Conway-Maxwell Poisson (COM-Poisson) Regression
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-ggpubr
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-ggpubr
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-broom 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 

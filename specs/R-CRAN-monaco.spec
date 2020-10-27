@@ -1,29 +1,37 @@
-%global packname  DFA
-%global packver   0.9.0
+%global packname  monaco
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detrended Fluctuation Analysis
+Summary:          The 'Monaco' Editor as a HTML Widget
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-tools 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
 
 %description
-Contains the Detrended Fluctuation Analysis (DFA), Detrended
-Cross-Correlation Analysis (DCCA), Detrended Cross-Correlation Coefficient
-(rhoDCCA), Delta Amplitude Detrended Cross-Correlation Coefficient
-(DeltarhoDCCA), log amplitude Detrended Fluctuation Analysis
-(DeltalogDFA), two DFA automatic methods for identification of crossover
-points and a Deltalog automatic method for identification of reference
-channels.
+A HTML widget rendering the 'Monaco' editor. The 'Monaco' editor is the
+code editor which powers 'VS Code'. It is particularly well developed for
+'JavaScript'. In addition to the built-in features of the 'Monaco' editor,
+the widget allows to prettify multiple languages, to view the 'HTML'
+rendering of 'Markdown' code, and to view and resize 'SVG' images.
 
 %prep
 %setup -q -c -n %{packname}

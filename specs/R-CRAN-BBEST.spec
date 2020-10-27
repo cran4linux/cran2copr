@@ -1,40 +1,43 @@
-%global packname  NlinTS
-%global packver   1.4.4
+%global packname  BBEST
+%global packver   0.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Non Linear Causality Detection in Time Series
+Summary:          Bayesian Estimation of Incoherent Neutron Scattering Backgrounds
 
-License:          GNU General Public License
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DEoptim 
+BuildRequires:    R-CRAN-aws 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-timeSeries 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-DEoptim 
+Requires:         R-CRAN-aws 
+Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-shiny 
 Requires:         R-methods 
-Requires:         R-CRAN-timeSeries 
-Requires:         R-CRAN-Rdpack 
 
 %description
-Models for non-linear time series analysis and causality detection. The
-main functionalities of this package consist of an implementation of the
-classical causality test (C.W.J.Granger 1980)
-<doi:10.1016/0165-1889(80)90069-X>, and a non-linear version of it based
-on feed-forward neural networks. This package contains also an
-implementation of the Transfer Entropy <doi:10.1103/PhysRevLett.85.461>,
-and the continuous Transfer Entropy using an approximation based on the
-k-nearest neighbors <doi:10.1103/PhysRevE.69.066138>. There are also some
-other useful tools, like the VARNN (Vector Auto-Regressive Neural Network)
-prediction model, the Augmented test of stationarity, and the discrete and
-continuous entropy and mutual information.
+We implemented a Bayesian-statistics approach for subtraction of
+incoherent scattering from neutron total-scattering data. In this
+approach, the estimated background signal associated with incoherent
+scattering maximizes the posterior probability, which combines the
+likelihood of this signal in reciprocal and real spaces with the prior
+that favors smooth lines. The description of the corresponding approach
+could be found at Gagin and Levin (2014) <DOI:10.1107/S1600576714023796>.
 
 %prep
 %setup -q -c -n %{packname}

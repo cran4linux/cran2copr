@@ -1,10 +1,10 @@
 %global packname  RBMRB
-%global packver   2.1.2
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
-Release:          3%{?dist}%{?buildtag}
+Version:          2.1.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          BMRB Data Access and Visualization
 
 License:          GPL-2
@@ -29,18 +29,25 @@ Requires:         R-CRAN-rjson >= 0.2.15
 Requires:         R-stats 
 
 %description
-The Biological Magnetic Resonance Data Bank (BMRB,<http://
-www.bmrb.wisc.edu/>) collects, annotates, archives, and disseminates
-(worldwide in the public domain) the important spectral and quantitative
-data derived from NMR(Nuclear Magnetic Resonance) spectroscopic
-investigations of biological macromolecules and metabolites. This package
-provides an interface to BMRB database for easy data access and includes a
-minimal set of data visualization functions. Users are encouraged to make
-their own data visualizations using BMRB data.
+The Biological Magnetic Resonance Data Bank (BMRB,<http:// www.bmrb.io/>)
+collects, annotates, archives, and disseminates (worldwide in the public
+domain) the important spectral and quantitative data derived from
+NMR(Nuclear Magnetic Resonance) spectroscopic investigations of biological
+macromolecules and metabolites. This package provides an interface to BMRB
+database for easy data access and includes a minimal set of data
+visualization functions. Users are encouraged to make their own data
+visualizations using BMRB data.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -50,13 +57,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

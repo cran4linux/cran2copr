@@ -1,29 +1,31 @@
-%global packname  DFA
-%global packver   0.9.0
+%global packname  bccp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detrended Fluctuation Analysis
+Summary:          Bias Correction under Censoring Plan
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-pracma 
 
 %description
-Contains the Detrended Fluctuation Analysis (DFA), Detrended
-Cross-Correlation Analysis (DCCA), Detrended Cross-Correlation Coefficient
-(rhoDCCA), Delta Amplitude Detrended Cross-Correlation Coefficient
-(DeltarhoDCCA), log amplitude Detrended Fluctuation Analysis
-(DeltalogDFA), two DFA automatic methods for identification of crossover
-points and a Deltalog automatic method for identification of reference
-channels.
+Developed for the following tasks. 1) Computing the Fisher information
+matrix under progressive type I interval censoring scheme, 2) Computing
+the bias corrected maximum likelihood estimator under progressive type I
+interval censoring based on the method of Cox and Snell (1968)
+<doi:10.1111/j.2517-6161.1968.tb00724.x> , 3) Computing the goodness of
+fit statistics including Anderson Darling and Cramer-von Mises , and 4)
+Simulating the progressive type I interval censoring scheme.
 
 %prep
 %setup -q -c -n %{packname}

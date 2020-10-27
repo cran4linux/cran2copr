@@ -1,11 +1,11 @@
-%global packname  Tplyr
-%global packver   0.1.4
+%global packname  sugarbag
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Grammar of Clinical Data Summary
+Summary:          Create Tessellated Hexagon Maps
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,31 +16,35 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.2
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.4
+BuildRequires:    R-CRAN-geosphere >= 1.5
+BuildRequires:    R-CRAN-progress >= 1.2.2
+BuildRequires:    R-CRAN-utf8 >= 1.1.4
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9
 BuildRequires:    R-CRAN-rlang >= 0.4.6
-BuildRequires:    R-CRAN-forcats >= 0.4.0
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rmapshaper >= 0.4.4
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-lwgeom >= 0.2
 Requires:         R-CRAN-tibble >= 3.0.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-tidyr >= 1.0.2
-Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.4
+Requires:         R-CRAN-geosphere >= 1.5
+Requires:         R-CRAN-progress >= 1.2.2
+Requires:         R-CRAN-utf8 >= 1.1.4
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9
 Requires:         R-CRAN-rlang >= 0.4.6
-Requires:         R-CRAN-forcats >= 0.4.0
-Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rmapshaper >= 0.4.4
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-lwgeom >= 0.2
 
 %description
-A tool created to simplify the data manipulation necessary to create
-clinical reports.
+Create a hexagon tile map display from spatial polygons. Each polygon is
+represented by a hexagon tile, placed as close to it's original centroid
+as possible, with a focus on maintaining spatial relationship to a focal
+point. Developed to aid visualisation and analysis of spatial
+distributions across Australia, which can be challenging due to the
+concentration of the population on the coast and wide open interior.
 
 %prep
 %setup -q -c -n %{packname}

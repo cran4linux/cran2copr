@@ -1,29 +1,28 @@
-%global packname  DFA
-%global packver   0.9.0
+%global packname  tdaunif
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detrended Fluctuation Analysis
+Summary:          Uniform Manifold Samplers for Topological Data Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 
 %description
-Contains the Detrended Fluctuation Analysis (DFA), Detrended
-Cross-Correlation Analysis (DCCA), Detrended Cross-Correlation Coefficient
-(rhoDCCA), Delta Amplitude Detrended Cross-Correlation Coefficient
-(DeltarhoDCCA), log amplitude Detrended Fluctuation Analysis
-(DeltalogDFA), two DFA automatic methods for identification of crossover
-points and a Deltalog automatic method for identification of reference
-channels.
+Uniform random samples from simple manifolds, sometimes with noise, are
+commonly used to test topological data analytic (TDA) tools. This package
+includes samplers powered by two techniques: analytic volume-preserving
+parameterizations, as employed by Arvo (1995) <doi:10.1145/218380.218500>,
+and rejection sampling, as employed by Diaconis, Holmes, and Shahshahani
+(2013) <doi:10.1214/12-IMSCOLL1006>.
 
 %prep
 %setup -q -c -n %{packname}

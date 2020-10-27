@@ -1,13 +1,13 @@
-%global packname  DFA
-%global packver   0.9.0
+%global packname  r3dmol
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detrended Fluctuation Analysis
+Summary:          Create Interactive 3D Visualizations of Molecular Data
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,15 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 
 %description
-Contains the Detrended Fluctuation Analysis (DFA), Detrended
-Cross-Correlation Analysis (DCCA), Detrended Cross-Correlation Coefficient
-(rhoDCCA), Delta Amplitude Detrended Cross-Correlation Coefficient
-(DeltarhoDCCA), log amplitude Detrended Fluctuation Analysis
-(DeltalogDFA), two DFA automatic methods for identification of crossover
-points and a Deltalog automatic method for identification of reference
-channels.
+Create rich and fully interactive 3D visualizations of molecular data.
+Visualizations can be included in Shiny apps and R markdown documents, or
+viewed from the R console and 'RStudio' Viewer. 'r3dmol' includes an
+extensive API to manipulate the visualization after creation, and supports
+getting data out of the visualization into R. Based on the '3dmol.js' and
+the 'htmlwidgets' R package.
 
 %prep
 %setup -q -c -n %{packname}

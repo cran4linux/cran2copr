@@ -1,29 +1,30 @@
-%global packname  DFA
-%global packver   0.9.0
+%global packname  imbibe
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detrended Fluctuation Analysis
+Summary:          A Pipe-Friendly Image Calculator
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RNifti 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RNifti 
+Requires:         R-CRAN-magrittr 
 
 %description
-Contains the Detrended Fluctuation Analysis (DFA), Detrended
-Cross-Correlation Analysis (DCCA), Detrended Cross-Correlation Coefficient
-(rhoDCCA), Delta Amplitude Detrended Cross-Correlation Coefficient
-(DeltarhoDCCA), log amplitude Detrended Fluctuation Analysis
-(DeltalogDFA), two DFA automatic methods for identification of crossover
-points and a Deltalog automatic method for identification of reference
-channels.
+Provides a set of fast, chainable image-processing operations which are
+applicable to images of two, three or four dimensions, particularly
+medical images.
 
 %prep
 %setup -q -c -n %{packname}

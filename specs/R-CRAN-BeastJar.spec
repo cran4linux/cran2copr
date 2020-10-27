@@ -1,9 +1,9 @@
 %global packname  BeastJar
-%global packver   1.10.5
+%global packver   1.10.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.5
+Version:          1.10.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          JAR Dependency for MCMC Using 'BEAST'
 

@@ -1,29 +1,37 @@
-%global packname  DFA
-%global packver   0.9.0
+%global packname  equateMultiple
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detrended Fluctuation Analysis
+Summary:          Equating of Multiple Forms
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-equateIRT >= 2.0.4
+BuildRequires:    R-CRAN-Rcpp >= 0.12.11
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-equateIRT >= 2.0.4
+Requires:         R-CRAN-Rcpp >= 0.12.11
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-statmod 
 
 %description
-Contains the Detrended Fluctuation Analysis (DFA), Detrended
-Cross-Correlation Analysis (DCCA), Detrended Cross-Correlation Coefficient
-(rhoDCCA), Delta Amplitude Detrended Cross-Correlation Coefficient
-(DeltarhoDCCA), log amplitude Detrended Fluctuation Analysis
-(DeltalogDFA), two DFA automatic methods for identification of crossover
-points and a Deltalog automatic method for identification of reference
-channels.
+Equating of multiple forms using Item Response Theory (IRT) methods
+(Battauz M. (2017) <doi:10.1007/s11336-016-9517-x> and Haberman S. J.
+(2009) <doi:10.1002/j.2333-8504.2009.tb02197.x>).
 
 %prep
 %setup -q -c -n %{packname}

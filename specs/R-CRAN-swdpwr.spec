@@ -1,29 +1,31 @@
-%global packname  DFA
-%global packver   0.9.0
+%global packname  swdpwr
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detrended Fluctuation Analysis
+Summary:          Power Calculation for Stepped Wedge Cluster Randomized Trials
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Contains the Detrended Fluctuation Analysis (DFA), Detrended
-Cross-Correlation Analysis (DCCA), Detrended Cross-Correlation Coefficient
-(rhoDCCA), Delta Amplitude Detrended Cross-Correlation Coefficient
-(DeltarhoDCCA), log amplitude Detrended Fluctuation Analysis
-(DeltalogDFA), two DFA automatic methods for identification of crossover
-points and a Deltalog automatic method for identification of reference
-channels.
+To meet the needs of statistical power calculation for stepped wedge
+cluster randomized trials, we developed this software. Different
+parameters can be specified by users for different scenarios, including:
+cohort and cross-sectional settings, binary and continuous outcomes,
+marginal (GEE) and conditional (mixed effect model) methods, different
+link functions (identity, log, logit links), with and without time effect
+of treatment, etc. The methods included in this package: Zhou et al.
+(2020) <doi:10.1093/biostatistics/kxy031>, Li et al. (2018)
+<doi:10.1111/biom.12918>. Supplementary documents can be found at:
+<https://publichealth.yale.edu/cmips/research/software/swdpwr/>.
 
 %prep
 %setup -q -c -n %{packname}

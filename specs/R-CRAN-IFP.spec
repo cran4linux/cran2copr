@@ -1,29 +1,28 @@
-%global packname  DFA
-%global packver   0.9.0
+%global packname  IFP
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detrended Fluctuation Analysis
+Summary:          Identifying Functional Polymorphisms
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.11.1
+Requires:         R-core >= 2.11.1
+BuildRequires:    R-CRAN-haplo.stats 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-haplo.stats 
+Requires:         R-CRAN-coda 
 
 %description
-Contains the Detrended Fluctuation Analysis (DFA), Detrended
-Cross-Correlation Analysis (DCCA), Detrended Cross-Correlation Coefficient
-(rhoDCCA), Delta Amplitude Detrended Cross-Correlation Coefficient
-(DeltarhoDCCA), log amplitude Detrended Fluctuation Analysis
-(DeltalogDFA), two DFA automatic methods for identification of crossover
-points and a Deltalog automatic method for identification of reference
-channels.
+A suite for identifying causal models using relative concordances and
+identifying causal polymorphisms in case-control genetic association data,
+especially with large controls re-sequenced data.
 
 %prep
 %setup -q -c -n %{packname}

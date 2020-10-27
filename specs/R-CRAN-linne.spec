@@ -1,29 +1,35 @@
-%global packname  DFA
-%global packver   0.9.0
+%global packname  linne
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detrended Fluctuation Analysis
+Summary:          Convenient 'CSS'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-magrittr 
 
 %description
-Contains the Detrended Fluctuation Analysis (DFA), Detrended
-Cross-Correlation Analysis (DCCA), Detrended Cross-Correlation Coefficient
-(rhoDCCA), Delta Amplitude Detrended Cross-Correlation Coefficient
-(DeltarhoDCCA), log amplitude Detrended Fluctuation Analysis
-(DeltalogDFA), two DFA automatic methods for identification of crossover
-points and a Deltalog automatic method for identification of reference
-channels.
+Conveniently generate 'CSS' using R code.
 
 %prep
 %setup -q -c -n %{packname}
