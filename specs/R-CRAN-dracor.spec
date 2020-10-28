@@ -1,34 +1,26 @@
-%global packname  DFA.CANCOR
-%global packver   0.1.9
+%global packname  dracor
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Discriminant Function and Canonical Correlation Analysis
+Summary:          Decode Draco Format 3D Mesh Data
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MVN 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MVN 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Produces SPSS- and SAS-like output for linear discriminant function
-analysis and canonical correlation analysis. The methods are described in
-Manly & Alberto (2017, ISBN:9781498728966), Tabachnik & Fidell (2013,
-ISBN-10:0-205-89081-4), and Venables & Ripley (2002, ISBN:0-387-95457-0).
+Decodes meshes and point cloud data encoded by the Draco mesh compression
+library from Google. Note that this is only designed for basic decoding
+and not intended as a full scale wrapping of the Draco library.
 
 %prep
 %setup -q -c -n %{packname}

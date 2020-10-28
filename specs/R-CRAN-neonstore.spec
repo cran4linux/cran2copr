@@ -1,9 +1,9 @@
 %global packname  neonstore
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          NEON Data Store
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-openssl
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-DBI 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-openssl
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-progress 
-Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
 

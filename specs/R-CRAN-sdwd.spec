@@ -1,39 +1,36 @@
-%global packname  earlyR
-%global packver   0.0.5
+%global packname  sdwd
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Transmissibility in the Early Stages of a Disease Outbreak
+Summary:          Sparse Distance Weighted Discrimination
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-distcrete 
-BuildRequires:    R-CRAN-EpiEstim 
-BuildRequires:    R-CRAN-epitrix 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-distcrete 
-Requires:         R-CRAN-EpiEstim 
-Requires:         R-CRAN-epitrix 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 
 %description
-Implements a simple, likelihood-based estimation of the reproduction
-number (R0) using a branching process with a Poisson likelihood. This
-model requires knowledge of the serial interval distribution, and dates of
-symptom onsets. Infectiousness is determined by weighting R0 by the
-probability mass function of the serial interval on the corresponding day.
-It is a simplified version of the model introduced by Cori et al. (2013)
-<doi:10.1093/aje/kwt133>.
+Formulates a sparse distance weighted discrimination (SDWD) for
+high-dimensional classification and implements a very fast algorithm for
+computing its solution path with the L1, the elastic-net, and the adaptive
+elastic-net penalties. More details about the methodology SDWD is seen on
+Wang and Zou (2016) (<doi:10.1080/10618600.2015.1049700>).
 
 %prep
 %setup -q -c -n %{packname}

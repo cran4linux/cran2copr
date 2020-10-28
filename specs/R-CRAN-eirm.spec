@@ -1,39 +1,34 @@
-%global packname  earlyR
-%global packver   0.0.5
+%global packname  eirm
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Transmissibility in the Early Stages of a Disease Outbreak
+Summary:          Explanatory Item Response Modeling for Dichotomous and Polytomous Items
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-distcrete 
-BuildRequires:    R-CRAN-EpiEstim 
-BuildRequires:    R-CRAN-epitrix 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-CRAN-distcrete 
-Requires:         R-CRAN-EpiEstim 
-Requires:         R-CRAN-epitrix 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-optimx 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-optimx 
 
 %description
-Implements a simple, likelihood-based estimation of the reproduction
-number (R0) using a branching process with a Poisson likelihood. This
-model requires knowledge of the serial interval distribution, and dates of
-symptom onsets. Infectiousness is determined by weighting R0 by the
-probability mass function of the serial interval on the corresponding day.
-It is a simplified version of the model introduced by Cori et al. (2013)
-<doi:10.1093/aje/kwt133>.
+Analysis of dichotomous and polytomous response data using the explanatory
+item response modeling framework, as described in Stanke & Bulut (2019)
+<doi:10.21449/ijate.515085> and De Boeck & Wilson (2004)
+<doi:10.1007/978-1-4757-3990-9>. Generalized linear mixed modeling is used
+for estimating the effects of item-related and person-related variables on
+dichotomous and polytomous item responses.
 
 %prep
 %setup -q -c -n %{packname}

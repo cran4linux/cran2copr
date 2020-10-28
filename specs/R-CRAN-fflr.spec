@@ -1,39 +1,31 @@
-%global packname  earlyR
-%global packver   0.0.5
+%global packname  fflr
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Transmissibility in the Early Stages of a Disease Outbreak
+Summary:          Collect ESPN Fantasy Football Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-distcrete 
-BuildRequires:    R-CRAN-EpiEstim 
-BuildRequires:    R-CRAN-epitrix 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-CRAN-distcrete 
-Requires:         R-CRAN-EpiEstim 
-Requires:         R-CRAN-epitrix 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-jsonlite >= 1.7.0
+BuildRequires:    R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-jsonlite >= 1.7.0
+Requires:         R-CRAN-httr >= 1.4.2
 
 %description
-Implements a simple, likelihood-based estimation of the reproduction
-number (R0) using a branching process with a Poisson likelihood. This
-model requires knowledge of the serial interval distribution, and dates of
-symptom onsets. Infectiousness is determined by weighting R0 by the
-probability mass function of the serial interval on the corresponding day.
-It is a simplified version of the model introduced by Cori et al. (2013)
-<doi:10.1093/aje/kwt133>.
+Format the raw data from the ESPN fantasy football API
+<https://fantasy.espn.com/apis/v3/games/ffl/> into tidy tables. Scrape
+data on public leagues, rosters, and athletes, and matches.
 
 %prep
 %setup -q -c -n %{packname}

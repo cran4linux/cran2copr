@@ -1,34 +1,27 @@
-%global packname  DFA.CANCOR
-%global packver   0.1.9
+%global packname  psqn
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Discriminant Function and Canonical Correlation Analysis
+Summary:          Partially Separable Quasi-Newton
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MVN 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MVN 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Produces SPSS- and SAS-like output for linear discriminant function
-analysis and canonical correlation analysis. The methods are described in
-Manly & Alberto (2017, ISBN:9781498728966), Tabachnik & Fidell (2013,
-ISBN-10:0-205-89081-4), and Venables & Ripley (2002, ISBN:0-387-95457-0).
+Provides quasi-Newton methods to minimize partially separable functions.
+The methods are largely described by Nocedal and Wright (2006)
+<doi:10.1007/978-0-387-40065-5>.
 
 %prep
 %setup -q -c -n %{packname}

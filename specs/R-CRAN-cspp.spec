@@ -1,13 +1,13 @@
-%global packname  dycdtools
-%global packver   0.2.0
+%global packname  cspp
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for DYRESM-CAEDYM Model Development: Calibration Assistant and Post-Processing
+Summary:          A Tool for the Correlates of State Policy Project Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,28 +16,34 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-hydroGOF 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-mapproj 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-hydroGOF 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-R.utils 
-Requires:         R-parallel 
+Requires:         R-CRAN-mapproj 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-purrr 
 
 %description
-Tools for DYRESM-CAEDYM model development, including auto-calibrate
-selected model parameters and visualise model output through time series
-plot, profile plot, contour plot, and scatter plot.
+A tool that imports, subsets, visualizes, and exports the Correlates of
+State Policy Project dataset assembled by Marty P. Jordan and Matt
+Grossmann (2020)
+<http://ippsr.msu.edu/public-policy/correlates-state-policy>. The
+Correlates data contains over 2000 variables across more than 100 years
+that pertain to state politics and policy in the United States. Users with
+only a basic understanding of R can subset this data across multiple
+dimensions, export their search results, create map visualizations, export
+the citations associated with their searches, and more.
 
 %prep
 %setup -q -c -n %{packname}

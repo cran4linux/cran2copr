@@ -1,10 +1,10 @@
 %global packname  pbixr
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          3%{?dist}%{?buildtag}
+Version:          0.1.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Access Data and Metadata from 'Microsoft' 'Power BI' Documents
 
 License:          GPL-3
@@ -36,14 +36,20 @@ Requires:         R-CRAN-stringr
 Access data and metadata from 'Microsoft' 'Power BI' ('.pbix',
 <https://powerbi.microsoft.com>) documents with R. The 'pbixr' package
 enables one to extract 'Power Query M' formulas
-(<https://docs.microsoft.com/en-us/power-query/>) and 'Data Analysis
-Expressions' ('DAX', <https://docs.microsoft.com/en-us/dax/>) queries and
+(<https://docs.microsoft.com/en-us/power-query/>) 'Data Analysis
+Expressions' queries ('DAX', <https://docs.microsoft.com/en-us/dax/>) and
 their properties, report layout and style, and data and data models.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -51,17 +57,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
