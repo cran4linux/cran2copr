@@ -1,13 +1,13 @@
-%global packname  poissonreg
-%global packver   0.1.0
+%global packname  MatchItEXT
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Wrappers for Poisson Regression
+Summary:          A Supplementary Function Set to 'MatchIt'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,28 +15,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 0.1.3.9000
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-MatchIt 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-sure 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-parsnip >= 0.1.3.9000
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-MatchIt 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sure 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-glue 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Bindings for Poisson regression models for use with the 'parsnip' package.
-Models include simple generalized linear models, Bayesian models, and
-zero-inflated Poisson models (Zeileis, Kleiber, and Jackman (2008)
-<doi:10.18637/jss.v027.i08>).
+This function set is supplementary to 'MatchIt'. Its functions conduct
+several computations that 'MatchIt' does not provide. It takes the
+'MatchIt' result object and/or the original data to compute standardized
+mean differences (SMD) between groups before and after matching. It also
+calculates ratio of variances and ratio of residual variances. In
+addition, it draws SMD comparison plots and QQ plots of distance measure
+score to help diagnose the matching result.
 
 %prep
 %setup -q -c -n %{packname}

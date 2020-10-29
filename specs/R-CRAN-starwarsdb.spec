@@ -1,51 +1,33 @@
-%global packname  ftExtra
-%global packver   0.1.0
+%global packname  starwarsdb
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extensions for 'Flextable'
+Summary:          Relational Data from the 'Star Wars' API for Learning and Teaching
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-yaml 
 
 %description
-Build display tables easily by extending the functionality of the
-'flextable' package. Features include spanning header, grouping rows,
-parsing markdown and so on.
+Provides data about the 'Star Wars' movie franchise in a set of relational
+tables or as a complete 'DuckDB' database. All data was collected from the
+open source 'Star Wars' API <https://swapi.dev/>.
 
 %prep
 %setup -q -c -n %{packname}

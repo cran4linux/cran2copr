@@ -1,11 +1,11 @@
-%global packname  ftExtra
+%global packname  ts.extend
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extensions for 'Flextable'
+Summary:          Stationary Gaussian ARMA Processes and Other Time-Series Utilities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,37 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Build display tables easily by extending the functionality of the
-'flextable' package. Features include spanning header, grouping rows,
-parsing markdown and so on.
+Stationary Gaussian ARMA processes and the stationary 'GARMA' distribution
+are fundamental in time series analysis. The permutation-spectrum test can
+detect a periodic signal in a real or complex time-series. Utilities to
+compute the auto-covariance/auto-correlation for a stationary Gaussian
+ARMA process, as well as the density, cumulative distribution, and
+spectral intensity are also implemented, as is random series generation.
 
 %prep
 %setup -q -c -n %{packname}

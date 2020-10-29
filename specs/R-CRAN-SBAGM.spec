@@ -1,30 +1,33 @@
-%global packname  rotor
-%global packver   0.3.4
+%global packname  SBAGM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Log Rotation and Conditional Backups
+Summary:          Search Best ARIMA, GARCH, and MS-GARCH Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dint 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-dint 
-Requires:         R-CRAN-R6 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-MSGARCH 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-rugarch 
+Requires:         R-CRAN-MSGARCH 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-rugarch 
 
 %description
-Conditionally rotate or back-up files based on their size or the date of
-the last backup; inspired by the 'Linux' utility 'logrotate'.
+Get the most appropriate autoregressive integrated moving average,
+generalized auto-regressive conditional heteroscedasticity and Markov
+switching GARCH model. For method details see Haas M, Mittnik S, Paolella
+MS (2004). <doi:10.1093/jjfinec/nbh020>, Bollerslev T (1986).
+<doi:10.1016/0304-4076(86)90063-1>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  trip
-%global packver   1.7.1
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for the Analysis of Animal Track Data
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-traipse >= 0.2.0
 BuildRequires:    R-CRAN-geodist 
 BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-MASS 
@@ -25,8 +26,10 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-traipse 
 BuildRequires:    R-CRAN-crsmeta 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-traipse >= 0.2.0
 Requires:         R-CRAN-geodist 
 Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-MASS 
@@ -37,8 +40,9 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-traipse 
 Requires:         R-CRAN-crsmeta 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
 Functions for accessing and manipulating spatial data for animal tracking,

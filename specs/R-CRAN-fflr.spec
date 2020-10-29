@@ -1,9 +1,9 @@
 %global packname  fflr
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collect ESPN Fantasy Football Data
 
@@ -25,7 +25,7 @@ Requires:         R-CRAN-httr >= 1.4.2
 %description
 Format the raw data from the ESPN fantasy football API
 <https://fantasy.espn.com/apis/v3/games/ffl/> into tidy tables. Scrape
-data on public leagues, rosters, and athletes, and matches.
+data on public leagues, rosters, athletes, and matches.
 
 %prep
 %setup -q -c -n %{packname}

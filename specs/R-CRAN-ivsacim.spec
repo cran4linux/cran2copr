@@ -1,30 +1,32 @@
-%global packname  rotor
-%global packver   0.3.4
+%global packname  ivsacim
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Log Rotation and Conditional Backups
+Summary:          Structural Additive Cumulative Intensity Models with IV
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dint 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-dint 
-Requires:         R-CRAN-R6 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-lava 
+BuildRequires:    R-CRAN-timereg 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-lava 
+Requires:         R-CRAN-timereg 
 
 %description
-Conditionally rotate or back-up files based on their size or the date of
-the last backup; inspired by the 'Linux' utility 'logrotate'.
+An instrumental variable estimator under structural cumulative additive
+intensity model is fitted, that leverages initial randomization as the IV.
+We also provide a consistent variance estimate.
 
 %prep
 %setup -q -c -n %{packname}

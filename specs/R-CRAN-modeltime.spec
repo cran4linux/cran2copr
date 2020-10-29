@@ -1,9 +1,9 @@
 %global packname  modeltime
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Tidymodels Extension for Time Series Modeling
 
@@ -15,8 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-timetk >= 2.1.0
-BuildRequires:    R-CRAN-parsnip >= 0.1.3
+BuildRequires:    R-CRAN-timetk >= 2.5.0
+BuildRequires:    R-CRAN-xgboost >= 1.2.0.1
+BuildRequires:    R-CRAN-parsnip >= 0.1.4
 BuildRequires:    R-CRAN-workflows >= 0.1.3
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-StanHeaders 
@@ -39,11 +40,12 @@ BuildRequires:    R-CRAN-janitor
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-prophet 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-timetk >= 2.1.0
-Requires:         R-CRAN-parsnip >= 0.1.3
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-timetk >= 2.5.0
+Requires:         R-CRAN-xgboost >= 1.2.0.1
+Requires:         R-CRAN-parsnip >= 0.1.4
 Requires:         R-CRAN-workflows >= 0.1.3
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-StanHeaders 
@@ -66,9 +68,9 @@ Requires:         R-CRAN-janitor
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-prophet 
 Requires:         R-methods 
+Requires:         R-CRAN-cli 
 
 %description
 The time series forecasting framework for use with the 'tidymodels'

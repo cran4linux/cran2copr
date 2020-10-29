@@ -1,51 +1,60 @@
-%global packname  ftExtra
-%global packver   0.1.0
+%global packname  tidyseurat
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extensions for 'Flextable'
+Summary:          Brings Seurat to the Tidyverse
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-Seurat 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fansi 
+Requires:         R-CRAN-Seurat 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fansi 
 
 %description
-Build display tables easily by extending the functionality of the
-'flextable' package. Features include spanning header, grouping rows,
-parsing markdown and so on.
+It creates an invisible layer that allow to see the 'Seurat' object as
+tibble and interact seamlessly with the tidyverse.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global packname  GMKMcharlie
-%global packver   1.0.3
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
-Release:          3%{?dist}%{?buildtag}
-Summary:          Unsupervised Gaussian Mixture and Minkowski K-Means
+Version:          1.1.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Unsupervised Gaussian Mixture and Minkowski and Spherical K-Means with Constraints
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,14 +30,21 @@ mixture weights and covariance eigen ratios. The K-means (KM) module
 offers clustering with the options of (i) deterministic and stochastic
 K-means++ initializations, (ii) upper bounds on cluster weights (sizes),
 (iii) Minkowski distances, (iv) cosine dissimilarity, (v) dense and sparse
-representation of data input. The package improved the usual
-implementations of GM and KM training algorithms in various aspects. It is
-carefully crafted in multithreaded C++ for processing large data in
-industry use.
+representation of data input. The package improved the typical
+implementations of GM and KM algorithms in various aspects. It is
+carefully crafted in multithreaded C++ for modeling large data in industry
+use.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -45,17 +52,10 @@ industry use.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

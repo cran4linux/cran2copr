@@ -1,9 +1,9 @@
 %global packname  DataVisualizations
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of High-Dimensional Data
 
@@ -26,11 +26,13 @@ Requires:         R-CRAN-sp
 Gives access to data visualisation methods that are relevant from the data
 scientist's point of view. The flagship idea of 'DataVisualizations' is
 the mirrored density plot (MD-plot) for either classified or
-non-classified multivariate data presented in Thrun et al. (2019)
-<arXiv:1908.06081>. The MD-plot outperforms the box-and-whisker diagram
-(box plot), violin plot and bean plot. Furthermore, a collection of
-various visualization methods for univariate data is provided. In the case
-of exploratory data analysis, 'DataVisualizations' makes it possible to
+non-classified multivariate data published in Thrun, M.C. et al.:
+"Analyzing the Fine Structure of Distributions" (2020), PLoS ONE,
+<DOI:10.1371/journal.pone.0238835>. The MD-plot outperforms the
+box-and-whisker diagram (box plot), violin plot and bean plot and
+geom_violin plot of ggplot2. Furthermore, a collection of various
+visualization methods for univariate data is provided. In the case of
+exploratory data analysis, 'DataVisualizations' makes it possible to
 inspect the distribution of each feature of a dataset visually through a
 combination of four methods. One of these methods is the Pareto density
 estimation (PDE) of the probability density function (pdf). Additionally,
@@ -47,14 +49,18 @@ categorical features, the Pie charts, slope charts and fan plots, improved
 by the ABC analysis, become usable. More detailed explanations are found
 in the book by Thrun, M.C.: "Projection-Based Clustering through
 Self-Organization and Swarm Intelligence" (2018)
-<doi:10.1007/978-3-658-20540-9>.
+<DOI:10.1007/978-3-658-20540-9>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -64,6 +70,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

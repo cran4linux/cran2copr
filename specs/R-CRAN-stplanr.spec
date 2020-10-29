@@ -1,9 +1,9 @@
 %global packname  stplanr
-%global packver   0.7.2
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sustainable Transport Planning
 
@@ -58,17 +58,23 @@ and non-motorized modes. Enables common transport planning tasks
 including: downloading and cleaning transport datasets; creating
 geographic "desire lines" from origin-destination (OD) data; route
 assignment, locally and via interfaces to routing services such as
-<https://cyclestreets.net/>; calculation of route segment attributes such
-as bearing and aggregate flow; and 'travel watershed' analysis. See
-Lovelace and Ellison (2018) <doi:10.32614/RJ-2018-053> and vignettes for
-details.
+<https://cyclestreets.net/> and calculation of route segment attributes
+such as bearing. The package implements the 'travel flow aggregration'
+method described in Morgan and Lovelace (2020)
+<doi:10.1177/2399808320942779>. Further information on the package's aim
+and scope can be found in the vignettes and in a paper in the R Journal
+(Lovelace and Ellison 2018) <doi:10.32614/RJ-2018-053>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -78,6 +84,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

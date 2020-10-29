@@ -1,9 +1,9 @@
 %global packname  ech
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolbox for ECH with R
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-haven >= 2.3.0
 BuildRequires:    R-CRAN-survey >= 1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-srvyr >= 0.4.0
+BuildRequires:    R-CRAN-geouy >= 0.2.3
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
@@ -33,20 +34,17 @@ BuildRequires:    R-CRAN-pdftables
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-textclean 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-geouy 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-attempt 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-haven >= 2.3.0
 Requires:         R-CRAN-survey >= 1.2
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-srvyr >= 0.4.0
+Requires:         R-CRAN-geouy >= 0.2.3
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
@@ -61,16 +59,12 @@ Requires:         R-CRAN-pdftables
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-textclean 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-geouy 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-ggspatial 
 Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-attempt 
+Requires:         R-CRAN-curl 
 
 %description
 R toolbox for the processing of the Encuesta Continua de Hogares (ECH)
@@ -80,9 +74,13 @@ conducted by the Instituto Nacional de Estadistica (INE).
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -92,6 +90,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
