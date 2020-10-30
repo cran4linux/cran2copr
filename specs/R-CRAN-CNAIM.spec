@@ -1,9 +1,9 @@
 %global packname  CNAIM
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Network Asset Indices Methodology (CNAIM)
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets >= 1.2
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-testthat
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-widgetframe 
 Requires:         R-CRAN-htmlwidgets >= 1.2
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 

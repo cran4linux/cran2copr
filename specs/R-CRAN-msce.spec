@@ -1,25 +1,29 @@
-%global packname  KernSmooth
-%global packver   2.23-18
+%global packname  msce
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.23.18
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Kernel Smoothing Supporting Wand & Jones (1995)
+Summary:          Hazard of Multi-Stage Clonal Expansion Models
 
-License:          Unlimited
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.0
-Requires:         R-core >= 2.5.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-RcppParallel >= 5.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.3
 
 %description
-Functions for kernel smoothing (and density estimation) corresponding to
-the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+Functions to calculate hazard and survival function of Multi-Stage Clonal
+Expansion Models used in cancer epidemiology. For the Two-Stage Clonal
+Expansion Model an exact solution is implemented assuming piecewise
+constant parameters. Numerical solutions are provided for its extensions.
 
 %prep
 %setup -q -c -n %{packname}

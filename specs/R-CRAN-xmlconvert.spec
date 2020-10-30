@@ -1,25 +1,38 @@
-%global packname  KernSmooth
-%global packver   2.23-18
+%global packname  xmlconvert
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.23.18
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Kernel Smoothing Supporting Wand & Jones (1995)
+Summary:          Comfortably Converting XML Documents to Dataframes and Vice Versa
 
-License:          Unlimited
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.0
-Requires:         R-core >= 2.5.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-utils 
 
 %description
-Functions for kernel smoothing (and density estimation) corresponding to
-the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+Converts XML documents to R dataframes and dataframes to XML documents. A
+wide variety of options allows for different XML formats and flexible
+control of the conversion process. Results can be exported to CSV and
+Excel, if desired.
 
 %prep
 %setup -q -c -n %{packname}

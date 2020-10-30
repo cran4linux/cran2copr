@@ -1,25 +1,30 @@
-%global packname  KernSmooth
-%global packver   2.23-18
+%global packname  interleave
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.23.18
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Kernel Smoothing Supporting Wand & Jones (1995)
+Summary:          Converts Tabular Data to Interleaved Vectors
 
-License:          Unlimited
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.0
-Requires:         R-core >= 2.5.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-geometries 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-geometries 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Functions for kernel smoothing (and density estimation) corresponding to
-the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+Converts matrices and lists of matrices into a single vector by
+interleaving their values. That is, each element of the result vector is
+filled from the input matrices one row at a time. This is the same as
+transposing a matrix, then removing the dimension attribute, but is
+designed to operate on matrices in nested list structures.
 
 %prep
 %setup -q -c -n %{packname}

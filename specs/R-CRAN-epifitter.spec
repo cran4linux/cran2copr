@@ -1,11 +1,11 @@
-%global packname  qtl2pleio
-%global packver   1.4.1
+%global packname  epifitter
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Testing Pleiotropy in Multiparental Populations
+Summary:          Analysis and Simulation of Plant Disease Progress Curves
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,35 +14,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gemma2 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gemma2 
+Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-parallel 
 
 %description
-We implement an adaptation of Jiang & Zeng's (1995)
-<https://www.genetics.org/content/140/3/1111> likelihood ratio test for
-testing the null hypothesis of pleiotropy against the alternative
-hypothesis, two separate quantitative trait loci. The test differs from
-that in Jiang & Zeng (1995) <https://www.genetics.org/content/140/3/1111>
-and that in Tian et al. (2016) <doi:10.1534/genetics.115.183624> in that
-our test accommodates multiparental populations.
+Analysis and visualization of plant disease progress curve data. Functions
+for fitting two-parameter population dynamics models (exponential,
+monomolecular, logistic and Gompertz) to proportion data for single or
+multiple epidemics using either linear or no-linear regression.
+Statistical and visual outputs are provided to aid in model selection.
+Synthetic curves can be simulated for any of the models given the
+parameters. See Laurence V. Madden, Gareth Hughes, and Frank van den Bosch
+(2007) <doi:10.1094/9780890545058> for further information on the methods.
 
 %prep
 %setup -q -c -n %{packname}

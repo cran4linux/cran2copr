@@ -1,25 +1,34 @@
-%global packname  KernSmooth
-%global packver   2.23-18
+%global packname  nlstac
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.23.18
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Kernel Smoothing Supporting Wand & Jones (1995)
+Summary:          An R Package for Fitting Separable Nonlinear Models
 
-License:          Unlimited
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.0
-Requires:         R-core >= 2.5.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-stringr 
 
 %description
-Functions for kernel smoothing (and density estimation) corresponding to
-the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+Set of functions implementing the algorithm described in Fernandez
+Torvisco et al. (2018) for fitting separable nonlinear regression curves.
+See Fernandez Torvisco, Rodriguez-Arias Fernandez and Cabello Sanchez
+(2018) <doi:10.2298/FIL1812233T>.
 
 %prep
 %setup -q -c -n %{packname}

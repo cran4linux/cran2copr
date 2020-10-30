@@ -1,9 +1,9 @@
 %global packname  predictoR
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictive Data Analysis System
 
@@ -17,7 +17,7 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rattle >= 5.2.0
 BuildRequires:    R-CRAN-randomForest >= 4.6.14
-BuildRequires:    R-rpart >= 4.1.13
+BuildRequires:    R-CRAN-rpart >= 4.1.13
 BuildRequires:    R-CRAN-ada >= 2.0.5
 BuildRequires:    R-CRAN-glmnet >= 2.0.16
 BuildRequires:    R-CRAN-plyr >= 1.8.4
@@ -39,7 +39,7 @@ BuildRequires:    R-CRAN-shinyWidgets >= 0.4.4
 BuildRequires:    R-CRAN-shinyAce >= 0.3.3
 Requires:         R-CRAN-rattle >= 5.2.0
 Requires:         R-CRAN-randomForest >= 4.6.14
-Requires:         R-rpart >= 4.1.13
+Requires:         R-CRAN-rpart >= 4.1.13
 Requires:         R-CRAN-ada >= 2.0.5
 Requires:         R-CRAN-glmnet >= 2.0.16
 Requires:         R-CRAN-plyr >= 1.8.4
@@ -70,9 +70,13 @@ Methods.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -82,6 +86,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

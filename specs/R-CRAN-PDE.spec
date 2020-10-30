@@ -1,25 +1,28 @@
-%global packname  KernSmooth
-%global packver   2.23-18
+%global packname  PDE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.23.18
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Kernel Smoothing Supporting Wand & Jones (1995)
+Summary:          Extract Sentences and Tables from PDFs with User Interface
 
-License:          Unlimited
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.0
-Requires:         R-core >= 2.5.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
+Requires:         R-CRAN-tcltk2 >= 1.2.11
 
 %description
-Functions for kernel smoothing (and density estimation) corresponding to
-the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+The PDE (Pdf Data Extractor) allows the extraction of information and
+tables optionally based on search words from PDF (Portable Document
+Format) files and enables the visualization of the results, both by
+providing a convenient user-interface.
 
 %prep
 %setup -q -c -n %{packname}

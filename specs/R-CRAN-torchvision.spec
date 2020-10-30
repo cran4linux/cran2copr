@@ -1,25 +1,41 @@
-%global packname  KernSmooth
-%global packver   2.23-18
+%global packname  torchvision
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.23.18
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Kernel Smoothing Supporting Wand & Jones (1995)
+Summary:          Models, Datasets and Transformations for Images
 
-License:          Unlimited
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.0
-Requires:         R-core >= 2.5.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-torch >= 0.1.0
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-abind 
+Requires:         R-CRAN-torch >= 0.1.0
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-utils 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-abind 
 
 %description
-Functions for kernel smoothing (and density estimation) corresponding to
-the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+Provides access to datasets, models and preprocessing facilities for deep
+learning with images. Integrates seamlessly with the 'torch' package and
+it's 'API' borrows heavily from 'PyTorch' vision package.
 
 %prep
 %setup -q -c -n %{packname}

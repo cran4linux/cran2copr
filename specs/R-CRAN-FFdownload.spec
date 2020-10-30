@@ -1,25 +1,41 @@
-%global packname  KernSmooth
-%global packver   2.23-18
+%global packname  FFdownload
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.23.18
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Kernel Smoothing Supporting Wand & Jones (1995)
+Summary:          Download Data from Kenneth French's Website
 
-License:          Unlimited
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.0
-Requires:         R-core >= 2.5.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-plyr 
 
 %description
-Functions for kernel smoothing (and density estimation) corresponding to
-the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+Downloads all the datasets (you can exclude the daily ones or specify a
+list of those you are targeting specifically) from Kenneth French's
+Website at
+<https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html>,
+process them and convert them to list of 'xts' (time series).
 
 %prep
 %setup -q -c -n %{packname}
