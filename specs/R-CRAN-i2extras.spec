@@ -1,11 +1,11 @@
-%global packname  xfun
-%global packver   0.19
+%global packname  i2extras
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions by 'Yihui Xie'
+Summary:          Functions to Work with 'incidence2' Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,14 +14,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-incidence2 
+BuildRequires:    R-CRAN-trending 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-tools 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-incidence2 
+Requires:         R-CRAN-trending 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Miscellaneous functions commonly used in other packages maintained by
-'Yihui Xie'.
+Provides functions to work with 'incidence2' objects, including a
+simplified interface for trend fitting and peak estimation. This package
+is part of the RECON (<https://www.repidemicsconsortium.org/>) toolkit for
+outbreak analysis.
 
 %prep
 %setup -q -c -n %{packname}

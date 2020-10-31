@@ -1,10 +1,10 @@
 %global packname  fdm2id
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
-Release:          3%{?dist}%{?buildtag}
+Version:          0.9.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Data Mining and R Programming for Beginners
 
 License:          GPL-3
@@ -17,12 +17,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-arules 
 BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-nnet 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-class 
-BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-class 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-FactoMineR 
 BuildRequires:    R-CRAN-flexclust 
@@ -34,14 +34,14 @@ BuildRequires:    R-CRAN-ibr
 BuildRequires:    R-CRAN-irr 
 BuildRequires:    R-CRAN-kohonen 
 BuildRequires:    R-CRAN-leaps 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mda 
 BuildRequires:    R-CRAN-meanShiftR 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-questionr 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-rpart 
+BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-stats 
@@ -52,12 +52,12 @@ BuildRequires:    R-CRAN-wordcloud
 BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-arules 
 Requires:         R-CRAN-mclust 
-Requires:         R-nnet 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-caret 
-Requires:         R-class 
-Requires:         R-cluster 
+Requires:         R-CRAN-class 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-FactoMineR 
 Requires:         R-CRAN-flexclust 
@@ -69,14 +69,14 @@ Requires:         R-CRAN-ibr
 Requires:         R-CRAN-irr 
 Requires:         R-CRAN-kohonen 
 Requires:         R-CRAN-leaps 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mda 
 Requires:         R-CRAN-meanShiftR 
 Requires:         R-methods 
 Requires:         R-CRAN-questionr 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ROCR 
-Requires:         R-rpart 
+Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-SnowballC 
 Requires:         R-stats 
@@ -98,7 +98,13 @@ en Master 2 Informatique Décisionnelle".
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -106,17 +112,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

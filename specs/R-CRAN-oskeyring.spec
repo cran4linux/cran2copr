@@ -1,32 +1,25 @@
-%global packname  tufte
-%global packver   0.8
+%global packname  oskeyring
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tufte's Styles for R Markdown Documents
+Summary:          Raw System Credential Store Access from R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.1
-BuildRequires:    R-CRAN-knitr >= 1.28
-BuildRequires:    R-CRAN-xfun >= 0.13
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-rmarkdown >= 2.1
-Requires:         R-CRAN-knitr >= 1.28
-Requires:         R-CRAN-xfun >= 0.13
-Requires:         R-CRAN-htmltools 
 
 %description
-Provides R Markdown output formats to use Tufte styles for PDF and HTML
-output.
+Aims to support all features of the system credential store, including
+non-portable ones. Supports 'Keychain' on 'macOS', and 'Credential
+Manager' on 'Windows'. See the 'keyring' package if you need a portable
+'API'.
 
 %prep
 %setup -q -c -n %{packname}

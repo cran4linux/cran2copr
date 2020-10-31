@@ -1,32 +1,32 @@
-%global packname  tufte
-%global packver   0.8
+%global packname  shinyscreenshot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tufte's Styles for R Markdown Documents
+Summary:          Capture Screenshots of Entire Pages or Parts of Pages in 'Shiny'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.1
-BuildRequires:    R-CRAN-knitr >= 1.28
-BuildRequires:    R-CRAN-xfun >= 0.13
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-rmarkdown >= 2.1
-Requires:         R-CRAN-knitr >= 1.28
-Requires:         R-CRAN-xfun >= 0.13
-Requires:         R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-shiny >= 1.0.0
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-uuid 
 
 %description
-Provides R Markdown output formats to use Tufte styles for PDF and HTML
-output.
+Capture screenshots in 'Shiny' applications. Screenshots can either be of
+the entire viewable page, or a specific section of the page. The captured
+image is automatically downloaded as a PNG image. Powered by the
+'html2canvas' JavaScript library.
 
 %prep
 %setup -q -c -n %{packname}

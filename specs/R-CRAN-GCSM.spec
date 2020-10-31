@@ -1,32 +1,30 @@
-%global packname  tufte
-%global packver   0.8
+%global packname  GCSM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tufte's Styles for R Markdown Documents
+Summary:          Implements Generic Composite Similarity Measure
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.1
-BuildRequires:    R-CRAN-knitr >= 1.28
-BuildRequires:    R-CRAN-xfun >= 0.13
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-rmarkdown >= 2.1
-Requires:         R-CRAN-knitr >= 1.28
-Requires:         R-CRAN-xfun >= 0.13
-Requires:         R-CRAN-htmltools 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides R Markdown output formats to use Tufte styles for PDF and HTML
-output.
+Provides implementation of the generic composite similarity measure (GCSM)
+described in Liu et al. (2020) <doi:10.1016/j.ecoinf.2020.101169>. The
+implementation is in C++ and uses 'RcppArmadillo'. Additionally,
+implementations of the structural similarity (SSIM) and the composite
+similarity measure based on means, standard deviations, and correlation
+coefficient (CMSC), are included.
 
 %prep
 %setup -q -c -n %{packname}
