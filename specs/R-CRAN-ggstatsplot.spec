@@ -1,9 +1,9 @@
 %global packname  ggstatsplot
-%global packver   0.6.1
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -15,40 +15,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ipmisc >= 4.0.0
-BuildRequires:    R-CRAN-pairwiseComparisons >= 3.0.0
-BuildRequires:    R-CRAN-statsExpressions >= 0.5.1
-BuildRequires:    R-CRAN-broomExtra 
+BuildRequires:    R-CRAN-broomExtra >= 4.1.0
+BuildRequires:    R-CRAN-ipmisc >= 4.1.0
+BuildRequires:    R-CRAN-pairwiseComparisons >= 3.1.0
+BuildRequires:    R-CRAN-parameters >= 0.9.0
+BuildRequires:    R-CRAN-statsExpressions >= 0.6.0
+BuildRequires:    R-CRAN-effectsize >= 0.4.0
+BuildRequires:    R-CRAN-insight >= 0.10.0
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-ggExtra 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggsignif 
-BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-parameters 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ipmisc >= 4.0.0
-Requires:         R-CRAN-pairwiseComparisons >= 3.0.0
-Requires:         R-CRAN-statsExpressions >= 0.5.1
-Requires:         R-CRAN-broomExtra 
+Requires:         R-CRAN-broomExtra >= 4.1.0
+Requires:         R-CRAN-ipmisc >= 4.1.0
+Requires:         R-CRAN-pairwiseComparisons >= 3.1.0
+Requires:         R-CRAN-parameters >= 0.9.0
+Requires:         R-CRAN-statsExpressions >= 0.6.0
+Requires:         R-CRAN-effectsize >= 0.4.0
+Requires:         R-CRAN-insight >= 0.10.0
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-ggExtra 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggsignif 
-Requires:         R-CRAN-insight 
 Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-parameters 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

@@ -1,9 +1,9 @@
 %global packname  ggdist
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of Distributions and Uncertainty
 
@@ -16,28 +16,32 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 BuildRequires:    R-CRAN-purrr >= 0.2.3
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-HDInterval 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-distributional 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-purrr >= 0.2.3
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-scales 
 Requires:         R-grid 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-HDInterval 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-fda 
 Requires:         R-CRAN-distributional 
 
 %description
@@ -59,9 +63,13 @@ curves with multiple uncertainty ribbons.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -71,6 +79,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,11 +1,11 @@
 %global packname  statsExpressions
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expressions with Statistical Details
+Summary:          Expressions and Dataframes with Statistical Details
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,38 +15,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ipmisc >= 4.0.0
-BuildRequires:    R-CRAN-correlation >= 0.4.0
+BuildRequires:    R-CRAN-ipmisc >= 4.1.0
+BuildRequires:    R-CRAN-parameters >= 0.9.0
+BuildRequires:    R-CRAN-performance >= 0.5.1
+BuildRequires:    R-CRAN-effectsize >= 0.4.0
+BuildRequires:    R-CRAN-tidyBF >= 0.4.0
+BuildRequires:    R-CRAN-insight >= 0.10.0
 BuildRequires:    R-CRAN-broomExtra 
+BuildRequires:    R-CRAN-correlation 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-ez 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-metaplus 
 BuildRequires:    R-CRAN-rcompanion 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyBF 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-WRS2 
-Requires:         R-CRAN-ipmisc >= 4.0.0
-Requires:         R-CRAN-correlation >= 0.4.0
+Requires:         R-CRAN-ipmisc >= 4.1.0
+Requires:         R-CRAN-parameters >= 0.9.0
+Requires:         R-CRAN-performance >= 0.5.1
+Requires:         R-CRAN-effectsize >= 0.4.0
+Requires:         R-CRAN-tidyBF >= 0.4.0
+Requires:         R-CRAN-insight >= 0.10.0
 Requires:         R-CRAN-broomExtra 
+Requires:         R-CRAN-correlation 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-ez 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-metaplus 
 Requires:         R-CRAN-rcompanion 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyBF 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-WRS2 
 
 %description
 Statistical processing backend for 'ggstatsplot', this package creates
-expressions with details from statistical tests. Currently, it supports
+expressions with details from statistical tests. It can additionally
+return dataframes with these results, which also make these functions a
+more pipe-friendly way to do statistical analysis. Currently, it supports
 only the most common types of statistical tests: parametric,
 nonparametric, robust, and Bayesian versions of t-test/ANOVA, correlation
 analyses, contingency table analysis, and meta-analysis.
