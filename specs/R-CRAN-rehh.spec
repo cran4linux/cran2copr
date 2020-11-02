@@ -1,11 +1,11 @@
 %global packname  rehh
-%global packver   3.1.2
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Searching for Footprints of Selection using 'Extended HaplotypeHomozygosity' Based Tests
+Summary:          Searching for Footprints of Selection using 'Extended Haplotype Homozygosity' Based Tests
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,20 +31,19 @@ these, namely: 'iHS' (Voight 2006) <doi:10.1371/journal.pbio.0040072> for
 detecting positive or 'Darwinian' selection within a single population as
 well as 'Rsb' (Tang 2007) <doi:10.1371/journal.pbio.0050171> and 'XP-EHH'
 (Sabeti 2007) <doi:10.1038/nature06250>, targeted at differential
-selection between two populations. Various plotting functions are also
-included to facilitate visualization and interpretation of these
-statistics. Due to changes in the API, albeit mostly minor, versions 3.X
-are not compatible with versions 2.0.X. Note: optionally, vcf files can be
-imported using package vcfR. That package is currently removed from CRAN,
-but can still be installed from <https://github.com/knausb/vcfR> following
-instructions there.
+selection between two populations. Various plotting functions are included
+to facilitate visualization and interpretation of these statistics.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -54,6 +53,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

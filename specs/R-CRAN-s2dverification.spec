@@ -1,10 +1,10 @@
 %global packname  s2dverification
-%global packver   2.8.6
+%global packver   2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.6
-Release:          3%{?dist}%{?buildtag}
+Version:          2.9.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Set of Common Tools for Forecast Verification
 
 License:          LGPL-3
@@ -47,11 +47,19 @@ prediction scores against one or more observational datasets or reanalyses
 on the equations from a model, not a pure observational dataset). Intended
 for seasonal to decadal climate forecasts although can be useful to verify
 other kinds of forecasts. The package can be helpful in climate sciences
-for other purposes than forecasting.
+for other purposes than forecasting. To find more details, see the review
+paper Manubens, N.et al. (2018) <doi:10.1016/j.envsoft.2018.01.018>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -59,20 +67,10 @@ for other purposes than forecasting.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/config
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
