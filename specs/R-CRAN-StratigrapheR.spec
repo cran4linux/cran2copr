@@ -1,10 +1,10 @@
 %global packname  StratigrapheR
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Integrated Stratigraphy
 
 License:          GPL-3
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-graphics 
@@ -24,6 +24,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-CRAN-reshape 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -33,6 +34,7 @@ Requires:         R-utils
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-diagram 
+Requires:         R-CRAN-reshape 
 
 %description
 Includes bases for litholog generation: graphical functions based on R
@@ -57,7 +59,13 @@ with OSXStereonet: Computers & Geosciences, v. 51, no. 0, p. 193 - 205,
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -65,18 +73,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

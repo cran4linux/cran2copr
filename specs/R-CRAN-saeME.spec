@@ -1,9 +1,9 @@
 %global packname  saeME
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation with Measurement Error
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-expm
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ClusterR 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ClusterR 
 
 %description
 A set of functions and datasets implementation of small area estimation

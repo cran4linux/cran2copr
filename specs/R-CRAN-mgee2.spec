@@ -1,39 +1,37 @@
-%global packname  growthrates
-%global packver   0.8.2
+%global packname  mgee2
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Growth Rates from Experimental Data
+Summary:          Marginal Analysis of Misclassified Longitudinal Ordinal Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-FME 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-deSolve 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-FME 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A collection of methods to determine growth rates from experimental data,
-in particular from batch experiments and plate reader trials.
+Three estimating equation methods are provided in this package for
+marginal analysis of longitudinal ordinal data with misclassified
+responses and covariates. The naive analysis which is solely based on the
+observed data without adjustment may lead to bias. The corrected
+generalized estimating equations (GEE2) method which is unbiased requires
+the misclassification parameters to be known beforehand. The corrected
+generalized estimating equations (GEE2) with validation subsample method
+estimates the misclassification parameters based on a given validation
+set. This package is an implementation of Chen (2013)
+<doi:10.1002/bimj.201200195>.
 
 %prep
 %setup -q -c -n %{packname}

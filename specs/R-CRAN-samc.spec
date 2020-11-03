@@ -1,9 +1,9 @@
 %global packname  samc
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Absorbing Markov Chains
 
@@ -26,12 +26,16 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-raster 
 
 %description
-An implementation of the framework described in "Toward a unified
+Implements functions for working with absorbing Markov chains. The
+implementation is based on the framework described in "Toward a unified
 framework for connectivity that disentangles movement and mortality in
-space and time" by Fletcher et al. (2019) <doi:10.1111/ele.13333>.
-Incorporates both resistance and absorption with spatial absorbing Markov
-chains (SAMC) to provide several short-term and long-term predictions for
-metrics related to connectivity in landscapes.
+space and time" by Fletcher et al. (2019) <doi:10.1111/ele.13333>, which
+applies them to spatial ecology. This framework incorporates both
+resistance and absorption with spatial absorbing Markov chains (SAMC) to
+provide several short-term and long-term predictions for metrics related
+to connectivity in landscapes. Despite the ecological context of the
+framework, this package can be used in any application of absorbing Markov
+chains.
 
 %prep
 %setup -q -c -n %{packname}

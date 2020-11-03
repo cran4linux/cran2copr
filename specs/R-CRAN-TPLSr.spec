@@ -1,33 +1,26 @@
-%global packname  fakemake
-%global packver   1.8.1
+%global packname  TPLSr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mock the Unix Make Utility
+Summary:          Thresholded Partial Least Squares Model for Neuroimaging Data
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MakefileR 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MakefileR 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-plotly >= 4.9.2.1
+Requires:         R-CRAN-plotly >= 4.9.2.1
 
 %description
-Use R as a minimal build system. This might come in handy if you are
-developing R packages and can not use a proper build system. Stay away if
-you can (use a proper build system).
+Uses thresholded partial least squares algorithm to create a regression or
+classification model.
 
 %prep
 %setup -q -c -n %{packname}

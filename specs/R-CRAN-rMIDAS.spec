@@ -1,11 +1,11 @@
 %global packname  rMIDAS
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Imputation using Denoising Autoencoders
+Summary:          Multiple Imputation with Denoising Autoencoders
 
 License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,22 +23,26 @@ Requires:         R-CRAN-mltools
 Requires:         R-CRAN-reticulate 
 
 %description
-A tool that allows users to impute missing data with 'MIDAS', a multiple
-imputation method using denoising autoencoders as documented in Lall and
-Robinson (2020) <doi:10.33774/apsa-2020-3tk40-v3>. This method has
-significant accuracy and efficiency advantages over other multiple
-imputation strategies, particularly when run on large datasets with many
-columns or categories. Alongside interfacing with 'Python' to run the core
-algorithm, this package contains tools to process the data before and
-after model training, run imputation model diagnostics, generate multiple
-completed datasets, and estimate multiply-imputed regression models.
+A tool for multiply imputing missing data using 'MIDAS', a deep learning
+method based on denoising autoencoder neural networks. This algorithm
+offers significant accuracy and efficiency advantages over other multiple
+imputation strategies, particularly when applied to large datasets with
+complex features. Alongside interfacing with 'Python' to run the core
+algorithm, this package contains functions for processing data before and
+after model training, running imputation model diagnostics, generating
+multiple completed datasets, and estimating regression models on these
+datasets.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -48,6 +52,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

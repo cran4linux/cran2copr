@@ -1,33 +1,26 @@
-%global packname  fakemake
-%global packver   1.8.1
+%global packname  tinylabels
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mock the Unix Make Utility
+Summary:          Lightweight Variable Labels
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MakefileR 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MakefileR 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Use R as a minimal build system. This might come in handy if you are
-developing R packages and can not use a proper build system. Stay away if
-you can (use a proper build system).
+Assign, extract, or remove variable labels from R vectors. Lightweight and
+free of non-base dependencies.
 
 %prep
 %setup -q -c -n %{packname}

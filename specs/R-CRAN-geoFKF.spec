@@ -1,11 +1,11 @@
-%global packname  rmangal
-%global packver   2.0.2
+%global packname  geoFKF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Mangal' Client
+Summary:          Kriging Method for Spatial Functional Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,22 +14,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.3.1
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-httr >= 1.3.1
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 
 %description
-An interface to the 'Mangal' database - a collection of ecological
-networks. This package includes functions to work with the 'Mangal RESTful
-API' methods (<https://mangal.io/doc/api/>).
+A Kriging method for functional datasets with spatial dependency. This
+functional Kriging method avoids the need to estimate the trace-variogram,
+and the curve is estimated by minimizing a quadratic form. The curves in
+the functional dataset are smoothed using Fourier series. The functional
+Kriging of this package is a modification of the method proposed by
+Giraldo (2011) <doi:10.1007/s10651-010-0143-y>.
 
 %prep
 %setup -q -c -n %{packname}

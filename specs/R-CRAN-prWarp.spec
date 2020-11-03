@@ -1,33 +1,35 @@
-%global packname  fakemake
-%global packver   1.8.1
+%global packname  prWarp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mock the Unix Make Utility
+Summary:          Warping Landmark Configurations
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MakefileR 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MakefileR 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Morpho 
+Requires:         R-CRAN-Morpho 
 
 %description
-Use R as a minimal build system. This might come in handy if you are
-developing R packages and can not use a proper build system. Stay away if
-you can (use a proper build system).
+Compute bending energies, principal warps, partial warp scores, and the
+non-affine component of shape variation for 2D landmark configurations, as
+well as Mardia-Dryden distributions and self-similar distributions of
+landmarks, as described in Mitteroecker et al. (2020)
+<doi:10.1093/sysbio/syaa007>. Working examples to decompose shape
+variation into small-scale and large-scale components, and to decompose
+the total shape variation into outline and residual shape components are
+provided. Two landmark datasets are provided, that quantify skull
+morphology in humans and papionin primates, respectively from Mitteroecker
+et al. (2020) <doi:10.5061/dryad.j6q573n8s> and Grunstra et al. (2020)
+<doi:10.5061/dryad.zkh189373>.
 
 %prep
 %setup -q -c -n %{packname}
