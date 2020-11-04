@@ -1,30 +1,31 @@
-%global packname  duckdb
-%global packver   0.2.2
+%global packname  gfboost
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Gradient-Free Gradient Boosting
 
-License:          MPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pcaPP 
+BuildRequires:    R-CRAN-mboost 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pcaPP 
+Requires:         R-CRAN-mboost 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Implementation of routines of the author's PhD thesis on gradient-free
+Gradient Boosting (Werner, Tino (2020) "Gradient-Free Gradient Boosting",
+URL '<https://oops.uni-oldenburg.de/id/eprint/4290>').
 
 %prep
 %setup -q -c -n %{packname}

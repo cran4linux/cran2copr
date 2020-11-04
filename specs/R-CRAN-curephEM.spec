@@ -1,30 +1,30 @@
-%global packname  duckdb
-%global packver   0.2.2
+%global packname  curephEM
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          NPMLE for Logistic-Cox Cure-Rate Model
 
-License:          MPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Matrix 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Expectation-Maximization (EM) algorithm for point estimation and variance
+estimation to the nonparametric maximum likelihood estimator (NPMLE) for
+logistic-Cox cure-rate model with left truncation and right- censoring.
+See Hou, Chambers and Xu (2017) <doi:10.1007/s10985-017-9415-2>.
 
 %prep
 %setup -q -c -n %{packname}

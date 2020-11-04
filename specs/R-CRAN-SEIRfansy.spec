@@ -1,30 +1,47 @@
-%global packname  duckdb
-%global packver   0.2.2
+%global packname  SEIRfansy
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Extended Susceptible-Exposed-Infected-Recovery Model
 
-License:          MPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-arm 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-arm 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-scales 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Extended Susceptible-Exposed-Infected-Recovery Model for handling high
+false negative rate and symptom based administration of diagnostic tests.
+<doi:10.1101/2020.09.24.20200238>.
 
 %prep
 %setup -q -c -n %{packname}

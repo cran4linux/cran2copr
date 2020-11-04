@@ -1,33 +1,40 @@
-%global packname  stressaddition
-%global packver   3.1.0
+%global packname  functiondepends
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Tri-Phasic Concentration-Response Relationships
+Summary:          Find Functions and their Dependencies
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-drc >= 3.0
-BuildRequires:    R-CRAN-plotrix 
-Requires:         R-CRAN-drc >= 3.0
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-CRAN-tibble >= 3.0.3
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.1
+BuildRequires:    R-CRAN-tidyselect >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.1
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-tibble >= 3.0.3
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-tidyr >= 1.1.1
+Requires:         R-CRAN-tidyselect >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.1
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-The stress addition approach is an alternative to the traditional
-concentration addition or effect addition models. It allows the modelling
-of tri-phasic concentration-response relationships either as single
-toxicant experiments, in combination with an environmental stressor or as
-mixtures of two toxicants. See Liess et al. (2019)
-<doi:10.1038/s41598-019-51645-4> and Liess et al. (2020)
-<doi:10.1186/s12302-020-00394-7>.
+Find functions in an unstructured directory and explore their
+dependencies. Sourcing of R source files is performed without
+side-effects: from R scripts that have executable code and function
+definitions only functions are sourced.
 
 %prep
 %setup -q -c -n %{packname}

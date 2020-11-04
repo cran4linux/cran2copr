@@ -1,30 +1,38 @@
-%global packname  duckdb
-%global packver   0.2.2
+%global packname  seedr
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Hydro and Thermal Time Seed Germination Models in R
 
-License:          MPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.13
+BuildRequires:    R-CRAN-binom >= 1.1
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table >= 1.13
+Requires:         R-CRAN-binom >= 1.1
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Analysis of seed germination data using the physiological time modelling
+approach. Includes functions to fit hydrotime and thermal-time models with
+the traditional approaches of Bradford (1990) <doi:10.1104/pp.94.2.840>
+and Garcia-Huidobro (1982) <doi:10.1093/jxb/33.2.288>. Allows to fit
+models to grouped datasets, i.e. datasets containing multiple species,
+seedlots or experiments.
 
 %prep
 %setup -q -c -n %{packname}

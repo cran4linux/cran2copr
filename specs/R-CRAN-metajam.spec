@@ -1,47 +1,49 @@
-%global packname  lillies
-%global packver   0.2.8
+%global packname  metajam
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Life Years Lost
+Summary:          Easily Download Data and Metadata from 'DataONE'
 
-License:          MIT + file LICENSE
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ddpcr 
+BuildRequires:    R-CRAN-dataone 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-EML 
+BuildRequires:    R-CRAN-emld 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ddpcr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dataone 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-EML 
+Requires:         R-CRAN-emld 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-rlang 
 
 %description
-Estimation of life expectancy and Life Years Lost (LYL, or lillies for
-short) for a given population, for example those with a given disease or
-condition. In addition, the package can be used to compare estimates from
-different populations, or to estimate confidence intervals. Technical
-details of the method are available in Plana-Ripoll et al. (2020)
-<doi:10.1371/journal.pone.0228073> and Andersen (2017)
-<doi:10.1002/sim.7357>.
+A set of tools to foster the development of reproducible analytical
+workflow by simplifying the download of data and metadata from 'DataONE'
+(<https://www.dataone.org>) and easily importing this information into R.
 
 %prep
 %setup -q -c -n %{packname}

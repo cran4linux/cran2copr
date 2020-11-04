@@ -1,9 +1,9 @@
 %global packname  future
-%global packver   1.19.1
+%global packver   1.20.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.19.1
+Version:          1.20.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unified Parallel and Distributed Processing in R for Everyone
 
@@ -15,14 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-parallelly >= 1.21.0
 BuildRequires:    R-CRAN-listenv >= 0.8.0
-BuildRequires:    R-CRAN-globals >= 0.12.5
+BuildRequires:    R-CRAN-globals >= 0.13.1
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-parallel 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-parallelly >= 1.21.0
 Requires:         R-CRAN-listenv >= 0.8.0
-Requires:         R-CRAN-globals >= 0.12.5
+Requires:         R-CRAN-globals >= 0.13.1
 Requires:         R-CRAN-digest 
 Requires:         R-parallel 
 Requires:         R-tools 
@@ -31,7 +33,7 @@ Requires:         R-utils
 %description
 The purpose of this package is to provide a lightweight and unified Future
 API for sequential and parallel processing of R expression via futures.
-The simplest way to evaluate an expression in parallel is to use `x %<-% {
+The simplest way to evaluate an expression in parallel is to use `x %%<-%% {
 expression }` with `plan(multiprocess)`. This package implements
 sequential, multicore, multisession, and cluster futures.  With these, R
 expressions can be evaluated on the local machine, in parallel a set of
@@ -47,9 +49,13 @@ straightforward to tweak existing code to make use of futures.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -59,6 +65,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

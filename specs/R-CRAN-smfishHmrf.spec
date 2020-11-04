@@ -1,30 +1,33 @@
-%global packname  duckdb
-%global packver   0.2.2
+%global packname  smfishHmrf
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Hidden Markov Random Field for Spatial Transcriptomic Data
 
-License:          MPL
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-pracma >= 1.9.0
+BuildRequires:    R-CRAN-fs >= 1.2
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-pracma >= 1.9.0
+Requires:         R-CRAN-fs >= 1.2
+Requires:         R-CRAN-Rdpack 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Discovery of spatial patterns with Hidden Markov Random Field. This
+package is designed for spatial transcriptomic data and single molecule
+fluorescent in situ hybridization (FISH) data such as sequential
+fluorescence in situ hybridization (seqFISH) and multiplexed error-robust
+fluorescence in situ hybridization (MERFISH). The methods implemented in
+this package are described in Zhu et al. (2018) <doi:10.1038/nbt.4260>.
 
 %prep
 %setup -q -c -n %{packname}

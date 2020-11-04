@@ -1,30 +1,42 @@
-%global packname  duckdb
-%global packver   0.2.2
+%global packname  causalCmprsk
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Nonparametric and Cox-Based Estimation of ATE in Competing Risks
 
-License:          MPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-inline 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-inline 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
 Requires:         R-utils 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-purrr 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Estimation of average treatment effects (ATE) of two static treatment
+regimes on time-to-event outcomes with K competing events (K can be 1).
+The method uses propensity scores weighting for emulation of baseline
+randomization.
 
 %prep
 %setup -q -c -n %{packname}

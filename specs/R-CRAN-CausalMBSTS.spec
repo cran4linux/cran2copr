@@ -1,30 +1,38 @@
-%global packname  duckdb
-%global packver   0.2.2
+%global packname  CausalMBSTS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          MBSTS Models for Causal Inference and Forecasting
 
-License:          MPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-KFAS 
+BuildRequires:    R-CRAN-CholWishart 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MixMatrix 
+Requires:         R-CRAN-KFAS 
+Requires:         R-CRAN-CholWishart 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MixMatrix 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Infers the causal effect of an intervention on a multivariate response
+through the use of Multivariate Bayesian Structural Time Series models
+(MBSTS) as described in Menchetti & Bojinov (2020) <arXiv:2006.12269>. The
+package also includes functions for model building and forecasting.
 
 %prep
 %setup -q -c -n %{packname}

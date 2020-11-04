@@ -1,30 +1,34 @@
-%global packname  duckdb
-%global packver   0.2.2
+%global packname  ef
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Modelling Framework for the Estimation of Salmonid Abundance
 
-License:          MPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-CRAN-mgcv 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+A set of functions to estimate capture probabilities and densities from
+multipass pass removal data.
 
 %prep
 %setup -q -c -n %{packname}

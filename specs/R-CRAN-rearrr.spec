@@ -1,30 +1,42 @@
-%global packname  duckdb
-%global packver   0.2.2
+%global packname  rearrr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Rearranging Data
 
-License:          MPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-rlang >= 0.4.7
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-rlang >= 0.4.7
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-plyr 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Arrange data by a set of methods. Use rearrangers to reorder data points
+and mutators to change their values. From basic utilities, to centering
+the greatest value, to swirling in 3-dimensional space, 'rearrr' enables
+creativity when plotting and experimenting with data.
 
 %prep
 %setup -q -c -n %{packname}

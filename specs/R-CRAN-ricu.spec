@@ -1,49 +1,62 @@
-%global packname  osmdata
-%global packver   0.1.4
+%global packname  ricu
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import 'OpenStreetMap' Data as Simple Features or Spatial Objects
+Summary:          Intensive Care Unit Data with R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-prt >= 0.1.2
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-fst 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-fansi 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-Rcpp >= 0.12.4
+Requires:         R-CRAN-prt >= 0.1.2
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-fst 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-sp 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-backports 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-fansi 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
 
 %description
-Download and import of 'OpenStreetMap' ('OSM') data as 'sf' or 'sp'
-objects.  'OSM' data are extracted from the 'Overpass' web server
-(<https://overpass-api.de/>) and processed with very fast 'C++' routines
-for return to 'R'.
+Focused on (but not exclusive to) data sets hosted on PhysioNet
+(<https://physionet.org>), 'ricu' provides utilities for download, setup
+and access of intensive care unit (ICU) data sets. In addition to
+functions for running arbitrary queries against available data sets, a
+system for defining clinical concepts and encoding their representations
+in tabular ICU data is presented.
 
 %prep
 %setup -q -c -n %{packname}

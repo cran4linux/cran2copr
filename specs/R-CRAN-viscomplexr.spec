@@ -1,30 +1,40 @@
-%global packname  duckdb
-%global packver   0.2.2
+%global packname  viscomplexr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Phase Portraits of Functions in the Complex Number Plane
 
-License:          MPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-doParallel >= 1.0.15
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-doParallel >= 1.0.15
+Requires:         R-grDevices 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Functionality for creating phase portraits of functions in the complex
+number plane. Works with R base graphics, whose full functionality is
+available. Parallel processing is used for optimum performance.
 
 %prep
 %setup -q -c -n %{packname}
