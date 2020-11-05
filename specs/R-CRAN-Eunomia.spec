@@ -1,13 +1,13 @@
-%global packname  rtemps
-%global packver   0.8.0
+%global packname  Eunomia
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Templates for Reproducible Data Analyses
+Summary:          A Standard Dataset in the OMOP Common Data Model
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,27 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-DatabaseConnector >= 2.2.0
+BuildRequires:    R-CRAN-RSQLite > 2.1.1
+BuildRequires:    R-CRAN-SqlRender 
+Requires:         R-CRAN-DatabaseConnector >= 2.2.0
+Requires:         R-CRAN-RSQLite > 2.1.1
+Requires:         R-CRAN-SqlRender 
 
 %description
-A collection of R Markdown templates for nicely structured, reproducible
-data analyses in R. The templates have embedded examples on how to write
-citations, footnotes, equations and use colored message/info boxes, how to
-cross-reference different parts/sections in the report, provide a nice
-table of contents (toc) with a References section and proper R session
-information as well as examples using DT tables and ggplot2 graphs. The
-bookdown Lite template theme supports code folding.
+A sample dataset in the OMOP (Observational Medical Outcomes Partnership)
+Common Data Model (CDM) format. The CDM enables uniform storage of
+observational health care data, and is widely used for health care
+analytics. 'Eunomia' contains simulated data as well as a subset of the
+OMOP Vocabulary, and enables testing of additional packages and is used
+for educational and demonstration purposes.
 
 %prep
 %setup -q -c -n %{packname}

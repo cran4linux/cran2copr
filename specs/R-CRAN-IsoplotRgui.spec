@@ -1,32 +1,36 @@
-%global packname  fddm
-%global packver   0.2-2
+%global packname  IsoplotRgui
+%global packver   3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Implementation of the Diffusion Decision Model
+Summary:          Web Interface to 'IsoplotR'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildArch:        noarch
+BuildRequires:    R-grDevices >= 3.6.2
+BuildRequires:    R-CRAN-IsoplotR >= 3.4
+BuildRequires:    R-CRAN-jsonlite >= 1.6.1
+BuildRequires:    R-CRAN-httpuv >= 1.5.4
+BuildRequires:    R-CRAN-later >= 1.0
+Requires:         R-grDevices >= 3.6.2
+Requires:         R-CRAN-IsoplotR >= 3.4
+Requires:         R-CRAN-jsonlite >= 1.6.1
+Requires:         R-CRAN-httpuv >= 1.5.4
+Requires:         R-CRAN-later >= 1.0
 
 %description
-Provides the probability density function (PDF) of the diffusion decision
-model (DDM; e.g., Ratcliff & McKoon, 2008,
-<doi:10.1162/neco.2008.12-06-420>) with across-trial variability in the
-drift rate. Because the PDF of the DDM contains an infinite sum, it needs
-to be approximated. 'fddm' implements all published approximations
-(Navarro & Fuss, 2009, <doi:10.1016/j.jmp.2009.02.003>; Gondan, Blurton, &
-Kesselmeier, 2014, <doi:10.1016/j.jmp.2014.05.002>) plus new
-approximations. All approximations are implemented purely in 'C++'
-providing faster speed than existing packages.
+Provides a graphical user interface to the 'IsoplotR' package for
+radiometric geochronology. The GUI runs in an internet browser and can
+either be used offline, or hosted on a server to provide online access to
+the 'IsoplotR' toolbox.
 
 %prep
 %setup -q -c -n %{packname}

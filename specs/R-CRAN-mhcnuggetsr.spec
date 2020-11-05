@@ -1,13 +1,13 @@
-%global packname  rtemps
-%global packver   0.8.0
+%global packname  mhcnuggetsr
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Templates for Reproducible Data Analyses
+Summary:          Call MHCnuggets
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,27 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-A collection of R Markdown templates for nicely structured, reproducible
-data analyses in R. The templates have embedded examples on how to write
-citations, footnotes, equations and use colored message/info boxes, how to
-cross-reference different parts/sections in the report, provide a nice
-table of contents (toc) with a References section and proper R session
-information as well as examples using DT tables and ggplot2 graphs. The
-bookdown Lite template theme supports code folding.
+MHCnuggets (<https://github.com/KarchinLab/mhcnuggets>) is a Python tool
+to predict MHC class I and MHC class II epitopes. This package allows one
+to call MHCnuggets from R.
 
 %prep
 %setup -q -c -n %{packname}

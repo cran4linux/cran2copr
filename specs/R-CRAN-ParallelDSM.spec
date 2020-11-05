@@ -1,46 +1,50 @@
-%global packname  MinBAR
-%global packver   1.1.2
+%global packname  ParallelDSM
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Determining the Minimal Background Area for Species Distribution Models
+Summary:          Parallel Digital Soil Mapping using Machine Learning
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ecospat >= 2.2
-BuildRequires:    R-CRAN-geosphere >= 1.5.5
-BuildRequires:    R-CRAN-dismo >= 1.1.4
+BuildRequires:    R-CRAN-snowfall 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-geoR 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-quantregForest 
+BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-maxnet 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-latticeExtra 
-Requires:         R-CRAN-ecospat >= 2.2
-Requires:         R-CRAN-geosphere >= 1.5.5
-Requires:         R-CRAN-dismo >= 1.1.4
+Requires:         R-CRAN-snowfall 
 Requires:         R-CRAN-raster 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-geoR 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-quantregForest 
+Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-maxnet 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-latticeExtra 
 
 %description
-A versatile tool that aims at (1) defining the minimum background extent
-necessary to fit Species Distribution Models reliable enough to extract
-ecologically relevant conclusions from them and (2) optimizing the
-modelling process in terms of computation demands. See Rotllan-Puig, X. &
-Traveset, A. (2021)
-<https://www.sciencedirect.com/science/article/pii/S0304380020304191>.
+Parallel computing, multi-core CPU is used to efficiently compute and
+process multi-dimensional soil data.This package includes the parallelized
+Quantile Regression Forests algorithm for Digital Soil Mapping and is
+mainly dependent on the package 'quantregForest' and 'snowfall'. Detailed
+references to the R package and the web site are described in the methods,
+as detailed in the method documentation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,39 @@
-%global packname  fddm
-%global packver   0.2-2
+%global packname  epinetr
+%global packver   0.93
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.93
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Implementation of the Diffusion Decision Model
+Summary:          Epistatic Network Modelling with Forward-Time Simulation
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-GA >= 3.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
+BuildRequires:    R-CRAN-RcppAlgos >= 2.4.1
+BuildRequires:    R-methods >= 2.10
+BuildRequires:    R-CRAN-vcfR >= 1.8.0
+BuildRequires:    R-CRAN-reshape2 >= 1.4.3
+BuildRequires:    R-CRAN-igraph >= 1.2.4
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-GA >= 3.2
+Requires:         R-CRAN-ggplot2 >= 3.1.1
+Requires:         R-CRAN-RcppAlgos >= 2.4.1
+Requires:         R-methods >= 2.10
+Requires:         R-CRAN-vcfR >= 1.8.0
+Requires:         R-CRAN-reshape2 >= 1.4.3
+Requires:         R-CRAN-igraph >= 1.2.4
+Requires:         R-CRAN-Rcpp >= 0.12.18
 
 %description
-Provides the probability density function (PDF) of the diffusion decision
-model (DDM; e.g., Ratcliff & McKoon, 2008,
-<doi:10.1162/neco.2008.12-06-420>) with across-trial variability in the
-drift rate. Because the PDF of the DDM contains an infinite sum, it needs
-to be approximated. 'fddm' implements all published approximations
-(Navarro & Fuss, 2009, <doi:10.1016/j.jmp.2009.02.003>; Gondan, Blurton, &
-Kesselmeier, 2014, <doi:10.1016/j.jmp.2014.05.002>) plus new
-approximations. All approximations are implemented purely in 'C++'
-providing faster speed than existing packages.
+Allows for forward-in-time simulation of epistatic networks with
+associated phenotypic output.
 
 %prep
 %setup -q -c -n %{packname}

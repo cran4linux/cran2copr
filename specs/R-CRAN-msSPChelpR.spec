@@ -1,36 +1,51 @@
-%global packname  supernova
-%global packver   2.2.3
+%global packname  msSPChelpR
+%global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          0.8.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Judd, McClelland, & Ryan Formatting for ANOVA Output
+Summary:          Helper Functions for Second Primary Cancer Analyses
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.12.9
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-tidytable >= 0.5.5
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-sjlabelled 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table >= 1.12.9
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-tidytable >= 0.5.5
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-sjlabelled 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Produces ANOVA tables in the format used by Judd, McClelland, and Ryan
-(2017, ISBN: 978-1138819832) in their introductory textbook, Data
-Analysis. This includes proportional reduction in error and formatting to
-improve ease the transition between the book and R.
+A collection of helper functions for analyzing Second Primary Cancer data,
+including functions to reshape data, to calculate patient states and
+analyze cancer incidence.
 
 %prep
 %setup -q -c -n %{packname}

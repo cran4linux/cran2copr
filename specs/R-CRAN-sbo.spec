@@ -1,32 +1,35 @@
-%global packname  fddm
-%global packver   0.2-2
+%global packname  sbo
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Implementation of the Diffusion Decision Model
+Summary:          Text Prediction via Stupid Back-Off N-Gram Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringi 
 
 %description
-Provides the probability density function (PDF) of the diffusion decision
-model (DDM; e.g., Ratcliff & McKoon, 2008,
-<doi:10.1162/neco.2008.12-06-420>) with across-trial variability in the
-drift rate. Because the PDF of the DDM contains an infinite sum, it needs
-to be approximated. 'fddm' implements all published approximations
-(Navarro & Fuss, 2009, <doi:10.1016/j.jmp.2009.02.003>; Gondan, Blurton, &
-Kesselmeier, 2014, <doi:10.1016/j.jmp.2014.05.002>) plus new
-approximations. All approximations are implemented purely in 'C++'
-providing faster speed than existing packages.
+Utilities for building and evaluating text prediction functions based on
+Stupid Back-Off n-gram models (Brants et al., 2007,
+<https://www.aclweb.org/anthology/D07-1090/>).
 
 %prep
 %setup -q -c -n %{packname}

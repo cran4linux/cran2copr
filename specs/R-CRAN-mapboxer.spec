@@ -1,41 +1,40 @@
-%global packname  rtemps
-%global packver   0.8.0
+%global packname  mapboxer
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Templates for Reproducible Data Analyses
+Summary:          An R Interface to 'Mapbox GL JS'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-methods 
 
 %description
-A collection of R Markdown templates for nicely structured, reproducible
-data analyses in R. The templates have embedded examples on how to write
-citations, footnotes, equations and use colored message/info boxes, how to
-cross-reference different parts/sections in the report, provide a nice
-table of contents (toc) with a References section and proper R session
-information as well as examples using DT tables and ggplot2 graphs. The
-bookdown Lite template theme supports code folding.
+Makes 'Mapbox GL JS' <https://docs.mapbox.com/mapbox-gl-js/api/>, an open
+source JavaScript library that uses WebGL to render interactive maps,
+available within R via the 'htmlwidgets' package. Visualizations can be
+used from the R console, in R Markdown documents and in Shiny apps.
 
 %prep
 %setup -q -c -n %{packname}

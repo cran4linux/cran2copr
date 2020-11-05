@@ -1,9 +1,9 @@
 %global packname  epos
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Epilepsy Ontologies' Similarities
 
@@ -12,13 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-hash 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-TopKLists 
@@ -27,8 +25,6 @@ BuildRequires:    R-CRAN-xtable
 BuildRequires:    R-CRAN-mongolite 
 Requires:         R-CRAN-hash 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-TopKLists 

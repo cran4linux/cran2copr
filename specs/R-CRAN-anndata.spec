@@ -1,41 +1,33 @@
-%global packname  rtemps
-%global packver   0.8.0
+%global packname  anndata
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Templates for Reproducible Data Analyses
+Summary:          Annotated Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-assertthat 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-reticulate 
 
 %description
-A collection of R Markdown templates for nicely structured, reproducible
-data analyses in R. The templates have embedded examples on how to write
-citations, footnotes, equations and use colored message/info boxes, how to
-cross-reference different parts/sections in the report, provide a nice
-table of contents (toc) with a References section and proper R session
-information as well as examples using DT tables and ggplot2 graphs. The
-bookdown Lite template theme supports code folding.
+An R wrapper for the Python package 'anndata'. Provides a scalable way of
+keeping track of data and learned annotations.  Used to read from and
+write to the h5ad file format.
 
 %prep
 %setup -q -c -n %{packname}

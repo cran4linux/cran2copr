@@ -1,9 +1,9 @@
 %global packname  codetools
-%global packver   0.2-16
+%global packver   0.2-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.16
+Version:          0.2.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Code Analysis Tools for R
 

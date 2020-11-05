@@ -1,41 +1,28 @@
-%global packname  rtemps
-%global packver   0.8.0
+%global packname  read.cwa
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Templates for Reproducible Data Analyses
+Summary:          Convert 'Axivity' 'CWA' Files
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-readr 
 
 %description
-A collection of R Markdown templates for nicely structured, reproducible
-data analyses in R. The templates have embedded examples on how to write
-citations, footnotes, equations and use colored message/info boxes, how to
-cross-reference different parts/sections in the report, provide a nice
-table of contents (toc) with a References section and proper R session
-information as well as examples using DT tables and ggplot2 graphs. The
-bookdown Lite template theme supports code folding.
+Implements a converter for 'Axivity' Continuous Wave 'Accelerometer'
+('CWA') data files <https://axivity.com/> to CSV. A CSV reader wrapper
+function for the output of the converted file is also provided.
 
 %prep
 %setup -q -c -n %{packname}

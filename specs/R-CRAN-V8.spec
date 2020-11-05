@@ -1,9 +1,9 @@
 %global packname  V8
-%global packver   3.3.1
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.1
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Embedded JavaScript and WebAssembly Engine for R
 
