@@ -1,28 +1,26 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  gontr
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Dataset for 'GOxploreR'
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+Contains the Gene ontology terms and skeleton for the reduced GO directed
+acyclic graph (DAG) for the organisms Rat and Mouse. The methods are
+explicitly discussed in the following article : Manjang et al (2020)
+<doi:10.1038/s41598-020-73326-3>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  dabr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Database Management with R
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RMariaDB 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-RMariaDB 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+Provides functions to manage databases: select, update, insert, and delete
+records, list tables, backup tables as CSV files, and import CSV files as
+tables.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,39 @@
-%global packname  read.cwa
-%global packver   0.2.1
+%global packname  gfilmm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert 'Axivity' 'CWA' Files
+Summary:          Generalized Fiducial Inference for Normal Linear Mixed Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-lazyeval 
+Requires:         R-stats 
+Requires:         R-CRAN-spatstat 
+Requires:         R-utils 
 
 %description
-Implements a converter for 'Axivity' Continuous Wave 'Accelerometer'
-('CWA') data files <https://axivity.com/> to CSV. A CSV reader wrapper
-function for the output of the converted file is also provided.
+Simulation of the generalized fiducial distribution for normal linear
+mixed models with interval data. Fiducial inference is somehow similar to
+Bayesian inference, in the sense that it is based on a distribution that
+represents the uncertainty about the parameters, like the posterior
+distribution in Bayesian statistics. It does not require a prior
+distribution, and it yields results close to frequentist results.
+Reference: Cisewski and Hannig (2012) <doi:10.1214/12-AOS1030>.
 
 %prep
 %setup -q -c -n %{packname}

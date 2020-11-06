@@ -1,13 +1,13 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  gawdis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Multi-Trait Dissimilarity with more Uniform Contributions
 
-License:          GPL
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-FD 
+BuildRequires:    R-CRAN-GA 
+Requires:         R-CRAN-FD 
+Requires:         R-CRAN-GA 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+R function gawdis() produces multi-trait dissimilarity with more uniform
+contributions of different traits. The approach is based on minimizing the
+differences in the correlation between the dissimilarity of each trait, or
+groups of traits, and the multi-trait dissimilarity. This is done using
+either an analytic or a numerical solution, both available in the
+function.
 
 %prep
 %setup -q -c -n %{packname}

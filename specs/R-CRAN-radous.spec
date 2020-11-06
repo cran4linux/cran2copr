@@ -1,13 +1,13 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  radous
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Query Random User Data from the Random User Generator API
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-janitor 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-janitor 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+Generate random user data from the Random User Generator API. For more
+information, see <https://randomuser.me/>.
 
 %prep
 %setup -q -c -n %{packname}

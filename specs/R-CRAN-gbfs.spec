@@ -1,9 +1,9 @@
 %global packname  gbfs
-%global packver   1.3.4
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface with Live Bikeshare Data
 

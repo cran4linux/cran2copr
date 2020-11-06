@@ -1,28 +1,28 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  stevetemplates
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Steve's 'R Markdown' Templates
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+These are my collection of 'R Markdown' templates, mostly for compilation
+to PDF. These are useful for all things academic and professional, if you
+are using 'R Markdown' for things like your CV or your articles and
+manuscripts.
 
 %prep
 %setup -q -c -n %{packname}

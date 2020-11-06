@@ -1,11 +1,11 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  fastlogitME
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Basic Marginal Effects for Logit Models
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,10 +19,14 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+Calculates marginal effects based on logistic model objects such as 'glm'
+or 'speedglm' at the average (default) or at given values using finite
+differences. It also returns confidence intervals for said marginal
+effects and the p-values, which can easily be used as input in stargazer.
+The function only returns the essentials and is therefore much faster but
+not as detailed as other functions available to calculate marginal
+effects. As a result, it is highly suitable for large datasets for which
+other packages may require too much time or calculating power.
 
 %prep
 %setup -q -c -n %{packname}

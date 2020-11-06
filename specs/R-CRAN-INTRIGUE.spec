@@ -1,28 +1,32 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  INTRIGUE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Quantify and Control Reproducibility in High-Throughput Experiments
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-SQUAREM 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlist 
+Requires:         R-CRAN-SQUAREM 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlist 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+Estimate the proportions of the null and the reproducibility and
+non-reproducibility of the signal group for the input data set. The Bayes
+factor calculation and EM (Expectation Maximization) algorithm procedures
+are also included.
 
 %prep
 %setup -q -c -n %{packname}

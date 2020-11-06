@@ -1,36 +1,43 @@
-%global packname  SMITIDvisu
-%global packver   0.0.8
+%global packname  AzureTableStor
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Data for Host and Viral Population from 'SMITIDstruct' using 'HTMLwidgets'
+Summary:          Interface to the Table Storage Service in 'Azure'
 
-License:          GPL (>= 3) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-yaml >= 2.1.16
-BuildRequires:    R-CRAN-jsonlite >= 1.5.0
-BuildRequires:    R-CRAN-htmlwidgets >= 0.3.2
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-AzureStor >= 3.0.0
+BuildRequires:    R-CRAN-AzureRMR >= 2.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-yaml >= 2.1.16
-Requires:         R-CRAN-jsonlite >= 1.5.0
-Requires:         R-CRAN-htmlwidgets >= 0.3.2
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-AzureStor >= 3.0.0
+Requires:         R-CRAN-AzureRMR >= 2.0.0
+Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-uuid 
 
 %description
-Visualisation tools for 'SMITIDstruct' package. Allow to visualize host
-timeline, transmission tree, index diversities and variant graph using
-'HTMLwidgets'. It mainly using 'D3JS' javascript framework.
+An interface to the table storage service in 'Azure':
+<https://azure.microsoft.com/en-us/services/storage/tables/>. Supplies
+functionality for reading and writing data stored in tables, both as part
+of a storage account and from a 'CosmosDB' database with the table service
+API. Part of the 'AzureR' family of packages.
 
 %prep
 %setup -q -c -n %{packname}

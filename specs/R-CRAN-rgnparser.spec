@@ -1,13 +1,13 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  rgnparser
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Parse Scientific Names
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-sys 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-sys 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+Parse scientific names using 'gnparser'
+(<https://gitlab.com/gogna/gnparser>), written in Go. 'gnparser' parses
+scientific names into their component parts; it utilizes a Parsing
+Expression Grammar specifically for scientific names.
 
 %prep
 %setup -q -c -n %{packname}

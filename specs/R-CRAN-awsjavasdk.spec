@@ -1,13 +1,13 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  awsjavasdk
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Boilerplate R Access to the Amazon Web Services ('AWS') Java SDK
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-rappdirs 
+Requires:         R-utils 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-rappdirs 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+Provides boilerplate access to all of the classes included in the Amazon
+Web Services ('AWS') Java Software Development Kit (SDK) via
+package:'rJava'.  According to Amazon, the 'SDK helps take the complexity
+out of coding by providing Java APIs for many AWS services including
+Amazon S3, Amazon EC2, DynamoDB, and more'.  You can read more about the
+included Java code on Amazon's website:
+<https://aws.amazon.com/sdk-for-java/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  synthesis
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Generate Synthetic Data from Statistical Models
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,13 +16,17 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+Generate synthetic time series from commonly used statistical models,
+including linear, nonlinear and chaotic systems. An application to testing
+a new method can be found in Jiang, Z., Sharma, A., & Johnson, F. (2020)
+<doi:10.1029/2019WR026962> associated with an open-source tool by Jiang,
+Z., Rashid, M. M., Johnson, F., & Sharma, A. (2020)
+<doi:10.1016/j.envsoft.2020.104907>.
 
 %prep
 %setup -q -c -n %{packname}

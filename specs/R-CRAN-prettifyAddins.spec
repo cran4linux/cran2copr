@@ -1,11 +1,11 @@
 %global packname  prettifyAddins
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'RStudio' Addins to Prettify 'HTML', 'CSS', 'JavaScript', and More
+Summary:          'RStudio' Addins to Prettify 'JavaScript', 'C++', 'Python', and More
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,18 +19,27 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-webdriver 
+BuildRequires:    R-CRAN-XRJulia 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-tools 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-webdriver 
+Requires:         R-CRAN-XRJulia 
+Requires:         R-CRAN-httr 
+Requires:         R-utils 
 
 %description
 Provides 'RStudio' addins to prettify 'HTML', 'CSS', 'SCSS', 'JavaScript',
-'JSX', 'Markdown', and to format 'C', 'C++', 'Julia', 'Python', 'Shell'
-and 'SQL'. Two addins are provided: 'Prettify' and 'Indent'. The 'Indent'
-addin only reindents the code, while the 'Prettify' addin also modifies
-the code, e.g. it adds trailing semi-colons to 'JavaScript' code when they
-are missing.
+'JSX', 'Markdown', 'C(++)', 'LaTeX', 'Python', 'Julia', 'XML', 'Java',
+'JSON', 'Ruby', and to reindent 'C(++)', 'Fortran', 'Java', 'Julia',
+'Python', 'SAS', 'Scala', 'Shell' and 'SQL'. Two kinds of addins are
+provided: 'Prettify' and 'Indent'. The 'Indent' addins only reindent the
+code, while the 'Prettify' addins also modify the code, e.g. trailing
+semi-colons are added to 'JavaScript' code when they are missing.
 
 %prep
 %setup -q -c -n %{packname}

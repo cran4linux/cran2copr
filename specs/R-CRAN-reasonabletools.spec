@@ -1,28 +1,30 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  reasonabletools
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Clean Water Quality Data for NPDES Reasonable Potential Analyses
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 Requires:         R-stats 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+Functions for cleaning and summarising water quality data for use in
+National Pollutant Discharge Elimination Service (NPDES) permit reasonable
+potential analyses and water quality-based effluent limitation
+calculations. Procedures are based on those contained in the "Technical
+Support Document for Water Quality-based Toxics Control", United States
+Environmental Protection Agency (1991).
 
 %prep
 %setup -q -c -n %{packname}

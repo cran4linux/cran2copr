@@ -1,28 +1,26 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  TensorTest2D
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Fitting Second-Order Tensor Data
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+An implementation of fitting generalized linear models on second-order
+tensor type data. The functions within this package mainly focus on
+parameter estimation, including parameter coefficients and standard
+deviation.
 
 %prep
 %setup -q -c -n %{packname}

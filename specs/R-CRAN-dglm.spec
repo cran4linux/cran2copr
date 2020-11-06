@@ -1,28 +1,28 @@
-%global packname  msd
-%global packver   0.3.0
+%global packname  dglm
+%global packver   1.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.8.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Method of Successive Dichotomizations
+Summary:          Double Generalized Linear Models
 
-License:          GPL
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.8.0
+Requires:         R-core >= 2.8.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-statmod >= 1.4.20
+Requires:         R-CRAN-statmod >= 1.4.20
 
 %description
-Implements the method of successive dichotomizations by Bradley and Massof
-(2018) <doi:10.1371/journal.pone.0206106>, which estimates item measures,
-person measures and ordered rating category thresholds given ordinal
-rating scale data.
+Model fitting and evaluation tools for double generalized linear models
+(DGLMs). This class of models uses one generalized linear model (GLM) to
+fit the specified response and a second GLM to fit the deviance of the
+first model.
 
 %prep
 %setup -q -c -n %{packname}
