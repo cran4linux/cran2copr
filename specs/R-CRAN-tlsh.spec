@@ -1,13 +1,13 @@
-%global packname  relMix
-%global packver   1.3.2
+%global packname  tlsh
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Inference for DNA Mixtures
+Summary:          Transitive Locality-Sensitive Hashing (LSH) for Record Linkage
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Familias 
-BuildRequires:    R-CRAN-tkrplot 
-BuildRequires:    R-CRAN-gWidgets2 
-BuildRequires:    R-CRAN-gWidgets2tcltk 
-Requires:         R-CRAN-Familias 
-Requires:         R-CRAN-tkrplot 
-Requires:         R-CRAN-gWidgets2 
-Requires:         R-CRAN-gWidgets2tcltk 
+BuildRequires:    R-CRAN-blink 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-bit64 
+Requires:         R-CRAN-blink 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-bit64 
 
 %description
-Makes relationship inference involving DNA mixtures with unknown profiles.
+An implementation of the blocking algorithm transitive locality-sensitive
+hashing (TLSH) in Steorts, Ventura, Sadinle, Fienberg (2014)
+<DOI:10.1007/978-3-319-11257-2_20>, which is a k-means variant of locality
+sensitive hashing. The method is illustrated with examples and a vignette.
 
 %prep
 %setup -q -c -n %{packname}

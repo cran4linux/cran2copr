@@ -1,31 +1,29 @@
-%global packname  relMix
-%global packver   1.3.2
+%global packname  lineup2
+%global packver   0.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Inference for DNA Mixtures
+Summary:          Lining Up Two Sets of Measurements
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Familias 
-BuildRequires:    R-CRAN-tkrplot 
-BuildRequires:    R-CRAN-gWidgets2 
-BuildRequires:    R-CRAN-gWidgets2tcltk 
-Requires:         R-CRAN-Familias 
-Requires:         R-CRAN-tkrplot 
-Requires:         R-CRAN-gWidgets2 
-Requires:         R-CRAN-gWidgets2tcltk 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-parallel 
 
 %description
-Makes relationship inference involving DNA mixtures with unknown profiles.
+Tools for detecting and correcting sample mix-ups between two sets of
+measurements, such as between gene expression data on two tissues. This is
+a revised version of the 'lineup' package, to be more general and not tied
+to the 'qtl' package.
 
 %prep
 %setup -q -c -n %{packname}

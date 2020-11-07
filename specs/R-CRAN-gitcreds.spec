@@ -1,31 +1,26 @@
-%global packname  relMix
-%global packver   1.3.2
+%global packname  gitcreds
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Inference for DNA Mixtures
+Summary:          Query 'git' Credentials from 'R'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Familias 
-BuildRequires:    R-CRAN-tkrplot 
-BuildRequires:    R-CRAN-gWidgets2 
-BuildRequires:    R-CRAN-gWidgets2tcltk 
-Requires:         R-CRAN-Familias 
-Requires:         R-CRAN-tkrplot 
-Requires:         R-CRAN-gWidgets2 
-Requires:         R-CRAN-gWidgets2tcltk 
 
 %description
-Makes relationship inference involving DNA mixtures with unknown profiles.
+Query, set, delete credentials from the 'git' credential store. Manage
+'GitHub' tokens and other 'git' credentials. This package is to be used by
+other packages that need to authenticate to 'GitHub' and/or other 'git'
+repositories.
 
 %prep
 %setup -q -c -n %{packname}

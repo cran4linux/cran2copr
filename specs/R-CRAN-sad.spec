@@ -1,31 +1,34 @@
-%global packname  relMix
-%global packver   1.3.2
+%global packname  sad
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Inference for DNA Mixtures
+Summary:          Verify the Scale, Anisotropy and Direction of Weather Forecasts
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Familias 
-BuildRequires:    R-CRAN-tkrplot 
-BuildRequires:    R-CRAN-gWidgets2 
-BuildRequires:    R-CRAN-gWidgets2tcltk 
-Requires:         R-CRAN-Familias 
-Requires:         R-CRAN-tkrplot 
-Requires:         R-CRAN-gWidgets2 
-Requires:         R-CRAN-gWidgets2tcltk 
+BuildRequires:    R-CRAN-dualtrees 
+BuildRequires:    R-CRAN-emdist 
+Requires:         R-CRAN-dualtrees 
+Requires:         R-CRAN-emdist 
 
 %description
-Makes relationship inference involving DNA mixtures with unknown profiles.
+Implementation of the wavelet-based spatial verification method of Buschow
+and Friederichs "SAD: Verifying the Scale, Anisotropy and Direction of
+precipitation forecasts" (2020, submitted to QJRMS). Forecasts and
+Observations are transformed by a decimated or redundant dual-tree complex
+wavelet transform to analyze the spatial scale, degree of anisotropy and
+preferred direction in each field. These structural attributes are
+compared by a series of scores. An experimental algorithm for the
+correction of these errors is included as well.
 
 %prep
 %setup -q -c -n %{packname}

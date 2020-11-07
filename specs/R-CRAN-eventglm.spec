@@ -1,31 +1,35 @@
-%global packname  relMix
-%global packver   1.3.2
+%global packname  eventglm
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Inference for DNA Mixtures
+Summary:          Regression Models for Event History Outcomes
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Familias 
-BuildRequires:    R-CRAN-tkrplot 
-BuildRequires:    R-CRAN-gWidgets2 
-BuildRequires:    R-CRAN-gWidgets2tcltk 
-Requires:         R-CRAN-Familias 
-Requires:         R-CRAN-tkrplot 
-Requires:         R-CRAN-gWidgets2 
-Requires:         R-CRAN-gWidgets2tcltk 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
 
 %description
-Makes relationship inference involving DNA mixtures with unknown profiles.
+A user friendly, easy to understand way of doing event history regression
+for marginal estimands of interest, including the cumulative incidence and
+the restricted mean survival, using the pseudo observation framework for
+estimation. For a review of the methodology, see Andersen and Pohar Perme
+(2010) <doi:10.1177/0962280209105020>. The interface uses the well known
+formulation of a generalized linear model and allows for features
+including plotting of residuals, the use of sampling weights, and
+corrected variance estimation.
 
 %prep
 %setup -q -c -n %{packname}
