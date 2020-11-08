@@ -1,9 +1,9 @@
 %global packname  swdpwr
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Calculation for Stepped Wedge Cluster Randomized Trials
 
@@ -25,7 +25,9 @@ link functions (identity, log, logit links), with and without time effect
 of treatment, etc. The methods included in this package: Zhou et al.
 (2020) <doi:10.1093/biostatistics/kxy031>, Li et al. (2018)
 <doi:10.1111/biom.12918>. Supplementary documents can be found at:
-<https://publichealth.yale.edu/cmips/research/software/swdpwr/>.
+<https://publichealth.yale.edu/cmips/research/software/swdpwr/>. The Shiny
+app for swdpwr can be accessed at:
+<https://jiachenchen322.shinyapps.io/swdpwr_shinyapp/>.
 
 %prep
 %setup -q -c -n %{packname}
