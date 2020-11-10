@@ -1,9 +1,9 @@
 %global packname  SMARTbayesR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Set of Best Dynamic Treatment Regimes and Sample Size in SMARTs
 
@@ -20,7 +20,7 @@ Requires:         R-stats
 
 %description
 Permits determination of a set of optimal dynamic treatment regimes and
-sample size for SMART design in the Bayesian setting. Please see Artman
+sample size for a SMART design in the Bayesian setting. Please see Artman
 (2020) <arXiv:2008.02341>.
 
 %prep

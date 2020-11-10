@@ -1,9 +1,9 @@
 %global packname  Rdpack
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Update and Manipulate Rd Documentation Objects
 

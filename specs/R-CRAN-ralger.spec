@@ -1,9 +1,9 @@
 %global packname  ralger
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Web Scraping
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-robotstxt 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-xml2 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-robotstxt 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-curl 
 
 %description
 The goal of 'ralger' is to facilitate web scraping in R. The user has the
