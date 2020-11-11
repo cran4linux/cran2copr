@@ -1,35 +1,36 @@
-%global packname  Umpire
-%global packver   2.0.10
+%global packname  ata
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Realistic Gene Expression and Clinical Data
+Summary:          Automated Test Assembly
 
-License:          Apache License (== 2.0)
+License:          LGPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mc2d 
-BuildRequires:    R-CRAN-BimodalIndex 
-Requires:         R-methods 
+Requires:         R-CRAN-lpSolve 
 Requires:         R-stats 
-Requires:         R-CRAN-mc2d 
-Requires:         R-CRAN-BimodalIndex 
 
 %description
-The Ultimate Microrray Prediction, Reality and Inference Engine (UMPIRE)
-is a package to facilitate the simulation of realistic microarray data
-sets with links to associated outcomes. See Zhang and Coombes (2012)
-<doi:10.1186/1471-2105-13-S13-S1>. Version 2.0 adds the ability to
-simulate realistic mixed-typed clinical data.
+Provides a collection of psychometric methods to process item metadata and
+use target assessment and measurement blueprint constraints to assemble a
+test form. Currently two automatic test assembly (ata) approaches are
+enabled. For example, the weighted (positive) deviations method, wdm(),
+proposed by Swanson and Stocking (1993) <doi:10.1177/014662169301700205>
+was implemented in its full specification allowing for both item selection
+as well as test form refinement. The linear constraint programming
+approach, atalp(), uses the linear equation solver by Berkelaar et. al
+(2014) <http://lpsolve.sourceforge.net/5.5/> to enable a variety of
+approaches to select items.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,32 @@
-%global packname  Umpire
-%global packver   2.0.10
+%global packname  ip2proxy
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Realistic Gene Expression and Clinical Data
+Summary:          Lookup for IP Address Proxy Information
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mc2d 
-BuildRequires:    R-CRAN-BimodalIndex 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-mc2d 
-Requires:         R-CRAN-BimodalIndex 
+BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-reticulate >= 1.13
+Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-reticulate >= 1.13
 
 %description
-The Ultimate Microrray Prediction, Reality and Inference Engine (UMPIRE)
-is a package to facilitate the simulation of realistic microarray data
-sets with links to associated outcomes. See Zhang and Coombes (2012)
-<doi:10.1186/1471-2105-13-S13-S1>. Version 2.0 adds the ability to
-simulate realistic mixed-typed clinical data.
+A R package to find the IP addresses which are used as VPN anonymizer,
+open proxies, web proxies and Tor exits. The package lookup the proxy IP
+address from IP2Proxy BIN Data file. You may visit
+<https://lite.ip2location.com> for free database download.
 
 %prep
 %setup -q -c -n %{packname}

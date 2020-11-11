@@ -1,35 +1,41 @@
-%global packname  Umpire
-%global packver   2.0.10
+%global packname  WoodSimulatR
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Realistic Gene Expression and Clinical Data
+Summary:          Generate Simulated Sawn Timber Strength Grading Data
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang >= 0.4.6
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mc2d 
-BuildRequires:    R-CRAN-BimodalIndex 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-rlang >= 0.4.6
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-mc2d 
-Requires:         R-CRAN-BimodalIndex 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-The Ultimate Microrray Prediction, Reality and Inference Engine (UMPIRE)
-is a package to facilitate the simulation of realistic microarray data
-sets with links to associated outcomes. See Zhang and Coombes (2012)
-<doi:10.1186/1471-2105-13-S13-S1>. Version 2.0 adds the ability to
-simulate realistic mixed-typed clinical data.
+Tools for generating simulated sawn timber strength grading data with a
+main focus on statistical simulation based on covariance matrices.
+Simulation data for Norway spruce sawn timber from Austria and reference
+values of means and standard deviations of grade determining properties
+from literature for a number of European countries are provided, as well.
 
 %prep
 %setup -q -c -n %{packname}

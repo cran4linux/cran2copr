@@ -1,35 +1,40 @@
-%global packname  Umpire
-%global packver   2.0.10
+%global packname  sureLDA
+%global packver   0.1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          0.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Realistic Gene Expression and Clinical Data
+Summary:          A Novel Multi-Disease Automated Phenotyping Method for the EHR
 
-License:          Apache License (== 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mc2d 
-BuildRequires:    R-CRAN-BimodalIndex 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-mc2d 
-Requires:         R-CRAN-BimodalIndex 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MAP 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MAP 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 
 %description
-The Ultimate Microrray Prediction, Reality and Inference Engine (UMPIRE)
-is a package to facilitate the simulation of realistic microarray data
-sets with links to associated outcomes. See Zhang and Coombes (2012)
-<doi:10.1186/1471-2105-13-S13-S1>. Version 2.0 adds the ability to
-simulate realistic mixed-typed clinical data.
+A statistical learning method to simultaneously predict a range of target
+phenotypes using codified and natural language processing (NLP)-derived
+Electronic Health Record (EHR) data. See Ahuja et al (2020) JAMIA
+<doi:10.1093/jamia/ocaa079> for details.
 
 %prep
 %setup -q -c -n %{packname}

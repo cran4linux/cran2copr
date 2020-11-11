@@ -1,9 +1,9 @@
 %global packname  AWAPer
-%global packver   0.1.43
+%global packver   0.1.44
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.43
+Version:          0.1.44
 Release:          1%{?dist}%{?buildtag}
 Summary:          Catchment Area Weighted Climate Data Anywhere in Australia
 

@@ -1,13 +1,13 @@
-%global packname  revss
-%global packver   1.0.1
+%global packname  sudachir
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Estimation in Very Small Samples
+Summary:          R Interface to 'Sudachi'
 
-License:          BSD_2_clause + file LICENSE
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,13 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-tibble >= 3.0.4
+BuildRequires:    R-CRAN-cli >= 2.1.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-reticulate >= 1.17
+BuildRequires:    R-CRAN-tidyselect >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 0.4.8
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-tibble >= 3.0.4
+Requires:         R-CRAN-cli >= 2.1.0
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-reticulate >= 1.17
+Requires:         R-CRAN-tidyselect >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-rlang >= 0.4.8
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Implements the estimation techniques described in Rousseeuw & Verboven
-(2002) <doi:10.1016/S0167-9473(02)00078-6> for the location and scale of
-very small samples.
+Interface to 'Sudachi' <https://github.com/WorksApplications/Sudachi>, a
+Japanese morphological analyzer. This is a port of what is available in
+Python.
 
 %prep
 %setup -q -c -n %{packname}

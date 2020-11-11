@@ -1,50 +1,54 @@
-%global packname  mpath
-%global packver   0.4-2.16
+%global packname  ecoCopula
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2.16
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularized Linear Models
+Summary:          Graphical Modelling and Ordination using Copulas
 
-License:          GPL-2
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-pamr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvabund 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pscl 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-tweedie 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-betareg 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-bst 
-BuildRequires:    R-CRAN-WeightSVM 
-Requires:         R-methods 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-pamr 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-glm2 
+BuildRequires:    R-CRAN-ordinal 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-mvabund 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-sna 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pscl 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-tweedie 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-betareg 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-bst 
-Requires:         R-CRAN-WeightSVM 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-glm2 
+Requires:         R-CRAN-ordinal 
+Requires:         R-CRAN-foreach 
+Requires:         R-stats 
 
 %description
-Algorithms compute concave convex (CC) estimators including robust
-(penalized) generalized linear models and robust support vector machines
-via the COCO - composite optimization by conjugation operator. The package
-also contain penalized Poisson, negative binomial, zero-inflated Poisson,
-zero-inflated negative binomial regression models and robust models with
-non-convex loss functions. See Wang et al. (2014) <doi:10.1002/sim.6314>,
-Wang et al. (2015) <doi:10.1002/bimj.201400143>, Wang et al. (2016)
-<doi:10.1177/0962280214530608>, Wang (2019) <arXiv:1912.11119>, Wang
-(2020) <arXiv:2010.02848>.
+Creates 'graphs' of species associations (interactions) and ordination
+biplots from co-occurrence data by fitting discrete gaussian copula
+graphical models. Methods described in Popovic, GC., Hui, FKC., Warton,
+DI., (2018) <doi:10.1016/j.jmva.2017.12.002>.
 
 %prep
 %setup -q -c -n %{packname}

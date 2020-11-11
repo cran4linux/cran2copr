@@ -1,9 +1,9 @@
 %global packname  ufs
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Analysis Made Accessible
 
@@ -19,15 +19,16 @@ BuildRequires:    R-grDevices >= 3.0.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-GGally >= 1.4.0
 BuildRequires:    R-CRAN-knitr >= 1.22
 BuildRequires:    R-CRAN-SuppDists >= 1.1.9
+BuildRequires:    R-CRAN-kableExtra >= 1.1.0
 BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-ggrepel >= 0.8
 BuildRequires:    R-CRAN-diptest >= 0.75.7
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
 BuildRequires:    R-CRAN-pander >= 0.6.3
 BuildRequires:    R-CRAN-digest >= 0.6.19
+BuildRequires:    R-CRAN-rmdpartials >= 0.5.8
 BuildRequires:    R-CRAN-viridis >= 0.5.1
 BuildRequires:    R-CRAN-ggridges >= 0.5.0
 BuildRequires:    R-CRAN-htmltools >= 0.4.0
@@ -36,15 +37,16 @@ Requires:         R-grDevices >= 3.0.0
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-GGally >= 1.4.0
 Requires:         R-CRAN-knitr >= 1.22
 Requires:         R-CRAN-SuppDists >= 1.1.9
+Requires:         R-CRAN-kableExtra >= 1.1.0
 Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-ggrepel >= 0.8
 Requires:         R-CRAN-diptest >= 0.75.7
 Requires:         R-CRAN-dplyr >= 0.7.6
 Requires:         R-CRAN-pander >= 0.6.3
 Requires:         R-CRAN-digest >= 0.6.19
+Requires:         R-CRAN-rmdpartials >= 0.5.8
 Requires:         R-CRAN-viridis >= 0.5.1
 Requires:         R-CRAN-ggridges >= 0.5.0
 Requires:         R-CRAN-htmltools >= 0.4.0

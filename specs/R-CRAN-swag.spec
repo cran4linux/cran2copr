@@ -1,41 +1,40 @@
-%global packname  tfarima
+%global packname  swag
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transfer Function and ARIMA Models
+Summary:          Sparse Wrapper Algorithm
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-caret 
 Requires:         R-stats 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-zoo 
 
 %description
-Building customized transfer function and ARIMA models with multiple
-operators and parameter restrictions. Functions for model identification,
-model estimation (exact or conditional maximum likelihood), model
-diagnostic checking, automatic outlier detection, calendar effects,
-forecasting and seasonal adjustment. See Bell and Hillmer (1983)
-<doi:10.1080/01621459.1983.10478005>, Box, Jenkins, Reinsel and Ljung
-<ISBN:978-1-118-67502-1>, Box, Pierce and Newbold (1987)
-<doi:10.1080/01621459.1987.10478430>, Box and Tiao (1975)
-<doi:10.1080/01621459.1975.10480264>, Chen and Liu (1993)
-<doi:10.1080/01621459.1993.10594321>, Thompson and Tiao (1970)
-<http://old-www.stat.wisc.edu/sites/default/files/TR222.pdf>.
+An algorithm that trains a meta-learning procedure that combines screening
+and wrapper methods to find a set of extremely low-dimensional attribute
+combinations. This package works on top of the 'caret' package and
+proceeds in a forward-step manner. More specifically, it builds and tests
+learners starting from very few attributes until it includes a maximal
+number of attributes by increasing the number of attributes at each step.
+Hence, for each fixed number of attributes, the algorithm tests various
+(randomly selected) learners and picks those with the best performance in
+terms of training error. Throughout, the algorithm uses the information
+coming from the best learners at the previous step to build and test
+learners in the following step. In the end, it outputs a set of strong
+low-dimensional learners.
 
 %prep
 %setup -q -c -n %{packname}

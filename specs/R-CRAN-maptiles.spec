@@ -1,35 +1,37 @@
-%global packname  Umpire
-%global packver   2.0.10
+%global packname  maptiles
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Realistic Gene Expression and Clinical Data
+Summary:          Download and Display Map Tiles
 
-License:          Apache License (== 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mc2d 
-BuildRequires:    R-CRAN-BimodalIndex 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-mc2d 
-Requires:         R-CRAN-BimodalIndex 
+BuildRequires:    R-CRAN-sf >= 0.9.5
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-slippymath 
+Requires:         R-CRAN-sf >= 0.9.5
+Requires:         R-CRAN-curl 
+Requires:         R-graphics 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-slippymath 
 
 %description
-The Ultimate Microrray Prediction, Reality and Inference Engine (UMPIRE)
-is a package to facilitate the simulation of realistic microarray data
-sets with links to associated outcomes. See Zhang and Coombes (2012)
-<doi:10.1186/1471-2105-13-S13-S1>. Version 2.0 adds the ability to
-simulate realistic mixed-typed clinical data.
+To create maps from tiles, 'maptiles' downloads, composes and displays
+tiles from a large number of providers (e.g. 'OpenStreetMap', 'Stamen',
+'Esri', 'CARTO', or 'Thunderforest').
 
 %prep
 %setup -q -c -n %{packname}

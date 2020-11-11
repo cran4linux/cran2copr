@@ -1,35 +1,29 @@
-%global packname  Umpire
-%global packver   2.0.10
+%global packname  fastJT
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Realistic Gene Expression and Clinical Data
+Summary:          Efficient Jonckheere-Terpstra Test Statistics
 
-License:          Apache License (== 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mc2d 
-BuildRequires:    R-CRAN-BimodalIndex 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-mc2d 
-Requires:         R-CRAN-BimodalIndex 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-Rcpp >= 0.12.3
 
 %description
-The Ultimate Microrray Prediction, Reality and Inference Engine (UMPIRE)
-is a package to facilitate the simulation of realistic microarray data
-sets with links to associated outcomes. See Zhang and Coombes (2012)
-<doi:10.1186/1471-2105-13-S13-S1>. Version 2.0 adds the ability to
-simulate realistic mixed-typed clinical data.
+This 'Rcpp'-based package implements highly efficient functions for the
+calculation of the Jonckheere-Terpstra statistic. It can be used for a
+variety of applications, including feature selection in machine learning
+problems, or to conduct genome-wide association studies (GWAS) with
+multiple quantitative phenotypes. The code leverages 'OpenMP' directives
+for multi-core computing to reduce overall processing time.
 
 %prep
 %setup -q -c -n %{packname}

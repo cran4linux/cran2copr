@@ -1,9 +1,9 @@
 %global packname  GWmodel
-%global packver   2.2-0
+%global packver   2.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographically-Weighted Models
 
@@ -46,11 +46,11 @@ geographically-weighted (GW) models. GW models suit situations when data
 are not described well by some global model, but where there are spatial
 regions where a suitably localised calibration provides a better
 description. 'GWmodel' includes functions to calibrate: GW summary
-statistics (Brunsdon et al. 2002)<doi: 10.1016/s0198-9715(01)00009-6>, GW
-principal components analysis (Harris et al. 2011)<doi:
-10.1080/13658816.2011.554838>, GW discriminant analysis (Brunsdon et al.
+statistics (Brunsdon et al., 2002)<doi: 10.1016/s0198-9715(01)00009-6>, GW
+principal components analysis (Harris et al., 2011)<doi:
+10.1080/13658816.2011.554838>, GW discriminant analysis (Brunsdon et al.,
 2007)<doi: 10.1111/j.1538-4632.2007.00709.x> and various forms of GW
-regression (Brunsdon et al. 1996)<doi:
+regression (Brunsdon et al., 1996)<doi:
 10.1111/j.1538-4632.1996.tb00936.x>; some of which are provided in basic
 and robust (outlier resistant) forms.
 

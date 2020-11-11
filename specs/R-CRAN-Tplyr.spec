@@ -1,9 +1,9 @@
 %global packname  Tplyr
-%global packver   0.1.4
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Grammar of Clinical Data Summary
 
@@ -18,9 +18,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.2
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-CRAN-forcats >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.3
@@ -29,9 +29,9 @@ BuildRequires:    R-CRAN-lifecycle
 Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-tidyr >= 1.0.2
-Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.4
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-CRAN-forcats >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.3
