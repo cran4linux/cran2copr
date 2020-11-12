@@ -10,6 +10,8 @@ Currently, only x86_64 chroots for supported (non-EOL) versions of Fedora, inclu
 
 These repos are automatically synchronized with CRAN every day at 00:00 UTC through a GitHub Action that removes archived packages and builds the most recent updates. If you find any issue with any of the supported packages (see details and limitations below), please [open an issue on GitHub](https://github.com/Enchufa2/cran2copr/issues).
 
+Integration with `install.packages` is handled via `CoprManager` (see installation instructions below). If you experience any related issues, please [open an issue in the `bspm` repository](https://github.com/Enchufa2/bspm/issues), which is the upstream source for `CoprManager`.
+
 ## Installation
 
 To enable this Copr repository in your system:
