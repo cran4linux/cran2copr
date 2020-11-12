@@ -1,41 +1,39 @@
-%global packname  noctua
-%global packver   1.9.0
+%global packname  brxx
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to 'AWS Athena' using R 'AWS SDK' 'paws' ('DBI' Interface)
+Summary:          Bayesian Test Reliability Estimation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-DBI >= 0.7
-BuildRequires:    R-CRAN-paws >= 0.1.5
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-uuid 
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-DBI >= 0.7
-Requires:         R-CRAN-paws >= 0.1.5
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-uuid 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-blavaan 
+BuildRequires:    R-CRAN-blme 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-blavaan 
+Requires:         R-CRAN-blme 
+Requires:         R-CRAN-MASS 
 
 %description
-Designed to be compatible with the 'R' package 'DBI' (Database Interface)
-when connecting to Amazon Web Service ('AWS') Athena
-<https://aws.amazon.com/athena/>. To do this the 'R' 'AWS' Software
-Development Kit ('SDK') 'paws' <https://github.com/paws-r/paws> is used as
-a driver.
+When samples contain missing data, are small, or are suspected of bias,
+estimation of scale reliability may not be trustworthy.  A recommended
+solution for this common problem has been Bayesian model estimation.
+Bayesian methods rely on user specified information from historical data
+or researcher intuition to more accurately estimate the parameters.  This
+package provides a user friendly interface for estimating test
+reliability.  Here, reliability is modeled as a beta distributed random
+variable with shape parameters alpha=true score variance and beta=error
+variance (Tanzer, 2020) <https://smep.org/>.
 
 %prep
 %setup -q -c -n %{packname}

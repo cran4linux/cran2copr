@@ -1,37 +1,44 @@
-%global packname  mlr3learners
-%global packver   0.4.2
+%global packname  vitae
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recommended Learners for 'mlr3'
+Summary:          Curriculum Vitae for R Markdown
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.6.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-mlr3 >= 0.6.0
-Requires:         R-CRAN-mlr3misc >= 0.5.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-rmarkdown >= 1.18
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-pillar 
+Requires:         R-CRAN-rmarkdown >= 1.18
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-pillar 
 
 %description
-Recommended Learners for 'mlr3'. Extends 'mlr3' and 'mlr3proba' with
-interfaces to essential machine learning packages on CRAN.  This includes,
-but is not limited to: (penalized) linear and logistic regression, linear
-and quadratic discriminant analysis, k-nearest neighbors, naive Bayes,
-support vector machines, and gradient boosting.
+Provides templates and functions to simplify the production and
+maintenance of curriculum vitae.
 
 %prep
 %setup -q -c -n %{packname}

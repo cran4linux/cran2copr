@@ -1,9 +1,9 @@
 %global packname  GWSDAT
-%global packver   3.0.4
+%global packver   3.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          GroundWater Spatiotemporal Data Analysis Tool (GWSDAT)
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-officer 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-officer 

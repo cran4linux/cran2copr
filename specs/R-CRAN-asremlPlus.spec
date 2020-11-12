@@ -1,11 +1,11 @@
 %global packname  asremlPlus
-%global packver   4.2-21
+%global packver   4.2-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.21
+Version:          4.2.26
 Release:          1%{?dist}%{?buildtag}
-Summary:          Augments 'ASReml-R' in Fitting Mixed Models and PackagesGenerally in Exploring Prediction Differences
+Summary:          Augments 'ASReml-R' in Fitting Mixed Models and Packages Generally in Exploring Prediction Differences
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -60,18 +60,22 @@ hierarchy or marginality principle and for displaying predictions for
 significant terms in tables and graphs. The 'asreml' package provides a
 computationally efficient algorithm for fitting mixed models using
 Residual Maximum Likelihood. It is a commercial package that can be
-purchased from 'VSNi' <http://www.vsni.co.uk/> as 'asreml-R', who will
+purchased from 'VSNi' <https://www.vsni.co.uk/> as 'asreml-R', who will
 supply a zip file for local installation/updating (see
-<http://asreml.org/>). It is not needed for functions that are methods for
-'alldiffs' and 'data.frame' objects. The package 'asremPlus' can also be
-installed from <http://chris.brien.name/rpackages/>.
+<https://asreml.org/>). It is not needed for functions that are methods
+for 'alldiffs' and 'data.frame' objects. The package 'asremPlus' can also
+be installed from <http://chris.brien.name/rpackages/>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -81,6 +85,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

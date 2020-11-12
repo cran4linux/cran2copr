@@ -1,37 +1,29 @@
-%global packname  mlr3learners
-%global packver   0.4.2
+%global packname  tktdjl2r
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recommended Learners for 'mlr3'
+Summary:          Interface for the 'Julia' 'TKTD' Simulator 'TKTDsimulations.jl'
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.6.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-mlr3 >= 0.6.0
-Requires:         R-CRAN-mlr3misc >= 0.5.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-JuliaCall 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-JuliaCall 
+Requires:         R-CRAN-stringr 
 
 %description
-Recommended Learners for 'mlr3'. Extends 'mlr3' and 'mlr3proba' with
-interfaces to essential machine learning packages on CRAN.  This includes,
-but is not limited to: (penalized) linear and logistic regression, linear
-and quadratic discriminant analysis, k-nearest neighbors, naive Bayes,
-support vector machines, and gradient boosting.
+Tools for 'ecotoxicology' dedicated to the simulation of
+'toxicokinetic-toxicodynamic' models. See 'Baudrot' and 'Charles' (2019)
+<doi:10.1038/s41598-019-47698-0>.
 
 %prep
 %setup -q -c -n %{packname}

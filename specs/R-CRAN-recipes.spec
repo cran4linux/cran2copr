@@ -1,9 +1,9 @@
 %global packname  recipes
-%global packver   0.1.14
+%global packver   0.1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.14
+Version:          0.1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preprocessing Tools to Create Design Matrices
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-tidyselect >= 0.2.5
 BuildRequires:    R-CRAN-purrr >= 0.2.3
+BuildRequires:    R-CRAN-generics >= 0.1.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gower 
 BuildRequires:    R-CRAN-ipred 
@@ -33,12 +33,12 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-tidyselect >= 0.2.5
 Requires:         R-CRAN-purrr >= 0.2.3
+Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gower 
 Requires:         R-CRAN-ipred 

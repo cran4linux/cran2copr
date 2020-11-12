@@ -1,37 +1,44 @@
-%global packname  mlr3learners
-%global packver   0.4.2
+%global packname  mlr3spatiotempcv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recommended Learners for 'mlr3'
+Summary:          Spatiotemporal Resampling Methods for 'mlr3'
 
 License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.6.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
+BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-CRAN-mlr3 >= 0.7.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.1.7
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-mlr3 >= 0.6.0
-Requires:         R-CRAN-mlr3misc >= 0.5.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-mlr3 >= 0.7.0
+Requires:         R-CRAN-mlr3misc >= 0.1.7
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-R6 
+Requires:         R-utils 
 
 %description
-Recommended Learners for 'mlr3'. Extends 'mlr3' and 'mlr3proba' with
-interfaces to essential machine learning packages on CRAN.  This includes,
-but is not limited to: (penalized) linear and logistic regression, linear
-and quadratic discriminant analysis, k-nearest neighbors, naive Bayes,
-support vector machines, and gradient boosting.
+Extends the mlr3 ML framework with spatio-temporal resampling methods to
+account for the presence of spatiotemporal autocorrelation (STAC) in
+predictor variables. STAC may cause highly biased performance estimates in
+cross-validation if ignored.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,37 @@
-%global packname  mlr3learners
-%global packver   0.4.2
+%global packname  BaseSet
+%global packver   0.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.0.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recommended Learners for 'mlr3'
+Summary:          Working with Sets the Tidy Way
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.6.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-mlr3 >= 0.6.0
-Requires:         R-CRAN-mlr3misc >= 0.5.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-Recommended Learners for 'mlr3'. Extends 'mlr3' and 'mlr3proba' with
-interfaces to essential machine learning packages on CRAN.  This includes,
-but is not limited to: (penalized) linear and logistic regression, linear
-and quadratic discriminant analysis, k-nearest neighbors, naive Bayes,
-support vector machines, and gradient boosting.
+Implements a class and methods to work with sets, doing intersection,
+union, complementary sets, power sets, cartesian product and other set
+operations in a "tidy" way. These set operations are available for both
+classical sets and fuzzy sets. Import sets from several formats or from
+other several data structures.
 
 %prep
 %setup -q -c -n %{packname}

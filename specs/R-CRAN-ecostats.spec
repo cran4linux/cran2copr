@@ -1,37 +1,34 @@
-%global packname  mlr3learners
-%global packver   0.4.2
+%global packname  ecostats
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recommended Learners for 'mlr3'
+Summary:          Code and Data Accompanying the Eco-Stats Text
 
-License:          LGPL-3
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.6.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-mlr3 >= 0.6.0
-Requires:         R-CRAN-mlr3misc >= 0.5.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-GET 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-GET 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Recommended Learners for 'mlr3'. Extends 'mlr3' and 'mlr3proba' with
-interfaces to essential machine learning packages on CRAN.  This includes,
-but is not limited to: (penalized) linear and logistic regression, linear
-and quadratic discriminant analysis, k-nearest neighbors, naive Bayes,
-support vector machines, and gradient boosting.
+Functions and data supporting the Eco-Stats text (Warton, forthcoming,
+Springer), and solutions to exercises. Functions include tools for using
+simulation envelopes in diagnostic plots, and a function for diagnostic
+plots of multivariate linear models. Datasets mentioned in the package are
+included here (where not available elsewhere) and vignette solutions to
+textbook exercises will be forthcoming at a later time.
 
 %prep
 %setup -q -c -n %{packname}

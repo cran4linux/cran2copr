@@ -1,9 +1,9 @@
 %global packname  biogrowth
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling of Microbial Growth
 
@@ -19,7 +19,9 @@ BuildRequires:    R-CRAN-MASS >= 7.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-tibble >= 3.0.3
 BuildRequires:    R-CRAN-FME >= 1.3.6
+BuildRequires:    R-CRAN-lamW >= 1.3.0
 BuildRequires:    R-CRAN-deSolve >= 1.28
+BuildRequires:    R-CRAN-tidyr >= 1.0.2
 BuildRequires:    R-CRAN-cowplot >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.4.7
@@ -28,7 +30,9 @@ Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-tibble >= 3.0.3
 Requires:         R-CRAN-FME >= 1.3.6
+Requires:         R-CRAN-lamW >= 1.3.0
 Requires:         R-CRAN-deSolve >= 1.28
+Requires:         R-CRAN-tidyr >= 1.0.2
 Requires:         R-CRAN-cowplot >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.4.7

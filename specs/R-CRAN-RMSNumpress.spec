@@ -1,37 +1,30 @@
-%global packname  mlr3learners
-%global packver   0.4.2
+%global packname  RMSNumpress
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recommended Learners for 'mlr3'
+Summary:          'Rcpp' Bindings to Native C++ Implementation of MS Numpress
 
-License:          LGPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.6.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-mlr3 >= 0.6.0
-Requires:         R-CRAN-mlr3misc >= 0.5.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-Rcpp >= 1.0.3
 
 %description
-Recommended Learners for 'mlr3'. Extends 'mlr3' and 'mlr3proba' with
-interfaces to essential machine learning packages on CRAN.  This includes,
-but is not limited to: (penalized) linear and logistic regression, linear
-and quadratic discriminant analysis, k-nearest neighbors, naive Bayes,
-support vector machines, and gradient boosting.
+'Rcpp' bindings to the native C++ implementation of MS Numpress, that
+provides two compression schemes for numeric data from mass spectrometers.
+The library provides implementations of 3 different algorithms, 1 designed
+to compress first order smooth data like retention time or M/Z arrays, and
+2 for compressing non smooth data with lower requirements on precision
+like ion count arrays. Refer to the publication (Teleman et al., (2014)
+<doi:10.1074/mcp.O114.037879>) for more details.
 
 %prep
 %setup -q -c -n %{packname}

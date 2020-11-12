@@ -1,42 +1,37 @@
-%global packname  RNGforGPD
-%global packver   1.0.3
+%global packname  this.path
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Number Generation for Generalized Poisson Distribution
+Summary:          Get Executing Script's Filename, Anywhere
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-Matrix 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-Matrix 
 
 %description
-Generation of univariate and multivariate data that follow the generalized
-Poisson distribution. The details of the univariate part are explained in
-Demirtas (2017), and the multivariate part is an extension of the
-correlated Poisson data generation routine that was introduced in Yahav
-and Shmueli (2012).
+Determine the full path of the executing script. Works when running a line
+or selection from an open R script using the Run button in 'RStudio', when
+using 'source' and 'sys.source', and when running 'Rscript' from the
+command-line.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -46,6 +41,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

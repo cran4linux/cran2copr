@@ -1,27 +1,40 @@
-%global packname  psqn
-%global packver   0.1.2
+%global packname  Ravages
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partially Separable Quasi-Newton
+Summary:          Rare Variant Analysis and Genetic Simulations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-mlogit >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-gaston 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-dfidx 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-mlogit >= 1.1.0
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-methods 
+Requires:         R-CRAN-gaston 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-dfidx 
 
 %description
-Provides quasi-Newton methods to minimize partially separable functions.
-The methods are largely described by Nocedal and Wright (2006)
-<doi:10.1007/978-0-387-40065-5>.
+Rare variant association tests: burden tests (Bocher et al. 2019
+<doi:10.1002/gepi.22210>) and the Sequence Kernel Association Test; and
+genetic simulations.
 
 %prep
 %setup -q -c -n %{packname}
