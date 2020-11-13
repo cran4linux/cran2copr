@@ -1,44 +1,46 @@
-%global packname  rearrr
-%global packver   0.2.0
+%global packname  intensegRid
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rearranging Data
+Summary:          R Wrapper for the Carbon Intensity API
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-plyr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
 
 %description
-Arrange data by a set of methods. Use rearrangers to reorder data points
-and mutators to change their values. From basic utilities, to centering
-the greatest value, to swirling in 3-dimensional space, 'rearrr' enables
-creativity when plotting and experimenting with data.
+Electricity is not made equal and it vary in its carbon footprint (or
+carbon intensity) depending on its source. This package enables to access
+and query data provided by the Carbon Intensity API
+(<https://carbonintensity.org.uk/>). National Grid’s Carbon Intensity API
+provides an indicative trend of regional carbon intensity of the
+electricity system in Great Britain.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,47 @@
-%global packname  lefko3
-%global packver   3.1.0
+%global packname  CTP
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Historical and Ahistorical Population Projection Matrix Analysis
+Summary:          Closed Testing Procedure (CTP)
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-clinfun 
+BuildRequires:    R-CRAN-diagram 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-pscl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-shape 
+BuildRequires:    R-CRAN-Gmisc 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-clinfun 
+Requires:         R-CRAN-diagram 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-shape 
+Requires:         R-CRAN-Gmisc 
+Requires:         R-grid 
 
 %description
-Creates matrix population models for use in population ecological
-analyses. Specializes on the construction of historical matrices, which
-are 2d matrices comprising 3 time intervals of demographic information.
-Estimates both raw and function-based forms of historical and standard
-ahistorical matrices. Methodology based on Ehrlen (2000)
-<doi:10.1890/0012-9658(2000)081[1675:TDOPPD]2.0.CO;2>.
+This is a package for constructing hypothesis trees based on the closure
+principle and analysing Closed Testing Procedures (CTP) using adjusted
+p-values. For reference, see Marcus, R., Peritz, E, and Gabriel, K.R.
+(1976) <doi:10.2307/2335748> and Bauer, P (1991)
+<doi:10.1002/sim.4780100609>.
 
 %prep
 %setup -q -c -n %{packname}

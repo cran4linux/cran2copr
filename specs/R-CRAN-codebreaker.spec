@@ -1,33 +1,29 @@
-%global packname  giscoR
-%global packver   0.2.0
+%global packname  codebreaker
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Map Data from GISCO API - Eurostat
+Summary:          Retro Logic Game
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geojsonsf >= 2.0
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9
-Requires:         R-CRAN-geojsonsf >= 2.0
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9
+BuildRequires:    R-CRAN-beepr 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-cli 
 
 %description
-Tools to download data from the GISCO (Geographic Information System of
-the Commission) Eurostat database
-<https://ec.europa.eu/eurostat/web/gisco>. Global and European map data
-available. This package is in no way officially related to or endorsed by
-Eurostat.
+Logic game in the style of the early 1980s home computers that can be
+played in the R console. This game is inspired by Mastermind, a game that
+became popular in the 1970s. Can you break the code?
 
 %prep
 %setup -q -c -n %{packname}

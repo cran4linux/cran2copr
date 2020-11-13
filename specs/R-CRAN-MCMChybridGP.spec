@@ -1,38 +1,34 @@
-%global packname  dplyr.teradata
-%global packver   0.4.1
+%global packname  MCMChybridGP
+%global packver   5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'Teradata' Backend for 'dplyr'
+Summary:          Hybrid Markov Chain Monte Carlo using Gaussian Processes
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.0.0
-BuildRequires:    R-CRAN-odbc >= 1.3.0
-BuildRequires:    R-CRAN-DBI >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dbplyr >= 2.0.0
-Requires:         R-CRAN-odbc >= 1.3.0
-Requires:         R-CRAN-DBI >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-bit64 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-A 'Teradata' backend for 'dplyr'. It makes it possible to operate
-'Teradata' database
-<https://www.teradata.com/products-and-services/teradata-database/> in the
-same way as manipulating data frames with 'dplyr'.
+Hybrid Markov chain Monte Carlo (MCMC) to simulate from a multimodal
+target distribution.  A Gaussian process approximation makes this possible
+when derivatives are unknown. The Package serves to minimize the number of
+function evaluations in Bayesian calibration of computer models using
+parallel tempering.  It allows replacement of the true target distribution
+in high temperature chains, or complete replacement of the target.
+Methods used are described in, "Efficient MCMC schemes for computationally
+expensive posterior distributions", Fielding et al. (2011)
+<doi:10.1198/TECH.2010.09195>. The research presented in this work was
+carried out as part of the Singapore-Delft Water Alliance Multi-Objective
+Multi-Reservoir Management research programme (R-264-001-272).
 
 %prep
 %setup -q -c -n %{packname}

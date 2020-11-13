@@ -1,9 +1,9 @@
 %global packname  mlflow
-%global packver   1.10.0
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.0
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'MLflow'
 
@@ -21,40 +21,40 @@ BuildRequires:    R-CRAN-base64enc
 BuildRequires:    R-CRAN-forge 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-ini 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-swagger 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-zeallot 
-BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-forge 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-ini 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-processx 
-Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-swagger 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-zeallot 
-Requires:         R-CRAN-glue 
 
 %description
 R interface to 'MLflow', open source platform for the complete machine
@@ -65,9 +65,13 @@ and saving and serving models.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -77,6 +81,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

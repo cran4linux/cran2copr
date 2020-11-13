@@ -1,9 +1,9 @@
 %global packname  incidence2
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute, Handle and Plot Incidence of Dated Events
 
@@ -18,23 +18,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-aweek >= 0.2.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-aweek >= 0.2.0
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-data.table 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Provides functions and classes to compute, handle and visualise incidence

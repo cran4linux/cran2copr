@@ -1,33 +1,42 @@
-%global packname  giscoR
-%global packver   0.2.0
+%global packname  rmoo
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Map Data from GISCO API - Eurostat
+Summary:          'Non-Dominated Genetic Algorithms' Family
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geojsonsf >= 2.0
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9
-Requires:         R-CRAN-geojsonsf >= 2.0
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ecr 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-ecr 
+Requires:         R-CRAN-rgl 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-grDevices 
 
 %description
-Tools to download data from the GISCO (Geographic Information System of
-the Commission) Eurostat database
-<https://ec.europa.eu/eurostat/web/gisco>. Global and European map data
-available. This package is in no way officially related to or endorsed by
-Eurostat.
+A multiobjective optimization package based on K. Deb's algorithm and
+inspired in 'GA' package by Luca Scrucca (2017)
+<DOI:10.32614/RJ-2017-008>. The 'rmoo' package is a framework for multi-
+and many-objective optimization, allowing to work with representation of
+real numbers, permutations and binaries, offering a high range of
+configurations.
 
 %prep
 %setup -q -c -n %{packname}

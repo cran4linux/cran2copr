@@ -1,33 +1,40 @@
-%global packname  giscoR
-%global packver   0.2.0
+%global packname  SCORNET
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Map Data from GISCO API - Eurostat
+Summary:          Semi-Supervised Calibration of Risk with Noisy Event Times
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-geojsonsf >= 2.0
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9
-Requires:         R-CRAN-geojsonsf >= 2.0
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Tools to download data from the GISCO (Geographic Information System of
-the Commission) Eurostat database
-<https://ec.europa.eu/eurostat/web/gisco>. Global and European map data
-available. This package is in no way officially related to or endorsed by
-Eurostat.
+A consistent, semi-supervised, non-parametric survival curve estimator
+optimized for efficient use of Electronic Health Record (EHR) data with a
+limited number of current status labels. See van der Laan and Robins
+(1997) <doi:10.2307/2670119>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,42 @@
-%global packname  rearrr
-%global packver   0.2.0
+%global packname  altfuelr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rearranging Data
+Summary:          Provides an Interface to the NREL Alternate Fuels Locator
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-plyr 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
 
 %description
-Arrange data by a set of methods. Use rearrangers to reorder data points
-and mutators to change their values. From basic utilities, to centering
-the greatest value, to swirling in 3-dimensional space, 'rearrr' enables
-creativity when plotting and experimenting with data.
+Provides a number of functions to access the National Energy Research
+Laboratory Alternate Fuel Locator API
+<https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/>.
+The Alternate Fuel Locator shows the location of alternate fuel stations
+in the United States and Canada. This package also includes the data from
+the US Department of Energy Alternate Fuel database as a data set.
 
 %prep
 %setup -q -c -n %{packname}

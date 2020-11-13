@@ -1,9 +1,9 @@
 %global packname  fastai
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'fastai'
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-generics
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-glue 
 
 %description
 The 'fastai' <https://docs.fast.ai/index.html> library simplifies training
