@@ -1,9 +1,9 @@
 %global packname  RcppDynProg
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Dynamic Programming
 
@@ -14,12 +14,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-wrapr >= 2.0.2
+BuildRequires:    R-CRAN-wrapr >= 2.0.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-wrapr >= 2.0.2
+Requires:         R-CRAN-wrapr >= 2.0.4
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-utils 
 Requires:         R-stats 

@@ -1,39 +1,39 @@
-%global packname  terra
-%global packver   0.9-8
+%global packname  gamclass
+%global packver   0.62.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          0.62.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Data Analysis
+Summary:          Functions and Data for a Course on Modern Regression and Classification
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 3.0.4
-BuildRequires:    geos-devel >= 3.8.0
-BuildRequires:    proj-devel >= 6.3.1
-BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-raster >= 3.3.7
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-raster >= 3.3.7
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-latticeExtra 
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
 
 %description
-Methods for spatial data analysis, especially raster data. Methods allow
-for low-level data manipulation as well as high-level global, local,
-zonal, and focal computation. The predict and interpolate methods
-facilitate the use of regression type (interpolation, machine learning)
-models for spatial prediction. Processing of very large files is
-supported. See the manual and tutorials on <https://rspatial.org/terra/>
-to get started. The package is very similar to the 'raster' package; but
-'terra' is simpler and faster.
+Functions and data are provided that support a course that emphasizes
+statistical issues of inference and generalizability. The functions are
+designed to make it straightforward to illustrate the use of
+cross-validation, the training/test approach, simulation, and model-based
+estimates of accuracy.  Methods considered are Generalized Additive
+Modeling, Linear and Quadratic Discriminant Analysis, Tree-based methods,
+and Random Forests.
 
 %prep
 %setup -q -c -n %{packname}

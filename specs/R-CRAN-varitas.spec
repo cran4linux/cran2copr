@@ -1,56 +1,50 @@
-%global packname  nhdplusTools
-%global packver   0.3.16
+%global packname  varitas
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.16
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHDPlus Tools
+Summary:          Variant Calling in Targeted Analysis Sequencing Data
 
-License:          CC0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-VennDiagram 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rosm 
-BuildRequires:    R-CRAN-prettymapr 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-units 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-VennDiagram 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-R.utils 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-tidyr 
-Requires:         R-methods 
-Requires:         R-CRAN-rosm 
-Requires:         R-CRAN-prettymapr 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Tools for traversing and working with National Hydrography Dataset Plus
-(NHDPlus) data. All methods implemented in 'nhdplusTools' are available in
-the NHDPlus documentation available from the US Environmental Protection
-Agency <https://www.epa.gov/waterdata/basic-information>.
+Multi-caller variant analysis pipeline for targeted analysis sequencing
+(TAS) data. Features a modular, automated workflow that can start with raw
+reads and produces a user-friendly PDF summary and a spreadsheet
+containing consensus variant information.
 
 %prep
 %setup -q -c -n %{packname}

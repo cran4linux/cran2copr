@@ -1,10 +1,10 @@
 %global packname  MSPRT
-%global packver   2.1
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
-Release:          3%{?dist}%{?buildtag}
+Version:          3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Modified Sequential Probability Ratio Test (MSPRT)
 
 License:          GPL (>= 2)
@@ -17,6 +17,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-parallel 
@@ -29,6 +30,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-iterators 
 Requires:         R-parallel 
@@ -41,24 +43,29 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-A modified SPRT (MSPRT) can be designed and implemented with the help of
-this package. In a MSPRT design, (i) the maximum sample size of an
-experiment is fixed prior to the start of an experiment; (ii) the
-alternative hypothesis used to define the rejection region of the test is
-derived from the size of the test (Type I error), the maximum available
-sample size (N), and (iii) the targeted Type 2 error (equals to 1 minus
-the power) is also prespecified. Given these values, the MSPRT is defined
-in a manner very similar to Wald's initial proposal. This test can reduce
-the average sample size required to perform statistical hypothesis tests
-at the specified level of significance and power. This package implements
-one-sample proportion tests, one-sample Z-tests, one-sample T-tests,
-two-sample Z-tests and two-sample T-tests. A user guidance for this
-package is provided here. One can also refer to the supplemental
+Given the maximum available sample size (N) for an experiment, and the
+target levels of Type I and II error probabilities, this package designs a
+modified SPRT (MSPRT). For any designed MSPRT the package can also obtain
+its operating characteristics and implement the test for a given
+sequentially observed data. The MSPRT is defined in a manner very similar
+to Wald's initial proposal. The proposed test has shown evidence of
+reducing the average sample size required to perform statistical
+hypothesis tests at specified levels of significance and power. Currently,
+the package implements one-sample proportion tests, one and two-sample z
+tests, and one and two-sample t tests. A brief user guidance for this
+package is provided below. One can also refer to the supplemental
 information for the same.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -66,16 +73,10 @@ information for the same.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

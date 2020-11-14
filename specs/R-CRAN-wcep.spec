@@ -1,30 +1,38 @@
-%global packname  textshaping
-%global packver   0.2.1
+%global packname  wcep
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings to the 'HarfBuzz' and 'Fribidi' Libraries for Text Shaping
+Summary:          Survival Analysis for Weighted Composite Endpoints
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    harfbuzz-devel
-BuildRequires:    fribidi-devel
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-systemfonts >= 0.3.0
-BuildRequires:    R-CRAN-cpp11 >= 0.2.1
-Requires:         R-CRAN-systemfonts >= 0.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-graphics >= 3.6.1
+BuildRequires:    R-grDevices >= 3.6.1
+BuildRequires:    R-stats >= 3.6.1
+BuildRequires:    R-CRAN-coin >= 1.3.1
+BuildRequires:    R-CRAN-progress >= 1.2.2
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
+Requires:         R-graphics >= 3.6.1
+Requires:         R-grDevices >= 3.6.1
+Requires:         R-stats >= 3.6.1
+Requires:         R-CRAN-coin >= 1.3.1
+Requires:         R-CRAN-progress >= 1.2.2
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.3
 
 %description
-Provides access to the text shaping functionality in the 'HarfBuzz'
-library and the bidirectional algorithm in the 'Fribidi' library.
-'textshaping' is a low-level utility package mainly for graphic devices
-that expands upon the font tool-set provided by the 'systemfonts' package.
+Analyze given data frame with multiple endpoints and return Kaplan-Meier
+survival probabilities together with the specified confidence interval.
 
 %prep
 %setup -q -c -n %{packname}

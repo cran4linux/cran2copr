@@ -1,13 +1,13 @@
-%global packname  unitizer
-%global packver   1.4.11
+%global packname  GMZTests
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.11
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive R Unit Tests
+Summary:          Statistical Tests
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,23 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon >= 1.3.2
-BuildRequires:    R-CRAN-diffobj >= 0.1.5.9000
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-crayon >= 1.3.2
-Requires:         R-CRAN-diffobj >= 0.1.5.9000
-Requires:         R-methods 
+BuildRequires:    R-base 
+BuildRequires:    R-CRAN-DCCA 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
+BuildRequires:    R-CRAN-nonlinearTseries 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-fgpt 
+BuildRequires:    R-CRAN-tseries 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-base 
+Requires:         R-CRAN-DCCA 
+Requires:         R-CRAN-PerformanceAnalytics 
+Requires:         R-CRAN-nonlinearTseries 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-fgpt 
+Requires:         R-CRAN-tseries 
 
 %description
-Simplifies regression tests by comparing objects produced by test code
-with earlier versions of those same objects.  If objects are unchanged the
-tests pass, otherwise execution stops with error details.  If in
-interactive mode, tests can be reviewed through the provided interactive
-environment.
+A collection of functions to perform statistical tests of the following
+methods: Detrended Fluctuation Analysis, RHODCCA
+coefficient,<doi:10.1103/PhysRevE.84.066118>, DMC coefficient, SILVA-FILHO
+et al. (2021) <doi:10.1016/j.physa.2020.125285>, Delta RHODCCA
+coefficient, Guedes et al. (2018) <doi:10.1016/j.physa.2018.02.148> and
+<doi:10.1016/j.dib.2018.03.080> , Delta DMCA coefficient and Delta DMC
+coefficient.
 
 %prep
 %setup -q -c -n %{packname}

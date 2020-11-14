@@ -1,39 +1,39 @@
-%global packname  terra
-%global packver   0.9-8
+%global packname  IRSF
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Data Analysis
+Summary:          Interaction Random Survival Forest
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 3.0.4
-BuildRequires:    geos-devel >= 3.8.0
-BuildRequires:    proj-devel >= 6.3.1
-BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-raster >= 3.3.7
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-raster >= 3.3.7
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-randomForestSRC 
+BuildRequires:    R-CRAN-abind 
+Requires:         R-parallel 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-randomForestSRC 
+Requires:         R-CRAN-abind 
 
 %description
-Methods for spatial data analysis, especially raster data. Methods allow
-for low-level data manipulation as well as high-level global, local,
-zonal, and focal computation. The predict and interpolate methods
-facilitate the use of regression type (interpolation, machine learning)
-models for spatial prediction. Processing of very large files is
-supported. See the manual and tutorials on <https://rspatial.org/terra/>
-to get started. The package is very similar to the 'raster' package; but
-'terra' is simpler and faster.
+Builds ensemble survival tree models to reveal variable interactions when
+the response is a time-to-events outcome. Codes contain randomization,
+interaction modeling, and prediction subroutines to be used in addition to
+the following R packages: 'survival' for Kaplan-Meier and Cox regression
+modeling, 'randomForestSRC' for RSF modeling, and optionally
+'ggRandomForests' for Random Forest exploration/visualization. The current
+version contains additional R codes in folder "/inst/doc" for the analysis
+and generation of results shown in the corresponding article (Dazard et
+al. (2018) <doi:10.1515/sagmb-2017-0038>).
 
 %prep
 %setup -q -c -n %{packname}
