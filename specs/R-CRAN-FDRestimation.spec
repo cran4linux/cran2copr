@@ -1,41 +1,37 @@
-%global packname  multcomp
-%global packver   1.4-15
+%global packname  FDRestimation
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.15
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Inference in General Parametric Models
+Summary:          Estimate, Plot, and Summarize False Discovery Rates
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 2.39.4
-BuildRequires:    R-CRAN-sandwich >= 2.3.0
-BuildRequires:    R-CRAN-TH.data >= 1.0.2
-BuildRequires:    R-CRAN-mvtnorm >= 1.0.10
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-codetools 
-Requires:         R-CRAN-survival >= 2.39.4
-Requires:         R-CRAN-sandwich >= 2.3.0
-Requires:         R-CRAN-TH.data >= 1.0.2
-Requires:         R-CRAN-mvtnorm >= 1.0.10
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-graphics 
-Requires:         R-CRAN-codetools 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Simultaneous tests and confidence intervals for general linear hypotheses
-in parametric models, including linear, generalized linear, linear mixed
-effects, and survival models. The package includes demos reproducing
-analyzes presented in the book "Multiple Comparisons Using R" (Bretz,
-Hothorn, Westfall, 2010, CRC Press).
+The user can directly compute and display false discovery rates from
+inputted p-values or z-scores under a variety of assumptions. p.fdr()
+computes FDRs, adjusted p-values and decision reject vectors from inputted
+p-values or z-values. get.pi0() estimates the proportion of data that are
+truly null. plot.p.fdr() plots the FDRs, adjusted p-values, and the raw
+p-values points against their rejection threshold lines. Megan H. Murray
+and Jeffrey D. Blume (2020) <arXiv:2010.04680>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,41 @@
-%global packname  multcomp
-%global packver   1.4-15
+%global packname  raytracing
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.15
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Inference in General Parametric Models
+Summary:          Rossby Wave Ray Tracing
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 2.39.4
-BuildRequires:    R-CRAN-sandwich >= 2.3.0
-BuildRequires:    R-CRAN-TH.data >= 1.0.2
-BuildRequires:    R-CRAN-mvtnorm >= 1.0.10
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-codetools 
-Requires:         R-CRAN-survival >= 2.39.4
-Requires:         R-CRAN-sandwich >= 2.3.0
-Requires:         R-CRAN-TH.data >= 1.0.2
-Requires:         R-CRAN-mvtnorm >= 1.0.10
-Requires:         R-stats 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ncdf4 
 Requires:         R-graphics 
-Requires:         R-CRAN-codetools 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-units 
+Requires:         R-utils 
 
 %description
-Simultaneous tests and confidence intervals for general linear hypotheses
-in parametric models, including linear, generalized linear, linear mixed
-effects, and survival models. The package includes demos reproducing
-analyzes presented in the book "Multiple Comparisons Using R" (Bretz,
-Hothorn, Westfall, 2010, CRC Press).
+Rossby wave ray paths are traced from a determined source, specified
+wavenumber, and direction of propagation. "raytracing" also works with a
+set of experiments changing these parameters, making possible the
+identification of Rossby wave sources automatically. The theory used here
+is based on classical studies, such as Hoskins and Karoly (1981)
+<doi:10.1175/1520-0469(1981)038%%3C1179:TSLROA%%3E2.0.CO;2>, Karoly (1983)
+<doi:10.1016/0377-0265(83)90013-1>, Hoskins and Ambrizzi (1993)
+<doi:10.1175/1520-0469(1993)050%%3C1661:RWPOAR%%3E2.0.CO;2>, and Yang and
+Hoskins (1996) <doi:10.1175/1520-0469(1996)053%%3C2365:PORWON%%3E2.0.CO;2>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,45 @@
-%global packname  multcomp
-%global packver   1.4-15
+%global packname  GWpcor
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.15
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Inference in General Parametric Models
+Summary:          Geographically Weighted Partial Correlation Coefficient
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 2.39.4
-BuildRequires:    R-CRAN-sandwich >= 2.3.0
-BuildRequires:    R-CRAN-TH.data >= 1.0.2
-BuildRequires:    R-CRAN-mvtnorm >= 1.0.10
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-codetools 
-Requires:         R-CRAN-survival >= 2.39.4
-Requires:         R-CRAN-sandwich >= 2.3.0
-Requires:         R-CRAN-TH.data >= 1.0.2
-Requires:         R-CRAN-mvtnorm >= 1.0.10
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-codetools 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-geodist 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-geodist 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
-Simultaneous tests and confidence intervals for general linear hypotheses
-in parametric models, including linear, generalized linear, linear mixed
-effects, and survival models. The package includes demos reproducing
-analyzes presented in the book "Multiple Comparisons Using R" (Bretz,
-Hothorn, Westfall, 2010, CRC Press).
+Implements a geographically weighted partial correlation which is an
+extension from gwss() function in the 'GWmodel' package (Percival and
+Tsutsumida (2017) <doi:10.1553/giscience2017_01_s36>).
 
 %prep
 %setup -q -c -n %{packname}

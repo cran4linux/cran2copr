@@ -1,11 +1,11 @@
 %global packname  CatReg
-%global packver   1.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Solution Paths for Linear and Logistic Regression Models withSCOPE Penalty
+Version:          2.0.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Solution Paths for Linear and Logistic Regression Models with SCOPE Penalty
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,18 +21,23 @@ Requires:         R-CRAN-Rdpack
 
 %description
 Computes solutions for linear and logistic regression models with a
-nonconvex penalty (SCOPE) in an efficient path-wise fashion (Stokell, Shah
-and Tibshirani 2020, <arXiv:2002.12606>). The scaling of the solution
-paths is selected automatically. Includes functionality for selecting
-tuning parameter lambda by k-fold cross-validation and early termination
-based on information criteria. Solutions are computed by cyclical
-block-coordinate descent, iterating an innovative dynamic programming
-algorithm to compute exact solutions for each block.
+nonconvex penalty (SCOPE) in an efficient path-wise fashion. The scaling
+of the solution paths is selected automatically. Includes functionality
+for selecting tuning parameter lambda by k-fold cross-validation and early
+termination based on information criteria. Solutions are computed by
+cyclical block-coordinate descent, iterating an innovative dynamic
+programming algorithm to compute exact solutions for each block.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -40,18 +45,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/REFERENCES.bib
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

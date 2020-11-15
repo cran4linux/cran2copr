@@ -1,41 +1,27 @@
-%global packname  multcomp
-%global packver   1.4-15
+%global packname  psqn
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.15
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Inference in General Parametric Models
+Summary:          Partially Separable Quasi-Newton
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 2.39.4
-BuildRequires:    R-CRAN-sandwich >= 2.3.0
-BuildRequires:    R-CRAN-TH.data >= 1.0.2
-BuildRequires:    R-CRAN-mvtnorm >= 1.0.10
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-codetools 
-Requires:         R-CRAN-survival >= 2.39.4
-Requires:         R-CRAN-sandwich >= 2.3.0
-Requires:         R-CRAN-TH.data >= 1.0.2
-Requires:         R-CRAN-mvtnorm >= 1.0.10
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-codetools 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Simultaneous tests and confidence intervals for general linear hypotheses
-in parametric models, including linear, generalized linear, linear mixed
-effects, and survival models. The package includes demos reproducing
-analyzes presented in the book "Multiple Comparisons Using R" (Bretz,
-Hothorn, Westfall, 2010, CRC Press).
+Provides quasi-Newton methods to minimize partially separable functions.
+The methods are largely described by Nocedal and Wright (2006)
+<doi:10.1007/978-0-387-40065-5>.
 
 %prep
 %setup -q -c -n %{packname}

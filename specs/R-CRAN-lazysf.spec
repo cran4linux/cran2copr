@@ -1,13 +1,13 @@
-%global packname  multcomp
-%global packver   1.4-15
+%global packname  lazysf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.15
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Inference in General Parametric Models
+Summary:          Delayed Read for 'GDAL' Vector Data Sources
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,27 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 2.39.4
-BuildRequires:    R-CRAN-sandwich >= 2.3.0
-BuildRequires:    R-CRAN-TH.data >= 1.0.2
-BuildRequires:    R-CRAN-mvtnorm >= 1.0.10
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-codetools 
-Requires:         R-CRAN-survival >= 2.39.4
-Requires:         R-CRAN-sandwich >= 2.3.0
-Requires:         R-CRAN-TH.data >= 1.0.2
-Requires:         R-CRAN-mvtnorm >= 1.0.10
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-codetools 
+BuildRequires:    R-CRAN-sf >= 0.7.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-sf >= 0.7.0
+Requires:         R-methods 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Simultaneous tests and confidence intervals for general linear hypotheses
-in parametric models, including linear, generalized linear, linear mixed
-effects, and survival models. The package includes demos reproducing
-analyzes presented in the book "Multiple Comparisons Using R" (Bretz,
-Hothorn, Westfall, 2010, CRC Press).
+Lazy read for drawings. A 'dplyr' back end for data sources supported by
+'GDAL' vector drivers, that allows working with local or remote sources as
+if they are in-memory data frames. Basic features works with any drawing
+format ('GDAL vector data source') supported by the 'sf' package.
 
 %prep
 %setup -q -c -n %{packname}

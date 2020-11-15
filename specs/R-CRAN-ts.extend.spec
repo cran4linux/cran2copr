@@ -1,9 +1,9 @@
 %global packname  ts.extend
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stationary Gaussian ARMA Processes and Other Time-Series Utilities
 
@@ -22,11 +22,13 @@ Requires:         R-grDevices
 
 %description
 Stationary Gaussian ARMA processes and the stationary 'GARMA' distribution
-are fundamental in time series analysis. The permutation-spectrum test can
-detect a periodic signal in a real or complex time-series. Utilities to
-compute the auto-covariance/auto-correlation for a stationary Gaussian
-ARMA process, as well as the density, cumulative distribution, and
-spectral intensity are also implemented, as is random series generation.
+are fundamental in time series analysis. Here we give utilities to compute
+the auto-covariance/auto-correlation for a stationary Gaussian ARMA
+process, as well as the probability functions (density, cumulative
+distribution, random generation) for random vectors from this
+distribution.  We also give functions for the spectral intensity, and the
+permutation-spectrum test for testing a time-series vector for the
+presence of a signal.
 
 %prep
 %setup -q -c -n %{packname}

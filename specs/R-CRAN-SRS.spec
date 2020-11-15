@@ -1,9 +1,9 @@
 %global packname  SRS
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scaling with Ranked Subsampling
 
@@ -16,7 +16,15 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-vegan >= 2.5.6
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-shinycssloaders >= 1.0.0
+BuildRequires:    R-CRAN-shinybusy >= 0.2.2
+BuildRequires:    R-CRAN-DT >= 0.16
 Requires:         R-CRAN-vegan >= 2.5.6
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-shinycssloaders >= 1.0.0
+Requires:         R-CRAN-shinybusy >= 0.2.2
+Requires:         R-CRAN-DT >= 0.16
 
 %description
 Analysis of species count data in ecology often requires normalization to

@@ -1,32 +1,27 @@
-%global packname  MatchIt
-%global packver   4.0.0
+%global packname  MetaSKAT
+%global packver   0.81
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          0.81
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Preprocessing for Parametric Causal Inference
+Summary:          Meta Analysis for SNP-Set (Sequence) Kernel Association Test
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-backports >= 1.1.8
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-backports >= 1.1.8
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 2.13.0
+Requires:         R-core >= 2.13.0
+BuildRequires:    R-CRAN-SKAT >= 2.0.1
+Requires:         R-CRAN-SKAT >= 2.0.1
 
 %description
-Selects matched samples of the original treated and control groups with
-similar covariate distributions -- can be used to match exactly on
-covariates, to match on propensity scores, or perform a variety of other
-matching procedures.  The package also implements a series of
-recommendations offered in Ho, Imai, King, and Stuart (2007)
-<DOI:10.1093/pan/mpl013>.
+Functions for Meta-analysis Burden Test, Sequence Kernel Association Test
+(SKAT) and Optimal SKAT (SKAT-O) by Lee et al. (2013)
+<doi:10.1016/j.ajhg.2013.05.010>. These methods use summary-level score
+statistics to carry out gene-based meta-analysis for rare variants.
 
 %prep
 %setup -q -c -n %{packname}
