@@ -1,9 +1,9 @@
 %global packname  microeco
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microbial Community Ecology Data Analysis
 
@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ape 
@@ -27,22 +28,9 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-agricolae 
 BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-GUniFrac 
-BuildRequires:    R-CRAN-picante 
-BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-pheatmap 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-ggdendro 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-R6 
 Requires:         R-stats 
 Requires:         R-CRAN-ape 
@@ -56,20 +44,9 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-scales 
 Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-agricolae 
 Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-GUniFrac 
-Requires:         R-CRAN-picante 
-Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-pheatmap 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-ggdendro 
-Requires:         R-CRAN-Rcpp 
 
 %description
 A series of statistical and plotting approaches in microbial community

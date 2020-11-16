@@ -1,45 +1,43 @@
-%global packname  mlrCPO
-%global packver   0.3.7
+%global packname  eva
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Composable Preprocessing Operators and Pipelines for Machine Learning
+Summary:          Extreme Value Analysis with Goodness-of-Fit Testing
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr >= 2.12
-BuildRequires:    R-CRAN-checkmate >= 1.8.3
-BuildRequires:    R-CRAN-BBmisc >= 1.11
-BuildRequires:    R-CRAN-ParamHelpers >= 1.10
-BuildRequires:    R-CRAN-backports >= 1.1.0
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mlr >= 2.12
-Requires:         R-CRAN-checkmate >= 1.8.3
-Requires:         R-CRAN-BBmisc >= 1.11
-Requires:         R-CRAN-ParamHelpers >= 1.10
-Requires:         R-CRAN-backports >= 1.1.0
-Requires:         R-CRAN-stringi 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-EnvStats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-CRAN-EnvStats 
 
 %description
-Toolset that enriches 'mlr' with a diverse set of preprocessing operators.
-Composable Preprocessing Operators ("CPO"s) are first-class R objects that
-can be applied to data.frames and 'mlr' "Task"s to modify data, can be
-attached to 'mlr' "Learner"s to add preprocessing to machine learning
-algorithms, and can be composed to form preprocessing pipelines.
+Goodness-of-fit tests for selection of r in the r-largest order statistics
+(GEVr) model. Goodness-of-fit tests for threshold selection in the
+Generalized Pareto distribution (GPD). Random number generation and
+density functions for the GEVr distribution. Profile likelihood for return
+level estimation using the GEVr and Generalized Pareto distributions.
+P-value adjustments for sequential, multiple testing error control.
+Non-stationary fitting of GEVr and GPD. Bader, B., Yan, J. & Zhang, X.
+(2016) <doi:10.1007/s11222-016-9697-3>. Bader, B., Yan, J. & Zhang, X.
+(2018) <doi:10.1214/17-AOAS1092>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,25 +1,28 @@
-%global packname  rprojroot
-%global packver   2.0.2
+%global packname  osDesign
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Finding Files in Project Subdirectories
+Summary:          Design, Planning and Analysis of Observational Studies
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Robust, reliable and flexible paths to files below a project root. The
-'root' of a project is defined as a directory that matches a certain
-criterion, e.g., it contains a certain regular file.
+A suite of functions for the design of case-control and two-phase studies,
+and the analysis of data that arise from them. Functions in this packages
+provides Monte Carlo based evaluation of operating characteristics such as
+powers for estimators of the components of a logistic regression model.
+For additional detail see: Haneuse S, Saegusa T and Lumley T
+(2011)<doi:10.18637/jss.v043.i11>.
 
 %prep
 %setup -q -c -n %{packname}
