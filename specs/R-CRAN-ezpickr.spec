@@ -1,38 +1,52 @@
-%global packname  hutils
-%global packver   1.6.0
+%global packname  ezpickr
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous R Functions and Aliases
+Summary:          Easy Data Import Using GUI File Picker
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table < 2.0.0
-BuildRequires:    R-CRAN-fastmatch < 2.0.0
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-textreadr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-mboxr 
+BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-data.table < 2.0.0
-Requires:         R-CRAN-fastmatch < 2.0.0
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
+Requires:         R-CRAN-textreadr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-mboxr 
+Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-utils 
-Requires:         R-grDevices 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides utility functions for, and drawing on, the 'data.table' package.
-The package also collates useful miscellaneous functions extending base R
-not available elsewhere. The name is a portmanteau of 'utils' and the
-author.
+Choosing any rectangular data file using interactive GUI dialog box, and
+seamlessly manipulating tidy data between an 'Excel' window and R session.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,40 @@
-%global packname  hutils
-%global packver   1.6.0
+%global packname  fsn
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous R Functions and Aliases
+Summary:          Rosenthal's Fail Safe Number and Related Functions
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table < 2.0.0
-BuildRequires:    R-CRAN-fastmatch < 2.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-data.table < 2.0.0
-Requires:         R-CRAN-fastmatch < 2.0.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
-Provides utility functions for, and drawing on, the 'data.table' package.
-The package also collates useful miscellaneous functions extending base R
-not available elsewhere. The name is a portmanteau of 'utils' and the
-author.
+Estimation of Rosenthal's fail safe number including confidence intervals.
+The relevant papers are the following. Konstantinos C. Fragkos, Michail
+Tsagris and Christos C. Frangos (2014). "Publication Bias in
+Meta-Analysis: Confidence Intervals for Rosenthal's Fail-Safe Number".
+International Scholarly Research Notices, Volume 2014.
+<doi:10.1155/2014/825383>. Konstantinos C. Fragkos, Michail Tsagris and
+Christos C. Frangos (2017). "Exploring the distribution for the estimator
+of Rosenthal's fail-safe number of unpublished studies in meta-analysis".
+Communications in Statistics-Theory and Methods, 46(11):5672--5684.
+<doi:10.1080/03610926.2015.1109664>.
 
 %prep
 %setup -q -c -n %{packname}

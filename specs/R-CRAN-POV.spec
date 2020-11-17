@@ -1,26 +1,35 @@
-%global packname  Peptides
-%global packver   2.4.3
+%global packname  POV
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices and Theoretical Physicochemical Properties of Protein Sequences
+Summary:          Partition of Variation Variance Component Analysis Method
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-stats 
 
 %description
-Includes functions to calculate several physicochemical properties and
-indices for amino-acid sequences as well as to read and plot 'XVG' output
-files from the 'GROMACS' molecular dynamics package.
+An implementation of the Partition Of variation (POV) method as developed
+by Dr. Thomas A Little <https://thomasalittleconsulting.com> in 1993 for
+the analysis of semiconductor data for hard drive manufacturing. POV is
+based on sequential sum of squares and is an exact method that explains
+all observed variation. It quantitates both the between and within factor
+variation effects and can quantitate the influence of both continuous and
+categorical factors.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  multiclassPairs
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build MultiClass Pair-Based Classifiers using TSPs or RF
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-Boruta
 BuildRequires:    R-CRAN-dunn.test 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-rdist 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-stats 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-Boruta
 Requires:         R-CRAN-dunn.test 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-rdist 
 
 %description
 A toolbox to train a single sample classifier that uses in-sample feature

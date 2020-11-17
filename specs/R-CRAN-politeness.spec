@@ -1,9 +1,9 @@
 %global packname  politeness
-%global packver   0.7.0
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting Politeness Features in Text
 
@@ -40,10 +40,7 @@ Requires:         R-CRAN-textclean
 Detecting markers of politeness in English natural language. This package
 allows researchers to easily visualize and quantify politeness between
 groups of documents. This package combines prior research on the
-linguistic markers of politeness (Brown & Levinson, 1987
-<http://psycnet.apa.org/record/1987-97641-000>; Danescu-Niculescu-Mizil et
-al., 2013 <arXiv:1306.6078>; Voigt et al., 2017
-<doi:10.1073/pnas.1702413114>). We thank the Spencer Foundation, the
+linguistic markers of politeness. We thank the Spencer Foundation, the
 Hewlett Foundation, and Harvard's Institute for Quantitative Social
 Science for support.
 

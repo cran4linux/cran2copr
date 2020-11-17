@@ -1,26 +1,38 @@
-%global packname  Peptides
-%global packver   2.4.3
+%global packname  PubMedMining
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices and Theoretical Physicochemical Properties of Protein Sequences
+Summary:          Text-Mining of the 'PubMed' Repository
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-easyPubMed 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-easyPubMed 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-Includes functions to calculate several physicochemical properties and
-indices for amino-acid sequences as well as to read and plot 'XVG' output
-files from the 'GROMACS' molecular dynamics package.
+Easy function for text-mining the 'PubMed' repository based on defined
+sets of terms. The relationship between fix-terms (related to your
+research topic) and pub-terms (terms which pivot around your research
+focus) is calculated using the pointwise mutual information algorithm
+('PMI'). Church, Kenneth Ward and Hanks, Patrick (1990)
+<https://www.aclweb.org/anthology/J90-1003/> A text file is generated with
+the 'PMI'-scores for each fix-term. Then for each collocation pairs (a
+fix-term + a pub-term), a text file is generated with related article
+titles and publishing years. Additional Author section will follow in the
+next version updates.
 
 %prep
 %setup -q -c -n %{packname}

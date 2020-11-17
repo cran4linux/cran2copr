@@ -1,38 +1,51 @@
-%global packname  hutils
-%global packver   1.6.0
+%global packname  googleway
+%global packver   2.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.7.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous R Functions and Aliases
+Summary:          Accesses Google Maps APIs to Retrieve Data and Plot Maps
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table < 2.0.0
-BuildRequires:    R-CRAN-fastmatch < 2.0.0
+BuildRequires:    R-CRAN-jsonlite >= 0.9.20
+BuildRequires:    R-CRAN-googlePolylines >= 0.7.1
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jqr 
+BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-data.table < 2.0.0
-Requires:         R-CRAN-fastmatch < 2.0.0
+Requires:         R-CRAN-jsonlite >= 0.9.20
+Requires:         R-CRAN-googlePolylines >= 0.7.1
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-jpeg 
 Requires:         R-utils 
+Requires:         R-CRAN-jqr 
+Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-scales 
 Requires:         R-grDevices 
 
 %description
-Provides utility functions for, and drawing on, the 'data.table' package.
-The package also collates useful miscellaneous functions extending base R
-not available elsewhere. The name is a portmanteau of 'utils' and the
-author.
+Provides a mechanism to plot a 'Google Map' from 'R' and overlay it with
+shapes and markers. Also provides access to 'Google Maps' APIs, including
+places, directions, roads, distances, geocoding, elevation and timezone.
 
 %prep
 %setup -q -c -n %{packname}

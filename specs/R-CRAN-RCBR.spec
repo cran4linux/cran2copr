@@ -1,26 +1,40 @@
-%global packname  Peptides
-%global packver   2.4.3
+%global packname  RCBR
+%global packver   0.5.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          0.5.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices and Theoretical Physicochemical Properties of Protein Sequences
+Summary:          Random Coefficient Binary Response Estimation
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rmosek 
+BuildRequires:    R-CRAN-REBayes 
+BuildRequires:    R-CRAN-orthopolynom 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-Rmosek 
+Requires:         R-CRAN-REBayes 
+Requires:         R-CRAN-orthopolynom 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Includes functions to calculate several physicochemical properties and
-indices for amino-acid sequences as well as to read and plot 'XVG' output
-files from the 'GROMACS' molecular dynamics package.
+Nonparametric maximum likelihood estimation methods for random coefficient
+binary response models and some related functionality for sequential
+processing of hyperplane arrangements. See J. Gu and R. Koenker (2020)
+<DOI:10.1080/01621459.2020.1802284>.
 
 %prep
 %setup -q -c -n %{packname}

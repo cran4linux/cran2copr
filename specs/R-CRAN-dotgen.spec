@@ -1,26 +1,30 @@
-%global packname  Peptides
-%global packver   2.4.3
+%global packname  dotgen
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices and Theoretical Physicochemical Properties of Protein Sequences
+Summary:          Gene-Set Analysis via Decorrelation by Orthogonal Transformation
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Includes functions to calculate several physicochemical properties and
-indices for amino-acid sequences as well as to read and plot 'XVG' output
-files from the 'GROMACS' molecular dynamics package.
+Decorrelates a set of summary statistics (i.e., Z-scores or P-values per
+SNP) via Decorrelation by Orthogonal Transformation (DOT) approach and
+performs gene-set analyses by combining transformed statistic values;
+operations are performed with algorithms that rely only on the association
+summary results and the linkage disequilibrium (LD). For more details on
+DOT and its power, see Olga (2020) <doi:10.1371/journal.pcbi.1007819>.
 
 %prep
 %setup -q -c -n %{packname}

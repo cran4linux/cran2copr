@@ -1,26 +1,40 @@
-%global packname  Peptides
-%global packver   2.4.3
+%global packname  TreeDiagram
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices and Theoretical Physicochemical Properties of Protein Sequences
+Summary:          Tree Diagram
 
-License:          GPL-2
+License:          BSD_2_clause + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-tree 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-tree 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-spatstat 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Includes functions to calculate several physicochemical properties and
-indices for amino-acid sequences as well as to read and plot 'XVG' output
-files from the 'GROMACS' molecular dynamics package.
+Visualizing cuts for either axis-align or non axis-align tree methods
+(e.g. decision tree, random tessellation process).
 
 %prep
 %setup -q -c -n %{packname}

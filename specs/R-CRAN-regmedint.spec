@@ -1,9 +1,9 @@
 %global packname  regmedint
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression-Based Causal Mediation Analysis with an Interaction Term
 
@@ -16,17 +16,17 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Deriv 
-BuildRequires:    R-MASS 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-Deriv 
-Requires:         R-MASS 
-Requires:         R-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-sandwich 
-Requires:         R-survival 
+Requires:         R-CRAN-survival 
 
 %description
 'R' re-implementation of the regression-based causal mediation analysis
@@ -41,9 +41,13 @@ outcome model.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -53,6 +57,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
