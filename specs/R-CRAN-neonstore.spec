@@ -1,9 +1,9 @@
 %global packname  neonstore
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          NEON Data Store
 
@@ -54,8 +54,9 @@ high-level user interface for downloading and storing NEON data products.
 While each of NEON data products consist of hundreds or thousands of
 individual files.  Unlike 'neonUtilities', this package will avoid
 repeated downloading, provides persistent storage, and improves
-performance.  This package does not provide expose interactions with the
-individual low-level NEON API endpoints.
+performance.  'neonstore' can also construct a local 'duckdb' database of
+stacked tables, making it possible to work with tables that are far to big
+to fit into memory.
 
 %prep
 %setup -q -c -n %{packname}

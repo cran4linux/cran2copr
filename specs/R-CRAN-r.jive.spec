@@ -1,41 +1,41 @@
-%global packname  stochvol
-%global packver   3.0.2
+%global packname  r.jive
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Bayesian Inference for Stochastic Volatility (SV) Models
+Summary:          Perform JIVE Decomposition for Multi-Source Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.900
-BuildRequires:    R-CRAN-coda >= 0.19
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Rcpp >= 1.0
-Requires:         R-CRAN-coda >= 0.19
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-abind 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
-Efficient algorithms for fully Bayesian estimation of stochastic
-volatility (SV) models with and without asymmetry (leverage) via Markov
-chain Monte Carlo (MCMC) methods. Methodological details are given in
-Kastner and Frühwirth-Schnatter (2014) <doi:10.1016/j.csda.2013.01.002>
-and Hosszejni and Kastner (2019) <doi:10.1007/978-3-030-30611-3_8>; the
-most common use cases are described in Kastner (2016)
-<doi:10.18637/jss.v069.i05> and the package vignette.
+Performs the Joint and Individual Variation Explained (JIVE) decomposition
+on a list of data sets when the data share a dimension, returning low-rank
+matrices that capture the joint and individual structure of the data
+[O'Connell, MJ and Lock, EF (2016) <doi:10.1093/bioinformatics/btw324>].
+It provides two methods of rank selection when the rank is unknown, a
+permutation test and a Bayesian Information Criterion (BIC) selection
+algorithm. Also included in the package are three plotting functions for
+visualizing the variance attributed to each data source: a bar plot that
+shows the percentages of the variability attributable to joint and
+individual structure, a heatmap that shows the structure of the
+variability, and principal component plots.
 
 %prep
 %setup -q -c -n %{packname}

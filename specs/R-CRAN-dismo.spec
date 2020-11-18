@@ -1,9 +1,9 @@
 %global packname  dismo
-%global packver   1.3-2
+%global packver   1.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Modeling
 
@@ -16,13 +16,15 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-raster >= 2.5.2
 BuildRequires:    R-CRAN-sp >= 1.2.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-raster >= 2.5.2
 Requires:         R-CRAN-sp >= 1.2.0
+Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
 
 %description
-Functions for species distribution modeling, that is, predicting the
+Methods for species distribution modeling, that is, predicting the
 environmental similarity of any site to that of the locations of known
 occurrences of a species.
 

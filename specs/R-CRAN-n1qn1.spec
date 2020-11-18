@@ -1,11 +1,11 @@
 %global packname  n1qn1
-%global packver   6.0.1-9
+%global packver   6.0.1-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.1.9
-Release:          2%{?dist}%{?buildtag}
-Summary:          Port of the 'Scilab' 'n1qn1' Modules for Un-constrained BFGSOptimization
+Version:          6.0.1.10
+Release:          1%{?dist}%{?buildtag}
+Summary:          Port of the 'Scilab' 'n1qn1' Module for Unconstrained BFGS Optimization
 
 License:          CeCILL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,20 +19,25 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-Rcpp >= 0.12.3
 
 %description
-Provides 'Scilab' 'n1qn1', or Quasi-Newton BFGS "qn" without constraints
-and 'qnbd' or Quasi-Newton BFGS with constraints. This takes more memory
-than traditional L-BFGS.  The n1qn1 routine is useful since it allows
-prespecification of a Hessian. If the Hessian is near enough the truth in
-optimization it can speed up the optimization problem. Both algorithms are
-described in the 'Scilab' optimization documentation located at
+Provides 'Scilab' 'n1qn1'. This takes more memory than traditional L-BFGS.
+The n1qn1 routine is useful since it allows prespecification of a Hessian.
+If the Hessian is near enough the truth in optimization it can speed up
+the optimization problem. The algorithm is described in the 'Scilab'
+optimization documentation located at
 <https://www.scilab.org/sites/default/files/optimization_in_scilab.pdf>.
+This version uses manually modified code from 'f2c' to make this a C only
+binary.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,6 +47,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

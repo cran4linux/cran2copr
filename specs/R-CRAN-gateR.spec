@@ -1,9 +1,9 @@
 %global packname  gateR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flow/Mass Cytometry Gating via Spatial Kernel Density Estimation
 
@@ -41,14 +41,14 @@ Requires:         R-CRAN-tibble
 Requires:         R-utils 
 
 %description
-Estimates statistically significant fluorescent marker combination values
-within which one immunologically distinctive group (i.e., disease case) is
-more associated than another group (i.e., healthy control), successively,
-using various combinations (i.e., "gates") of fluorescent markers to
-examine features of cells that may be different between groups. For a
-two-group comparison, the 'gateR' package uses the spatial relative risk
-function that is estimated using the 'sparr' package. Details about the
-'sparr' package methods can be found in the tutorial: Davies et al. (2018)
+Estimates statistically significant marker combination values within which
+one immunologically distinctive group (i.e., disease case) is more
+associated than another group (i.e., healthy control), successively, using
+various combinations (i.e., "gates") of markers to examine features of
+cells that may be different between groups. For a two-group comparison,
+the 'gateR' package uses the spatial relative risk function that is
+estimated using the 'sparr' package. Details about the 'sparr' package
+methods can be found in the tutorial: Davies et al. (2018)
 <doi:10.1002/sim.7577>. Details about kernel density estimation can be
 found in J. F. Bithell (1990) <doi:10.1002/sim.4780090616>. More
 information about relative risk functions using kernel density estimation

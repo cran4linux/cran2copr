@@ -1,9 +1,9 @@
 %global packname  rasterdiv
-%global packver   0.2-1
+%global packver   0.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diversity Indices for Numerical Matrices
 
@@ -16,23 +16,17 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-svMisc 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-pbmcapply 
 Requires:         R-CRAN-raster 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
 Requires:         R-methods 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-proxy 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-svMisc 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-pbmcapply 
 
 %description
 Providing functions to calculate indices of diversity on numerical
@@ -43,9 +37,13 @@ described in Rocchini, Marcantonio and Ricotta (2017)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -55,6 +53,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

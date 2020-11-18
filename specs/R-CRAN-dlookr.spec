@@ -1,10 +1,10 @@
 %global packname  dlookr
-%global packver   0.3.13
+%global packver   0.3.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.13
-Release:          3%{?dist}%{?buildtag}
+Version:          0.3.14
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Data Diagnosis, Exploration, Transformation
 
 License:          GPL-2 | file LICENSE
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-prettydoc 
 BuildRequires:    R-CRAN-smbinning 
@@ -39,7 +38,12 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-tinytex 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-DMwR 
-BuildRequires:    R-rpart 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
@@ -52,7 +56,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-moments 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-prettydoc 
 Requires:         R-CRAN-smbinning 
@@ -64,7 +67,12 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-tinytex 
 Requires:         R-methods 
 Requires:         R-CRAN-DMwR 
-Requires:         R-rpart 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-reshape2 
 
 %description
 A collection of tools that support data diagnosis, exploration, and
@@ -81,6 +89,13 @@ automated reports that support these three tasks.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -88,21 +103,10 @@ automated reports that support these three tasks.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/img
-%doc %{rlibdir}/%{packname}/report
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
