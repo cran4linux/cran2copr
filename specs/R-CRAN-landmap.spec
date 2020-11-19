@@ -1,9 +1,9 @@
 %global packname  landmap
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Spatial Prediction using Ensemble Machine Learning
 
@@ -18,35 +18,27 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-geoR 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-mda 
 BuildRequires:    R-CRAN-mlr 
 BuildRequires:    R-CRAN-parallelMap 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-gdalUtils 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-psych 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-parallel 
-Requires:         R-CRAN-geoR 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-mda 
 Requires:         R-CRAN-mlr 
 Requires:         R-CRAN-parallelMap 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-gdalUtils 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-psych 
 
 %description
 Functions and tools for spatial interpolation and/or prediction of

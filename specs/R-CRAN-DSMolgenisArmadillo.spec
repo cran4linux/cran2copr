@@ -1,29 +1,44 @@
-%global packname  rbibutils
-%global packver   2.0
+%global packname  DSMolgenisArmadillo
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Between Bibliography Formats
+Summary:          'DataSHIELD' Client for 'MOLGENIS Armadillo'
 
-License:          GPL-2
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DSI >= 1.1.0
+BuildRequires:    R-CRAN-MolgenisAuth 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-urltools 
+Requires:         R-CRAN-DSI >= 1.1.0
+Requires:         R-CRAN-MolgenisAuth 
+Requires:         R-methods 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
-Requires:         R-tools 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-urltools 
 
 %description
-Converts between a number of bibliography formats, including 'BibTeX',
-'BibLaTeX' and 'Bibentry'.  Includes a port of the 'bibutils' utilities by
-Chris Putnam <https://sourceforge.net/projects/bibutils/>. Supports all
-bibliography formats and character encodings implemented in 'bibutils'.
+'DataSHIELD' is an infrastructure and series of R packages that enables
+the remote and 'non-disclosive' analysis of sensitive research data. This
+package is the 'DataSHIELD' interface implementation to analyze data
+shared on a 'MOLGENIS Armadillo' server. 'MOLGENIS Armadillo' is a
+light-weight 'DataSHIELD' server using a file store and an 'RServe'
+server.
 
 %prep
 %setup -q -c -n %{packname}

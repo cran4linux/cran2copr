@@ -1,13 +1,13 @@
-%global packname  bootComb
-%global packver   1.0.1
+%global packname  mully
+%global packver   2.1.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.1.26
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combine Parameter Estimates via Parametric Bootstrap
+Summary:          Create, Modify and Visualize Multi-Layered Networks
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-randomcoloR 
+BuildRequires:    R-CRAN-shape 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-randomcoloR 
+Requires:         R-CRAN-shape 
 
 %description
-Propagate uncertainty from several estimates when combining these
-estimates via a function. This is done by using the parametric bootstrap
-to simulate values from the distribution of each estimate to build up an
-empirical distribution of the combined parameter. Finally either the
-percentile method is used or the highest density interval is chosen to
-derive a confidence interval for the combined parameter with the desired
-coverage. References: Davison and Hinkley (1997,ISBN:0-521-57471-4) for
-the parametric bootstrap and percentile method, Gelman et al.
-(2014,ISBN:978-1-4398-4095-5) for the highest density interval, Stockdale
-et al. (2020)<doi:10.1016/j.jhep.2020.04.008> for an example of combining
-conditional prevalences.
+Allows the user to create graph with multiple layers. The user can also
+modify the layers, the nodes, and the edges. The graph can also be
+visualized. Zaynab Hammoud and Frank Kramer (2018)
+<doi:10.3390/genes9110519>. More about multilayered graphs and their usage
+can be found in our review paper: Zaynab Hammoud and Frank Kramer (2020)
+<doi:10.1186/s41044-020-00046-0>.
 
 %prep
 %setup -q -c -n %{packname}

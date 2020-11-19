@@ -1,33 +1,33 @@
-%global packname  bootComb
-%global packver   1.0.1
+%global packname  RNGforGPD
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combine Parameter Estimates via Parametric Bootstrap
+Summary:          Random Number Generation for Generalized Poisson Distribution
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Matrix 
 
 %description
-Propagate uncertainty from several estimates when combining these
-estimates via a function. This is done by using the parametric bootstrap
-to simulate values from the distribution of each estimate to build up an
-empirical distribution of the combined parameter. Finally either the
-percentile method is used or the highest density interval is chosen to
-derive a confidence interval for the combined parameter with the desired
-coverage. References: Davison and Hinkley (1997,ISBN:0-521-57471-4) for
-the parametric bootstrap and percentile method, Gelman et al.
-(2014,ISBN:978-1-4398-4095-5) for the highest density interval, Stockdale
-et al. (2020)<doi:10.1016/j.jhep.2020.04.008> for an example of combining
-conditional prevalences.
+Generation of univariate and multivariate data that follow the generalized
+Poisson distribution. The details of the univariate part are explained in
+Demirtas (2017) <doi: 10.1080/03610918.2014.968725>, and the multivariate
+part is an extension of the correlated Poisson data generation routine
+that was introduced in Yahav and Shmueli (2012) <doi: 10.1002/asmb.901>.
 
 %prep
 %setup -q -c -n %{packname}

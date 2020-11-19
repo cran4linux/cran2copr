@@ -1,13 +1,13 @@
-%global packname  AggregateR
-%global packver   0.1.0
+%global packname  netmhc2pan
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Aggregate Numeric, Date and Categorical Variables
+Summary:          Interface to 'NetMHCIIpan'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-assertive 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-seqinr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-testit 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-NCmisc 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-assertive 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-seqinr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-testit 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-NCmisc 
 
 %description
-Convenience functions for aggregating a data frame or data table.
-Currently mean, sum and variance are supported. For Date variables, the
-recency and duration are supported. There is also support for dummy
-variables in predictive contexts. Code has been completely re-written in
-data.table for computational speed.
+The field of immunology benefits from software that can predict which
+peptide sequences trigger an immune response. 'NetMHCIIpan' is a such a
+tool: it predicts the binding strength of a short peptide to a Major
+Histocompatibility Complex class II (MHC-II) molecule. 'NetMHCIIpan' can
+be used from a web server at
+<https://services.healthtech.dtu.dk/service.php?NetMHCIIpan-3.2/> or from
+the command-line, using a local installation. This package allows to call
+'NetMHCIIpan' from R.
 
 %prep
 %setup -q -c -n %{packname}

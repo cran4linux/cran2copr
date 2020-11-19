@@ -1,33 +1,34 @@
-%global packname  bootComb
-%global packver   1.0.1
+%global packname  ADMUR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combine Parameter Estimates via Parametric Bootstrap
+Summary:          Ancient Demographic Modelling Using Radiocarbon
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-zoo 
 
 %description
-Propagate uncertainty from several estimates when combining these
-estimates via a function. This is done by using the parametric bootstrap
-to simulate values from the distribution of each estimate to build up an
-empirical distribution of the combined parameter. Finally either the
-percentile method is used or the highest density interval is chosen to
-derive a confidence interval for the combined parameter with the desired
-coverage. References: Davison and Hinkley (1997,ISBN:0-521-57471-4) for
-the parametric bootstrap and percentile method, Gelman et al.
-(2014,ISBN:978-1-4398-4095-5) for the highest density interval, Stockdale
-et al. (2020)<doi:10.1016/j.jhep.2020.04.008> for an example of combining
-conditional prevalences.
+Provides tools to directly model underlying population dynamics using date
+datasets (radiocarbon and other) with a Continuous Piecewise Linear (CPL)
+model framework, and model comparison framework using BIC. Package also
+calibrates 14C samples, generates Summed Probability Distributions (SPD),
+and performs SPD simulation analysis to generate a Goodness-of-fit test
+for the best selected model.
 
 %prep
 %setup -q -c -n %{packname}

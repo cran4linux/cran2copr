@@ -1,9 +1,9 @@
 %global packname  trending
-%global packver   0.0.1.0
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Temporal Trends
 
@@ -18,9 +18,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-dplyr 
 
 %description
 Provides a coherent interface to multiple modelling tools for fitting

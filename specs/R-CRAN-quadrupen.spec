@@ -1,33 +1,42 @@
-%global packname  bootComb
-%global packver   1.0.1
+%global packname  quadrupen
+%global packver   0.2-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combine Parameter Estimates via Parametric Bootstrap
+Summary:          Sparsity by Worst-Case Quadratic Penalties
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-grid 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-reshape2 
+Requires:         R-methods 
+Requires:         R-CRAN-scales 
+Requires:         R-grid 
+Requires:         R-parallel 
 
 %description
-Propagate uncertainty from several estimates when combining these
-estimates via a function. This is done by using the parametric bootstrap
-to simulate values from the distribution of each estimate to build up an
-empirical distribution of the combined parameter. Finally either the
-percentile method is used or the highest density interval is chosen to
-derive a confidence interval for the combined parameter with the desired
-coverage. References: Davison and Hinkley (1997,ISBN:0-521-57471-4) for
-the parametric bootstrap and percentile method, Gelman et al.
-(2014,ISBN:978-1-4398-4095-5) for the highest density interval, Stockdale
-et al. (2020)<doi:10.1016/j.jhep.2020.04.008> for an example of combining
-conditional prevalences.
+Fits classical sparse regression models with efficient active set
+algorithms by solving quadratic problems as described by Grandvalet,
+Chiquet and Ambroise (2017) <arXiv:1210.2077>. Also provides a few methods
+for model selection purpose (cross-validation, stability selection).
 
 %prep
 %setup -q -c -n %{packname}

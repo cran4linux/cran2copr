@@ -1,9 +1,9 @@
 %global packname  Bayesrel
-%global packver   0.7.0
+%global packver   0.7.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Reliability Estimation
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
 BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-Rcsdp 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-coda 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-Rcsdp 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-coda 
@@ -37,27 +35,28 @@ Requires:         R-graphics
 Requires:         R-CRAN-Rdpack 
 
 %description
-Functionality for the most common single test reliability estimates is
-provided: Coefficient alpha, 'Guttman's' lambda-2/-4/-6, the Greatest
-lower bound and coefficient omega. The Bayesian estimates are provided
-with credible intervals. The frequentist estimates are provided with
-bootstrapped confidence intervals The method for the Bayesian estimates,
-except for omega, is sampling from the posterior inverse 'Wishart' for the
-covariance matrix based measures. See 'Murphy' (2007)
+Functionality for the most common single test reliability estimates:
+Coefficient alpha, 'Guttman's' lambda-2/-4/-6, the Greatest lower bound
+and coefficient omega. The Bayesian estimates are provided with credible
+intervals. The frequentist estimates are provided with bootstrapped
+confidence intervals The method for the Bayesian estimates, except for
+omega, is sampling from the posterior inverse 'Wishart' for the covariance
+matrix based measures (see 'Murphy', 2007,
 <https://www.seas.harvard.edu/courses/cs281/papers/murphy-2007.pdf>. In
 the case of omega it is 'Gibbs' Sampling from the joint conditional
-distributions of a single factor model. See 'Lee' (2007,
-<doi:10.1002/9780470024737>). The glb method is adjusted code from the
+distributions of a single factor model ('Lee', 2007,
+<doi:10.1002/9780470024737>). The glb method uses adjusted code from the
 'Rcsdp' package by 'Hector Corrada Bravo',
-<https://CRAN.R-project.org/package=Rcsdp>, which now uses a slightly
-adjusted solving algorithm from the 'CSDP' library by 'Brian Borchers'
-<https://github.com/coin-or/Csdp/wiki>,
-<doi.org/10.1080/10556789908805765> lambda-4 is from 'Benton' (2015)
-<doi:10.1007/978-3-319-07503-7_19>; the principal factor analysis for the
-frequentist omega is from 'Schlegel' (2017)
-<https://www.r-bloggers.com/2017/03/iterated-principal-factor-method-of-factor-analysis-with-r/>;
-and the analytic alpha interval is from 'Bonett' and 'Wright' (2015)
-<doi:10.1002/job.1960>.
+<https://CRAN.R-project.org/package=Rcsdp>. This process applies a
+slightly adjusted solving algorithm from the 'CSDP' library by 'Brian
+Borchers' <https://github.com/coin-or/Csdp/wiki>,
+<doi.org/10.1080/10556789908805765>, but is wrapped in 'RcppArmadillo'.
+Guttman's Lambda-4 is from 'Benton' (2015)
+<doi:10.1007/978-3-319-07503-7_19>. The principal factor analysis for a
+version of frequentist omega is from 'Schlegel' (2017)
+<https://www.r-bloggers.com/2017/03/iterated-principal-factor-method-of-factor-analysis-with-r/>.
+The analytic confidence interval of alpha is from 'Bonett' and 'Wright'
+(2015) <doi:10.1002/job.1960>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  spant
-%global packver   1.7.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MR Spectroscopy Analysis Tools
 
@@ -31,14 +31,11 @@ BuildRequires:    R-CRAN-smoother
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ptw 
-BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-mmand 
 BuildRequires:    R-CRAN-RNifti 
 BuildRequires:    R-CRAN-RNiftyReg 
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-MASS 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-oro.dicom 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-nloptr 
@@ -62,14 +59,11 @@ Requires:         R-CRAN-smoother
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ptw 
-Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-mmand 
 Requires:         R-CRAN-RNifti 
 Requires:         R-CRAN-RNiftyReg 
 Requires:         R-CRAN-fields 
-Requires:         R-MASS 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-oro.dicom 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-nloptr 
@@ -79,14 +73,18 @@ Requires:         R-CRAN-jsonlite
 
 %description
 Tools for reading, visualising and processing Magnetic Resonance
-Spectroscopy data. <https://martin3141.github.io/spant/>.
+Spectroscopy data.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -96,6 +94,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,10 +1,10 @@
 %global packname  robCompositions
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
-Release:          3%{?dist}%{?buildtag}
+Version:          2.3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
 License:          GPL (>= 2)
@@ -20,16 +20,18 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-cvTools 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-sROC 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-VIM 
 BuildRequires:    R-CRAN-zCompositions 
 BuildRequires:    R-CRAN-reshape2 
@@ -41,16 +43,18 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-cvTools 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-fda 
 Requires:         R-CRAN-rrcov 
-Requires:         R-cluster 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-kernlab 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-sROC 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-robustbase 
+Requires:         R-splines 
 Requires:         R-CRAN-VIM 
 Requires:         R-CRAN-zCompositions 
 Requires:         R-CRAN-reshape2 
@@ -68,7 +72,8 @@ detection for compositional data, (robust) principal component analysis
 for compositional data, (robust) factor analysis for compositional data,
 (robust) discriminant analysis for compositional data (Fisher rule),
 robust regression with compositional predictors, functional data analysis
-and p-splines (<doi:10.1016/j.csda.2015.07.007>), contingency
+(<doi:10.1016/j.csda.2015.07.007>) and p-splines
+(<doi:10.1016/j.csda.2015.07.007>), contingency
 (<doi:10.1080/03610926.2013.824980>) and compositional tables
 (<doi:10.1111/sjos.12326>, <doi:10.1111/sjos.12223>,
 <doi:10.1080/02664763.2013.856871>) and (robust) Anderson-Darling
@@ -80,7 +85,13 @@ high and low-level plot functions for the ternary diagram.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -88,21 +99,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

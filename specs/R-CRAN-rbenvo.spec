@@ -1,42 +1,49 @@
-%global packname  EValue
-%global packver   4.1.0
+%global packname  rbenvo
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sensitivity Analyses for Unmeasured Confounding and Other Biases in Observational Studies and Meta-Analyses
+Summary:          Built Environment Objects
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-MetaUtility 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-metafor 
-Requires:         R-methods 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-MetaUtility 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-Conducts sensitivity analyses for unmeasured confounding,selection bias,
-and measurement error (individually or in combination) in individual
-studies. Also conducts sensitivity analyses for unmeasured confounding in
-meta-analyses.
+Provides S3 class objects and methods for built environment data to ease
+the use of working with these data and facilitate other packages that make
+use of this data structure.
 
 %prep
 %setup -q -c -n %{packname}
