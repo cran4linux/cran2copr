@@ -1,35 +1,42 @@
-%global packname  Rssa
-%global packver   1.0.3
+%global packname  tensorBSS
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Methods for Singular Spectrum Analysis
+Summary:          Blind Source Separation Methods for Tensor-Valued Observations
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    fftw-devel >= 3.2
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-svd >= 0.4
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-svd >= 0.4
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-lattice 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-JADE 
+BuildRequires:    R-CRAN-fICA 
+BuildRequires:    R-CRAN-tensor 
+BuildRequires:    R-CRAN-tsBSS 
+BuildRequires:    R-CRAN-ICtest 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-JADE 
+Requires:         R-CRAN-fICA 
+Requires:         R-CRAN-tensor 
+Requires:         R-CRAN-tsBSS 
+Requires:         R-CRAN-ICtest 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Methods and tools for Singular Spectrum Analysis including decomposition,
-forecasting and gap-filling for univariate and multivariate time series.
-General description of the methods with many examples can be found in the
-book Golyandina (2018, <doi:10.1007/978-3-662-57380-8>). See
-'citation("Rssa")' for details.
+Contains several utility functions for manipulating tensor-valued data
+(centering, multiplication from a single mode etc.) and the
+implementations of the following blind source separation methods for
+tensor-valued data: 'tPCA', 'tFOBI', 'tJADE', k-tJADE', 'tgFOBI',
+'tgJADE', 'tSOBI', 'tNSS.SD', 'tNSS.JD', 'tNSS.TD.JD', 'tPP' and
+'tTUCKER'.
 
 %prep
 %setup -q -c -n %{packname}

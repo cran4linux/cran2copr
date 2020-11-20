@@ -1,9 +1,9 @@
 %global packname  unitizer
-%global packver   1.4.11
+%global packver   1.4.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.11
+Version:          1.4.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive R Unit Tests
 

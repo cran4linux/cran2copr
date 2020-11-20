@@ -1,33 +1,33 @@
-%global packname  anndata
-%global packver   0.7.5
+%global packname  RCytoGPS
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Annotated Data
+Summary:          Using Cytogenetics Data in R
 
-License:          MIT + file LICENSE
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rjson 
 Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rjson 
 
 %description
-An R wrapper for the Python package 'anndata'. Provides a scalable way of
-keeping track of data and learned annotations.  Used to read from and
-write to the h5ad file format.
+Defines classes and methods to process text-based cytogenetics using the
+CytoGPS web site, then import the results into R for further analysis and
+graphing.
 
 %prep
 %setup -q -c -n %{packname}

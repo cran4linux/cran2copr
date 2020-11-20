@@ -1,28 +1,32 @@
-%global packname  PDE
-%global packver   1.1.1
+%global packname  ordinalClust
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Sentences and Tables from PDFs with User Interface
+Summary:          Ordinal Data Clustering, Co-Clustering and Classification
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
-Requires:         R-CRAN-tcltk2 >= 1.2.11
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildRequires:    R-CRAN-Rcpp >= 0.12.11
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.11
+Requires:         R-methods 
 
 %description
-The PDE (Pdf Data Extractor) allows the extraction of information and
-tables optionally based on search words from PDF (Portable Document
-Format) files and enables the visualization of the results, both by
-providing a convenient user-interface.
+Ordinal data classification, clustering and co-clustering using
+model-based approach with the BOS distribution for ordinal data
+(Christophe Biernacki and Julien Jacques (2016)
+<doi:10.1007/s11222-015-9585-2>).
 
 %prep
 %setup -q -c -n %{packname}

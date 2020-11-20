@@ -1,33 +1,36 @@
-%global packname  anndata
-%global packver   0.7.5
+%global packname  qCBA
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Annotated Data
+Summary:          Quantitative Classification by Association Rules
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+Requires:         java
+BuildRequires:    R-devel >= 2.7.0
+Requires:         R-core >= 2.7.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-arules >= 1.6.6
+BuildRequires:    R-CRAN-arc >= 1.2
+BuildRequires:    R-CRAN-rJava >= 0.5.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-arules >= 1.6.6
+Requires:         R-CRAN-arc >= 1.2
+Requires:         R-CRAN-rJava >= 0.5.0
 Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
 
 %description
-An R wrapper for the Python package 'anndata'. Provides a scalable way of
-keeping track of data and learned annotations.  Used to read from and
-write to the h5ad file format.
+CBA postprocessing algorithm that creates smaller models for datasets
+containing quantitative (numerical) attributes. Article describing QCBA is
+published in Tomas Kliegr (2017) <arXiv:1711.10166>. The package can also
+postprocess results of the SBRL package, which is no longer in CRAN, but
+can be obtained from <https://github.com/cran/sbrl>.
 
 %prep
 %setup -q -c -n %{packname}

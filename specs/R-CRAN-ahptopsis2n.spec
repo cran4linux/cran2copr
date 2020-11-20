@@ -1,33 +1,25 @@
-%global packname  anndata
-%global packver   0.7.5
+%global packname  ahptopsis2n
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Annotated Data
+Summary:          Hybrid Method for Multiple Criteria Decision-Making (MCDM)
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-assertthat 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
 
 %description
-An R wrapper for the Python package 'anndata'. Provides a scalable way of
-keeping track of data and learned annotations.  Used to read from and
-write to the h5ad file format.
+Implementation of an hybrid MCDM method build from the AHP (Analytic
+Hierarchy Process) and TOPSIS-2N (Technique for Order of Preference by
+Similarity to Ideal Solution - with two normalizations).
 
 %prep
 %setup -q -c -n %{packname}

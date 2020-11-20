@@ -1,28 +1,39 @@
-%global packname  DELTD
-%global packver   2.6.6
+%global packname  gbeta
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel Density Estimation using Lifetime Distributions
+Summary:          Generalized Beta and Beta Prime Distributions
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-Runuran 
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-Runuran 
 
 %description
-A collection of asymmetrical kernels belong to lifetime distributions for
-kernel density estimation is presented. Mean Squared Errors (MSE) are
-calculated for estimated curves. For this purpose, R functions allow the
-distribution to be Gamma, Exponential or Weibull. For details see Chen
-(2000a, b), Jin and Kawczak (2003) and Salha et al. (2014)
-<doi:10.12988/pms.2014.4616>.
+Density, distribution function, quantile function, and random generation
+for the generalized Beta and Beta prime distributions. The family of
+generalized Beta distributions is conjugate for the Bayesian binomial
+model, and the generalized Beta prime distribution is the posterior
+distribution of the relative risk in the Bayesian 'two Poisson samples'
+model when a Gamma prior is assigned to the Poisson rate of the reference
+group and a Beta prime prior is assigned to the relative risk. References:
+Laurent (2012) <doi:10.1214/11-BJPS139>, Hamza & Vallois (2016)
+<doi:10.1016/j.spl.2016.03.014>, Chen & Novick (1984)
+<doi:10.3102/10769986009002163>.
 
 %prep
 %setup -q -c -n %{packname}

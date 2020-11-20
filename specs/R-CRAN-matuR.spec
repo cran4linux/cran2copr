@@ -1,47 +1,46 @@
-%global packname  saqgetr
-%global packver   0.2.1
+%global packname  matuR
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import Air Quality Monitoring Data in a Fast and Easy Way
+Summary:          Athlete Maturation and Biobanding
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-fs 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-fs 
+Requires:         R-CRAN-ggrepel 
 
 %description
-A collection of tools to access prepared air quality monitoring data files
-from web servers with ease and speed. Air quality data are sourced from
-open and publicly accessible repositories and can be found in these
-locations:
-<https://www.eea.europa.eu/data-and-maps/data/airbase-the-european-air-quality-database-8>
-and <https://discomap.eea.europa.eu/map/fme/AirQualityExport.htm>. The web
-server space has been provided by Ricardo Energy & Environment.
+Identifying maturation stages across young athletes is paramount for
+talent identification. Furthermore, the concept of biobanding, or grouping
+of athletes based on their biological development, instead of their
+chronological age, has been widely researched. The goal of this package is
+to help professionals working in the field of strength & conditioning and
+talent ID obtain common maturation metrics and as well as to quickly
+visualize this information via several plotting options. For the methods
+behind the computed maturation metrics implemented in this package refer
+to Khamis, H. J., & Roche, A. F. (1994)
+<https://pubmed.ncbi.nlm.nih.gov/7936860/>, Mirwald, R.L et al., (2002)
+<https://pubmed.ncbi.nlm.nih.gov/11932580/> and Cumming, Sean P. et al.,
+(2017) <doi:10.1519/SSC.0000000000000281>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  treeheatr
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heatmap-Integrated Decision Tree Visualizations
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-ggnewscale
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-seriation 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-ggnewscale
 Requires:         R-CRAN-gtable 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
-Requires:         R-cluster 
+Requires:         R-CRAN-cluster 
 Requires:         R-grid 
 Requires:         R-CRAN-yardstick 
 Requires:         R-CRAN-seriation 
@@ -48,9 +48,13 @@ the customizable 'ggparty' package for drawing decision trees.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,6 +64,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

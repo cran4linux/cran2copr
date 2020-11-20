@@ -1,33 +1,43 @@
-%global packname  anndata
-%global packver   0.7.5
+%global packname  ergm.ego
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Annotated Data
+Summary:          Fit, Simulate and Diagnose Exponential-Family Random Graph Models to Egocentrically Sampled Network Data
 
-License:          MIT + file LICENSE
+License:          GPL-3 + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-statnet.common >= 4.4.0
+BuildRequires:    R-CRAN-ergm >= 3.11.0
+BuildRequires:    R-CRAN-tibble >= 2.1.1
+BuildRequires:    R-CRAN-network >= 1.15
+BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
+BuildRequires:    R-CRAN-purrr >= 0.3.2
+BuildRequires:    R-CRAN-coda >= 0.19.2
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-statnet.common >= 4.4.0
+Requires:         R-CRAN-ergm >= 3.11.0
+Requires:         R-CRAN-tibble >= 2.1.1
+Requires:         R-CRAN-network >= 1.15
+Requires:         R-CRAN-RColorBrewer >= 1.1.2
+Requires:         R-CRAN-purrr >= 0.3.2
+Requires:         R-CRAN-coda >= 0.19.2
+Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
 
 %description
-An R wrapper for the Python package 'anndata'. Provides a scalable way of
-keeping track of data and learned annotations.  Used to read from and
-write to the h5ad file format.
+Utilities for managing egocentrically sampled network data and a wrapper
+around the 'ergm' package to facilitate ERGM inference and simulation from
+such data.
 
 %prep
 %setup -q -c -n %{packname}

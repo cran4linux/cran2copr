@@ -1,33 +1,32 @@
-%global packname  anndata
-%global packver   0.7.5
+%global packname  mwa
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Annotated Data
+Summary:          Causal Inference in Spatiotemporal Event Data
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+Requires:         java
+BuildRequires:    R-devel >= 2.6
+Requires:         R-core >= 2.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-assertthat 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-MASS >= 7.0
+BuildRequires:    R-CRAN-cem >= 1.1
+BuildRequires:    R-CRAN-rJava >= 0.9
+Requires:         R-CRAN-MASS >= 7.0
+Requires:         R-CRAN-cem >= 1.1
+Requires:         R-CRAN-rJava >= 0.9
 
 %description
-An R wrapper for the Python package 'anndata'. Provides a scalable way of
-keeping track of data and learned annotations.  Used to read from and
-write to the h5ad file format.
+Implementation of Matched Wake Analysis (mwa) for studying causal
+relationships in spatiotemporal event data, introduced by Schutte and
+Donnay (2014) <doi:10.1016/j.polgeo.2014.03.001>.
 
 %prep
 %setup -q -c -n %{packname}

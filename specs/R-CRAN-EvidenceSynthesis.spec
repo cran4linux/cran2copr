@@ -1,13 +1,13 @@
-%global packname  strand
+%global packname  EvidenceSynthesis
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Investment Strategy Simulation
+Summary:          Synthesizing Causal Evidence in a Distributed Research Network
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,37 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-Cyclops >= 3.1.0
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-CRAN-EmpiricalCalibration 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-BeastJar 
+BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-Cyclops >= 3.1.0
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-meta 
+Requires:         R-CRAN-EmpiricalCalibration 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-BeastJar 
+Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-rlang 
 Requires:         R-methods 
 
 %description
-Provides a framework for performing discrete (share-level) simulations of
-investment strategies. Simulated portfolios optimize exposure to an input
-signal subject to constraints such as position size and factor exposure.
-For background see L. Chincarini and D. Kim (2010, ISBN:978-0-07-145939-6)
-"Quantitative Equity Portfolio Management".
+Routines for combining causal effect estimates and study diagnostics
+across multiple data sites in a distributed study, without sharing
+patient-level data. Allows for normal and non-normal approximations of the
+data-site likelihood of the effect parameter.
 
 %prep
 %setup -q -c -n %{packname}

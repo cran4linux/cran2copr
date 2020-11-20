@@ -1,51 +1,39 @@
-%global packname  strand
-%global packver   0.2.0
+%global packname  covid19sf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Investment Strategy Simulation
+Summary:          The Covid19 San Francisco Dataset
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mapview 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-methods 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mapview 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-sf 
 
 %description
-Provides a framework for performing discrete (share-level) simulations of
-investment strategies. Simulated portfolios optimize exposure to an input
-signal subject to constraints such as position size and factor exposure.
-For background see L. Chincarini and D. Kim (2010, ISBN:978-0-07-145939-6)
-"Quantitative Equity Portfolio Management".
+Provides a verity of summary tables of the Covid19 cases in San Francisco.
+Data source: San Francisco, Department of Public Health - Population
+Health Division <https://datasf.org/opendata/>.
 
 %prep
 %setup -q -c -n %{packname}

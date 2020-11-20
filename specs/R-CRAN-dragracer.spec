@@ -1,13 +1,13 @@
-%global packname  anndata
-%global packver   0.7.5
+%global packname  dragracer
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Annotated Data
+Summary:          Data Sets for RuPaul's Drag Race
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-assertthat 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-reticulate 
 
 %description
-An R wrapper for the Python package 'anndata'. Provides a scalable way of
-keeping track of data and learned annotations.  Used to read from and
-write to the h5ad file format.
+These are data sets for the hit TV show, RuPaul's Drag Race. Data right
+now include episode-level data, contestant-level data, and
+episode-contestant-level data. This is a work in progress, and a love
+letter of a kind to RuPaul's Drag Race and the performers that have
+appeared on the show. This may not be the most productive use of my time,
+but I have tenure and what are you going to do about it? I think there is
+at least some value in this package if it allows the show's fandom to
+learn more about the R programming language around its contents.
 
 %prep
 %setup -q -c -n %{packname}
