@@ -1,9 +1,9 @@
 %global packname  EvidenceSynthesis
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthesizing Causal Evidence in a Distributed Research Network
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-EmpiricalCalibration
 BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-CRAN-BeastJar 
 BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-Cyclops >= 3.1.0
@@ -35,6 +36,7 @@ Requires:         R-CRAN-EmpiricalCalibration
 Requires:         R-CRAN-rJava 
 Requires:         R-CRAN-BeastJar 
 Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-rlang 
 Requires:         R-methods 
 

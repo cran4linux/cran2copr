@@ -1,13 +1,13 @@
 %global packname  packDAMipd
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decision Analysis Modelling Package with Parameters Estimation Ability from Individual Patient Level Data
 
-License:          GNU General Public License
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-SurvRegCensCov 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-survminer 
 Requires:         R-CRAN-SurvRegCensCov 

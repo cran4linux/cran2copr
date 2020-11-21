@@ -1,33 +1,33 @@
-%global packname  mclust
-%global packver   5.4.7
+%global packname  HeckmanEM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Mixture Modelling for Model-Based Clustering, Classification, and Density Estimation
+Summary:          Fit Normal or Student-t Heckman Selection Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MomTrunc >= 5.79
+BuildRequires:    R-CRAN-PerformanceAnalytics >= 2.0.4
+BuildRequires:    R-CRAN-sampleSelection >= 1.2.6
+BuildRequires:    R-CRAN-mvtnorm >= 1.1.0
+Requires:         R-CRAN-MomTrunc >= 5.79
+Requires:         R-CRAN-PerformanceAnalytics >= 2.0.4
+Requires:         R-CRAN-sampleSelection >= 1.2.6
+Requires:         R-CRAN-mvtnorm >= 1.1.0
 
 %description
-Gaussian finite mixture models fitted via EM algorithm for model-based
-clustering, classification, and density estimation, including Bayesian
-regularization, dimension reduction for visualisation, and
-resampling-based inference.
+Maximum likelihood estimation by an EM algorithm of Heckman-type sample
+selection Normal or Student-t models. The reference is Lachos, Prates and
+Dey (2020) <arXiv:2006.08036>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,7 +43,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

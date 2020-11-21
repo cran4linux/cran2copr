@@ -1,39 +1,46 @@
-%global packname  AggregateR
-%global packver   0.1.1
+%global packname  reliabilitydiag
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Aggregate Numeric, Date and Categorical Variables
+Summary:          Reliability Diagrams Using Isotonic Regression
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggExtra 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-NCmisc 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-bde 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggExtra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-NCmisc 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-bde 
 
 %description
-Convenience functions for aggregating a data frame or data table.
-Currently mean, sum and variance are supported. For Date variables, the
-recency and duration are supported. There is also support for dummy
-variables in predictive contexts. Code has been completely re-written in
-data.table for computational speed.
+Checking the reliability of predictions via the CORP approach, which
+generates provably statistically 'C'onsistent, 'O'ptimally binned, and
+'R'eproducible reliability diagrams using the 'P'ool-adjacent-violators
+algorithm. See Dimitriadis, Gneiting, Jordan (2020) <arXiv:2008.03033>.
 
 %prep
 %setup -q -c -n %{packname}

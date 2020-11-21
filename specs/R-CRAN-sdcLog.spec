@@ -1,40 +1,40 @@
-%global packname  cli
-%global packver   2.2.0
+%global packname  sdcLog
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helpers for Developing Command Line Interfaces
+Summary:          Tools for Statistical Disclosure Control in Research Data Centers
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-broom >= 0.5.5
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fansi 
+Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-broom >= 0.5.5
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-fansi 
 
 %description
-A suite of tools to build attractive command line interfaces ('CLIs'),
-from semantic elements: headings, lists, alerts, paragraphs, etc. Supports
-custom themes via a 'CSS'-like language. It also contains a number of
-lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols
-with 'ASCII' alternatives. It integrates with the 'crayon' package to
-support 'ANSI' terminal colors.
+Tools for researchers to explicitly show that their results comply to
+rules for statistical disclosure control imposed by research data centers.
+These tools help in checking descriptive statistics and models and in
+calculating extreme values that are not individual data. Also included is
+a simple function to create log files. The methods used here are described
+in the "Guidelines for the checking of output based on microdata research"
+by Bond, Brandt, and de Wolf (2015)
+<https://ec.europa.eu/eurostat/cros/system/files/dwb_standalone-document_output-checking-guidelines.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

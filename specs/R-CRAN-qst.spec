@@ -1,33 +1,40 @@
-%global packname  mclust
-%global packver   5.4.7
+%global packname  qst
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.7
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Mixture Modelling for Model-Based Clustering, Classification, and Density Estimation
+Summary:          Store Tables in SQL Database
 
-License:          GPL (>= 2)
+License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
 
 %description
-Gaussian finite mixture models fitted via EM algorithm for model-based
-clustering, classification, and density estimation, including Bayesian
-regularization, dimension reduction for visualisation, and
-resampling-based inference.
+Provides functions for quickly writing (and reading back) a data.frame to
+file in 'SQLite' format. The name stands for *Store Tables using
+'SQLite'*, or alternatively for *Quick Store Tables* (either way, it could
+be pronounced as *Quest*). For data.frames containing the supported data
+types it is intended to work as a drop-in replacement for the 'write_*()'
+and 'read_*()' functions provided by similar packages.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,7 +50,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

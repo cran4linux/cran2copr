@@ -1,33 +1,39 @@
-%global packname  mclust
-%global packver   5.4.7
+%global packname  trendeval
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Mixture Modelling for Model-Based Clustering, Classification, and Density Estimation
+Summary:          Evaluate Trending Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-trending 
+BuildRequires:    R-CRAN-yardstick 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-trending 
+Requires:         R-CRAN-yardstick 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-ellipsis 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
 
 %description
-Gaussian finite mixture models fitted via EM algorithm for model-based
-clustering, classification, and density estimation, including Bayesian
-regularization, dimension reduction for visualisation, and
-resampling-based inference.
+Provides a coherent interface for evaluating models fit with the trending
+package.  This package is part of the RECON
+(<https://www.repidemicsconsortium.org/>) toolkit for outbreak analysis.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,7 +49,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

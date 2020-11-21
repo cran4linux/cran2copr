@@ -1,33 +1,41 @@
-%global packname  mclust
-%global packver   5.4.7
+%global packname  ciftiTools
+%global packver   0.1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.7
+Version:          0.1.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Mixture Modelling for Model-Based Clustering, Classification, and Density Estimation
+Summary:          Tools for Reading and Visualizing CIFTI Brain Files
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gifti > 0.7.5
 BuildRequires:    R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-oro.nifti 
+BuildRequires:    R-CRAN-RNifti 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-gifti > 0.7.5
 Requires:         R-grDevices 
+Requires:         R-CRAN-oro.nifti 
+Requires:         R-CRAN-RNifti 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-xml2 
 
 %description
-Gaussian finite mixture models fitted via EM algorithm for model-based
-clustering, classification, and density estimation, including Bayesian
-regularization, dimension reduction for visualisation, and
-resampling-based inference.
+CIFTI files contain brain imaging data in "gray-ordinates", which
+represent the gray matter as cortical surface vertices (left and right)
+and subcortical voxels (cerebellum, basal ganglia, and other deep gray
+matter). 'ciftiTools' uses the Connectome Workbench to read CIFTI files
+into R and apply common pre-processing steps (e.g. smoothing, resampling).
+It also provides tools for visualizing the cortical surface with GIFTI
+files, and for visualizing the subcortical volume.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,7 +51,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

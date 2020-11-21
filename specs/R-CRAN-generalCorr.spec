@@ -1,11 +1,11 @@
 %global packname  generalCorr
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
-Release:          2%{?dist}%{?buildtag}
-Summary:          Generalized Correlations and Plausible Causal Paths
+Version:          1.1.6
+Release:          1%{?dist}%{?buildtag}
+Summary:          Generalized Correlations and Various Causal Paths
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,12 +19,12 @@ BuildRequires:    R-CRAN-xtable >= 1.8
 BuildRequires:    R-CRAN-meboot >= 1.4
 BuildRequires:    R-CRAN-np >= 0.60
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-lattice 
 Requires:         R-CRAN-xtable >= 1.8
 Requires:         R-CRAN-meboot >= 1.4
 Requires:         R-CRAN-np >= 0.60
 Requires:         R-CRAN-psych 
-Requires:         R-lattice 
+Requires:         R-CRAN-lattice 
 
 %description
 Since causal paths from data are important for all sciences, the package
@@ -33,23 +33,31 @@ easy-to-interpret causal paths.  Let Z denote control variables and
 compare two flipped kernel regressions: X=f(Y, Z)+e1 and Y=g(X,Z)+e2. Our
 criterion Cr1 says that if |e1*Y|>|e2*X| then variation in X is more
 "exogenous or independent" than in Y and causal path is X to Y. Criterion
-Cr2 requires |e2|<|e1|. These inequalities between many absolute value are
-quantified by four orders of stochastic dominance. Our third criterion Cr3
-for the causal path X to Y requires new generalized partial correlations
-to satisfy |r*(x|y,z)|< |r*(y|x,z)|. The function parcorBMany() reports
-generalized partials between the first variable and all others.  The
-package provides additional R tools for causal assessment, "outlier
-detection," and for numerical integration by the trapezoidal rule,
-stochastic dominance, pillar 3D charts, etc. We also provide functions for
-bootstrap-based statistical inference for causal paths. causeSummary() and
-causeSummBlk() are easiest to use functions.
+Cr2 requires |e2|<|e1|. These inequalities between many absolute values
+are quantified by four orders of stochastic dominance. Our third criterion
+Cr3 for the causal path X to Y requires new generalized partial
+correlations to satisfy |r*(x|y,z)|< |r*(y|x,z)|. The function
+parcorBMany() reports generalized partials between the first variable and
+all others.  The package provides several R functions including
+get0outliers() for outlier detection, bigfp() for numerical integration by
+the trapezoidal rule, stochdom2() for stochastic dominance, pillar3D() for
+3D charts, canonRho() for generalized canonical correlations, depMeas()
+measures nonlinear dependence, and causeSummary(mtx) reports summary of
+causal paths among matrix columns is easiest to use. Several functions
+whose names begin with 'boot' provide bootstrap statistical inference
+including a new bootGcRsq() test for "Granger-causality" allowing
+nonlinear relations. See Vinod (2019) <doi:10.1080/03610918.2015.1122048>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -57,9 +65,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}
