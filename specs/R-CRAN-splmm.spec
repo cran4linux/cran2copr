@@ -1,9 +1,9 @@
 %global packname  splmm
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simultaneous Penalized Linear Mixed Effects Models
 
@@ -36,8 +36,10 @@ Requires:         R-CRAN-MASS
 Contains functions that fit linear mixed-effects models for
 high-dimensional data (p>>n) with penalty for both the fixed effects and
 random effects for variable selection. The details of the algorithm can be
-found in Luoying Yang PhD thesis (available soon). The algorithm
-implementation is based on the R package 'lmmlasso'.
+found in Luoying Yang PhD thesis (Yang and Wu 2020). The algorithm
+implementation is based on the R package 'lmmlasso'. Reference: Yang L, Wu
+TT (2020). Model-Based Clustering of Longitudinal Data in
+High-Dimensionality. Unpublished thesis.
 
 %prep
 %setup -q -c -n %{packname}

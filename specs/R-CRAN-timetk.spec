@@ -1,9 +1,9 @@
 %global packname  timetk
-%global packver   2.5.0
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool Kit for Working with Time Series in R
 
@@ -70,12 +70,9 @@ Requires:         R-CRAN-generics
 
 %description
 Easy visualization, wrangling, and feature engineering of time series data
-for forecasting and machine learning prediction. Methods discussed herein
-are commonplace in machine learning, and have been cited in various
-literature. Refer to "Calendar Effects" in papers such as Taieb, Souhaib
-Ben. "Machine learning strategies for multi-step-ahead time series
-forecasting." Universit Libre de Bruxelles, Belgium (2014): 75-86.
-<http://souhaib-bentaieb.com/pdf/2014_phd.pdf>.
+for forecasting and machine learning prediction. Consolidates and extends
+time series functionality from packages including 'dplyr', 'stats', 'xts',
+'forecast', 'slider', 'padr', 'recipes', and 'rsample'.
 
 %prep
 %setup -q -c -n %{packname}
