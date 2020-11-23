@@ -1,9 +1,9 @@
 %global packname  EpiNow2
-%global packver   1.2.1
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Real-Time Case Counts and Time-Varying Epidemiological Parameters
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.21.1
 Requires:         R-CRAN-R.utils >= 2.0.0
@@ -54,6 +55,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rstantools
 
 %description

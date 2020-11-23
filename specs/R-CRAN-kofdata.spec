@@ -1,28 +1,35 @@
-%global packname  LatticeDesign
-%global packver   2.0-1
+%global packname  kofdata
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lattice-Based Space-Filling Designs
+Summary:          Get Data from the 'KOF Datenservice' API
 
-License:          LGPL-2.1
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.1
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-jsonlite >= 1.1
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
-Lattice-based space-filling designs with fill or separation distance
-properties including interleaved lattice-based minimax distance designs,
-interleaved lattice-based maximin distance designs, (sliced) rotated
-sphere packing designs, and densest packing-based maximum projections
-designs.
+Read Swiss time series data from the 'KOF Datenservice' API,
+<https://datenservice.kof.ethz.ch>. The API provides macro economic time
+series data mostly about Switzerland. The package itself is a set of
+wrappers around the 'KOF Datenservice' API. The 'kofdata' package is able
+to consume public information as well as data that requires an API token.
 
 %prep
 %setup -q -c -n %{packname}

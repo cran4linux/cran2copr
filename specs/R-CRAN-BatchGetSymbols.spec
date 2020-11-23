@@ -1,9 +1,9 @@
 %global packname  BatchGetSymbols
-%global packver   2.5.9
+%global packver   2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.9
+Version:          2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Downloads and Organizes Financial Data for Multiple Tickers
 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-zoo
 Requires:         R-CRAN-crayon 
 
 %description
-Makes it easy to download a large number of trade data from Yahoo Finance
+Makes it easy to download financial data from Yahoo Finance
 <https://finance.yahoo.com/>.
 
 %prep
