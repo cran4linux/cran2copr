@@ -1,10 +1,10 @@
 %global packname  mStats
-%global packver   3.2.2
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
-Release:          3%{?dist}%{?buildtag}
+Version:          3.4.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Epidemiological Data Analysis
 
 License:          GPL-2 | GPL-3
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -22,17 +22,20 @@ Requires:         R-utils
 
 %description
 This is a tool for epidemiologist, medical data analyst, medical or public
-health professionals. It contains three domains of functions: functions
-for 1) data management, 2) statistical analysis and 3) calculating
-epidemiological measures. The calculations are mainly based on three
-books, 1) Betty R. K, (2006, ISBN:978–0–86542–871–3), 2) B. Burt Gerstman
-(2013, ISBN:978-1-4443-3608-5) and 3) Douglas G Altman (2005, ISBN:0 7279
-1375 1).
+health professionals. It contains three domains of functions: 1) data
+management, 2) statistical analysis and 3) calculating epidemiological
+measures.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -40,17 +43,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

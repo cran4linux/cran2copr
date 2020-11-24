@@ -1,9 +1,9 @@
 %global packname  modeltime
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Tidymodels Extension for Time Series Modeling
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-timetk >= 2.5.0
+BuildRequires:    R-CRAN-timetk >= 2.6.0
 BuildRequires:    R-CRAN-xgboost >= 1.2.0.1
 BuildRequires:    R-CRAN-parsnip >= 0.1.4
 BuildRequires:    R-CRAN-workflows >= 0.1.3
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-slider 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-scales 
@@ -43,7 +44,7 @@ BuildRequires:    R-CRAN-forecast
 BuildRequires:    R-CRAN-prophet 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-timetk >= 2.5.0
+Requires:         R-CRAN-timetk >= 2.6.0
 Requires:         R-CRAN-xgboost >= 1.2.0.1
 Requires:         R-CRAN-parsnip >= 0.1.4
 Requires:         R-CRAN-workflows >= 0.1.3
@@ -61,6 +62,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-slider 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-scales 

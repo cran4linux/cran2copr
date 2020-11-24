@@ -1,11 +1,11 @@
 %global packname  ShinyQuickStarter
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quick Setup for ShinyDashboard Apps
+Summary:          'RStudio' Addin for Quick Setup of ShinyDashboard Apps
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-styler 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-CRAN-shiny 
@@ -53,12 +54,13 @@ Requires:         R-CRAN-shinyjs
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-styler 
+Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
 Requires:         R-CRAN-visNetwork 
 
 %description
-This RStudio addin enables faster creation of the project structure and
-design of ShinyDashboard apps. The graphical interface allows you to add
+This 'RStudio' addin enables faster creation of the project structure and
+design of 'ShinyDashboard' apps. The graphical interface allows you to add
 certain code templates interactively. In addition to generating the basic
 project structure, the navigation in the app itself can also be defined or
 the app can be structured with modules.

@@ -1,11 +1,11 @@
 %global packname  breakfast
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          breakfast: Computationally Efficient Multiple Change-Point Detection and Estimation with a Broad Range of Methods
+Summary:          Methods for Fast Multiple Change-Point Detection and Estimation
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,9 +20,8 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-Rcpp 
 
 %description
-The breakfast package contains a collection of change-point detection and
-estimation methods, together with model selection and ensemble devices and
-visualisation tools.
+A developing software suite for multiple change-point detection/estimation
+(data segmentation) in data sequences.
 
 %prep
 %setup -q -c -n %{packname}
