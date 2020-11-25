@@ -1,9 +1,9 @@
 %global packname  monoClust
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Monothetic Clustering with Extensions to Circular Data
 
@@ -16,10 +16,12 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-cli >= 2.0.0
+BuildRequires:    R-CRAN-cluster >= 2.0.5
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-stringr >= 0.5
+BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
@@ -27,15 +29,14 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-permute 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-cli >= 2.0.0
+Requires:         R-CRAN-cluster >= 2.0.5
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-stringr >= 0.5
+Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
@@ -43,10 +44,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-parallel 
 Requires:         R-CRAN-permute 
-Requires:         R-CRAN-purrr 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 
 %description
 Implementation of the Monothetic Clustering algorithm (Chavent, 1998

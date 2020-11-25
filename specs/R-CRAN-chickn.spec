@@ -1,11 +1,11 @@
 %global packname  chickn
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compressed Hierarchical Clustering Toolbox
+Summary:          'Compressive' Hierarchical Kernel Clustering Toolbox
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -44,16 +44,13 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-Rdpack 
 
 %description
-Routines for efficient cluster analysis of large scale data. The package
-implements the 'CHICKN' clustering algorithm, which clusters the data into
-K groups by relying on the compressed data version. The package provides
-functions for data compression, hierarchical clustering and result post
-processing. The used data compression procedure is based on the sketching
-learning N. 'Keriven', N. 'Tremblay', Y. 'Traonmilin', R. 'Gribonval'
-(2017) <arXiv:1606.02838v2> and 'Nystrom' kernel approximation S. Wang, A.
-'Gittens', M. W. 'Mahoney' (2019) <arXiv:1706.02803v4>. Hierarchical
-clustering relies on the 'Compressive' K means algorithm N. 'Keriven', A.
-'Bourrier', R. 'Gribonval', P. Perez (2017) <arXiv:1610.08738v4>.
+Routines for efficient cluster analysis of large scale data. This package
+implements the 'CHICKN' clustering algorithm (see 'Permiakova' 'et' 'al.'
+(2020) "'CHICKN': Extraction of 'peptide' 'chromatographic' 'elution'
+profiles from large scale mass 'spectrometry' data by means of
+'Wasserstein' 'compressive' hierarchical cluster analysis"). Functions for
+data compression, hierarchical clustering and post processing are
+provided.
 
 %prep
 %setup -q -c -n %{packname}

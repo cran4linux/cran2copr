@@ -1,35 +1,41 @@
-%global packname  jskm
-%global packver   0.4.2
+%global packname  rwa
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kaplan-Meier Plot with 'ggplot2'
+Summary:          Perform a Relative Weights Analysis
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-scales 
 
 %description
-The function 'jskm()' creates publication quality Kaplan-Meier plot with
-at risk tables below. 'svyjskm()' provides plot for weighted Kaplan-Meier
-estimator.
+Perform a Relative Weights Analysis (RWA) (a.k.a. Key Drivers Analysis) as
+per the method described in Tonidandel & LeBreton (2015)
+<DOI:10.1007/s10869-014-9351-z>, with its original roots in Johnson (2000)
+<DOI:10.1207/S15327906MBR3501_1>. In essence, RWA decomposes the total
+variance predicted in a regression model into weights that accurately
+reflect the proportional contribution of the predictor variables, which
+addresses the issue of multi-collinearity. In typical scenarios, RWA
+returns similar results to Shapley regression, but with a significant
+advantage on computational performance.
 
 %prep
 %setup -q -c -n %{packname}

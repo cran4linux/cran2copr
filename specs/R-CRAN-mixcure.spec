@@ -1,35 +1,37 @@
-%global packname  jskm
-%global packver   0.4.2
+%global packname  mixcure
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kaplan-Meier Plot with 'ggplot2'
+Summary:          Mixture Cure Models
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gam 
+BuildRequires:    R-CRAN-timereg 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-survey 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-gam 
+Requires:         R-CRAN-timereg 
 
 %description
-The function 'jskm()' creates publication quality Kaplan-Meier plot with
-at risk tables below. 'svyjskm()' provides plot for weighted Kaplan-Meier
-estimator.
+Implementation of parametric and semiparametric mixture cure models based
+on existing R packages. See details of the models in Peng and Yu (2020)
+<ISBN: 9780367145576>.
 
 %prep
 %setup -q -c -n %{packname}

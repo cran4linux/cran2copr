@@ -1,35 +1,34 @@
-%global packname  jskm
-%global packver   0.4.2
+%global packname  wikifacts
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kaplan-Meier Plot with 'ggplot2'
+Summary:          Get Facts and Data from Wikipedia and Wikidata
 
-License:          Apache License 2.0
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-The function 'jskm()' creates publication quality Kaplan-Meier plot with
-at risk tables below. 'svyjskm()' provides plot for weighted Kaplan-Meier
-estimator.
+Query Wikidata and get facts from current and historic Wikipedia main
+pages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  SpatialVx
-%global packver   0.7
+%global packver   0.7-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Forecast Verification
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-smatr
 BuildRequires:    R-CRAN-turboEM 
 BuildRequires:    R-CRAN-distillery 
 BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-boot 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-CircStats 
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-waveslim 
@@ -33,25 +33,29 @@ Requires:         R-CRAN-smatr
 Requires:         R-CRAN-turboEM 
 Requires:         R-CRAN-distillery 
 Requires:         R-CRAN-maps 
-Requires:         R-boot 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-CircStats 
 Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-waveslim 
 
 %description
-Spatial forecast verification arose from verifying high-resolution
-forecasts, where coarser-resolution models generally are favored even when
-a human forecaster finds the higher-resolution model to be considerably
-better.  Most newly proposed methods, which largely come from image
-analysis, computer vision, and similar, are available, with more on the
-way.
+Spatial forecast verification refers to verifying weather forecasts when
+the verification set (forecast and observations) is on a spatial field,
+usually a high-resolution gridded spatial field.  Most of the functions
+here require the forecast and observed fields to be gridded and on the
+same grid.  For a thorough review of most of the methods in this package,
+please see Gilleland et al. (2009) <doi: 10.1175/2009WAF2222269.1>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -61,6 +65,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,38 +1,45 @@
-%global packname  cubelyr
-%global packver   1.0.1
+%global packname  migrate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Data Cube 'dplyr' Backend
+Summary:          Create Credit State Migration (Transition) Matrices
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble >= 3.0.1
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-crayon >= 1.3.4
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-tibble >= 3.0.1
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-crayon >= 1.3.4
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
 
 %description
-An implementation of a data cube extracted out of 'dplyr' for backward
-compatibility.
+Tools to help convert credit risk data at two time points into traditional
+credit state migration (aka, "transition") matrices. At a higher level,
+'migrate' is intended to help an analyst understand how risk moved in
+their credit portfolio over a time interval. References to this
+methodology include: 1. Schuermann, T. (2008)
+<doi:10.1002/9780470061596.risk0409>. 2. Perederiy, V. (2017)
+<arXiv:1708.00062>.
 
 %prep
 %setup -q -c -n %{packname}

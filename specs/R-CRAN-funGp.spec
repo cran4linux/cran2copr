@@ -1,9 +1,9 @@
 %global packname  funGp
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Process Models for Scalar and Functional Inputs
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-microbenchmark
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-plyr 
 Requires:         R-methods 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-knitr 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-microbenchmark
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-plyr 
 
 %description
 Construction and smart selection of Gaussian process models with emphasis

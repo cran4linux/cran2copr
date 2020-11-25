@@ -1,39 +1,51 @@
-%global packname  clam
-%global packver   2.3.7
+%global packname  gwer
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.7
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classical Age-Depth Modelling of Cores from Deposits
+Summary:          Geographically Weighted Elliptical Regression
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.14
+Requires:         R-core >= 2.14
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IntCal >= 0.1.3
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-sp >= 0.8.3
+BuildRequires:    R-CRAN-maptools >= 0.7.32
+BuildRequires:    R-CRAN-spData >= 0.2.6.2
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-spgwr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-IntCal >= 0.1.3
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-glogis 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-sp >= 0.8.3
+Requires:         R-CRAN-maptools >= 0.7.32
+Requires:         R-CRAN-spData >= 0.2.6.2
 Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-spgwr 
 Requires:         R-utils 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-glogis 
+Requires:         R-graphics 
 
 %description
-Performs 'classical' age-depth modelling of dated sediment deposits -
-prior to applying more sophisticated techniques such as Bayesian age-depth
-modelling. Any radiocarbon dated depths are calibrated. Age-depth models
-are constructed by sampling repeatedly from the dated levels, each time
-drawing age-depth curves. Model types include linear interpolation, linear
-or polynomial regression, and a range of splines. See Blaauw (2010).
-<doi:10.1016/j.quageo.2010.01.002>.
+Computes a elliptical regression model or a geographically weighted
+regression model with elliptical errors using Fisher's score algorithm.
+Provides diagnostic measures, residuals and analysis of variance.
+Cysneiros, F. J. A., Paula, G. A., and Galea, M. (2007)
+<doi:10.1016/j.spl.2007.01.012>.
 
 %prep
 %setup -q -c -n %{packname}

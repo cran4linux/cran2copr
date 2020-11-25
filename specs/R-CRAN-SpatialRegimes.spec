@@ -1,11 +1,11 @@
-%global packname  betaper
-%global packver   1.1-2
+%global packname  SpatialRegimes
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Taxonomic Uncertainty on Multivariate Analyses of Ecological Data
+Summary:          Spatial Constrained Clusterwise Regression
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,16 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-vegan 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-GWmodel 
+BuildRequires:    R-CRAN-plm 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-GWmodel 
+Requires:         R-CRAN-plm 
 
 %description
-Permutational method to incorporate taxonomic uncertainty and some
-functions to assess its effects on parameters of some widely used
-multivariate methods in ecology, as explained in Cayuela et al. (2011)
-<doi:10.1111/j.1600-0587.2009.05899.x>.
+A collection of functions for estimating spatial regimes, aggregations of
+neighboring spatial units that are homogeneous in functional terms. The
+term spatial regime, therefore, should not be understood as a synonym for
+cluster. More precisely, the term cluster does not presuppose any
+functional relationship between the variables considered, while the term
+regime is linked to a regressive relationship underlying the spatial
+process. For more information, please see Postiglione, P., Andreano, M.S.,
+Benedetti R. (2013) <doi:10.1007/s10614-012-9325-z> , Andreano, M.S.,
+Benedetti, R., and Postiglione, P. (2017) <doi:10.1007/s11135-016-0415-1>
+, Bille', A.G., Benedetti, R., and Postiglione, P. (2017)
+<doi:10.1080/17421772.2017.1286373>.
 
 %prep
 %setup -q -c -n %{packname}

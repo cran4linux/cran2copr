@@ -1,54 +1,40 @@
-%global packname  microeco
-%global packver   0.3.1
+%global packname  gwasforest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microbial Community Ecology Data Analysis
+Summary:          Make Forest Plot with GWAS Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-glue 
+Requires:         R-utils 
 
 %description
-A series of statistical and plotting approaches in microbial community
-ecology based on the R6 class. The classes are designed for data
-preprocessing, taxa abundance plotting, alpha diversity statistics, beta
-diversity statistics, differential abundance test and indicator taxon
-analysis, environmental data analysis, null model analysis, network
-analysis and functional analysis.
+Extract and reform data from GWAS (genome-wide association study) results,
+and then make a single integrated forest plot containing multiple windows
+of which each shows the result of individual SNPs (or other items of
+interest).
 
 %prep
 %setup -q -c -n %{packname}

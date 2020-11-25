@@ -1,10 +1,10 @@
 %global packname  boostmtree
-%global packver   1.4.1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.5.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Boosted Multivariate Trees for Longitudinal Data
 
 License:          GPL (>= 3)
@@ -18,21 +18,32 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-randomForestSRC >= 2.9.0
 BuildRequires:    R-parallel 
 BuildRequires:    R-splines 
-BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-nlme 
 Requires:         R-CRAN-randomForestSRC >= 2.9.0
 Requires:         R-parallel 
 Requires:         R-splines 
-Requires:         R-nlme 
+Requires:         R-CRAN-nlme 
 
 %description
-Implements Friedman's gradient descent boosting algorithm for modeling of
-continuous or binary longitudinal response using multivariate tree base
-learners.  A time-covariate interaction effect is modeled using penalized
-B-splines (P-splines) with estimated adaptive smoothing parameter.
+Implements Friedman's gradient descent boosting algorithm for modeling
+longitudinal response using multivariate tree base learners. Longitudinal
+response could be continuous, binary, nominal or ordinal.  A
+time-covariate interaction effect is modeled using penalized B-splines
+(P-splines) with estimated adaptive smoothing parameter. Although the
+package is design for longitudinal data, it can handle cross-sectional
+data as well. Implementation details are provided in Pande et al. (2017),
+Mach Learn <DOI:10.1007/s10994-016-5597-1>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -40,19 +51,10 @@ B-splines (P-splines) with estimated adaptive smoothing parameter.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
