@@ -1,11 +1,11 @@
-%global packname  yamlet
-%global packver   0.5.2
+%global packname  kim
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Versatile Curation of Table Metadata
+Summary:          Functions for Behavioral Science Researchers
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,33 +15,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-csv >= 0.5.4
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-encode 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-spork 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-csv >= 0.5.4
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-encode 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-spork 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-lm.beta 
+BuildRequires:    R-CRAN-mediation 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-weights 
+BuildRequires:    R-CRAN-WRS2 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-lm.beta 
+Requires:         R-CRAN-mediation 
+Requires:         R-CRAN-moments 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-weights 
+Requires:         R-CRAN-WRS2 
 
 %description
-A file-based mechanism for documenting datasets. It reads and writes
-YAML-formatted metadata and applies it as data item attributes. Data and
-metadata are stored independently but can be coordinated by using similar
-file paths with different extensions.  The 'yamlet' dialect is valid
-'YAML', but some conventions are chosen to improve readability. Defaults
-and conventions can be over-ridden by the user. See ?yamlet and
-?decorate.data.frame. See ?read_yamlet ?write_yamlet, and ?io_csv.
+Miscellaneous functions designed to facilitate and simplify analyses of
+experimental data. Examples include a function that plots sample means of
+groups in a factorial experimental design, a function that conducts robust
+regressions with bootstrapped samples, and a function that conducts
+mediation analyses.
 
 %prep
 %setup -q -c -n %{packname}

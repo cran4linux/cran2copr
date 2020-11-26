@@ -1,23 +1,31 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  vindecodr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Provides an Interface to the Department of Transportation VIN Decoder
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-httr 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Provides a programmatic interface in R for the US Department of
+Transportation (DOT) National Highway Transportation Safety Administration
+(NHTSA) vehicle identification number (VIN) API, located at
+<https://vpic.nhtsa.dot.gov/api/>. The API can decode up to 50 vehicle
+identification numbers in one call, and provides manufacturer information
+about the vehicles, including make, model, model year, and gross vehicle
+weight rating (GVWR).
 
 %prep
 %setup -q -c -n %{packname}

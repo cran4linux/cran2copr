@@ -1,23 +1,29 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  Q7
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Types and Features for Object Oriented Programming
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-magrittr 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Construct message-passing style objects with types and features. Q7 types
+uses composition instead of inheritance in creating derived types,
+allowing defining any code segment as feature and associating any feature
+to any object. Compared to R6, Q7 is simpler and more flexible, and is
+more friendly in syntax.
 
 %prep
 %setup -q -c -n %{packname}

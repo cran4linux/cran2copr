@@ -1,23 +1,40 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  DPQmpfr
+%global packver   0.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          DPQ (Density, Probability, Quantile) Distribution Computations using MPFR
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DPQ >= 0.4.2
+BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-DPQ >= 0.4.2
+Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-gmp 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+An extension to the 'DPQ' package with computations for 'DPQ' (Density
+(pdf), Probability (cdf) and Quantile) functions, where the functions here
+partly use the 'Rmpfr' package and hence the underlying 'MPFR' and 'GMP' C
+libraries.
 
 %prep
 %setup -q -c -n %{packname}

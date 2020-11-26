@@ -1,31 +1,43 @@
-%global packname  fflr
-%global packver   0.3.13
+%global packname  reconstructKM
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.13
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collect ESPN Fantasy Football Data
+Summary:          Reconstruct Individual-Level Data from Published KM Plots
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-jsonlite >= 1.7.0
-BuildRequires:    R-CRAN-httr >= 1.4.2
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-jsonlite >= 1.7.0
-Requires:         R-CRAN-httr >= 1.4.2
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-survminer 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats4 
+Requires:         R-CRAN-survminer 
 
 %description
-Format the raw data from the ESPN fantasy football API
-<https://fantasy.espn.com/apis/v3/games/ffl/> into tidy tables. Scrape
-data on public leagues, rosters, athletes, and matches.
+Functions for reconstructing individual-level data (time, status, arm)
+from Kaplan-MEIER curves published in academic journals (e.g. NEJM, JCO,
+JAMA). The individual-level data can be used for re-analysis,
+meta-analysis, methodology development, etc. This package was used to
+generate the data for commentary such as Sun, Rich, & Wei (2018)
+<doi:10.1056/NEJMc1808567>. Please see the vignette for a quickstart
+guide.
 
 %prep
 %setup -q -c -n %{packname}

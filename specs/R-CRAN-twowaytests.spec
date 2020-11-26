@@ -1,23 +1,39 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  twowaytests
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Two-Way Tests in Independent Groups Designs
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-onewaytests 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-car 
+Requires:         R-CRAN-onewaytests 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-car 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Performs two-way tests in independent groups designs; Parametric Bootstrap
+based Generalized Test and Generalized Pivotal Quantity based Generalized
+Test (Weerahandi and Krishnamoorthy, 2019)
+<doi:10.1080/03610926.2017.1419264>. The package performs descriptive
+statistics and graphical approaches. Moreover, it assesses variance
+homogeneity and normality of data in each group via tests and plots. All
+'twowaytests' functions are designed for two-way layout.
 
 %prep
 %setup -q -c -n %{packname}

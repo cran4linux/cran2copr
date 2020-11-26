@@ -1,23 +1,33 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  chess
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Read, Write, Create and Explore Chess Games
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reticulate 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+This is an opinionated wrapper around the python-chess package. It allows
+users to read and write PGN files as well as create and explore game trees
+such as the ones seen in chess books.
 
 %prep
 %setup -q -c -n %{packname}

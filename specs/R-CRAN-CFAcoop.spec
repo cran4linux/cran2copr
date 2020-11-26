@@ -1,23 +1,36 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  CFAcoop
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Colony Formation Assay: Taking into Account Cellular Cooperation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Hmisc 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Cellular cooperation compromises the plating efficiency-based analysis of
+clonogenic survival data. This tool provides functions that enable a
+robust analysis of colony formation assay (CFA) data in presence or
+absence of cellular cooperation. The implemented method has been described
+in Brix et al. (2020). (Brix, N., Samaga, D., Hennel, R. et al. "The
+clonogenic assay: robustness of plating efficiency-based analysis is
+strongly compromised by cellular cooperation." Radiat Oncol 15, 248
+(2020). <doi:10.1186/s13014-020-01697-y>) Power regression for parameter
+estimation, calculation of survival fractions, uncertainty analysis and
+plotting functions are provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,23 +1,33 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  spfda
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Function-on-Scalar Regression with Group-Bridge Penalty
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-splines 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-stats 
+Requires:         R-splines 
+Requires:         R-graphics 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Implements a group-bridge penalized function-on-scalar regression model
+proposed by Wang et al. (2020) <arXiv:2006.10163>, to simultaneously
+estimate functional coefficient and recover the local sparsity.
 
 %prep
 %setup -q -c -n %{packname}

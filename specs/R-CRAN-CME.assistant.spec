@@ -1,23 +1,45 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  CME.assistant
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Reusable Assisting Functions for Child Mortality Estimation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-data.table >= 1.12.0
+BuildRequires:    R-CRAN-ggforce >= 0.2.1.9000
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-xlsx 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-data.table >= 1.12.0
+Requires:         R-CRAN-ggforce >= 0.2.1.9000
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-xlsx 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Provide helper functions for UNICEF child mortality estimation.
 
 %prep
 %setup -q -c -n %{packname}

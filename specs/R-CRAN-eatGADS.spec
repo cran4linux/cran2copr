@@ -1,23 +1,38 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  eatGADS
+%global packver   0.15.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.15.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Data Management of Large Hierarchical Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-haven >= 2.1.0
+BuildRequires:    R-CRAN-eatDB >= 0.4.1
+BuildRequires:    R-CRAN-eatTools >= 0.1.3
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-hms 
+Requires:         R-CRAN-haven >= 2.1.0
+Requires:         R-CRAN-eatDB >= 0.4.1
+Requires:         R-CRAN-eatTools >= 0.1.3
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-hms 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Import 'SPSS' data, handle and change 'SPSS' meta data, store and access
+large hierarchical data in 'SQLite' data bases.
 
 %prep
 %setup -q -c -n %{packname}

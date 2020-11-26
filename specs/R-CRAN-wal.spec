@@ -1,23 +1,33 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  wal
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Read and Write 'wal' Bitmap Image Files
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-freesurferformats >= 0.1.12
+BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-spacesXYZ 
+Requires:         R-CRAN-freesurferformats >= 0.1.12
+Requires:         R-CRAN-imager 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-spacesXYZ 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Read bitmap images and textures in 'wal' file format.
 
 %prep
 %setup -q -c -n %{packname}

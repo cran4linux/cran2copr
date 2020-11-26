@@ -1,39 +1,46 @@
-%global packname  PROsetta
-%global packver   0.2.1
+%global packname  DatastreamDSWS2R
+%global packver   1.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.7.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linking Patient-Reported Outcomes Measures
+Summary:          Provides a Link Between the 'Refinitiv Datastream' System and R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-equate 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-mirt 
-BuildRequires:    R-CRAN-plink 
-BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvnfast 
-Requires:         R-CRAN-equate 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-mirt 
-Requires:         R-CRAN-plink 
-Requires:         R-CRAN-psych 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 Requires:         R-methods 
-Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-dplyr 
 
 %description
-Perform scale linking to establish relationships between instruments that
-measure similar constructs according to the PROsetta Stone methodology, as
-in Choi, Schalet, Cook, & Cella (2014) <doi:10.1037/a0035768>.
+Provides a set of functions and a class to connect, extract and upload
+information from the 'Refinitiv Datastream' database. This package uses
+the 'DSWS' API and server used by the 'Datastream DFO addin'. Details of
+this API on the 'DSWS' page of <https://developers.refinitiv.com/en>.
+Please report issues at
+<https://github.com/CharlesCara/DatastreamDSWS2R/issues>.
 
 %prep
 %setup -q -c -n %{packname}

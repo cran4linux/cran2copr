@@ -1,13 +1,13 @@
-%global packname  SBdecomp
-%global packver   1.1
+%global packname  GREMLINS
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of the Proportion of SB Explained by Confounders
+Summary:          Generalized Multipartite Networks
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-twang 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-parallel 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-survey 
-Requires:         R-stats 
-Requires:         R-CRAN-twang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-blockmodels 
+BuildRequires:    R-CRAN-aricode 
+BuildRequires:    R-CRAN-pbmcapply 
+Requires:         R-CRAN-R6 
+Requires:         R-parallel 
+Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-survey 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-blockmodels 
+Requires:         R-CRAN-aricode 
+Requires:         R-CRAN-pbmcapply 
 
 %description
-Uses parametric and nonparametric methods to quantify the proportion of
-the estimated selection bias (SB) explained by each observed confounder
-when estimating propensity score weighted treatment effects. Parast, L and
-Griffin, BA (2020). "Quantifying the Bias due to Observed Individual
-Confounders in Causal Treatment Effect Estimates". Statistics in Medicine,
-39(18): 2447- 2476 <doi: 10.1002/sim.8549>.
+We define generalized multipartite networks as the joint observation of
+several networks implying some common pre-specified groups of individuals.
+The aim is to fit an adapted version of the popular stochastic block model
+to multipartite networks, as described in Bar-hen, Barbillon and Donnet
+(2020) <arXiv:1807.10138>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global packname  SymbolicDeterminants
-%global packver   1.0.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Symbolic Representation of the Determinant of a Square Matrix
+Summary:          Symbolic Representation of Matrix Determinant
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,15 +16,14 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fs 
 Requires:         R-stats 
+Requires:         R-CRAN-fs 
 
 %description
-Produces the formula for calculating the determinant, as a function of the
-elements of the matrix.  This formula is called the symbolic
-representation of the determinant.  In other words, for the 2x2 matrix V
-we want a function to return 'v11v22 – v12v21' for an unstructured,
-general 2x2 matrix and 'v11v22 – v12^2' for a symmetric 2x2 matrix, and
-not the numeric values for a particular numeric matrix.
+Creates a guide for writing the formula for the determinant of a square
+matrix (a detguide) as a function of the elements of the matrix and writes
+out that formula, the symbolic representation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,23 +1,32 @@
-%global packname  rlang
-%global packver   0.4.9
+%global packname  gfpop
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Graph-Constrained Functional Pruning Optimal Partitioning
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Penalized parametric change-point detection by functional pruning dynamic
+programming algorithm. The successive means are constrained using a graph
+structure with edges of types null, up, down, std or abs. To each edge we
+can associate some additional properties: a minimal gap size, a penalty,
+some robust parameters (K,a). The user can also constrain the inferred
+means to lie between some minimal and maximal values. Data is modeled by a
+quadratic cost with possible use of a robust loss, biweight and Huber (see
+edge parameters K and a). Other losses are also available with log-linear
+representation or a log-log representation.
 
 %prep
 %setup -q -c -n %{packname}
