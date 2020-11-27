@@ -1,32 +1,40 @@
-%global packname  PoissonBinomial
-%global packver   1.2.1
+%global packname  gfiExtremes
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Computation of Ordinary and Generalized Poisson Binomial Distributions
+Summary:          Generalized Fiducial Inference for Extremes
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    fftw-devel >= 3
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-coda 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-stats 
 
 %description
-Efficient implementations of multiple exact and approximate methods as
-described in Hong (2013) <doi:10.1016/j.csda.2012.10.006>, Biscarri, Zhao
-& Brunner (2018) <doi:10.1016/j.csda.2018.01.007> and Zhang, Hong &
-Balakrishnan (2018) <doi:10.1080/00949655.2018.1440294> for computing the
-probability mass, cumulative distribution and quantile functions, as well
-as generating random numbers for both the ordinary and generalized Poisson
-binomial distribution.
+Fiducial framework to perform inference on the quantiles for a generalized
+Pareto distribution model and on the parameters of the Pareto exceedance
+distribution, assuming the exceedance threshold is a known or unknown
+parameter. Reference: Damian V. Wandler & Jan Hannig (2012)
+<doi:10.1007/s10687-011-0127-9>.
 
 %prep
 %setup -q -c -n %{packname}

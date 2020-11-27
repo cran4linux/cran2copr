@@ -1,9 +1,9 @@
 %global packname  BayesianFROC
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          FROC Analysis by Bayesian Approaches
 
@@ -28,13 +28,13 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.2
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-knitr 
@@ -48,13 +48,13 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-methods 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-bridgesampling 
 Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-rstantools
 
 %description
 Execute BayesianFROC::fit_GUI_Shiny() (or fit_GUI_Shiny_MRMC()) for a
@@ -106,9 +106,13 @@ analysis.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -118,6 +122,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

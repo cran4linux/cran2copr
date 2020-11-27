@@ -1,11 +1,11 @@
 %global packname  mombf
-%global packver   2.2.9
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.9
-Release:          3%{?dist}%{?buildtag}
-Summary:          Bayesian Model Selection and Averaging for Non-Local and LocalPriors
+Version:          3.0.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Bayesian Model Selection and Averaging for Non-Local and Local Priors
 
 License:          GPL (>= 2) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,17 +18,17 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ncvreg 
-BuildRequires:    R-mgcv 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ncvreg 
-Requires:         R-mgcv 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-mclust 
-Requires:         R-survival 
+Requires:         R-CRAN-survival 
 
 %description
 Bayesian model selection and averaging for regression and mixtures for
@@ -37,6 +37,13 @@ non-local and selected local priors.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -44,20 +51,10 @@ non-local and selected local priors.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

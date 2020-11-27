@@ -1,32 +1,26 @@
-%global packname  PoissonBinomial
-%global packver   1.2.1
+%global packname  fdaoutlier
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Computation of Ordinary and Generalized Poisson Binomial Distributions
+Summary:          Outlier Detection Tools for Functional Data Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    fftw-devel >= 3
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Efficient implementations of multiple exact and approximate methods as
-described in Hong (2013) <doi:10.1016/j.csda.2012.10.006>, Biscarri, Zhao
-& Brunner (2018) <doi:10.1016/j.csda.2018.01.007> and Zhang, Hong &
-Balakrishnan (2018) <doi:10.1080/00949655.2018.1440294> for computing the
-probability mass, cumulative distribution and quantile functions, as well
-as generating random numbers for both the ordinary and generalized Poisson
-binomial distribution.
+A collection of functions for outlier detection in functional data
+analysis. Methods implemented include directional outlyingness, MS-plot,
+total variation depth, and sequential transformations among others.
 
 %prep
 %setup -q -c -n %{packname}

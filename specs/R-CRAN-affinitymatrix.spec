@@ -1,13 +1,13 @@
-%global packname  matsbyname
-%global packver   0.4.16
+%global packname  affinitymatrix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Implementation of Matrix Mathematics
+Summary:          Estimation of Affinity Matrix
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,26 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grid 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 
 %description
-An implementation of matrix mathematics wherein operations are performed
-"by name."
+Tools to study sorting patterns in matching markets and to estimate the
+affinity matrix of both the bipartite one-to-one matching model without
+frictions and with Transferable Utility by 'Dupuy' and 'Galichon' (2014)
+<doi:10.1086/677191> and its 'unipartite' variant by 'Ciscato', 'Galichon'
+and 'Gousse' (2020) <doi:10.1086/704611>. It also contains all the
+necessary tools to implement the 'saliency' analysis, to run rank tests of
+the affinity matrix and to build tables and plots summarizing the
+findings.
 
 %prep
 %setup -q -c -n %{packname}

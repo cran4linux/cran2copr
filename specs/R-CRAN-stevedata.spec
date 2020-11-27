@@ -1,32 +1,26 @@
-%global packname  PoissonBinomial
-%global packver   1.2.1
+%global packname  stevedata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Computation of Ordinary and Generalized Poisson Binomial Distributions
+Summary:          Steve's Toy Data for Teaching About a Variety of Methodological, Social, and Political Topics
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    fftw-devel >= 3
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Efficient implementations of multiple exact and approximate methods as
-described in Hong (2013) <doi:10.1016/j.csda.2012.10.006>, Biscarri, Zhao
-& Brunner (2018) <doi:10.1016/j.csda.2018.01.007> and Zhang, Hong &
-Balakrishnan (2018) <doi:10.1080/00949655.2018.1440294> for computing the
-probability mass, cumulative distribution and quantile functions, as well
-as generating random numbers for both the ordinary and generalized Poisson
-binomial distribution.
+This is an R package for all my toy data. Its main uses are for teaching.
+My students, and academics like me who teach the same topics I teach,
+should find this useful if their teaching workflow is also built around
+the R programming language.
 
 %prep
 %setup -q -c -n %{packname}

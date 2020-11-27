@@ -1,32 +1,35 @@
-%global packname  PoissonBinomial
-%global packver   1.2.1
+%global packname  statswalesr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Computation of Ordinary and Generalized Poisson Binomial Distributions
+Summary:          Easily Extract Data from 'StatsWales'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    fftw-devel >= 3
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Efficient implementations of multiple exact and approximate methods as
-described in Hong (2013) <doi:10.1016/j.csda.2012.10.006>, Biscarri, Zhao
-& Brunner (2018) <doi:10.1016/j.csda.2018.01.007> and Zhang, Hong &
-Balakrishnan (2018) <doi:10.1080/00949655.2018.1440294> for computing the
-probability mass, cumulative distribution and quantile functions, as well
-as generating random numbers for both the ordinary and generalized Poisson
-binomial distribution.
+Download data from 'StatsWales' into R. Removes the need for the user to
+write their own loops when parsing data from the 'StatsWales' API.
+Provides functions for datasets
+(<http://open.statswales.gov.wales/en-gb/dataset>) and metadata
+(<http://open.statswales.gov.wales/en-gb/discover/metadata>) endpoints.
 
 %prep
 %setup -q -c -n %{packname}

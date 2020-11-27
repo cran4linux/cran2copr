@@ -1,32 +1,31 @@
-%global packname  PoissonBinomial
-%global packver   1.2.1
+%global packname  envir
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Computation of Ordinary and Generalized Poisson Binomial Distributions
+Summary:          Manage R Environments Better
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    fftw-devel >= 3
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildArch:        noarch
 
 %description
-Efficient implementations of multiple exact and approximate methods as
-described in Hong (2013) <doi:10.1016/j.csda.2012.10.006>, Biscarri, Zhao
-& Brunner (2018) <doi:10.1016/j.csda.2018.01.007> and Zhang, Hong &
-Balakrishnan (2018) <doi:10.1080/00949655.2018.1440294> for computing the
-probability mass, cumulative distribution and quantile functions, as well
-as generating random numbers for both the ordinary and generalized Poisson
-binomial distribution.
+Provides a small set of functions for managing R environments, with
+defaults designed to encourage usage patterns that scale well to larger
+code bases. It provides: import_from(), a flexible way to assign bindings
+that defaults to the current environment; include(), a vectorized
+alternative to base::source() that also default to the current
+environment; and attach_eval() and attach_source(), a way to evaluate
+expressions in attached environments. Together, these (and other)
+functions pair to provide a robust alternative to base::library() and
+base::source().
 
 %prep
 %setup -q -c -n %{packname}
