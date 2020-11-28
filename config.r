@@ -7,7 +7,6 @@ options(
   copr.tpl         = "spec.in",
   copr.bflags      = "",
   copr.chroots     = NULL,
-  copr.watch       = FALSE,
   repos            = "https://cran.r-project.org",
   error            = NULL,
   stringsAsFactors = FALSE,

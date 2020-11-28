@@ -7,9 +7,6 @@ check_copr()
 if (!interactive())
   stop("please, run this interactively and think deeply about what you're doing")
 
-if (copr_version() < "1.87")
-  stop("cannot do this for versions of copr < 1.87")
-
 df.mon <- get_monitor()
 latest <- unique(unname(sapply(strsplit(unlist(df.mon[,-1]), " "), "[", 1)))
 

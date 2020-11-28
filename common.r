@@ -27,6 +27,9 @@ copr_version <- function() {
 }
 
 check_copr <- function() {
+  if (copr_version() < "1.90")
+    stop("version >= 1.90 required")
+
   tryCatch(invisible(copr_call("whoami")), error=function(e)
     stop("file '~/.config/copr' not found or outdated", call.=FALSE))
 }
@@ -36,7 +39,6 @@ list_pkgs <- function() {
 }
 
 watch_builds <- function(ids) {
-  if (!getOption("copr.watch", TRUE)) return(FALSE)
   if (!length(ids)) return(logical(0))
 
   out <- try(copr_call("watch-build", paste(ids, collapse=" ")), silent=TRUE)
@@ -49,31 +51,34 @@ watch_builds <- function(ids) {
 }
 
 delete_builds <- function(ids) {
-  if (copr_version() >= "1.87")
-    ids <- paste(ids, collapse=" ")
-  for (id in ids)
-    copr_call("delete-build", id)
+  copr_call("delete-build", paste(ids, collapse=" "))
 }
 
-build_spec <- function(spec, chroots=getOption("copr.chroots")) {
-  chroots <- if (is.null(chroots)) "" else paste("-r", chroots, collapse=" ")
-  pkg <- sub("\\.spec", "", basename(spec))
-  out <- copr_call("build", "--nowait", getOption("copr.bflags"),
-                   getOption("copr.repo"), spec, chroots)
+.build <- function(x, type=c("spec", "repo"), id, chroots) {
+  type <- match.arg(type)
+  pkg <- sub("\\.spec", "", basename(x))
+  args <- list(
+    if (type == "spec") "build" else "build-package",
+    "--nowait", getOption("copr.bflags"),
+    if (is.null(id)) "" else paste0("--", names(id), "-build-id ", id),
+    if (is.null(chroots)) "" else paste("-r", chroots, collapse=" "),
+    getOption("copr.repo"), paste0(if (type == "repo") "--name ", x)
+  )
+  out <- do.call(copr_call, args)
   out <- grep("Created builds", out, value=TRUE)
   out <- as.numeric(strsplit(out, ": ")[[1]][2])
-  message("  Build ", out, " for ", pkg, " created from SPEC")
+  message("  Build ", out, " for ", pkg, " created from ", type)
   out
 }
 
-build_pkg <- function(pkg, chroots=getOption("copr.chroots")) {
-  chroots <- if (is.null(chroots)) "" else paste("-r", chroots, collapse=" ")
-  out <- copr_call("build-package", "--nowait", getOption("copr.bflags"),
-                   getOption("copr.repo"), "--name", pkg, chroots)
-  out <- grep("Created builds", out, value=TRUE)
-  out <- as.numeric(strsplit(out, ": ")[[1]][2])
-  message("  Build ", out, " for ", pkg, " created from repo")
-  out
+build_spec <- function(specs, after=NULL, chroots=getOption("copr.chroots")) {
+  out <- .build(specs[1], "spec", c(after=after[1]), chroots)
+  c(out, sapply(specs[-1], .build, "spec", c(with=out), chroots))
+}
+
+build_pkg <- function(pkgs, after=NULL, chroots=getOption("copr.chroots")) {
+  out <- .build(pkgs[1], "repo", c(after=after[1]), chroots)
+  c(out, sapply(pkgs[-1], .build, "repo", c(with=out), chroots))
 }
 
 add_pkg_scm <- function(pkg) {
@@ -474,11 +479,13 @@ get_builds <- function() {
   XML::readHTMLTable(.read_urls(url)[[1]])[[1]]
 }
 
-subset_failed <- function(x, chroots=seq_len(ncol(x)-1)) {
+subset_failed <- function(x, chroots=seq_len(ncol(x)-1), notbuilt=FALSE) {
   x.chrt <- x[, 2:ncol(x), drop=FALSE]
   x.fail <- x.chrt[, chroots, drop=FALSE]
   x.succ <- x.chrt[, setdiff(names(x.chrt), names(x.fail)), drop=FALSE]
-  x.fail <- apply(x.fail, 2, function(x) grepl("failed", x))
+  x.fail <- if (notbuilt)
+    apply(x.fail, 2, function(x) !grepl("succeeded|forked", x))
+  else apply(x.fail, 2, function(x) grepl("failed", x))
   x.succ <- apply(x.succ, 2, function(x) grepl("succeeded|forked", x))
   subset(x, apply(cbind(x.fail, x.succ), 1, all))
 }

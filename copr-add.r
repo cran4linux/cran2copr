@@ -18,23 +18,17 @@ if (file.exists("DEBUG")) {
 
 blist <- get_build_list(pkgs, cran)
 n <- length(unlist(blist))
+ids <- NULL
 
 for (pkgs in blist) {
   message("Building ", length(pkgs), " packages of ", n, " remaining...")
 
-  ids <- sapply(pkgs, function(pkg) {
+  specs <- sapply(pkgs, function(pkg) {
     spec <- create_spec(pkg, cran)
     if (!spec$pkg %in% copr) add_pkg_scm(spec$pkg)
-    build_spec(spec$dest)
+    spec$dest
   })
-
-  message("Waiting for ", length(pkgs), " packages of ", n, " remaining...")
-
-  res <- watch_builds(ids)
-
-  if (any(res))
-    stop("Some builds failed:\n",
-         paste("  Build", ids[res], "for", pkgs[res], "failed", collapse="\n"))
+  ids <- build_spec(specs, ids)
 
   n <- n - length(pkgs)
 }
