@@ -73,11 +73,13 @@ delete_builds <- function(ids) {
 
 build_spec <- function(specs, after=NULL, chroots=getOption("copr.chroots")) {
   out <- .build(specs[1], "spec", c(after=after[1]), chroots)
+  if (length(specs) == 1) return(out)
   c(out, sapply(specs[-1], .build, "spec", c(with=out), chroots))
 }
 
 build_pkg <- function(pkgs, after=NULL, chroots=getOption("copr.chroots")) {
   out <- .build(pkgs[1], "repo", c(after=after[1]), chroots)
+  if (length(specs) == 1) return(out)
   c(out, sapply(pkgs[-1], .build, "repo", c(with=out), chroots))
 }
 

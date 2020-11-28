@@ -13,6 +13,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    tbb-devel
+Requires:         tbb-devel
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 
