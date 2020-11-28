@@ -349,8 +349,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
       " asBuildPath(dirname(tbbLibPath())), \" -ltbb -ltbbmalloc\"))'",
       " %{packname}/R/build.R\n",
       "sed -i '/tbbLibPath <- fun/a return(\"%{_libdir}/libtbb.so.2\")'",
-      " %{packname}/R/build.R"
-    )
+      " %{packname}/R/build.R")
   ))
 
   # install
@@ -373,7 +372,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
   tpl[install] <- paste0(tpl[install], switch(
     pkg,
     udunits2 = "\\\n  --configure-args='--with-udunits2-include=/usr/include/udunits2'",
-    proj4 = "\\\n --configure-vars='PKG_CPPFLAGS=-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H'"
+    proj4 = "\\\n --configure-vars='PKG_CPPFLAGS=-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H'",
+    RcppParallel = "\nln -s %{_libdir} %{buildroot}%{rlibdir}/%{packname}/lib"
   ))
 
   # other
