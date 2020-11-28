@@ -1,10 +1,10 @@
 %global packname  jpndistrict
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
-Release:          3%{?dist}%{?buildtag}
+Version:          0.3.8
+Release:          1%{?dist}%{?buildtag}
 Summary:          Create Japanese Administration Area and Office Maps
 
 License:          MIT + file LICENSE
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-leaflet >= 2.0.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-shiny >= 1.4.0.2
 BuildRequires:    R-CRAN-jpmesh >= 1.2.0
+BuildRequires:    R-CRAN-memoise >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.9.0
@@ -35,6 +36,7 @@ Requires:         R-CRAN-leaflet >= 2.0.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-shiny >= 1.4.0.2
 Requires:         R-CRAN-jpmesh >= 1.2.0
+Requires:         R-CRAN-memoise >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-sf >= 0.9.0
@@ -47,15 +49,21 @@ Requires:         R-CRAN-miniUI >= 0.1.1
 %description
 Utilizing the data that Japanese administration area provided by the
 National Land Numerical Information download service
-(<http://nlftp.mlit.go.jp/ksj/index.html>). This package provide map data
+(<https://nlftp.mlit.go.jp/ksj/index.html>). This package provide map data
 is based on the Digital Map 25000 (Map Image) published by Geospatial
 Information Authority of Japan (Approval No.603FY2017 information usage
-<http://www.gsi.go.jp>).
+<https://www.gsi.go.jp>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -63,21 +71,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

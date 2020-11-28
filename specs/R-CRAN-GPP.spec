@@ -1,24 +1,36 @@
-%global packname  poorman
-%global packver   0.2.4
+%global packname  GPP
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Poor Man's Dependency Free Recreation of 'dplyr'
+Summary:          Gaussian Process Projection
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-methods 
+Requires:         R-CRAN-rstan 
+Requires:         R-parallel 
+Requires:         R-CRAN-rstantools
 
 %description
-A replication of key functionality from 'dplyr' and the wider 'tidyverse'
-using only 'base'.
+Estimates a counterfactual using Gaussian process projection. It takes a
+dataframe, creates missingness in the desired outcome variable and
+estimates counterfactual values based on all information in the dataframe.
+The package writes Stan code, checks it for convergence and adds
+artificial noise to prevent overfitting and returns a plot of actual
+values and estimated counterfactual values using r-base plot.
 
 %prep
 %setup -q -c -n %{packname}

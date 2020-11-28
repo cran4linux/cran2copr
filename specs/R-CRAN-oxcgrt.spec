@@ -1,33 +1,43 @@
-%global packname  gh
-%global packver   1.2.0
+%global packname  oxcgrt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'GitHub' 'API'
+Summary:          An Interface to the Oxford COVID-19 Government Response Tracker API
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 2.0.1
-BuildRequires:    R-CRAN-httr >= 1.2
-BuildRequires:    R-CRAN-gitcreds 
-BuildRequires:    R-CRAN-ini 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-cli >= 2.0.1
-Requires:         R-CRAN-httr >= 1.2
-Requires:         R-CRAN-gitcreds 
-Requires:         R-CRAN-ini 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-stringr 
 
 %description
-Minimal client to access the 'GitHub' 'API'.
+The Oxford COVID-19 Government Response Tracker (OxCGRT) tracks and
+compares worldwide government responses to the COVID-19 pandemic
+rigorously and consistently. OxCGRT makes available systematic information
+in a consistent way, aiding those who require information have access to
+it efficiently for their purposes. This package facilitates access to the
+OxCGRT data via its API <https://covidtracker.bsg.ox.ac.uk/> and includes
+functions to calculate the various OxCGRT indices in R.
 
 %prep
 %setup -q -c -n %{packname}

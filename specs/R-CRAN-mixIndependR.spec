@@ -1,9 +1,9 @@
 %global packname  mixIndependR
-%global packver   0.4.0
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetics and Independence Testing of Mixed Genetic Panels
 
@@ -12,19 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.6.2
+BuildRequires:    R-utils >= 3.6.1
 BuildRequires:    R-stats >= 3.3
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-utils >= 3.6.2
+Requires:         R-utils >= 3.6.1
 Requires:         R-stats >= 3.3
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
 
 %description
 Developed to deal with multi-locus genotype data, this package is

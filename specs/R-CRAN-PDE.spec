@@ -1,13 +1,13 @@
-%global packname  poorman
-%global packver   0.2.4
+%global packname  PDE
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Poor Man's Dependency Free Recreation of 'dplyr'
+Summary:          Extract Sentences and Tables from PDFs with User Interface
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,10 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tcltk2 >= 1.2.11
+BuildRequires:    R-tcltk 
+Requires:         R-CRAN-tcltk2 >= 1.2.11
+Requires:         R-tcltk 
 
 %description
-A replication of key functionality from 'dplyr' and the wider 'tidyverse'
-using only 'base'.
+The PDE (Pdf Data Extractor) allows the extraction of information and
+tables optionally based on search words from PDF (Portable Document
+Format) files and enables the visualization of the results, both by
+providing a convenient user-interface.
 
 %prep
 %setup -q -c -n %{packname}

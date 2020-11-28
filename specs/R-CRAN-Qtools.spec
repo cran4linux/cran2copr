@@ -1,10 +1,10 @@
 %global packname  Qtools
-%global packver   1.5.2
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
-Release:          2%{?dist}%{?buildtag}
+Version:          1.5.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Quantiles
 
 License:          GPL (>= 2)
@@ -21,13 +21,13 @@ BuildRequires:    R-CRAN-glmx
 BuildRequires:    R-CRAN-Gmisc 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-stats 
-BuildRequires:    R-MASS 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-boot 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-numDeriv >= 2016.8.1
 Requires:         R-CRAN-Rcpp >= 0.12.13
@@ -36,13 +36,13 @@ Requires:         R-CRAN-glmx
 Requires:         R-CRAN-Gmisc 
 Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-CRAN-gtools 
 Requires:         R-stats 
-Requires:         R-MASS 
-Requires:         R-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-mice 
-Requires:         R-boot 
+Requires:         R-CRAN-boot 
 
 %description
 Functions for unconditional and conditional quantiles. These include
@@ -56,9 +56,13 @@ the package.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -68,6 +72,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

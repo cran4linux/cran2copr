@@ -1,24 +1,27 @@
-%global packname  poorman
-%global packver   0.2.4
+%global packname  transx
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Poor Man's Dependency Free Recreation of 'dplyr'
+Summary:          Transform Univariate Time Series
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-rlang 
 
 %description
-A replication of key functionality from 'dplyr' and the wider 'tidyverse'
-using only 'base'.
+Univariate time series operations that follow an opinionated design. The
+main principle of 'transx' is to keep the number of observations the same.
+Operations that reduce this number have to fill the observations gap.
 
 %prep
 %setup -q -c -n %{packname}

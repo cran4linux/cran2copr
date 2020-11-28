@@ -1,24 +1,29 @@
-%global packname  poorman
-%global packver   0.2.4
+%global packname  arctools
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Poor Man's Dependency Free Recreation of 'dplyr'
+Summary:          Processing and Physical Activity Summaries of Minute Level Activity Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-runstats 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-runstats 
 
 %description
-A replication of key functionality from 'dplyr' and the wider 'tidyverse'
-using only 'base'.
+Provides functions to process minute level actigraphy-measured activity
+counts data and extract commonly used physical activity volume and
+fragmentation metrics.
 
 %prep
 %setup -q -c -n %{packname}
