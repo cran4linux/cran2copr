@@ -481,6 +481,12 @@ get_builds <- function() {
   XML::readHTMLTable(.read_urls(url)[[1]])[[1]]
 }
 
+get_batch <- function(id) {
+  stopifnot(requireNamespace("XML", quietly=TRUE))
+  url <- paste("https://copr.fedorainfracloud.org/batches/detail", id, sep="/")
+  XML::readHTMLTable(.read_urls(url)[[1]])[[1]]
+}
+
 subset_failed <- function(x, chroots=seq_len(ncol(x)-1), notbuilt=FALSE) {
   x.chrt <- x[, 2:ncol(x), drop=FALSE]
   x.fail <- x.chrt[, chroots, drop=FALSE]
