@@ -487,26 +487,33 @@ get_batch <- function(id) {
   XML::readHTMLTable(.read_urls(url)[[1]])[[1]]
 }
 
-subset_failed <- function(x, chroots=seq_len(ncol(x)-1), notbuilt=FALSE) {
+subset_failed <- function(x, chroots=seq_len(ncol(x)-1), nobuild=FALSE) {
   x.chrt <- x[, 2:ncol(x), drop=FALSE]
   x.fail <- x.chrt[, chroots, drop=FALSE]
   x.succ <- x.chrt[, setdiff(names(x.chrt), names(x.fail)), drop=FALSE]
-  x.fail <- if (notbuilt)
+  x.fail <- if (nobuild)
     apply(x.fail, 2, function(x) !grepl("succeeded|forked", x))
   else apply(x.fail, 2, function(x) grepl("failed", x))
   x.succ <- apply(x.succ, 2, function(x) grepl("succeeded|forked", x))
   subset(x, apply(cbind(x.fail, x.succ), 1, all))
 }
 
-subset_vmismatch <- function(x, chroots=seq_len(ncol(x)-1)) {
-  x.chrt <- x[, 2:ncol(x), drop=FALSE]
-  x.mism <- x.chrt[, chroots, drop=FALSE]
+subset_vmismatch <- function(x, cran=available_packages(), chroots=seq_len(ncol(x)-1)) {
+  n <- ncol(x); chroots <- chroots
+
+  cran <- as.data.frame(cran)[, c("Package", "Version")]
+  cran$Package <- paste0("R-CRAN-", cran$Package)
+  cran$Version <- gsub("-", ".", cran$Version)
+  x <- merge(x, cran, all.x=TRUE)
+
+  x.mism <- x[, 2:n, drop=FALSE][, chroots, drop=FALSE]
   x.mism <- apply(x.mism, 2, function(x) {
     ver <- sapply(strsplit(x, "[[:space:]]+"), "[", 3)
     sapply(strsplit(ver, "-"), "[", 1)
   })
+  x.mism <- cbind(x.mism, Version=x$Version)
   x.mism <- apply(x.mism, 1, function(x) {
-    !all(sapply(seq_along(x)[-1], function(i) x[1] == x[i]))
+    !all(sapply(seq_along(x)[-1], function(i) x[1] == x[i]), na.rm=TRUE)
   })
   subset(x, x.mism)
 }
