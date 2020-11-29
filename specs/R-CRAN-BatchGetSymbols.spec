@@ -1,9 +1,9 @@
 %global packname  BatchGetSymbols
-%global packver   2.6
+%global packver   2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          2.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Downloads and Organizes Financial Data for Multiple Tickers
 

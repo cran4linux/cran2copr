@@ -1,11 +1,11 @@
 %global packname  gaussplotR
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict and Plot 2D Gaussians
+Summary:          Fit, Predict and Plot 2D Gaussians
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,8 +21,9 @@ Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-metR >= 0.7.0
 
 %description
-Functions to predict values from a two-dimensional Gaussian function and
-produce plots of predicted data via either 'ggplot2' or base R plotting.
+Functions to fit two-dimensional Gaussian functions, predict values from
+fits, and produce plots of predicted data via either 'ggplot2' or base R
+plotting.
 
 %prep
 %setup -q -c -n %{packname}
