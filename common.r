@@ -57,14 +57,14 @@ delete_builds <- function(ids) {
 .build <- function(x, type=c("spec", "repo"), id, chroots) {
   type <- match.arg(type)
   pkg <- sub("\\.spec", "", basename(x))
-  args <- list(
+  args <- c(
     if (type == "spec") "build" else "build-package",
     "--nowait", getOption("copr.bflags"),
-    if (is.null(id)) "" else paste0("--", names(id), "-build-id ", id),
-    if (is.null(chroots)) "" else paste("-r", chroots, collapse=" "),
+    if (!is.null(id)) paste0("--", names(id), "-build-id ", id),
+    if (!is.null(chroots)) paste("-r", chroots, collapse=" "),
     getOption("copr.repo"), paste0(if (type == "repo") "--name ", x)
   )
-  out <- do.call(copr_call, args)
+  out <- do.call(copr_call, as.list(args))
   out <- grep("Created builds", out, value=TRUE)
   out <- as.numeric(strsplit(out, ": ")[[1]][2])
   message("  Build ", out, " for ", pkg, " created from ", type)
@@ -515,4 +515,31 @@ have_build_msg <- function(ids, chroots, msg, bytes=NULL) {
   urls <- paste0(get_url_builds(ids, chroots), "/builder-live.log.gz")
   contents <- .read_urls(urls, bytes=bytes)
   grepl(msg, contents)
+}
+
+.repo <- function() paste0(
+  "'copr:copr.fedorainfracloud.org:",
+  copr_call("whoami"), ":", getOption("copr.repo"), "'")
+
+list_available <- function(releasever) {
+  args <- c(
+    "list", "--available",
+    if (!missing(releasever)) paste("--releasever", releasever),
+    "--repo", .repo(), "R-CRAN-*"
+  )
+  out <- system2("dnf", args, stdout=TRUE)[-(1:2)]
+  out <- sapply(strsplit(out, " "), "[", 1)
+  out <- sub("^R-CRAN-", "", out)
+  out <- sub("\\.src$|\\.noarch$|\\.x86_64$", "", out)
+  out <- sub("-debuginfo$|-debugsource$", "", out)
+  out[!duplicated(out)]
+}
+
+run_repoclosure <- function(releasever) {
+  args <- c(
+    "repoclosure",
+    if (!missing(releasever)) paste("--releasever", releasever),
+    "--check", .repo()
+  )
+  system2("dnf", args)
 }
