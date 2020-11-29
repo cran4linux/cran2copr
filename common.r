@@ -498,6 +498,12 @@ subset_failed <- function(x, chroots=seq_len(ncol(x)-1), nobuild=FALSE) {
   subset(x, apply(cbind(x.fail, x.succ), 1, all))
 }
 
+subset_forked <- function(x, chroots=seq_len(ncol(x)-1), nobuild=FALSE) {
+  x.fork <- x[, 2:ncol(x), drop=FALSE][, chroots, drop=FALSE]
+  x.fork <- apply(x.fork, 2, function(x) grepl("forked", x))
+  subset(x, apply(x.fork, 1, all))
+}
+
 subset_vmismatch <- function(x, cran=available_packages(), chroots=seq_len(ncol(x)-1)) {
   n <- ncol(x); chroots <- chroots
 

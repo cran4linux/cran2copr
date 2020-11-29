@@ -22,6 +22,12 @@ url <- get_url_builds(list(ids, df.fail$Package), chroots[i])
 sapply(paste0(url, "/builder-live.log.gz"), browseURL)
 sapply(paste(get_url_copr(), "package", df.fail$Package, sep="/"), browseURL)
 
+# check forked
+i <- 3
+df.fork <- subset_forked(df.mon[, c("Package", chroots[i])], nobuild=TRUE)
+pkgs <- sub("R-CRAN-", "", df.fork$Package)
+system2("./copr-rebuild.r", paste(pkgs, collapse=" "))
+
 # search for packages in rawhide built against v3.6.3
 ids <- sapply(strsplit(df.mon[, chroots[i]], " "), head, 1)
 ids <- list(ids[1:10], df.mon$Package[1:10])
