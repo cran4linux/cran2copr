@@ -1,9 +1,9 @@
 %global packname  flipdownr
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implement a Countdown in 'RMarkdown' Documents and 'shiny' Applications
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-checkmate 
 
 %description
 Allows the user to create a countdown in 'RMarkdown' documents and 'shiny'

@@ -1,9 +1,9 @@
 %global packname  ADMUR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ancient Demographic Modelling Using Radiocarbon
 
@@ -12,15 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-mathjaxr 
 
 %description
 Provides tools to directly model underlying population dynamics using date

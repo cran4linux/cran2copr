@@ -1,9 +1,9 @@
 %global packname  shorts
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Short Sprints
 
@@ -18,9 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-LambertW 
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-CRAN-LambertW 
 Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Create short sprint (<6sec) profiles using the split times or the radar

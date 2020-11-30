@@ -1,33 +1,28 @@
-%global packname  fastDummies
-%global packver   1.6.3
+%global packname  SeleMix
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Creation of Dummy (Binary) Columns and Rows from Categorical Variables
+Summary:          Selective Editing via Mixture Models
 
-License:          MIT + file LICENSE
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-graphics 
 
 %description
-Creates dummy columns from columns that have categorical variables
-(character or factor types). You can also specify which columns to make
-dummies out of, or which columns to ignore. Also creates dummy rows from
-character, factor, and Date columns. This package provides a significant
-speed increase from creating dummy variables through model.matrix().
+Detection of outliers and influential errors using a latent variable
+model.
 
 %prep
 %setup -q -c -n %{packname}

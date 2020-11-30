@@ -1,9 +1,9 @@
 %global packname  ruimtehol
-%global packver   0.2.5
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Learn Text 'Embeddings' with 'Starspace'
 
