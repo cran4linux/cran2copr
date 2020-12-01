@@ -1,28 +1,35 @@
-%global packname  sfheaders
-%global packver   0.4.0
+%global packname  BTYD
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converts Between R Objects and Simple Feature Objects
+Summary:          Implementing BTYD Models with the Log Sum Exp Patch
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-geometries >= 0.2.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-geometries >= 0.2.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-hypergeo 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-hypergeo 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Matrix 
 
 %description
-Converts between R and Simple Feature 'sf' objects, without depending on
-the Simple Feature library. Conversion functions are available at both the
-R level, and through 'Rcpp'.
+Functions for data preparation, parameter estimation, scoring, and
+plotting for the BG/BB (Fader, Hardie, and Shang 2010
+<doi:10.1287/mksc.1100.0580>), BG/NBD (Fader, Hardie, and Lee 2005
+<doi:10.1287/mksc.1040.0098>) and Pareto/NBD and Gamma/Gamma (Fader,
+Hardie, and Lee 2005 <doi:10.1509/jmkr.2005.42.4.415>) models.
 
 %prep
 %setup -q -c -n %{packname}

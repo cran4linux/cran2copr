@@ -1,28 +1,33 @@
-%global packname  sfheaders
-%global packver   0.4.0
+%global packname  ellipticalsymmetry
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converts Between R Objects and Simple Feature Objects
+Summary:          Elliptical Symmetry Tests
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-geometries >= 0.2.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-geometries >= 0.2.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.4.0
+Requires:         R-core >= 2.4.0
+BuildArch:        noarch
+BuildRequires:    R-stats >= 2.4.0
+BuildRequires:    R-datasets >= 2.4.0
+BuildRequires:    R-CRAN-ICSNP >= 1.1.1
+Requires:         R-stats >= 2.4.0
+Requires:         R-datasets >= 2.4.0
+Requires:         R-CRAN-ICSNP >= 1.1.1
 
 %description
-Converts between R and Simple Feature 'sf' objects, without depending on
-the Simple Feature library. Conversion functions are available at both the
-R level, and through 'Rcpp'.
+Given the omnipresence of the assumption of elliptical symmetry, it is
+essential to be able to test whether that assumption actually holds true
+or not for the data at hand. This package provides several statistical
+tests for elliptical symmetry that are described in Babic et al. (2020)
+<arXiv:2011.12560>.
 
 %prep
 %setup -q -c -n %{packname}

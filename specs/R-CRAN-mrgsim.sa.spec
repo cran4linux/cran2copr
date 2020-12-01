@@ -1,51 +1,50 @@
-%global packname  MatchItEXT
-%global packver   0.0.1
+%global packname  mrgsim.sa
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Supplementary Function Set to 'MatchIt'
+Summary:          Sensitivity Analysis with 'mrgsolve'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mrgsolve 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-MatchIt 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-sure 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-mrgsolve 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-MatchIt 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-sure 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr 
 Requires:         R-methods 
-Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-patchwork 
 
 %description
-This function set is supplementary to 'MatchIt'. Its functions conduct
-several computations that 'MatchIt' does not provide. It takes the
-'MatchIt' result object and/or the original data to compute standardized
-mean differences (SMD) between groups before and after matching. It also
-calculates ratio of variances and ratio of residual variances. In
-addition, it draws SMD comparison plots and QQ plots of distance measure
-score to help diagnose the matching result.
+Perform sensitivity analysis on ordinary differential equation based
+models, including ad-hoc graphical analyses based on structured sequences
+of parameters as well as local sensitivity analysis. Functions are
+provided for creating inputs, simulating scenarios and plotting outputs.
 
 %prep
 %setup -q -c -n %{packname}

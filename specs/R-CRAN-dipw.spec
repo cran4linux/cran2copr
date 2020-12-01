@@ -1,13 +1,13 @@
-%global packname  rsq
-%global packver   2.1
+%global packname  dipw
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R-Squared and Related Measures
+Summary:          Debiased Inverse Propensity Score Weighting
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Rmosek 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-Deriv 
-BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Rmosek 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-Deriv 
-Requires:         R-CRAN-Matrix 
 
 %description
-Calculate generalized R-squared, partial R-squared, and partial
-correlation coefficients for generalized linear (mixed) models (including
-quasi models with well defined variance functions).
+Estimation of the average treatment effect when controlling for
+high-dimensional confounders using debiased inverse propensity score
+weighting (DIPW). DIPW relies on the propensity score following a sparse
+logistic regression model, but the regression curves are not required to
+be estimable. Despite this, our package also allows the users to estimate
+the regression curves and take the estimated curves as input to our
+methods. Details of the methodology can be found in Yuhao Wang and Rajen
+D. Shah (2020) "Debiased Inverse Propensity Score Weighting for Estimation
+of Average Treatment Effects with High-Dimensional Confounders"
+<arXiv:2011.08661>. The package relies on the optimisation software
+'MOSEK' <https://www.mosek.com/> which must be installed separately; see
+the documentation for 'Rmosek'.
 
 %prep
 %setup -q -c -n %{packname}

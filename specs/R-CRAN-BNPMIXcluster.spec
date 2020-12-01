@@ -1,41 +1,44 @@
-%global packname  CenBAR
-%global packver   0.1.1
+%global packname  BNPMIXcluster
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Broken Adaptive Ridge AFT Model with Censored Data
+Summary:          Bayesian Nonparametric Model for Clustering with Mixed Scale Variables
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-cvTools 
-Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-glmnet 
-Requires:         R-splines 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-cvTools 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-truncnorm 
 
 %description
-Broken adaptive ridge estimator for censored data is used to select
-variables and estimate their coefficients in the semi-parametric
-accelerated failure time model for right-censored survival data.
+Model-based approach for clustering of multivariate data, capable of
+combining different types of variables (continuous, ordinal and nominal)
+and accommodating for different sampling probabilities in a complex survey
+design. The model is based on a location mixture model with a
+Poisson-Dirichlet process prior on the location parameters of the
+associated latent variables. Details of the underlying model is described
+in Carmona, C., Nieto-Barajas, L. E., Canale, A. (2016)
+<arXiv:1612.00083>.
 
 %prep
 %setup -q -c -n %{packname}

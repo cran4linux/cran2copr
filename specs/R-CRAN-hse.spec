@@ -1,28 +1,28 @@
-%global packname  sfheaders
-%global packver   0.4.0
+%global packname  hse
+%global packver   0.0-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converts Between R Objects and Simple Feature Objects
+Summary:          The hse Distribution
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-geometries >= 0.2.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-geometries >= 0.2.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
+BuildArch:        noarch
 
 %description
-Converts between R and Simple Feature 'sf' objects, without depending on
-the Simple Feature library. Conversion functions are available at both the
-R level, and through 'Rcpp'.
+Density (probability), distribution, inverse distribution (quantile) and
+random data generation functions for the hse ("hope springs eternal")
+distribution. Functions to calculate rough moment estimates, and maximum
+likelihood estimates of the parameters of this distribution. Functions to
+plot the probabilities of the distribution, given the parameter values,
+and to plot the fitted probabilities given a maximum likelihood fit.
 
 %prep
 %setup -q -c -n %{packname}

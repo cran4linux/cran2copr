@@ -1,11 +1,11 @@
 %global packname  PSS.Health
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size for Health Researchers
+Summary:          Power and Sample Size for Health Researchers via Shiny
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-easypower
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-ICC.Sample.Size 
 BuildRequires:    R-CRAN-kappaSize 
+BuildRequires:    R-CRAN-longpower 
 BuildRequires:    R-CRAN-MESS 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-powerMediation 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-easypower
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-ICC.Sample.Size 
 Requires:         R-CRAN-kappaSize 
+Requires:         R-CRAN-longpower 
 Requires:         R-CRAN-MESS 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-powerMediation 
@@ -64,13 +66,14 @@ Requires:         R-CRAN-writexl
 Power and Sample Size for Health Researchers is a Shiny application that
 brings together a series of functions related to sample size and power
 calculations for common analysis in the healthcare field. There are
-functionalities to calculate the sample size to estimate or test
-hypotheses for means, proportions, association, Pearson's correlation
-coefficient, regression coefficients (linear, logistic and Cox),
-Cronbach's alpha, interobserver agreement, intraclass correlation
-coefficients, limit of agreement on Bland-Altman plots, area under the
-curve, sensitivity and specificity incorporating the prevalence of
-disease.
+functionalities to calculate the power, sample size to estimate or test
+hypotheses for means and proportions (including test for equivalence,
+non-inferiority and superiority), association, Pearson's correlation
+coefficient, regression coefficients (linear, logistic and Cox), linear
+mixed model, Cronbach's alpha, interobserver agreement, intraclass
+correlation coefficients, limit of agreement on Bland-Altman plots, area
+under the curve, sensitivity and specificity incorporating the prevalence
+of disease.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,55 +1,54 @@
-%global packname  grobblR
-%global packver   0.2.0
+%global packname  modeltime.gluonts
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating Flexible, Reproducible 'PDF' Reports
+Summary:          'GluonTS' Deep Learning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-modeltime >= 0.3.1
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-timetk 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-modeltime >= 0.3.1
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-timetk 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-tibble 
-Requires:         R-tools 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-fs 
 
 %description
-A tool which allows users the ability to intuitively create flexible,
-reproducible portable document format reports comprised of aesthetically
-pleasing tables, images, plots and/or text.
+Use the 'GluonTS' deep learning library inside of 'modeltime'. Available
+models include 'DeepAR', 'N-BEATS', and 'N-BEATS' Ensemble. Refer to
+"GluonTS - Probabilistic Time Series Modeling"
+(<https://ts.gluon.ai/index.html>).
 
 %prep
 %setup -q -c -n %{packname}

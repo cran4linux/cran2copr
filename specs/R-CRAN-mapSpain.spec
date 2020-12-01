@@ -1,13 +1,13 @@
-%global packname  mixIndependR
-%global packver   0.4.3
+%global packname  mapSpain
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetics and Independence Testing of Mixed Genetic Panels
+Summary:          Administrative Boundaries of Spain
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.6.1
-BuildRequires:    R-stats >= 3.3
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-utils >= 3.6.1
-Requires:         R-stats >= 3.3
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-raster >= 3.0
+BuildRequires:    R-CRAN-leaflet >= 2.0.0
+BuildRequires:    R-CRAN-countrycode >= 1.2.0
+BuildRequires:    R-CRAN-sf >= 0.9
+BuildRequires:    R-CRAN-slippymath >= 0.3.1
+BuildRequires:    R-CRAN-giscoR >= 0.2.0
+BuildRequires:    R-CRAN-png >= 0.1.5
+Requires:         R-CRAN-raster >= 3.0
+Requires:         R-CRAN-leaflet >= 2.0.0
+Requires:         R-CRAN-countrycode >= 1.2.0
+Requires:         R-CRAN-sf >= 0.9
+Requires:         R-CRAN-slippymath >= 0.3.1
+Requires:         R-CRAN-giscoR >= 0.2.0
+Requires:         R-CRAN-png >= 0.1.5
 
 %description
-Developed to deal with multi-locus genotype data, this package is
-especially designed for those panel which include different type of
-markers. Basic genetic parameters like allele frequency, genotype
-frequency, heterozygosity and Hardy-Weinberg test of mixed genetic data
-can be obtained.  In addition, a new test for mutual independence which is
-compatible for mixed genetic data is developed in this package.
+Administrative Boundaries of Spain at several levels (CCAA, Provinces,
+Municipalities) based on the GISCO Eurostat database
+<https://ec.europa.eu/eurostat/web/gisco>. It also provides a 'leaflet'
+plugin and the ability of downloading and processing static tiles.
 
 %prep
 %setup -q -c -n %{packname}

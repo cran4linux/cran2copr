@@ -1,11 +1,11 @@
 %global packname  emstreeR
-%global packver   2.2.0
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Tools for Fast Computing and Plotting Euclidean Minimum SpanningTrees
+Version:          2.2.2
+Release:          1%{?dist}%{?buildtag}
+Summary:          Tools for Fast Computing and Plotting Euclidean Minimum Spanning Trees
 
 License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,18 +27,26 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-BBmisc 
 
 %description
-Computes Euclidean Minimum Spanning Trees (EMST) using the fast Dual-Tree
-Boruvka algorithm (March, Ram, Gray, 2010, <doi:10.1145/1835804.1835882>)
-implemented in 'mlpack' - the C++ Machine Learning library (Curtin et al.,
-2013). 'emstreeR' heavily relies on 'RcppMLPACK' and 'Rcpp', working as a
-wrapper to the C++ fast EMST algorithm. Thus, R users do not have to deal
-with the R-'Rcpp'-C++ integration. The package also provides functions and
-an S3 method for readily plotting Minimum Spanning Trees (MST) using
-either 'base' R, 'scatterplot3d' or 'ggplot2' style.
+Fast and easily computes an Euclidean Minimum Spanning Tree (EMST) from
+data. This package relies on 'RcppMLPACK' to provide an R interface to the
+Dual-Tree Boruvka algorithm (March, Ram, Gray, 2010,
+<doi:10.1145/1835804.1835882>) implemented in 'mlpack', the C++ Machine
+Learning Library (Curtin et. al., 2013). The Dual-Tree Boruvka is
+theoretically and empirically the fastest algorithm for computing an EMST.
+This package also provides functions and an S3 method for readily plotting
+Minimum Spanning Trees (MST) using either the style of the 'base',
+'scatterplot3d', or 'ggplot2' libraries.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -46,20 +54,10 @@ either 'base' R, 'scatterplot3d' or 'ggplot2' style.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
-%doc %{rlibdir}/%{packname}/lib
+%{rlibdir}/%{packname}

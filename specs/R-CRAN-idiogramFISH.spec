@@ -1,9 +1,9 @@
 %global packname  idiogramFISH
-%global packver   1.16.7
+%global packver   1.16.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16.7
+Version:          1.16.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Idiograms with Marks and Karyotype Indices
 

@@ -1,28 +1,35 @@
-%global packname  sfheaders
-%global packver   0.4.0
+%global packname  nipnTK
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converts Between R Objects and Simple Feature Objects
+Summary:          National Information Platforms for Nutrition Anthropometric Data Toolkit
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-geometries >= 0.2.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-geometries >= 0.2.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-bbw 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-bbw 
+Requires:         R-CRAN-withr 
 
 %description
-Converts between R and Simple Feature 'sf' objects, without depending on
-the Simple Feature library. Conversion functions are available at both the
-R level, and through 'Rcpp'.
+An implementation of the National Information Platforms for Nutrition or
+NiPN's analytic methods for assessing quality of anthropometric datasets
+that include measurements of weight, height or length, middle upper arm
+circumference, sex and age. The focus is on anthropometric status but many
+of the presented methods could be applied to other variables.
 
 %prep
 %setup -q -c -n %{packname}

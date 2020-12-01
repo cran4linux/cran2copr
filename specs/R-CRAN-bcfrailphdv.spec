@@ -1,11 +1,11 @@
-%global packname  mixIndependR
-%global packver   0.4.3
+%global packname  bcfrailphdv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetics and Independence Testing of Mixed Genetic Panels
+Summary:          Bivariate Correlated Frailty Models with Varied Variances
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,20 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.6.1
-BuildRequires:    R-stats >= 3.3
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-utils >= 3.6.1
-Requires:         R-stats >= 3.3
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-bcfrailph 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-bcfrailph 
+Requires:         R-stats 
 
 %description
-Developed to deal with multi-locus genotype data, this package is
-especially designed for those panel which include different type of
-markers. Basic genetic parameters like allele frequency, genotype
-frequency, heterozygosity and Hardy-Weinberg test of mixed genetic data
-can be obtained.  In addition, a new test for mutual independence which is
-compatible for mixed genetic data is developed in this package.
+Fit and simulate bivariate correlated frailty models with proportional
+hazard structure. Frailty distributions, such as gamma and lognormal
+models are supported. Frailty variances of the two subjects can be varied
+or equal. Details on the models are available in book of Wienke
+(2011,ISBN:978-1-4200-7388-1). Bivariate gamma fit is obtained using the
+approach given in Iachine (1995) with modifications. Lognormal fit is
+based on the approach by Ripatti and Palmgren (2000)
+<doi:10.1111/j.0006-341X.2000.01016.x>. Univariate and bivariate shared
+gamma frailty model fits are possible. Standard errors of the estimated
+covariate coefficients and frailty variance parameter are obtained using
+the approach given in Klein and Moeschberger (2003,ISBN:0-387-95399-X).
 
 %prep
 %setup -q -c -n %{packname}

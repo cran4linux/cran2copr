@@ -1,28 +1,35 @@
-%global packname  sfheaders
-%global packver   0.4.0
+%global packname  cascadess
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converts Between R Objects and Simple Feature Objects
+Summary:          A Style Pronoun for 'htmltools' Tags
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-geometries >= 0.2.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-geometries >= 0.2.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools >= 0.4.0
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-htmltools >= 0.4.0
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-Converts between R and Simple Feature 'sf' objects, without depending on
-the Simple Feature library. Conversion functions are available at both the
-R level, and through 'Rcpp'.
+Apply styles to tag elements directly or with the .style pronoun. Using
+the pronoun, styles are created within the context of a tag element.
+Change borders, background colors, margins, layouts, and more.
 
 %prep
 %setup -q -c -n %{packname}
