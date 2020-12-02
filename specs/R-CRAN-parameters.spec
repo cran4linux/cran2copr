@@ -1,9 +1,9 @@
 %global packname  parameters
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing of Model Parameters
 
@@ -16,16 +16,14 @@ BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bayestestR >= 0.7.5
-BuildRequires:    R-CRAN-insight >= 0.10.0
+BuildRequires:    R-CRAN-insight >= 0.11.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-bayestestR >= 0.7.5
-Requires:         R-CRAN-insight >= 0.10.0
+Requires:         R-CRAN-insight >= 0.11.0
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-tools 
 Requires:         R-utils 
 
 %description

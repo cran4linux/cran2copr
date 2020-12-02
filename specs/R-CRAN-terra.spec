@@ -1,9 +1,9 @@
 %global packname  terra
-%global packver   0.9-8
+%global packver   0.9-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          0.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Analysis
 

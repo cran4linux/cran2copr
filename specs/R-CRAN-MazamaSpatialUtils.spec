@@ -1,10 +1,10 @@
 %global packname  MazamaSpatialUtils
-%global packver   0.6.4
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
-Release:          3%{?dist}%{?buildtag}
+Version:          0.7.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Download and Utility Functions
 
 License:          GPL-2
@@ -12,49 +12,50 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rvest >= 0.3.0
+BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.5
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-cleangeo 
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geojsonio 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmapshaper 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-rvest >= 0.3.0
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-MazamaCoreUtils >= 0.4.5
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-cleangeo 
 Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geojsonio 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmapshaper 
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 
 %description
-A suite of conversion scripts to create internally standardized spatial
-polygons data frames. Utility scripts use these data sets to return values
-such as country, state, timezone, watershed, etc. associated with a set of
-longitude/latitude pairs. (They also make cool maps.)
+A suite of conversion functions to create internally standardized spatial
+polygons data frames. Utility functions use these data sets to return
+values such as country, state, timezone, watershed, etc. associated with a
+set of longitude/latitude pairs. (They also make cool maps.)
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -64,18 +65,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/shiny_examples
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

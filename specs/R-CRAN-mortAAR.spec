@@ -1,13 +1,13 @@
-%global packname  NFLSimulatoR
-%global packver   0.2
+%global packname  mortAAR
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Plays and Drives in the NFL
+Summary:          Analysis of Archaeological Mortality Data
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-methods >= 3.3.3
+BuildRequires:    R-CRAN-tibble >= 3.0.3
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-reshape2 >= 1.4.2
+BuildRequires:    R-CRAN-crayon >= 1.3.4
+BuildRequires:    R-CRAN-Rdpack >= 0.4
+Requires:         R-methods >= 3.3.3
+Requires:         R-CRAN-tibble >= 3.0.3
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-reshape2 >= 1.4.2
+Requires:         R-CRAN-crayon >= 1.3.4
+Requires:         R-CRAN-Rdpack >= 0.4
 
 %description
-The intent here is to enable the simulation of plays/drives and evaluate
-game-play strategies in the National Football League (NFL). Built-in
-strategies include going for it on fourth down and varying the proportion
-of passing/rushing plays during a drive. The user should be familiar with
-nflscrapR data before trying to write his/her own strategies. This work is
-inspired by a blog post by Mike Lopez, currently the Director of Data and
-Analytics at the NFL, Lopez (2019)
-<https://statsbylopez.netlify.app/post/resampling-nfl-drives/>.
+A collection of functions for the analysis of archaeological mortality
+data (on the topic see e.g. Chamberlain 2006
+<https://books.google.de/books?id=nG5FoO_becAC&lpg=PA27&ots=LG0b_xrx6O&dq=life%%20table%%20archaeology&pg=PA27#v=onepage&q&f=false>).
+It takes demographic data in different formats and displays the result in
+a standard life table as well as plots the relevant indices (percentage of
+deaths, survivorship, probability of death, life expectancy, percentage of
+population).
 
 %prep
 %setup -q -c -n %{packname}

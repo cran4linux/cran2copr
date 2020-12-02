@@ -1,9 +1,9 @@
 %global packname  groupedstats
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grouped Statistical Analyses in a Tidy Way
 
@@ -19,9 +19,8 @@ BuildRequires:    R-CRAN-broomExtra
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-ipmisc 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-parameters 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -33,9 +32,8 @@ Requires:         R-CRAN-broomExtra
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-ipmisc 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-parameters 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 

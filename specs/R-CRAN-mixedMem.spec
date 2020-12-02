@@ -1,36 +1,36 @@
-%global packname  flatxml
-%global packver   0.1.1
+%global packname  mixedMem
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Working with XML Files as R Dataframes
+Summary:          Tools for Discrete Multivariate Mixed Membership Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 0.11.3
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.11.3
+Requires:         R-CRAN-gtools 
 
 %description
-On import, the XML information is converted to a dataframe that reflects
-the hierarchical XML structure. Intuitive functions allow to navigate
-within this transparent XML data structure (without any knowledge of
-'XPath'). 'flatXML' also provides tools to extract data from the XML into
-a flat dataframe that can be used to perform statistical operations. It
-also supports converting dataframes to XML.
+Fits mixed membership models with discrete multivariate data (with or
+without repeated measures) following the general framework of Erosheva et
+al (2004). This package uses a Variational EM approach by approximating
+the posterior distribution of latent memberships and selecting
+hyperparameters through a pseudo-MLE procedure. Currently supported data
+types are Bernoulli, multinomial and rank (Plackett-Luce). The extended
+GoM model with fixed stayers from Erosheva et al (2007) is now also
+supported. See Airoldi et al (2014) for other examples of mixed membership
+models.
 
 %prep
 %setup -q -c -n %{packname}

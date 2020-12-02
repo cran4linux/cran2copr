@@ -1,9 +1,9 @@
 %global packname  xmlconvert
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comfortably Converting XML Documents to Dataframes and Vice Versa
 
@@ -21,18 +21,20 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-httr 
 Requires:         R-utils 
+Requires:         R-CRAN-lubridate 
 
 %description
 Converts XML documents to R dataframes and dataframes to XML documents. A
 wide variety of options allows for different XML formats and flexible
 control of the conversion process. Results can be exported to CSV and
-Excel, if desired.
+Excel, if desired. Also converts XML data to R lists.
 
 %prep
 %setup -q -c -n %{packname}

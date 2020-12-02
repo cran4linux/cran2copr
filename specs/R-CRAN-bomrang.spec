@@ -1,9 +1,9 @@
 %global packname  bomrang
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Australian Government Bureau of Meteorology ('BOM') Data Client
 
@@ -29,9 +29,9 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-hoardr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-curl >= 2.8
@@ -48,9 +48,9 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-hoardr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-magick 
 Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-terra 
 Requires:         R-tools 
 Requires:         R-utils 
 
