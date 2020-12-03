@@ -1,45 +1,44 @@
-%global packname  spatialEco
-%global packver   1.3-3
+%global packname  tabularaster
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis and Modelling Utilities
+Summary:          Tidy Tools for 'Raster' Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.2.5
+Requires:         R-core >= 3.2.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fasterize 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-silicate 
 BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fasterize 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-silicate 
 Requires:         R-CRAN-spatstat 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
+Requires:         R-CRAN-tibble 
 
 %description
-Utilities to support spatial data manipulation, query, sampling and
-modelling. Functions include models for species population density,
-download utilities for climate and global deforestation spatial products,
-spatial smoothing, multivariate separability, point process model for
-creating pseudo- absences and sub-sampling, polygon and point-distance
-landscape metrics, auto-logistic model, sampling models, cluster
-optimization, statistical exploratory tools and raster-based metrics.
+Facilities to work with vector and raster data in efficient repeatable and
+systematic work flow. Missing functionality in existing packages is
+included here to allow extraction from raster data with 'simple features'
+and 'Spatial' types and to make extraction consistent and straightforward.
+Extract cell numbers from raster data and return the cells as a data frame
+rather than as lists of matrices or vectors. The functions here allow
+spatial data to be used without special handling for the format currently
+in use.
 
 %prep
 %setup -q -c -n %{packname}

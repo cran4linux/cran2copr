@@ -1,13 +1,13 @@
-%global packname  correlation
-%global packver   0.5.0
+%global packname  LDNN
+%global packver   1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Correlation Analysis
+Summary:          Longitudinal Data Neural Network
 
-License:          GPL-3
+License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.11.0
-BuildRequires:    R-CRAN-parameters >= 0.10.0
-BuildRequires:    R-datasets 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-effectsize 
-Requires:         R-CRAN-insight >= 0.11.0
-Requires:         R-CRAN-parameters >= 0.10.0
-Requires:         R-datasets 
-Requires:         R-stats 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-effectsize 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-tensorflow 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-tensorflow 
 
 %description
-Lightweight package for computing different kinds of correlations, such as
-partial correlations, Bayesian correlations, multilevel correlations,
-polychoric correlations, biweight correlations, distance correlations and
-more. Relies on the easystats ecosystem (Lüdecke, Waggoner & Makowski
-(2019) <doi:10.21105/joss.01412>).
+This is a Neural Network regression model implementation using 'Keras',
+consisting of 10 Long Short-Term Memory layers that are fully connected
+along with the rest of the inputs.
 
 %prep
 %setup -q -c -n %{packname}

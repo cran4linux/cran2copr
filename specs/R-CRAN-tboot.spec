@@ -1,39 +1,34 @@
-%global packname  correlation
-%global packver   0.5.0
+%global packname  tboot
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Correlation Analysis
+Summary:          Tilted Bootstrap
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.11.0
-BuildRequires:    R-CRAN-parameters >= 0.10.0
-BuildRequires:    R-datasets 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-effectsize 
-Requires:         R-CRAN-insight >= 0.11.0
-Requires:         R-CRAN-parameters >= 0.10.0
-Requires:         R-datasets 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-kernlab 
 Requires:         R-stats 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-effectsize 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-kernlab 
 
 %description
-Lightweight package for computing different kinds of correlations, such as
-partial correlations, Bayesian correlations, multilevel correlations,
-polychoric correlations, biweight correlations, distance correlations and
-more. Relies on the easystats ecosystem (Lüdecke, Waggoner & Makowski
-(2019) <doi:10.21105/joss.01412>).
+Creates simulated clinical trial data with realistic correlation
+structures and assumed efficacy levels by using a tilted bootstrap
+resampling approach. Samples are drawn from observed data with some
+samples appearing more frequently than others. May also be used for
+simulating from a joint Bayesian distribution along with clinical trials
+based on the Bayesian distribution.
 
 %prep
 %setup -q -c -n %{packname}

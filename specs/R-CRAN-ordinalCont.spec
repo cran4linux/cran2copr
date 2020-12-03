@@ -1,10 +1,10 @@
 %global packname  ordinalCont
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
-Release:          3%{?dist}%{?buildtag}
+Version:          2.0.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Ordinal Regression Analysis for Continuous Scales
 
 License:          GPL (>= 2)
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-boot 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-Deriv 
-Requires:         R-boot 
+Requires:         R-CRAN-boot 
 Requires:         R-splines 
 Requires:         R-CRAN-Deriv 
 
@@ -32,11 +32,19 @@ their inherent non-linearity. We treat them as ordinal variables, measured
 on a continuous scale. A function (the g function) connects the scale with
 an underlying continuous latent variable. The link function is the inverse
 of the CDF of the assumed underlying distribution of the latent variable.
-A variety of link functions are currently implemented.
+A variety of link functions are currently implemented. Such models are
+described in Manuguerra et al (2020) <doi:10.18637/jss.v096.i08>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -44,18 +52,10 @@ A variety of link functions are currently implemented.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

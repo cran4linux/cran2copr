@@ -1,39 +1,41 @@
-%global packname  correlation
-%global packver   0.5.0
+%global packname  allcontributors
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Correlation Analysis
+Summary:          Acknowledge all Contributors to a Project
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.11.0
-BuildRequires:    R-CRAN-parameters >= 0.10.0
-BuildRequires:    R-datasets 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-effectsize 
-Requires:         R-CRAN-insight >= 0.11.0
-Requires:         R-CRAN-parameters >= 0.10.0
-Requires:         R-datasets 
-Requires:         R-stats 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-effectsize 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-ghql 
+BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-ghql 
+Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
 
 %description
-Lightweight package for computing different kinds of correlations, such as
-partial correlations, Bayesian correlations, multilevel correlations,
-polychoric correlations, biweight correlations, distance correlations and
-more. Relies on the easystats ecosystem (Lüdecke, Waggoner & Makowski
-(2019) <doi:10.21105/joss.01412>).
+Acknowledge all contributors to a project via a single function call. The
+function appends to a 'README' or other specified file(s) a table with
+names of all individuals who contributed via code or repository issues.
+The package also includes several additional functions to extract and
+quantify contributions to any repository.
 
 %prep
 %setup -q -c -n %{packname}

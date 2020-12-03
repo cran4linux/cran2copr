@@ -1,13 +1,13 @@
-%global packname  jaod
-%global packver   0.3.0
+%global packname  threesixtygiving
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Directory of Open Access Journals Client
+Summary:          Download Charitable Grants from the '360Giving' Platform
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-anytime 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-crul 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-anytime 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-curl 
 
 %description
-Client for the Directory of Open Access Journals ('DOAJ')
-(<https://doaj.org/>). API documentation at
-<https://doaj.org/api/v1/docs>. Methods included for working with all
-'DOAJ' API routes: fetch article information by identifier, search for
-articles, fetch journal information by identifier, and search for
-journals.
+Access open data from <https://www.threesixtygiving.org>, a database of
+charitable grant giving in the UK operated by '360Giving'. The package
+provides functions to search and retrieve data on charitable grant giving,
+and process that data into tidy formats. It relies on the '360Giving' data
+standard, described at <https://standard.threesixtygiving.org/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global packname  causalweight
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
-Release:          2%{?dist}%{?buildtag}
-Summary:          Causal Inference Based on Inverse Probability Weighting, DoublyRobust Estimation, and Double Machine Learning
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Estimation Methods for Causal Inference Based on Inverse Probability Weighting
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,24 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-LARF 
 BuildRequires:    R-CRAN-hdm 
 BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-fastDummies 
+Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-LARF 
 Requires:         R-CRAN-hdm 
 Requires:         R-CRAN-SuperLearner 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-fastDummies 
 
 %description
 Various estimators of causal effects based on inverse probability
@@ -49,7 +51,13 @@ Lettry (2020) <doi:10.1002/jae.2765>, and others.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -57,19 +65,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

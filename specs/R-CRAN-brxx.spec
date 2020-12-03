@@ -1,9 +1,9 @@
 %global packname  brxx
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Test Reliability Estimation
 
@@ -33,7 +33,7 @@ or researcher intuition to more accurately estimate the parameters.  This
 package provides a user friendly interface for estimating test
 reliability.  Here, reliability is modeled as a beta distributed random
 variable with shape parameters alpha=true score variance and beta=error
-variance (Tanzer, 2020) <https://smep.org/>.
+variance (Tanzer & Harlow, 2020) <doi:10.1080/00273171.2020.1854082>.
 
 %prep
 %setup -q -c -n %{packname}

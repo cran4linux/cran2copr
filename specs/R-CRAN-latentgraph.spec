@@ -1,11 +1,11 @@
-%global packname  correlation
-%global packver   0.5.0
+%global packname  latentgraph
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Correlation Analysis
+Summary:          Functions for Graphical Model with Latent Variables
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,26 +14,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.11.0
-BuildRequires:    R-CRAN-parameters >= 0.10.0
-BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-effectsize 
-Requires:         R-CRAN-insight >= 0.11.0
-Requires:         R-CRAN-parameters >= 0.10.0
-Requires:         R-datasets 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-effectsize 
 
 %description
-Lightweight package for computing different kinds of correlations, such as
-partial correlations, Bayesian correlations, multilevel correlations,
-polychoric correlations, biweight correlations, distance correlations and
-more. Relies on the easystats ecosystem (Lüdecke, Waggoner & Makowski
-(2019) <doi:10.21105/joss.01412>).
+Three methods are provided to estimate graphical model with latent
+variables: Chandrasekaran, V., Parrilo, P. A. & Willsky, A. S. (2010)
+<arXiv:1008.1290>, Tan, K. M., Ning, Y., Witten, D. M. & Liu, H. (2016)
+<doi:10.1093/biomet/asw050> and Yanxin Jin, Yang Ning, and Kean Ming Tan
+(2020) (submitted).
 
 %prep
 %setup -q -c -n %{packname}

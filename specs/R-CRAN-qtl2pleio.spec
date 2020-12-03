@@ -1,9 +1,9 @@
 %global packname  qtl2pleio
-%global packver   1.4.1
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testing Pleiotropy in Multiparental Populations
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gemma2 

@@ -1,39 +1,28 @@
-%global packname  correlation
-%global packver   0.5.0
+%global packname  AnchorRegression
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Correlation Analysis
+Summary:          Perform AnchorRegression
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.11.0
-BuildRequires:    R-CRAN-parameters >= 0.10.0
-BuildRequires:    R-datasets 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-effectsize 
-Requires:         R-CRAN-insight >= 0.11.0
-Requires:         R-CRAN-parameters >= 0.10.0
-Requires:         R-datasets 
-Requires:         R-stats 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-effectsize 
+BuildRequires:    R-CRAN-glmnet >= 4.0.2
+Requires:         R-CRAN-glmnet >= 4.0.2
 
 %description
-Lightweight package for computing different kinds of correlations, such as
-partial correlations, Bayesian correlations, multilevel correlations,
-polychoric correlations, biweight correlations, distance correlations and
-more. Relies on the easystats ecosystem (Lüdecke, Waggoner & Makowski
-(2019) <doi:10.21105/joss.01412>).
+Performs AnchorRegression proposed by Rothenhäusler et al. 2020. The code
+is adapted from the original paper repository.
+(<https://github.com/rothenhaeusler/anchor-regression>) The code was
+developed independently from the authors of the paper.
 
 %prep
 %setup -q -c -n %{packname}
