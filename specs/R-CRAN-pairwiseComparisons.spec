@@ -1,9 +1,9 @@
 %global packname  pairwiseComparisons
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Pairwise Comparison Tests
 
@@ -15,22 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ipmisc >= 4.1.0
-BuildRequires:    R-CRAN-insight >= 0.10.0
+BuildRequires:    R-CRAN-PMCMRplus >= 1.7.1
+BuildRequires:    R-CRAN-parameters >= 0.10.0
 BuildRequires:    R-CRAN-BayesFactor 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-PMCMRplus 
-BuildRequires:    R-CRAN-parameters 
+BuildRequires:    R-CRAN-ipmisc 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-WRS2 
-Requires:         R-CRAN-ipmisc >= 4.1.0
-Requires:         R-CRAN-insight >= 0.10.0
+Requires:         R-CRAN-PMCMRplus >= 1.7.1
+Requires:         R-CRAN-parameters >= 0.10.0
 Requires:         R-CRAN-BayesFactor 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-PMCMRplus 
-Requires:         R-CRAN-parameters 
+Requires:         R-CRAN-ipmisc 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

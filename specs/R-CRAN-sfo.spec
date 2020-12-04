@@ -1,38 +1,37 @@
-%global packname  datamaps
-%global packver   0.0.3
+%global packname  sfo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Web Maps with the 'JavaScript Datamaps' Library
+Summary:          San Francisco International Airport Monthly Air Passengers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-magrittr 
 
 %description
-Easily create interactive choropleth maps then add bubbles and arcs by
-coordinates or region name. These maps can be used directly from the
-console, from 'RStudio', in 'Shiny' apps and 'R Markdown' documents.
-'Shiny' proxies allow to interactively add arcs and bubbles, change
-choropleth values, or change labels.
+Provides monthly statistics on the number of monthly air passengers at SFO
+airport such as operating airline, terminal, geo, etc. Data source: San
+Francisco data portal (DataSF)
+<https://data.sfgov.org/Transportation/Air-Traffic-Passenger-Statistics/rkru-6vcg>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,6 +41,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

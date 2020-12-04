@@ -1,9 +1,9 @@
 %global packname  subscreen
-%global packver   3.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Screening of Study Data for Subgroup Effects
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-randomForestSRC 
-BuildRequires:    R-CRAN-V8 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-shinyWidgets 
 Requires:         R-utils 
@@ -46,7 +45,6 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-randomForestSRC 
-Requires:         R-CRAN-V8 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-shinyWidgets 
 

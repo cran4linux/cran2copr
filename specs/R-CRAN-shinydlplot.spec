@@ -1,30 +1,42 @@
-%global packname  clue
-%global packver   0.3-58
+%global packname  shinydlplot
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.58
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cluster Ensembles
+Summary:          Add a Download Button to a 'shiny' Plot or 'plotly'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-plotly >= 4.9.2
+BuildRequires:    R-CRAN-htmlwidgets >= 1.5.1
+BuildRequires:    R-CRAN-shiny >= 1.4.0
+BuildRequires:    R-CRAN-shinyjs >= 1.1
+BuildRequires:    R-CRAN-shinyBS >= 0.61
+BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-cluster 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-plotly >= 4.9.2
+Requires:         R-CRAN-htmlwidgets >= 1.5.1
+Requires:         R-CRAN-shiny >= 1.4.0
+Requires:         R-CRAN-shinyjs >= 1.1
+Requires:         R-CRAN-shinyBS >= 0.61
+Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-CLUster Ensembles.
+Add a download button to a 'shiny' plot or 'plotly' that appears when the
+plot is hovered. A tooltip, styled to resemble 'plotly' buttons, is
+displayed on hover of the download button. The download button can be used
+to allow users to download the dataset used for a plot.
 
 %prep
 %setup -q -c -n %{packname}

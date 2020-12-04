@@ -1,9 +1,9 @@
 %global packname  ggstatsplot
-%global packver   0.6.5
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -15,13 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broomExtra >= 4.1.0
-BuildRequires:    R-CRAN-ipmisc >= 4.1.0
-BuildRequires:    R-CRAN-pairwiseComparisons >= 3.1.0
-BuildRequires:    R-CRAN-parameters >= 0.9.0
-BuildRequires:    R-CRAN-statsExpressions >= 0.6.0
-BuildRequires:    R-CRAN-effectsize >= 0.4.0
-BuildRequires:    R-CRAN-insight >= 0.10.0
+BuildRequires:    R-CRAN-statsExpressions >= 0.6.1
+BuildRequires:    R-CRAN-performance >= 0.6.0
+BuildRequires:    R-CRAN-insight >= 0.11.0
+BuildRequires:    R-CRAN-parameters >= 0.10.0
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggcorrplot 
@@ -29,18 +26,18 @@ BuildRequires:    R-CRAN-ggExtra
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggsignif 
+BuildRequires:    R-CRAN-ipmisc 
+BuildRequires:    R-CRAN-pairwiseComparisons 
 BuildRequires:    R-CRAN-paletteer 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broomExtra >= 4.1.0
-Requires:         R-CRAN-ipmisc >= 4.1.0
-Requires:         R-CRAN-pairwiseComparisons >= 3.1.0
-Requires:         R-CRAN-parameters >= 0.9.0
-Requires:         R-CRAN-statsExpressions >= 0.6.0
-Requires:         R-CRAN-effectsize >= 0.4.0
-Requires:         R-CRAN-insight >= 0.10.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-statsExpressions >= 0.6.1
+Requires:         R-CRAN-performance >= 0.6.0
+Requires:         R-CRAN-insight >= 0.11.0
+Requires:         R-CRAN-parameters >= 0.10.0
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggcorrplot 
@@ -48,11 +45,14 @@ Requires:         R-CRAN-ggExtra
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggsignif 
+Requires:         R-CRAN-ipmisc 
+Requires:         R-CRAN-pairwiseComparisons 
 Requires:         R-CRAN-paletteer 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 Extension of 'ggplot2', 'ggstatsplot' creates graphics with details from

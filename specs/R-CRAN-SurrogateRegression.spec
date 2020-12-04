@@ -1,48 +1,43 @@
-%global packname  pomp
-%global packver   3.2
+%global packname  SurrogateRegression
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Partially Observed Markov Processes
+Summary:          Surrogate Outcome Regression Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Tools for data analysis with partially observed Markov process (POMP)
-models (also known as stochastic dynamical systems, hidden Markov models,
-and nonlinear, non-Gaussian, state-space models).  The package provides
-facilities for implementing POMP models, simulating them, and fitting them
-to time series data by a variety of frequentist and Bayesian methods.  It
-is also a versatile platform for implementation of inference methods for
-general POMP models.
+Performs estimation and inference on a partially missing target outcome
+while borrowing information from a correlated surrogate outcome to
+increase estimation precision and improve power. The target and surrogate
+outcomes are jointly modeled within a bivariate outcome regression
+framework. Unobserved values of either outcome are regarded as missing
+data. Estimation in the presence of bilateral outcome missingness is
+performed via an expectation conditional maximization algorithm. A
+flexible association test is provided for evaluating hypotheses about the
+target regression parameters. See McCaw ZR, Gaynor SM, Sun R, Lin X;
+“Cross-tissue eQTL mapping in the presence of missing data via surrogate
+outcome analysis” <doi:10.1101/2020.11.29.403063>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  SPOT
-%global packver   2.1.2
+%global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Parameter Optimization Toolbox
 
@@ -28,13 +28,11 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-rsm 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-SimInf 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-CRAN-smoof 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-party 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ranger 
 Requires:         R-stats 
@@ -48,13 +46,11 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-rsm 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-SimInf 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-rpart.plot 
 Requires:         R-CRAN-smoof 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-party 
 
 %description
 A set of tools for model based optimization and tuning of algorithms. It

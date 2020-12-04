@@ -1,30 +1,37 @@
-%global packname  clue
-%global packver   0.3-58
+%global packname  GEVACO
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.58
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cluster Ensembles
+Summary:          Joint Test of Gene and GxE Interactions via Varying Coefficients
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-RLRsim 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-RLRsim 
 Requires:         R-stats 
-Requires:         R-CRAN-cluster 
-Requires:         R-graphics 
-Requires:         R-methods 
 
 %description
-CLUster Ensembles.
+A novel statistical model to detect the joint genetic and dynamic
+gene-environment (GxE) interaction with continuous traits in genetic
+association studies. It uses varying-coefficient models to account for
+different GxE trajectories, regardless whether the relationship is linear
+or not. The package includes one function, GxEtest(), to test a single
+genetic variant (e.g., a single nucleotide polymorphism or SNP), and
+another function, GxEscreen(), to test for a set of genetic variants. The
+method involves a likelihood ratio test described in Crainiceanu, C. M.,
+and Ruppert, D. (2004) <doi:10.1111/j.1467-9868.2004.00438.x>.
 
 %prep
 %setup -q -c -n %{packname}
