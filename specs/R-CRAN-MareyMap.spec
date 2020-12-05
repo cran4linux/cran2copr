@@ -1,10 +1,10 @@
 %global packname  MareyMap
-%global packver   1.3.5
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
-Release:          3%{?dist}%{?buildtag}
+Version:          1.3.6
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Meiotic Recombination Rates Using Marey Maps
 
 License:          GPL (>= 2)
@@ -20,7 +20,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-tkrplot 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-graphics 
@@ -28,7 +27,6 @@ Requires:         R-grDevices
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-tcltk 
-Requires:         R-CRAN-tkrplot 
 Requires:         R-tools 
 Requires:         R-utils 
 
@@ -39,7 +37,13 @@ Marey maps.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -47,27 +51,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/about.txt
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/gnome-settings.gif
-%doc %{rlibdir}/%{packname}/gtk-add.gif
-%doc %{rlibdir}/%{packname}/license.txt
-%doc %{rlibdir}/%{packname}/stock_color.gif
-%doc %{rlibdir}/%{packname}/stock_delete.gif
-%doc %{rlibdir}/%{packname}/stock_help-agent.gif
-%doc %{rlibdir}/%{packname}/stock_save.gif
-%doc %{rlibdir}/%{packname}/stock_show-all.gif
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

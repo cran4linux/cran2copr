@@ -1,9 +1,9 @@
 %global packname  chess
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Write, Create and Explore Chess Games
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rsvg 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-rsvg 
 
 %description
 This is an opinionated wrapper around the python-chess package. It allows

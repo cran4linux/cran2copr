@@ -1,9 +1,9 @@
 %global packname  paradox
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Define and Work with Parameter Spaces for Complex Algorithms
 
@@ -19,11 +19,13 @@ BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-mlr3misc >= 0.5.0
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
+Requires:         R-methods 
 Requires:         R-CRAN-R6 
 
 %description

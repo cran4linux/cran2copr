@@ -1,9 +1,9 @@
 %global packname  cNORM
-%global packver   1.2.4
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Norming
 

@@ -1,29 +1,28 @@
-%global packname  mlr3data
-%global packver   0.3.0
+%global packname  RecAssoRules
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Machine Learning Data Sets for 'mlr3'
+Summary:          Recursive Mining for Frequent Pattern and Confident Association Rules
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-A small collection of interesting and educational machine learning data
-sets which are used as examples in the 'mlr3' book
-(<https://mlr3book.mlr-org.com>), the use case gallery
-(<https://mlr3gallery.mlr-org.com>), or in other examples. All data sets
-are properly preprocessed and ready to be analyzed by most machine
-learning algorithms.  Data sets are automatically added to the dictionary
-of tasks if 'mlr3' is loaded.
+Provides functions allowing the user to recursively extract frequent
+patterns and confident rules according to indicators of minimal support
+and minimal confidence. These functions are described in "Recursive
+Association Rule Mining" Abdelkader Mokkadem, Mariane Pelletier, Louis
+Raimbault (2020) <arXiv:2011.14195>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,29 @@
-%global packname  mlr3data
-%global packver   0.3.0
+%global packname  akiFlagger
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Machine Learning Data Sets for 'mlr3'
+Summary:          Flags Acute Kidney Injury (AKI)
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-zoo 
 
 %description
-A small collection of interesting and educational machine learning data
-sets which are used as examples in the 'mlr3' book
-(<https://mlr3book.mlr-org.com>), the use case gallery
-(<https://mlr3gallery.mlr-org.com>), or in other examples. All data sets
-are properly preprocessed and ready to be analyzed by most machine
-learning algorithms.  Data sets are automatically added to the dictionary
-of tasks if 'mlr3' is loaded.
+Flagger to detect acute kidney injury (AKI) in a patient dataset.
 
 %prep
 %setup -q -c -n %{packname}

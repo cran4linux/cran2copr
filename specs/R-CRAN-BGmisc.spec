@@ -1,29 +1,29 @@
-%global packname  mlr3data
-%global packver   0.3.0
+%global packname  BGmisc
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Machine Learning Data Sets for 'mlr3'
+Summary:          Behavior Genetic Modeling Functions
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
 
 %description
-A small collection of interesting and educational machine learning data
-sets which are used as examples in the 'mlr3' book
-(<https://mlr3book.mlr-org.com>), the use case gallery
-(<https://mlr3gallery.mlr-org.com>), or in other examples. All data sets
-are properly preprocessed and ready to be analyzed by most machine
-learning algorithms.  Data sets are automatically added to the dictionary
-of tasks if 'mlr3' is loaded.
+Functions for behavior genetic modeling, including model identification,
+calculating relatedness, and various others (e.g., Hunter, Garrison, et
+al, 2019 <doi:10.1007/s10519-019-09973-8>).
 
 %prep
 %setup -q -c -n %{packname}

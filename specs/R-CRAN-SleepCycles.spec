@@ -1,29 +1,38 @@
-%global packname  mlr3data
-%global packver   0.3.0
+%global packname  SleepCycles
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Machine Learning Data Sets for 'mlr3'
+Summary:          Sleep Cycle Detection
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-devtools 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-devtools 
 
 %description
-A small collection of interesting and educational machine learning data
-sets which are used as examples in the 'mlr3' book
-(<https://mlr3book.mlr-org.com>), the use case gallery
-(<https://mlr3gallery.mlr-org.com>), or in other examples. All data sets
-are properly preprocessed and ready to be analyzed by most machine
-learning algorithms.  Data sets are automatically added to the dictionary
-of tasks if 'mlr3' is loaded.
+Sleep cycles are largely detected according to the originally proposed
+criteria by Feinberg & Floyd (1979)
+<doi:10.1111/j.1469-8986.1979.tb02991.x> as described in Blume & Cajochen
+(2020) <doi:10.31219/osf.io/r2q8v>.
 
 %prep
 %setup -q -c -n %{packname}

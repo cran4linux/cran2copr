@@ -1,29 +1,30 @@
-%global packname  mlr3data
-%global packver   0.3.0
+%global packname  iccde
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Machine Learning Data Sets for 'mlr3'
+Summary:          Computation of the Double-Entry Intraclass Correlation
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-A small collection of interesting and educational machine learning data
-sets which are used as examples in the 'mlr3' book
-(<https://mlr3book.mlr-org.com>), the use case gallery
-(<https://mlr3gallery.mlr-org.com>), or in other examples. All data sets
-are properly preprocessed and ready to be analyzed by most machine
-learning algorithms.  Data sets are automatically added to the dictionary
-of tasks if 'mlr3' is loaded.
+The function computes the profile similarity measure double-entry
+intraclass correlation. It is a more precise index of the agreement of two
+empirically observed profiles than the often used intraclass correlation
+or profile correlation. In the case of score data with different scale
+formats, it is recommended to z-standardize the scores before entering
+into the function. For details, see Furr (2010)
+<doi:10.1080/00223890903379134> or McCrae (2008)
+<doi:10.1080/00223890701845104>.
 
 %prep
 %setup -q -c -n %{packname}

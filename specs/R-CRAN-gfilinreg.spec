@@ -1,34 +1,44 @@
-%global packname  tseries
-%global packver   0.10-48
+%global packname  gfilinreg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.48
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series Analysis and Computational Finance
+Summary:          Generalized Fiducial Inference for Low-Dimensional Linear Regression
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-quantmod >= 0.4.9
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-quantmod >= 0.4.9
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-arrangements 
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-EigenR 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-lazyeval 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-arrangements 
+Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-EigenR 
+Requires:         R-CRAN-data.table 
 
 %description
-Time series analysis and computational finance.
+Fiducial framework for linear regression models allowing normal, Student,
+Cauchy, or logistic error terms. Only low-dimensional models are possible,
+such as the simple linear regression model, the quadratic regression
+model, or the one-way ANOVA model with two or three factor levels.
+Reference: Hannig, Lai & Lee (2014) <doi:10.1016/j.csda.2013.03.003>.
 
 %prep
 %setup -q -c -n %{packname}

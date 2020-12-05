@@ -1,29 +1,29 @@
-%global packname  mlr3data
-%global packver   0.3.0
+%global packname  rdacca.hp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Machine Learning Data Sets for 'mlr3'
+Summary:          Hierarchical Partitioning for Canonical Analysis
 
-License:          LGPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-vegan 
 
 %description
-A small collection of interesting and educational machine learning data
-sets which are used as examples in the 'mlr3' book
-(<https://mlr3book.mlr-org.com>), the use case gallery
-(<https://mlr3gallery.mlr-org.com>), or in other examples. All data sets
-are properly preprocessed and ready to be analyzed by most machine
-learning algorithms.  Data sets are automatically added to the dictionary
-of tasks if 'mlr3' is loaded.
+This function calculates the independent contribution of each explanatory
+variable to explained variation (R-squared) on RDA,CCA and db-RDA,
+applying the hierarchy algorithm of Chevan, A. and Sutherland, M. 1991
+Hierarchical Partitioning.The American Statistician, 90-96
+<DOI:10.1080/00031305.1991.10475776>.
 
 %prep
 %setup -q -c -n %{packname}
