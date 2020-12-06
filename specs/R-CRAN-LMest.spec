@@ -1,39 +1,47 @@
-%global packname  sbo
-%global packver   0.5.0
+%global packname  LMest
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Text Prediction via Stupid Back-Off N-Gram Models
+Summary:          Generalized Latent Markov Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-mclust >= 5.4.6
+BuildRequires:    R-CRAN-diagram >= 1.6.4
+BuildRequires:    R-CRAN-Formula >= 1.2.3
+BuildRequires:    R-CRAN-scatterplot3d >= 0.3.41
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MultiLCIRT 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-mix 
+BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-utils 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-mclust >= 5.4.6
+Requires:         R-CRAN-diagram >= 1.6.4
+Requires:         R-CRAN-Formula >= 1.2.3
+Requires:         R-CRAN-scatterplot3d >= 0.3.41
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MultiLCIRT 
 Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-mix 
+Requires:         R-utils 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Utilities for training and evaluating text predictors based on Stupid
-Back-Off N-gram models (Brants et al., 2007,
-<https://www.aclweb.org/anthology/D07-1090/>).
+Latent Markov models for longitudinal continuous and categorical data. See
+Bartolucci, Pandolfi, Pennoni (2017)<doi:10.18637/jss.v081.i04>.
 
 %prep
 %setup -q -c -n %{packname}

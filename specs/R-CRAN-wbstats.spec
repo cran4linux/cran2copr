@@ -1,39 +1,45 @@
-%global packname  sbo
-%global packver   0.5.0
+%global packname  wbstats
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Text Prediction via Stupid Back-Off N-Gram Models
+Summary:          Programmatic Access to Data and Statistics from the World Bank API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Utilities for training and evaluating text predictors based on Stupid
-Back-Off N-gram models (Brants et al., 2007,
-<https://www.aclweb.org/anthology/D07-1090/>).
+Search and download data from the World Bank Data API.
 
 %prep
 %setup -q -c -n %{packname}

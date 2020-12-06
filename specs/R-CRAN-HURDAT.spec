@@ -1,39 +1,42 @@
-%global packname  sbo
-%global packver   0.5.0
+%global packname  HURDAT
+%global packver   0.2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.2.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Text Prediction via Stupid Back-Off N-Gram Models
+Summary:          Hurricane Re-Analysis Project
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xml2 
 
 %description
-Utilities for training and evaluating text predictors based on Stupid
-Back-Off N-gram models (Brants et al., 2007,
-<https://www.aclweb.org/anthology/D07-1090/>).
+Scraped dataset of the Hurricane Research Division's Hurricane Re-Analysis
+Project known as HURDAT. Storm details are available for most known
+hurricanes and tropical storms for the Atlantic and northeastern Pacific
+ocean (northwestern hemisphere). See
+<https://www.aoml.noaa.gov/hrd/hurdat/Data_Storm.html> for more
+information.
 
 %prep
 %setup -q -c -n %{packname}

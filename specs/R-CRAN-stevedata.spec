@@ -1,9 +1,9 @@
 %global packname  stevedata
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Steve's Toy Data for Teaching About a Variety of Methodological, Social, and Political Topics
 
@@ -20,7 +20,9 @@ BuildArch:        noarch
 This is an R package for all my toy data. Its main uses are for teaching.
 My students, and academics like me who teach the same topics I teach,
 should find this useful if their teaching workflow is also built around
-the R programming language.
+the R programming language. The applications are multiple but mostly
+cluster on topics of statistical methodology, international relations, and
+political economy.
 
 %prep
 %setup -q -c -n %{packname}
