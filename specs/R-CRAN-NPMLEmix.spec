@@ -1,9 +1,9 @@
 %global packname  NPMLEmix
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Groups Mixture Model with Covariates
 
@@ -56,8 +56,8 @@ location mixture and the signal proportion is a logistic function of the
 available covariates. Two other functions - marg1() and marg2() have also
 been implemented for inference in the above framework. All these methods
 can be used for inference in multiple hypotheses testing. For more
-information, see the paper: Deb, Saha, Guntuboyina and Sen
-(2019),``Two-component Mixture Model in the Presence of Covariates''
+information, see the paper: Deb, Saha, Guntuboyina and Sen (2019),
+''Two-component Mixture Model in the Presence of Covariates''
 <arXiv:1810.07897v2>.
 
 %prep

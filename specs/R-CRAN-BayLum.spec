@@ -1,21 +1,23 @@
 %global packname  BayLum
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
-Release:          3%{?dist}%{?buildtag}
-Summary:          Chronological Bayesian Models Integrating Optically StimulatedLuminescence and Radiocarbon Age Dating
+Version:          0.2.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Chronological Bayesian Models Integrating Optically Stimulated Luminescence and Radiocarbon Age Dating
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjags >= 4.6
+BuildRequires:    R-CRAN-rjags >= 4.10
+BuildRequires:    R-CRAN-runjags >= 2.0.4
+BuildRequires:    R-CRAN-ArchaeoPhases >= 1.5
 BuildRequires:    R-CRAN-Luminescence >= 0.8.2
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-coda 
@@ -24,9 +26,10 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-hexbin 
-BuildRequires:    R-KernSmooth 
-BuildRequires:    R-CRAN-ArchaeoPhases 
-Requires:         R-CRAN-rjags >= 4.6
+BuildRequires:    R-CRAN-KernSmooth 
+Requires:         R-CRAN-rjags >= 4.10
+Requires:         R-CRAN-runjags >= 2.0.4
+Requires:         R-CRAN-ArchaeoPhases >= 1.5
 Requires:         R-CRAN-Luminescence >= 0.8.2
 Requires:         R-utils 
 Requires:         R-CRAN-coda 
@@ -35,8 +38,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-CRAN-hexbin 
-Requires:         R-KernSmooth 
-Requires:         R-CRAN-ArchaeoPhases 
+Requires:         R-CRAN-KernSmooth 
 
 %description
 Bayesian analysis of luminescence data and C-14 age estimates. Bayesian
@@ -48,6 +50,13 @@ import, export, application of age models and palaeodose model.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -55,21 +64,10 @@ import, export, application of age models and palaeodose model.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
