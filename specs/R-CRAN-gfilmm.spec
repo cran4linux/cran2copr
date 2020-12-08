@@ -1,9 +1,9 @@
 %global packname  gfilmm
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Fiducial Inference for Normal Linear Mixed Models
 

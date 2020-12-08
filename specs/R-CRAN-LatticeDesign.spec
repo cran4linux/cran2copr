@@ -1,9 +1,9 @@
 %global packname  LatticeDesign
-%global packver   2.0-2
+%global packver   2.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lattice-Based Space-Filling Designs
 
@@ -19,10 +19,14 @@ Requires:         R-methods
 
 %description
 Lattice-based space-filling designs with fill or separation distance
-properties including interleaved lattice-based minimax distance designs,
-interleaved lattice-based maximin distance designs, (sliced) rotated
-sphere packing designs, and densest packing-based maximum projections
-designs.
+properties including interleaved lattice-based minimax distance designs
+proposed in Xu He (2017) <doi:10.1093/biomet/asx036>, interleaved
+lattice-based maximin distance designs proposed in Xu He (2018)
+<doi:10.1093/biomet/asy069>, (sliced) rotated sphere packing designs
+proposed in Xu He (2017) <doi:10.1080/01621459.2016.1222289> and Xu He
+(2019) <doi:10.1080/00401706.2018.1458655>, and densest packing-based
+maximum projections designs proposed in Xu He (2020)
+<doi:10.1093/biomet/asaa057> and Xu He (2018) <arXiv:1709.02062v2>.
 
 %prep
 %setup -q -c -n %{packname}

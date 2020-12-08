@@ -1,13 +1,13 @@
-%global packname  seecolor
-%global packver   0.1.0
+%global packname  cban
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          View Colors Used in R Objects in the Console
+Summary:          Cost Benefit Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-fansi 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-fansi 
 
 %description
-Output colors used in literal vectors, palettes and plot objects (ggplot).
+It calculates benefit cost ratio and net present value of a project in
+financial terms. It is useful in analysing the financial returns of a
+project.
 
 %prep
 %setup -q -c -n %{packname}

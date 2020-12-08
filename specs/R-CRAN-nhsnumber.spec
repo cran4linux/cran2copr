@@ -1,11 +1,11 @@
-%global packname  seecolor
-%global packver   0.1.0
+%global packname  nhsnumber
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          View Colors Used in R Objects in the Console
+Summary:          Tools for Working with NHS Number Checksums
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-fansi 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-fansi 
 
 %description
-Output colors used in literal vectors, palettes and plot objects (ggplot).
+Provides functions for working with NHS number checksums. The UK's
+National Health Service issues NHS numbers to all users of its services
+and this package implements functions for verifying that the numbers are
+valid according to the checksum scheme the NHS use. Numbers can be
+validated and checksums created.
 
 %prep
 %setup -q -c -n %{packname}

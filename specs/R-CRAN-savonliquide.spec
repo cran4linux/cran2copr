@@ -1,11 +1,11 @@
-%global packname  seecolor
+%global packname  savonliquide
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          View Colors Used in R Objects in the Console
+Summary:          Check for Color Contrast Accessibility
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-fansi 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-fansi 
 
 %description
-Output colors used in literal vectors, palettes and plot objects (ggplot).
+Allows the user to generate a report from the 'Contrast Checker' API. The
+report generates a contrast ratio that will be useful when considering
+colors accessibility. For more info see
+<https://webaim.org/resources/contrastchecker/>.
 
 %prep
 %setup -q -c -n %{packname}

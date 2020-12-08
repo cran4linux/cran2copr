@@ -1,9 +1,9 @@
 %global packname  BCT
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Context Trees for Discrete Time Series
 
@@ -12,18 +12,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-readr 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 
@@ -42,12 +40,7 @@ the length of the input data. Example data sets from finance, genetics and
 animal communication are also provided. Detailed descriptions of the
 underlying theory and algorithms can be found in [Kontoyiannis et al.
 'Bayesian Context Trees: Modelling and exact inference for discrete time
-series.' <arXiv:2007.14900> [stat.ME], July 2020]. R version 4.0.2 or more
-recent required. Windows users may need to download and install Rtools
-separately; see <https://cran.r-project.org/bin/windows/Rtools/>. Mac
-users may need to ensure R uses C++11 to install the BCT package. Also it
-may help resolve installation errors to download and install the Xcode
-developer tools from the App Store.
+series.' <arXiv:2007.14900> [stat.ME], July 2020].
 
 %prep
 %setup -q -c -n %{packname}

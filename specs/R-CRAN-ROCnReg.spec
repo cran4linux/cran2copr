@@ -1,9 +1,9 @@
 %global packname  ROCnReg
-%global packver   1.0-3
+%global packver   1.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          ROC Curve Inference with and without Covariates
 
@@ -20,12 +20,12 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-np 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-nor1mix 
 BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-lattice 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-parallel 
 Requires:         R-stats 
@@ -33,12 +33,12 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 Requires:         R-splines 
 Requires:         R-CRAN-np 
-Requires:         R-Matrix 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-nor1mix 
 Requires:         R-CRAN-spatstat 
-Requires:         R-lattice 
-Requires:         R-MASS 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pbivnorm 
 Requires:         R-parallel 
 
@@ -62,9 +62,13 @@ M.X. and Inacio, V. (20208) <arXiv:2003.13111> for more details.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -74,6 +78,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

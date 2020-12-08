@@ -1,9 +1,9 @@
 %global packname  ifultools
-%global packver   2.0-19
+%global packver   2.0-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.19
+Version:          2.0.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Insightful Research Tools
 

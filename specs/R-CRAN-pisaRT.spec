@@ -1,9 +1,9 @@
 %global packname  pisaRT
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Example Response and Response Time Data from PISA 2018
 
@@ -18,8 +18,8 @@ BuildArch:        noarch
 
 %description
 Scored responses and responses times from the Canadian subsample of the
-PISA 2018 assessment, accessible as the "Cognitive Item Data File" by OECD
-(2019) <https://www.oecd.org/pisa/data/2018database/>.
+PISA 2018 assessment, accessible as the "Cognitive items total time/visits
+data file" by OECD (2020) <https://www.oecd.org/pisa/data/2018database/>.
 
 %prep
 %setup -q -c -n %{packname}

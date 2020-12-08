@@ -1,9 +1,9 @@
 %global packname  hesim
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Health-Economic Simulation Modeling and Decision Analysis
 
@@ -18,6 +18,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
@@ -26,6 +27,7 @@ Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-msm 
 Requires:         R-CRAN-R6 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 

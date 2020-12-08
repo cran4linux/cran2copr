@@ -1,46 +1,45 @@
-%global packname  biotools
-%global packver   4.0
+%global packname  HDiR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Biometry and Applied Statistics in Agricultural Science
+Summary:          Directional Highest Density Regions
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-NPCirc 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Directional 
+BuildRequires:    R-CRAN-movMF 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-datasets 
-Requires:         R-CRAN-MASS 
-Requires:         R-utils 
-Requires:         R-stats 
+Requires:         R-CRAN-NPCirc 
+Requires:         R-CRAN-circular 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Directional 
+Requires:         R-CRAN-movMF 
 Requires:         R-graphics 
-Requires:         R-CRAN-boot 
+Requires:         R-stats 
 Requires:         R-grDevices 
-Requires:         R-datasets 
 
 %description
-Tools designed to perform and evaluate cluster analysis (including
-Tocher's algorithm), discriminant analysis and path analysis (standard and
-under collinearity), as well as some useful miscellaneous tools for
-dealing with sample size and optimum plot size calculations. A test for
-seed sample heterogeneity is now available. Mantel's permutation test can
-be found in this package. A new approach for calculating its power is
-implemented. biotools also contains tests for genetic covariance
-components. Heuristic approaches for performing non-parametric spatial
-predictions of generic response variables and spatial gene diversity are
-implemented.
+We provide an R tool for nonparametric plug-in estimation of Highest
+Density Regions (HDRs) in the directional setting. Concretely, circular
+and spherical regions can be reconstructed from a data sample following
+Saavedra-Nieves and Crujeiras (2020) <arXiv:2009.08915>. This library also
+contains two real datasets in the circular and spherical settings. The
+first one concerns a problem from animal orientation studies and the
+second one is related to earthquakes occurrences.
 
 %prep
 %setup -q -c -n %{packname}

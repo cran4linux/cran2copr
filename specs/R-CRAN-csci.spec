@@ -1,39 +1,28 @@
-%global packname  seecolor
-%global packver   0.1.0
+%global packname  csci
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          View Colors Used in R Objects in the Console
+Summary:          Current Status Confidence Intervals
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-fansi 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-fansi 
+BuildRequires:    R-CRAN-exactci 
+Requires:         R-CRAN-exactci 
 
 %description
-Output colors used in literal vectors, palettes and plot objects (ggplot).
+Calculates pointwise confidence intervals for the cumulative distribution
+function of the event time for current status data, data where each
+individual is assessed at one time to see if they had the event or not by
+the assessment time.
 
 %prep
 %setup -q -c -n %{packname}

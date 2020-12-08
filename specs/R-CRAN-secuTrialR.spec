@@ -1,9 +1,9 @@
 %global packname  secuTrialR
-%global packver   1.0.6
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling of Data from the Clinical Data Management System 'secuTrial'
 
@@ -16,10 +16,8 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-haven >= 2.2.0
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
@@ -29,10 +27,8 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-haven >= 2.2.0
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
-Requires:         R-tcltk 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 

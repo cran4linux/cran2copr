@@ -1,39 +1,29 @@
-%global packname  seecolor
+%global packname  metaSurvival
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          View Colors Used in R Objects in the Console
+Summary:          Meta-Analysis of a Single Survival Curve
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-fansi 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-fansi 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-survival 
 
 %description
-Output colors used in literal vectors, palettes and plot objects (ggplot).
+To assess a summary survival curve from survival probabilities and number
+of at-risk patients collected at various points in time in various
+studies, and to test the between-strata heterogeneity.
 
 %prep
 %setup -q -c -n %{packname}

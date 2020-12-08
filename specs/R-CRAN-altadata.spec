@@ -1,39 +1,31 @@
-%global packname  seecolor
-%global packver   0.1.0
+%global packname  altadata
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          View Colors Used in R Objects in the Console
+Summary:          API Wrapper for Altadata.io
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-fansi 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-fansi 
+BuildRequires:    R-CRAN-jsonlite >= 0.9.14
+BuildRequires:    R-CRAN-httr >= 0.6.1
+Requires:         R-CRAN-jsonlite >= 0.9.14
+Requires:         R-CRAN-httr >= 0.6.1
 
 %description
-Output colors used in literal vectors, palettes and plot objects (ggplot).
+Functions for interacting directly with the 'ALTADATA' API. With this R
+package, developers can build applications around the 'ALTADATA' API
+without having to deal with accessing and managing requests and responses.
+'ALTADATA' is a curated data marketplace for more information go to
+<https://www.altadata.io>.
 
 %prep
 %setup -q -c -n %{packname}

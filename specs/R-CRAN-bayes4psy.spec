@@ -1,9 +1,9 @@
 %global packname  bayes4psy
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          User Friendly Bayesian Data Analysis for Psychology
 
@@ -12,40 +12,42 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-rstan >= 2.17.3
-BuildRequires:    R-CRAN-StanHeaders >= 2.17.2
-BuildRequires:    R-CRAN-BH >= 1.66.0.1
-BuildRequires:    R-CRAN-rstantools >= 1.5.0
-BuildRequires:    R-CRAN-mcmcse >= 1.3.2
-BuildRequires:    R-CRAN-emg >= 1.0.7
-BuildRequires:    R-CRAN-cowplot >= 0.9.3
-BuildRequires:    R-CRAN-metRology >= 0.9.28
-BuildRequires:    R-CRAN-reshape >= 0.8.7
-BuildRequires:    R-CRAN-dplyr >= 0.7.6
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-methods >= 4.0.0
+BuildRequires:    R-stats >= 4.0.0
+BuildRequires:    R-utils >= 4.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-rstan >= 2.21.2
+BuildRequires:    R-CRAN-StanHeaders >= 2.21.0.6
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
+BuildRequires:    R-CRAN-BH >= 1.72.0.3
+BuildRequires:    R-CRAN-mcmcse >= 1.4.1
+BuildRequires:    R-CRAN-scales >= 1.1.1
+BuildRequires:    R-CRAN-cowplot >= 1.1.0
+BuildRequires:    R-CRAN-emg >= 1.0.9
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-metRology >= 0.9.28.1
+BuildRequires:    R-CRAN-reshape >= 0.8.8
 BuildRequires:    R-CRAN-circular >= 0.4.93
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.7.0
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-rstan >= 2.17.3
-Requires:         R-CRAN-rstantools >= 1.5.0
-Requires:         R-CRAN-mcmcse >= 1.3.2
-Requires:         R-CRAN-emg >= 1.0.7
-Requires:         R-CRAN-cowplot >= 0.9.3
-Requires:         R-CRAN-metRology >= 0.9.28
-Requires:         R-CRAN-reshape >= 0.8.7
-Requires:         R-CRAN-dplyr >= 0.7.6
+Requires:         R-methods >= 4.0.0
+Requires:         R-stats >= 4.0.0
+Requires:         R-utils >= 4.0.0
+Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-rstan >= 2.21.2
+Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-CRAN-mcmcse >= 1.4.1
+Requires:         R-CRAN-scales >= 1.1.1
+Requires:         R-CRAN-cowplot >= 1.1.0
+Requires:         R-CRAN-emg >= 1.0.9
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-metRology >= 0.9.28.1
+Requires:         R-CRAN-reshape >= 0.8.8
 Requires:         R-CRAN-circular >= 0.4.93
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-CRAN-rstantools
 
 %description

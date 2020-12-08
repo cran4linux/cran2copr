@@ -1,13 +1,13 @@
-%global packname  seecolor
-%global packver   0.1.0
+%global packname  ExtDist
+%global packver   0.6-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          View Colors Used in R Objects in the Console
+Summary:          Extending the Range of Functions for Probability Distributions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-fansi 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-fansi 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-optimx 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-optimx 
 
 %description
-Output colors used in literal vectors, palettes and plot objects (ggplot).
+A consistent, unified and extensible framework for estimation of
+parameters for probability distributions, including parameter estimation
+procedures that allow for weighted samples; the current set of
+distributions included are: the standard beta, The four-parameter beta,
+Burr, gamma, Gumbel, Johnson SB and SU, Laplace, logistic, normal,
+symmetric truncated normal, truncated normal, symmetric-reflected
+truncated beta, standard symmetric-reflected truncated beta, triangular,
+uniform, and Weibull distributions; decision criteria and selections based
+on these decision criteria.
 
 %prep
 %setup -q -c -n %{packname}
