@@ -1,34 +1,29 @@
-%global packname  ggperiodic
-%global packver   1.0.1
+%global packname  mlpack
+%global packver   3.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          3.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Plotting of Periodic Data with 'ggplot2'
+Summary:          'Rcpp' Integration for the 'mlpack' Library
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sticky 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sticky 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-BH >= 1.58
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.400.0
+BuildRequires:    R-CRAN-RcppEnsmallen >= 0.2.10.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-Rcpp >= 0.12.12
 
 %description
-Implements methods to plot periodic data in any arbitrary range on the
-fly.
+A fast, flexible machine learning library, written in C++, that aims to
+provide fast, extensible implementations of cutting-edge machine learning
+algorithms.  See also Curtin et al. (2018) <doi:10.21105/joss.00726>.
 
 %prep
 %setup -q -c -n %{packname}

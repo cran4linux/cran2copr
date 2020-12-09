@@ -1,9 +1,9 @@
 %global packname  statsExpressions
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Expressions and Dataframes with Statistical Details
 
@@ -16,11 +16,11 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-performance >= 0.6.0
-BuildRequires:    R-CRAN-insight >= 0.11.0
+BuildRequires:    R-CRAN-tidyBF >= 0.4.2
+BuildRequires:    R-CRAN-effectsize >= 0.4.1
 BuildRequires:    R-CRAN-parameters >= 0.10.0
 BuildRequires:    R-CRAN-correlation 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-ez 
 BuildRequires:    R-CRAN-ipmisc 
 BuildRequires:    R-CRAN-metafor 
@@ -28,15 +28,14 @@ BuildRequires:    R-CRAN-metaplus
 BuildRequires:    R-CRAN-rcompanion 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyBF 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-WRS2 
 Requires:         R-CRAN-performance >= 0.6.0
-Requires:         R-CRAN-insight >= 0.11.0
+Requires:         R-CRAN-tidyBF >= 0.4.2
+Requires:         R-CRAN-effectsize >= 0.4.1
 Requires:         R-CRAN-parameters >= 0.10.0
 Requires:         R-CRAN-correlation 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-ez 
 Requires:         R-CRAN-ipmisc 
 Requires:         R-CRAN-metafor 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-metaplus
 Requires:         R-CRAN-rcompanion 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyBF 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-WRS2 
 

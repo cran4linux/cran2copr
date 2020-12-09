@@ -1,34 +1,38 @@
-%global packname  ggperiodic
-%global packver   1.0.1
+%global packname  vICC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Plotting of Periodic Data with 'ggplot2'
+Summary:          Varying Intraclass Correlation Coefficients
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rjags >= 4.10
+BuildRequires:    R-CRAN-coda >= 0.19.4
+BuildRequires:    R-CRAN-Rdpack >= 0.11
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sticky 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nlme 
+Requires:         R-CRAN-rjags >= 4.10
+Requires:         R-CRAN-coda >= 0.19.4
+Requires:         R-CRAN-Rdpack >= 0.11
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sticky 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-CRAN-nlme 
 
 %description
-Implements methods to plot periodic data in any arbitrary range on the
-fly.
+Compute group-specific intraclass correlation coefficients, Bayesian
+testing of homogenous within-group variance, and spike-and-slab model
+selection to determine which groups share a common within-group variance
+in a one-way random effects model <10.31234/osf.io/hpq7w>.
 
 %prep
 %setup -q -c -n %{packname}

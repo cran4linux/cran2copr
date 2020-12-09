@@ -1,34 +1,39 @@
-%global packname  ggperiodic
-%global packver   1.0.1
+%global packname  blatent
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Plotting of Periodic Data with 'ggplot2'
+Summary:          Bayesian Latent Variable Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sticky 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sticky 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-R6 
+Requires:         R-stats 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implements methods to plot periodic data in any arbitrary range on the
-fly.
+Estimation of latent variable models using Bayesian methods. Currently
+estimates the loglinear cognitive diagnosis model of Henson, Templin, and
+Willse (2009) <doi:10.1007/s11336-008-9089-5>.
 
 %prep
 %setup -q -c -n %{packname}

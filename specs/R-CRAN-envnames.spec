@@ -1,11 +1,11 @@
 %global packname  envnames
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Track User-Defined Environment Names
+Version:          0.4.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Keep Track of User-Defined Environment Names
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,15 +16,22 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Set of functions to keep track of user-defined environment names (which
-cannot be retrieved with the built-in function environmentName()). The
-package also provides functionality to search for objects in environments,
-deal with function calling chains, and retrieve an object's memory
-address.
+Set of functions to keep track and find objects in user-defined
+environments by identifying environments by name --which cannot be
+retrieved with the built-in function environmentName(). The package also
+provides functionality to obtain simplified information about function
+calling chains and to get an object's memory address.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -34,16 +41,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

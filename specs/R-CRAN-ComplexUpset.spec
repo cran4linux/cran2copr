@@ -1,13 +1,13 @@
-%global packname  ggperiodic
-%global packver   1.0.1
+%global packname  ComplexUpset
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Plotting of Periodic Data with 'ggplot2'
+Summary:          Create Complex UpSet Plots Using 'ggplot2' Components
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sticky 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sticky 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-scales 
 
 %description
-Implements methods to plot periodic data in any arbitrary range on the
-fly.
+UpSet plots are an improvement over Venn Diagram for set overlap
+visualizations. Striving to bring the best of the 'UpSetR' and 'ggplot2',
+this package offers a way to create complex overlap visualisations, using
+simple and familiar tools, i.e. geoms of 'ggplot2'. For introduction to
+UpSet concept, see Lex et al. (2014) <doi:10.1109/TVCG.2014.2346248>.
 
 %prep
 %setup -q -c -n %{packname}

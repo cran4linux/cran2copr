@@ -1,34 +1,35 @@
-%global packname  ggperiodic
-%global packver   1.0.1
+%global packname  descstat
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Plotting of Periodic Data with 'ggplot2'
+Summary:          Tools for Descriptive Statistics
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sticky 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sticky 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Implements methods to plot periodic data in any arbitrary range on the
-fly.
+A toolbox for descriptive statistics, based on the computation of
+frequency, bins and contingency tables. Several statistical functions and
+plot methods are provided to describe univariate or bivariate
+distributions of factors, integer series and numerical series either
+provided as individual values or as bins.
 
 %prep
 %setup -q -c -n %{packname}

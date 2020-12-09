@@ -1,35 +1,34 @@
-%global packname  CVEK
-%global packver   0.1-1
+%global packname  PRDA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Validated Kernel Ensemble
+Summary:          Conduct a Prospective or Retrospective Design Analysis
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-limSolve 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-limSolve 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implementation of Cross-Validated Kernel Ensemble (CVEK), a flexible
-modeling framework for robust nonlinear regression and hypothesis testing
-based on ensemble learning with kernel-ridge estimators (Jeremiah et al.
-(2017) <arXiv:1710.01406> and Wenying et al. (2018) <arXiv:1811.11025>).
-It allows user to conduct nonlinear regression with minimal assumption on
-the function form by aggregating nonlinear models generated from a diverse
-collection of kernel families. It also provides utilities to test for the
-estimated nonlinear effect under this ensemble estimator, using either the
-asymptotic or the bootstrap version of a generalized score test.
+An implementation of the "Design Analysis" proposed by Gelman and Carlin
+(2014) <doi:10.1177/1745691614551642>. It combines the evaluation of
+Power-Analysis with other inferential-risks as Type-M error (i.e.
+Magnitude) and Type-S error (i.e. Sign). See also Altoè et al. (2020)
+<doi:10.3389/fpsyg.2019.02893> and Bertoldo et al. (2020)
+<doi:10.31234/osf.io/q9f86>.
 
 %prep
 %setup -q -c -n %{packname}

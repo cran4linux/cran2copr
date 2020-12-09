@@ -1,34 +1,39 @@
-%global packname  ggperiodic
-%global packver   1.0.1
+%global packname  rhcoclust
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Plotting of Periodic Data with 'ggplot2'
+Summary:          Robust Hierarchical Co-Clustering to Identify Significant Co-Cluster
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sticky 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sticky 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tcR 
+Requires:         R-CRAN-fields 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-stats 
+Requires:         R-CRAN-tcR 
 
 %description
-Implements methods to plot periodic data in any arbitrary range on the
-fly.
+Here we performs robust hierarchical co-clustering between row and column
+entities of a data matrix in absence and presence of outlying
+observations. It can be used to explore important co-clusters consisting
+of important samples and their regulatory significant features. Please see
+Hasan, Badsha and Mollah (2020) <doi:10.1101/2020.05.13.094946>.
 
 %prep
 %setup -q -c -n %{packname}
