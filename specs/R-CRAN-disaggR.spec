@@ -1,13 +1,13 @@
 %global packname  disaggR
-%global packver   0.1.9
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Steps Benchmarks for Time Series Disaggregation
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

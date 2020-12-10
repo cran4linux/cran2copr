@@ -1,30 +1,38 @@
-%global packname  Ternary
-%global packver   1.2.1
+%global packname  outsider
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Ternary Plots
+Summary:          Install and Run Programs, Outside of R, Inside of R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-remotes >= 2.0
+BuildRequires:    R-CRAN-outsider.base 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-remotes >= 2.0
+Requires:         R-CRAN-outsider.base 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-yaml 
 
 %description
-Plots ternary diagrams (simplex plots / Gibbs triangles) using the
-standard graphics functions. An alternative to 'ggtern', which uses the
-'ggplot2' family of plotting functions. Includes a 'Shiny' user interface
-for point-and-click plotting.
+Install and run external command-line programs in R through use of
+'Docker' <https://www.docker.com/> and online repositories.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,31 @@
-%global packname  Ternary
-%global packver   1.2.1
+%global packname  comFuncs
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Ternary Plots
+Summary:          Commonly Used Functions for R Shiny Applications
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-stats >= 4.0.3
+BuildRequires:    R-CRAN-shiny >= 1.3.2
+BuildRequires:    R-CRAN-rstudioapi >= 0.10
+Requires:         R-stats >= 4.0.3
+Requires:         R-CRAN-shiny >= 1.3.2
+Requires:         R-CRAN-rstudioapi >= 0.10
 
 %description
-Plots ternary diagrams (simplex plots / Gibbs triangles) using the
-standard graphics functions. An alternative to 'ggtern', which uses the
-'ggplot2' family of plotting functions. Includes a 'Shiny' user interface
-for point-and-click plotting.
+A set of common functions to be used for displaying messages, checking
+variables, finding absolute paths, starting applications, etc. More
+functions will be added later.
 
 %prep
 %setup -q -c -n %{packname}

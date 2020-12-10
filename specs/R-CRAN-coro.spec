@@ -1,30 +1,30 @@
-%global packname  Ternary
-%global packver   1.2.1
+%global packname  coro
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Ternary Plots
+Summary:          'Coroutines' for R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-rlang >= 0.4.9
+Requires:         R-CRAN-rlang >= 0.4.9
 
 %description
-Plots ternary diagrams (simplex plots / Gibbs triangles) using the
-standard graphics functions. An alternative to 'ggtern', which uses the
-'ggplot2' family of plotting functions. Includes a 'Shiny' user interface
-for point-and-click plotting.
+Provides 'coroutines' for R, a family of functions that can be suspended
+and resumed later on. This includes 'async' functions (which await) and
+generators (which yield). 'Async' functions are based on the concurrency
+framework of the 'promises' package. Generators are based on a dependency
+free iteration protocol defined in 'coro' and are compatible with
+iterators from the 'reticulate' package.
 
 %prep
 %setup -q -c -n %{packname}

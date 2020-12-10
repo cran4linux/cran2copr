@@ -1,9 +1,9 @@
 %global packname  AnchorRegression
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform AnchorRegression
 
@@ -12,11 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.0.0
+Requires:         R-core >= 2.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet >= 4.0.2
-Requires:         R-CRAN-glmnet >= 4.0.2
+BuildRequires:    R-CRAN-glmnet >= 1.4
+BuildRequires:    R-CRAN-selectiveInference >= 1.0.0
+Requires:         R-CRAN-glmnet >= 1.4
+Requires:         R-CRAN-selectiveInference >= 1.0.0
 
 %description
 Performs AnchorRegression proposed by Rothenhäusler et al. 2020. The code

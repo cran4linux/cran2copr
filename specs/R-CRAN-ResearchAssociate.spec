@@ -1,9 +1,9 @@
 %global packname  ResearchAssociate
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieving Publications from PubMed Database Based on User Query
 
@@ -16,7 +16,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rentrez 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-rentrez 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Connects to Pubmed <https://pubmed.ncbi.nlm.nih.gov/> to retrieve

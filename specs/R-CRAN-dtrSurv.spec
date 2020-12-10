@@ -1,30 +1,29 @@
-%global packname  Ternary
-%global packver   1.2.1
+%global packname  dtrSurv
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Ternary Plots
+Summary:          Dynamic Treatment Regimes for Survival Analysis
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
-Plots ternary diagrams (simplex plots / Gibbs triangles) using the
-standard graphics functions. An alternative to 'ggtern', which uses the
-'ggplot2' family of plotting functions. Includes a 'Shiny' user interface
-for point-and-click plotting.
+Provides methods for estimating multi-stage optimal dynamic treatment
+regimes for survival outcomes with dependent censoring.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,33 @@
-%global packname  pavo
-%global packver   2.5.0
+%global packname  qsimulatR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perceptual Analysis, Visualization and Organization of Spectral Colour Data
+Summary:          A Quantum Computer Simulator
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lightr >= 1.0
-BuildRequires:    R-CRAN-geometry >= 0.4.0
-BuildRequires:    R-CRAN-alphashape3d 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-lightr >= 1.0
-Requires:         R-CRAN-geometry >= 0.4.0
-Requires:         R-CRAN-alphashape3d 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-A cohesive framework for parsing, analyzing and organizing colour from
-spectral data.
+A quantum computer simulator framework with up to 24 qubits. It allows to
+define general single qubit gates and general controlled single qubit
+gates. For convenience, it currently provides the most common gates (X, Y,
+Z, H, Z, S, T, Rx, Ry, Rz, CNOT, SWAP, Toffoli or CCNOT, Fredkin or
+CSWAP). 'qsimulatR' supports plotting of circuits and is able to export
+circuits to 'Qiskit' <https://qiskit.org/>, a python package which can be
+used to run on IBM's hardware <https://quantum-computing.ibm.com/>.
 
 %prep
 %setup -q -c -n %{packname}

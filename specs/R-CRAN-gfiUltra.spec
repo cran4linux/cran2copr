@@ -1,30 +1,36 @@
-%global packname  Ternary
-%global packver   1.2.1
+%global packname  gfiUltra
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Ternary Plots
+Summary:          Generalized Fiducial Inference for Ultrahigh-Dimensional Regression
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-SIS 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-SIS 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Plots ternary diagrams (simplex plots / Gibbs triangles) using the
-standard graphics functions. An alternative to 'ggtern', which uses the
-'ggplot2' family of plotting functions. Includes a 'Shiny' user interface
-for point-and-click plotting.
+Variable selection for ultrahigh-dimensional ("large p small n") linear
+Gaussian models using a fiducial framework allowing to draw inference on
+the parameters. Reference: Lai, Hannig & Lee (2015)
+<doi:10.1080/01621459.2014.931237>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,36 @@
-%global packname  Ternary
-%global packver   1.2.1
+%global packname  gsbm
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Ternary Plots
+Summary:          Estimate Parameters in the Generalized SBM
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-softImpute 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-softImpute 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-foreach 
 
 %description
-Plots ternary diagrams (simplex plots / Gibbs triangles) using the
-standard graphics functions. An alternative to 'ggtern', which uses the
-'ggplot2' family of plotting functions. Includes a 'Shiny' user interface
-for point-and-click plotting.
+Given an adjacency matrix drawn from a Generalized Stochastic Block Model
+with missing observations, this package robustly estimates the
+probabilities of connection between nodes and detects outliers nodes, as
+describes in Gaucher, Klopp and Robin (2019) <arXiv:1911.13122>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,44 @@
-%global packname  encryptedRmd
-%global packver   0.2.1
+%global packname  libr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Encrypt Html Reports Using 'Libsodium'
+Summary:          Libraries, Data Dictionaries, and a Data Step for R
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sodium 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-sodium 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
 
 %description
-Create encrypted html files that are fully self contained and do not
-require any additional software. Using the package you can encrypt
-arbitrary html files and also directly create encrypted 'rmarkdown' html
-reports.
+Contains a set of functions to create data libraries, generate data
+dictionaries, and simulate a data step. The libname() function will load a
+directory of data into a library in one line of code.  The dictionary()
+function will generate data dictionaries for individual data frames or an
+entire library.  And the datestep() function will perform row-by-row data
+processing.
 
 %prep
 %setup -q -c -n %{packname}

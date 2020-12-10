@@ -1,9 +1,9 @@
 %global packname  hagis
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity
 
@@ -31,7 +31,7 @@ Analysis of plant pathogen pathotype survey data.  Functions provided
 calculate distribution of susceptibilities, distribution of complexities
 with statistics, pathotype frequency distribution, as well as diversity
 indices for pathotypes.  This package is meant to be a direct replacement
-for Herrmann, Löwer, Schachtel's (1999)
+for Herrmann, Löwer and Schachtel's (1999)
 <doi:10.1046/j.1365-3059.1999.00325.x> Habgood-Gilmour Spreadsheet,
 'HaGiS', previously used for pathotype analysis.
 

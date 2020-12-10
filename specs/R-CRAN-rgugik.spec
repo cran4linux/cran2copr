@@ -1,30 +1,36 @@
-%global packname  Ternary
-%global packver   1.2.1
+%global packname  rgugik
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Ternary Plots
+Summary:          Search and Retrieve Spatial Data from 'GUGiK'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openssl 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openssl 
 
 %description
-Plots ternary diagrams (simplex plots / Gibbs triangles) using the
-standard graphics functions. An alternative to 'ggtern', which uses the
-'ggplot2' family of plotting functions. Includes a 'Shiny' user interface
-for point-and-click plotting.
+Automatic open data acquisition from resources of Polish Head Office of
+Geodesy and Cartography ('Główny Urząd Geodezji i Kartografii')
+(<www.gugik.gov.pl>). Available datasets include various types of numeric,
+raster and vector data, such as orthophotomaps, digital elevation models
+(digital terrain models, digital surface model, point clouds), state
+register of borders, spatial databases, geometries of cadastral parcels,
+3D models of buildings, and more. It is also possible to geocode addresses
+or objects using the geocodePL_get() function.
 
 %prep
 %setup -q -c -n %{packname}

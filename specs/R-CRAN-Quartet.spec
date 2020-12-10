@@ -1,9 +1,9 @@
 %global packname  Quartet
-%global packver   1.2.0
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparison of Phylogenetic Trees Using Quartet and Split Measures
 
@@ -14,13 +14,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-TreeTools >= 1.3.1.9003
+BuildRequires:    R-CRAN-TreeTools >= 1.4.0
 BuildRequires:    R-CRAN-Ternary >= 1.0
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-TreeTools >= 1.3.1.9003
+Requires:         R-CRAN-TreeTools >= 1.4.0
 Requires:         R-CRAN-Ternary >= 1.0
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-Rdpack 

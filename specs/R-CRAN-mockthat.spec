@@ -1,30 +1,33 @@
-%global packname  Ternary
-%global packver   1.2.1
+%global packname  mockthat
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Ternary Plots
+Summary:          Function Mocking for Unit Testing in R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Plots ternary diagrams (simplex plots / Gibbs triangles) using the
-standard graphics functions. An alternative to 'ggtern', which uses the
-'ggplot2' family of plotting functions. Includes a 'Shiny' user interface
-for point-and-click plotting.
+With the deprecation of mocking capabilities shipped with 'testthat' as of
+'edition 3' it is left to third-party packages to replace this
+functionality, which in some test-scenarios is essential in order to run
+unit tests in limited environments (such as no Internet connection).
+Mocking in this setting means temporarily substituting a function with a
+stub that acts in some sense like the original function (for example by
+serving a HTTP response that has been cached as a file). The only exported
+function 'with_mock()' is modeled after the eponymous 'testthat' function
+with the intention of providing a drop-in replacement.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,35 @@
-%global packname  Ternary
-%global packver   1.2.1
+%global packname  eyedata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Ternary Plots
+Summary:          Open Source Ophthalmic Data Sets Curated for R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-dplyr >= 1.0.2
 
 %description
-Plots ternary diagrams (simplex plots / Gibbs triangles) using the
-standard graphics functions. An alternative to 'ggtern', which uses the
-'ggplot2' family of plotting functions. Includes a 'Shiny' user interface
-for point-and-click plotting.
+Open source data allows for reproducible research and helps advance our
+knowledge. The purpose of this package is to collate open source
+ophthalmic data sets curated for direct use. This is real life data of
+people with intravitreal injections with anti-vascular endothelial growth
+factor (anti-VEGF), due to age-related macular degeneration or diabetic
+macular edema. Associated publications of the data sets: Fu et al. (2020)
+<doi:10.1001/jamaophthalmol.2020.5044>, Moraes et al (2020)
+<doi:10.1016/j.ophtha.2020.09.025>, Fasler et al. (2019)
+<doi:10.1136/bmjopen-2018-027441>, Arpa et al. (2020)
+<doi:10.1136/bjophthalmol-2020-317161>, Kern et al. 2020,
+<doi:10.1038/s41433-020-1048-0>.
 
 %prep
 %setup -q -c -n %{packname}

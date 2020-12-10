@@ -1,30 +1,30 @@
-%global packname  Ternary
-%global packver   1.2.1
+%global packname  CompAREdesign
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Ternary Plots
+Summary:          Statistical Functions for the Design of Studies with Composite Endpoints
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-viridisLite 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Plots ternary diagrams (simplex plots / Gibbs triangles) using the
-standard graphics functions. An alternative to 'ggtern', which uses the
-'ggplot2' family of plotting functions. Includes a 'Shiny' user interface
-for point-and-click plotting.
+It has been designed to calculate the required sample size in randomized
+clinical trials with composite endpoints. This package also includes
+functions to calculate the probability of observing the composite endpoint
+and the expected effect on the composite endpoint, among others. The
+methods implemented can be found in Bofill & Gómez (2019)
+(DOI:10.1002/sim.8092) and Gómez & Lagakos (2013) (DOI:10.1002/sim.5547).
 
 %prep
 %setup -q -c -n %{packname}

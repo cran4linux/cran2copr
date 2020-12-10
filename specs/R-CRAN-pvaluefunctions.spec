@@ -1,11 +1,11 @@
 %global packname  pvaluefunctions
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
-Release:          2%{?dist}%{?buildtag}
-Summary:          Creates and Plots P-Value Functions, S-Value Functions,Confidence Distributions and Confidence Densities
+Version:          1.6.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Creates and Plots P-Value Functions, S-Value Functions, Confidence Distributions and Confidence Densities
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -39,15 +39,20 @@ Schweder T, Hjort NL. (2002) <doi:10.1111/1467-9469.00285>; Bender R, Berg
 G, Zeeb H. (2005) <doi:10.1002/bimj.200410104> ; Singh K, Xie M,
 Strawderman WE. (2007) <doi:10.1214/074921707000000102>; Rothman KJ,
 Greenland S, Lash TL. (2008, ISBN:9781451190052); Amrhein V, Trafimow D,
-Greenland S. (2019) <doi:10.1080/00031305.2018.1543137>; and Greenland S.
-(2019) <doi:10.1080/00031305.2018.1529625>.
+Greenland S. (2019) <doi:10.1080/00031305.2018.1543137>; Greenland S.
+(2019) <doi:10.1080/00031305.2018.1529625> and Rafi Z, Greenland S. (2020)
+<doi:10.1186/s12874-020-01105-9>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -55,9 +60,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}
