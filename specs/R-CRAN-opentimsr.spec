@@ -1,39 +1,34 @@
-%global packname  GFD
-%global packver   0.2.9
+%global packname  opentimsr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tests for General Factorial Designs
+Summary:          An Open-Source Loader for Bruker's timsTOF Data Files
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.43
-BuildRequires:    R-CRAN-plotrix >= 3.5.12
-BuildRequires:    R-CRAN-plyr >= 1.8.3
-BuildRequires:    R-CRAN-magic >= 1.5.6
-BuildRequires:    R-CRAN-Matrix >= 1.2.2
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
-Requires:         R-CRAN-MASS >= 7.3.43
-Requires:         R-CRAN-plotrix >= 3.5.12
-Requires:         R-CRAN-plyr >= 1.8.3
-Requires:         R-CRAN-magic >= 1.5.6
-Requires:         R-CRAN-Matrix >= 1.2.2
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
 
 %description
-Implemented are the Wald-type statistic, a permuted version thereof as
-well as the ANOVA-type statistic for general factorial designs, even with
-non-normal error terms and/or heteroscedastic variances, for crossed
-designs with an arbitrary number of factors and nested designs with up to
-three factors. Friedrich et al. (2017) <doi:10.18637/jss.v079.c01>.
+A free, open-source package designed for handling .tdf data files produced
+by Bruker's 'timsTOF' mass spectrometers, as described
+<https://www.bruker.com/service/support-upgrades/software-downloads/mass-spectrometry.html>
+(after registering). Fast, free, crossplatform, with no reading through
+EULAs or messing with binary .dll files involved.
 
 %prep
 %setup -q -c -n %{packname}

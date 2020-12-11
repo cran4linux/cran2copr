@@ -1,39 +1,35 @@
-%global packname  GFD
-%global packver   0.2.9
+%global packname  comparator
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tests for General Factorial Designs
+Summary:          Comparison Functions for Clustering and Record Linkage
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.43
-BuildRequires:    R-CRAN-plotrix >= 3.5.12
-BuildRequires:    R-CRAN-plyr >= 1.8.3
-BuildRequires:    R-CRAN-magic >= 1.5.6
-BuildRequires:    R-CRAN-Matrix >= 1.2.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-proxy >= 0.4
+BuildRequires:    R-CRAN-clue >= 0.3
 BuildRequires:    R-methods 
-Requires:         R-CRAN-MASS >= 7.3.43
-Requires:         R-CRAN-plotrix >= 3.5.12
-Requires:         R-CRAN-plyr >= 1.8.3
-Requires:         R-CRAN-magic >= 1.5.6
-Requires:         R-CRAN-Matrix >= 1.2.2
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-proxy >= 0.4
+Requires:         R-CRAN-clue >= 0.3
 Requires:         R-methods 
 
 %description
-Implemented are the Wald-type statistic, a permuted version thereof as
-well as the ANOVA-type statistic for general factorial designs, even with
-non-normal error terms and/or heteroscedastic variances, for crossed
-designs with an arbitrary number of factors and nested designs with up to
-three factors. Friedrich et al. (2017) <doi:10.18637/jss.v079.c01>.
+Implements functions for comparing strings, sequences and numeric vectors
+for clustering and record linkage applications. Supported comparison
+functions include: generalized edit distances for comparing
+sequences/strings, Monge-Elkan similarity for fuzzy comparison of token
+sets, and L-p distances for comparing numeric vectors. Where possible,
+comparison functions are implemented in C/C++ to ensure good performance.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,31 @@
-%global packname  d3Tree
-%global packver   0.2.2
+%global packname  doc2vec
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Collapsible Trees with the JavaScript 'D3' Library
+Summary:          Distributed Representations of Sentences and Documents
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.3.0
-Requires:         R-core >= 2.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 0.11.5
+Requires:         R-stats 
 
 %description
-Create and customize interactive collapsible 'D3' trees using the 'D3'
-JavaScript library and the 'htmlwidgets' package. These trees can be used
-directly from the R console, from 'RStudio', in Shiny apps and R Markdown
-documents. When in Shiny the tree layout is observed by the server and can
-be used as a reactive filter of structured data.
+Learn vector representations of sentences, paragraphs or documents by
+using the 'Paragraph Vector' algorithms, namely the distributed bag of
+words ('PV-DBOW') and the distributed memory ('PV-DM') model. The
+techniques in the package are detailed in the paper "Distributed
+Representations of Sentences and Documents" by Mikolov et al. (2014),
+available at <arXiv:1405.4053>.
 
 %prep
 %setup -q -c -n %{packname}

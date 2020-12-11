@@ -1,11 +1,11 @@
 %global packname  latentgraph
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Graphical Model with Latent Variables
+Summary:          Graphical Models with Latent Variables
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,11 +27,11 @@ Requires:         R-CRAN-MASS
 Requires:         R-stats 
 
 %description
-Three methods are provided to estimate graphical model with latent
-variables: Chandrasekaran, V., Parrilo, P. A. & Willsky, A. S. (2010)
-<arXiv:1008.1290>, Tan, K. M., Ning, Y., Witten, D. M. & Liu, H. (2016)
-<doi:10.1093/biomet/asw050> and Yanxin Jin, Yang Ning, and Kean Ming Tan
-(2020) (submitted).
+Three methods are provided to estimate graphical models with latent
+variables: (1) Jin, Y., Ning, Y., and Tan, K. M. (2020) (preprint
+available); (2) Chandrasekaran, V., Parrilo, P. A. & Willsky, A. S. (2012)
+<doi:10.1214/11-AOS949>; (3) Tan, K. M., Ning, Y., Witten, D. M. & Liu, H.
+(2016) <doi:10.1093/biomet/asw050>.
 
 %prep
 %setup -q -c -n %{packname}

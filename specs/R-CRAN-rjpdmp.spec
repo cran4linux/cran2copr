@@ -1,34 +1,32 @@
-%global packname  rxivistr
-%global packver   0.1.1
+%global packname  rjpdmp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool for the 'Rxivist' API
+Summary:          Reversible Jump PDMP Samplers
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-data.table 
 
 %description
-Client for Rxivist API <https://rxivist.org/docs>, used for accessing
-information about preprints and their authors. Rxivist indexes preprints
-from bioRxiv, a free online archive for preprints in biology and life
-sciences, by Cold Spring Harbor Laboratory.
+Provides an implementation of the reversible jump piecewise deterministic
+Markov processes (PDMPs) methods developed in the paper Reversible Jump
+PDMP Samplers for Variable Selection (Chevallier, Fearnhead, Sutton 2020,
+<arXiv:2010.11771>). It also contains an implementation of a Gibbs sampler
+for variable selection in Logistic regression based on Polya-Gamma
+augmentation.
 
 %prep
 %setup -q -c -n %{packname}

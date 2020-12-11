@@ -1,9 +1,9 @@
 %global packname  pda
-%global packver   1.0
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Privacy-Preserving Distributed Algorithms
 
@@ -38,8 +38,7 @@ proportional hazard regression for time-to event outcome, or Poisson
 regression for count outcome. The PDA algorithm runs on a lead site and
 only requires summary statistics from collaborating sites, with one or few
 iterations. For more information, please visit our software websites:
-<https://github.com/Penncil/pda>, and
-<https://penncil2019pda.wixsite.com/mysite>.
+<https://github.com/Penncil/pda>, and <https://pdamethods.org/>.
 
 %prep
 %setup -q -c -n %{packname}

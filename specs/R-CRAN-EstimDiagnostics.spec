@@ -1,39 +1,37 @@
-%global packname  GFD
-%global packver   0.2.9
+%global packname  EstimDiagnostics
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tests for General Factorial Designs
+Summary:          Diagnostic Tools and Unit Tests for Statistical Estimators
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.43
-BuildRequires:    R-CRAN-plotrix >= 3.5.12
-BuildRequires:    R-CRAN-plyr >= 1.8.3
-BuildRequires:    R-CRAN-magic >= 1.5.6
-BuildRequires:    R-CRAN-Matrix >= 1.2.2
-BuildRequires:    R-methods 
-Requires:         R-CRAN-MASS >= 7.3.43
-Requires:         R-CRAN-plotrix >= 3.5.12
-Requires:         R-CRAN-plyr >= 1.8.3
-Requires:         R-CRAN-magic >= 1.5.6
-Requires:         R-CRAN-Matrix >= 1.2.2
-Requires:         R-methods 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-CRAN-foreach >= 1.5.1
+BuildRequires:    R-CRAN-reshape2 >= 1.4.4
+BuildRequires:    R-CRAN-goftest >= 1.2.2
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-foreach >= 1.5.1
+Requires:         R-CRAN-reshape2 >= 1.4.4
+Requires:         R-CRAN-goftest >= 1.2.2
+Requires:         R-CRAN-rlang 
 
 %description
-Implemented are the Wald-type statistic, a permuted version thereof as
-well as the ANOVA-type statistic for general factorial designs, even with
-non-normal error terms and/or heteroscedastic variances, for crossed
-designs with an arbitrary number of factors and nested designs with up to
-three factors. Friedrich et al. (2017) <doi:10.18637/jss.v079.c01>.
+Extension of 'testthat' package to make unit tests on empirical
+distributions of estimators and functions for diagnostics of their
+finite-sample performance.
 
 %prep
 %setup -q -c -n %{packname}
