@@ -1,27 +1,34 @@
-%global packname  MetaSKAT
-%global packver   0.81
+%global packname  giftwrap
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.81
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta Analysis for SNP-Set (Sequence) Kernel Association Test
+Summary:          Take Shell Commands and Turn Them into R Functions
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
-BuildRequires:    R-CRAN-SKAT >= 2.0.1
-Requires:         R-CRAN-SKAT >= 2.0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-namespace 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-namespace 
+Requires:         R-CRAN-processx 
+Requires:         R-utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
 
 %description
-Functions for Meta-analysis Burden Test, Sequence Kernel Association Test
-(SKAT) and Optimal SKAT (SKAT-O) by Lee et al. (2013)
-<doi:10.1016/j.ajhg.2013.05.010>. These methods use summary-level score
-statistics to carry out gene-based meta-analysis for rare variants.
+Wrapping command line functions into R functions, which in turn run the
+command line functions.
 
 %prep
 %setup -q -c -n %{packname}

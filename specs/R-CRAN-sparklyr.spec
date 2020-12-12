@@ -1,9 +1,9 @@
 %global packname  sparklyr
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Apache Spark
 

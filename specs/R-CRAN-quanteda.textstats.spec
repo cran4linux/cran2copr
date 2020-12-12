@@ -1,9 +1,9 @@
 %global packname  quanteda.textstats
-%global packver   0.90
+%global packver   0.91
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.90
+Version:          0.91
 Release:          1%{?dist}%{?buildtag}
 Summary:          Textual Statistics for the Quantitative Analysis of Textual Data
 

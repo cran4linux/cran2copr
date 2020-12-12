@@ -1,36 +1,44 @@
-%global packname  totalcensus
-%global packver   0.6.5
+%global packname  RadialVisGadgets
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Decennial Census and American Community Survey Data
+Summary:          Interactive Gadgets for Radial Visualization Approaches
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.3.2
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringr >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.10.1
-BuildRequires:    R-CRAN-purrr >= 0.2.4
-Requires:         R-utils >= 3.3.2
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringr >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.10.1
-Requires:         R-CRAN-purrr >= 0.2.4
+BuildRequires:    R-CRAN-import 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shinyscreenshot 
+Requires:         R-CRAN-import 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shinyscreenshot 
 
 %description
-Download summary files from Census Bureau <https://www2.census.gov/> and
-extract data, in particular high resolution data at block, block group,
-and tract level, from decennial census and American Community Survey
-1-year and 5-year estimates.
+Shiny-based interactive gadgets of radial visualization methods and
+extensions thereof.
 
 %prep
 %setup -q -c -n %{packname}

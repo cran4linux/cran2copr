@@ -1,11 +1,11 @@
 %global packname  koRpus
-%global packver   0.13-3
+%global packver   0.13-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.3
+Version:          0.13.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Package for Text Analysis
+Summary:          Text Analysis with Emphasis on POS Tagging, Readability and Lexical Diversity
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
