@@ -1,9 +1,9 @@
 %global packname  RcppBigIntAlgos
-%global packver   0.3.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor Big Integers with the Parallel Quadratic Sieve
 
@@ -29,10 +29,11 @@ seminal work of Carl Pomerance (1984) <doi:10.1007/3-540-39757-4_17> along
 with the modification of multiple polynomials introduced by Peter
 Montgomery and J. Davis as outlined by Robert D. Silverman (1987)
 <doi:10.1090/S0025-5718-1987-0866119-8>. Utilizes the C library GMP (GNU
-Multiple Precision Arithmetic) and 'RcppThread' for sieving multiple
-polynomials in parallel. The Pollard's rho algorithm for factoring smaller
-numbers is the same algorithm used by the factorize function in the 'gmp'
-package.
+Multiple Precision Arithmetic) and 'RcppThread' for factoring integers in
+parallel. For smaller integers, a simple Elliptic Curve algorithm is
+attempted followed by a constrained version of Pollard's rho algorithm.
+The Pollard's rho algorithm is the same algorithm used by the factorize
+function in the 'gmp' package.
 
 %prep
 %setup -q -c -n %{packname}

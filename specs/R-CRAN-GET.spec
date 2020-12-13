@@ -1,9 +1,9 @@
 %global packname  GET
-%global packver   0.2
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Envelopes
 
@@ -20,17 +20,17 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-spatstat 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Implementation of global envelopes for a set of general d-dimensional

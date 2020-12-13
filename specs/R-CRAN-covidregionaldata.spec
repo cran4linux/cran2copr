@@ -1,9 +1,9 @@
 %global packname  covidregionaldata
-%global packver   0.6.0
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subnational Data for the Covid-19 Outbreak
 
@@ -67,17 +67,22 @@ Belgium: <https://epistat.wiv-isp.be/covid/>; Brazil:
 India: <https://api.covid19india.org/>; Italy:
 <https://github.com/pcm-dpc/COVID-19>; Russia:
 <https://github.com/grwlf/COVID-19_plus_Russia>; UK:
-<https://coronavirus.data.gov.uk>; USA:
-<https://github.com/nytimes/covid-19-data>), and geocoding data (Colombia:
-<https://en.wikipedia.org/wiki/ISO_3166-2:CO>; Russia:
+<https://coronavirus.data.gov.uk>,
+<https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-hospital-activity/>;
+USA: <https://github.com/nytimes/covid-19-data>), and geocoding data
+(Colombia: <https://en.wikipedia.org/wiki/ISO_3166-2:CO>; Russia:
 <https://en.wikipedia.org/wiki/ISO_3166-2:RU>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -87,6 +92,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

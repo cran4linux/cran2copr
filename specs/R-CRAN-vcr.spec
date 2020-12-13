@@ -1,10 +1,10 @@
 %global packname  vcr
-%global packver   0.5.4
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
-Release:          3%{?dist}%{?buildtag}
+Version:          0.6.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Record 'HTTP' Calls to Disk
 
 License:          MIT + file LICENSE
@@ -14,22 +14,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-crul >= 0.8.4
-BuildRequires:    R-CRAN-webmockr >= 0.6.2
+BuildRequires:    R-CRAN-webmockr >= 0.7.4
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-crul >= 0.8.4
-Requires:         R-CRAN-webmockr >= 0.6.2
+Requires:         R-CRAN-webmockr >= 0.7.4
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-base64enc 
 
 %description
@@ -44,7 +42,13 @@ the same 'cassette' use a cached 'HTTP' response.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -52,20 +56,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

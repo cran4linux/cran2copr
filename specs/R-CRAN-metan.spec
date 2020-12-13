@@ -1,9 +1,9 @@
 %global packname  metan
-%global packver   1.10.0
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.0
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi Environment Trials Analysis
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggrepel 
@@ -29,6 +28,7 @@ BuildRequires:    R-CRAN-lmerTest
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
@@ -37,7 +37,6 @@ Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggrepel 
@@ -47,6 +46,7 @@ Requires:         R-CRAN-lmerTest
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-methods 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 

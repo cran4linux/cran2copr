@@ -1,30 +1,38 @@
-%global packname  duckdb
-%global packver   0.2.3
+%global packname  dominanceanalysis
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Dominance Analysis
 
-License:          MPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-stats 
 Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Dominance analysis is a method that allows to compare the relative
+importance of predictors in multiple regression models: ordinary least
+squares, generalized linear models, hierarchical linear models, beta
+regression and dynamic linear models. The main principles and methods of
+dominance analysis are described in Budescu, D. V. (1993)
+<doi:10.1037/0033-2909.114.3.542> and Azen, R., & Budescu, D. V. (2003)
+<doi:10.1037/1082-989X.8.2.129> for ordinary least squares regression.
+Subsequently, the extensions for multivariate regression, logistic
+regression and hierarchical linear models were described in Azen, R., &
+Budescu, D. V. (2006) <doi:10.3102/10769986031002157>, Azen, R., & Traxel,
+N. (2009) <doi:10.3102/1076998609332754> and Luo, W., & Azen, R. (2013)
+<doi:10.3102/1076998612458319>, respectively.
 
 %prep
 %setup -q -c -n %{packname}
