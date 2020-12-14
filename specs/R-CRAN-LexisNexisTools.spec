@@ -1,9 +1,9 @@
 %global packname  LexisNexisTools
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Working with Files from 'LexisNexis'
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-data.table >= 1.10.0
 BuildRequires:    R-CRAN-stringi >= 1.1.7
 BuildRequires:    R-CRAN-quanteda >= 1.1.0
 BuildRequires:    R-CRAN-stringdist >= 0.9.4.0
+BuildRequires:    R-CRAN-quanteda.textstats 
 Requires:         R-methods >= 3.3.0
 Requires:         R-parallel >= 3.3.0
 Requires:         R-stats >= 3.3.0
@@ -35,6 +36,7 @@ Requires:         R-CRAN-data.table >= 1.10.0
 Requires:         R-CRAN-stringi >= 1.1.7
 Requires:         R-CRAN-quanteda >= 1.1.0
 Requires:         R-CRAN-stringdist >= 0.9.4.0
+Requires:         R-CRAN-quanteda.textstats 
 
 %description
 My PhD supervisor once told me that everyone doing newspaper analysis

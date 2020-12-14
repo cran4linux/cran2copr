@@ -1,11 +1,11 @@
 %global packname  AnalyzeFMRI
-%global packver   1.1-21
+%global packver   1.1-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.21
-Release:          3%{?dist}%{?buildtag}
-Summary:          Functions for Analysis of fMRI Datasets Stored in the ANALYZE orNIFTI Format
+Version:          1.1.22
+Release:          1%{?dist}%{?buildtag}
+Summary:          Functions for Analysis of fMRI Datasets Stored in the ANALYZE or NIFTI Format
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,6 +31,13 @@ Note that the latest version of XQuartz seems to be necessary under MacOS.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -38,33 +45,10 @@ Note that the latest version of XQuartz seems to be necessary under MacOS.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/AnalyzeFMRI.gui.R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/example-nifti.hdr
-%doc %{rlibdir}/%{packname}/example-nifti.img
-%doc %{rlibdir}/%{packname}/example.hdr
-%doc %{rlibdir}/%{packname}/example.img
-%doc %{rlibdir}/%{packname}/example.mat
-%doc %{rlibdir}/%{packname}/GRF.examples.R
-%doc %{rlibdir}/%{packname}/HISTORY
-%doc %{rlibdir}/%{packname}/ICA.gui.R
-%doc %{rlibdir}/%{packname}/ICAst.gui.R
-%doc %{rlibdir}/%{packname}/niftidoc
-%doc %{rlibdir}/%{packname}/plot.volume.gui.R
-%doc %{rlibdir}/%{packname}/README
-%doc %{rlibdir}/%{packname}/README.win
-%doc %{rlibdir}/%{packname}/smoothing.examples.R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

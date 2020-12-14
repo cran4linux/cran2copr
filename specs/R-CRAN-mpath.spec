@@ -1,9 +1,9 @@
 %global packname  mpath
-%global packver   0.4-2.16
+%global packver   0.4-2.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2.16
+Version:          0.4.2.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Linear Models
 
@@ -39,7 +39,7 @@ Requires:         R-CRAN-WeightSVM
 Algorithms compute concave convex (CC) estimators including robust
 (penalized) generalized linear models and robust support vector machines
 via the COCO - composite optimization by conjugation operator. The package
-also contain penalized Poisson, negative binomial, zero-inflated Poisson,
+also contains penalized Poisson, negative binomial, zero-inflated Poisson,
 zero-inflated negative binomial regression models and robust models with
 non-convex loss functions. See Wang et al. (2014) <doi:10.1002/sim.6314>,
 Wang et al. (2015) <doi:10.1002/bimj.201400143>, Wang et al. (2016)

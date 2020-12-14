@@ -1,9 +1,9 @@
 %global packname  here
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simpler Way to Find Your Files
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rprojroot >= 2.0.1
-Requires:         R-CRAN-rprojroot >= 2.0.1
+BuildRequires:    R-CRAN-rprojroot >= 2.0.2
+Requires:         R-CRAN-rprojroot >= 2.0.2
 
 %description
 Constructs paths to your project's files. Declare the relative path of a
