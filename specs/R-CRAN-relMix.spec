@@ -1,9 +1,9 @@
 %global packname  relMix
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relationship Inference for DNA Mixtures
 
@@ -16,11 +16,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Familias 
-BuildRequires:    R-CRAN-tkrplot 
 BuildRequires:    R-CRAN-gWidgets2 
 BuildRequires:    R-CRAN-gWidgets2tcltk 
 Requires:         R-CRAN-Familias 
-Requires:         R-CRAN-tkrplot 
 Requires:         R-CRAN-gWidgets2 
 Requires:         R-CRAN-gWidgets2tcltk 
 

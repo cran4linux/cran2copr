@@ -1,9 +1,9 @@
 %global packname  TVMM
-%global packver   3.2
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Tests for the Vector of Means
 
@@ -20,7 +20,6 @@ BuildRequires:    R-tcltk
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-tcltk2 
-BuildRequires:    R-CRAN-tkrplot 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -31,7 +30,6 @@ Requires:         R-tcltk
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-tcltk2 
-Requires:         R-CRAN-tkrplot 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-stats 
 Requires:         R-utils 

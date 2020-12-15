@@ -1,32 +1,36 @@
-%global packname  servr
-%global packver   0.21
+%global packname  rstac
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          Client Library for SpatioTemporal Asset Catalog
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-crayon 
+Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+Provides functions to access, search and download spacetime earth
+observation data via SpatioTemporal Asset Catalog (STAC). This package
+supports the version 0.8.1 or higher of the STAC specification
+(<http://stacspec.org>).
 
 %prep
 %setup -q -c -n %{packname}

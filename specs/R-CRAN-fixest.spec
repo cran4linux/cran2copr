@@ -1,9 +1,9 @@
 %global packname  fixest
-%global packver   0.7.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Fixed-Effects Estimations
 
@@ -14,24 +14,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-dreamerr >= 1.2.1
+BuildRequires:    R-CRAN-dreamerr >= 1.2.3
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-dreamerr >= 1.2.1
+Requires:         R-CRAN-dreamerr >= 1.2.3
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-sandwich 

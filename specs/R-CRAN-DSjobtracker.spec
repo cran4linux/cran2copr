@@ -1,32 +1,26 @@
-%global packname  servr
-%global packver   0.21
+%global packname  DSjobtracker
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          What Skills and Qualifications are Required for Data Science Related Jobs?
 
-License:          GPL
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+Dataset containing information about job listings for data science job
+roles.
 
 %prep
 %setup -q -c -n %{packname}

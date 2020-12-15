@@ -1,9 +1,9 @@
 %global packname  text
-%global packver   0.9.0
+%global packver   0.9.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyses of Text using Natural Language Processing and Machine Learning
 

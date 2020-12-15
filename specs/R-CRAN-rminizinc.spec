@@ -1,32 +1,37 @@
-%global packname  servr
-%global packver   0.21
+%global packname  rminizinc
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          R Interface to Use 'MiniZinc'
 
-License:          GPL
+License:          Mozilla Public License Version 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rlist 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+R users can use the package to solve constraint programming problems
+without using 'MiniZinc' directly, modify existing 'MiniZinc' models and
+also create their own models.
 
 %prep
 %setup -q -c -n %{packname}

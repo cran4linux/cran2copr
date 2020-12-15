@@ -1,38 +1,45 @@
-%global packname  ggeffects
-%global packver   1.0.1
+%global packname  PNSIBGE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Tidy Data Frames of Marginal Effects for 'ggplot' from Model Outputs
+Summary:          Downloading, Reading and Analysing PNS Microdata
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sjlabelled >= 1.1.2
-BuildRequires:    R-CRAN-insight >= 0.11.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-sjlabelled >= 1.1.2
-Requires:         R-CRAN-insight >= 0.11.0
-Requires:         R-graphics 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-utils 
+Requires:         R-CRAN-timeDate 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tibble 
 
 %description
-Compute marginal effects from statistical models and returns the result as
-tidy data frames. These data frames are ready to use with the
-'ggplot2'-package. Marginal effects can be calculated for many different
-models. Interaction terms, splines and polynomial terms are also
-supported. The main functions are ggpredict(), ggemmeans() and ggeffect().
-There is a generic plot()-method to plot the results using 'ggplot2'.
+Provides tools for downloading, reading, and analysing the PNS household
+survey from Brazilian Institute of Geography and Statistics - IBGE. The
+data must be downloaded from the official website
+<https://www.ibge.gov.br/>. Further analyses must be made using package
+'survey'.
 
 %prep
 %setup -q -c -n %{packname}
