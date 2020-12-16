@@ -1,9 +1,9 @@
 %global packname  googlePolylines
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Encoding Coordinates into 'Google' Polylines
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.12.13

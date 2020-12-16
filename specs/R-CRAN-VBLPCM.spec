@@ -1,30 +1,32 @@
-%global packname  cld2
-%global packver   1.2.1
+%global packname  VBLPCM
+%global packver   2.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.4.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 2
+Summary:          Variational Bayes Latent Position Cluster Model for Networks
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    gsl-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ergm 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-sna 
+Requires:         R-CRAN-ergm 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-sna 
 
 %description
-Bindings to Google's C++ library Compact Language Detector 2 (see
-<https://github.com/cld2owners/cld2#readme> for more information).
-Probabilistically detects over 80 languages in plain text or HTML. For
-mixed-language input it returns the top three detected languages and their
-approximate proportion of the total classified text bytes (e.g. 80%%
-English and 20%% French out of 1000 bytes). There is also a 'cld3' package
-on CRAN which uses a neural network model instead.
+Fit and simulate latent position and cluster models for network data,
+using a fast Variational Bayes approximation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  OptCirClust
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Circular, Periodic, or Framed Data Clustering: Fast, Optimal, and Reproducible
 
@@ -27,18 +27,17 @@ Requires:         R-stats
 
 %description
 Fast, optimal, and reproducible clustering algorithms for circular,
-periodic, or framed data. The algorithms introduced here are based on a
-core algorithm for optimal framed clustering the authors have developed
-(under review). The runtime of these algorithms is O(K N log^2 N), where K
-is the number of clusters and N is the number of circular data points. On
-a desktop computer using a single processor core, millions of data points
-can be clustered within seconds. One can apply the algorithms to
-characterize events along circular DNA molecules, circular RNA molecules,
-and circular genomes of bacteria, chloroplast, and mitochondria. One can
-also cluster climate data along any given longitude or latitude. Periodic
-data clustering can be formulated as circular clustering. The algorithms
-offer a general high-performance solution to circular, periodic, or framed
-data clustering.
+periodic, or framed data. The algorithms introduced in this package are
+based on a core optimal framed clustering algorithm. The runtime of these
+algorithms is O(K N log^2 N), where K is the number of clusters and N is
+the number of circular data points. On a desktop computer using a single
+processor core, millions of circular data points can be clustered within
+seconds. One can use the algorithms to characterize events along circular
+DNA molecules, circular RNA molecules, and circular genomes of bacteria,
+chloroplast, and mitochondria. One can also cluster climate data along any
+given longitude or latitude. Periodic data clustering can be formulated as
+circular clustering. The algorithms offer a general high-performance
+solution to circular, periodic, or framed data clustering.
 
 %prep
 %setup -q -c -n %{packname}

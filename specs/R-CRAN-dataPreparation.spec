@@ -1,30 +1,36 @@
-%global packname  cld2
-%global packver   1.2.1
+%global packname  dataPreparation
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 2
+Summary:          Automated Data Preparation
 
-License:          Apache License 2.0
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-data.table 
 
 %description
-Bindings to Google's C++ library Compact Language Detector 2 (see
-<https://github.com/cld2owners/cld2#readme> for more information).
-Probabilistically detects over 80 languages in plain text or HTML. For
-mixed-language input it returns the top three detected languages and their
-approximate proportion of the total classified text bytes (e.g. 80%%
-English and 20%% French out of 1000 bytes). There is also a 'cld3' package
-on CRAN which uses a neural network model instead.
+Do most of the painful data preparation for a data science project with a
+minimum amount of code; Take advantages of 'data.table' efficiency and use
+some algorithmic trick in order to perform data preparation in a time and
+RAM efficient way.
 
 %prep
 %setup -q -c -n %{packname}

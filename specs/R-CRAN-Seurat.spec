@@ -1,9 +1,9 @@
 %global packname  Seurat
-%global packver   3.2.2
+%global packver   3.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -16,13 +16,14 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-plotly >= 4.9.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-Matrix >= 1.2.14
+BuildRequires:    R-CRAN-Matrix >= 1.2.14
+BuildRequires:    R-CRAN-scattermore >= 0.7
 BuildRequires:    R-CRAN-leiden >= 0.3.1
-BuildRequires:    R-CRAN-sctransform >= 0.3
+BuildRequires:    R-CRAN-sctransform >= 0.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-uwot >= 0.1.5
+BuildRequires:    R-CRAN-uwot >= 0.1.9
 BuildRequires:    R-methods 
-BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-future 
@@ -37,9 +38,9 @@ BuildRequires:    R-CRAN-ica
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-KernSmooth 
+BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-patchwork 
@@ -64,12 +65,13 @@ BuildRequires:    R-CRAN-RcppEigen
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-plotly >= 4.9.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-Matrix >= 1.2.14
+Requires:         R-CRAN-Matrix >= 1.2.14
+Requires:         R-CRAN-scattermore >= 0.7
 Requires:         R-CRAN-leiden >= 0.3.1
-Requires:         R-CRAN-sctransform >= 0.3
-Requires:         R-CRAN-uwot >= 0.1.5
+Requires:         R-CRAN-sctransform >= 0.3.1
+Requires:         R-CRAN-uwot >= 0.1.9
 Requires:         R-methods 
-Requires:         R-cluster 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-future 
@@ -84,9 +86,9 @@ Requires:         R-CRAN-ica
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-KernSmooth 
+Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-lmtest 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-patchwork 
@@ -122,9 +124,13 @@ Macosko E, Basu A, Satija R, et al (2015)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -134,6 +140,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

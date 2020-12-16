@@ -1,9 +1,9 @@
 %global packname  mully
-%global packver   2.1.26
+%global packver   2.1.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.26
+Version:          2.1.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Modify and Visualize Multi-Layered Networks
 

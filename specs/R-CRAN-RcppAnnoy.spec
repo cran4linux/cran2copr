@@ -1,9 +1,9 @@
 %global packname  RcppAnnoy
-%global packver   0.0.17
+%global packver   0.0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.17
+Version:          0.0.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings for 'Annoy', a Library for Approximate Nearest Neighbors
 

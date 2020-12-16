@@ -1,9 +1,9 @@
 %global packname  precautionary
-%global packver   0.1-5
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Safety Diagnostics for Dose-Escalation Trial Designs
 
@@ -38,8 +38,10 @@ Requires:         R-CRAN-kableExtra
 Enhances various R packages that support the design and simulation of
 phase 1 dose-escalation trials, adding diagnostics to examine the safety
 characteristics of these designs in light of expected inter-individual
-variation in pharmacokinetics and pharmacodynamics. See Norris (2020),
-"Retrospective analysis of a fatal dose-finding trial" <arXiv:2004.12755>.
+variation in pharmacokinetics and pharmacodynamics. See Norris (2020b),
+"Retrospective analysis of a fatal dose-finding trial" <arXiv:2004.12755>
+and (2020c) "What Were They Thinking? Pharmacologic priors implicit in a
+choice of 3+3 dose-escalation design" <arXiv:2012:05301>.
 
 %prep
 %setup -q -c -n %{packname}

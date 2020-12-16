@@ -1,11 +1,11 @@
 %global packname  RJafroc
-%global packver   1.3.2
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
-Release:          3%{?dist}%{?buildtag}
-Summary:          Analyzing Diagnostic Observer Performance Studies
+Version:          2.0.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Artificial Intelligence Systems and Observer Performance
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
@@ -40,67 +42,84 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Implements software for assessing medical imaging systems, radiologists or
-computer aided detection algorithms. Models of observer performance are
-implemented, including the binormal model (BM), the contaminated binormal
-model (CBM), the correlated contaminated binormal model (CORCBM), and the
-radiological search model (RSM). The software and applications are
-described in a book - Chakraborty DP: Observer Performance Methods for
-Diagnostic Imaging - Foundations, Modeling, and Applications with R-Based
-Examples. Taylor-Francis LLC; 2017 - and its vignettes
-<https://dpc10ster.github.io/RJafroc/>. Observer performance data
-collection paradigms are the receiver operating characteristic (ROC) and
-its location specific extensions, primarily free-response ROC (FROC) and
-the location ROC (LROC). ROC data consists of single ratings per images. A
-rating is the perceived confidence level that the image is that of a
-diseased patient. FROC data consists of a variable number (including zero)
-of mark-rating pairs per image, where a mark is the location of a
-clinically reportable suspicious region and the rating is the
-corresponding confidence level that it is a real lesion. LROC data
-consists of a rating and a forced localization of the most suspicious
-region on every image. RJafroc supersedes the Windows version of JAFROC
-software V4.2.1, <http://www.devchakraborty.com>:. Package functions are
-organized as follows. Data file related function names are preceded by Df,
-curve fitting functions by Fit, included data sets by dataset, plotting
-functions by Plot, significance testing functions by St, sample size
-related functions by Ss, data simulation functions by Simulate and utility
-functions by Util. Implemented are figures of merit (FOMs) for quantifying
-performance, functions for visualizing empirical operating
-characteristics: e.g., ROC, FROC, alternative FROC (AFROC) and weighted
-AFROC (wAFROC) curves. Four maximum likelihood curve-fitting algorithms
-are implemented: the binormal model (BM), the contaminated binormal model
-(CBM), the correlated contaminated binormal model (CORCBM) and the
+Analyzing the performance of artificial intelligence (AI)
+systems/algorithms characterized by a "search-and-report" strategy. While
+historically observer performance has dealt with measuring radiologists'
+performance in search tasks – i.e., searching for lesions in medical
+images and reporting them - the software described here applies equally to
+any task involving searching for and reporting arbitrary targets in
+images. The package can be used to analyze the performance of AI systems,
+compare AI performance to a group of human readers or optimize the
+reporting threshold of an AI system. In addition to performing
+conventional receiver operating characteristic (ROC) analysis
+(localization information ignored), the software also performs
+free-response receiver operating characteristic (FROC) analysis, where
+lesion localization information is integral to the analyzed data. A book
+using the software has been published: Chakraborty DP: Observer
+Performance Methods for Diagnostic Imaging - Foundations, Modeling, and
+Applications with R-Based Examples, Taylor-Francis LLC; 2017. An online
+update of this book is at <https://dpc10ster.github.io/RJafrocBook/>.
+Illustrations of the software (vignettes) are at
+<https://dpc10ster.github.io/RJafroc/>. Supported data collection
+paradigms are the ROC, FROC and the location ROC (LROC). ROC data consists
+of single ratings per images, where a rating is the perceived confidence
+level that the image is that of a diseased patient. An ROC curve is a plot
+of true positive fraction vs. false positive fraction. FROC data consists
+of a variable number (zero or more) of mark-rating pairs per image, where
+a mark is the location of a reported suspicious region and the rating is
+the confidence level that it is a real lesion. LROC data consists of a
+rating and a location of the most suspicious region, for every image. Four
+models of observer performance, and curve-fitting software, are
+implemented: the binormal model (BM), the contaminated binormal model
+(CBM), the correlated contaminated binormal model (CORCBM), and the
 radiological search model (RSM). Unlike the binormal model, CBM, CORCBM
-and RSM predict "proper" ROC curves that do not cross the chance diagonal.
-RSM fitting additionally yields measures of search and
-lesion-classification performances. Search performance is the ability to
-find lesions while avoiding finding non-lesions. Lesion-classification
-performance is the ability to correctly classify found lesions from found
-non-lesions. For fully crossed study designs significance testing of
-reader-averaged FOM differences between modalities is implemented via both
-Dorfman-Berbaum-Metz and the Obuchowski-Rockette methods, including
-Hillis' extensions. Also implemented are single treatment analyses, which
-allow comparison of performance of a group of radiologists to a specified
-value, or comparison to CAD to a group of radiologists interpreting the
-same cases. Crossed-modality analysis is implemented wherein there are two
-crossed treatment factors and the desire is to determined performance in
-each treatment factor averaged over all levels of the other factor. Sample
-size estimation tools are provided for ROC and FROC studies; these use
-estimates of the relevant variances from a pilot study to predict required
-numbers of readers and cases in a pivotal study to achieve a desired
-power. Utility and data file manipulation functions allow data to be read
-in any of the currently used input formats, including Excel, and the
-results of the analysis can be viewed in text or Excel output files. The
-methods are illustrated with several included datasets from the author's
-international collaborations. This version corrects a few bugs noticed by
-users and extends the Excel file input format for greater flexibility in
-handling non-crossed datasets and the sample size routines have been
-rewritten for ease of use.
+and RSM predict "proper" ROC curves that do not inappropriately cross the
+chance diagonal. Additionally, RSM parameters are related to search
+performance (not measured in conventional ROC analysis) and classification
+performance. Search performance refers to finding lesions, i.e., true
+positives, while simultaneously not finding false positive locations.
+Classification performance measures the ability to distinguish between
+true and false positive locations. Knowing these separate performances
+allows principled optimization of reader or AI system performance. RJafroc
+supersedes Windows JAFROC (jackknife alternative FROC) software V4.2.1,
+<https://github.com/dpc10ster/WindowsJafroc>. Package functions are
+organized as follows. Data file related function names are preceded by
+"Df", curve fitting functions by "Fit", included data sets by "dataset",
+plotting functions by "Plot", significance testing functions by "St",
+sample size related functions by "Ss", data simulation functions by
+"Simulate" and utility functions by "Util". Implemented are figures of
+merit (FOMs) for quantifying performance and functions for visualizing
+empirical or fitted operating characteristics: e.g., ROC, FROC,
+alternative FROC (AFROC) and weighted AFROC (wAFROC) curves. For fully
+crossed study designs significance testing of reader-averaged FOM
+differences between modalities is implemented via either
+Dorfman-Berbaum-Metz or the Obuchowski-Rockette methods. Also implemented
+is single treatment analysis, which allows comparison of performance of a
+group of radiologists to a specified value, or comparison of AI to a group
+of radiologists interpreting the same cases. Crossed-modality analysis is
+implemented wherein there are two crossed treatment factors and the aim is
+to determined performance in each treatment factor averaged over all
+levels of the second factor. Sample size estimation tools are provided for
+ROC and FROC studies; these use estimates of the relevant variances from a
+pilot study to predict required numbers of readers and cases in a pivotal
+study to achieve the desired power. Utility and data file manipulation
+functions allow data to be read in any of the currently used input
+formats, including Excel, and the results of the analysis can be viewed in
+text or Excel output files. The methods are illustrated with several
+included datasets from the author's collaborations. This version corrects
+bugs, simplifies usage of the software and updates the dataset structure.
+All changes are noted in NEWS.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -108,22 +127,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/ANALYZED
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/MRMCRuns
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

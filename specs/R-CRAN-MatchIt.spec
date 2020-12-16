@@ -1,9 +1,9 @@
 %global packname  MatchIt
-%global packver   4.0.1
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Preprocessing for Parametric Causal Inference
 
@@ -14,10 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-backports >= 1.1.8
+BuildRequires:    R-CRAN-backports >= 1.1.9
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-backports >= 1.1.8
+Requires:         R-CRAN-backports >= 1.1.9
 Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description

@@ -1,9 +1,9 @@
 %global packname  spant
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MR Spectroscopy Analysis Tools
 
@@ -36,7 +36,6 @@ BuildRequires:    R-CRAN-RNifti
 BuildRequires:    R-CRAN-RNiftyReg 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-oro.dicom 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-irlba 
@@ -64,7 +63,6 @@ Requires:         R-CRAN-RNifti
 Requires:         R-CRAN-RNiftyReg 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-oro.dicom 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-irlba 
@@ -73,7 +71,9 @@ Requires:         R-CRAN-jsonlite
 
 %description
 Tools for reading, visualising and processing Magnetic Resonance
-Spectroscopy data.
+Spectroscopy data. The package includes methods for spectral fitting:
+Wilson (2021) <DOI:10.1002/mrm.28385> and spectral alignment: Wilson
+(2018) <DOI:10.1002/mrm.27605>.
 
 %prep
 %setup -q -c -n %{packname}

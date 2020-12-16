@@ -1,9 +1,9 @@
 %global packname  mlt.docreg
-%global packver   1.0-8
+%global packver   1.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Most Likely Transformations: Documentation and Regression Tests
 
@@ -20,8 +20,8 @@ BuildRequires:    R-CRAN-mlt >= 1.0.5
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-eha 
-BuildRequires:    R-lattice 
-BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-truncreg 
 BuildRequires:    R-CRAN-np 
@@ -30,8 +30,8 @@ Requires:         R-CRAN-mlt >= 1.0.5
 Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
 Requires:         R-CRAN-eha 
-Requires:         R-lattice 
-Requires:         R-survival 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-truncreg 
 Requires:         R-CRAN-np 
@@ -43,9 +43,13 @@ package mlt.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -55,6 +59,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,9 +1,9 @@
 %global packname  AnalyzeFMRI
-%global packver   1.1-22
+%global packver   1.1-23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.22
+Version:          1.1.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Analysis of fMRI Datasets Stored in the ANALYZE or NIFTI Format
 
@@ -17,11 +17,9 @@ Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-R.matlab 
 BuildRequires:    R-CRAN-fastICA 
 BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-tkrplot 
 Requires:         R-CRAN-R.matlab 
 Requires:         R-CRAN-fastICA 
 Requires:         R-tcltk 
-Requires:         R-CRAN-tkrplot 
 
 %description
 Functions for I/O, visualisation and analysis of functional Magnetic

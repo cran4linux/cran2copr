@@ -1,30 +1,32 @@
-%global packname  cld2
-%global packver   1.2.1
+%global packname  portes
+%global packver   5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 2
+Summary:          Portmanteau Tests for Univariate and Multivariate Time Series Models
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-forecast 
+Requires:         R-parallel 
+Requires:         R-CRAN-forecast 
 
 %description
-Bindings to Google's C++ library Compact Language Detector 2 (see
-<https://github.com/cld2owners/cld2#readme> for more information).
-Probabilistically detects over 80 languages in plain text or HTML. For
-mixed-language input it returns the top three detected languages and their
-approximate proportion of the total classified text bytes (e.g. 80%%
-English and 20%% French out of 1000 bytes). There is also a 'cld3' package
-on CRAN which uses a neural network model instead.
+Contains common univariate and multivariate portmanteau test statistics in
+time series based on the asymptotic distributions and the Monte Carlo
+significance tests. Simulate univariate and multivariate data from
+seasonal and nonseasonal time series models. See Mahdi and McLeod (2012)
+<doi:10.1111/j.1467-9892.2011.00752.x> and Mahdi and McLeod (2020)
+<arXiv:2005.00931>.
 
 %prep
 %setup -q -c -n %{packname}

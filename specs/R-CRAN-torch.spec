@@ -1,9 +1,9 @@
 %global packname  torch
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tensors and Neural Networks with 'GPU' Acceleration
 
@@ -23,6 +23,10 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-withr 
@@ -32,6 +36,10 @@ Requires:         R-utils
 Requires:         R-stats 
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-magrittr 
+Requires:         R-tools 
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-cli 
 
 %description
 Provides functionality to define and train neural networks similar to

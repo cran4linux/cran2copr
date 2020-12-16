@@ -1,30 +1,37 @@
-%global packname  cld2
-%global packver   1.2.1
+%global packname  srcr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 2
+Summary:          Simplify Connections to Database Sources
 
-License:          Apache License 2.0
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-Bindings to Google's C++ library Compact Language Detector 2 (see
-<https://github.com/cld2owners/cld2#readme> for more information).
-Probabilistically detects over 80 languages in plain text or HTML. For
-mixed-language input it returns the top three detected languages and their
-approximate proportion of the total classified text bytes (e.g. 80%%
-English and 20%% French out of 1000 bytes). There is also a 'cld3' package
-on CRAN which uses a neural network model instead.
+Connecting to databases requires boilerplate code to specify connection
+parameters and to set up sessions properly with the DBMS. This package
+provides a simple tool to fill two purposes: abstracting connection
+details, including secret credentials, out of your source code and
+managing configuration for frequently-used database connections in a
+persistent and flexible way, while minimizing requirements on the runtime
+environment.
 
 %prep
 %setup -q -c -n %{packname}

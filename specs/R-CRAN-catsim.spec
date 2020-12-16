@@ -1,30 +1,31 @@
-%global packname  cld2
-%global packver   1.2.1
+%global packname  catsim
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 2
+Summary:          Binary and Categorical Image Similarity Index
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Bindings to Google's C++ library Compact Language Detector 2 (see
-<https://github.com/cld2owners/cld2#readme> for more information).
-Probabilistically detects over 80 languages in plain text or HTML. For
-mixed-language input it returns the top three detected languages and their
-approximate proportion of the total classified text bytes (e.g. 80%%
-English and 20%% French out of 1000 bytes). There is also a 'cld3' package
-on CRAN which uses a neural network model instead.
+Computes a structural similarity metric (after the style of MS-SSIM for
+images) for binary and categorical 2D and 3D images. Can be based on
+accuracy (simple matching), Cohen's kappa, Rand index, adjusted Rand
+index, Jaccard index, Dice index, normalized mutual information, or
+adjusted mutual information. In addition, has fast computation of Cohen's
+kappa, the Rand indices, and the two mutual informations. Implements the
+methods of Thompson and Maitra (2020) <arXiv:2004.09073>.
 
 %prep
 %setup -q -c -n %{packname}

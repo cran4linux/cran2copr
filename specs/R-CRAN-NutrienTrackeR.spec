@@ -1,9 +1,9 @@
 %global packname  NutrienTrackeR
-%global packver   0.99.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Food Composition Information and Dietary Assessment
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-shiny 
 
 %description
 Provides a tool set for food information and dietary assessment. It uses

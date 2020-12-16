@@ -1,9 +1,9 @@
 %global packname  sampleSelection
-%global packver   1.2-10
+%global packver   1.2-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.10
+Version:          1.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Selection Models
 
