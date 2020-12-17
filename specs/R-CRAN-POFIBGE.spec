@@ -1,34 +1,45 @@
-%global packname  msir
-%global packver   1.3.3
+%global packname  POFIBGE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model-Based Sliced Inverse Regression
+Summary:          Downloading, Reading and Analysing POF Microdata
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mclust >= 5.4
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-mclust >= 5.4
-Requires:         R-stats 
+BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-RCurl 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-timeDate 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tibble 
 
 %description
-An R package for dimension reduction based on finite Gaussian mixture
-modeling of inverse regression.
+Provides tools for downloading, reading, and analysing the POF household
+survey from Brazilian Institute of Geography and Statistics - IBGE. The
+data must be downloaded from the official website
+<https://www.ibge.gov.br/>. Further analyses must be made using package
+'survey'.
 
 %prep
 %setup -q -c -n %{packname}

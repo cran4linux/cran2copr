@@ -1,42 +1,48 @@
-%global packname  deepgp
-%global packver   0.2.0
+%global packname  polyqtlR
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sequential Design for Deep Gaussian Processes using MCMC
+Summary:          QTL Analysis in Autopolyploid Bi-Parental F1 Populations
 
-License:          LGPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.19
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.19
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Performs model fitting and sequential design for deep Gaussian processes
-following Sauer, Gramacy, and Higdon (2020) <arXiv:2012.08015>.  Models
-extend up to three layers deep; a one layer model is equivalent to typical
-Gaussian process regression.  Sequential design criteria include
-integrated mean-squared error (IMSE), active learning Cohn (ALC), and
-expected improvement (EI).  Covariance structure is based on inverse
-exponentiated squared euclidean distance.  Applicable to noisy and
-deterministic functions. Incorporates SNOW parallelization and utilizes C
-under the hood.
+Quantitative trait loci (QTL) analysis in polyploid bi-parental F1
+populations. For all ploidy levels, identity-by-descent (IBD)
+probabilities can be estimated. Significance thresholds, exploring QTL
+allele effects and visualising results are provided. The methods have been
+largely described in the dissertation of P.M. Bourke in 2018
+<doi:10.18174/444415>.
 
 %prep
 %setup -q -c -n %{packname}

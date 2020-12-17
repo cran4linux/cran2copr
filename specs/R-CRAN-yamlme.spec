@@ -1,42 +1,32 @@
-%global packname  tidytable
-%global packver   0.5.7
+%global packname  yamlme
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Writing 'YAML' Headers for 'R-Markdown' Documents
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.12.6
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-vctrs >= 0.3.5
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.12.6
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-vctrs >= 0.3.5
-Requires:         R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-knitr 
 Requires:         R-methods 
+Requires:         R-CRAN-testthat 
 
 %description
-A tidy interface to 'data.table' that is 'rlang' compatible, giving users
-the speed of 'data.table' with the clean syntax of the tidyverse.
+Setting layout through 'YAML' headers in 'R-Markdown' documents, enabling
+their automatic generation. Functions and methods may summarize R-objects
+in automatic reports, for instance check-lists and further reports applied
+to the packages 'taxlist' and 'vegtable'.
 
 %prep
 %setup -q -c -n %{packname}

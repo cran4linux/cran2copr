@@ -1,42 +1,35 @@
-%global packname  tidytable
-%global packver   0.5.7
+%global packname  TwoArmSurvSim
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Simulate Survival Data for Randomized Clinical Trials
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.12.6
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-vctrs >= 0.3.5
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.12.6
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-vctrs >= 0.3.5
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-blockrand 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-blockrand 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-survival 
 
 %description
-A tidy interface to 'data.table' that is 'rlang' compatible, giving users
-the speed of 'data.table' with the clean syntax of the tidyverse.
+A system to simulate clinical trials with time to event endpoints. Event
+simulation is based on Cox models allowing for covariates in addition to
+the treatment or group factor. Specific drop-out rates (separate from
+administrative censoring) can be controlled in the simulation. Other
+features include stratified randomization, non-proportional hazards,
+different accrual patterns, and event projection (timing to reach the
+target event) based on interim data.
 
 %prep
 %setup -q -c -n %{packname}

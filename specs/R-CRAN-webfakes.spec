@@ -1,11 +1,11 @@
-%global packname  tidytable
-%global packver   0.5.7
+%global packname  webfakes
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Fake Web Apps for HTTP Testing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,29 +14,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.12.6
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-vctrs >= 0.3.5
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.12.6
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-vctrs >= 0.3.5
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-A tidy interface to 'data.table' that is 'rlang' compatible, giving users
-the speed of 'data.table' with the clean syntax of the tidyverse.
+Create a web app that makes it easier to test web clients without using
+the internet. It includes a web app framework with path matching,
+parameters and templates. Can parse various 'HTTP' request bodies. Can
+send 'JSON' data or files from the disk. Includes a web app that
+implements the <https://httpbin.org> web service.
 
 %prep
 %setup -q -c -n %{packname}

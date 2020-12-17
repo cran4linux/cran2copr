@@ -1,9 +1,9 @@
 %global packname  BIGL
-%global packver   1.5.3
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biochemically Intuitive Generalized Loewe Model
 
@@ -12,11 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-numDeriv 
@@ -25,8 +25,9 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-nleqslv 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-numDeriv 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-nleqslv 
 
 %description
 Response surface methods for drug synergy analysis. Available methods
@@ -51,9 +53,13 @@ Rytis Bagdziunas, Olivier Thas, Maxim Nazarov, Heather Turner, Bie Verbist
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -63,6 +69,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,9 +1,9 @@
 %global packname  RXshrink
-%global packver   1.4.3
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or Least Angle Regression Methods
 
@@ -38,7 +38,9 @@ p*(p-1) possible pairs of shrunken regression coefficients. The
 correct.signs() function provides estimates with "correct" numerical signs
 when ill-conditioned (nearly multicollinear) models yield OLS estimates
 that disagree with the signs of the observed correlations between the
-y-outcome and the selected x-predictor variables.
+y-outcome and the selected x-predictor variables. Finally, the YonX()
+function displays Shrinkage statistics and graphics for "simple" linear
+regression (p = 1) models.
 
 %prep
 %setup -q -c -n %{packname}

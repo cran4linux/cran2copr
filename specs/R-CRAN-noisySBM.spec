@@ -1,42 +1,37 @@
-%global packname  tidytable
-%global packver   0.5.7
+%global packname  noisySBM
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Noisy Stochastic Block Mode: Graph Inference by Multiple Testing
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.12.6
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-vctrs >= 0.3.5
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.12.6
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-vctrs >= 0.3.5
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-parallel 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-A tidy interface to 'data.table' that is 'rlang' compatible, giving users
-the speed of 'data.table' with the clean syntax of the tidyverse.
+Variational Expectation-Maximization algorithm to fit the noisy stochastic
+block model to an observed dense graph and to perform a node clustering.
+Moreover, a graph inference procedure to recover the underlying binary
+graph. This procedure comes with a control of the false discovery rate.
+The method is described in the article "Powerful graph inference with
+false discovery rate control" by T. Rebafka, E. Roquain, F. Villers (2020)
+<arXiv:1907.10176>.
 
 %prep
 %setup -q -c -n %{packname}

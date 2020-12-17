@@ -1,19 +1,19 @@
 %global packname  lori
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imputation of Count Data using Side Information
+Summary:          Imputation of High-Dimensional Count Data using Side Information
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-data.table 
@@ -26,11 +26,14 @@ Requires:         R-CRAN-svd
 
 %description
 Analysis, imputation, and multiple imputation of count data using
-covariates. LORI uses a log-linear model where main row and column effects
-are decomposed as regression terms on known covariates. A residual
-low-rank interaction term is also fitted. LORI returns estimates of
-covariate effects and interactions, as well as an imputed count table. The
-package also contains a multiple imputation procedure.
+covariates. LORI uses a log-linear Poisson model where main row and column
+effects, as well as effects of known covariates and interaction terms can
+be fitted. The estimation procedure is based on the convex optimization of
+the Poisson loss penalized by a Lasso type penalty and a nuclear norm.
+LORI returns estimates of main effects, covariate effects and
+interactions, as well as an imputed count table. The package also contains
+a multiple imputation procedure. The methods are described in Robin,
+Josse, Moulines and Sardy (2019) <arXiv:1703.02296v4>.
 
 %prep
 %setup -q -c -n %{packname}

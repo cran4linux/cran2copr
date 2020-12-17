@@ -1,9 +1,9 @@
 %global packname  statGraph
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Graphs
 
@@ -22,8 +22,8 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-rARPACK 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-snow 
-BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-igraph 
@@ -31,8 +31,8 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-rARPACK 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-snow 
-Requires:         R-CRAN-doSNOW 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
 Contains statistical methods to analyze graphs, such as graph parameter

@@ -1,9 +1,9 @@
 %global packname  worcs
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflow for Open Reproducible Code in Science
 
@@ -33,14 +33,14 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-rticles 
 
 %description
-Create reproducible and transparent research projects in 'R', with a
-minimal amount of code. This package is based on the Workflow for Open
-Reproducible Code in Science (WORCS), a step-by-step procedure based on
-best practices for Open Science. It includes an 'RStudio' project
-template, several convenience functions, and all dependencies required to
-make your project reproducible and transparent. WORCS is explained in the
-tutorial paper by Van Lissa, Brandmaier, Brinkman, Lamprecht, Struiksma, &
-Vreede (2020). <doi:10.17605/OSF.IO/ZCVBS>.
+Create reproducible and transparent research projects in 'R'. This package
+is based on the Workflow for Open Reproducible Code in Science (WORCS), a
+step-by-step procedure based on best practices for Open Science. It
+includes an 'RStudio' project template, several convenience functions, and
+all dependencies required to make your project reproducible and
+transparent. WORCS is explained in the tutorial paper by Van Lissa,
+Brandmaier, Brinkman, Lamprecht, Struiksma, & Vreede (2020).
+<doi:10.17605/OSF.IO/ZCVBS>.
 
 %prep
 %setup -q -c -n %{packname}

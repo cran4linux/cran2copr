@@ -1,9 +1,9 @@
 %global packname  yotover
-%global packver   0.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Advanced Guide to Trade Policy Analysis
 
@@ -24,20 +24,16 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-multiwayvcov 
+BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-munsell 
-BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
@@ -48,20 +44,16 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-multiwayvcov 
+Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-duckdb 
+Requires:         R-utils 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-munsell 
-Requires:         R-CRAN-pander 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-rstudioapi 
 
 %description

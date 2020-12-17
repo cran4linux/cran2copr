@@ -1,52 +1,51 @@
-%global packname  broom
-%global packver   0.7.3
+%global packname  readrba
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Statistical Objects into Tidy Tibbles
+Summary:          Download and Tidy Data from the Reserve Bank of Australia
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-readxl >= 1.3.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-generics >= 0.0.2
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rvest >= 0.3.6
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-readxl >= 1.3.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-generics >= 0.0.2
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rvest >= 0.3.6
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-curl 
 
 %description
-Summarizes key information about statistical objects in tidy tibbles. This
-makes it easy to report results, create plots and consistently work with
-large numbers of models at once. Broom provides three verbs that each
-provide different types of information about a model. tidy() summarizes
-information about model components such as coefficients of a regression.
-glance() reports information about an entire model, such as goodness of
-fit measures like AIC and BIC. augment() adds information about individual
-observations to a dataset, such as fitted values or influence measures.
+Download up-to-date data from the Reserve Bank of Australia in a tidy data
+frame. Package includes functions to download current and historical
+statistical tables (<https://www.rba.gov.au/statistics/tables/>) and
+forecasts
+(<https://www.rba.gov.au/publications/smp/forecasts-archive.html>). Data
+includes a broad range of Australian macroeconomic and financial time
+series.
 
 %prep
 %setup -q -c -n %{packname}
