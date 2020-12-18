@@ -1,13 +1,13 @@
-%global packname  classyfireR
-%global packver   0.3.6
+%global packname  csodata
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the ClassyFire RESTful API
+Summary:          Download Data from the CSO 'PxStat' API
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,39 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-tidyjson 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rjstat 
+BuildRequires:    R-CRAN-R.cache 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-tidyjson 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rjstat 
+Requires:         R-CRAN-R.cache 
+Requires:         R-CRAN-sf 
 
 %description
-Access to the ClassyFire RESTful API <http://classyfire.wishartlab.com>.
-Retrieve existing entity classifications and submit new entities for
-classification.
+Imports 'PxStat' data in JSON-stat format and (optionally) reshapes it
+into wide format. The Central Statistics Office (CSO) is the national
+statistical institute of Ireland and 'PxStat' is the CSOs online database
+of Official Statistics. This database contains current and historical data
+series compiled from CSO statistical releases and is accessed at
+<http://data.cso.ie>. The CSO 'PxStat' Application Programming Interface
+(API), which is accessed in this package, provides access to 'PxStat' data
+in JSON-stat format at <http://data.cso.ie>. This dissemination tool
+allows developers machine to machine access to CSO 'PxStat' data.
 
 %prep
 %setup -q -c -n %{packname}

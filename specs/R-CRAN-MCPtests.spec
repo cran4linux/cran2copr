@@ -1,9 +1,9 @@
 %global packname  MCPtests
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiples Comparisons Procedures
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-SMR
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-tkrplot 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
@@ -37,7 +36,6 @@ Requires:         R-CRAN-SMR
 Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-xtable 
 Requires:         R-tcltk 
-Requires:         R-CRAN-tkrplot 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 

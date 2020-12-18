@@ -1,9 +1,9 @@
 %global packname  astsa
-%global packver   1.11
+%global packver   1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11
+Version:          1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Applied Statistical Time Series Analysis
 

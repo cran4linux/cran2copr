@@ -1,9 +1,9 @@
 %global packname  LSX
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model for Semisupervised Text Analysis Based on Word Embeddings
 
@@ -16,8 +16,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-quanteda >= 2.0
-BuildRequires:    R-CRAN-quanteda.textmodels 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-quanteda.textmodels 
+BuildRequires:    R-CRAN-quanteda.textstats 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-Matrix 
@@ -34,8 +35,9 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-locfit 
 Requires:         R-CRAN-quanteda >= 2.0
-Requires:         R-CRAN-quanteda.textmodels 
 Requires:         R-methods 
+Requires:         R-CRAN-quanteda.textmodels 
+Requires:         R-CRAN-quanteda.textstats 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-Matrix 
@@ -53,10 +55,12 @@ Requires:         R-CRAN-e1071
 Requires:         R-CRAN-locfit 
 
 %description
-A word embeddings-based semisupervised models for document scaling
-Watanabe (2020) <doi:10.1080/19312458.2020.1832976>. LSS allows users to
-analyze large and complex corpora on arbitrary dimensions with seed words
-exploiting efficiency of word embeddings (SVD, Glove).
+A word embeddings-based semisupervised model for document scaling Watanabe
+(2020) <doi:10.1080/19312458.2020.1832976>. LSS allows users to analyze
+large and complex corpora on arbitrary dimensions with seed words
+exploiting efficiency of word embeddings (SVD, Glove). It can generate
+word vectors on a users-provided corpus or incorporate a pre-trained word
+vectors.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  BiodiversityR
-%global packver   2.12-2
+%global packver   2.12-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.12.2
+Version:          2.12.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package for Community Ecology and Suitability Analysis
 
@@ -15,16 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcmdr >= 2.5.3
+BuildRequires:    R-CRAN-Rcmdr >= 2.6.1
 BuildRequires:    R-CRAN-vegan >= 2.5.1
 BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-vegan3d 
-BuildRequires:    R-CRAN-rgl 
-Requires:         R-CRAN-Rcmdr >= 2.5.3
+Requires:         R-CRAN-Rcmdr >= 2.6.1
 Requires:         R-CRAN-vegan >= 2.5.1
 Requires:         R-tcltk 
-Requires:         R-CRAN-vegan3d 
-Requires:         R-CRAN-rgl 
 
 %description
 Graphical User Interface (via the R-Commander) and utility functions

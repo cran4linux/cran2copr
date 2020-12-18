@@ -1,9 +1,9 @@
 %global packname  testthat
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unit Testing for R
 
@@ -15,15 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-CRAN-callr >= 3.5.1
+BuildRequires:    R-CRAN-withr >= 2.3.0
+BuildRequires:    R-CRAN-cli >= 2.2.0
 BuildRequires:    R-CRAN-R6 >= 2.2.0
-BuildRequires:    R-CRAN-withr >= 2.0.0
 BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-ps >= 1.3.4
-BuildRequires:    R-CRAN-rlang >= 0.4.1
+BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-waldo >= 0.2.1
 BuildRequires:    R-CRAN-ellipsis >= 0.2.0
 BuildRequires:    R-CRAN-brio 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-evaluate 
@@ -36,15 +36,15 @@ BuildRequires:    R-CRAN-praise
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-callr >= 3.5.1
+Requires:         R-CRAN-withr >= 2.3.0
+Requires:         R-CRAN-cli >= 2.2.0
 Requires:         R-CRAN-R6 >= 2.2.0
-Requires:         R-CRAN-withr >= 2.0.0
 Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-ps >= 1.3.4
-Requires:         R-CRAN-rlang >= 0.4.1
+Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-waldo >= 0.2.1
 Requires:         R-CRAN-ellipsis >= 0.2.0
 Requires:         R-CRAN-brio 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-evaluate 

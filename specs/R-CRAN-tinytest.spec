@@ -1,9 +1,9 @@
 %global packname  tinytest
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight and Feature Complete Unit Testing Framework
 

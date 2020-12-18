@@ -1,9 +1,9 @@
 %global packname  rminizinc
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Use 'MiniZinc'
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-checkmate 
@@ -29,9 +28,17 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-rlist 
 
 %description
-R users can use the package to solve constraint programming problems
-without using 'MiniZinc' directly, modify existing 'MiniZinc' models and
-also create their own models.
+Constraint optimization, or constraint programming, is the name given to
+identifying feasible solutions out of a very large set of candidates,
+where the problem can be modeled in terms of arbitrary constraints.
+'MiniZinc' is a free and open-source constraint modeling language.
+Constraint satisfaction and discrete optimization problems can be
+formulated in a high-level modeling language. Models are compiled into an
+intermediate representation that is understood by a wide range of solvers.
+'MiniZinc' itself provides several solvers, for instance 'GeCode'. R users
+can use the package to solve constraint programming problems without using
+'MiniZinc' directly, modify existing 'MiniZinc' models and also create
+their own models.
 
 %prep
 %setup -q -c -n %{packname}

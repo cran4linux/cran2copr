@@ -1,36 +1,25 @@
-%global packname  seededlda
-%global packver   0.5.1
+%global packname  USgas
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seeded-LDA for Topic Modeling
+Summary:          The Demand for Natural Gas in the US
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
-BuildRequires:    R-CRAN-quanteda > 2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-Requires:         R-CRAN-quanteda > 2.0
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Implements the seeded-LDA model (Lu, Ott, Cardie & Tsou 2010)
-<doi:10.1109/ICDMW.2011.125> using the quanteda package and the GibbsLDA++
-library for semisupervised topic modeling. Seeded-LDA allows users to
-pre-define topics with keywords to perform theory-driven analysis of
-textual data in social sciences and humanities (Watanabe & Zhou 2020)
-<doi:10.1177/0894439320907027>.
+Provides an overview of the demand for natural gas in the US by state and
+country level. Data source: US Energy Information Administration
+<https://www.eia.gov/>.
 
 %prep
 %setup -q -c -n %{packname}

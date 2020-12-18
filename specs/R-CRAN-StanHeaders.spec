@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  StanHeaders
-%global packver   2.21.0-6
+%global packver   2.21.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.21.0.6
+Version:          2.21.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          C++ Header Files for Stan
 

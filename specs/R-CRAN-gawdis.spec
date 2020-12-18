@@ -1,9 +1,9 @@
 %global packname  gawdis
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Trait Dissimilarity with more Uniform Contributions
 
@@ -22,11 +22,12 @@ Requires:         R-CRAN-GA
 
 %description
 R function gawdis() produces multi-trait dissimilarity with more uniform
-contributions of different traits. The approach is based on minimizing the
-differences in the correlation between the dissimilarity of each trait, or
-groups of traits, and the multi-trait dissimilarity. This is done using
-either an analytic or a numerical solution, both available in the
-function.
+contributions of different traits. de Bello et al. (2021)
+<doi:10.1111/2041-210X.13537> presented the approach based on minimizing
+the differences in the correlation between the dissimilarity of each
+trait, or groups of traits, and the multi-trait dissimilarity. This is
+done using either an analytic or a numerical solution, both available in
+the function.
 
 %prep
 %setup -q -c -n %{packname}
