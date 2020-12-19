@@ -1,35 +1,39 @@
-%global packname  groc
-%global packver   1.0.8
+%global packname  surface
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Regression on Orthogonal Components
+Summary:          Fitting Hansen Models to Investigate Convergent Evolution
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-devel >= 2.6
+Requires:         R-core >= 2.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-ouch 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-robustbase 
+BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-ouch 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-geiger 
+Requires:         R-methods 
 
 %description
-Robust multiple or multivariate linear regression, nonparametric
-regression on orthogonal components, classical or robust partial least
-squares models as described in Bilodeau, Lafaye De Micheaux and Mahdi
-(2015) <doi:10.18637/jss.v065.i01>.
+This data-driven phylogenetic comparative method fits stabilizing
+selection models to continuous trait data, building on the 'ouch'
+methodology of Butler and King (2004) <doi:10.1086/426002>. The main
+functions fit a series of Hansen models using stepwise AIC, then identify
+cases of convergent evolution where multiple lineages have shifted to the
+same adaptive peak. For more information see Ingram and Mahler (2013)
+<doi:10.1111/2041-210X.12034>.
 
 %prep
 %setup -q -c -n %{packname}

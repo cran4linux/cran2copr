@@ -1,35 +1,37 @@
-%global packname  groc
-%global packver   1.0.8
+%global packname  IndependenceTests
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Regression on Orthogonal Components
+Summary:          Non-Parametric Tests of Independence Between Random Vectors
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-devel >= 2.6.0
+Requires:         R-core >= 2.6.0
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-CompQuadForm 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-robustbase 
+BuildRequires:    R-CRAN-Runuran 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-CompQuadForm 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Runuran 
+Requires:         R-parallel 
 
 %description
-Robust multiple or multivariate linear regression, nonparametric
-regression on orthogonal components, classical or robust partial least
-squares models as described in Bilodeau, Lafaye De Micheaux and Mahdi
-(2015) <doi:10.18637/jss.v065.i01>.
+Functions for non-parametric tests of independence (mutual or serial)
+between some quantitative random vectors, as described in Bilodeau M. and
+Lafaye de Micheaux P. (2009) <doi:10.1016/j.jspi.2008.11.006>, in Beran
+R., Bilodeau M. and Lafaye de Micheaux P. (2007)
+<doi:10.1016/j.jmva.2007.01.009> and in Fan Y., Lafaye de Micheaux P.,
+Penev S. and Salopek D. (2017) <doi:10.1016/j.jmva.2016.09.014>.
 
 %prep
 %setup -q -c -n %{packname}

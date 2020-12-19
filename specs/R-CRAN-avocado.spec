@@ -1,35 +1,26 @@
-%global packname  groc
-%global packver   1.0.8
+%global packname  avocado
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Regression on Orthogonal Components
+Summary:          Weekly Hass Avocado Sales Summary
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Robust multiple or multivariate linear regression, nonparametric
-regression on orthogonal components, classical or robust partial least
-squares models as described in Bilodeau, Lafaye De Micheaux and Mahdi
-(2015) <doi:10.18637/jss.v065.i01>.
+Provides a weekly summary of Hass Avocado sales for the contiguous US from
+January 2017 to November 2020. See the package website for more
+information, documentation, and examples. Data source: Haas Avocado Board
+<https://hassavocadoboard.com/category-data/>.
 
 %prep
 %setup -q -c -n %{packname}

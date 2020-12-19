@@ -1,35 +1,28 @@
-%global packname  groc
-%global packver   1.0.8
+%global packname  stockfish
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Regression on Orthogonal Components
+Summary:          Analyze Chess Games with the Stockfish Engine
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-R6 
 
 %description
-Robust multiple or multivariate linear regression, nonparametric
-regression on orthogonal components, classical or robust partial least
-squares models as described in Bilodeau, Lafaye De Micheaux and Mahdi
-(2015) <doi:10.18637/jss.v065.i01>.
+An implementation of the UCI open communication protocol that ships with
+Stockfish 11, a very popular, open source, powerful chess engine written
+in C++.
 
 %prep
 %setup -q -c -n %{packname}

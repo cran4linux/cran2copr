@@ -1,35 +1,51 @@
-%global packname  groc
-%global packver   1.0.8
+%global packname  invacost
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Regression on Orthogonal Components
+Summary:          Analyse Biological Invasion Costs with the 'InvaCost' Database
 
-License:          GPL (>= 2)
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-pls 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-earth 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Robust multiple or multivariate linear regression, nonparametric
-regression on orthogonal components, classical or robust partial least
-squares models as described in Bilodeau, Lafaye De Micheaux and Mahdi
-(2015) <doi:10.18637/jss.v065.i01>.
+Provides an up-to-date version of the 'InvaCost' database
+(<doi:10.6084/m9.figshare.12668570>) in R, and several functions to
+analyse the costs of invasive alien species.
 
 %prep
 %setup -q -c -n %{packname}

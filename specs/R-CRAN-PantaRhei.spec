@@ -1,13 +1,13 @@
-%global packname  marketr
-%global packver   0.0.2
+%global packname  PantaRhei
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Calculation of Marketing Metrics Plus Quick Analysis
+Summary:          Plots Sankey Diagrams
 
-License:          CC0
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+Requires:         R-grid 
+Requires:         R-grDevices 
+Requires:         R-utils 
 
 %description
-Facilitates tidy calculation of popular quantitative marketing metrics. It
-also includes functions for doing analysis that will help marketers and
-data analysts better understand the drivers and/or trends of these
-metrics. These metrics include Customer Experience Index
-<https://go.forrester.com/analytics/cx-index/> and Net Promoter Score
-<https://www.netpromoter.com/know/>.
+Sankey diagrams are a powerfull and visually attractive way to visualize
+the flow of conservative substances through a system. They typically
+consists of a network of nodes, and fluxes between them, where the total
+balance in each internal node is 0, i.e. input equals output. Sankey
+diagrams are typically used to display energy systems, material flow
+accounts etc. Unlike so-called alluvial plots, Sankey diagrams also allow
+for cyclic flows: flows originating from a single node can, either direct
+or indirect, contribute to the input of that same node. This package,
+named after the Greek aphorism Panta Rhei (everything flows), provides
+functions to create publication-quality diagrams, using data in tables (or
+spread sheets) and a simple syntax.
 
 %prep
 %setup -q -c -n %{packname}

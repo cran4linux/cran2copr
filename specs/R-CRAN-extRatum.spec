@@ -1,35 +1,33 @@
-%global packname  groc
-%global packver   1.0.8
+%global packname  extRatum
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Regression on Orthogonal Components
+Summary:          Summary Statistics for Geospatial Features
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9.5
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9.5
 
 %description
-Robust multiple or multivariate linear regression, nonparametric
-regression on orthogonal components, classical or robust partial least
-squares models as described in Bilodeau, Lafaye De Micheaux and Mahdi
-(2015) <doi:10.18637/jss.v065.i01>.
+Provides summary statistics of local geospatial features within a given
+geographic area. It does so by calculating the area covered by a target
+geospatial feature (i.e. buildings, parks, lakes, etc.). The geospatial
+features can be of any type of geospatial data, including point, polygon
+or line data.
 
 %prep
 %setup -q -c -n %{packname}

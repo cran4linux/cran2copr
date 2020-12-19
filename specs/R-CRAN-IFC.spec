@@ -1,9 +1,9 @@
 %global packname  IFC
-%global packver   0.0.9
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Imaging Flow Cytometry
 
@@ -23,9 +23,9 @@ BuildRequires:    R-CRAN-jpeg
 BuildRequires:    R-utils 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-latticeExtra 
-BuildRequires:    R-KernSmooth 
+BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-CRAN-Rcpp >= 0.10.0
@@ -37,9 +37,9 @@ Requires:         R-CRAN-jpeg
 Requires:         R-utils 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-lattice 
+Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
-Requires:         R-KernSmooth 
+Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-visNetwork 
 
@@ -53,15 +53,19 @@ images stored can also be accessed. Users, may hopefully increase their
 productivity thanks to dedicated functions to extract, visualize and
 export 'IFC' data. Toy data example can be installed through the 'IFCdata'
 package of approximately 32 MB, which is available in a 'drat' repository
-<https://gitdemont.github.io/IFCdata>. See file 'COPYRIGHTS' and file
+<https://gitdemont.github.io/IFCdata/>. See file 'COPYRIGHTS' and file
 'AUTHORS' for a list of copyright holders and authors.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -71,6 +75,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

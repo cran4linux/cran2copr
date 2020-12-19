@@ -1,41 +1,39 @@
-%global packname  mvabund
-%global packver   4.1.6
+%global packname  GLMcat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for Analysing Multivariate Abundance Data
+Summary:          Generalized Linear Models for Categorical Responses
 
-License:          LGPL (>= 2.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppGSL 
+BuildRequires:    R-base 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-tweedie 
-Requires:         R-CRAN-statmod 
-Requires:         R-parallel 
+Requires:         R-base 
 
 %description
-A set of tools for displaying, modeling and analysing multivariate
-abundance data in community ecology. See 'mvabund-package.Rd' for details
-of overall package organization. The package is implemented with the Gnu
-Scientific Library (<http://www.gnu.org/software/gsl/>) and 'Rcpp'
-(<http://dirk.eddelbuettel.com/code/rcpp.html>) 'R' / 'C++' classes.
+In statistical modeling, there is a wide variety of regression models for
+categorical dependent variables (nominal or ordinal data); yet, there is
+no software embracing all these models together in a uniform and
+generalized format. Following the methodology proposed by Peyhardi,
+Trottier, and Guédon (2015) <doi:10.1093/biomet/asv042>, we introduce
+'GLMcat', an R package to estimate generalized linear models implemented
+under the unified specification (r, F, Z). Where r represents the ratio of
+probabilities (reference, cumulative, adjacent, or sequential), F the
+cumulative distribution function for the linkage, and Z, the design
+matrix.
 
 %prep
 %setup -q -c -n %{packname}

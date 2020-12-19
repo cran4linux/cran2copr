@@ -1,35 +1,34 @@
-%global packname  groc
-%global packver   1.0.8
+%global packname  FKF.SP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Regression on Orthogonal Components
+Summary:          Fast Kalman Filtering Through Sequential Processing
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-curl 
 
 %description
-Robust multiple or multivariate linear regression, nonparametric
-regression on orthogonal components, classical or robust partial least
-squares models as described in Bilodeau, Lafaye De Micheaux and Mahdi
-(2015) <doi:10.18637/jss.v065.i01>.
+Fast and flexible Kalman filtering implementation utilizing sequential
+processing, designed for efficient parameter estimation through maximum
+likelihood estimation. 'FKF.SP' was built upon the existing 'FKF' package
+and was designed to generally increase the computational efficiency of
+Kalman filtering when independence is assumed in the measurement error of
+observations. Sequential processing is described in the textbook of Durbin
+and Koopman (2001, ISBN:978-0-19-964117-8).
 
 %prep
 %setup -q -c -n %{packname}

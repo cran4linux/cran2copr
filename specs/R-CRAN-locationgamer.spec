@@ -1,35 +1,35 @@
-%global packname  groc
-%global packver   1.0.8
+%global packname  locationgamer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Regression on Orthogonal Components
+Summary:          Identification of Location Game Equilibria in Networks
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+Requires:         R-graphics 
 
 %description
-Robust multiple or multivariate linear regression, nonparametric
-regression on orthogonal components, classical or robust partial least
-squares models as described in Bilodeau, Lafaye De Micheaux and Mahdi
-(2015) <doi:10.18637/jss.v065.i01>.
+Identification of equilibrium locations in location games (Hotelling
+(1929) <doi:10.2307/2224214>). In these games, two competing actors place
+customer-serving units in two locations simultaneously. Customers make the
+decision to visit the location that is closest to them. The functions in
+this package include Prim algorithm (Prim (1957)
+<doi:10.1002/j.1538-7305.1957.tb01515.x>) to find the minimum spanning
+tree connecting all network vertices, an implementation of Dijkstra
+algorithm (Dijkstra (1959) <doi:10.1007/BF01386390>) to find the shortest
+distance and path between any two vertices, a self-developed algorithm
+using elimination of purely dominated strategies to find the equilibrium,
+and several plotting functions.
 
 %prep
 %setup -q -c -n %{packname}

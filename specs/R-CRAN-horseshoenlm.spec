@@ -1,35 +1,34 @@
-%global packname  groc
-%global packver   1.0.8
+%global packname  horseshoenlm
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Regression on Orthogonal Components
+Summary:          Nonlinear Regression using Horseshoe Prior
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-msm 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-msm 
 
 %description
-Robust multiple or multivariate linear regression, nonparametric
-regression on orthogonal components, classical or robust partial least
-squares models as described in Bilodeau, Lafaye De Micheaux and Mahdi
-(2015) <doi:10.18637/jss.v065.i01>.
+Provides the posterior estimates of the regression coefficients when
+horseshoe prior is specified. The regression models considered here are
+logistic model for binary response and log normal accelerated failure time
+model for right censored survival response. The linear model analysis is
+also available for completeness. All models provide deviance information
+criterion and widely applicable information criterion. See
+<doi:10.1111/rssc.12377> Maity et. al. (2019) <doi:10.1111/biom.13132>
+Maity et. al. (2020).
 
 %prep
 %setup -q -c -n %{packname}

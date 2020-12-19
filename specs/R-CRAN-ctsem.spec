@@ -1,9 +1,9 @@
 %global packname  ctsem
-%global packver   3.3.11
+%global packver   3.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.11
+Version:          3.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Structural Equation Modelling
 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-Deriv
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-MASS 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mize 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -40,6 +40,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.21
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-Rcpp >= 0.12.16
@@ -50,8 +51,8 @@ Requires:         R-CRAN-Deriv
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-MASS 
-Requires:         R-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-mize 
 Requires:         R-CRAN-mvtnorm 
@@ -63,6 +64,7 @@ Requires:         R-tools
 Requires:         R-utils 
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rstantools
 
 %description
 Hierarchical continuous time state space modelling, for linear and
@@ -88,9 +90,13 @@ present. <https://cdriver.netlify.app/> contains some tutorial blog posts.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -100,6 +106,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

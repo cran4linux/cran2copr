@@ -1,36 +1,43 @@
-%global packname  r2d3
-%global packver   0.2.5
+%global packname  slickR
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'D3' Visualizations
+Summary:          Create Interactive Carousels with the 'JavaScript' 'Slick' Library
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 1.2
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rstudioapi 
-Requires:         R-CRAN-htmlwidgets >= 1.2
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rstudioapi 
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-stats 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Suite of tools for using 'D3', a library for producing dynamic,
-interactive data visualizations. Supports translating objects into 'D3'
-friendly data structures, rendering 'D3' scripts, publishing 'D3'
-visualizations, incorporating 'D3' in R Markdown, creating interactive
-'D3' applications with Shiny, and distributing 'D3' based 'htmlwidgets' in
-R packages.
+Create and customize interactive carousels using the 'Slick' 'JavaScript'
+library and the 'htmlwidgets' package. The carousels can contain plots
+produced in R, images, 'iframes', videos and other 'htmlwidgets'.  These
+carousels can be created directly from the R console, and viewed in the
+'RStudio' internal viewer, in 'Shiny' apps and R Markdown documents.
 
 %prep
 %setup -q -c -n %{packname}
