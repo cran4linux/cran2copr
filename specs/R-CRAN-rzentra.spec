@@ -1,45 +1,41 @@
-%global packname  mstrio
-%global packver   11.3.0.1
+%global packname  rzentra
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.3.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface for 'MicroStrategy' REST API
+Summary:          Client for the 'ZENTRA Cloud' API
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-openssl >= 1.4.1
-BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-openssl >= 1.4.1
-Requires:         R-CRAN-crul 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shiny 
 
 %description
-Interface for creating data sets and extracting data through the
-'MicroStrategy' REST API. Access the demo API at
-<https://demo.microstrategy.com/MicroStrategyLibrary/api-docs/index.html>.
+Provides functionality to read settings, statuses and readings of weather
+stations from the 'ZENTRA Cloud' API
+<https://zentracloud.com/api/v1/guide#APIGuidelines>.
 
 %prep
 %setup -q -c -n %{packname}

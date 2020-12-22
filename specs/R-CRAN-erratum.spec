@@ -1,45 +1,27 @@
-%global packname  mstrio
-%global packver   11.3.0.1
+%global packname  erratum
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.3.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface for 'MicroStrategy' REST API
+Summary:          Handle Error and Warning Messages
 
-License:          Apache License 2.0 | file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-openssl >= 1.4.1
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-openssl >= 1.4.1
-Requires:         R-CRAN-crul 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-rlang 
 
 %description
-Interface for creating data sets and extracting data through the
-'MicroStrategy' REST API. Access the demo API at
-<https://demo.microstrategy.com/MicroStrategyLibrary/api-docs/index.html>.
+Elegantly handle error and warning messages.
 
 %prep
 %setup -q -c -n %{packname}
