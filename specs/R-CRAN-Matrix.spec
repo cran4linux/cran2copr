@@ -1,9 +1,9 @@
 %global packname  Matrix
-%global packver   1.2-18
+%global packver   1.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.18
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse and Dense Matrix Classes and Methods
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 

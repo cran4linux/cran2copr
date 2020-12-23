@@ -1,9 +1,9 @@
 %global packname  foreign
-%global packver   0.8-80
+%global packver   0.8-81
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.80
+Version:          0.8.81
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Data Stored by 'Minitab', 'S', 'SAS', 'SPSS', 'Stata', 'Systat', 'Weka', 'dBase', ...
 
