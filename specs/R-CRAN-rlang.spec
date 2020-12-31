@@ -1,19 +1,21 @@
 %global packname  rlang
-%global packver   0.4.9
+%global packver   0.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
 A toolbox for working with base types, core R features like the condition

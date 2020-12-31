@@ -1,9 +1,9 @@
 %global packname  data.table
-%global packver   1.13.4
+%global packver   1.13.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.4
+Version:          1.13.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension of `data.frame`
 
