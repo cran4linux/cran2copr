@@ -1,9 +1,9 @@
 %global packname  rfacts
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'FACTS' on Unix-Like Systems
 
@@ -16,10 +16,14 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-fs >= 1.3.1
 BuildRequires:    R-CRAN-xml2 >= 1.2.2
+BuildRequires:    R-CRAN-digest >= 0.6.25
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-fs >= 1.3.1
 Requires:         R-CRAN-xml2 >= 1.2.2
+Requires:         R-CRAN-digest >= 0.6.25
 Requires:         R-utils 
 
 %description
@@ -27,7 +31,7 @@ The 'rfacts' package is an R interface to the Fixed and Adaptive Clinical
 Trial Simulator ('FACTS') on Unix-like systems. It programmatically
 invokes 'FACTS' to run clinical trial simulations, and it aggregates
 simulation output data into tidy data frames. These capabilities provide
-end-to-end automation for large-scale simulation workflows, and they
+end-to-end automation for large-scale simulation pipelines, and they
 enhance computational reproducibility. For more information on 'FACTS'
 itself, please visit <https://www.berryconsultants.com/software/>.
 

@@ -1,9 +1,9 @@
 %global packname  PortfolioAnalysis
-%global packver   1.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Portfolio Optimization Methods
 
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rvest 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-xml2
 Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rvest 

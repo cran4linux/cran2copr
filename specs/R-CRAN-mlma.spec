@@ -1,9 +1,9 @@
 %global packname  mlma
-%global packver   6.0-0
+%global packver   6.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          6.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Mediation Analysis
 
@@ -16,19 +16,19 @@ BuildRequires:    R-devel >= 2.14.1
 Requires:         R-core >= 2.14.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-coxme 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-splines 
 Requires:         R-CRAN-lme4 
-Requires:         R-splines 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-coxme 
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-survival 
+Requires:         R-splines 
 
 %description
 Do multilevel mediation analysis with generalized additive multilevel

@@ -1,9 +1,9 @@
 %global packname  aRbs
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Arbitrage Opportunities for Sports Matches
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-crayon 
@@ -23,7 +23,11 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinycssloaders 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
@@ -32,22 +36,26 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-purrr 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinycssloaders 
 
 %description
 Money doesn't grow on trees. Arbitrage opportunities do. Find the best
 arbitrage opportunities (arbs) in sports matches through
 <https://www.oddschecker.com/>. This package allows the user to input the
-URLs of <https://www.oddschecker.com/> subdomains in order to find any
+URLs of <https://www.oddschecker.com/> subdomains in order to extract any
 opportunities for arbitrage. The majority of the functionality is
-implemented using the function code{get_arbs()}. This function first
-finds all subdomains of the URL entered, then filters to only include
-those that look like event betting pages. Next, odds are scraped from the
-various bookmakers listed for that event, before returning combinations of
-bookmakers, odds or outcomes that could be used for arbitrage. Bets placed
-subsequently are done so at bettor's risk and we take no responsibility
-for losses that may occur from use of this package. Odds subject to
-instantaneous changes.
+implemented using the function `get_arbs_shiny()`, which simply provides
+an easy-to-use interface wrapping the functionality of the `get_arbs()`
+function. This function first finds all subdomains of the URL entered,
+then filters to only include those that look like event betting pages.
+Next, odds are scraped from the various bookmakers listed for that event,
+before returning combinations of bookmakers, odds or outcomes that could
+be used for arbitrage. Bets placed subsequently are done so at bettor's
+risk. Please see package README for full details.
 
 %prep
 %setup -q -c -n %{packname}

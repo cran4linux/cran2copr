@@ -1,9 +1,9 @@
 %global packname  officer
-%global packver   0.3.15
+%global packver   0.3.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.15
+Version:          0.3.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulation of Microsoft Word and PowerPoint Documents
 
@@ -21,18 +21,16 @@ BuildRequires:    R-CRAN-uuid >= 0.1.4
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-zip >= 2.1.0
 Requires:         R-CRAN-xml2 >= 1.1.0
 Requires:         R-CRAN-uuid >= 0.1.4
 Requires:         R-CRAN-R6 
 Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
 Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
 Access and manipulate 'Microsoft Word' and 'Microsoft PowerPoint'

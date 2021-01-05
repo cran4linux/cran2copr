@@ -1,9 +1,9 @@
 %global packname  parallelly
-%global packver   1.22.0
+%global packver   1.23.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.0
+Version:          1.23.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhancing the 'parallel' Package
 

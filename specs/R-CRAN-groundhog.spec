@@ -1,9 +1,9 @@
 %global packname  groundhog
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Scripts via Version-Specific Package Loading
 
@@ -17,7 +17,7 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Make R scripts that rely on packages reproducible by ensuring that every
+Make R scripts that rely on packages reproducible, by ensuring that every
 time a given script is run, the same version of the used packages are
 loaded (instead of whichever version the user running the script happens
 to have installed). This is achieved by using the new command

@@ -1,9 +1,9 @@
 %global packname  doFuture
-%global packver   0.11.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Universal Foreach Parallel Adapter using the Future API of the 'future' Package
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-foreach >= 1.5.0
-BuildRequires:    R-CRAN-future >= 1.20.1
+BuildRequires:    R-CRAN-future >= 1.21.0
 BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-foreach >= 1.5.0
-Requires:         R-CRAN-future >= 1.20.1
+Requires:         R-CRAN-future >= 1.21.0
 Requires:         R-CRAN-globals 
 Requires:         R-CRAN-iterators 
 Requires:         R-parallel 
