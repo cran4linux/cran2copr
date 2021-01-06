@@ -1,35 +1,26 @@
-%global packname  blme
-%global packver   1.0-5
+%global packname  proceduralnames
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Linear Mixed-Effects Models
+Summary:          Several Methods for Procedural Name Generation
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 >= 1.0.6
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lme4 >= 1.0.6
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Maximum a posteriori estimation for linear and generalized linear
-mixed-effects models in a Bayesian setting, implementing the methods of
-Chung, et al. (2013) <doi:10.1007/s11336-013-9328-2>. Extends package
-'lme4' (Bates, Maechler, Bolker, and Walker (2015)
-<doi:10.18637/jss.v067.i01>).
+A small, dependency-free way to generate random names. Methods provided
+include the adjective-surname approach of Docker containers
+('<https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go'),
+and combinations of common English or Spanish words.
 
 %prep
 %setup -q -c -n %{packname}

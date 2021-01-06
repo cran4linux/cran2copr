@@ -1,9 +1,9 @@
 %global packname  cspp
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for the Correlates of State Policy Project Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-mapproj
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-csppData 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readr 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-mapproj
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-csppData 
 
 %description
 A tool that imports, subsets, visualizes, and exports the Correlates of

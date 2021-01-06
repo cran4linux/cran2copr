@@ -1,13 +1,13 @@
 %global packname  HiClimR
-%global packver   2.1.7
+%global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Climate Regionalization
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -37,7 +37,9 @@ data filtering by mean and/or variance thresholds, data preprocessing
 preliminary big data support, different clustering methods, hybrid
 hierarchical clustering, multivariate clustering (MVC), cluster
 validation, visualization of regionalization results, and exporting region
-map and mean timeseries into NetCDF-4 file.
+map and mean timeseries into NetCDF-4 file. The technical details are
+described in the paper by Hamada S. Badr, Benjamin F. Zaitchik, and Amin
+K. Dezfuli (2015) <doi:10.1007/s12145-015-0221-7>.
 
 %prep
 %setup -q -c -n %{packname}

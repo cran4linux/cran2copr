@@ -1,9 +1,9 @@
 %global packname  BART
-%global packver   2.8
+%global packver   2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Additive Regression Trees
 
@@ -30,9 +30,8 @@ Requires:         R-tools
 %description
 Bayesian Additive Regression Trees (BART) provide flexible nonparametric
 modeling of covariates for continuous, binary, categorical and
-time-to-event outcomes.  For more information on BART, see Chipman, George
-and McCulloch (2010) <doi:10.1214/09-AOAS285> and Sparapani, Logan,
-McCulloch and Laud (2016) <doi:10.1002/sim.6893>.
+time-to-event outcomes.  For more information see Sparapani, Spanbauer and
+McCulloch <doi:10.18637/jss.v097.i01>.
 
 %prep
 %setup -q -c -n %{packname}

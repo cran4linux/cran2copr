@@ -1,9 +1,9 @@
 %global packname  Publish
-%global packver   2020.11.30
+%global packver   2020.12.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.11.30
+Version:          2020.12.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Format Output of Various Routines in a Suitable Way for Reports and Publication
 

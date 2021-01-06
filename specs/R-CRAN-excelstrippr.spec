@@ -1,35 +1,31 @@
-%global packname  blme
-%global packver   1.0-5
+%global packname  excelstrippr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Linear Mixed-Effects Models
+Summary:          Extracts Tabular Data from Excel Reports
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 >= 1.0.6
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lme4 >= 1.0.6
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readxl 
 
 %description
-Maximum a posteriori estimation for linear and generalized linear
-mixed-effects models in a Bayesian setting, implementing the methods of
-Chung, et al. (2013) <doi:10.1007/s11336-013-9328-2>. Extends package
-'lme4' (Bates, Maechler, Bolker, and Walker (2015)
-<doi:10.18637/jss.v067.i01>).
+Removes metadata and summary formatting from Excel reports, so that data
+from those reports can more easily be loaded into R. Currently works with
+.xlsx and .xls format files.
 
 %prep
 %setup -q -c -n %{packname}

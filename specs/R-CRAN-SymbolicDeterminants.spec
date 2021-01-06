@@ -1,9 +1,9 @@
 %global packname  SymbolicDeterminants
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Symbolic Representation of Matrix Determinant
 
@@ -16,8 +16,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-fs 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-fs 
 
 %description

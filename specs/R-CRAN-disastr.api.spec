@@ -1,35 +1,32 @@
-%global packname  blme
-%global packver   1.0-5
+%global packname  disastr.api
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Linear Mixed-Effects Models
+Summary:          Automated Retrieval of Disaster Event Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 >= 1.0.6
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lme4 >= 1.0.6
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Maximum a posteriori estimation for linear and generalized linear
-mixed-effects models in a Bayesian setting, implementing the methods of
-Chung, et al. (2013) <doi:10.1007/s11336-013-9328-2>. Extends package
-'lme4' (Bates, Maechler, Bolker, and Walker (2015)
-<doi:10.18637/jss.v067.i01>).
+Access and manage the application programming interface (API) of the
+United Nations Office for the Coordination of Humanitarian Affairs' (OCHA)
+ReliefWeb disaster events at <https://reliefweb.int/disasters/>. It makes
+it easy to retrieve a user-defined sample (or all of the available data)
+from ReliefWeb, enabling a seamless integration of regular data updates
+into the research work flow.
 
 %prep
 %setup -q -c -n %{packname}

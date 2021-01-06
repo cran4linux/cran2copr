@@ -1,35 +1,38 @@
-%global packname  blme
-%global packver   1.0-5
+%global packname  ggmulti
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Linear Mixed-Effects Models
+Summary:          High Dimensional Data Visualization
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 >= 1.0.6
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-lme4 >= 1.0.6
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-grid 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Maximum a posteriori estimation for linear and generalized linear
-mixed-effects models in a Bayesian setting, implementing the methods of
-Chung, et al. (2013) <doi:10.1007/s11336-013-9328-2>. Extends package
-'lme4' (Bates, Maechler, Bolker, and Walker (2015)
-<doi:10.18637/jss.v067.i01>).
+It provides materials (i.e. 'serial axes' objects, Andrew's plot, various
+glyphs for scatter plot) to visualize high dimensional data.
 
 %prep
 %setup -q -c -n %{packname}

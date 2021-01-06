@@ -1,35 +1,36 @@
-%global packname  blme
-%global packver   1.0-5
+%global packname  braidReports
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Linear Mixed-Effects Models
+Summary:          Visualize Combined Action Response Surfaces and Report BRAID Analyses
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 >= 1.0.6
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-braidrm 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-lme4 >= 1.0.6
-Requires:         R-methods 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-braidrm 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-grid 
 
 %description
-Maximum a posteriori estimation for linear and generalized linear
-mixed-effects models in a Bayesian setting, implementing the methods of
-Chung, et al. (2013) <doi:10.1007/s11336-013-9328-2>. Extends package
-'lme4' (Bates, Maechler, Bolker, and Walker (2015)
-<doi:10.18637/jss.v067.i01>).
+Provides functions to generate, format, and style surface plots for
+visualizing combined action data.  Also provides functions for reporting
+on a BRAID analysis, including plotting curve-shifts, calculating IAE
+values, and producing full BRAID analysis reports.
 
 %prep
 %setup -q -c -n %{packname}

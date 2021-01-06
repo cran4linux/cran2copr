@@ -1,9 +1,9 @@
 %global packname  nlraa
-%global packver   0.76
+%global packver   0.83
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.76
+Version:          0.83
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Regression for Agricultural Applications
 

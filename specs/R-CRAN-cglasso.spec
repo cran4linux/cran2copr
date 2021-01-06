@@ -1,38 +1,46 @@
 %global packname  cglasso
-%global packver   1.1.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          L1-Penalized Censored Gaussian Graphical Models
+Summary:          Conditional Graphical LASSO for Gaussian Graphical Models with Censored and Missing Values
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-The l1-penalized censored Gaussian graphical model is an extension of the
-graphical lasso estimator developed to handle datasets with censored
-observations. An EM-like algorithm is implemented to estimate the
-parameters of the censored Gaussian graphical models.
+Conditional graphical lasso (cglasso) estimator is an extension of the
+graphical lasso proposed to estimate the conditional dependence structure
+of a set of p response variables given q predictors. This package provides
+suitable extensions developed to study datasets with censored and/or
+missing values. Standard conditional graphical lasso is available as a
+special case. Furthermore, cglasso package provides an integrated set of
+core routines for visualization, analysis, and simulation of datasets with
+censored and/or missing values drawn from a Gaussian graphical model.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,6 +50,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

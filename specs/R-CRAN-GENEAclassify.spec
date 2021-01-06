@@ -1,9 +1,9 @@
 %global packname  GENEAclassify
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Segmentation and Classification of Accelerometer Data
 
@@ -18,19 +18,19 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-GENEAread 
 BuildRequires:    R-CRAN-changepoint 
 BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-rpart 
+BuildRequires:    R-CRAN-rpart 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-grDevices 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-GENEAread 
 Requires:         R-CRAN-changepoint 
 Requires:         R-CRAN-signal 
-Requires:         R-rpart 
+Requires:         R-CRAN-rpart 
 
 %description
 Segmentation and classification procedures for data from the
@@ -45,9 +45,13 @@ create classification models.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -57,6 +61,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
