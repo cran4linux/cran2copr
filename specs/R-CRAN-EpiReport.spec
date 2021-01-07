@@ -1,10 +1,10 @@
 %global packname  EpiReport
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Epidemiological Report
 
 License:          EUPL
@@ -12,33 +12,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.20
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-extrafont 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-extrafont 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-rmarkdown 
 
 %description
 Drafting an epidemiological report in 'Microsoft Word' format for a given
@@ -53,13 +45,19 @@ plot with the trend and number of cases at the European Union / European
 Economic Area level, by month, over the past five years; - Age and gender
 bar graph with the distribution of cases at the European Union / European
 Economic Area level. Two types of datasets can be used: - The default
-dataset of salmonella 2012-2016 data; - Any dataset specified as described
-in the vignette.
+dataset of dengue 2015-2019 data; - Any dataset specified as described in
+the vignette.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -67,20 +65,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/maps
-%doc %{rlibdir}/%{packname}/template
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

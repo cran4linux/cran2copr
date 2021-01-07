@@ -1,9 +1,9 @@
 %global packname  postcards
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Beautiful, Simple Personal Websites
 
@@ -17,8 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-utils 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 A collection of R Markdown templates for creating simple and easy to

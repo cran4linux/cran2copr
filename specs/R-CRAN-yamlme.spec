@@ -1,9 +1,9 @@
 %global packname  yamlme
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Writing 'YAML' Headers for 'R-Markdown' Documents
 
@@ -15,18 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-knitr 
 Requires:         R-methods 
-Requires:         R-CRAN-testthat 
 
 %description
 Setting layout through 'YAML' headers in 'R-Markdown' documents, enabling
-their automatic generation. Functions and methods may summarize R-objects
-in automatic reports, for instance check-lists and further reports applied
-to the packages 'taxlist' and 'vegtable'.
+their automatic generation. Functions and methods may summarize 'R'
+objects in automatic reports, for instance check-lists and further reports
+applied to the packages 'taxlist' and 'vegtable'.
 
 %prep
 %setup -q -c -n %{packname}

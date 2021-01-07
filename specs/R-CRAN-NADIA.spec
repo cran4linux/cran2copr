@@ -1,9 +1,9 @@
 %global packname  NADIA
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          NA Data Imputation Algorithms
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mlr3 
 BuildRequires:    R-CRAN-mlr3pipelines 
@@ -51,12 +51,12 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-glmnet 
 
 %description
-Package crate uniform interface for several advanced imputations missing
-data methods. Every available method can be used as a part of 'mlr3'
-pipelines whats allow easy tuning and performance evaluation. Most of the
-used function work separately on train and test sets ( imputation is
-trained on the training set and impute train data, after that imputation
-is again trained on test set and impute test data).
+Creates a uniform interface for several advanced imputations missing data
+methods. Every available method can be used as a part of 'mlr3' pipelines
+which allows easy tuning and performance evaluation. Most of the used
+functions work separately on the training and test sets (imputation is
+trained on the training set and impute training data. After that
+imputation is again trained on the test set and impute test data).
 
 %prep
 %setup -q -c -n %{packname}

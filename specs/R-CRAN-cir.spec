@@ -1,9 +1,9 @@
 %global packname  cir
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Centered Isotonic Regression and Dose-Response Utilities
 
@@ -17,8 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Isotonic regression (IR), as well as a great small-sample improvement to
-IR called CIR, interval estimates for both, and additional utilities.
+Isotonic regression (IR) and its improvement: centered isotonic regression
+(CIR). CIR is recommended in particular with small samples. Also, interval
+estimates for both, and additional utilities such as plotting
+dose-response data.
 
 %prep
 %setup -q -c -n %{packname}

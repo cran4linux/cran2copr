@@ -1,11 +1,11 @@
 %global packname  spcosa
-%global packver   0.3-9
+%global packver   0.3-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
-Release:          3%{?dist}%{?buildtag}
-Summary:          Spatial Coverage Sampling and Random Sampling from CompactGeographical Strata
+Version:          0.3.10
+Release:          1%{?dist}%{?buildtag}
+Summary:          Spatial Coverage Sampling and Random Sampling from Compact Geographical Strata
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,11 +21,15 @@ BuildRequires:    R-CRAN-ggplot2 >= 1.0.0
 BuildRequires:    R-CRAN-rJava >= 0.9.3
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-gstat 
 Requires:         R-CRAN-sp >= 1.1.0
 Requires:         R-CRAN-ggplot2 >= 1.0.0
 Requires:         R-CRAN-rJava >= 0.9.3
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-gstat 
 
 %description
 Spatial coverage sampling and random sampling from compact geographical
@@ -35,6 +39,13 @@ strata created by k-means. See Walvoort et al. (2010)
 %prep
 %setup -q -c -n %{packname}
 sed -i '/Sexpr/d' %{packname}/man/spcosa-package.Rd
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,23 +53,10 @@ sed -i '/Sexpr/d' %{packname}/man/spcosa-package.Rd
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/FAQ
-%doc %{rlibdir}/%{packname}/java
-%doc %{rlibdir}/%{packname}/maps
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

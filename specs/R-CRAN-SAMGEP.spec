@@ -1,32 +1,44 @@
-%global packname  rjpdmp
-%global packver   0.1.0
+%global packname  SAMGEP
+%global packver   0.1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reversible Jump PDMP Samplers
+Summary:          A Semi-Supervised Method for Prediction of Phenotype Event Times
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-data.table 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides an implementation of the reversible jump piecewise deterministic
-Markov processes (PDMPs) methods developed in the paper Reversible Jump
-PDMP Samplers for Variable Selection (Chevallier, Fearnhead, Sutton 2020,
-<arXiv:2010.11771>). It also contains an implementation of a Gibbs sampler
-for variable selection in Logistic regression based on Polya-Gamma
-augmentation.
+A novel semi-supervised machine learning algorithm to predict phenotype
+event times using Electronic Health Record (EHR) data.
 
 %prep
 %setup -q -c -n %{packname}

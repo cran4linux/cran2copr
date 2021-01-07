@@ -1,9 +1,9 @@
 %global packname  disastr.api
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Retrieval of Disaster Event Data
 
@@ -23,10 +23,11 @@ Requires:         R-CRAN-jsonlite
 %description
 Access and manage the application programming interface (API) of the
 United Nations Office for the Coordination of Humanitarian Affairs' (OCHA)
-ReliefWeb disaster events at <https://reliefweb.int/disasters/>. It makes
-it easy to retrieve a user-defined sample (or all of the available data)
-from ReliefWeb, enabling a seamless integration of regular data updates
-into the research work flow.
+ReliefWeb disaster events at <https://reliefweb.int/disasters/>. The
+package offers functionality to retrieve a user-defined sample of disaster
+events from ReliefWeb, providing an easy alternative to scraping the
+ReliefWeb website. It enables a seamless integration of regular data
+updates into the research work flow.
 
 %prep
 %setup -q -c -n %{packname}

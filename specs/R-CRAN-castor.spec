@@ -1,9 +1,9 @@
 %global packname  castor
-%global packver   1.6.4
+%global packver   1.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Phylogenetics on Large Trees
 
@@ -19,11 +19,15 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-naturalsort 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RSpectra 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-parallel 
 Requires:         R-CRAN-naturalsort 
 Requires:         R-stats 
 Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-RSpectra 
 
 %description
 Efficient phylogenetic analyses on massive phylogenies comprising up to

@@ -1,11 +1,11 @@
 %global packname  iriR
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the EU Industrial Research and Industry Scoreboard
+Summary:          Global Innovation Through Company Level Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,14 +33,13 @@ Requires:         R-CRAN-scales
 Requires:         R-stats 
 
 %description
-The Economics of Industrial Research & Innovation (IRI) is a scientific
-project carried out within the Directorate B: Growth and Innovation, one
-of the seven scientific institutes of the European Commission's Joint
-Research Centre (JRC) (<https://iri.jrc.ec.europa.eu/home/>). 'iriR'
-objective is to allows an easy connection with R to the European
-Commission's Economics of Industrial Research and Innovation data. Please
-cite: Warin, Th. (2020) "iriR: An R Package for the EU Industrial Research
-and Industry Scoreboard", <10.6084/m9.figshare.11774640>.
+Researchers and analysts have access to more than 7,500 innovative
+companies worldwide, which are or have been part of the top 1,000
+innovative companies. They can access the six parameters that compose the
+global IRI Scoreboard's data on R&D: Country, Year, Company's name,
+Industry, Indicator and Company's rank. Please cite: Warin, Th. (2020)
+"iiriR: An R Package for the EU Industrial R&D Investment Scoreboard",
+<doi:10.6084/m9.figshare.11774640.v5>.
 
 %prep
 %setup -q -c -n %{packname}

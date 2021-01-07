@@ -1,9 +1,9 @@
 %global packname  hse
-%global packver   0.0-14
+%global packver   0.0-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.14
+Version:          0.0.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          The hse Distribution
 
@@ -19,10 +19,12 @@ BuildArch:        noarch
 %description
 Density (probability), distribution, inverse distribution (quantile) and
 random data generation functions for the hse ("hope springs eternal")
-distribution. Functions to calculate rough moment estimates, and maximum
-likelihood estimates of the parameters of this distribution. Functions to
-plot the probabilities of the distribution, given the parameter values,
-and to plot the fitted probabilities given a maximum likelihood fit.
+distribution. Maximum likelihood estimation of parameters.  Plotting of
+the probability mass function, from specified parameters or from a maximum
+likelihood fit, and of the likelihood surface. Fisher information,
+different estimates of the hessian of the log likelihood and Monte Carlo
+estimation of the covariance matrix of the maximum likelihood parameter
+estimates. Goodness of fit tests.
 
 %prep
 %setup -q -c -n %{packname}

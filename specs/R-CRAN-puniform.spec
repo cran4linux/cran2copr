@@ -1,9 +1,9 @@
 %global packname  puniform
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis Methods Correcting for Publication Bias
 
@@ -53,10 +53,10 @@ computing the required sample size of the replication akin to power
 analysis in null hypothesis significance testing. The meta-plot is a
 visual tool for meta-analysis that provides information on the primary
 studies in the meta-analysis, the results of the meta-analysis, and
-characteristics of the research on the effect under study (van Assen and
-others, 2020). Helper functions to apply the Correcting for Outcome
-Reporting Bias (CORB) method to correct for outcome reporting bias in a
-meta-analysis (van Aert & Wicherts, 2020).
+characteristics of the research on the effect under study (van Assen et
+al., 2021). Helper functions to apply the Correcting for Outcome Reporting
+Bias (CORB) method to correct for outcome reporting bias in a
+meta-analysis (van Aert & Wicherts, 2021).
 
 %prep
 %setup -q -c -n %{packname}

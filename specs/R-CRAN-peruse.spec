@@ -1,11 +1,11 @@
 %global packname  peruse
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sequence and Wide Data Iteration
+Summary:          Sequence Iteration and Set Comprehension
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,11 +18,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
 
 %description
 A friendly API for sequence iteration and set comprehension, and a tool

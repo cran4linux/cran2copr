@@ -1,13 +1,13 @@
 %global packname  COVID19
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to COVID-19 Data Hub
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,8 +25,9 @@ Requires:         R-CRAN-dplyr
 %description
 Download COVID-19 data across governmental sources at national, regional,
 and city level, as described in Guidotti and Ardia (2020)
-<doi:10.21105/joss.02376>. Includes policy measures by 'Oxford COVID-19
-Government Response Tracker'
+<doi:10.21105/joss.02376>. Includes the time series of vaccines, tests,
+cases, deaths, recovered, hospitalizations, intensive therapy, and policy
+measures by 'Oxford COVID-19 Government Response Tracker'
 <https://www.bsg.ox.ac.uk/research/research-projects/coronavirus-government-response-tracker>.
 Provides a seamless integration with 'World Bank Open Data'
 <https://data.worldbank.org/>, 'Google Mobility Reports'

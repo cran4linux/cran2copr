@@ -1,10 +1,10 @@
 %global packname  GGally
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
-Release:          3%{?dist}%{?buildtag}
+Version:          2.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'ggplot2'
 
 License:          GPL (>= 2.0)
@@ -19,27 +19,33 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-plyr >= 1.8.3
 BuildRequires:    R-CRAN-scales >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-reshape >= 0.8.5
 BuildRequires:    R-CRAN-gtable >= 0.2.0
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-plyr >= 1.8.3
 Requires:         R-CRAN-scales >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-reshape >= 0.8.5
 Requires:         R-CRAN-gtable >= 0.2.0
+Requires:         R-CRAN-forcats 
 Requires:         R-grDevices 
 Requires:         R-grid 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-utils 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 The R package 'ggplot2' is a plotting system based on the grammar of
@@ -52,7 +58,13 @@ functions to plot networks.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,19 +72,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

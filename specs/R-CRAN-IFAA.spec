@@ -1,9 +1,9 @@
 %global packname  IFAA
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Analysis for Absolute Abundance in Microbiome
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-methods >= 3.3.0
 BuildRequires:    R-parallel >= 3.3.0
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-HDCI >= 1.0.2
 BuildRequires:    R-CRAN-doParallel >= 1.0.11
 BuildRequires:    R-CRAN-mathjaxr >= 1.0.1
 BuildRequires:    R-CRAN-expm >= 0.999.3
+BuildRequires:    R-CRAN-qlcMatrix >= 0.9.7
 BuildRequires:    R-CRAN-rlecuyer >= 0.3.3
 Requires:         R-methods >= 3.3.0
 Requires:         R-parallel >= 3.3.0
@@ -36,22 +37,21 @@ Requires:         R-CRAN-HDCI >= 1.0.2
 Requires:         R-CRAN-doParallel >= 1.0.11
 Requires:         R-CRAN-mathjaxr >= 1.0.1
 Requires:         R-CRAN-expm >= 0.999.3
+Requires:         R-CRAN-qlcMatrix >= 0.9.7
 Requires:         R-CRAN-rlecuyer >= 0.3.3
 
 %description
 A novel approach to make inference on the association of covariates with
 the absolute abundance (AA) of 'microbiome' in an ecosystem. It can be
 also directly applied to relative abundance (RA) data to make inference on
-AA because the ratio of two RA is equal ratio of their AA. This algorithm
-can estimate and test the associations of interest while adjusting for
-potential 'confounders'. The estimates of this method have easy
-interpretation like a typical regression analysis. High-dimensional
-covariates are handled with regularization and it is implemented by
-parallel computing. This algorithm finds optimal reference 'taxa/OTU
-(Operational Taxonomic Unit)/ASV (Amplicon Sequence Bariant)' and uses
-permutation to control FDR (False Discovery Rate) as described in Zhigang
-Li, et al. (2020) <arXiv:1909.10101v3>, Zhigang Li, et al. (2018)
-<doi:10.1007/s12561-018-9219-2>.
+AA (even if AA data is not available) because the ratio of two RA is equal
+ratio of their AA. This algorithm can estimate and test the associations
+of interest while adjusting for potential 'confounders'. The estimates of
+this method have easy interpretation like a typical regression analysis.
+High-dimensional covariates are handled with regularization and it is
+implemented by parallel computing. This algorithm finds optimal reference
+'taxa/OTU (Operational Taxonomic Unit)/ASV (Amplicon Sequence Bariant)'
+and uses permutation to control FDR (False Discovery Rate).
 
 %prep
 %setup -q -c -n %{packname}

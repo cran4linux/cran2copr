@@ -1,33 +1,39 @@
-%global packname  RobustBayesianCopas
-%global packver   2.0
+%global packname  footprint
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Bayesian Copas Selection Model
+Summary:          Calculate Air Travel Emissions
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-statip 
-BuildRequires:    R-CRAN-rjags 
-Requires:         R-stats 
-Requires:         R-CRAN-statip 
-Requires:         R-CRAN-rjags 
+BuildRequires:    R-CRAN-airportr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-airportr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Fits the robust Bayesian Copas (RBC) selection model of Bai et al. (2020)
-<arXiv:2005.02930> for correcting and quantifying publication bias in
-univariate meta-analysis. Also fits standard random effects meta-analysis
-and the Copas-like selection model of Ning et al. (2017)
-<doi:10.1093/biostatistics/kxx004>.
+A handy tool to calculate carbon footprints from air travel based on
+three-letter International Air Transport Association (IATA) airport codes
+or latitude and longitude. footprint first calculates the great-circle
+distance between departure and arrival destinations. It then uses the
+Department of Environment, Food & Rural Affairs (DEFRA) greenhouse gas
+conversion factors for business air travel to estimate the carbon
+footprint. These conversion factors consider trip length, flight class
+(e.g. economy, business), and emissions metric (e.g. carbon dioxide
+equivalent, methane).
 
 %prep
 %setup -q -c -n %{packname}
