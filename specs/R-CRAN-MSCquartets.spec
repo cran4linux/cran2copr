@@ -1,10 +1,10 @@
 %global packname  MSCquartets
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Gene Tree Quartets under the Multi-Species Coalescent
 
 License:          MIT + file LICENSE
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-zipfR
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-RandomFieldsUtils 
@@ -29,20 +31,33 @@ Requires:         R-CRAN-zipfR
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 
 %description
 Methods for analyzing and using quartets displayed on a collection of gene
 trees, primarily to make inferences about the species tree or network
 under the multi-species coalescent model. These include quartet hypothesis
 tests for the model, as developed by Mitchell et al. (2019)
-<doi:10.1214/19-EJS1576>, the species tree inference routines based on
-quartet distances of Rhodes (2019) <doi:10.1109/TCBB.2019.2917204> and
-Yourdkhani and Rhodes (2019), and the NANUQ algorithm for inference of
-level-1 species networks of Allman et al. (2019) <arXiv:1905.07050>.
+<doi:10.1214/19-EJS1576>, simplex plots of quartet concordance factors as
+presented by Allman et al. (2020) <doi:10.1101/2020.02.13.948083>, species
+tree inference methods based on quartet distances of Rhodes (2019)
+<doi:10.1109/TCBB.2019.2917204> and Yourdkhani and Rhodes (2019)
+<doi:10.1007/s11538-020-00773-4>, and the NANUQ algorithm for inference of
+level-1 species networks of Allman et al. (2019)
+<doi:10.1186/s13015-019-0159-2>. Software announcement by Rhodes et al.
+(2020) <doi:10.1093/bioinformatics/btaa868>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -50,19 +65,10 @@ level-1 species networks of Allman et al. (2019) <arXiv:1905.07050>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/REFERENCES.bib
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

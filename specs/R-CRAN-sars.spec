@@ -1,9 +1,9 @@
 %global packname  sars
-%global packver   1.3.0
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit and Compare Species-Area Relationship Models Using Multimodel Inference
 
@@ -12,10 +12,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-stats 
@@ -26,7 +25,7 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-AICcmodavg 
 Requires:         R-graphics 
 Requires:         R-CRAN-nortest 
 Requires:         R-stats 
@@ -37,6 +36,7 @@ Requires:         R-CRAN-numDeriv
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
+Requires:         R-CRAN-AICcmodavg 
 
 %description
 Implements the basic elements of the multi-model inference paradigm for up

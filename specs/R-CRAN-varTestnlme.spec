@@ -1,11 +1,11 @@
 %global packname  varTestnlme
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variance Components Testing for Linear and Nonlinear MixedEffects Models
+Summary:          Variance Components Testing for Linear and Nonlinear Mixed Effects Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,14 +17,14 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-alabama 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-merDeriv 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-anocva 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-saemix 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-foreach 
@@ -34,14 +34,14 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-lmeresampler 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-alabama 
-Requires:         R-Matrix 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-merDeriv 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-anocva 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-lme4 
-Requires:         R-nlme 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-saemix 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-foreach 
@@ -63,9 +63,13 @@ Estelle Kuhn (2019) <doi:10.1016/j.csda.2019.01.014>.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -75,6 +79,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

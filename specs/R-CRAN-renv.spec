@@ -1,9 +1,9 @@
 %global packname  renv
-%global packver   0.12.3
+%global packver   0.12.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.3
+Version:          0.12.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Project Environments
 

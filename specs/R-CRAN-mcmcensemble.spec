@@ -1,9 +1,9 @@
 %global packname  mcmcensemble
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Sampler for Affine-Invariant MCMC
 
@@ -15,6 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-progressr 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-progressr 
 
 %description
 Provides ensemble samplers for affine-invariant Monte Carlo Markov Chain,

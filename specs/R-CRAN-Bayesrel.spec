@@ -1,9 +1,9 @@
 %global packname  Bayesrel
-%global packver   0.7.0.2
+%global packver   0.7.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0.2
+Version:          0.7.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Reliability Estimation
 
@@ -50,7 +50,7 @@ distributions of a single factor model ('Lee', 2007,
 <https://CRAN.R-project.org/package=Rcsdp>. This process applies a
 slightly adjusted solving algorithm from the 'CSDP' library by 'Brian
 Borchers' <https://github.com/coin-or/Csdp/wiki>,
-<doi.org/10.1080/10556789908805765>, but is wrapped in 'RcppArmadillo'.
+<doi:10.1080/10556789908805765>, but is wrapped in 'RcppArmadillo'.
 Guttman's Lambda-4 is from 'Benton' (2015)
 <doi:10.1007/978-3-319-07503-7_19>. The principal factor analysis for a
 version of frequentist omega is from 'Schlegel' (2017)

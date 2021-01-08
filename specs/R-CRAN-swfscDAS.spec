@@ -1,10 +1,10 @@
 %global packname  swfscDAS
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
-Release:          2%{?dist}%{?buildtag}
+Version:          0.5.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Southwest Fisheries Science Center Shipboard DAS Data Processing
 
 License:          GPL-3
@@ -39,18 +39,24 @@ Requires:         R-CRAN-swfscMisc
 Requires:         R-CRAN-tidyr 
 
 %description
-Process and summarize shipboard DAS data (data written to a .das file)
-collected using the Southwest Fisheries Science Center (SWFSC) 'WinCruz'
-program. This package is intended to standardize and streamline basic DAS
-data processing. A PDF with the DAS data format requirements is included
-in this package.
+Process and summarize shipboard 'DAS'
+<https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-305.PDF>
+data produced by the Southwest Fisheries Science Center (SWFSC) program
+'WinCruz'
+<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
+This package standardizes and streamlines basic DAS data processing, and
+includes a PDF with the DAS data format requirements.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,6 +66,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

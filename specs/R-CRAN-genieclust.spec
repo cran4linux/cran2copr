@@ -1,11 +1,11 @@
 %global packname  genieclust
-%global packver   0.9.4
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Genie++ Hierarchical Clustering Algorithm with Noise PointsDetection
+Summary:          The Genie++ Hierarchical Clustering Algorithm with Noise Points Detection
 
 License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,9 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppMLPACK 
 Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-stats 
 Requires:         R-utils 
@@ -40,9 +43,13 @@ which supports sparse data, more metrics, and even larger datasets.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -52,6 +59,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

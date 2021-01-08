@@ -1,9 +1,9 @@
 %global packname  statgenGxE
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genotype by Environment (GxE) Analysis
 
@@ -40,7 +40,7 @@ packages for streamlining the analysis of typical plant breeding
 experiments developed by Biometris. Some functions have been created to be
 used in conjunction with the R package 'asreml' for the 'ASReml' software,
 which can be obtained upon purchase from 'VSN' international
-(<http://www.vsni.co.uk/software/asreml-r>).
+(<https://www.vsni.co.uk/software/asreml-r>).
 
 %prep
 %setup -q -c -n %{packname}

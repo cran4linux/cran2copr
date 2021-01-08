@@ -1,9 +1,9 @@
 %global packname  sen2r
-%global packver   1.3.9
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find, Download and Process Sentinel-2 Data
 

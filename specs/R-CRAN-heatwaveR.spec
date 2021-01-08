@@ -1,10 +1,10 @@
 %global packname  heatwaveR
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
-Release:          2%{?dist}%{?buildtag}
+Version:          0.4.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Detect Heatwaves and Cold-Spells
 
 License:          MIT + file LICENSE
@@ -15,31 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-RcppRoll 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-RcppRoll 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-zoo 
-Requires:         R-grid 
-Requires:         R-CRAN-RcppRoll 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-RcppRoll 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 The different methods of defining and detecting extreme events, known as
@@ -51,9 +47,13 @@ here as no use of this technique in the literature currently exists.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -63,6 +63,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

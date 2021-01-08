@@ -1,39 +1,37 @@
-%global packname  SlidingWindows
-%global packver   0.1.9
+%global packname  VARMER
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Time Series Analysis
+Summary:          Variational Merging
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DCCA 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-BuildRequires:    R-CRAN-nonlinearTseries 
-BuildRequires:    R-CRAN-TSEntropies 
-Requires:         R-stats 
-Requires:         R-CRAN-DCCA 
-Requires:         R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-nonlinearTseries 
-Requires:         R-CRAN-TSEntropies 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-deldir 
+Requires:         R-grDevices 
 
 %description
-A collection of functions to perform Detrended Fluctuation Analysis (DFA
-exponent), GUEDES et al. (2019) <doi:10.1016/j.physa.2019.04.132> ,
-Detrended cross-correlation coefficient (RHODCCA), GUEDES & ZEBENDE (2019)
-<doi:10.1016/j.physa.2019.121286>, DMCA cross-correlation coefficient and
-Multiple Detrended cross-correlation coefficient (DMC), ZEBENDE &
-SILVA-FILHO (2018) <doi:10.1016/j.physa.2018.06.119>, both with sliding
-windows approach.
+A new mathematical formulation to merge observed data with gridded images
+of environmental variables using partial differential equations in a
+variational setting. The original method was created, developed and
+published by Ulloa, Samaniego, Campozano and Ballari (2018)
+<doi:10.1002/2017JD027982>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  radous
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query Random User Data from the Random User Generator API
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-checkmate 
 
 %description
 Generate random user data from the Random User Generator API. For more
