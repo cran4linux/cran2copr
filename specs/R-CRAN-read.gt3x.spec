@@ -1,37 +1,34 @@
-%global packname  future.BatchJobs
-%global packver   0.17.0
+%global packname  read.gt3x
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Future API for Parallel and Distributed Processing using BatchJobs
+Summary:          Parse 'Actigraph' 'GT3X'/'GT3X+' 'Accelerometer' Data
 
-License:          LGPL (>= 2.1)
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-BatchJobs >= 1.8
-BuildRequires:    R-CRAN-future >= 1.21.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-BatchJobs >= 1.8
-Requires:         R-CRAN-future >= 1.21.0
+BuildRequires:    R-tools 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
 Requires:         R-CRAN-R.utils 
+Requires:         R-tools 
 
 %description
-Implementation of the Future API on top of the 'BatchJobs' package. This
-allows you to process futures, as defined by the 'future' package, in
-parallel out of the box, not only on your local machine or ad-hoc cluster
-of machines, but also via high-performance compute ('HPC') job schedulers
-such as 'LSF', 'OpenLava', 'Slurm', 'SGE', and 'TORQUE' / 'PBS', e.g. 'y
-<- future.apply::future_lapply(files, FUN = process)'. NOTE: The
-'BatchJobs' package is deprecated in favor of the 'batchtools' package.
-Because of this, it is recommended to use the 'future.batchtools' package
-instead of this package.
+Implements a high performance C++ parser for 'ActiGraph' 'GT3X'/'GT3X+'
+data format (with extension '.gt3x') for 'accelerometer' samples. Activity
+samples can be easily read into a matrix or data.frame.  This allows for
+storing the raw 'accelerometer' samples in the original binary format to
+reserve space.
 
 %prep
 %setup -q -c -n %{packname}

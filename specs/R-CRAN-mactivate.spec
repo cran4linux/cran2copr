@@ -1,27 +1,28 @@
-%global packname  profileModel
-%global packver   0.6.1
+%global packname  mactivate
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Profiling Inference Functions for Various Model Classes
+Summary:          Multiplicative Activation
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Provides tools that can be used to calculate, evaluate, plot and use for
-inference the profiles of *arbitrary* inference functions for *arbitrary*
-'glm'-like fitted models with linear predictors. More information on the
-methods that are implemented can be found in Kosmidis (2008)
-<https://www.r-project.org/doc/Rnews/Rnews_2008-2.pdf>.
+Provides methods and classes for adding m-activation ("multiplicative
+activation") layers to MLR or multivariate logistic regression models.
+M-activation layers created in this library detect and add input
+interaction (polynomial) effects into a predictive model.  M-activation
+can detect high-order interactions -- a traditionally non-trivial
+challenge.  Details concerning application, methodology, and relevant
+survey literature can be found in this library's vignette, "About."
 
 %prep
 %setup -q -c -n %{packname}

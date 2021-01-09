@@ -1,27 +1,37 @@
-%global packname  profileModel
-%global packver   0.6.1
+%global packname  tablet
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Profiling Inference Functions for Various Model Classes
+Summary:          Tabulate Descriptive Statistics in Multiple Formats
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-kableExtra >= 0.9.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-kableExtra >= 0.9.0
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides tools that can be used to calculate, evaluate, plot and use for
-inference the profiles of *arbitrary* inference functions for *arbitrary*
-'glm'-like fitted models with linear predictors. More information on the
-methods that are implemented can be found in Kosmidis (2008)
-<https://www.r-project.org/doc/Rnews/Rnews_2008-2.pdf>.
+Creates a table of descriptive statistics for factor and numeric columns
+in a data frame. Displays these by groups, if any. Highly customizable,
+with support for 'html' and 'pdf' provided by 'kableExtra'. Respects
+original column order, column labels, and factor level order. See
+?tablet.data.frame and vignettes.
 
 %prep
 %setup -q -c -n %{packname}

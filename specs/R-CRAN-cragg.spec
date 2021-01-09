@@ -1,38 +1,27 @@
-%global packname  flightplanning
-%global packver   0.8.3
+%global packname  cragg
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          UAV Flight Planning
+Summary:          Tests for Weak Instruments in R
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-expm >= 0.999
+Requires:         R-CRAN-expm >= 0.999
 
 %description
-Utility functions for creating flight plans for unmanned aerial vehicles
-(UAV), specially for the Litchi Hub platform. It calculates the flight and
-camera settings based on the camera specifications, exporting the flight
-plan CSV format ready to import into Litchi Hub.
+Implements Cragg-Donald (1993) <doi:10.1017/S0266466600007519> and Stock
+and Yogo (2005) <doi:10.1017/CBO9780511614491.006> tests for weak
+instruments in R.
 
 %prep
 %setup -q -c -n %{packname}

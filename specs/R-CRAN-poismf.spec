@@ -1,9 +1,9 @@
 %global packname  poismf
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factorization of Sparse Counts Matrices Through Poisson Likelihood
 
@@ -14,9 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Matrix >= 1.3
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix >= 1.3
 Requires:         R-methods 
 
 %description

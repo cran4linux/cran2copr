@@ -1,27 +1,45 @@
-%global packname  profileModel
-%global packver   0.6.1
+%global packname  GBcurves
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Profiling Inference Functions for Various Model Classes
+Summary:          Yield Curves of Brazil, China, and Russia
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-functional 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-xts 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-functional 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rvest 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-xts 
 
 %description
-Provides tools that can be used to calculate, evaluate, plot and use for
-inference the profiles of *arbitrary* inference functions for *arbitrary*
-'glm'-like fitted models with linear predictors. More information on the
-methods that are implemented can be found in Kosmidis (2008)
-<https://www.r-project.org/doc/Rnews/Rnews_2008-2.pdf>.
+Downloads and interpolates the Brazilian, Chinese, and Russian yield
+curves directly from <http://www.b3.com.br/>,
+<http://yield.chinabond.com.cn>, and <https://www.cbr.ru>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

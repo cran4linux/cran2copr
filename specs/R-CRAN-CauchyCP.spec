@@ -1,27 +1,34 @@
-%global packname  profileModel
-%global packver   0.6.1
+%global packname  CauchyCP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Profiling Inference Functions for Various Model Classes
+Summary:          Powerful Test for Survival Data under Non-Proportional Hazards
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
-Provides tools that can be used to calculate, evaluate, plot and use for
-inference the profiles of *arbitrary* inference functions for *arbitrary*
-'glm'-like fitted models with linear predictors. More information on the
-methods that are implemented can be found in Kosmidis (2008)
-<https://www.r-project.org/doc/Rnews/Rnews_2008-2.pdf>.
+An omnibus test of change-point Cox regression models to improve the
+statistical power of detecting signals of non-proportional hazards
+patterns. The technical details can be found in Hong Zhang, Qing Li, Devan
+Mehrotra and Judong Shen (2021) <arXiv:2101.00059>. Extensive simulation
+studies demonstrate that, compared to existing tests under
+non-proportional hazards, the proposed CauchyCP test 1) controls the type
+I error better at small alpha levels; 2) increases the power of detecting
+time-varying effects; and 3) is more computationally efficient.
 
 %prep
 %setup -q -c -n %{packname}

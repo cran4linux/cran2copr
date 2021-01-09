@@ -1,32 +1,48 @@
-%global packname  lawn
-%global packver   0.6.0
+%global packname  tabulator
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'Turfjs' for 'Geospatial' Analysis
+Summary:          Efficient Tabulation with Stata-Like Output
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-V8 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Client for 'Turfjs' (<https://turfjs.org>) for 'geospatial' analysis. The
-package revolves around using 'GeoJSON' data. Functions are included for
-creating 'GeoJSON' data objects, measuring aspects of 'GeoJSON', and
-combining, transforming, and creating random 'GeoJSON' data objects.
+Efficient tabulation with Stata-like output. For each unique value of the
+variable, it shows the number of observations with that value, proportion
+of observations with that value, and cumulative proportion, in descending
+order of frequency. Accepts data.table, tibble, or data.frame as input.
+Efficient with big data: if you give it a data.table, tab() uses
+data.table syntax.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  Tplyr
-%global packver   0.3.1
+%global packname  vimpclust
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Grammar of Clinical Data Summary
+Summary:          Variable Importance in Clustering
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,32 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.6
-BuildRequires:    R-CRAN-forcats >= 0.4.0
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble >= 3.0.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-tidyr >= 1.0.2
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.6
-Requires:         R-CRAN-forcats >= 0.4.0
-Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-PCAmixdata 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Polychrome 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-PCAmixdata 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Polychrome 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-rlang 
 
 %description
-A tool created to simplify the data manipulation necessary to create
-clinical reports.
+An implementation of methods related to sparse clustering and variable
+importance in clustering. The package currently allows to perform sparse
+k-means clustering with a group penalty, so that it automatically selects
+groups of numerical features. It also allows to perform sparse clustering
+and variable selection on mixed data (categorical and numerical features),
+by preprocessing each categorical feature as a group of numerical
+features. Several methods for visualizing and exploring the results are
+also provided. M. Chavent, J. Lacaille, A. Mourer and M. Olteanu
+(2020)<https://www.esann.org/sites/default/files/proceedings/2020/ES2020-103.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

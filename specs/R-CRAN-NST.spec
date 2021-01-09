@@ -1,9 +1,9 @@
 %global packname  NST
-%global packver   3.0.3
+%global packver   3.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Normalized Stochasticity Ratio
 
@@ -46,19 +46,24 @@ included. Previous ST is published by Zhou et al (2014)
 alternative situations and normalizing the index to range from 0 to 1
 (Ning et al 2019) <doi:10.1073/pnas.1904623116>. A modified version, MST,
 is a special case of NST, used in some recent or upcoming publications,
-e.g. Liang et al (2019) <doi:10.1101/638908>. SES is calculated as
-described in Kraft et al (2011) <doi:10.1126/science.1208584>. RC is
-calculated as reported by Chase et al (2011) <doi:10.1890/es10-00117.1>
-and Stegen et al (2013) <doi:10.1038/ismej.2013.93>. Version 3 added NST
-based on phylogenetic beta diversity, used by Ning et al (2020)
-<doi:10.1101/2020.02.22.960872>.
+e.g. Liang et al (2020) <doi:10.1016/j.soilbio.2020.108023>. SES is
+calculated as described in Kraft et al (2011)
+<doi:10.1126/science.1208584>. RC is calculated as reported by Chase et al
+(2011) <doi:10.1890/es10-00117.1> and Stegen et al (2013)
+<doi:10.1038/ismej.2013.93>. Version 3 added NST based on phylogenetic
+beta diversity, used by Ning et al (2020)
+<doi:10.1038/s41467-020-18560-z>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -68,6 +73,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,9 +1,9 @@
 %global packname  circlize
-%global packver   0.4.11
+%global packver   0.4.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.11
+Version:          0.4.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Circular Visualization
 

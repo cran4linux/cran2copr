@@ -1,13 +1,13 @@
 %global packname  act
-%global packver   0.94
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.94
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Aligned Corpus Toolkit
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,29 +19,36 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-textutils 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-openxlsx 
 Requires:         R-methods 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
 Requires:         R-tools 
+Requires:         R-CRAN-textutils 
 Requires:         R-utils 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-openxlsx 
 
 %description
 The Aligned Corpus Toolkit (act) is designed for linguists that work with
-time aligned transcription data. It offers advanced search possibilities
-in transcriptions (full text search, normalized search, concordance etc.),
-functions to modify the data, import-export functionality for 'Praat'
-'*.TextGrid' files, export for 'ELAN' '*.eaf' files, the creation of batch
-lists for cutting audio and video files with 'FFmpeg', the creation of
-printable transcripts in the style of conversation analysis, and
-interaction with 'Praat' using 'Praat'-scripts. The package is itself
-written in R and may be expanded by other users.
+time aligned transcription data. It offers functions to import and export
+various annotation file formats ('ELAN' .eaf, 'EXMARaLDA .exb and 'Praat'
+.TextGrid files), create print transcripts in the style of conversation
+analysis, search transcripts (span searches across multiple annotations,
+search in normalized annotations, make concordances etc.), export and
+re-import search results (.csv and 'Excel' .xlsx format), create cuts for
+the search results (print transcripts, audio/video cuts using 'FFmpeg' and
+video sub titles in 'Subrib title' .srt format), modify the data in a
+corpus (search/replace, delete, filter etc.), interact with 'Praat' using
+'Praat'-scripts, and exchange data with the 'rPraat' package. The package
+is itself written in R and may be expanded by other users.
 
 %prep
 %setup -q -c -n %{packname}
