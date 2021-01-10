@@ -1,9 +1,9 @@
 %global packname  MXM
-%global packver   1.4.9
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.9
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Selection (Including Multiple Solutions) and Bayesian Networks
 
@@ -18,11 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-survival 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ordinal 
-BuildRequires:    R-nnet 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-foreach 
@@ -42,11 +42,11 @@ BuildRequires:    R-CRAN-Hmisc
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-survival 
-Requires:         R-MASS 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-MASS 
 Requires:         R-graphics 
 Requires:         R-CRAN-ordinal 
-Requires:         R-nnet 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-foreach 
@@ -88,14 +88,20 @@ Applied Artificial Intelligence, 33(2):101-123.
 (2019). Feature selection with the R package MXM. F1000Research 7: 1505.
 <doi:10.12688/f1000research.16216.2>. g) Borboudakis, G. and Tsamardinos,
 I. (2019). Forward-Backward Selection with Early Dropping. Journal of
-Machine Learning Research 20: 1-39.
+Machine Learning Research 20: 1-39. h) The gamma-OMP algorithm for feature
+selection with application to gene expression data. IEEE/ACM Transactions
+on Computational Biology and Bioinformatics (Accepted for publication).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -105,6 +111,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

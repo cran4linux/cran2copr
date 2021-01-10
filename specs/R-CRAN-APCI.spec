@@ -1,39 +1,43 @@
-%global packname  fastai
-%global packver   2.0.3
+%global packname  APCI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'fastai'
+Summary:          A New Age-Period-Cohort Model for Describing and Investigating Inter-Cohort Differences and Life Course Dynamics
 
-License:          Apache License 2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-png 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringr 
 
 %description
-The 'fastai' <https://docs.fast.ai/index.html> library simplifies training
-fast and accurate neural networks using modern best practices. It is based
-on research in to deep learning best practices undertaken at 'fast.ai',
-including 'out of the box' support for vision, text, tabular, audio, time
-series, and collaborative filtering models.
+It implemented APC-I Model proposed in the paper of Luo and Hodges (2019).
+A new age-period-cohort model for describing and investigating
+inter-cohort differences and life course dynamics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  highfrequency
-%global packver   0.7.0.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Highfrequency Data Analysis
 
@@ -30,6 +30,8 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-RcppRoll 
 BuildRequires:    R-CRAN-quantmod 
 BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-Rsolnp 
 Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
@@ -46,6 +48,8 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-RcppRoll 
 Requires:         R-CRAN-quantmod 
 Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-Rsolnp 
 
 %description
 Provide functionality to manage, clean and match highfrequency trades and
@@ -56,9 +60,13 @@ intraday periodicity.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -68,6 +76,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,13 +1,13 @@
-%global packname  ipmisc
-%global packver   5.0.2
+%global packname  convergEU
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.2
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Data Cleaning and Analysis
+Summary:          Monitoring Convergence of EU Countries
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,23 +16,41 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-eurostat 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-zeallot 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-caTools 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-ggpubr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-eurostat 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-zeallot 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-caTools 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-ggpubr 
 
 %description
-Provides functions needed for data cleaning and formatting and forms data
-cleaning and wrangling backend for the following packages: 'broomExtra',
-'ggstatsplot', 'groupedstats', 'pairwiseComparisons', 'statsExpressions',
-and 'tidyBF'.
+Indicators and measures by country and time describe what happens at
+economic and social levels. This package provides functions to calculate
+several measures of convergence after imputing missing values. The
+automated downloading of Eurostat data, followed by the production of
+country fiches and indicator fiches, makes possible to produce automated
+reports. The Eurofound report (<doi:10.2806/68012>) "Upward convergence in
+the EU: Concepts, measurements and indicators", 2018, is a detailed
+presentation of convergence.
 
 %prep
 %setup -q -c -n %{packname}

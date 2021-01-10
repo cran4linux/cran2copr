@@ -1,32 +1,25 @@
-%global packname  tsvr
-%global packver   1.0.2
+%global packname  covid19jp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Timescale-Specific Variance Ratio for Use in Community Ecology
+Summary:          Japanese Covid-19 Datasets
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 3.4.4
-BuildRequires:    R-grDevices >= 3.4.4
-BuildRequires:    R-stats >= 3.4.4
-Requires:         R-graphics >= 3.4.4
-Requires:         R-grDevices >= 3.4.4
-Requires:         R-stats >= 3.4.4
+BuildRequires:    R-CRAN-devtools 
+Requires:         R-CRAN-devtools 
 
 %description
-Tools for timescale decomposition of the classic variance ratio of
-community ecology. Tools are as described in Zhao et al (in prep),
-extending commonly used methods introduced by Peterson et al (1975) <doi:
-10.2307/1936306>.
+Ready to use Japanese covid-19 datasets.
 
 %prep
 %setup -q -c -n %{packname}

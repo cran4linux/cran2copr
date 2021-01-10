@@ -1,32 +1,32 @@
-%global packname  tsvr
-%global packver   1.0.2
+%global packname  MARSSVRhybrid
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Timescale-Specific Variance Ratio for Use in Community Ecology
+Summary:          MARS SVR Hybrid
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 3.4.4
-BuildRequires:    R-grDevices >= 3.4.4
-BuildRequires:    R-stats >= 3.4.4
-Requires:         R-graphics >= 3.4.4
-Requires:         R-grDevices >= 3.4.4
-Requires:         R-stats >= 3.4.4
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-earth 
+Requires:         R-stats 
 
 %description
-Tools for timescale decomposition of the classic variance ratio of
-community ecology. Tools are as described in Zhao et al (in prep),
-extending commonly used methods introduced by Peterson et al (1975) <doi:
-10.2307/1936306>.
+Multivariate Adaptive Regression Spline (MARS) based Support Vector
+Regression (SVR) hybrid model is combined Machine learning hybrid approach
+which selects important variables using MARS and then fits SVR on the
+extracted important variables.
 
 %prep
 %setup -q -c -n %{packname}

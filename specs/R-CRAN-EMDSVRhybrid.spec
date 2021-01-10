@@ -1,32 +1,29 @@
-%global packname  tsvr
-%global packver   1.0.2
+%global packname  EMDSVRhybrid
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Timescale-Specific Variance Ratio for Use in Community Ecology
+Summary:          Hybrid Machine Learning Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 3.4.4
-BuildRequires:    R-grDevices >= 3.4.4
-BuildRequires:    R-stats >= 3.4.4
-Requires:         R-graphics >= 3.4.4
-Requires:         R-grDevices >= 3.4.4
-Requires:         R-stats >= 3.4.4
+BuildRequires:    R-CRAN-EMD 
+BuildRequires:    R-CRAN-e1071 
+Requires:         R-CRAN-EMD 
+Requires:         R-CRAN-e1071 
 
 %description
-Tools for timescale decomposition of the classic variance ratio of
-community ecology. Tools are as described in Zhao et al (in prep),
-extending commonly used methods introduced by Peterson et al (1975) <doi:
-10.2307/1936306>.
+Researchers can fit Empirical Mode Decomposition and Support Vector
+Regression based hybrid model for nonlinear and non stationary time series
+data using this package.
 
 %prep
 %setup -q -c -n %{packname}

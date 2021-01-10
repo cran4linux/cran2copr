@@ -1,9 +1,9 @@
 %global packname  Directional
-%global packver   4.5
+%global packver   4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5
+Version:          4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of R Functions for Directional Data Analysis
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-bigstatsr
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
@@ -28,7 +27,6 @@ Requires:         R-CRAN-bigstatsr
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 

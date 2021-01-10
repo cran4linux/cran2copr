@@ -1,13 +1,13 @@
-%global packname  tsvr
-%global packver   1.0.2
+%global packname  scrappy
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Timescale-Specific Variance Ratio for Use in Community Ecology
+Summary:          A Simple Web Scraper
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics >= 3.4.4
-BuildRequires:    R-grDevices >= 3.4.4
-BuildRequires:    R-stats >= 3.4.4
-Requires:         R-graphics >= 3.4.4
-Requires:         R-grDevices >= 3.4.4
-Requires:         R-stats >= 3.4.4
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
 
 %description
-Tools for timescale decomposition of the classic variance ratio of
-community ecology. Tools are as described in Zhao et al (in prep),
-extending commonly used methods introduced by Peterson et al (1975) <doi:
-10.2307/1936306>.
+A group of functions to scrape data from different websites, for academic
+purposes.
 
 %prep
 %setup -q -c -n %{packname}
