@@ -1,9 +1,9 @@
 %global packname  IsoplotRgui
-%global packver   3.6
+%global packver   3.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6
+Version:          3.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web Interface to 'IsoplotR'
 

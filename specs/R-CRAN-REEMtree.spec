@@ -1,13 +1,13 @@
-%global packname  shiny.router
-%global packver   0.2.0
+%global packname  REEMtree
+%global packver   0.90.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.90.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Routing for Shiny Web Applications
+Summary:          Regression Trees with Random Effects for Longitudinal (Panel) Data
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-rpart 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-It is a simple router for your Shiny apps. The router allows you to create
-dynamic web applications with real-time User Interface and easily share
-url to pages within your Shiny apps.
+A data mining approach for longitudinal and clustered data, which combines
+the structure of mixed effects model with tree-based estimation methods.
+See Sela, R.J. and Simonoff, J.S. (2012) RE-EM trees: a data mining
+approach for longitudinal and clustered data
+<doi:10.1007/s10994-011-5258-3>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  ctmm
-%global packver   0.5.10
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.10
-Release:          3%{?dist}%{?buildtag}
+Version:          0.6.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous-Time Movement Modeling
 
 License:          GPL-3
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Bessel 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-expm 
@@ -24,7 +25,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-manipulate 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-pbivnorm 
@@ -33,8 +34,10 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-shape 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-Bessel 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-expm 
@@ -44,7 +47,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-gsl 
 Requires:         R-CRAN-manipulate 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-pbivnorm 
@@ -53,6 +56,7 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-shape 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-statmod 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -71,13 +75,21 @@ Calabrese (2017) <doi:10.1111/2041-210X.12673>, Péron et al (2017)
 <doi:10.1016/j.ecoinf.2017.04.008>, Fleming et al (2018)
 <doi:10.1002/eap.1704>, Winner & Noonan et al (2018)
 <doi:10.1111/2041-210X.13027>, Fleming et al (2019)
-<doi:10.1111/2041-210X.13270>, and Noonan & Fleming et al (2019)
-<doi:10.1186/s40462-019-0177-1>.
+<doi:10.1111/2041-210X.13270>, Noonan & Fleming et al (2019)
+<doi:10.1186/s40462-019-0177-1>, Fleming et al (2020)
+<doi:10.1101/2020.06.12.130195>, and Noonan et al (2020)
+<doi:10.1101/2020.08.24.261628>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -85,19 +97,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

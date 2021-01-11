@@ -1,9 +1,9 @@
 %global packname  RXshrink
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or Least Angle Regression Methods
 
@@ -22,25 +22,19 @@ Requires:         R-CRAN-ellipse
 
 %description
 Functions are provided to calculate and display ridge TRACE diagnostics
-for a variety of shrinkage Paths. TRACEs identify the m-Extent of
-shrinkage most likely, under Normal-theory, to produce optimally biased
-estimates of beta-coefficients with minimum MSE Risk. The unr.ridge()
-function implements the "Unrestricted Path" introduced in Obenchain (2020)
-<arXiv:2005.14291>. This Shrinkage-Path is more efficient than the Paths
-used by the qm.ridge(), aug.lars() and uc.lars() functions. Optimally
-biased predictions can be made using RXpredict() for all six types of
-RXshrink linear model estimation methods. Functions MLboot(), MLcalc(),
-MLhist() and MLtrue() provide insights into the true bias and MSE risk
-characteristics of non-linear Shrinkage estimators. Functions unr.aug()
-and unr.biv() augment the calculations made by unr.ridge() to provide
-plots of the bivariate confidence ellipses corresponding to any of the
-p*(p-1) possible pairs of shrunken regression coefficients. The
-correct.signs() function provides estimates with "correct" numerical signs
-when ill-conditioned (nearly multicollinear) models yield OLS estimates
-that disagree with the signs of the observed correlations between the
-y-outcome and the selected x-predictor variables. Finally, the YonX()
-function displays Shrinkage statistics and graphics for "simple" linear
-regression (p = 1) models.
+for a wide variety of alternative shrinkage Paths. While all methods focus
+on Maximum Likelihood estimation of unknown true effects under
+Normal-distribution theory, some estimates are modified to be Unbiased or
+to have "Correct Range" when estimating either [1] the noncentrality of
+the F-ratio for testing that true Beta coefficients are Zeros or [2] the
+"relative" MSE Risk (i.e. MSE divided by true sigma-square, where the
+"relative" variance of OLS is known.) The unr.ridge() function implements
+the "Unrestricted Path" introduced in Obenchain (2020) <arXiv:2005.14291>.
+This "new" p-parameter Shrinkage-Path is more efficient than the Paths
+used by qm.ridge(), aug.lars() and uc.lars(). Functions unr.aug() and
+unr.biv() augment the calculations made by unr.ridge() to provide plots of
+the bivariate confidence ellipses corresponding to any of the p*(p-1)
+possible pairs of shrunken regression coefficients.
 
 %prep
 %setup -q -c -n %{packname}

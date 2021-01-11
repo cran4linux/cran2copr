@@ -1,13 +1,13 @@
-%global packname  stablelearner
-%global packver   0.1-3
+%global packname  bdlp
+%global packver   0.9-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stability Assessment of Statistical Learning Methods
+Summary:          Transparent and Reproducible Artificial Data Generation
 
-License:          GPL-2 | GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,37 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-GenOrd 
+BuildRequires:    R-CRAN-MultiOrd 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-partykit 
-BuildRequires:    R-CRAN-party 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-graphics 
-Requires:         R-methods 
+Requires:         R-CRAN-GenOrd 
+Requires:         R-CRAN-MultiOrd 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-partykit 
-Requires:         R-CRAN-party 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-DBI 
+Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Graphical and computational methods that can be used to assess the
-stability of results from supervised statistical learning.
+The main function generateDataset() processes a user-supplied .R file that
+contains metadata parameters in order to generate actual data. The
+metadata parameters have to be structured in the form of metadata objects,
+the format of which is outlined in the package vignette. This approach
+allows to generate artificial data in a transparent and reproducible
+manner.
 
 %prep
 %setup -q -c -n %{packname}

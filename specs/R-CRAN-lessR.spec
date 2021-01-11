@@ -1,9 +1,9 @@
 %global packname  lessR
-%global packver   3.9.8
+%global packver   3.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.8
+Version:          3.9.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Less Code, More Results
 
@@ -26,10 +26,9 @@ BuildRequires:    R-CRAN-robustbase
 BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-leaps 
 BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-triangle 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -41,10 +40,9 @@ Requires:         R-CRAN-robustbase
 Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-leaps 
 Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-triangle 
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Each function accomplishes the work of several or more standard R

@@ -1,9 +1,9 @@
 %global packname  RcppArmadillo
-%global packver   0.10.1.2.0
+%global packver   0.10.1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1.2.0
+Version:          0.10.1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library
 
@@ -29,15 +29,14 @@ Sanderson) that aims towards a good balance between speed and ease of use.
 Integer, floating point and complex numbers are supported, as well as a
 subset of trigonometric and statistics functions. Various matrix
 decompositions are provided through optional integration with LAPACK and
-ATLAS libraries. The 'RcppArmadillo' package includes the header files
+ATLAS libraries.  The 'RcppArmadillo' package includes the header files
 from the templated 'Armadillo' library. Thus users do not need to install
 'Armadillo' itself in order to use 'RcppArmadillo'. From release 7.800.0
 on, 'Armadillo' is licensed under Apache License 2; previous releases were
 under licensed as MPL 2.0 from version 3.800.0 onwards and LGPL-3 prior to
 that; 'RcppArmadillo' (the 'Rcpp' bindings/bridge to Armadillo) is
 licensed under the GNU GPL version 2 or later, as is the rest of 'Rcpp'.
-Note that Armadillo requires a fairly recent compiler; for the g++ family
-at least version 4.6.* is required.
+Armadillo requires a C++11 compiler.
 
 %prep
 %setup -q -c -n %{packname}

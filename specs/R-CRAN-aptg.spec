@@ -1,29 +1,39 @@
-%global packname  usmap
-%global packver   0.5.1
+%global packname  aptg
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          US Maps Including Alaska and Hawaii
+Summary:          Automatic Phylogenetic Tree Generator
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-brranching 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-taxize 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-brranching 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-taxize 
+Requires:         R-CRAN-xml2 
 
 %description
-Obtain United States map data frames of varying region types (e.g. county,
-state). The map data frames include Alaska and Hawaii conveniently placed
-to the bottom left, as they appear in most maps of the US. Convenience
-functions for plotting choropleths and working with FIPS codes are also
-provided.
+Generates phylogenetic trees and distance matrices ('brranching',
+<https://CRAN.R-project.org/package=brranching>) from a list of species
+name or from a taxon down to whatever lower taxon ('taxize',
+<https://github.com/ropensci/taxize>). It can do so based on two reference
+super trees: mammals (Bininda-Emonds et al., 2007;
+<doi:10.1038/nature05634>) and angiosperms (Zanne et al., 2014;
+<doi:10.1038/nature12872>).
 
 %prep
 %setup -q -c -n %{packname}

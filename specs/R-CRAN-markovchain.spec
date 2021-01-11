@@ -1,9 +1,9 @@
 %global packname  markovchain
-%global packver   0.8.5-3
+%global packver   0.8.5-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5.3
+Version:          0.8.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Handling Discrete Time Markov Chains
 
@@ -45,7 +45,7 @@ Functions and S4 methods to create and manage discrete time Markov chains
 more easily. In addition functions to perform statistical (fitting and
 drawing random variates) and probabilistic (analysis of their structural
 proprieties) analysis are provided. See Spedicato (2017)
-<doi.org/10.32614/RJ-2017-036>.
+<doi:10.32614/RJ-2017-036>.
 
 %prep
 %setup -q -c -n %{packname}

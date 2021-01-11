@@ -1,45 +1,39 @@
-%global packname  ralger
-%global packver   2.2.1
+%global packname  knitcitations
+%global packver   1.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          1.0.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Web Scraping
+Summary:          Citations for 'Knitr' Markdown Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-robotstxt 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-robotstxt 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-RefManageR >= 0.8.2
+BuildRequires:    R-CRAN-httr >= 0.3
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-RefManageR >= 0.8.2
+Requires:         R-CRAN-httr >= 0.3
+Requires:         R-CRAN-digest 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-The goal of 'ralger' is to facilitate web scraping in R.
+Provides the ability to create dynamic citations in which the
+bibliographic information is pulled from the web rather than having to be
+entered into a local database such as 'bibtex' ahead of time. The package
+is primarily aimed at authoring in the R 'markdown' format, and can
+provide outputs for web-based authoring such as linked text for inline
+citations.  Cite using a 'DOI', URL, or 'bibtex' file key.  See the
+package URL for details.
 
 %prep
 %setup -q -c -n %{packname}

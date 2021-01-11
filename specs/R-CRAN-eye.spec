@@ -1,9 +1,9 @@
 %global packname  eye
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Eye Data
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-eyedata >= 0.1.0
 Requires:         R-CRAN-tibble >= 3.0.4
 Requires:         R-CRAN-cli >= 2.2.0
 Requires:         R-CRAN-magrittr >= 2.0.1
@@ -38,7 +37,6 @@ Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-eyedata >= 0.1.0
 
 %description
 There is no ophthalmic researcher who has not had headaches from the

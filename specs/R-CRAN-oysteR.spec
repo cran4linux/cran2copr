@@ -1,9 +1,9 @@
 %global packname  oysteR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scans R Projects for Vulnerable Third Party Dependencies
 

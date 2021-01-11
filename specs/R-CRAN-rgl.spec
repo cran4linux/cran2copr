@@ -1,9 +1,9 @@
 %global packname  rgl
-%global packver   0.103.5
+%global packver   0.104.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.103.5
+Version:          0.104.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Visualization Using OpenGL
 
@@ -17,8 +17,8 @@ BuildRequires:    mesa-libGLU-devel
 BuildRequires:    zlib-devel
 BuildRequires:    libpng-devel >= 1.2.9
 BuildRequires:    freetype-devel
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.20
 BuildRequires:    R-CRAN-manipulateWidget >= 0.9.0
 BuildRequires:    R-graphics 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-crosstalk 
-BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-jsonlite >= 0.9.20
 Requires:         R-CRAN-manipulateWidget >= 0.9.0
 Requires:         R-graphics 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-crosstalk 
-Requires:         R-CRAN-mathjaxr 
 
 %description
 Provides medium to high level functions for 3D interactive graphics,

@@ -1,9 +1,9 @@
 %global packname  ivsacim
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Additive Cumulative Intensity Models with IV
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-lava 
@@ -26,7 +26,9 @@ Requires:         R-CRAN-timereg
 %description
 An instrumental variable estimator under structural cumulative additive
 intensity model is fitted, that leverages initial randomization as the IV.
-We also provide a consistent variance estimate.
+The estimator can be used to fit an additive hazards model under time to
+event data which handles treatment switching (treatment crossover)
+correctly. We also provide a consistent variance estimate.
 
 %prep
 %setup -q -c -n %{packname}

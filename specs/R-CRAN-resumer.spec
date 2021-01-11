@@ -1,45 +1,29 @@
-%global packname  ralger
-%global packver   2.2.1
+%global packname  resumer
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Web Scraping
+Summary:          Build Resumes with R
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-useful 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-robotstxt 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-useful 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-robotstxt 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-The goal of 'ralger' is to facilitate web scraping in R.
+Using a CSV, LaTeX and R to easily build attractive resumes.
 
 %prep
 %setup -q -c -n %{packname}

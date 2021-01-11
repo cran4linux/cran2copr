@@ -1,9 +1,9 @@
 %global packname  ComplexUpset
-%global packver   0.7.3
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Complex UpSet Plots Using 'ggplot2' Components
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-colorspace 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-colorspace 
 
 %description
 UpSet plots are an improvement over Venn Diagram for set overlap

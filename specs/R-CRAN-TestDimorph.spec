@@ -1,9 +1,9 @@
 %global packname  TestDimorph
-%global packver   0.3.5
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis Of The Interpopulation Difference In Degree of Sexual Dimorphism Using Summary Statistics
 
@@ -20,10 +20,9 @@ BuildRequires:    R-CRAN-corrplot
 BuildRequires:    R-CRAN-cutpointr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Morpho 
 BuildRequires:    R-CRAN-multcompView 
-BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tmvtnorm 
 BuildRequires:    R-CRAN-truncnorm 
@@ -33,24 +32,19 @@ Requires:         R-CRAN-corrplot
 Requires:         R-CRAN-cutpointr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Morpho 
 Requires:         R-CRAN-multcompView 
-Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tmvtnorm 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-utils 
 
 %description
-Provides two approaches of comparison; the univariate and the multivariate
-analysis in two or more populations. Since the main obstacle of performing
-systematic comparisons in anthropological studies is the absence of raw
-data, the current package offer a solution for this problem by allowing
-the use of published summary statistics of metric data (mean, standard
-deviation and sex specific sample size) as illustrated by the works of
-Greene, D. L. (1989) <doi:10.1002/ajpa.1330790113> and Konigsberg, L. W.
-(1991) <doi:10.1002/ajpa.1330840110>.
+Offers a solution for the unavailability of raw data in most
+anthropological studies by facilitating the calculations of several sexual
+dimorphism related analyses using the published summary statistics of
+metric data (mean, standard deviation and sex specific sample size).
 
 %prep
 %setup -q -c -n %{packname}
