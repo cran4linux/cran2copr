@@ -1,9 +1,9 @@
 %global packname  BoutrosLab.plotting.general
-%global packver   6.0.1
+%global packver   6.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.1
+Version:          6.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Create Publication-Quality Plots
 
@@ -12,23 +12,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-MASS >= 7.3.29
-BuildRequires:    R-CRAN-hexbin >= 1.26.3
-BuildRequires:    R-cluster >= 1.14.4
-BuildRequires:    R-CRAN-latticeExtra >= 0.6.26
-BuildRequires:    R-lattice >= 0.20.27
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-MASS >= 7.3.29
+BuildRequires:    R-CRAN-cluster >= 2.0.0
+BuildRequires:    R-CRAN-hexbin >= 1.27.0
+BuildRequires:    R-CRAN-latticeExtra >= 0.6.27
+BuildRequires:    R-CRAN-lattice >= 0.20.35
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-e1071 
-Requires:         R-MASS >= 7.3.29
-Requires:         R-CRAN-hexbin >= 1.26.3
-Requires:         R-cluster >= 1.14.4
-Requires:         R-CRAN-latticeExtra >= 0.6.26
-Requires:         R-lattice >= 0.20.27
+Requires:         R-CRAN-MASS >= 7.3.29
+Requires:         R-CRAN-cluster >= 2.0.0
+Requires:         R-CRAN-hexbin >= 1.27.0
+Requires:         R-CRAN-latticeExtra >= 0.6.27
+Requires:         R-CRAN-lattice >= 0.20.35
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-tools 
@@ -51,9 +51,13 @@ Bioinformatics 2019 <doi: 10.1186/s12859-019-2610-2>.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -63,6 +67,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

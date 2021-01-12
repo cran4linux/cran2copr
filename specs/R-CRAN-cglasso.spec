@@ -1,9 +1,9 @@
 %global packname  cglasso
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Graphical LASSO for Gaussian Graphical Models with Censored and Missing Values
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
@@ -22,14 +22,19 @@ Requires:         R-methods
 Requires:         R-CRAN-MASS 
 
 %description
-Conditional graphical lasso (cglasso) estimator is an extension of the
-graphical lasso proposed to estimate the conditional dependence structure
-of a set of p response variables given q predictors. This package provides
-suitable extensions developed to study datasets with censored and/or
-missing values. Standard conditional graphical lasso is available as a
-special case. Furthermore, cglasso package provides an integrated set of
-core routines for visualization, analysis, and simulation of datasets with
-censored and/or missing values drawn from a Gaussian graphical model.
+Conditional graphical lasso estimator is an extension of the graphical
+lasso proposed to estimate the conditional dependence structure of a set
+of p response variables given q predictors. This package provides suitable
+extensions developed to study datasets with censored and/or missing
+values. Standard conditional graphical lasso is available as a special
+case. Furthermore, the package provides an integrated set of core routines
+for visualization, analysis, and simulation of datasets with censored
+and/or missing values drawn from a Gaussian graphical model. Details about
+the implemented models can be found in Augugliaro et al. (2020b)
+<doi{10.1007/s11222-020-09945-7}>, Augugliaro et al. (2020a)
+<doi{10.1093/biostatistics/kxy043}>, Yin et al. (2001)
+<doi{10.1214/11-AOAS494}> and Stadler et al. (2012)
+<doi{10.1007/s11222-010-9219-7}>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  yorkr
-%global packver   0.0.12
+%global packver   0.0.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.0.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Cricket Performances Based on Data from Cricsheet
 
@@ -34,7 +34,7 @@ Requires:         R-utils
 
 %description
 Analyzing performances of cricketers and cricket teams based on 'yaml'
-match data from Cricsheet <https://cricsheet.org>.
+match data from Cricsheet <https://cricsheet.org/>.
 
 %prep
 %setup -q -c -n %{packname}

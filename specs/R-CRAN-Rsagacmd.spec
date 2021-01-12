@@ -1,10 +1,10 @@
 %global packname  Rsagacmd
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
-Release:          3%{?dist}%{?buildtag}
+Version:          0.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Linking R with the Open-Source 'SAGA-GIS' Software
 
 License:          GPL-3
@@ -20,23 +20,23 @@ BuildRequires:    R-CRAN-XML
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-foreign 
-BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-processx 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-sf 
 Requires:         R-tools 
 Requires:         R-CRAN-rgdal 
-Requires:         R-foreign 
-Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-processx 
 
 %description
 Provides an R scripting interface to the open-source 'SAGA-GIS' (System
@@ -50,8 +50,8 @@ of 'SAGA-GIS' geoprocessing tools (>700) by their respective library.
 Interactive scripting can fully take advantage of code autocompletion
 tools (e.g. in 'Rstudio'), allowing for each tools syntax to be quickly
 recognized. Furthermore, the most common types of spatial data (via the
-'raster', 'sp', and 'sf' packages) along with non-spatial data are
-automatically passed from R to the 'SAGA-GIS' command line tool for
+'raster', 'terra', 'sp', and 'sf' packages) along with non-spatial data
+are automatically passed from R to the 'SAGA-GIS' command line tool for
 geoprocessing operations, and the results are loaded as the appropriate R
 object. Outputs from individual 'SAGA-GIS' tools can also be chained using
 pipes from the 'magrittr' and 'dplyr' packages to combine complex
@@ -62,13 +62,19 @@ binaries. SAGA-GIS is also included in Debian/Ubuntu default software
 repositories and is available for macOS using homebrew
 (<https://brew.sh/>) from the osgeo/osgeo4mac
 (<https://github.com/OSGeo/homebrew-osgeo4mac>) formula tap. Rsagacmd has
-currently been tested on 'SAGA-GIS' versions from 2.3.1 to 7.6.0 on
+currently been tested on 'SAGA-GIS' versions from 2.3.1 to 7.9.0 on
 Windows, Linux and macOS.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -76,17 +82,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

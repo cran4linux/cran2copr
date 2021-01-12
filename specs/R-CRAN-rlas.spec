@@ -1,9 +1,9 @@
 %global packname  rlas
-%global packver   1.3.8
+%global packver   1.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write 'las' and 'laz' Binary File Formats Used for Remote Sensing Data
 

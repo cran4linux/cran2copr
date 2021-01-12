@@ -1,9 +1,9 @@
 %global packname  sensitivity
-%global packver   1.23.1
+%global packver   1.24.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23.1
+Version:          1.24.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Sensitivity Analysis of Model Outputs
 
@@ -19,12 +19,14 @@ BuildRequires:    R-CRAN-numbers
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-numbers 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-foreach 
 
 %description
 A collection of functions for factor screening, global sensitivity

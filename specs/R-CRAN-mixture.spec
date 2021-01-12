@@ -1,23 +1,35 @@
 %global packname  mixture
-%global packver   1.5.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Finite Gaussian Mixture Models for Clustering and Classification
+Summary:          Mixture Models for Clustering and Classification
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-lattice >= 0.20
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppGSL 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-lattice >= 0.20
 
 %description
-An implementation of all 14 Gaussian parsimonious clustering models
-(GPCMs) for model-based clustering and model-based classification.
+An implementation of 14 parsimonious mixture models for model-based
+clustering or model-based classification. Gaussian, generalized
+hyperbolic, variance-gamma or skew-t mixtures are available. All
+approaches work with missing data. Celeux and Govaert (1995)
+<doi:10.1016/0031-3203(94)00125-6>, Browne and McNicholas (2014)
+<doi:10.1007/s11634-013-0139-1>, Browne and McNicholas (2015)
+<doi:10.1002/cjs.11246>.
 
 %prep
 %setup -q -c -n %{packname}

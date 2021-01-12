@@ -1,9 +1,9 @@
 %global packname  CompAREdesign
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Functions for the Design of Studies with Composite Endpoints
 
@@ -24,7 +24,7 @@ clinical trials with composite endpoints. This package also includes
 functions to calculate the probability of observing the composite endpoint
 and the expected effect on the composite endpoint, among others. The
 methods implemented can be found in Bofill & Gómez (2019)
-(DOI:10.1002/sim.8092) and Gómez & Lagakos (2013) (DOI:10.1002/sim.5547).
+<doi:10.1002/sim.8092> and Gómez & Lagakos (2013) <doi:10.1002/sim.5547>.
 
 %prep
 %setup -q -c -n %{packname}
