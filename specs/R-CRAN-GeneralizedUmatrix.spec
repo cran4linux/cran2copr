@@ -1,9 +1,9 @@
 %global packname  GeneralizedUmatrix
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Credible Visualization for Two-Dimensional Projections of Data
 

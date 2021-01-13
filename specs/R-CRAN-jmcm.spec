@@ -1,9 +1,9 @@
 %global packname  jmcm
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Mean-Covariance Models using 'Armadillo' and S4
 
@@ -14,10 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.900.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-roptim 
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-CRAN-Formula 

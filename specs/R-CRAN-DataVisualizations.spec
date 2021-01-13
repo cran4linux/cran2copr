@@ -1,9 +1,9 @@
 %global packname  DataVisualizations
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of High-Dimensional Data
 
@@ -17,10 +17,14 @@ Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-reshape2 
 
 %description
 Gives access to data visualisation methods that are relevant from the data

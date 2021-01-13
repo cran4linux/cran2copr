@@ -1,10 +1,10 @@
 %global packname  weibulltools
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
-Release:          3%{?dist}%{?buildtag}
+Version:          2.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Life Data Analysis
 
 License:          GPL-2
@@ -12,57 +12,72 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-LearnBayes 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-segmented 
 BuildRequires:    R-CRAN-SPREDA 
-BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-LearnBayes 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-segmented 
 Requires:         R-CRAN-SPREDA 
-Requires:         R-survival 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Contains methods for examining bench test or field data using the
-well-known Weibull Analysis. It includes Monte Carlo simulation for
-estimating the life span of products that have not failed, taking account
-of registering and reporting delays as stated in (Verband der
-Automobilindustrie e.V. (VDA), 2016, <ISSN:0943-9412>). If the products
-looked upon are vehicles, the covered mileage can be estimated as well. It
-also provides non-parametric estimators like Median Ranks, Kaplan-Meier
-(Abernethy, 2006, <ISBN:978-0-9653062-3-2>), Johnson (Johnson, 1964,
-<ISBN:978-0444403223>), and Nelson-Aalen for failure probability
-estimation within samples that contain failures as well as censored data.
-Methods for estimating the parameters of lifetime distributions, like
-Maximum Likelihood and Median-Rank Regression, (Genschel and Meeker, 2010,
-<DOI:10.1080/08982112.2010.503447>) as well as the computation of
+Provides statistical methods and visualizations that are often used in
+reliability engineering. Comprises a compact and easily accessible set of
+methods and visualization tools that make the examination and adjustment
+as well as the analysis and interpretation of field data (and bench tests)
+as simple as possible. Non-parametric estimators like Median Ranks,
+Kaplan-Meier (Abernethy, 2006, <ISBN:978-0-9653062-3-2>), Johnson
+(Johnson, 1964, <ISBN:978-0444403223>), and Nelson-Aalen for failure
+probability estimation within samples that contain failures as well as
+censored data are included. The package supports methods like Maximum
+Likelihood and Rank Regression, (Genschel and Meeker, 2010,
+<DOI:10.1080/08982112.2010.503447>) for the estimation of multiple
+parametric lifetime distributions, as well as the computation of
 confidence intervals of quantiles and probabilities using the delta method
 related to Fisher's confidence intervals (Meeker and Escobar, 1998,
-<ISBN:9780471673279>) and the beta-binomial confidence bounds are also
-included. If desired, the data can automatically be divided into subgroups
-using segmented regression. And if the number of subgroups in a Weibull
-Mixture Model is known, data can be analyzed using the EM-Algorithm.
-Besides the calculation, methods for interactive visualization of the
-edited data using *plotly* are provided as well. These visualizations
-include the layout of a probability plot for a specified distribution, the
-graphical technique of probability plotting and the possibility of adding
-regression lines and confidence bounds to existing plots.
+<ISBN:9780471673279>) and the beta-binomial confidence bounds. If desired,
+mixture model analysis can be done with segmented regression and the EM
+algorithm. Besides the well-known Weibull analysis, the package also
+contains Monte Carlo methods for the correction and completion of
+imprecisely recorded or unknown lifetime characteristics. (Verband der
+Automobilindustrie e.V. (VDA), 2016, <ISSN:0943-9412>). Plots are created
+statically ('ggplot2') or interactively ('plotly') and can be customized
+with functions of the respective visualization package. The graphical
+technique of probability plotting as well as the addition of regression
+lines and confidence bounds to existing plots are supported.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -72,16 +87,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

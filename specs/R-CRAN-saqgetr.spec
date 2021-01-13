@@ -1,9 +1,9 @@
 %global packname  saqgetr
-%global packver   0.2.1
+%global packver   0.2.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import Air Quality Monitoring Data in a Fast and Easy Way
 
@@ -20,19 +20,17 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-fs 
+Requires:         R-CRAN-httr 
 
 %description
 A collection of tools to access prepared air quality monitoring data files

@@ -1,9 +1,9 @@
 %global packname  epiR
-%global packver   2.0.17
+%global packver   2.0.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.17
+Version:          2.0.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for the Analysis of Epidemiological Data
 

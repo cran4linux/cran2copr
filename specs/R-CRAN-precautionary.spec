@@ -1,9 +1,9 @@
 %global packname  precautionary
-%global packver   0.2-0
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Safety Diagnostics for Dose-Escalation Trial Designs
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-escalation 
@@ -41,7 +41,7 @@ characteristics of these designs in light of expected inter-individual
 variation in pharmacokinetics and pharmacodynamics. See Norris (2020b),
 "Retrospective analysis of a fatal dose-finding trial" <arXiv:2004.12755>
 and (2020c) "What Were They Thinking? Pharmacologic priors implicit in a
-choice of 3+3 dose-escalation design" <arXiv:2012:05301>.
+choice of 3+3 dose-escalation design" <arXiv:2012.05301>.
 
 %prep
 %setup -q -c -n %{packname}

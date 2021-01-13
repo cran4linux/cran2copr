@@ -1,9 +1,9 @@
 %global packname  blocksdesign
-%global packver   4.6
+%global packver   4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6
+Version:          4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested and Crossed Block Designs for Factorial and Unstructured Treatment Sets
 
@@ -35,7 +35,8 @@ which allows for differential weighting of first and second-order block
 effects. Outputs include a table showing the allocation of treatments to
 blocks and tables showing the achieved D-efficiency factors for each block
 and treatment design. Edmondson, R.N. Multi-level Block Designs for
-Comparative Experiments. JABES (2020). <doi:10.1007/s13253-020-00416-0>.
+Comparative Experiments. JABES 25, 500–522 (2020).
+<doi:10.1007/s13253-020-00416-0>.
 
 %prep
 %setup -q -c -n %{packname}
