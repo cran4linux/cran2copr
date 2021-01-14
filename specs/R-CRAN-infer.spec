@@ -1,9 +1,9 @@
 %global packname  infer
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Statistical Inference
 
@@ -18,21 +18,21 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-rlang >= 0.2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-rlang >= 0.2.0
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
 Requires:         R-grDevices 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 
 %description
 The objective of this package is to perform inference using an expressive
@@ -41,9 +41,13 @@ statistical grammar that coheres with the tidy design framework.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -53,6 +57,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,9 +1,9 @@
 %global packname  windex
-%global packver   2.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysing Convergent Evolution using the Wheatsheaf Index
 
@@ -29,7 +29,7 @@ Requires:         R-utils
 %description
 Analysing convergent evolution using the Wheatsheaf index, described in
 Arbuckle et al. (2014) <doi: 10.1111/2041-210X.12195>, and some other
-random but perhaps useful functions).
+random but perhaps useful functions.
 
 %prep
 %setup -q -c -n %{packname}

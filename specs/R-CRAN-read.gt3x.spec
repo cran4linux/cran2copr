@@ -1,11 +1,11 @@
 %global packname  read.gt3x
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'Actigraph' 'GT3X'/'GT3X+' 'Accelerometer' Data
+Summary:          Parse 'ActiGraph' 'GT3X'/'GT3X+' 'Accelerometer' Data
 
 License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}

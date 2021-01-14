@@ -1,9 +1,9 @@
 %global packname  msaeDB
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Difference Benchmarking for Multivariate Small Area Estimation
 
@@ -27,16 +27,16 @@ Implements Benchmarking Method for Multivariate Small Area Estimation
 under Fay Herriot Model. Multivariate Small Area Estimation (MSAE) is a
 development of Univariate Small Area Estimation that considering the
 correlation among response variables and borrowing the strength from
-auxiliary variables effectiveness of a domain sample size, the
-multivariate model in this package is based on multivariate model 1
-proposed by Roberto Benavent and Domingo Morales (2015)
-<doi:10.1016/j.csda.2015.07.013>. Benchmarking in Small Area Estimation is
-a modification of Small Area Estimation model to guarantees that the
-aggregate weighted mean of the county predictors equals the corresponding
-weighted mean of survey estimates. Difference Benchmarking is the simplest
-benchmarking method but widely used by multiplying empirical best linear
-unbiased prediction (EBLUP) estimator by the common adjustment factors
-(J.N.K Rao and Isabel Molina, 2013).
+related areas and auxiliary variables to increase the effectiveness of
+sample size, the multivariate model in this package is based on
+multivariate model 1 proposed by Roberto Benavent and Domingo Morales
+(2015) <doi:10.1016/j.csda.2015.07.013>. Benchmarking in Small Area
+Estimation is a modification of Small Area Estimation model to guarantee
+that the aggregate weighted mean of the county predictors equals the
+corresponding weighted mean of survey estimates. Difference Benchmarking
+is the simplest benchmarking method but widely used by multiplying
+empirical best linear unbiased prediction (EBLUP) estimator by the common
+adjustment factors (J.N.K Rao and Isabel Molina, 2015).
 
 %prep
 %setup -q -c -n %{packname}

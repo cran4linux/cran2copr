@@ -1,9 +1,9 @@
 %global packname  doc2concrete
-%global packver   0.5.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Concreteness in Natural Language
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-english 
 BuildRequires:    R-CRAN-textstem 
 BuildRequires:    R-CRAN-SnowballC 
-BuildRequires:    R-CRAN-textclean 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-tm 
 Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-ggplot2 
@@ -36,13 +36,13 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-english 
 Requires:         R-CRAN-textstem 
 Requires:         R-CRAN-SnowballC 
-Requires:         R-CRAN-textclean 
+Requires:         R-CRAN-stringi 
 
 %description
 Models for detecting concreteness in natural language. This package is
-built in support of Yeomans (2020) <doi:10.17605/OSF.IO/DYZN6>, which
-reviews linguistic models of concreteness in several domains. Here, we
-provide an implementation of the best-performing domain-general model
+built in support of Yeomans (2021) <doi:10.1016/j.obhdp.2020.10.008>,
+which reviews linguistic models of concreteness in several domains. Here,
+we provide an implementation of the best-performing domain-general model
 (from Brysbaert et al., (2014) <doi:10.3758/s13428-013-0403-5>) as well as
 two pre-trained models for the feedback and plan-making domains.
 

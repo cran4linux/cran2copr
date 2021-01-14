@@ -1,9 +1,9 @@
 %global packname  bnma
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Meta-Analysis using 'JAGS'
 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-igraph
 Network meta-analyses using Bayesian framework following Dias et al.
 (2013) <DOI:10.1177/0272989X12458724>. Based on the data input, creates
 prior, model file, and initial values needed to run models in 'rjags'.
-Able to handle binomial, normal and multinomial arm-based data. Can handle
+Able to handle binomial, normal and multinomial arm-level data. Can handle
 multi-arm trials and includes methods to incorporate covariate and
 baseline risk effects. Includes standard diagnostics and visualization
 tools to evaluate the results.
@@ -44,9 +44,13 @@ tools to evaluate the results.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -56,6 +60,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

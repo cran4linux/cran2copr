@@ -1,32 +1,32 @@
 %global packname  SpaDES
-%global packver   2.0.4
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
-Release:          3%{?dist}%{?buildtag}
-Summary:          Develop and Run Spatially Explicit Discrete Event SimulationModels
+Version:          2.0.6
+Release:          1%{?dist}%{?buildtag}
+Summary:          Develop and Run Spatially Explicit Discrete Event Simulation Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-reproducible >= 1.2.1.9007
+BuildRequires:    R-CRAN-SpaDES.core >= 1.0.4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-quickPlot 
-BuildRequires:    R-CRAN-reproducible 
 BuildRequires:    R-CRAN-SpaDES.addins 
-BuildRequires:    R-CRAN-SpaDES.core 
 BuildRequires:    R-CRAN-SpaDES.tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-reproducible >= 1.2.1.9007
+Requires:         R-CRAN-SpaDES.core >= 1.0.4
 Requires:         R-methods 
 Requires:         R-CRAN-quickPlot 
-Requires:         R-CRAN-reproducible 
 Requires:         R-CRAN-SpaDES.addins 
-Requires:         R-CRAN-SpaDES.core 
 Requires:         R-CRAN-SpaDES.tools 
 Requires:         R-utils 
 
@@ -40,12 +40,20 @@ facilitates modularity, and easily enables the user to include additional
 functionality by running user-built simulation modules (see also
 'SpaDES.tools'). Included are numerous tools to visualize rasters and
 other maps (via 'quickPlot'), and caching methods for reproducible
-simulations (via 'reproducible'). Additional functionality is provided by
-the 'SpaDES.addins' and 'SpaDES.shiny' packages.
+simulations (via 'reproducible'). Tools for running simulation experiments
+are provided by 'SpaDES.experiment'. Additional functionality is provided
+by the 'SpaDES.addins' and 'SpaDES.shiny' packages.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -53,19 +61,10 @@ the 'SpaDES.addins' and 'SpaDES.shiny' packages.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/WORDLIST
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

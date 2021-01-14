@@ -1,9 +1,9 @@
 %global packname  distill
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'R Markdown' Format for Scientific and Technical Writing
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.5
+BuildRequires:    R-CRAN-rmarkdown >= 2.6
 BuildRequires:    R-CRAN-jsonlite >= 1.3
 BuildRequires:    R-CRAN-knitr >= 1.15
 BuildRequires:    R-CRAN-bookdown >= 0.8
@@ -37,7 +37,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-rmarkdown >= 2.5
+Requires:         R-CRAN-rmarkdown >= 2.6
 Requires:         R-CRAN-jsonlite >= 1.3
 Requires:         R-CRAN-knitr >= 1.15
 Requires:         R-CRAN-bookdown >= 0.8

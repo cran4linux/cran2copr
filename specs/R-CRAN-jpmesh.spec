@@ -1,9 +1,9 @@
 %global packname  jpmesh
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Japanese Mesh Code
 
@@ -39,7 +39,7 @@ Requires:         R-CRAN-rlang >= 0.1.4
 Requires:         R-CRAN-miniUI >= 0.1.1
 
 %description
-Helpful functions for using mesh code (80km to 125m) data in Japan.
+Helpful functions for using mesh code (80km to 100m) data in Japan.
 Visualize mesh code using 'ggplot2' and 'leaflet', etc.
 
 %prep
