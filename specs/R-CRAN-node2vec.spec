@@ -1,42 +1,41 @@
-%global packname  NPBayesImputeCat
-%global packver   0.3
+%global packname  node2vec
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Multiple Imputation for Categorical Data
+Summary:          Algorithmic Framework for Representational Learning on Graphs
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-word2vec 
+BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-Rcpp >= 0.10.2
-Requires:         R-CRAN-tidyverse 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-word2vec 
+Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-vegan 
 
 %description
-These routines create multiple imputations of missing at random
-categorical data, and create multiply imputed synthesis of categorical
-data, with or without structural zeros. Imputations and syntheses are
-based on Dirichlet process mixtures of multinomial distributions, which is
-a non-parametric Bayesian modeling approach that allows for flexible joint
-modeling, described in Manrique-Vallier and Reiter (2014)
-<doi:10.1080/10618600.2013.844700>.
+Given any graph, the 'node2vec' algorithm can learn continuous feature
+representations for the nodes, which can then be used for various
+downstream machine learning tasks.The techniques are detailed in the paper
+"node2vec: Scalable Feature Learning for Networks" by Aditya Grover, Jure
+Leskovec(2016),available at <arXiv:1607.00653>.
 
 %prep
 %setup -q -c -n %{packname}

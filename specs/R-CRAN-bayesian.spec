@@ -1,42 +1,44 @@
-%global packname  NPBayesImputeCat
-%global packver   0.3
+%global packname  bayesian
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Multiple Imputation for Categorical Data
+Summary:          Bindings for Bayesian TidyModels
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-brms >= 2.14.4
+BuildRequires:    R-CRAN-parsnip >= 0.1.4
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-Rcpp >= 0.10.2
-Requires:         R-CRAN-tidyverse 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-brms >= 2.14.4
+Requires:         R-CRAN-parsnip >= 0.1.4
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-These routines create multiple imputations of missing at random
-categorical data, and create multiply imputed synthesis of categorical
-data, with or without structural zeros. Imputations and syntheses are
-based on Dirichlet process mixtures of multinomial distributions, which is
-a non-parametric Bayesian modeling approach that allows for flexible joint
-modeling, described in Manrique-Vallier and Reiter (2014)
-<doi:10.1080/10618600.2013.844700>.
+Fit Bayesian models using 'brms'/'Stan' with 'parsnip'/'tidymodels'.
+'tidymodels' is a collection of packages for machine learning, developed
+by Wickham (2020) <https://www.tidymodels.org>). The technical details of
+'brms' and 'Stan' are described in Bürkner (2017)
+<doi:10.18637/jss.v080.i01>, Bürkner (2018) <doi:10.32614/RJ-2018-017>,
+and Carpenter et al. (2017) <doi:10.18637/jss.v076.i01>.
 
 %prep
 %setup -q -c -n %{packname}

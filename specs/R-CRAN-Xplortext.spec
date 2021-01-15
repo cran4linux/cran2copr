@@ -1,10 +1,10 @@
 %global packname  Xplortext
-%global packver   1.3.2
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
-Release:          3%{?dist}%{?buildtag}
+Version:          1.4.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis of Textual Data
 
 License:          GPL (>= 2.0)
@@ -12,39 +12,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tm >= 0.7.3
-BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-MASS >= 7.3.53
+BuildRequires:    R-CRAN-FactoMineR >= 2.4
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-stringi >= 1.5.3
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-flexclust >= 1.4.0
+BuildRequires:    R-CRAN-flashClust >= 1.01.2
+BuildRequires:    R-CRAN-ggrepel >= 0.9.0
+BuildRequires:    R-CRAN-tm >= 0.7.8
+BuildRequires:    R-CRAN-ggforce >= 0.3.2
+BuildRequires:    R-CRAN-slam >= 0.1.48
+BuildRequires:    R-CRAN-ggdendro >= 0.1.22
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-flexclust 
-BuildRequires:    R-CRAN-flashClust 
-Requires:         R-CRAN-tm >= 0.7.3
-Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-MASS >= 7.3.53
+Requires:         R-CRAN-FactoMineR >= 2.4
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-stringi >= 1.5.3
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-flexclust >= 1.4.0
+Requires:         R-CRAN-flashClust >= 1.01.2
+Requires:         R-CRAN-ggrepel >= 0.9.0
+Requires:         R-CRAN-tm >= 0.7.8
+Requires:         R-CRAN-ggforce >= 0.3.2
+Requires:         R-CRAN-slam >= 0.1.48
+Requires:         R-CRAN-ggdendro >= 0.1.22
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggdendro 
 Requires:         R-graphics 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-slam 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-flexclust 
-Requires:         R-CRAN-flashClust 
 
 %description
 Provides a set of functions devoted to multivariate exploratory statistics
@@ -57,12 +61,18 @@ accessing to 'FactoMineR' functions is very easy. Two of them are relevant
 in textual domain. MFA() addresses multiple lexical table allowing
 applications such as dealing with multilingual corpora as well as
 simultaneously analyzing both open-ended and closed questions in surveys.
-See <http://www.xplortext.org> for examples.
+See <http://xplortext.unileon.es> for examples.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -70,18 +80,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/Xplortext.pdf
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

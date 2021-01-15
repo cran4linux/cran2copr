@@ -1,27 +1,28 @@
-%global packname  krippendorffsalpha
-%global packver   1.1
+%global packname  eCAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measuring Agreement Using Krippendorff's Alpha Coefficient
+Summary:          Eigenvalue CAR Models
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
-Provides tools for applying Krippendorff's Alpha methodology
-<DOI:10.1080/19312450709336664>. The framework supports common and
-user-defined distance functions, and can accommodate any number of units,
-any number of coders, and missingness. Bootstrap inference is permitted,
-and the computation can be done in parallel.
+Fits Leroux model in spectral domain to estimate causal spatial effect as
+detailed in Guan, Y; Page, G.L.; Reich, B.J.; Ventrucci, M.; Yang, S;
+(2020) <arXiv:2012.11767>. Both the parametric and semi-parametric models
+are available.  The semi-parametric model relies on 'INLA'.  The 'INLA'
+package can be obtained from <https://www.r-inla.org/>.
 
 %prep
 %setup -q -c -n %{packname}

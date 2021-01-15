@@ -1,13 +1,13 @@
-%global packname  krippendorffsalpha
-%global packver   1.1
+%global packname  utilities
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measuring Agreement Using Krippendorff's Alpha Coefficient
+Summary:          Data Utility Functions
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,13 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides tools for applying Krippendorff's Alpha methodology
-<DOI:10.1080/19312450709336664>. The framework supports common and
-user-defined distance functions, and can accommodate any number of units,
-any number of coders, and missingness. Bootstrap inference is permitted,
-and the computation can be done in parallel.
+Data utility functions for use in probability and statistics.  Includes
+functions for computing higher-moments for samples and their
+decompositions. Also includes utilities to examine functional mappings
+between factor variables and other variables in a data set.
 
 %prep
 %setup -q -c -n %{packname}

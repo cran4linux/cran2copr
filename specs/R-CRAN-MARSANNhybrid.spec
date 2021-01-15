@@ -1,27 +1,32 @@
-%global packname  krippendorffsalpha
-%global packver   1.1
+%global packname  MARSANNhybrid
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measuring Agreement Using Krippendorff's Alpha Coefficient
+Summary:          MARS Based ANN Hybrid Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-neuralnet 
+BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-neuralnet 
+Requires:         R-CRAN-earth 
+Requires:         R-stats 
 
 %description
-Provides tools for applying Krippendorff's Alpha methodology
-<DOI:10.1080/19312450709336664>. The framework supports common and
-user-defined distance functions, and can accommodate any number of units,
-any number of coders, and missingness. Bootstrap inference is permitted,
-and the computation can be done in parallel.
+Multivariate Adaptive Regression Spline (MARS) based Artificial Neural
+Network (ANN) hybrid model is combined Machine learning hybrid approach
+which selects important variables using MARS and then fits ANN on the
+extracted important variables.
 
 %prep
 %setup -q -c -n %{packname}

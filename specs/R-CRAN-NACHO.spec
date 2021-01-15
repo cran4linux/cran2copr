@@ -1,9 +1,9 @@
 %global packname  NACHO
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NanoString Quality Control Dashboard
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-shiny >= 1.4.0
@@ -24,9 +24,9 @@ BuildRequires:    R-CRAN-knitr >= 1.25
 BuildRequires:    R-CRAN-rmarkdown >= 1.16
 BuildRequires:    R-CRAN-sessioninfo >= 1.1.1
 BuildRequires:    R-CRAN-cli >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-ggrepel >= 0.8.1
 BuildRequires:    R-CRAN-ggbeeswarm >= 0.6.0
 BuildRequires:    R-CRAN-shinyWidgets >= 0.4.9
@@ -35,7 +35,7 @@ BuildRequires:    R-CRAN-ggforce >= 0.3.1
 BuildRequires:    R-CRAN-rstudioapi >= 0.10
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.2.1
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-shiny >= 1.4.0
@@ -44,9 +44,9 @@ Requires:         R-CRAN-knitr >= 1.25
 Requires:         R-CRAN-rmarkdown >= 1.16
 Requires:         R-CRAN-sessioninfo >= 1.1.1
 Requires:         R-CRAN-cli >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-ggrepel >= 0.8.1
 Requires:         R-CRAN-ggbeeswarm >= 0.6.0
 Requires:         R-CRAN-shinyWidgets >= 0.4.9

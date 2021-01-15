@@ -1,27 +1,32 @@
-%global packname  krippendorffsalpha
-%global packver   1.1
+%global packname  EEMDelm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measuring Agreement Using Krippendorff's Alpha Coefficient
+Summary:          Ensemble Empirical Mode Decomposition and Its Variant Based ELM Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-nnfor 
+BuildRequires:    R-CRAN-Rlibeemd 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-nnfor 
+Requires:         R-CRAN-Rlibeemd 
 
 %description
-Provides tools for applying Krippendorff's Alpha methodology
-<DOI:10.1080/19312450709336664>. The framework supports common and
-user-defined distance functions, and can accommodate any number of units,
-any number of coders, and missingness. Bootstrap inference is permitted,
-and the computation can be done in parallel.
+Forecasting univariate time series with different decomposition based
+Extreme Learning Machine models. For method details see Yu L, Wang S, Lai
+KK (2008). <doi:10.1016/j.eneco.2008.05.003>, Parida M, Behera MK, Nayak N
+(2018). <doi:10.1109/ICSESP.2018.8376723>.
 
 %prep
 %setup -q -c -n %{packname}

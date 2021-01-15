@@ -1,11 +1,11 @@
-%global packname  krippendorffsalpha
-%global packver   1.1
+%global packname  sisireg
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measuring Agreement Using Krippendorff's Alpha Coefficient
+Summary:          Sign-Simplicity-Regression-Solver
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,14 +14,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-raster 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-raster 
 
 %description
-Provides tools for applying Krippendorff's Alpha methodology
-<DOI:10.1080/19312450709336664>. The framework supports common and
-user-defined distance functions, and can accommodate any number of units,
-any number of coders, and missingness. Bootstrap inference is permitted,
-and the computation can be done in parallel.
+Implementation of the SSR-Algorithm. The Sign-Simplicity-Regression model
+is a nonparametric statistical model which is based on residual signs and
+simplicity assumptions on the regression function. Goal is to calculate
+the most parsimonious regression function satisfying the statistical
+adequacy requirements. Theory and functions are specified in Metzner
+(2020, ISBN: 9798682394203, "Trendbasierte Prognostik") and Metzner (2021,
+ISBN: 9798593470270, "Adäquates Maschinelles Lernen").
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  pool
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Object Pooling
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-later >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-later 
+Requires:         R-CRAN-later >= 1.0.0
 Requires:         R-methods 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-later 
 
 %description
 Enables the creation of object pools, which make it less computationally

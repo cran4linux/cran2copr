@@ -1,27 +1,39 @@
-%global packname  krippendorffsalpha
-%global packver   1.1
+%global packname  remap
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measuring Agreement Using Krippendorff's Alpha Coefficient
+Summary:          Regional Spatial Modeling with Continuous Borders
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-graphics >= 3.6.0
+BuildRequires:    R-parallel >= 3.6.0
+BuildRequires:    R-stats >= 3.6.0
+BuildRequires:    R-utils >= 3.6.0
+BuildRequires:    R-CRAN-sf >= 0.9.6
+BuildRequires:    R-CRAN-units >= 0.6.7
+Requires:         R-graphics >= 3.6.0
+Requires:         R-parallel >= 3.6.0
+Requires:         R-stats >= 3.6.0
+Requires:         R-utils >= 3.6.0
+Requires:         R-CRAN-sf >= 0.9.6
+Requires:         R-CRAN-units >= 0.6.7
 
 %description
-Provides tools for applying Krippendorff's Alpha methodology
-<DOI:10.1080/19312450709336664>. The framework supports common and
-user-defined distance functions, and can accommodate any number of units,
-any number of coders, and missingness. Bootstrap inference is permitted,
-and the computation can be done in parallel.
+Automatically creates separate regression models for different spatial
+regions. The prediction surface is smoothed using a novel method developed
+by the package creator. If regional models are continuous, the resulting
+prediction surface is continuous across the spatial dimensions, even at
+region borders.
 
 %prep
 %setup -q -c -n %{packname}

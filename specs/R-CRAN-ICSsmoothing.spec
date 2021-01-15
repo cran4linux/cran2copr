@@ -1,42 +1,31 @@
-%global packname  NPBayesImputeCat
-%global packver   0.3
+%global packname  ICSsmoothing
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Multiple Imputation for Categorical Data
+Summary:          Data Smoothing by Interpolating Cubic Splines
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-Rcpp >= 0.10.2
-Requires:         R-CRAN-tidyverse 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
 
 %description
-These routines create multiple imputations of missing at random
-categorical data, and create multiply imputed synthesis of categorical
-data, with or without structural zeros. Imputations and syntheses are
-based on Dirichlet process mixtures of multinomial distributions, which is
-a non-parametric Bayesian modeling approach that allows for flexible joint
-modeling, described in Manrique-Vallier and Reiter (2014)
-<doi:10.1080/10618600.2013.844700>.
+We construct the explicit form of clamped cubic interpolating spline (both
+uniform - knots are equidistant and non-uniform - knots are arbitrary).
+Using this form, we propose a linear regression model suitable for real
+data smoothing. This package is based on a diploma thesis Hudak (2017)
+<https://opac.crzp.sk/?fn=detailBiblioForm&sid=7FE4E0810F66E41DF9A9CA23557F&seo=CRZP-detail-kniha>.
 
 %prep
 %setup -q -c -n %{packname}

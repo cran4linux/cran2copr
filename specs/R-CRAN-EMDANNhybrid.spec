@@ -1,27 +1,31 @@
-%global packname  krippendorffsalpha
-%global packver   1.1
+%global packname  EMDANNhybrid
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measuring Agreement Using Krippendorff's Alpha Coefficient
+Summary:          Ensemble Machine Learning Hybrid Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-EMD 
+BuildRequires:    R-CRAN-nnfor 
+BuildRequires:    R-CRAN-forecast 
+Requires:         R-CRAN-EMD 
+Requires:         R-CRAN-nnfor 
+Requires:         R-CRAN-forecast 
 
 %description
-Provides tools for applying Krippendorff's Alpha methodology
-<DOI:10.1080/19312450709336664>. The framework supports common and
-user-defined distance functions, and can accommodate any number of units,
-any number of coders, and missingness. Bootstrap inference is permitted,
-and the computation can be done in parallel.
+The researchers can use this package to fit Empirical Mode Decomposition
+and Artificial Neural Network based hybrid model for nonlinear and non
+stationary time series data.
 
 %prep
 %setup -q -c -n %{packname}

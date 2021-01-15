@@ -1,9 +1,9 @@
 %global packname  KarsTS
-%global packver   2.4
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface for Microclimate Time Series Analysis
 
@@ -60,9 +60,9 @@ Requires:         R-CRAN-plot3D
 An R code with a GUI for microclimate time series, with an emphasis on
 underground environments. 'KarsTS' provides linear and nonlinear methods,
 including recurrence analysis (Marwan et al. (2007)
-<10.1016/j.physrep.2006.11.001>) and filling methods (Moffat et al. (2007)
-<doi:10.1016/j.agrformet.2007.08.011>), as well as tools to manipulate
-easily time series and gap sets.
+<doi:10.1016/j.physrep.2006.11.001>) and filling methods (Moffat et al.
+(2007) <doi:10.1016/j.agrformet.2007.08.011>), as well as tools to
+manipulate easily time series and gap sets.
 
 %prep
 %setup -q -c -n %{packname}

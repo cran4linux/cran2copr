@@ -1,42 +1,44 @@
-%global packname  NPBayesImputeCat
-%global packver   0.3
+%global packname  tabnet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Multiple Imputation for Categorical Data
+Summary:          Fit 'TabNet' Models for Classification and Regression
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-Rcpp >= 0.10.2
-Requires:         R-CRAN-tidyverse 
-Requires:         R-methods 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-torch 
+Requires:         R-CRAN-hardhat 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
 
 %description
-These routines create multiple imputations of missing at random
-categorical data, and create multiply imputed synthesis of categorical
-data, with or without structural zeros. Imputations and syntheses are
-based on Dirichlet process mixtures of multinomial distributions, which is
-a non-parametric Bayesian modeling approach that allows for flexible joint
-modeling, described in Manrique-Vallier and Reiter (2014)
-<doi:10.1080/10618600.2013.844700>.
+Implements the 'TabNet' model by Sercan O. Arik et al (2019)
+<arXiv:1908.07442> and provides a consistent interface for fitting and
+creating predictions. It's also fully compatible with the 'tidymodels'
+ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

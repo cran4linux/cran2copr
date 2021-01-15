@@ -1,42 +1,36 @@
-%global packname  NPBayesImputeCat
-%global packver   0.3
+%global packname  seasonalclumped
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Multiple Imputation for Categorical Data
+Summary:          Toolbox for Clumped Isotope Seasonality Reconstructions
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-Rcpp >= 0.10.2
-Requires:         R-CRAN-tidyverse 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-TTR 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-TTR 
+Requires:         R-CRAN-magrittr 
 
 %description
-These routines create multiple imputations of missing at random
-categorical data, and create multiply imputed synthesis of categorical
-data, with or without structural zeros. Imputations and syntheses are
-based on Dirichlet process mixtures of multinomial distributions, which is
-a non-parametric Bayesian modeling approach that allows for flexible joint
-modeling, described in Manrique-Vallier and Reiter (2014)
-<doi:10.1080/10618600.2013.844700>.
+Compiles a set of functions and dummy data that simplify reconstructions
+of seasonal temperature variability in the geological past from stable
+isotope and clumped isotope records in sub–annually resolved carbonate
+archives (e.g. mollusk shells, corals and speleothems). For more
+information, see de Winter et al., 2020 (Climate of the Past Discussions,
+<doi:10.5194/cp-2020-118>).
 
 %prep
 %setup -q -c -n %{packname}

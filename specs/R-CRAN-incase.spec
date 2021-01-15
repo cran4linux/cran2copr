@@ -1,9 +1,9 @@
 %global packname  incase
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pipe-Friendly Vector Replacement with Case Statements
 
@@ -18,11 +18,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plu 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plu 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 
 %description
 Offers a pipe-friendly alternative to the 'dplyr' functions case_when()
