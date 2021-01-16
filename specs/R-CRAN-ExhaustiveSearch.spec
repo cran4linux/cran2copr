@@ -1,33 +1,32 @@
-%global packname  ridge
-%global packver   2.8
+%global packname  ExhaustiveSearch
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Regression with Automatic Selection of the Penalty Parameter
+Summary:          A Fast and Scalable Exhaustive Feature Selection Framework
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel >= 1.14
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Linear and logistic ridge regression functions. Additionally includes
-special functions for genome-wide single-nucleotide polymorphism (SNP)
-data.
+The goal of this package is to provide an easy to use, fast and scalable
+exhaustive search framework. Exhaustive feature selections typically
+require a very large number of models to be fitted and evaluated.
+Execution speed and memory management are crucial factors here. This
+package provides solutions for both. Execution speed is optimized by using
+a multi-threaded C++ backend, and memory issues are solved by by only
+storing the best results during execution and thus keeping memory usage
+constant.
 
 %prep
 %setup -q -c -n %{packname}

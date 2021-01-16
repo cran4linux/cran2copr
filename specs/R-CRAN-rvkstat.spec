@@ -1,11 +1,11 @@
 %global packname  rvkstat
-%global packver   2.6.3
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.3
-Release:          3%{?dist}%{?buildtag}
-Summary:          Interface to API 'vk.com'
+Version:          3.0.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          R Interface to API 'vk.com'
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,23 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-RCurl 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lgr 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lgr 
 
 %description
 Load data from vk.com api about your communiti users and views, ads
-performance, post on user wall and etc. For more detail see
-<https://vk.com/dev/first_guide>.
+performance, post on user wall and etc. For more information see API
+Documentation <https://vk.com/dev/first_guide>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -39,18 +50,10 @@ performance, post on user wall and etc. For more detail see
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/logo
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,11 +1,11 @@
 %global packname  RaSEn
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Subspace Ensemble Classification
+Summary:          Random Subspace Ensemble Classification and Variable Screening
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-formatR 
 BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-ranger 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-class 
@@ -43,9 +44,10 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-formatR 
 Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-ranger 
 
 %description
-We propose a flexible ensemble classification framework, RaSE algorithm,
+We propose a general ensemble classification framework, RaSE algorithm,
 for the sparse classification problem. In RaSE algorithm, for each weak
 learner, some random subspaces are generated and the optimal one is chosen
 to train the model on the basis of some criterion. To be adapted to the
@@ -54,15 +56,16 @@ with based on Kullback-Leibler divergence. Besides minimizing RIC,
 multiple criteria can be applied, for instance, minimizing extended
 Bayesian information criterion (eBIC), minimizing training error,
 minimizing the validation error, minimizing the cross-validation error,
-minimizing leave-one-out error. And the choices of base classifiers are
-also various, for instance, linear discriminant analysis, quadratic
-discriminant analysis, k-nearest neighbor, logistic regression, decision
+minimizing leave-one-out error. There are various choices of base
+classifier, for instance, linear discriminant analysis, quadratic
+discriminant analysis, k-nearest neighbour, logistic regression, decision
 trees, random forest, support vector machines. RaSE algorithm can also be
 applied to do feature ranking, providing us the importance of each feature
-based on the selected percentage in multiple subspaces. In addition, to
-relax the requirement of the number of random subspaces to be generated,
-we propose an iterative version of RaSE, which is shown to be effective
-under many sparse binary classification settings.
+based on the selected percentage in multiple subspaces. RaSE framework can
+be extended to the general prediction framework, including both
+classification and regression. We can use the selected percentages of
+variables for variable screening. The latest version added the variable
+screening function available for both regression and classification.
 
 %prep
 %setup -q -c -n %{packname}

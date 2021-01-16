@@ -1,33 +1,37 @@
-%global packname  ridge
-%global packver   2.8
+%global packname  GLMcat
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Regression with Automatic Selection of the Penalty Parameter
+Summary:          Generalized Linear Models for Categorical Responses
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel >= 1.14
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
 
 %description
-Linear and logistic ridge regression functions. Additionally includes
-special functions for genome-wide single-nucleotide polymorphism (SNP)
-data.
+In statistical modeling, there is a wide variety of regression models for
+categorical dependent variables (nominal or ordinal data); yet, there is
+no software embracing all these models together in a uniform and
+generalized format. Following the methodology proposed by Peyhardi,
+Trottier, and Guédon (2015) <doi:10.1093/biomet/asv042>, we introduce
+'GLMcat', an R package to estimate generalized linear models implemented
+under the unified specification (r, F, Z). Where r represents the ratio of
+probabilities (reference, cumulative, adjacent, or sequential), F the
+cumulative distribution function for the linkage, and Z, the design
+matrix.
 
 %prep
 %setup -q -c -n %{packname}

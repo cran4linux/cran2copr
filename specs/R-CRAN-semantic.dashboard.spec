@@ -1,9 +1,9 @@
 %global packname  semantic.dashboard
-%global packver   0.1.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dashboard with Fomantic UI Support for Shiny
 
@@ -20,14 +20,16 @@ BuildRequires:    R-CRAN-shiny >= 0.12.1
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-shiny.semantic >= 0.3.3
 Requires:         R-CRAN-shiny >= 0.12.1
 Requires:         R-utils 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-checkmate 
 
 %description
-It offers functions for creating dashboard with Fomantic UI.
+It offers functions for creating dashboard with Semantic elements.
 
 %prep
 %setup -q -c -n %{packname}

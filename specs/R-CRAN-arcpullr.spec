@@ -1,34 +1,41 @@
-%global packname  rwalkr
-%global packver   0.5.4
+%global packname  arcpullr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          API to Melbourne Open Data Portal
+Summary:          Pull Data from an 'ArcGIS REST' API
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-jsonlite >= 1.6.1
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-tidyr >= 1.0.2
+BuildRequires:    R-CRAN-sf >= 0.9.7
+BuildRequires:    R-CRAN-rlang >= 0.4.7
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-jsonlite >= 1.6.1
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-tidyr >= 1.0.2
+Requires:         R-CRAN-sf >= 0.9.7
+Requires:         R-CRAN-rlang >= 0.4.7
 
 %description
-Provides API to Melbourne pedestrian and weather data
-<https://data.melbourne.vic.gov.au> in tidy data form.
+Functions to efficiently query 'ArcGIS REST' APIs
+<https://developers.arcgis.com/rest/>. Both spatial and SQL queries can be
+used to retrieve data. Simple Feature (sf) objects are utilized to perform
+spatial queries. This package was neither produced nor is maintained by
+Esri.
 
 %prep
 %setup -q -c -n %{packname}

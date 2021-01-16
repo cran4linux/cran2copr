@@ -1,44 +1,33 @@
-%global packname  contentid
-%global packver   0.0.9
+%global packname  Rthingsboard
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface for Content-Based Identifiers
+Summary:          'ThingsBoard' API
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openssl >= 1.4.2
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-openssl >= 1.4.2
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-fs 
-Requires:         R-tools 
+Requires:         R-CRAN-logger 
 Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 
 %description
-An interface for creating, registering, and resolving content-based
-identifiers for data management. Content-based identifiers rely on the
-'cryptographic' hashes to refer to the files they identify, thus, anyone
-possessing the file can compute the identifier using a well-known standard
-algorithm, such as 'SHA256'.  By registering a URL at which the content is
-accessible to a public archive, such as <https://hash-archive.org>, the
-content identifier can serve many functions typically associated with A
-Digital Object Identifier ('DOI').  Unlike location-based identifiers like
-'DOIs', content-based identifiers permit the same content to be registered
-in many locations.
+The goal of 'Rthingsboard' is to provide interaction with the API of
+'ThingsBoard' (<https://thingsboard.io/>), an open-source IoT platform for
+device management, data collection, processing and visualization.
 
 %prep
 %setup -q -c -n %{packname}

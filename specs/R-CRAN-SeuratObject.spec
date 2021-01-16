@@ -1,50 +1,50 @@
-%global packname  FSA
-%global packver   0.8.32
+%global packname  SeuratObject
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.32
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Fisheries Stock Assessment Methods
+Summary:          Data Structures for Single Cell Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Matrix >= 1.2.18
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sctransform 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dunn.test 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-sciplot 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Matrix >= 1.2.18
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-methods 
+Requires:         R-CRAN-sctransform 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dunn.test 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-sciplot 
-Requires:         R-CRAN-withr 
 
 %description
-A variety of simple fish stock assessment methods. Detailed vignettes are
-available on the fishR website <http://derekogle.com/fishR/>.
+Defines S4 classes for single-cell genomic data and associated
+information, such as dimensionality reduction embeddings, nearest-neighbor
+graphs, and spatially-resolved coordinates. Provides data access methods
+and R-native hooks to ensure the Seurat object is familiar to other R
+users. See Satija R, Farrell J, Gennert D, et al (2015)
+<doi:10.1038/nbt.3192>, Macosko E, Basu A, Satija R, et al (2015)
+<doi:10.1016/j.cell.2015.05.002>, and Stuart T, Butler A, et al (2019)
+<doi:10.1016/j.cell.2019.05.031> for more details.
 
 %prep
 %setup -q -c -n %{packname}

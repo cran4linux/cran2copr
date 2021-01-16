@@ -1,33 +1,31 @@
-%global packname  ridge
-%global packver   2.8
+%global packname  shiny.router
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Regression with Automatic Selection of the Penalty Parameter
+Summary:          Basic Routing for Shiny Web Applications
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel >= 1.14
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
 
 %description
-Linear and logistic ridge regression functions. Additionally includes
-special functions for genome-wide single-nucleotide polymorphism (SNP)
-data.
+It is a simple router for your Shiny apps. The router allows you to create
+dynamic web applications with real-time User Interface and easily share
+url to pages within your Shiny apps.
 
 %prep
 %setup -q -c -n %{packname}

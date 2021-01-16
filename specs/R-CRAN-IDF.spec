@@ -1,33 +1,41 @@
-%global packname  ridge
-%global packver   2.8
+%global packname  IDF
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Regression with Automatic Selection of the Penalty Parameter
+Summary:          Estimation and Plotting of IDF Curves
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel >= 1.14
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-ismev 
+BuildRequires:    R-CRAN-RcppRoll 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-fastmatch 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-ismev 
+Requires:         R-CRAN-RcppRoll 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-fastmatch 
 
 %description
-Linear and logistic ridge regression functions. Additionally includes
-special functions for genome-wide single-nucleotide polymorphism (SNP)
-data.
+Intensity-duration-frequency (IDF) curves are a widely used analysis-tool
+in hydrology to assess extreme values of precipitation [e.g. Mailhot et
+al., 2007, <doi:10.1016/j.jhydrol.2007.09.019>]. The package 'IDF'
+provides functions to estimate IDF parameters for given precipitation time
+series on the basis of a duration-dependent generalized extreme value
+distribution [Koutsoyiannis et al., 1998,
+<doi:10.1016/S0022-1694(98)00097-3>].
 
 %prep
 %setup -q -c -n %{packname}

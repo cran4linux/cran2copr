@@ -1,33 +1,35 @@
-%global packname  ridge
-%global packver   2.8
+%global packname  SpatMCA
+%global packver   1.0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          1.0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Regression with Automatic Selection of the Penalty Parameter
+Summary:          Regularized Spatial Maximum Covariance Analysis
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel >= 1.14
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-RcppParallel >= 0.11.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-RcppParallel >= 0.11.2
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-MASS 
 
 %description
-Linear and logistic ridge regression functions. Additionally includes
-special functions for genome-wide single-nucleotide polymorphism (SNP)
-data.
+Provide regularized maximum covariance analysis incorporating smoothness,
+sparseness and orthogonality of couple patterns by using the alternating
+direction method of multipliers algorithm. The method can be applied to
+either regularly or irregularly spaced data, including 1D, 2D, and 3D
+(Wang and Huang, 2017 <doi:10.1002/env.2481>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  lactcurves
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Lactation Curve Parameter Estimation
 
 License:          GPL-3
@@ -15,8 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-CRAN-orthopolynom 
 BuildRequires:    R-splines 
+Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-orthopolynom 
 Requires:         R-splines 
 
@@ -69,14 +71,15 @@ Wilmink: J.B.M. Wilmink (1987). <doi:10.1016/0301-6226(87)90003-0> (17a)
 modified Wilmink (Jakobsen): Jakobsen J.H., P. Madsen, J. Jensen, J.
 Pedersen, L.G. Christensen, and D.A. Sorensen (2002).
 <doi:10.3168/jds.S0022-0302(02)74231-8> (17b) modified Wilmink (Laurenson
-& Strucken): in preparation (2019). (18) Bicompartemental (Ferguson and
-Boston 1993): Ferguson, J.D., and R. Boston (1993) in Adediran, S.A., D.A.
-Ratkowsky, D.J. Donaghy, and A.E.O. Malau-Aduli (2012).
-<doi:10.3168/jds.2011-4663> (19) Dijkstra: Dijkstra, J., J. France, M.S.
-Dhanoa, J.A. Maas, M.D. Hanigan, A.J. Rook, and D.E. Beever (1997).
-<doi10.3168/jds.S0022-0302(97)76185-X> (20) Morant and Gnanasakthy
-(Pollott et al 2000): Pollott, G.E. and E. Gootwine (2000).
-<doi10.1017/S1357729800055028> (21) Morant and Gnanasakthy (Vargas et al
+& Strucken): Strucken E.M., Brockmann G.A., and Y.C.S.M. Laurenson (2019).
+<http://www.aaabg.org/aaabghome/AAABG23papers/35Strucken23139.pdf> (18)
+Bicompartemental (Ferguson and Boston 1993): Ferguson, J.D., and R. Boston
+(1993) in Adediran, S.A., D.A. Ratkowsky, D.J. Donaghy, and A.E.O.
+Malau-Aduli (2012). <doi:10.3168/jds.2011-4663> (19) Dijkstra: Dijkstra,
+J., J. France, M.S. Dhanoa, J.A. Maas, M.D. Hanigan, A.J. Rook, and D.E.
+Beever (1997). <doi:10.3168/jds.S0022-0302(97)76185-X> (20) Morant and
+Gnanasakthy (Pollott et al 2000): Pollott, G.E. and E. Gootwine (2000).
+<doi:10.1017/S1357729800055028> (21) Morant and Gnanasakthy (Vargas et al
 2000): Vargas, B., W.J. Koops, M. Herrero, and J.A.M Van Arendonk (2000).
 <doi:10.3168/jds.S0022-0302(00)75005-3> (22) Morant and Gnanasakthy
 (Adediran et al. 2012): Adediran, S.A., D.A. Ratkowsky, D.J. Donaghy, and
@@ -84,9 +87,9 @@ A.E.O. Malau-Aduli (2012). <doi:10.3168/jds.2011-4663> (23) Khandekar (Guo
 and Swalve): Guo, Z. and H.H. Swalve (1995).
 <https://journal.interbull.org/index.php/ib/issue/view/11> (24) Ali and
 Schaeffer: Ali, T.E. and L.R. Schaeffer (1987).
-<https://www.nrcresearchpress.com/doi/pdf/10.4141/cjas87-067> (25)
-Fractional Polynomial (Elvira et al. 2013): Elvira, L., F. Hernandez, P.
-Cuesta, S. Cano, J.-V. Gonzalez-Martin, and S. Astiz (2012).
+<https://cdnsciencepub.com/doi/pdf/10.4141/cjas87-067> (25) Fractional
+Polynomial (Elvira et al. 2013): Elvira, L., F. Hernandez, P. Cuesta, S.
+Cano, J.-V. Gonzalez-Martin, and S. Astiz (2012).
 <doi:10.1017/S175173111200239X> (26) Pollott multiplicative (Elvira):
 Elvira, L., F. Hernandez, P. Cuesta, S. Cano, J.-V. Gonzalez-Martin, and
 S. Astiz (2012). <doi:10.1017/S175173111200239X> (27) Pollott modified:
@@ -126,6 +129,13 @@ test.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -135,14 +145,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
