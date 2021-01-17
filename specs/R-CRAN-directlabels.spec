@@ -1,9 +1,9 @@
 %global packname  directlabels
-%global packver   2020.12.29
+%global packver   2021.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.12.29
+Version:          2021.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Direct Labels for Multicolor Plots
 

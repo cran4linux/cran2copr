@@ -1,10 +1,10 @@
 %global packname  PerFit
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
-Release:          3%{?dist}%{?buildtag}
+Version:          1.4.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Person Fit
 
 License:          GPL (>= 2)
@@ -22,8 +22,8 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-irtoys 
-BuildRequires:    R-MASS 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-ltm 
 Requires:         R-CRAN-mirt 
 Requires:         R-stats 
@@ -31,11 +31,12 @@ Requires:         R-graphics
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-irtoys 
-Requires:         R-MASS 
-Requires:         R-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
-Several person-fit statistics (PFSs) are offered. These statistics allow
+Several person-fit statistics (PFSs; Meijer and Sijtsma, 2001,
+<doi:10.1177/01466210122031957>) are offered. These statistics allow
 assessing whether individual response patterns to tests or questionnaires
 are (im)plausible given the other respondents in the sample or given a
 specified item response theory model. Some PFSs apply to dichotomous data,
@@ -48,6 +49,13 @@ Ht). PFSs suitable to polytomous data include extensions of lz, U3, and
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -55,18 +63,10 @@ Ht). PFSs suitable to polytomous data include extensions of lz, U3, and
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

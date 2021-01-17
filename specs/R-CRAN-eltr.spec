@@ -1,29 +1,26 @@
-%global packname  wk
-%global packver   0.3.4
+%global packname  eltr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Well-Known Geometry Parsing
+Summary:          Utilise Catastrophe Model Event Loss Table Outputs
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-Provides a minimal R and C++ API for parsing well-known binary and
-well-known text representation of geometries to and from R-native formats.
-Well-known binary is compact and fast to parse; well-known text is
-human-readable and is useful for writing tests. These formats are only
-useful in R if the information they contain can be accessed in R, for
-which high-performance functions are provided here.
+Provides a tool to run Monte Carlo simulation of catastrophe model event
+loss tables, using a Poisson frequency and Beta severity distribution.
 
 %prep
 %setup -q -c -n %{packname}

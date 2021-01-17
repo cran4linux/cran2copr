@@ -1,9 +1,9 @@
 %global packname  deldir
-%global packver   0.2-3
+%global packver   0.2-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Delaunay Triangulation and Dirichlet (Voronoi) Tessellation
 

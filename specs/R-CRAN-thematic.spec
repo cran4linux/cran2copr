@@ -1,44 +1,47 @@
-%global packname  rules
+%global packname  thematic
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Wrappers for Rule-Based Models
+Summary:          Unified and Automatic 'Theming' of 'ggplot2', 'lattice', and 'base' R Graphics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 0.1.4
-BuildRequires:    R-CRAN-generics >= 0.1.0
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-rstudioapi >= 0.8
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-farver 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dials 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-parsnip >= 0.1.4
-Requires:         R-CRAN-generics >= 0.1.0
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-rappdirs 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-rstudioapi >= 0.8
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-farver 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dials 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rappdirs 
 
 %description
-Bindings for additional models for use with the 'parsnip' package. Models
-include prediction rule ensembles (Friedman and Popescu, 2008)
-<doi:10.1214/07-AOAS148>, C5.0 rules (Quinlan, 1992 ISBN: 1558602380), and
-Cubist (Kuhn and Johnson, 2013) <doi:10.1007/978-1-4614-6849-3>.
+Theme 'ggplot2', 'lattice', and 'base' graphics based on a few choices,
+including foreground color, background color, accent color, and font
+family. Fonts that aren't available on the system, but are available via
+download on 'Google Fonts', can be automatically downloaded, cached, and
+registered for use with the 'showtext' and 'ragg' packages.
 
 %prep
 %setup -q -c -n %{packname}

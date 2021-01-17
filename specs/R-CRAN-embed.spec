@@ -1,9 +1,9 @@
 %global packname  embed
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Recipes for Encoding Categorical Predictors
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-recipes >= 0.1.15
 BuildRequires:    R-CRAN-generics >= 0.1.0
-BuildRequires:    R-CRAN-rstanarm 
 BuildRequires:    R-CRAN-keras 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,14 +25,12 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-tensorflow 
 BuildRequires:    R-CRAN-uwot 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-rsample 
 Requires:         R-CRAN-recipes >= 0.1.15
 Requires:         R-CRAN-generics >= 0.1.0
-Requires:         R-CRAN-rstanarm 
 Requires:         R-CRAN-keras 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
@@ -42,7 +39,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-utils 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-tensorflow 
 Requires:         R-CRAN-uwot 
 Requires:         R-CRAN-withr 
