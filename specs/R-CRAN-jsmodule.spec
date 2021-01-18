@@ -1,9 +1,9 @@
 %global packname  jsmodule
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addins and 'Shiny' Modules for Medical Research
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MatchIt >= 4.0.0
 BuildRequires:    R-CRAN-jskm >= 0.4.2
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -31,7 +32,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shinycustomloader 
-BuildRequires:    R-CRAN-MatchIt 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-tableone 
 BuildRequires:    R-CRAN-survival 
@@ -51,6 +51,7 @@ BuildRequires:    R-CRAN-see
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-Cairo 
+Requires:         R-CRAN-MatchIt >= 4.0.0
 Requires:         R-CRAN-jskm >= 0.4.2
 Requires:         R-utils 
 Requires:         R-stats 
@@ -67,7 +68,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shinycustomloader 
-Requires:         R-CRAN-MatchIt 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-tableone 
 Requires:         R-CRAN-survival 

@@ -1,9 +1,9 @@
 %global packname  LongCART
-%global packver   2.1
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Partitioning for Longitudinal Data and Right Censored Data Using Baseline Covariates
 
@@ -31,7 +31,9 @@ Requires:         R-CRAN-Formula
 %description
 Constructs tree for continuous longitudinal data and survival data using
 baseline covariates as partitioning variables according to the 'LongCART'
-and 'SurvCART' algorithm, respectively.
+and 'SurvCART' algorithm, respectively. Later also included functions to
+calculate conditional power and predictive power of success based on
+interim results and probability of success for a prospective trial.
 
 %prep
 %setup -q -c -n %{packname}

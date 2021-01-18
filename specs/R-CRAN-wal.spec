@@ -1,11 +1,11 @@
 %global packname  wal
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write 'wal' Bitmap Image Files
+Summary:          Read and Write 'wal' Bitmap Image Files and Other 'Quake' Assets
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,7 +27,10 @@ Requires:         R-CRAN-png
 Requires:         R-CRAN-spacesXYZ 
 
 %description
-Read bitmap images and textures in 'wal' file format.
+Read 'Quake' assets including bitmap images and textures in 'wal' file
+format. This package also provides support for extracting these assets
+from 'WAD' and 'PAK' file archives. It can also read models in 'MDL' and
+'MD2' formats.
 
 %prep
 %setup -q -c -n %{packname}

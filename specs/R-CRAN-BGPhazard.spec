@@ -1,10 +1,10 @@
 %global packname  BGPhazard
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
-Release:          3%{?dist}%{?buildtag}
+Version:          2.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Markov Beta and Gamma Processes for Modeling Hazard Rates
 
 License:          GPL (>= 2)
@@ -23,8 +23,12 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-Brobdingnag 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
@@ -33,17 +37,28 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-readr 
-Requires:         R-survival 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-Brobdingnag 
 
 %description
-Computes the hazard rate estimate as described by Nieto-Barajas and Walker
-(2002), Nieto-Barajas (2003) and Nieto-Barajas, L. E., & Yin, G. (2008).
+Computes the hazard rate estimate as described by Nieto-Barajas & Walker
+(2002), Nieto-Barajas (2003), Nieto-Barajas & Walker (2007) and
+Nieto-Barajas & Yin (2008).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -51,18 +66,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

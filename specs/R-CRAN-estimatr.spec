@@ -1,9 +1,9 @@
 %global packname  estimatr
-%global packver   0.30.0
+%global packver   0.30.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30.0
+Version:          0.30.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Estimators for Design-Based Inference
 
