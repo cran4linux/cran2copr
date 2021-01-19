@@ -1,46 +1,47 @@
-%global packname  discourseGT
-%global packver   1.1.3
+%global packname  noah
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Group Patterns using Graph Theory in Educational Settings
+Summary:          Create Unique Pseudonymous Animal Names
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-network 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-hash 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-BiocManager 
-BuildRequires:    R-CRAN-sna 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-network 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-hash 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-BiocManager 
-Requires:         R-CRAN-sna 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-Analyzes group patterns using discourse analysis data with graph theory
-mathematics. Takes the order of which individuals talk and converts it to
-a network edge and weight list. Returns the density, centrality,
-centralization, and subgroup information for each group. Based on the
-analytical framework laid out in Chai et al. (2019)
-<doi:10.1187/cbe.18-11-0222>.
+Generate pseudonymous animal names that are delightful and easy to
+remember like the Likable Leech and the Proud Chickadee. A unique
+pseudonym can be created for every unique element in a vector or row in a
+data frame. Pseudonyms can be customized and tracked over time, so that
+the same input is always assigned the same pseudonym.
 
 %prep
 %setup -q -c -n %{packname}

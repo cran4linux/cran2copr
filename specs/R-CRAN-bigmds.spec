@@ -1,40 +1,37 @@
-%global packname  optBiomarker
-%global packver   1.0-28
+%global packname  bigmds
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.28
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Optimal Number of Biomarkers for Two-Group Microarray Based Classifications at a Given Error Tolerance Level for Various Classification Rules
+Summary:          Multidimensional Scaling for Big Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rpanel 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-ipred 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rpanel 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-ipred 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pdist 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-stats 
+Requires:         R-CRAN-pdist 
 
 %description
-Estimates optimal number of biomarkers for two-group classification based
-on microarray data.
+We present a set of algorithms for Multidimensional Scaling (MDS) to be
+used with large datasets. MDS is a statistic tool for reduction of
+dimensionality, using as input a distance matrix of dimensions n × n. When
+n is large, classical algorithms suffer from computational problems and
+MDS configuration can not be obtained. With this package, we address these
+problems by means of three algorithms: Divide and Conquer MDS, Fast MDS
+and MDS based on Gower interpolation. The main idea of these methods is
+based on partitioning the dataset into small pieces, where classical
+methods can work.
 
 %prep
 %setup -q -c -n %{packname}

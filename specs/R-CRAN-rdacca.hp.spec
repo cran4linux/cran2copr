@@ -1,9 +1,9 @@
 %global packname  rdacca.hp
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Partitioning for Canonical Analysis
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-ggplot2 
 
 %description
 This function calculates the independent contribution of each explanatory

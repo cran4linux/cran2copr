@@ -1,40 +1,38 @@
-%global packname  optBiomarker
-%global packver   1.0-28
+%global packname  geysertimes
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.28
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Optimal Number of Biomarkers for Two-Group Microarray Based Classifications at a Given Error Tolerance Level for Various Classification Rules
+Summary:          Geyser Data from GeyserTimes.org
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rpanel 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-ipred 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rpanel 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-ipred 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-readr 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Estimates optimal number of biomarkers for two-group classification based
-on microarray data.
+Download geyser eruption and observation data from the GeyserTimes site
+(<https://geysertimes.org>) and optionally store it locally. The vignette
+shows the a simple analysis of downloading, accessing, and summarizing the
+data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  heemod
-%global packver   0.14.0
+%global packver   0.14.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.14.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markov Models for Health Economic Evaluations
 

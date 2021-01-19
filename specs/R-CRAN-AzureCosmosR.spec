@@ -1,31 +1,45 @@
-%global packname  tidygeocoder
-%global packver   1.0.2
+%global packname  AzureCosmosR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geocoding Made Easy
+Summary:          Interface to the 'Azure Cosmos DB' 'NoSQL' Database Service
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-AzureRMR >= 2.3.3
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-AzureRMR >= 2.3.3
+Requires:         R-CRAN-vctrs >= 0.3.0
+Requires:         R-utils 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-uuid 
 
 %description
-An intuitive interface for getting data from geocoder services.
+An interface to 'Azure CosmosDB':
+<https://azure.microsoft.com/en-us/services/cosmos-db/>. On the admin
+side, 'AzureCosmosR' provides functionality to create and manage 'Cosmos
+DB' instances in Microsoft's 'Azure' cloud. On the client side, it
+provides an interface to the 'Cosmos DB' SQL API, letting the user store
+and query documents and attachments in 'Cosmos DB'. Part of the 'AzureR'
+family of packages.
 
 %prep
 %setup -q -c -n %{packname}

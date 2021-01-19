@@ -1,9 +1,9 @@
 %global packname  rfishbase
-%global packver   3.1.4
+%global packver   3.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.4
+Version:          3.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'FishBase'
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-arkdb 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-progress 
@@ -44,7 +44,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-gh 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-arkdb 
-Requires:         R-CRAN-rappdirs 
+Requires:         R-tools 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-progress 

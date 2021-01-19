@@ -1,40 +1,28 @@
-%global packname  optBiomarker
-%global packver   1.0-28
+%global packname  cachem
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.28
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Optimal Number of Biomarkers for Two-Group Microarray Based Classifications at a Given Error Tolerance Level for Various Classification Rules
+Summary:          Cache R Objects with Automatic Pruning
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rpanel 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-ipred 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rpanel 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-ipred 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-fastmap 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-fastmap 
 
 %description
-Estimates optimal number of biomarkers for two-group classification based
-on microarray data.
+Key-value stores with automatic pruning. Caches can limit either their
+total size or the age of the oldest object (or both), automatically
+pruning objects to maintain the constraints.
 
 %prep
 %setup -q -c -n %{packname}

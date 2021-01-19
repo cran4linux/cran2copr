@@ -1,9 +1,9 @@
 %global packname  spcosa
-%global packver   0.3-10
+%global packver   0.3-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.3.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Coverage Sampling and Random Sampling from Compact Geographical Strata
 
@@ -16,20 +16,18 @@ Requires:         java
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rgdal >= 1.5.19
 BuildRequires:    R-CRAN-sp >= 1.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 1.0.0
 BuildRequires:    R-CRAN-rJava >= 0.9.3
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-gstat 
+Requires:         R-CRAN-rgdal >= 1.5.19
 Requires:         R-CRAN-sp >= 1.1.0
 Requires:         R-CRAN-ggplot2 >= 1.0.0
 Requires:         R-CRAN-rJava >= 0.9.3
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-gstat 
 
 %description
 Spatial coverage sampling and random sampling from compact geographical

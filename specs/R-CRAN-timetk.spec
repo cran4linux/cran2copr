@@ -1,9 +1,9 @@
 %global packname  timetk
-%global packver   2.6.0
+%global packver   2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool Kit for Working with Time Series in R
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-xts >= 0.9.7
 BuildRequires:    R-CRAN-padr >= 0.5.2
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-purrr >= 0.2.2
-BuildRequires:    R-CRAN-lazyeval >= 0.2.0
 BuildRequires:    R-CRAN-recipes >= 0.1.4
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-ggplot2 
@@ -53,7 +52,6 @@ Requires:         R-CRAN-xts >= 0.9.7
 Requires:         R-CRAN-padr >= 0.5.2
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-purrr >= 0.2.2
-Requires:         R-CRAN-lazyeval >= 0.2.0
 Requires:         R-CRAN-recipes >= 0.1.4
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-ggplot2 

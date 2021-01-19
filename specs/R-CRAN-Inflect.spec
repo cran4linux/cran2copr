@@ -1,40 +1,40 @@
-%global packname  optBiomarker
-%global packver   1.0-28
+%global packname  Inflect
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.28
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Optimal Number of Biomarkers for Two-Group Microarray Based Classifications at a Given Error Tolerance Level for Various Classification Rules
+Summary:          Melt Curve Fitting and Melt Shift Analysis
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rpanel 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-ipred 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rpanel 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-ipred 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-optimr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-optimr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Estimates optimal number of biomarkers for two-group classification based
-on microarray data.
+This program analyzes raw abundance data from a cellular thermal shift
+experiment and calculates melt temperatures and melt shifts for each
+protein in the experiment. Reference to software development can be found
+at <doi:10.1101/2020.10.31.363523>.
 
 %prep
 %setup -q -c -n %{packname}

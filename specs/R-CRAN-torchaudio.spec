@@ -1,40 +1,38 @@
-%global packname  optBiomarker
-%global packver   1.0-28
+%global packname  torchaudio
+%global packver   0.1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.28
+Version:          0.1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Optimal Number of Biomarkers for Two-Group Microarray Based Classifications at a Given Error Tolerance Level for Various Classification Rules
+Summary:          R Interface to 'pytorch''s 'torchaudio'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rpanel 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-ipred 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rpanel 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-ipred 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-torch >= 0.2.0
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-torch >= 0.2.0
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-glue 
 
 %description
-Estimates optimal number of biomarkers for two-group classification based
-on microarray data.
+Provides access to datasets, models and preprocessing facilities for deep
+learning in audio.
 
 %prep
 %setup -q -c -n %{packname}
