@@ -1,43 +1,37 @@
-%global packname  LipidMS
-%global packver   2.0.0
+%global packname  torchdatasets
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lipid Annotation for LC-MS/MS DDA or DIA Data
+Summary:          Ready to Use Extra Datasets for Torch
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readMzXmlData 
-BuildRequires:    R-CRAN-CHNOSZ 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
-Requires:         R-CRAN-readMzXmlData 
-Requires:         R-CRAN-CHNOSZ 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-pins 
+BuildRequires:    R-CRAN-torchvision 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-torch 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-zip 
+Requires:         R-CRAN-pins 
+Requires:         R-CRAN-torchvision 
+Requires:         R-CRAN-stringr 
 
 %description
-Lipid annotation in untargeted liquid chromatography mass spectrometry
-lipidomics based on fragmentation rules. Alcoriza-Balaguer MI,
-Garcia-Canaveras JC, Lopez A, Conde I, Juan O, Carretero J, Lahoz A (2019)
-<doi:10.1021/acs.analchem.8b03409>.
+Provides datasets in a format that can be easily consumed by torch
+'dataloaders'. Handles data downloading from multiple sources, caching and
+pre-processing so users can focus only on their model implementations.
 
 %prep
 %setup -q -c -n %{packname}

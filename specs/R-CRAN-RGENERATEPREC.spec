@@ -1,43 +1,38 @@
-%global packname  LipidMS
-%global packver   2.0.0
+%global packname  RGENERATEPREC
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lipid Annotation for LC-MS/MS DDA or DIA Data
+Summary:          Tools to Generate Daily-Precipitation Time Series
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readMzXmlData 
-BuildRequires:    R-CRAN-CHNOSZ 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
-Requires:         R-CRAN-readMzXmlData 
-Requires:         R-CRAN-CHNOSZ 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-RGENERATE 
+BuildRequires:    R-CRAN-blockmatrix 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RMAWGEN 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-RGENERATE 
+Requires:         R-CRAN-blockmatrix 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-RMAWGEN 
 
 %description
-Lipid annotation in untargeted liquid chromatography mass spectrometry
-lipidomics based on fragmentation rules. Alcoriza-Balaguer MI,
-Garcia-Canaveras JC, Lopez A, Conde I, Juan O, Carretero J, Lahoz A (2019)
-<doi:10.1021/acs.analchem.8b03409>.
+The method 'generate()' is extended for spatial multi-site stochastic
+generation of daily precipitation. It generates precipitation occurrence
+in several sites using logit regression (Generalized Linear Models) and
+the approach by D.S. Wilks (1998) <doi:10.1016/S0022-1694(98)00186-3> .
 
 %prep
 %setup -q -c -n %{packname}

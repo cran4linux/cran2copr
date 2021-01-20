@@ -1,43 +1,39 @@
-%global packname  LipidMS
-%global packver   2.0.0
+%global packname  MOSS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lipid Annotation for LC-MS/MS DDA or DIA Data
+Summary:          Multi-Omic Integration via Sparse Singular Value Decomposition
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readMzXmlData 
-BuildRequires:    R-CRAN-CHNOSZ 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
-Requires:         R-CRAN-readMzXmlData 
-Requires:         R-CRAN-CHNOSZ 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-Rtsne 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 
 %description
-Lipid annotation in untargeted liquid chromatography mass spectrometry
-lipidomics based on fragmentation rules. Alcoriza-Balaguer MI,
-Garcia-Canaveras JC, Lopez A, Conde I, Juan O, Carretero J, Lahoz A (2019)
-<doi:10.1021/acs.analchem.8b03409>.
+High dimensionality, noise and heterogeneity among samples and features
+challenge the omic integration task. Here we present an omic integration
+method based on sparse singular value decomposition (SVD) to deal with
+these limitations, by: a. obtaining the main axes of variation of the
+combined omics, b. imposing sparsity constraints at both subjects (rows)
+and features (columns) levels using Elastic Net type of shrinkage, and d.
+allowing both linear and non-linear projections (via t-Stochastic Neighbor
+Embedding) of the omic data to detect clusters in very convoluted data
+(Gonzalez-Reymundez & Vazquez, 2020) <doi:10.1038/s41598-020-65119-5>.
 
 %prep
 %setup -q -c -n %{packname}

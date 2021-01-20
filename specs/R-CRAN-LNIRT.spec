@@ -1,9 +1,9 @@
 %global packname  LNIRT
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          LogNormal Response Time Item Response Theory Models
 

@@ -1,43 +1,29 @@
-%global packname  LipidMS
-%global packver   2.0.0
+%global packname  eemdTDNN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lipid Annotation for LC-MS/MS DDA or DIA Data
+Summary:          EEMD and Its Variant Based Time Delay Neural Network Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readMzXmlData 
-BuildRequires:    R-CRAN-CHNOSZ 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
-Requires:         R-CRAN-readMzXmlData 
-Requires:         R-CRAN-CHNOSZ 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-Rlibeemd 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-Rlibeemd 
 
 %description
-Lipid annotation in untargeted liquid chromatography mass spectrometry
-lipidomics based on fragmentation rules. Alcoriza-Balaguer MI,
-Garcia-Canaveras JC, Lopez A, Conde I, Juan O, Carretero J, Lahoz A (2019)
-<doi:10.1021/acs.analchem.8b03409>.
+Forecasting univariate time series with different decomposition based time
+delay neural network models. For method details see Yu L, Wang S, Lai KK
+(2008). <doi:10.1016/j.eneco.2008.05.003>.
 
 %prep
 %setup -q -c -n %{packname}

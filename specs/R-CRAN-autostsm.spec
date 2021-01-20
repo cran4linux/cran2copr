@@ -1,9 +1,9 @@
 %global packname  autostsm
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Structural Time Series Models
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-Matrix >= 1.2
 BuildRequires:    R-CRAN-data.table >= 1.13
 BuildRequires:    R-CRAN-doSNOW >= 1.0
 BuildRequires:    R-CRAN-tsutils >= 0.9
+BuildRequires:    R-CRAN-lmtest >= 0.9
 BuildRequires:    R-CRAN-seastests >= 0.14
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -45,12 +46,13 @@ Requires:         R-CRAN-Matrix >= 1.2
 Requires:         R-CRAN-data.table >= 1.13
 Requires:         R-CRAN-doSNOW >= 1.0
 Requires:         R-CRAN-tsutils >= 0.9
+Requires:         R-CRAN-lmtest >= 0.9
 Requires:         R-CRAN-seastests >= 0.14
 
 %description
 Automatic model selection for structural time series decomposition into
 trend, cycle, and seasonal components using the Kalman filter. See
-Koopman, Siem Jan and Marios Ooms (2012) "Forecasting Economic Time Series
+Koopman, Siem Jan and Marius Ooms (2012) "Forecasting Economic Time Series
 Using Unobserved Components Time Series Models
 <doi:10.1093/oxfordhb/9780195398649.013.0006>.
 

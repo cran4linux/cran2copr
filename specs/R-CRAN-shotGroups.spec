@@ -1,9 +1,9 @@
 %global packname  shotGroups
-%global packver   0.7.5.2
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5.2
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Shot Group Data
 

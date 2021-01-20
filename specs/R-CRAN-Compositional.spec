@@ -1,9 +1,9 @@
 %global packname  Compositional
-%global packver   4.2
+%global packver   4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2
+Version:          4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -12,10 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-codalm 
+BuildRequires:    R-CRAN-Directional 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-emplik 
 BuildRequires:    R-CRAN-FlexDir 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mda 
 BuildRequires:    R-CRAN-mixture 
+BuildRequires:    R-CRAN-NlcOptim 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RANN 
@@ -31,6 +33,7 @@ BuildRequires:    R-CRAN-Rfast2
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-codalm 
+Requires:         R-CRAN-Directional 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-emplik 
 Requires:         R-CRAN-FlexDir 
@@ -38,6 +41,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mda 
 Requires:         R-CRAN-mixture 
+Requires:         R-CRAN-NlcOptim 
 Requires:         R-CRAN-nnet 
 Requires:         R-parallel 
 Requires:         R-CRAN-RANN 

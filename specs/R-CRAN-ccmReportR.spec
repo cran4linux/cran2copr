@@ -1,43 +1,36 @@
-%global packname  LipidMS
-%global packver   2.0.0
+%global packname  ccmReportR
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lipid Annotation for LC-MS/MS DDA or DIA Data
+Summary:          Wraps 'CCM' with Utility Functions
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readMzXmlData 
-BuildRequires:    R-CRAN-CHNOSZ 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
-Requires:         R-CRAN-readMzXmlData 
-Requires:         R-CRAN-CHNOSZ 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate >= 1.7.9
+BuildRequires:    R-CRAN-jsonlite >= 1.7.1
+BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-keyring >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-lubridate >= 1.7.9
+Requires:         R-CRAN-jsonlite >= 1.7.1
+Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-keyring >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Lipid annotation in untargeted liquid chromatography mass spectrometry
-lipidomics based on fragmentation rules. Alcoriza-Balaguer MI,
-Garcia-Canaveras JC, Lopez A, Conde I, Juan O, Carretero J, Lahoz A (2019)
-<doi:10.1021/acs.analchem.8b03409>.
+Provides a set of functions to perform queries against the 'CCM' API
+<https://mohcontacttracing.my.salesforce.com>.
 
 %prep
 %setup -q -c -n %{packname}

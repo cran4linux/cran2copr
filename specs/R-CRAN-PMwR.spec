@@ -1,9 +1,9 @@
 %global packname  PMwR
-%global packver   0.15-0
+%global packver   0.16-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          0.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Portfolio Management with R
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.20
-Requires:         R-core >= 3.20
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-NMOF 
 BuildRequires:    R-CRAN-datetimeutils 

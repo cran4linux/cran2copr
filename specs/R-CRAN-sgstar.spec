@@ -1,50 +1,34 @@
-%global packname  groupedstats
-%global packver   2.0.0
+%global packname  sgstar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Grouped Statistical Analyses in a Tidy Way
+Summary:          Seasonal Generalized Space Time Autoregressive (S-GSTAR) Model
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broomExtra 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-effectsize 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-parameters 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-skimr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broomExtra 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-effectsize 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-parameters 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-skimr 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-tidyr 
 
 %description
-Collection of functions to run statistical tests across all combinations
-of multiple grouping variables.
+A set of function that implements for seasonal multivariate time series
+analysis based on Seasonal Generalized Space Time Autoregressive with
+Seemingly Unrelated Regression (S-GSTAR-SUR) Model by
+Setiawan(2016)<https://www.researchgate.net/publication/316517889_S-GSTAR-SUR_model_for_seasonal_spatio_temporal_data_forecasting>.
 
 %prep
 %setup -q -c -n %{packname}

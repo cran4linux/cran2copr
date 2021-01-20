@@ -1,9 +1,9 @@
 %global packname  parsnip
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Common API to Modeling and Analysis Functions
 
@@ -20,9 +20,9 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
 BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-CRAN-vctrs >= 0.2.0
+BuildRequires:    R-CRAN-generics >= 0.1.0
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
@@ -33,9 +33,9 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0.1
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-CRAN-vctrs >= 0.2.0
+Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-CRAN-purrr 
 Requires:         R-utils 
-Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 

@@ -1,43 +1,34 @@
-%global packname  LipidMS
-%global packver   2.0.0
+%global packname  httpgd
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lipid Annotation for LC-MS/MS DDA or DIA Data
+Summary:          A 'HTTP' Server Graphics Device
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readMzXmlData 
-BuildRequires:    R-CRAN-CHNOSZ 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
-Requires:         R-CRAN-readMzXmlData 
-Requires:         R-CRAN-CHNOSZ 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-BH >= 1.75.0
+BuildRequires:    R-CRAN-later >= 1.1.0
+BuildRequires:    R-CRAN-cpp11 >= 0.2.4
+BuildRequires:    R-CRAN-systemfonts >= 0.2.3
+Requires:         R-CRAN-later >= 1.1.0
+Requires:         R-CRAN-cpp11 >= 0.2.4
+Requires:         R-CRAN-systemfonts >= 0.2.3
 
 %description
-Lipid annotation in untargeted liquid chromatography mass spectrometry
-lipidomics based on fragmentation rules. Alcoriza-Balaguer MI,
-Garcia-Canaveras JC, Lopez A, Conde I, Juan O, Carretero J, Lahoz A (2019)
-<doi:10.1021/acs.analchem.8b03409>.
+A graphics device for R that is accessible via network protocols. This
+package was created to make it easier to embed live R graphics in
+integrated development environments and other applications. The included
+'HTML/JavaScript' client (plot viewer) aims to provide a better overall
+user experience when dealing with R graphics. The device asynchronously
+serves 'SVG' graphics via 'HTTP' and 'WebSockets'.
 
 %prep
 %setup -q -c -n %{packname}

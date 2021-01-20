@@ -1,42 +1,47 @@
-%global packname  RPostgres
-%global packver   1.3.1
+%global packname  unstruwwel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Interface to 'PostgreSQL'
+Summary:          Detect and Parse Historic Dates
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    libpq-devel >= 9.0
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-blob >= 1.2.0
-BuildRequires:    R-CRAN-DBI >= 1.1.0
-BuildRequires:    R-CRAN-hms >= 0.5.0
-BuildRequires:    R-CRAN-plogr >= 0.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.4.2
-BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-blob >= 1.2.0
-Requires:         R-CRAN-DBI >= 1.1.0
-Requires:         R-CRAN-hms >= 0.5.0
-Requires:         R-CRAN-Rcpp >= 0.11.4.2
-Requires:         R-CRAN-bit64 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Fully 'DBI'-compliant 'Rcpp'-backed interface to 'PostgreSQL'
-<https://www.postgresql.org/>, an open-source relational database.
+Automatically converts language-specific verbal information, e.g., "1st
+half of the 19th century," to its standardized numerical counterparts,
+e.g., "1801-01-01/1850-12-31." It follows the recommendations of the
+'MIDAS' ('Marburger Informations-, Dokumentations- und
+Administrations-System'), see <doi:10.11588/artdok.00003770>.
 
 %prep
 %setup -q -c -n %{packname}

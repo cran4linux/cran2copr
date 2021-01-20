@@ -1,32 +1,38 @@
-%global packname  linemap
-%global packver   0.2.0
+%global packname  R6P
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Line Maps
+Summary:          Design Patterns in R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
 
 %description
-Create maps made of lines. The package contains two functions: linemap()
-and getgrid(). linemap() displays a map made of lines using a data frame
-of gridded data. getgrid() transforms a set of polygons (sf objects) into
-a suitable data frame for linemap().
+Build robust and maintainable software with object-oriented design
+patterns in R. Design patterns abstract and present in neat, well-defined
+components and interfaces the experience of many software designers and
+architects over many years of solving similar problems. These are
+solutions that have withstood the test of time with respect to
+re-usability, flexibility, and maintainability. 'R6P' provides abstract
+base classes with examples for a few known design patterns. The patterns
+were selected by their applicability to analytic projects in R. Using
+these patterns in R projects have proven effective in dealing with the
+complexity that data-driven applications possess.
 
 %prep
 %setup -q -c -n %{packname}
