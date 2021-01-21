@@ -1,48 +1,50 @@
-%global packname  roadoi
-%global packver   0.7
+%global packname  pestr
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find Free Versions of Scholarly Publications via Unpaywall
+Summary:          Interface to Download Data on Pests and Hosts from 'EPPO'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.0.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-shiny >= 1.0.3
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-utils 
 
 %description
-This web client interfaces Unpaywall <https://unpaywall.org/products/api>,
-formerly oaDOI, a service finding free full-texts of academic papers by
-linking DOIs with open access journals and repositories. It provides
-unified access to various data sources for open access full-text links
-including Crossref and the Directory of Open Access Journals (DOAJ). API
-usage is free and no registration is required.
+Set of tools to automatize extraction of data on pests from 'EPPO Data
+Services' and 'EPPO Global Database' and to put them into tables with
+human readable format. Those function use 'EPPO database API', thus you
+first need to register on <https://data.eppo.int> (free of charge).
+Additional helpers allow to download, check and connect to 'SQLite EPPO
+database'.
 
 %prep
 %setup -q -c -n %{packname}

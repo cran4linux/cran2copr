@@ -1,9 +1,9 @@
 %global packname  llama
-%global packver   0.9.4
+%global packver   0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Leveraging Learning to Automatically Manage Algorithms
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-BBmisc 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-mlr >= 2.5
 Requires:         R-CRAN-rJava 
 Requires:         R-CRAN-parallelMap 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-BBmisc 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-data.table 
 
 %description
 Provides functionality to train and evaluate algorithm selection models

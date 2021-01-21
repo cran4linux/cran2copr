@@ -1,35 +1,29 @@
-%global packname  rtiff
-%global packver   1.4.8
+%global packname  mongopipe
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write TIFF Files
+Summary:          Query MongoDB Documents with R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    libtiff-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-pixmap 
-Requires:         R-CRAN-pixmap 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
 
 %description
-Reads and writes TIFF format images and returns them as a pixmap object.
-Because the resulting object can be very large for even modestly sized
-TIFF images, images can be reduced as they are read for improved
-performance.  This package is a wrapper around libtiff (www.libtiff.org),
-on which it depends (i.e. the libtiff shared library must be on your PATH
-for the binary to work, and tiffio.h must be on your system to build the
-package from source). By using libtiff's highlevel TIFFReadRGBAImage
-function, this package inherently supports a wide range of image formats
-and compression schemes. This package also provides an implementation of
-the Ridler Autothresholding algorithm for easy generation of binary masks
-as described in Ridler & Calvard (1978) <doi:10.1109/TSMC.1978.4310039>.
+Translate R code into MongoDB aggregation pipelines.
 
 %prep
 %setup -q -c -n %{packname}

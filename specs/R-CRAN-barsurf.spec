@@ -1,11 +1,11 @@
 %global packname  barsurf
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Function Visualization and Smooth Multiband ColorInterpolation
+Summary:          Contour Plots, 3D Plots, Vector Fields and Heatmaps
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,20 +23,23 @@ Requires:         R-CRAN-kubik
 Requires:         R-CRAN-colorspace 
 
 %description
-Combined contour/heatmap plots, 3d bar/surface plots, isosurface plots,
-triangular plots and 2d/3d vector fields. Builds on the colorspace package
-(Zeileis, A., et al. (2019) <arxiv.org/abs/1903.06490>), by supporting
-smooth multiband color interpolation, in sRGB, HSV and HCL color spaces.
-The default color functions for heatmaps, use HCL (Zeileis, A., et al.
-(2009) <doi:10.1016/j.csda.2008.11.033>) and support near-uniform
-perception.
+Combined contour/heatmap plots, 3d bar/surface plots, 2d/3d triangular
+plots, isosurface plots and 2d/3d vector fields. By default, uses vector
+graphics, but it's possible to use raster graphics for regular heatmaps.
+Builds on the colorspace package (Zeileis, et al., 2020
+<doi:10.18637/jss.v096.i01>), by supporting smooth multiband color
+interpolation, in sRGB, HSV and HCL color spaces.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -46,6 +49,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

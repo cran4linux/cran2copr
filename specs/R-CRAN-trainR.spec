@@ -1,48 +1,52 @@
-%global packname  roadoi
-%global packver   0.7
+%global packname  trainR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find Free Versions of Scholarly Publications via Unpaywall
+Summary:          An Interface to the National Rail Enquiries Systems
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.0.3
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-shiny >= 1.0.3
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-xml2 
 
 %description
-This web client interfaces Unpaywall <https://unpaywall.org/products/api>,
-formerly oaDOI, a service finding free full-texts of academic papers by
-linking DOIs with open access journals and repositories. It provides
-unified access to various data sources for open access full-text links
-including Crossref and the Directory of Open Access Journals (DOAJ). API
-usage is free and no registration is required.
+The goal of 'trainR' is to provide a simple interface to the National Rail
+Enquiries (NRE) systems. There are few data feeds available, the simplest
+of them is Darwin, which provides real-time arrival and departure
+predictions, platform numbers, delay estimates, schedule changes and
+cancellations. Other data feeds provide historical data, Historic Service
+Performance (HSP), and much more. 'trainR' simplifies the data retrieval,
+so that the users can focus on their analyses. For more details visit
+<https://www.nationalrail.co.uk/46391.aspx>.
 
 %prep
 %setup -q -c -n %{packname}

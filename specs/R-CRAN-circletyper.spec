@@ -1,31 +1,25 @@
-%global packname  fritools
-%global packver   1.1.0
+%global packname  circletyper
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for the Forest Research Institute of the State Baden-Wuerttemberg
+Summary:          Curve Text Elements in 'Shiny' Using 'CircleType.js'
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-shiny 
 
 %description
-Miscellaneous utilities, tools and helper functions for finding and
-searching files on disk, searching for and removing R objects from the
-workspace. These are utilities for packages
-<https://CRAN.R-project.org/package=cleanr>,
-<https://CRAN.R-project.org/package=document>,
-<https://CRAN.R-project.org/package=fakemake>,
-<https://CRAN.R-project.org/package=packager> and
-<https://CRAN.R-project.org/package=rasciidoc>. Does not import or depend
-on any third party party package, but on core R only.
+Enables curving text elements in 'Shiny' apps.
 
 %prep
 %setup -q -c -n %{packname}

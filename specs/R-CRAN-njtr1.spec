@@ -1,31 +1,32 @@
-%global packname  fritools
-%global packver   1.1.0
+%global packname  njtr1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for the Forest Research Institute of the State Baden-Wuerttemberg
+Summary:          Download and Analyze New Jersey Car Crash Data
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readr 
 
 %description
-Miscellaneous utilities, tools and helper functions for finding and
-searching files on disk, searching for and removing R objects from the
-workspace. These are utilities for packages
-<https://CRAN.R-project.org/package=cleanr>,
-<https://CRAN.R-project.org/package=document>,
-<https://CRAN.R-project.org/package=fakemake>,
-<https://CRAN.R-project.org/package=packager> and
-<https://CRAN.R-project.org/package=rasciidoc>. Does not import or depend
-on any third party party package, but on core R only.
+Download and analyze crash data published by the New Jersey Department of
+Transportation. The data in this package is collected through the filing
+of NJTR-1 form by police officers, which provide a standardized way of
+documenting a crash that took place within New Jersey.
 
 %prep
 %setup -q -c -n %{packname}

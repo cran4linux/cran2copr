@@ -1,9 +1,9 @@
 %global packname  RAthena
-%global packver   1.11.1
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.1
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to 'AWS Athena' using 'Boto3' ('DBI' Interface)
 
@@ -18,17 +18,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate >= 1.13
 BuildRequires:    R-CRAN-data.table >= 1.12.4
 BuildRequires:    R-CRAN-DBI >= 0.7
+BuildRequires:    R-CRAN-uuid >= 0.1.4
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-reticulate >= 1.13
 Requires:         R-CRAN-data.table >= 1.12.4
 Requires:         R-CRAN-DBI >= 0.7
+Requires:         R-CRAN-uuid >= 0.1.4
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-uuid 
 
 %description
 Designed to be compatible with the R package 'DBI' (Database Interface)

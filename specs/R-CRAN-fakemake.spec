@@ -1,9 +1,9 @@
 %global packname  fakemake
-%global packver   1.10.0
+%global packver   1.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.0
+Version:          1.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mock the Unix Make Utility
 
@@ -16,10 +16,12 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-fritools 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-MakefileR 
 BuildRequires:    R-utils 
 Requires:         R-graphics 
+Requires:         R-CRAN-fritools 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-MakefileR 
 Requires:         R-utils 

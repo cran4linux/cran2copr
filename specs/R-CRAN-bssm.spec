@@ -1,11 +1,11 @@
 %global packname  bssm
-%global packver   1.0.1-1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Non-Gaussian State Space Models
+Summary:          Bayesian Inference of Non-Linear and Non-Gaussian State Space Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,7 +30,7 @@ particle Markov chain Monte Carlo (MCMC) and MCMC based on parallel
 importance sampling type weighted estimators (Vihola, Helske, and Franks,
 2020, <doi:10.1111/sjos.12492>). Gaussian, Poisson, binomial, negative
 binomial, and Gamma observation densities and basic stochastic volatility
-models with Gaussian state dynamics, as well as general non-linear
+models with linear-Gaussian state dynamics, as well as general non-linear
 Gaussian models and discretised diffusion models are supported.
 
 %prep

@@ -1,9 +1,9 @@
 %global packname  TreeDist
-%global packver   1.2.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distances Between Phylogenetic Trees
 
@@ -16,19 +16,23 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-ape >= 5.0
 BuildRequires:    R-CRAN-phangorn >= 2.2.1
-BuildRequires:    R-CRAN-TreeTools >= 1.1.0
+BuildRequires:    R-CRAN-TreeTools > 1.3.1
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-phangorn >= 2.2.1
-Requires:         R-CRAN-TreeTools >= 1.1.0
+Requires:         R-CRAN-TreeTools > 1.3.1
 Requires:         R-stats 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
 
 %description
 Implements measures of tree similarity, including information-based
@@ -42,15 +46,20 @@ including the Nye et al. (2006) metric
 Subtree distances; the Kendall-Colijn (2016) distance
 <doi:10.1093/molbev/msw124>, and the Nearest Neighbour Interchange (NNI)
 distance, approximated per Li et al. (1996)
-<doi:10.1007/3-540-61332-3_168>. Calculates the median of a set of trees
-under any distance metric.
+<doi:10.1007/3-540-61332-3_168>. Includes tools for visualizing the
+landscape of a tree space, and for calculating the median of a set of
+trees under any distance metric.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,6 +69,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
