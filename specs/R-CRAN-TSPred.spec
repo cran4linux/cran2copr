@@ -1,9 +1,9 @@
 %global packname  TSPred
-%global packver   5.0
+%global packver   5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0
+Version:          5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Benchmarking Time Series Prediction
 
@@ -32,6 +32,9 @@ BuildRequires:    R-CRAN-randomForest
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-tfdatasets 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-KFAS 
 Requires:         R-stats 
@@ -49,14 +52,17 @@ Requires:         R-CRAN-randomForest
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plyr 
 Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-tfdatasets 
 
 %description
-Functions for time series preprocessing(postprocessing), decomposition,
-modelling, prediction and accuracy assessment. The generated models and
-its yielded prediction errors can be used for benchmarking other time
-series prediction methods and for creating a demand for the refinement of
-such methods. For this purpose, benchmark data from prediction
-competitions may be used.
+Functions for defining and conducting a time series prediction process
+including pre(post)processing, decomposition, modelling, prediction and
+accuracy assessment. The generated models and its yielded prediction
+errors can be used for benchmarking other time series prediction methods
+and for creating a demand for the refinement of such methods. For this
+purpose, benchmark data from prediction competitions may be used.
 
 %prep
 %setup -q -c -n %{packname}

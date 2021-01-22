@@ -1,9 +1,9 @@
 %global packname  packager
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Build and Maintain Packages
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fakemake >= 1.10.1
+BuildRequires:    R-CRAN-fritools >= 1.1.0
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-codetools 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cyclocomp 
 BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-fakemake 
-BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-gert 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pkgbuild 
 BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-rcmdcheck 
@@ -33,20 +33,19 @@ BuildRequires:    R-CRAN-rhub
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-whoami 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-fakemake >= 1.10.1
+Requires:         R-CRAN-fritools >= 1.1.0
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-codetools 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cyclocomp 
 Requires:         R-CRAN-desc 
-Requires:         R-CRAN-fakemake 
-Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-gert 
 Requires:         R-CRAN-httr 
-Requires:         R-methods 
 Requires:         R-CRAN-pkgbuild 
 Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-rcmdcheck 
@@ -55,7 +54,6 @@ Requires:         R-CRAN-rhub
 Requires:         R-CRAN-rprojroot 
 Requires:         R-tools 
 Requires:         R-CRAN-usethis 
-Requires:         R-utils 
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-whoami 
 Requires:         R-CRAN-withr 

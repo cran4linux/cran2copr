@@ -1,9 +1,9 @@
 %global packname  RcppXsimd
-%global packver   7.1.5
+%global packver   7.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.1.5
+Version:          7.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Xsimd C++ Header-Only Library Files
 

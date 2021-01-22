@@ -1,39 +1,41 @@
-%global packname  DiallelAnalysisR
-%global packver   0.3.0
+%global packname  shiny.worker
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diallel Analysis with R
+Summary:          Delegate Jobs for Shiny Web Applications
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-R6 
 
 %description
-Performs Diallel Analysis with R using Griffing's and Hayman's approaches.
-Four different Methods (1: Method-I (Parents + F1's + reciprocals); 2:
-Method-II (Parents and one set of F1's); 3: Method-III (One set of F1's
-and reciprocals); 4: Method-IV (One set of F1's only)) and two Models (1:
-Fixed Effects Model; 2: Random Effects Model) can be applied using
-Griffing's approach.
+It allows you to delegate heavy computation tasks to a separate process,
+such that it does not freeze your Shiny app.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,6 +45,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

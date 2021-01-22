@@ -1,41 +1,38 @@
-%global packname  statsguRu
-%global packver   0.1.1
+%global packname  RsSimulx
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract, Visualize and Analyze Cricket Statistics from ESPNCricinfo's Statsguru
+Summary:          R Speaks 'Simulx'
 
-License:          MIT + file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-devtools 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-Use this package to scrap Test Matches, One Day Internationals, Twenty-20
-Internationals data of a player from ESPNCricinfo's Statsguru
-(<http://stats.espncricinfo.com/ci/engine/stats/index.html>) and then
-visualize their batting, bowling and fielding performances in the form of
-charts and graphs.
+Provide useful tools which supplement the use of Simulx software and R
+connectors (Monolix Suite). 'Simulx' is an easy, efficient and flexible
+application for clinical trial simulations. You need 'Simulx' software to
+be installed in order to use 'RsSimulx' package. Among others tasks,
+'RsSimulx' provides the same functions as package 'mlxR' does with a
+compatibility with 'Simulx' software.
 
 %prep
 %setup -q -c -n %{packname}

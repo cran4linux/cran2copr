@@ -1,9 +1,9 @@
 %global packname  yamlet
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Versatile Curation of Table Metadata
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-spork
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-csv >= 0.5.4
 Requires:         R-CRAN-yaml 
@@ -33,15 +34,15 @@ Requires:         R-CRAN-spork
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-tidyr 
 
 %description
-A file-based mechanism for documenting datasets. It reads and writes
-YAML-formatted metadata and applies it as data item attributes. Data and
-metadata are stored independently but can be coordinated by using similar
-file paths with different extensions.  The 'yamlet' dialect is valid
-'YAML', but some conventions are chosen to improve readability. Defaults
-and conventions can be over-ridden by the user. See ?yamlet and
-?decorate.data.frame. See ?read_yamlet ?write_yamlet, and ?io_csv.
+A YAML-based mechanism for working with table metadata. It supports
+compact syntax for creating, modifying, exporting, importing, displaying,
+and plotting metadata coded as column attributes. The 'yamlet' dialect is
+valid 'YAML' with defaults and conventions chosen to improve readability.
+See ?yamlet, ?decorate.data.frame and ?modify.default. See ?read_yamlet
+?write_yamlet, ?io_csv, and ?ggplot.decorated.
 
 %prep
 %setup -q -c -n %{packname}

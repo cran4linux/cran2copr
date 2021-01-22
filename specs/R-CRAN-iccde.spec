@@ -1,9 +1,9 @@
 %global packname  iccde
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of the Double-Entry Intraclass Correlation
 
@@ -20,11 +20,13 @@ BuildArch:        noarch
 The function computes the profile similarity measure double-entry
 intraclass correlation. It is a more precise index of the agreement of two
 empirically observed profiles than the often used intraclass correlation
-or profile correlation. In the case of score data with different scale
-formats, it is recommended to z-standardize the scores before entering
-into the function. For details, see Furr (2010)
-<doi:10.1080/00223890903379134> or McCrae (2008)
-<doi:10.1080/00223890701845104>.
+or profile correlation. Profiles comprising correlations are transformed
+according to the Fisher z transformation before the index is calculated.
+In the case of score data with different scale formats (e.g., if the
+profile contains different IQ or a variety of personality tests), it is
+recommended to z-standardize the scores before entering into the function.
+For details, see Furr (2010) <doi:10.1080/00223890903379134> or McCrae
+(2008) <doi:10.1080/00223890701845104>.
 
 %prep
 %setup -q -c -n %{packname}

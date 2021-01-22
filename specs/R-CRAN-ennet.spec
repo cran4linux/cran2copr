@@ -1,9 +1,9 @@
 %global packname  ennet
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities to Extract and Analyse Text Data from the Emergency Nutrition Network Forum
 
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-xml2 
@@ -29,6 +31,8 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lubridate 
+Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
 
 %description
 The Emergency Nutrition Network or en-net forum is the go to online forum

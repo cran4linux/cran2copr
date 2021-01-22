@@ -1,9 +1,9 @@
 %global packname  httpgd
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'HTTP' Server Graphics Device
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-later >= 1.1.0
 BuildRequires:    R-CRAN-cpp11 >= 0.2.4
 BuildRequires:    R-CRAN-systemfonts >= 0.2.3
 Requires:         R-CRAN-later >= 1.1.0
-Requires:         R-CRAN-cpp11 >= 0.2.4
 Requires:         R-CRAN-systemfonts >= 0.2.3
 
 %description
