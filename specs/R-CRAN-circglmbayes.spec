@@ -1,35 +1,45 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  circglmbayes
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Bayesian Analysis of a Circular GLM
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+Requires:         R-graphics 
+Requires:         R-CRAN-shiny 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-coda 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+Perform a Bayesian analysis of a circular outcome General Linear Model
+(GLM), which allows regressing a circular outcome on linear and
+categorical predictors. Posterior samples are obtained by means of an MCMC
+algorithm written in 'C++' through 'Rcpp'. Estimation and credible
+intervals are provided, as well as hypothesis testing through Bayes
+Factors. See Mulder and Klugkist (2017) <doi:10.1016/j.jmp.2017.07.001>.
 
 %prep
 %setup -q -c -n %{packname}

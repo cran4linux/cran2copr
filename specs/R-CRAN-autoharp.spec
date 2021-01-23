@@ -1,49 +1,54 @@
-%global packname  statsr
-%global packver   0.3.0
+%global packname  autoharp
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Companion Software for the Coursera Statistics with R Specialization
+Summary:          Semi-Automatic Grading of R and Rmd Scripts
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BayesFactor 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-BayesFactor 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-lintr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-lintr 
+Requires:         R-methods 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-testthat 
 
 %description
-Data and functions to support Bayesian and frequentist inference and
-decision making for the Coursera Specialization "Statistics with R". See
-<https://github.com/StatsWithR/statsr> for more information.
+A customisable set of tools for assessing and grading R or R-markdown
+scripts from students. It allows for checking correctness of code output,
+runtime statistics and static code analysis. The latter feature is made
+possible by representing R expressions using a tree structure.
 
 %prep
 %setup -q -c -n %{packname}

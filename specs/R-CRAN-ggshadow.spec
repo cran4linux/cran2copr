@@ -1,35 +1,37 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  ggshadow
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Shadow and Glow Geoms for 'ggplot2'
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-grid 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-glue 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+A collection of Geoms for R's 'ggplot2' library. geom_shadowpath(),
+geom_shadowline(), geom_shadowstep() and geom_shadowpoint() functions draw
+a shadow below lines to make busy plots more aesthetically pleasing.
+geom_glowpath(), geom_glowline(), geom_glowstep() and geom_glowpoint() add
+a neon glow around lines to get a steampunk style.
 
 %prep
 %setup -q -c -n %{packname}

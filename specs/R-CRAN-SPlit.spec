@@ -1,35 +1,29 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  SPlit
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Split a Dataset for Training and Testing
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.4
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+Procedure to optimally split a dataset for training and testing. 'SPlit'
+is based on the method of support points, which is independent of modeling
+methods. Please see Joseph and Vakayil (2020) <arXiv:2012.10945> for
+details. This work is supported by U.S. National Science Foundation grant
+CBET-1921873.
 
 %prep
 %setup -q -c -n %{packname}

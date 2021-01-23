@@ -1,35 +1,38 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  FMM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Rhythmic Patterns Modeling by FMM Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
 Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-iterators 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+Provides a collection of functions to fit and explore single,
+multi-component and restricted Frequency Modulated Moebius (FMM) models.
+'FMM' is a nonlinear parametric regression model capable of fitting
+non-sinusoidal shapes in rhythmic patterns. Details about the mathematical
+formulation of 'FMM' models can be found in Rueda et al. (2019)
+<doi:10.1038/s41598-019-54569-1>.
 
 %prep
 %setup -q -c -n %{packname}

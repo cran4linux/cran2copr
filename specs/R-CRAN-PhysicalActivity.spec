@@ -1,10 +1,10 @@
 %global packname  PhysicalActivity
-%global packver   0.2-2
+%global packver   0.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
-Release:          3%{?dist}%{?buildtag}
+Version:          0.2.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Process Accelerometer Data for Physical Activity Measurement
 
 License:          GPL (>= 3)
@@ -22,18 +22,24 @@ and nonwear time intervals in accelerometer data collected to assess
 physical activity. The package also contains functions for making plot for
 accelerometer data and obtaining the summary of various information
 including daily monitor wear time and the mean monitor wear time during
-valid days. The revised package version 0.2-1 improved the functions in
-the previous version regarding speed and robustness. In addition, several
-functions were added: "markDelivery" can classify days for ActiGraph
-delivery by mail; "markPAI" can categorize physical activity intensity
-level based on user-defined cut-points of accelerometer counts. It also
-supports importing ActiGraph AGD files with "readActigraph" and
-"queryActigraph" functions. The package also better supports time zones
-and daylight saving.
+valid days. "deliveryPred" and "markDelivery" can classify days for
+ActiGraph delivery by mail; "deliveryPreprocess" can process accelerometry
+data for analysis by zeropadding incomplete days and removing low activity
+days; "markPAI" can categorize physical activity intensity level based on
+user-defined cut-points of accelerometer counts. It also supports
+importing ActiGraph AGD files with "readActigraph" and "queryActigraph"
+functions.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,14 +49,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

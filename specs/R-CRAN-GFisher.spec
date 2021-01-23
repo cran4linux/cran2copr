@@ -1,35 +1,37 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  GFisher
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Generalized Fisher's Combination Tests Under Dependence
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+Accurate and computationally efficient p-value calculation methods for a
+general family of Fisher type statistics (GFisher). The GFisher covers
+Fisher's combination, Good's statistic, Lancaster's statistic, weighted
+Z-score combination, etc. It allows a flexible weighting scheme, as well
+as an omnibus procedure that automatically adapts proper weights and
+degrees of freedom to a given data. The new p-value calculation methods
+are based on novel ideas of moment-ratio matching and joint-distribution
+approximation. The technical details can be found in Hong Zhang and
+Zheyang Wu (2020) <arXiv:2003.01286>.
 
 %prep
 %setup -q -c -n %{packname}

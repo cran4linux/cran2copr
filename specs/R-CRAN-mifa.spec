@@ -1,49 +1,37 @@
-%global packname  statsr
-%global packver   0.3.0
+%global packname  mifa
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Companion Software for the Coursera Statistics with R Specialization
+Summary:          Multiple Imputation for Exploratory Factor Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BayesFactor 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-BayesFactor 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-stats 
+Requires:         R-CRAN-mice 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-checkmate 
 
 %description
-Data and functions to support Bayesian and frequentist inference and
-decision making for the Coursera Specialization "Statistics with R". See
-<https://github.com/StatsWithR/statsr> for more information.
+Impute the covariance matrix of incomplete data so that factor analysis
+can be performed. Imputations are made using multiple imputation by
+Multivariate Imputation with Chained Equations (MICE) and combined with
+Rubin's rules. Parametric Fieller confidence intervals and nonparametric
+bootstrap confidence intervals can be obtained for the variance explained
+by different numbers of principal components. The method is described in
+Nassiri et al. (2018) <doi:10.3758/s13428-017-1013-4>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,33 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  ggx
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          A Natural Language Interface to 'ggplot2'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-sets 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-sets 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+The 'ggplot2' package is the state-of-the-art toolbox for creating and
+formatting graphs. However, it is easy to forget how certain formatting
+commands are named and sometimes users find themselves asking: How do you
+rotate the x-axis labels again? Or how do you hide the legend...? This
+package allows users to issue natural language commands related to
+theme-related styling of plots (colors, font size and such), which then
+are translated into valid 'ggplot2' commands.
 
 %prep
 %setup -q -c -n %{packname}

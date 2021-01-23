@@ -1,9 +1,9 @@
 %global packname  brglm2
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bias Reduction in Generalized Linear Models
 
@@ -43,7 +43,7 @@ bias-reduction adjusted score equations in Kenne et al. (2017)
 <doi:10.1093/biomet/asx046>, or through the direct subtraction of an
 estimate of the bias of the maximum likelihood estimator from the maximum
 likelihood estimates as in Cordeiro and McCullagh (1991)
-<http://www.jstor.org/stable/2345592>. See Kosmidis et al (2020)
+<https://www.jstor.org/stable/2345592>. See Kosmidis et al (2020)
 <doi:10.1007/s11222-019-09860-6> for more details. Estimation in all cases
 takes place via a quasi Fisher scoring algorithm, and S3 methods for the
 construction of of confidence intervals for the reduced-bias estimates are

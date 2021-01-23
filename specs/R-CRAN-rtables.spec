@@ -1,35 +1,39 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  rtables
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Reporting Tables
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-htmltools 
 Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-htmltools 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+Reporting tables often have structure that goes beyond simple rectangular
+data. The 'rtables' package provides a framework for declaring complex
+multi-level tabulations and then applying them to data. This framework
+models both tabulation and the resulting tables as hierarchical, tree-like
+objects which support sibling sub-tables, arbitrary splitting or grouping
+of data in row and column dimensions, cells containing multiple values,
+and the concept of contextual summary computations. A convenient pipe-able
+interface is provided for declaring table layouts and the corresponding
+computations, and then applying them to data.
 
 %prep
 %setup -q -c -n %{packname}

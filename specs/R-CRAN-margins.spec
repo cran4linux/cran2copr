@@ -1,35 +1,38 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  margins
+%global packver   0.3.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.3.26
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Marginal Effects for Model Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-prediction >= 0.3.6
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-prediction >= 0.3.6
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-data.table 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+An R port of Stata's 'margins' command, which can be used to calculate
+marginal (or partial) effects from model objects.
 
 %prep
 %setup -q -c -n %{packname}

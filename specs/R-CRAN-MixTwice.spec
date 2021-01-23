@@ -1,13 +1,13 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  MixTwice
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          MixTwice--a Package for Large-Scale Hypothesis Testing
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-alabama 
+BuildRequires:    R-CRAN-ashr 
+BuildRequires:    R-CRAN-fdrtool 
+Requires:         R-CRAN-alabama 
+Requires:         R-CRAN-ashr 
+Requires:         R-CRAN-fdrtool 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+Implements large-scale hypothesis testing by variance mixing. It takes two
+statistics per testing unit -- an estimated effect and its associated
+squared standard error -- and fits a nonparametric, shape-constrained
+mixture separately on two latent parameters. It reports local false
+discovery rates (lfdr) and local false sign rates (lfsr). Manuscript
+describing algorithm of MixTwice: Zheng et al(2020) <arXiv:2011.07420>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,41 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  cmprskcoxmsm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Use IPW to Estimate Treatment Effect under Competing Risks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-twang 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-twang 
+Requires:         R-graphics 
+Requires:         R-CRAN-sandwich 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+Uses inverse probability weighting methods to estimate treatment effect
+under marginal structure model for the cause-specific hazard of competing
+risk events. Estimates also the cumulative incidence function (i.e. risk)
+of the potential outcomes, and provides inference on risk difference and
+risk ratio. Reference: Kalbfleisch & Prentice
+(2002)<doi:10.1002/9781118032985>; Hernan et al
+(2001)<doi:10.1198/016214501753168154>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,55 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  spatstat.core
+%global packver   1.65-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          1.65.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Core Functionality of the 'spatstat' Package
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-spatstat.data >= 1.6.1
+BuildRequires:    R-CRAN-goftest >= 1.2.2
+BuildRequires:    R-CRAN-spatstat.utils >= 1.18.0
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-spatstat.sparse 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-tensor 
+Requires:         R-CRAN-spatstat.data >= 1.6.1
+Requires:         R-CRAN-goftest >= 1.2.2
+Requires:         R-CRAN-spatstat.utils >= 1.18.0
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-spatstat.sparse 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-tensor 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+This is a subset of the original 'spatstat' package, containing all of the
+user-level code from 'spatstat', except for the code for linear networks.
 
 %prep
 %setup -q -c -n %{packname}

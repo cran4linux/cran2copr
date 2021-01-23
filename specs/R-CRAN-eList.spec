@@ -1,9 +1,9 @@
 %global packname  eList
-%global packver   0.0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          List Comprehension and Tools
 
@@ -22,8 +22,7 @@ those in 'python', 'haskell', and other languages. List comprehension in
 'R' converts a regular for() loop into a vectorized lapply() function.
 Support for looping with multiple variables, parallelization, and across
 non-standard objects included. Package also contains a variety of
-functions to help with list comprehension and higher order functions for
-manipulating lists.
+functions to help with list comprehension.
 
 %prep
 %setup -q -c -n %{packname}

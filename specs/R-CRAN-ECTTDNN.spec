@@ -1,35 +1,31 @@
-%global packname  mdatools
-%global packver   0.11.3
+%global packname  ECTTDNN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Cointegration Based Timedelay Neural Network Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-urca 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-vars 
+Requires:         R-CRAN-urca 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-vars 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+This cointegration based Time Delay Neural Network Model hybrid model
+allows the researcher to make use of the information extracted by the
+cointegrating vector as an input in the neural network model.
 
 %prep
 %setup -q -c -n %{packname}
