@@ -1,9 +1,9 @@
 %global packname  squashinformr
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Politely Web Scrape Data from SquashInfo
 
@@ -12,34 +12,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc >= 4.4.0
-BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-Hmisc >= 4.4.2
+BuildRequires:    R-CRAN-tibble >= 3.0.4
+BuildRequires:    R-CRAN-janitor >= 2.1.0
 BuildRequires:    R-CRAN-plyr >= 1.8.6
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-xml2 >= 1.2.5
-BuildRequires:    R-CRAN-janitor >= 1.2.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.2
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-tidyr >= 1.1.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-naniar >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-rvest >= 0.3.3
+BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-rvest >= 0.3.6
 BuildRequires:    R-CRAN-polite >= 0.1.1
-Requires:         R-CRAN-Hmisc >= 4.4.0
-Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-Hmisc >= 4.4.2
+Requires:         R-CRAN-tibble >= 3.0.4
+Requires:         R-CRAN-janitor >= 2.1.0
 Requires:         R-CRAN-plyr >= 1.8.6
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-xml2 >= 1.2.5
-Requires:         R-CRAN-janitor >= 1.2.0
-Requires:         R-CRAN-tidyr >= 1.0.2
-Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-tidyr >= 1.1.2
+Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-naniar >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-rvest >= 0.3.3
+Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-rvest >= 0.3.6
 Requires:         R-CRAN-polite >= 0.1.1
 
 %description

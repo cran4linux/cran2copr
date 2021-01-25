@@ -1,9 +1,9 @@
 %global packname  mlr3fselect
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Selection for 'mlr3'
 
@@ -17,21 +17,21 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-mlr3 >= 0.7.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
+BuildRequires:    R-CRAN-paradox >= 0.7.0
+BuildRequires:    R-CRAN-bbotk >= 0.3.0
 BuildRequires:    R-CRAN-mlr3pipelines >= 0.3.0
-BuildRequires:    R-CRAN-paradox >= 0.3.0
-BuildRequires:    R-CRAN-bbotk >= 0.2.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-CRAN-mlr3misc 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-mlr3 >= 0.7.0
+Requires:         R-CRAN-mlr3misc >= 0.7.0
+Requires:         R-CRAN-paradox >= 0.7.0
+Requires:         R-CRAN-bbotk >= 0.3.0
 Requires:         R-CRAN-mlr3pipelines >= 0.3.0
-Requires:         R-CRAN-paradox >= 0.3.0
-Requires:         R-CRAN-bbotk >= 0.2.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 
-Requires:         R-CRAN-mlr3misc 
 Requires:         R-CRAN-R6 
 
 %description

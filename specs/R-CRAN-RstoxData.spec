@@ -1,9 +1,9 @@
 %global packname  RstoxData
-%global packver   1.0.23
+%global packver   1.0.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.23
+Version:          1.0.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Read and Manipulate Fisheries Data
 

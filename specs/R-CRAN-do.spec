@@ -1,9 +1,9 @@
 %global packname  do
-%global packver   1.6.0.0
+%global packver   1.7.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0.0
+Version:          1.7.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Operator
 
@@ -22,6 +22,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-tmcn 
@@ -29,6 +31,8 @@ Requires:         R-methods
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
 
 %description
 Flexibly convert data between long and wide format using just two

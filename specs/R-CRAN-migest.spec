@@ -1,43 +1,42 @@
-%global packname  customLayout
-%global packver   0.3.2
+%global packname  migest
+%global packver   1.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.8.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Arrange Elements on the R's Drawing Area or Inside the PowerPoint's Slide
+Summary:          Methods for the Indirect Estimation of Bilateral Migration
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-flextable >= 0.5.6
-BuildRequires:    R-CRAN-officer >= 0.3.6
-BuildRequires:    R-CRAN-rvg >= 0.2.2
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-flextable >= 0.5.6
-Requires:         R-CRAN-officer >= 0.3.6
-Requires:         R-CRAN-rvg >= 0.2.2
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-assertthat 
 
 %description
-Create complicated drawing areas for multiple elements by combining much
-simpler layouts. It is an extended version of layout function from the
-'graphics' package, but it also works with 'grid' graphics. It also
-supports arranging elements inside 'PowerPoint' slides created using the
-'officer' package.
+Indirect methods for estimating bilateral migration flows in the presence
+of partial or missing data, including the estimation of bilateral
+migration flows from changes in bilateral migrant stock tables (e.g. Abel
+(2013) <doi:10.4054/DemRes.2013.28.18>).
 
 %prep
 %setup -q -c -n %{packname}

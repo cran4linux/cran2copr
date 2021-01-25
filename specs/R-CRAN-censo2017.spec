@@ -1,9 +1,9 @@
 %global packname  censo2017
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Base de Datos de Facil Acceso del Censo 2017 de Chile (2017 Chilean Census Easy Access Database)
 
@@ -12,12 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-tibble 
@@ -26,9 +25,10 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-tibble 
@@ -37,6 +37,8 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-tools 
 
 %description
 Provee un acceso conveniente a mas de 17 millones de registros de la base

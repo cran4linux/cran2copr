@@ -1,9 +1,9 @@
 %global packname  umx
-%global packver   4.2.5
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.5
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation and Twin Modeling in R
 
@@ -18,6 +18,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-OpenMx >= 2.11.5
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-DiagrammeRsvg 
+BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
@@ -37,6 +39,8 @@ BuildRequires:    R-CRAN-xtable
 Requires:         R-CRAN-OpenMx >= 2.11.5
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-DiagrammeRsvg 
+Requires:         R-CRAN-rsvg 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
