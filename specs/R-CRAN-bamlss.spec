@@ -1,11 +1,11 @@
 %global packname  bamlss
-%global packver   1.1-2
+%global packver   1.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
-Release:          3%{?dist}%{?buildtag}
-Summary:          Bayesian Additive Models for Location, Scale, and Shape (andBeyond)
+Version:          1.1.3
+Release:          1%{?dist}%{?buildtag}
+Summary:          Bayesian Additive Models for Location, Scale, and Shape (and Beyond)
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,28 +16,26 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-mgcv 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-MBA 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-raster 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-colorspace 
-Requires:         R-mgcv 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-MBA 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-sp 
-Requires:         R-Matrix 
-Requires:         R-survival 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-survival 
 Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-raster 
 
 %description
 Infrastructure for estimating probabilistic distributional regression
@@ -52,7 +50,13 @@ Simon, Zeileis (2019) <arXiv:1909.11784>.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,21 +64,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

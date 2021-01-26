@@ -1,9 +1,9 @@
 %global packname  gert
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Git Client for R
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-openssl >= 1.4.1
 BuildRequires:    R-CRAN-credentials >= 1.2.1
 BuildRequires:    R-CRAN-rstudioapi >= 0.11
 BuildRequires:    R-CRAN-askpass 
+BuildRequires:    R-CRAN-sys 
 Requires:         R-CRAN-zip >= 2.1.0
 Requires:         R-CRAN-openssl >= 1.4.1
 Requires:         R-CRAN-credentials >= 1.2.1
 Requires:         R-CRAN-rstudioapi >= 0.11
 Requires:         R-CRAN-askpass 
+Requires:         R-CRAN-sys 
 
 %description
 Simple git client for R based on 'libgit2' with support for SSH and HTTPS

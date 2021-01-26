@@ -1,9 +1,9 @@
 %global packname  rasciidoc
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Reports Using R and 'asciidoc'
 
@@ -19,14 +19,16 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-document 
-BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-fritools 
+BuildRequires:    R-CRAN-gert 
 BuildRequires:    R-CRAN-highr 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-xfun 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-document 
-Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-fritools 
+Requires:         R-CRAN-gert 
 Requires:         R-CRAN-highr 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-reticulate 

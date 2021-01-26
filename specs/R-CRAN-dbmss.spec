@@ -1,9 +1,9 @@
 %global packname  dbmss
-%global packver   2.7-3
+%global packver   2.7-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.3
+Version:          2.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance-Based Measures of Spatial Structures
 
@@ -13,10 +13,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         pandoc
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-reshape2 
@@ -25,7 +26,8 @@ BuildRequires:    R-CRAN-RcppParallel
 BuildRequires:    R-CRAN-spatstat.utils 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-reshape2 

@@ -1,10 +1,10 @@
 %global packname  shiny
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
-Release:          2%{?dist}%{?buildtag}
+Version:          1.6.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Web Application Framework for R
 
 License:          GPL-3 | file LICENSE
@@ -23,18 +23,22 @@ BuildRequires:    R-CRAN-promises >= 1.1.0
 BuildRequires:    R-CRAN-later >= 1.0.0
 BuildRequires:    R-CRAN-fastmap >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.16
-BuildRequires:    R-CRAN-htmltools >= 0.4.0.9003
-BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-digest >= 0.6.25
+BuildRequires:    R-CRAN-htmltools >= 0.5.0.9001
+BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-mime >= 0.3
+BuildRequires:    R-CRAN-bslib >= 0.2.2.9002
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-sourcetools 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-ellipsis 
 Requires:         R-CRAN-R6 >= 2.0
 Requires:         R-CRAN-commonmark >= 1.7
 Requires:         R-CRAN-httpuv >= 1.5.2
@@ -43,18 +47,22 @@ Requires:         R-CRAN-promises >= 1.1.0
 Requires:         R-CRAN-later >= 1.0.0
 Requires:         R-CRAN-fastmap >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 0.9.16
-Requires:         R-CRAN-htmltools >= 0.4.0.9003
-Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-digest >= 0.6.25
+Requires:         R-CRAN-htmltools >= 0.5.0.9001
+Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-mime >= 0.3
+Requires:         R-CRAN-bslib >= 0.2.2.9002
+Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-sourcetools 
 Requires:         R-tools 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-ellipsis 
 
 %description
 Makes it incredibly easy to build interactive web applications with R.
@@ -65,9 +73,13 @@ powerful applications with minimal effort.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -75,9 +87,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

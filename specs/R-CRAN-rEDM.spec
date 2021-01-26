@@ -1,9 +1,9 @@
 %global packname  rEDM
-%global packver   1.7.4
+%global packver   1.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
+Version:          1.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Dynamic Modeling ('EDM')
 

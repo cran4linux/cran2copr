@@ -1,9 +1,9 @@
 %global packname  chronicle
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar for Creating R Markdown Reports
 
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-dygraphs 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,16 +26,15 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-prettydoc 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-dygraphs 
 Requires:         R-CRAN-ggplot2 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-prettydoc 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-scales 

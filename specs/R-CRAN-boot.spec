@@ -1,9 +1,9 @@
 %global packname  boot
-%global packver   1.3-25
+%global packver   1.3-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.25
+Version:          1.3.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Functions (Originally by Angelo Canty for S)
 

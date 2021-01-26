@@ -1,9 +1,9 @@
 %global packname  rgnparser
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse Scientific Names
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-readr
 
 %description
 Parse scientific names using 'gnparser'
-(<https://gitlab.com/gogna/gnparser>), written in Go. 'gnparser' parses
+(<https://github.com/gnames/gnparser>), written in Go. 'gnparser' parses
 scientific names into their component parts; it utilizes a Parsing
 Expression Grammar specifically for scientific names.
 
