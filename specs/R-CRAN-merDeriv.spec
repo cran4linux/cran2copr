@@ -1,9 +1,9 @@
 %global packname  merDeriv
-%global packver   0.2-2
+%global packver   0.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Case-Wise and Cluster-Wise Derivatives for Mixed Effects Models
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-lavaan
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-lmeInfo 
 Requires:         R-CRAN-lme4 >= 1.1.10
 Requires:         R-stats 
 Requires:         R-methods 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-lavaan
 Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-lmeInfo 
 
 %description
 Compute case-wise and cluster-wise derivative for mixed effects models

@@ -1,9 +1,9 @@
 %global packname  cropDemand
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Crop Water Demand for Brazil
 
@@ -17,14 +17,12 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-dplyr >= 0.3.0.1
-BuildRequires:    R-CRAN-extrafont 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ncdf4 
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-dplyr >= 0.3.0.1
-Requires:         R-CRAN-extrafont 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-tidyr 

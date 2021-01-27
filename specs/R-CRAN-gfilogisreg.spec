@@ -1,33 +1,41 @@
-%global packname  ridge
-%global packver   2.8
+%global packname  gfilogisreg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Regression with Automatic Selection of the Penalty Parameter
+Summary:          Generalized Fiducial Inference for Binary Logistic Regression Models
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel >= 1.14
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-rcdd 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-EigenR 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-roptim 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-rcdd 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-EigenR 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Linear and logistic ridge regression functions. Additionally includes
-special functions for genome-wide single-nucleotide polymorphism (SNP)
-data.
+Fiducial framework for the logistic regression model. The fiducial
+distribution of the parameters of the logistic regression is simulated,
+allowing to perform statistical inference on any parameter of interest.
+The algorithm is taken from Jessi Cisewski's PhD thesis: Jessi Cisewski
+(2012), "Generalized fiducial inference for mixed linear models".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  ccmReportR
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wraps 'CCM' with Utility Functions
 
@@ -15,12 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.5
 BuildRequires:    R-CRAN-lubridate >= 1.7.9
 BuildRequires:    R-CRAN-jsonlite >= 1.7.1
 BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-keyring >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-tibble >= 3.0.5
 Requires:         R-CRAN-lubridate >= 1.7.9
 Requires:         R-CRAN-jsonlite >= 1.7.1
 Requires:         R-CRAN-httr >= 1.4.2

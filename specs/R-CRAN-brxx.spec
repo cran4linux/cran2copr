@@ -1,9 +1,9 @@
 %global packname  brxx
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Test Reliability Estimation
 
@@ -16,13 +16,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-GPArotation 
+BuildRequires:    R-CRAN-TeachingDemos 
 BuildRequires:    R-CRAN-blavaan 
 BuildRequires:    R-CRAN-blme 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-GPArotation 
+Requires:         R-CRAN-TeachingDemos 
 Requires:         R-CRAN-blavaan 
 Requires:         R-CRAN-blme 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-rstantools
 
 %description
 When samples contain missing data, are small, or are suspected of bias,

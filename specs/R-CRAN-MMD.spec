@@ -1,32 +1,38 @@
-%global packname  island
-%global packver   0.2.7
+%global packname  MMD
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stochastic Island Biogeography Theory Made Easy
+Summary:          Minimal Multilocus Distance (MMD) for Source Attribution and Loci Selection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-bigmemory 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-bigmemory 
 
 %description
-Tools to develop stochastic models based on the Theory of Island
-Biogeography (TIB) of MacArthur and Wilson (1967)
-<DOI:10.1023/A:1016393430551> and extensions. The package implements
-methods to estimate colonization and extinction rates (including
-environmental variables) given presence-absence data, simulate community
-assembly, and perform model selection.
+The aim of the package is two-fold: (i) To implement the MMD method for
+attribution of individuals to sources using the Hamming distance between
+multilocus genotypes. (ii) To select informative genetic markers based on
+information theory concepts (entropy, mutual information and redundancy).
+The package implements the functions introduced by Perez-Reche, F. J.,
+Rotariu, O., Lopes, B. S., Forbes, K. J. and Strachan, N. J. C. Mining
+whole genome sequence data to efficiently attribute individuals to source
+populations. Scientific Reports 10, 12124 (2020)
+<doi:10.1038/s41598-020-68740-6>. See more details and examples in the
+README file.
 
 %prep
 %setup -q -c -n %{packname}

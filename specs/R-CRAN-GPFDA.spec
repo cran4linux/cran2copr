@@ -1,11 +1,11 @@
 %global packname  GPFDA
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Process Regression for Functional Data Analysis
+Summary:          Gaussian Process for Functional Data Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,8 +17,6 @@ Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-interp 
 BuildRequires:    R-stats 
@@ -30,8 +28,6 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-splines 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-interp 
 Requires:         R-stats 

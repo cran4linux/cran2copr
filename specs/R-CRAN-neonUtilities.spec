@@ -1,9 +1,9 @@
 %global packname  neonUtilities
-%global packver   1.3.9
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Working with NEON Data
 
@@ -23,13 +23,11 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-dplyr >= 0.7.1
 Requires:         R-CRAN-httr 
@@ -39,13 +37,11 @@ Requires:         R-CRAN-data.table
 Requires:         R-utils 
 Requires:         R-CRAN-R.utils 
 Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-pbapply 
 Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-curl 
 
 %description

@@ -1,43 +1,31 @@
-%global packname  dynamichazard
-%global packver   0.6.7
+%global packname  StratifiedSampling
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Hazard Models using State Space Models
+Summary:          Different Methods for Stratified Sampling
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.6
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.6
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-survival 
-Requires:         R-parallel 
-Requires:         R-CRAN-boot 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Contains functions that lets you fit dynamic hazard models using state
-space models. The first implemented model is described in Fahrmeir (1992)
-<doi:10.1080/01621459.1992.10475232> and Fahrmeir (1994)
-<doi:10.1093/biomet/81.2.317>. Extensions hereof are available where the
-Extended Kalman filter is replaced by an unscented Kalman filter and other
-options including particle filters. The implemented particle filters
-support more general state space models.
+Integrating a stratified structure in the population in a sampling design
+can considerably reduce the variance of the Horvitz-Thompson estimator. We
+propose in this package different methods to handle the selection of a
+balanced sample in stratified population. For more details see Raphaël
+Jauslin, Esther Eustache and Yves Tillé (2021) <arXiv:2101.05568>.
 
 %prep
 %setup -q -c -n %{packname}

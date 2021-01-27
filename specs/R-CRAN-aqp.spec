@@ -1,9 +1,9 @@
 %global packname  aqp
-%global packver   1.25
+%global packver   1.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.25
+Version:          1.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithms for Quantitative Pedology
 
@@ -21,24 +21,24 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape 
 Requires:         R-grid 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
 
 %description
 The Algorithms for Quantitative Pedology (AQP) project was started in 2009
