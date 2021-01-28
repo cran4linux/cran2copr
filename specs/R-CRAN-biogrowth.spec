@@ -1,11 +1,11 @@
 %global packname  biogrowth
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling of Microbial Growth
+Summary:          Modelling of Population Growth
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-tibble >= 3.0.3
+BuildRequires:    R-CRAN-formula.tools >= 1.7.1
 BuildRequires:    R-CRAN-FME >= 1.3.6
 BuildRequires:    R-CRAN-lamW >= 1.3.0
 BuildRequires:    R-CRAN-deSolve >= 1.28
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-tibble >= 3.0.3
+Requires:         R-CRAN-formula.tools >= 1.7.1
 Requires:         R-CRAN-FME >= 1.3.6
 Requires:         R-CRAN-lamW >= 1.3.0
 Requires:         R-CRAN-deSolve >= 1.28
@@ -39,11 +41,11 @@ Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Modelling of microbial growth under isothermal and dynamic conditions.
-Includes functions for model fitting and making prediction under
-isothermal and dynamic conditions using methods (algorithms & models)
-common in predictive microbiology (See Perez-Rodriguez and Valero (2012,
-ISBN:978-1-4614-5519-6)).
+Modelling of population growth under static and dynamic environmental
+conditions. Includes functions for model fitting and making prediction
+under isothermal and dynamic conditions. The methods (algorithms & models)
+are based on predictive microbiology (See Perez-Rodriguez and Valero
+(2012, ISBN:978-1-4614-5519-6)).
 
 %prep
 %setup -q -c -n %{packname}

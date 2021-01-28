@@ -1,29 +1,40 @@
-%global packname  Pareto
-%global packver   2.2.2
+%global packname  rgee
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Pareto, Piecewise Pareto and Generalized Pareto Distribution
+Summary:          R Bindings for Calling the 'Earth Engine' API
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-reticulate >= 1.15
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-reticulate >= 1.15
+Requires:         R-methods 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
 
 %description
-Utilities for the Pareto, piecewise Pareto and generalized Pareto
-distribution that are useful for reinsurance pricing. In particular, the
-package provides a non-trivial algorithm that can be used to match the
-expected losses of a tower of reinsurance layers with a layer-independent
-collective risk model. The theoretical background of the matching
-algorithm and most other methods are described in Ulrich Riegel (2018)
-<doi:10.1007/s13385-018-0177-3>.
+Earth Engine <https://earthengine.google.com/> client library for R. All
+of the 'Earth Engine' API classes, modules, and functions are made
+available. Additional functions implemented include importing (exporting)
+of Earth Engine spatial objects, extraction of time series, interactive
+map display, assets management interface, and metadata display. See
+<https://r-spatial.github.io/rgee/> for further details.
 
 %prep
 %setup -q -c -n %{packname}

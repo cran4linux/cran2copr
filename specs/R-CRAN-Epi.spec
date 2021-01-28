@@ -1,9 +1,9 @@
 %global packname  Epi
-%global packver   2.42
+%global packver   2.43
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.42
+Version:          2.43
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis in Epidemiology
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-etm
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Matrix 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-etm
 Requires:         R-splines 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Matrix 

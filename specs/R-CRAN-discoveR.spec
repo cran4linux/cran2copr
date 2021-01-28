@@ -1,9 +1,9 @@
 %global packname  discoveR
-%global packver   2.1.6
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Data Analysis System
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-golem 
 BuildRequires:    R-CRAN-shiny 
@@ -36,6 +37,7 @@ BuildRequires:    R-CRAN-shinydashboard
 BuildRequires:    R-CRAN-shinycustomloader 
 BuildRequires:    R-CRAN-shinydashboardPlus 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-golem 
 Requires:         R-CRAN-shiny 

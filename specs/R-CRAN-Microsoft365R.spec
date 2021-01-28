@@ -1,35 +1,44 @@
-%global packname  metabolighteR
-%global packver   0.1.1
+%global packname  Microsoft365R
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'Metabolights' RESTful API
+Summary:          Interface to the 'Microsoft 365' Suite of Cloud Services
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-AzureGraph >= 1.2.0
+BuildRequires:    R-CRAN-AzureAuth 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-AzureGraph >= 1.2.0
+Requires:         R-CRAN-AzureAuth 
+Requires:         R-utils 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-vctrs 
 
 %description
-Access to the 'Metabolights' RESTful API
-<https://www.ebi.ac.uk/metabolights/index>. Retrieve elements of
-publically available 'Metabolights' studies.
+An interface to the 'Microsoft 365' (formerly known as 'Office 365') suite
+of cloud services, building on the framework supplied by the 'AzureGraph'
+package. Enables access from R to data stored in 'SharePoint Online' and
+'OneDrive', including the ability to list drive folder contents, upload
+and download files, and retrieve data lists. Both personal 'OneDrive' and
+'OneDrive for Business' accounts are supported.
 
 %prep
 %setup -q -c -n %{packname}

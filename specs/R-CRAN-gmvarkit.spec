@@ -1,9 +1,9 @@
 %global packname  gmvarkit
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Gaussian Mixture Vector Autoregressive Model
 
@@ -12,20 +12,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-parallel >= 4.0.0
-BuildRequires:    R-stats >= 4.0.0
-BuildRequires:    R-graphics >= 4.0.0
-BuildRequires:    R-grDevices >= 4.0.0
+BuildRequires:    R-parallel >= 3.0.0
+BuildRequires:    R-stats >= 3.0.0
+BuildRequires:    R-graphics >= 3.0.0
+BuildRequires:    R-grDevices >= 3.0.0
 BuildRequires:    R-CRAN-pbapply >= 1.4.2
 BuildRequires:    R-CRAN-Brobdingnag >= 1.2.4
 BuildRequires:    R-CRAN-mvnfast >= 0.2.5
-Requires:         R-parallel >= 4.0.0
-Requires:         R-stats >= 4.0.0
-Requires:         R-graphics >= 4.0.0
-Requires:         R-grDevices >= 4.0.0
+Requires:         R-parallel >= 3.0.0
+Requires:         R-stats >= 3.0.0
+Requires:         R-graphics >= 3.0.0
+Requires:         R-grDevices >= 3.0.0
 Requires:         R-CRAN-pbapply >= 1.4.2
 Requires:         R-CRAN-Brobdingnag >= 1.2.4
 Requires:         R-CRAN-mvnfast >= 0.2.5

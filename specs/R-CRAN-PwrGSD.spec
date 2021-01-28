@@ -1,29 +1,29 @@
-%global packname  Pareto
-%global packver   2.2.2
+%global packname  PwrGSD
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Pareto, Piecewise Pareto and Generalized Pareto Distribution
+Summary:          Power in a Group Sequential Design
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival 
 
 %description
-Utilities for the Pareto, piecewise Pareto and generalized Pareto
-distribution that are useful for reinsurance pricing. In particular, the
-package provides a non-trivial algorithm that can be used to match the
-expected losses of a tower of reinsurance layers with a layer-independent
-collective risk model. The theoretical background of the matching
-algorithm and most other methods are described in Ulrich Riegel (2018)
-<doi:10.1007/s13385-018-0177-3>.
+Tools for the evaluation of interim analysis plans for sequentially
+monitored trials on a survival endpoint; tools to construct efficacy and
+futility boundaries, for deriving power of a sequential design at a
+specified alternative, template for evaluating the performance of
+candidate plans at a set of time varying alternatives. See Izmirlian, G.
+(2014) <doi:10.4310/SII.2014.v7.n1.a4>.
 
 %prep
 %setup -q -c -n %{packname}

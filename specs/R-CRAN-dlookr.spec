@@ -1,9 +1,9 @@
 %global packname  dlookr
-%global packver   0.3.14
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.14
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Data Diagnosis, Exploration, Transformation
 
@@ -15,64 +15,50 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RcmdrMisc 
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-prettydoc 
-BuildRequires:    R-CRAN-smbinning 
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-tinytex 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DMwR 
-BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RcmdrMisc 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-prettydoc 
-Requires:         R-CRAN-smbinning 
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-tinytex 
-Requires:         R-methods 
-Requires:         R-CRAN-DMwR 
-Requires:         R-CRAN-rpart 
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-extrafont 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-hrbrthemes 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-prettydoc 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RcmdrMisc 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-extrafont 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-hrbrthemes 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-prettydoc 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RcmdrMisc 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 A collection of tools that support data diagnosis, exploration, and

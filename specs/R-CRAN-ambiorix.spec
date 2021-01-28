@@ -1,29 +1,46 @@
-%global packname  Pareto
-%global packver   2.2.2
+%global packname  ambiorix
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Pareto, Piecewise Pareto and Generalized Pareto Distribution
+Summary:          Web Framework Inspired by 'Express.js'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-log 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-websocket 
+BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-log 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-httpuv 
+Requires:         R-methods 
+Requires:         R-CRAN-promises 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-websocket 
+Requires:         R-CRAN-assertthat 
 
 %description
-Utilities for the Pareto, piecewise Pareto and generalized Pareto
-distribution that are useful for reinsurance pricing. In particular, the
-package provides a non-trivial algorithm that can be used to match the
-expected losses of a tower of reinsurance layers with a layer-independent
-collective risk model. The theoretical background of the matching
-algorithm and most other methods are described in Ulrich Riegel (2018)
-<doi:10.1007/s13385-018-0177-3>.
+A web framework inspired by 'express.js' to build any web service from
+multi-page websites to 'RESTful' application programming interfaces.
 
 %prep
 %setup -q -c -n %{packname}

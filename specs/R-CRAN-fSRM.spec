@@ -1,41 +1,47 @@
-%global packname  ADMUR
-%global packver   1.0.2
+%global packname  fSRM
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ancient Demographic Modelling Using Radiocarbon
+Summary:          Social Relations Analyses with Roles ("Family SRM")
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-mathjaxr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-tcltk2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-foreign 
+Requires:         R-tcltk 
+Requires:         R-CRAN-tcltk2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-methods 
 
 %description
-Provides tools to directly model underlying population dynamics using date
-datasets (radiocarbon and other) with a Continuous Piecewise Linear (CPL)
-model framework. Various other model types included. Taphonomic loss
-included optionally as a power function. Model comparison framework using
-BIC. Package also calibrates 14C samples, generates Summed Probability
-Distributions (SPD), and performs SPD simulation analysis to generate a
-Goodness-of-fit test for the best selected model.
+Social Relations Analysis with roles ("Family SRM") are computed, using a
+structural equation modeling approach. Groups ranging from three members
+up to an unlimited number of members are supported and the mean structure
+can be computed. Means and variances can be compared between different
+groups of families and between roles.
 
 %prep
 %setup -q -c -n %{packname}

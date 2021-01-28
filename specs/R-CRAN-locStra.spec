@@ -1,9 +1,9 @@
 %global packname  locStra
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Implementation of (Local) Population Stratification Methods
 
@@ -28,12 +28,15 @@ Requires:         R-CRAN-RSpectra
 Fast implementations to compute the genetic covariance matrix, the Jaccard
 similarity matrix, the s-matrix (the weighted Jaccard similarity matrix),
 and the (classic or robust) genomic relationship matrix of a (dense or
-sparse) input matrix. Full support for sparse matrices from the R-package
-'Matrix'. Additionally, an implementation of the power method (von Mises
-iteration) to compute the largest eigenvector of a matrix is included, a
-function to perform an automated full run of global and local correlations
-in population stratification data, and a function to compute sliding
-windows. New functionality in locStra allows one to extract the k leading
+sparse) input matrix (see Hahn, Lutz, Hecker, Prokopenko, Cho, Silverman,
+Weiss, and Lange (2020) <doi:10.1002/gepi.22356>). Full support for sparse
+matrices from the R-package 'Matrix'. Additionally, an implementation of
+the power method (von Mises iteration) to compute the largest eigenvector
+of a matrix is included, a function to perform an automated full run of
+global and local correlations in population stratification data, a
+function to compute sliding windows, and a function to invert minor
+alleles and to select those variants/loci exceeding a minimal cutoff
+value. New functionality in locStra allows one to extract the k leading
 eigenvectors of the genetic covariance matrix, Jaccard similarity matrix,
 s-matrix, and genomic relationship matrix without actually computing the
 similarity matrices.

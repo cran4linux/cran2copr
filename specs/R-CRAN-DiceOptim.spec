@@ -1,39 +1,41 @@
-%global packname  iGraphMatch
-%global packver   1.0.1
+%global packname  DiceOptim
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools Graph Matching
+Summary:          Kriging-Based Optimization for Computer Experiments
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
-BuildRequires:    R-CRAN-Matrix >= 1.2.11
-BuildRequires:    R-CRAN-igraph >= 1.1.2
-BuildRequires:    R-CRAN-clue >= 0.3.54
-BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-DiceKriging >= 1.2
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Matrix >= 1.2.11
-Requires:         R-CRAN-igraph >= 1.1.2
-Requires:         R-CRAN-clue >= 0.3.54
-Requires:         R-CRAN-irlba 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-DiceDesign 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-DiceKriging >= 1.2
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-pbivnorm 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-DiceDesign 
+Requires:         R-parallel 
 
 %description
-Graph matching methods and analysis. The package works for both 'igraph'
-objects and matrix objects. You provide the adjacency matrices of two
-graphs and some other information you might know, choose the graph
-matching method, and it returns the graph matching results. 'iGraphMatch'
-also provides a bunch of useful functions you might need related to graph
-matching.
+Efficient Global Optimization (EGO) algorithm as described in "Roustant et
+al. (2012)" <doi:10.18637/jss.v051.i01> and adaptations for problems with
+noise ("Picheny and Ginsbourger, 2012") <doi:10.1016/j.csda.2013.03.018>,
+parallel infill, and problems with constraints.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  arrow
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integration to 'Apache' 'Arrow'
 
@@ -12,9 +12,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildRequires:    R-CRAN-bit64 >= 0.9.7
+BuildRequires:    R-CRAN-cpp11 >= 0.2.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
@@ -23,7 +24,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-bit64 >= 0.9.7
 Requires:         R-CRAN-assertthat 
 Requires:         R-methods 

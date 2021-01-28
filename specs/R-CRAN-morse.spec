@@ -1,9 +1,9 @@
 %global packname  morse
-%global packver   3.2.7
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.7
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling Tools for Reproduction and Survival Data in Ecotoxicology
 
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-rjags >= 4.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
 BuildRequires:    R-CRAN-coda 

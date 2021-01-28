@@ -1,13 +1,13 @@
-%global packname  Pareto
-%global packver   2.2.2
+%global packname  igoR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Pareto, Piecewise Pareto and Generalized Pareto Distribution
+Summary:          Intergovernmental Organizations Database
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,11 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Utilities for the Pareto, piecewise Pareto and generalized Pareto
-distribution that are useful for reinsurance pricing. In particular, the
-package provides a non-trivial algorithm that can be used to match the
-expected losses of a tower of reinsurance layers with a layer-independent
-collective risk model. The theoretical background of the matching
-algorithm and most other methods are described in Ulrich Riegel (2018)
-<doi:10.1007/s13385-018-0177-3>.
+Tools to extract information from the Intergovernmental Organizations
+('IGO') Database , version 3, provided by the Correlates of War Project
+<https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020),
+<doi:10.1177/0022343319881175>. Version 3 includes information from 1815
+to 2014.
 
 %prep
 %setup -q -c -n %{packname}

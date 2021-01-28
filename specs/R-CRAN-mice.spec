@@ -1,9 +1,9 @@
 %global packname  mice
-%global packver   3.12.0
+%global packver   3.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.12.0
+Version:          3.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Imputation by Chained Equations
 

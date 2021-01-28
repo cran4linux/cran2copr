@@ -1,9 +1,9 @@
 %global packname  GWI
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Count and Continuous Generalized Variability Indexes
 
@@ -17,14 +17,11 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Univariate Poisson dispersion index (DI) for count data, univariate
-exponential variation index (VI) for positive continuous data functions
-are performed. Also, the generalized dispersion index (GDI) and the
-marginal dispersion index (MDI) functions are carried out. Finally, the
-generalized variation index (GVI) and the marginal variation index (MVI)
-functions are computed. See Abid et al. (2020), Fisher (1934), Kokonendji
-and Puig (2018), Kokonendji et al. (2020) and Touré et al. (2020) for more
-details on these indexes.
+Univariate Poisson dispersion index for count data, univariate exponential
+variation index for positive continuous data functions are performed.
+Also, the generalized dispersion index and the marginal dispersion index
+functions are carried out. Finally, the generalized variation index and
+the marginal variation index functions are computed.
 
 %prep
 %setup -q -c -n %{packname}

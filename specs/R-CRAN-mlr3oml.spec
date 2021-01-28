@@ -1,9 +1,9 @@
 %global packname  mlr3oml
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connector Between 'mlr3' and 'OpenML'
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-backports >= 1.1.6
-BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-mlr3
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-backports >= 1.1.6
-Requires:         R-CRAN-mlr3misc >= 0.5.0
+Requires:         R-CRAN-mlr3misc >= 0.7.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
