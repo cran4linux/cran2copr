@@ -1,26 +1,32 @@
-%global packname  PDFEstimator
-%global packver   2.0
+%global packname  icdpicr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Probability Density Estimator
+Summary:          'ICD' Programs for Injury Categorization in R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr >= 1.0.0
+Requires:         R-CRAN-stringr >= 1.0.0
 
 %description
-Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
-nonparametric density estimator based on the maximum-entropy method.
-Accurately predicts a probability density function (PDF) for random data
-using a novel iterative scoring function to determine the best fit without
-overfitting to the sample.
+Categorization and scoring of injury severity typically involves trained
+personnel with access to injured persons or their medical records.
+'icdpicr' contains a function that provides automated calculation of
+Abbreviated Injury Scale ('AIS') and Injury Severity Score ('ISS') from
+International Classification of Diseases ('ICD') codes and may be a useful
+substitute to manual injury severity scoring. 'ICDPIC' was originally
+developed in 'Stata', and 'icdpicr' is an open-access update that accepts
+both 'ICD-9' and 'ICD-10' codes.
 
 %prep
 %setup -q -c -n %{packname}

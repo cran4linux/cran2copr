@@ -1,11 +1,11 @@
-%global packname  PDFEstimator
-%global packver   2.0
+%global packname  rgeoda
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Probability Density Estimator
+Summary:          R Library for Spatial Data Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,13 +14,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-wkb 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-methods 
+Requires:         R-CRAN-wkb 
 
 %description
-Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
-nonparametric density estimator based on the maximum-entropy method.
-Accurately predicts a probability density function (PDF) for random data
-using a novel iterative scoring function to determine the best fit without
-overfitting to the sample.
+Provides spatial data analysis functionalities including Exploratory
+Spatial Data Analysis, Spatial Cluster Detection and Clustering Analysis,
+Regionalization, etc. based on the C++ source code of 'GeoDa', which is an
+open-source software tool that serves as an introduction to spatial data
+analysis. The 'GeoDa' software and its documentation are available at
+<https://geodacenter.github.io>.
 
 %prep
 %setup -q -c -n %{packname}

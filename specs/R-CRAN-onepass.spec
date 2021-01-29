@@ -1,26 +1,27 @@
-%global packname  PDFEstimator
-%global packver   2.0
+%global packname  onepass
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Probability Density Estimator
+Summary:          1password Credential Retrieval
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
-nonparametric density estimator based on the maximum-entropy method.
-Accurately predicts a probability density function (PDF) for random data
-using a novel iterative scoring function to determine the best fit without
-overfitting to the sample.
+Interaction with 1Password via the command-line tool
+<https://1password.com/downloads/command-line/> to read vault contents and
+download credentials.
 
 %prep
 %setup -q -c -n %{packname}

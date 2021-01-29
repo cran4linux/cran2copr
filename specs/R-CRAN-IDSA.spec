@@ -1,13 +1,13 @@
-%global packname  gWQS
-%global packver   3.0.2
+%global packname  IDSA
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Weighted Quantile Sum Regression
+Summary:          An Interactive Detector for Spatial Associations
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,40 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-GD 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-plotROC 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-pscl 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-cowplot 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-GD 
 Requires:         R-stats 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-plotROC 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-pscl 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-cowplot 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Fits Weighted Quantile Sum (WQS) regressions for continuous, binomial,
-multinomial and count outcomes.
+Method of interactive detector for spatial associations (IDSA). IDSA is
+used to quantify the power of interactive determinant (PID) between a
+spatial response variable and explanatory variables. IDSA is developed
+based on methods of spatial heterogeneity.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,26 +1,24 @@
-%global packname  PDFEstimator
-%global packver   2.0
+%global packname  shinyPredict
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Probability Density Estimator
+Summary:          Predictions using Shiny
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
 
 %description
-Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
-nonparametric density estimator based on the maximum-entropy method.
-Accurately predicts a probability density function (PDF) for random data
-using a novel iterative scoring function to determine the best fit without
-overfitting to the sample.
+Creates 'shiny' application ('app.R') for making predictions based on
+lm(), glm(), or coxph() models.
 
 %prep
 %setup -q -c -n %{packname}

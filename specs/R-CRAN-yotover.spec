@@ -1,9 +1,9 @@
 %global packname  yotover
-%global packver   0.3.2
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Advanced Guide to Trade Policy Analysis
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-magrittr 
@@ -53,6 +54,7 @@ Requires:         R-CRAN-DBI
 Requires:         R-CRAN-duckdb 
 Requires:         R-utils 
 Requires:         R-CRAN-rappdirs 
+Requires:         R-tools 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rstudioapi 
 

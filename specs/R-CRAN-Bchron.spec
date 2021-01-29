@@ -1,9 +1,9 @@
 %global packname  Bchron
-%global packver   4.7.3
+%global packver   4.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7.3
+Version:          4.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radiocarbon Dating, Age-Depth Modelling, Relative Sea Level Rate Estimation, and Non-Parametric Phase Modelling
 

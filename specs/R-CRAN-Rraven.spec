@@ -1,26 +1,39 @@
-%global packname  PDFEstimator
-%global packver   2.0
+%global packname  Rraven
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Probability Density Estimator
+Summary:          Connecting R and 'Raven' Sound Analysis Software
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-warbleR 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-NatureSounds 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-warbleR 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-NatureSounds 
 
 %description
-Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
-nonparametric density estimator based on the maximum-entropy method.
-Accurately predicts a probability density function (PDF) for random data
-using a novel iterative scoring function to determine the best fit without
-overfitting to the sample.
+A tool to exchange data between R and 'Raven' sound analysis software
+(Cornell Lab of Ornithology). Functions work on data formats compatible
+with the R package 'warbleR'.
 
 %prep
 %setup -q -c -n %{packname}

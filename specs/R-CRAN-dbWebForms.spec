@@ -1,11 +1,11 @@
-%global packname  PDFEstimator
-%global packver   2.0
+%global packname  dbWebForms
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Probability Density Estimator
+Summary:          Produce R Functions to Create HTML Forms Based on SQL Meta Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,13 +14,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-html5 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-html5 
 
 %description
-Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
-nonparametric density estimator based on the maximum-entropy method.
-Accurately predicts a probability density function (PDF) for random data
-using a novel iterative scoring function to determine the best fit without
-overfitting to the sample.
+Offers meta programming style tools to generate configurable R functions
+that produce HTML forms based on table input and SQL meta data. Also
+generates functions for collecting the parameters of those HTML forms
+after they are submitted. Useful for quickly generating HTML forms based
+on existing SQL tables. To use the resultant functions, the output files
+containing those functions must be read into the R environment (perhaps
+using base::source()).
 
 %prep
 %setup -q -c -n %{packname}

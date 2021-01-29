@@ -1,13 +1,13 @@
-%global packname  gWQS
-%global packver   3.0.2
+%global packname  tapnet
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Weighted Quantile Sum Regression
+Summary:          Trait Matching and Abundance for Predicting Bipartite Networks
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,40 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-bipartite 
+BuildRequires:    R-CRAN-MPSEM 
+BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-plotROC 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-pscl 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-cowplot 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-bipartite 
+Requires:         R-CRAN-MPSEM 
+Requires:         R-CRAN-phytools 
 Requires:         R-stats 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-plotROC 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-pscl 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-cowplot 
+Requires:         R-utils 
+Requires:         R-CRAN-vegan 
 
 %description
-Fits Weighted Quantile Sum (WQS) regressions for continuous, binomial,
-multinomial and count outcomes.
+Functions to produce, fit and predict from bipartite networks with
+abundance, trait and phylogenetic information. Its methods are described
+in detail in Benadi, G., Dormann, C.F., Fruend, J., Stephan, R. & Vazquez,
+D.P. (2021) Quantitative prediction of interactions in bipartite networks
+based on traits, abundances, and phylogeny. The American Naturalist, in
+press.
 
 %prep
 %setup -q -c -n %{packname}
