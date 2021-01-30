@@ -1,35 +1,39 @@
-%global packname  RIA
-%global packver   1.5.0
+%global packname  era
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Radiomics Image Analysis Toolbox for Medial Images
+Summary:          Years with an Era
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nat >= 1.8.11
-BuildRequires:    R-CRAN-oro.nifti >= 0.9.1
-BuildRequires:    R-CRAN-oro.dicom >= 0.5.0
-Requires:         R-CRAN-nat >= 1.8.11
-Requires:         R-CRAN-oro.nifti >= 0.9.1
-Requires:         R-CRAN-oro.dicom >= 0.5.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pillar 
+Requires:         R-CRAN-vctrs >= 0.3.0
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pillar 
 
 %description
-Radiomics image analysis toolbox for 2D and 3D radiological images. RIA
-supports DICOM, NIfTI and nrrd file formats. RIA calculates first-order,
-gray level co-occurrence matrix, gray level run length matrix and
-geometry-based statistics. Almost all calculations are done using
-vectorized formulas to optimize run speeds. Calculation of several
-thousands of parameters only takes minutes on a single core of a
-conventional PC.
+Provides a consistent vector representation of years with an associated
+calendar era or time scale. It includes built-in definitions of many
+contemporary and historic calendars; time scales commonly used in
+archaeology, astronomy, geology, and other palaeosciences (e.g. Before
+Present, SI-prefixed 'annus'); and support for arbitrary user-defined
+eras. Functions for converting between eras and for type-stable arithmetic
+with years are also provided.
 
 %prep
 %setup -q -c -n %{packname}

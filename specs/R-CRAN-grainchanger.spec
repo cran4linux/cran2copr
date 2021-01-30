@@ -1,35 +1,39 @@
-%global packname  RIA
-%global packver   1.5.0
+%global packname  grainchanger
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Radiomics Image Analysis Toolbox for Medial Images
+Summary:          Moving-Window and Direct Data Aggregation
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nat >= 1.8.11
-BuildRequires:    R-CRAN-oro.nifti >= 0.9.1
-BuildRequires:    R-CRAN-oro.dicom >= 0.5.0
-Requires:         R-CRAN-nat >= 1.8.11
-Requires:         R-CRAN-oro.nifti >= 0.9.1
-Requires:         R-CRAN-oro.dicom >= 0.5.0
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-methods 
+Requires:         R-CRAN-usethis 
 
 %description
-Radiomics image analysis toolbox for 2D and 3D radiological images. RIA
-supports DICOM, NIfTI and nrrd file formats. RIA calculates first-order,
-gray level co-occurrence matrix, gray level run length matrix and
-geometry-based statistics. Almost all calculations are done using
-vectorized formulas to optimize run speeds. Calculation of several
-thousands of parameters only takes minutes on a single core of a
-conventional PC.
+Data aggregation via moving window or direct methods. Aggregate a
+fine-resolution raster to a grid. The moving window method smooths the
+surface using a specified function within a moving window of a specified
+size and shape prior to aggregation. The direct method simply aggregates
+to the grid using the specified function.
 
 %prep
 %setup -q -c -n %{packname}

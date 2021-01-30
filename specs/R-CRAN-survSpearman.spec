@@ -1,41 +1,28 @@
-%global packname  arcpullr
-%global packver   0.1.1
+%global packname  survSpearman
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pull Data from an 'ArcGIS REST' API
+Summary:          Nonparametric Spearman's Correlation for Survival Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-jsonlite >= 1.6.1
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-tidyr >= 1.0.2
-BuildRequires:    R-CRAN-sf >= 0.9.7
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-jsonlite >= 1.6.1
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-tidyr >= 1.0.2
-Requires:         R-CRAN-sf >= 0.9.7
-Requires:         R-CRAN-rlang >= 0.4.7
 
 %description
-Functions to efficiently query 'ArcGIS REST' APIs
-<https://developers.arcgis.com/rest/>. Both spatial and SQL queries can be
-used to retrieve data. Simple Feature (sf) objects are utilized to perform
-spatial queries. This package was neither produced nor is maintained by
-Esri.
+Nonparametric estimation of Spearman's rank correlation with bivariate
+survival (right-censored) data as described in Eden, S.K., Li, C.,
+Shepherd B.E. (2021), Nonparametric Estimation of Spearman's Rank
+Correlation with Bivariate Survival Data, Biometrics (under revision). The
+package also provides functions that visualize bivariate survival data and
+bivariate probability mass function.
 
 %prep
 %setup -q -c -n %{packname}

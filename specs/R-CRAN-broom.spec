@@ -1,9 +1,9 @@
 %global packname  broom
-%global packver   0.7.3
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Statistical Objects into Tidy Tibbles
 

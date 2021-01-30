@@ -1,9 +1,9 @@
 %global packname  grattan
-%global packver   1.9.0.2
+%global packver   1.9.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0.2
+Version:          1.9.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Australian Tax Policy Analysis
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-assertthat >= 0.1
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-hutilscpp 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-zoo >= 1.5.5
 Requires:         R-CRAN-magrittr >= 1.5
@@ -35,6 +36,7 @@ Requires:         R-CRAN-assertthat >= 0.1
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-hutilscpp 
 Requires:         R-utils 
 
 %description

@@ -1,9 +1,9 @@
 %global packname  Seurat
-%global packver   3.2.3
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -12,16 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-plotly >= 4.9.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-Matrix >= 1.2.14
 BuildRequires:    R-CRAN-scattermore >= 0.7
+BuildRequires:    R-CRAN-sctransform >= 0.3.2
 BuildRequires:    R-CRAN-leiden >= 0.3.1
-BuildRequires:    R-CRAN-sctransform >= 0.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-uwot >= 0.1.9
+BuildRequires:    R-CRAN-RcppAnnoy >= 0.0.18
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-cowplot 
@@ -48,13 +49,12 @@ BuildRequires:    R-CRAN-pbapply
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-RcppAnnoy 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-CRAN-rsvd 
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-SeuratObject 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-stats 
@@ -67,9 +67,10 @@ Requires:         R-CRAN-plotly >= 4.9.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-Matrix >= 1.2.14
 Requires:         R-CRAN-scattermore >= 0.7
+Requires:         R-CRAN-sctransform >= 0.3.2
 Requires:         R-CRAN-leiden >= 0.3.1
-Requires:         R-CRAN-sctransform >= 0.3.1
 Requires:         R-CRAN-uwot >= 0.1.9
+Requires:         R-CRAN-RcppAnnoy >= 0.0.18
 Requires:         R-methods 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-cowplot 
@@ -97,13 +98,12 @@ Requires:         R-CRAN-png
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-RcppAnnoy 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ROCR 
-Requires:         R-CRAN-rsvd 
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-SeuratObject 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-spatstat 
 Requires:         R-stats 
@@ -118,8 +118,9 @@ interpret sources of heterogeneity from single cell transcriptomic
 measurements, and to integrate diverse types of single cell data. See
 Satija R, Farrell J, Gennert D, et al (2015) <doi:10.1038/nbt.3192>,
 Macosko E, Basu A, Satija R, et al (2015)
-<doi:10.1016/j.cell.2015.05.002>, and Stuart T, Butler A, et al (2019)
-<doi:10.1016/j.cell.2019.05.031> for more details.
+<doi:10.1016/j.cell.2015.05.002>, Stuart T, Butler A, et al (2019)
+<doi:10.1016/j.cell.2019.05.031>, and Hao, Hao, et al (2020)
+<doi:10.1101/2020.10.12.335331> for more details.
 
 %prep
 %setup -q -c -n %{packname}

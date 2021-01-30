@@ -1,35 +1,26 @@
-%global packname  RIA
-%global packver   1.5.0
+%global packname  contingency
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Radiomics Image Analysis Toolbox for Medial Images
+Summary:          Discrete Multivariate Probability Distributions
 
-License:          AGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nat >= 1.8.11
-BuildRequires:    R-CRAN-oro.nifti >= 0.9.1
-BuildRequires:    R-CRAN-oro.dicom >= 0.5.0
-Requires:         R-CRAN-nat >= 1.8.11
-Requires:         R-CRAN-oro.nifti >= 0.9.1
-Requires:         R-CRAN-oro.dicom >= 0.5.0
+BuildRequires:    R-CRAN-rje 
+Requires:         R-CRAN-rje 
 
 %description
-Radiomics image analysis toolbox for 2D and 3D radiological images. RIA
-supports DICOM, NIfTI and nrrd file formats. RIA calculates first-order,
-gray level co-occurrence matrix, gray level run length matrix and
-geometry-based statistics. Almost all calculations are done using
-vectorized formulas to optimize run speeds. Calculation of several
-thousands of parameters only takes minutes on a single core of a
-conventional PC.
+Provides an object class for dealing with many multivariate probability
+distributions at once, useful for simulation.
 
 %prep
 %setup -q -c -n %{packname}

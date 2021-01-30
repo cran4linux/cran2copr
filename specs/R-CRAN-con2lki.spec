@@ -1,35 +1,27 @@
-%global packname  RIA
-%global packver   1.5.0
+%global packname  con2lki
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Radiomics Image Analysis Toolbox for Medial Images
+Summary:          Calculate the Dutch Air Quality Index (LKI)
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nat >= 1.8.11
-BuildRequires:    R-CRAN-oro.nifti >= 0.9.1
-BuildRequires:    R-CRAN-oro.dicom >= 0.5.0
-Requires:         R-CRAN-nat >= 1.8.11
-Requires:         R-CRAN-oro.nifti >= 0.9.1
-Requires:         R-CRAN-oro.dicom >= 0.5.0
 
 %description
-Radiomics image analysis toolbox for 2D and 3D radiological images. RIA
-supports DICOM, NIfTI and nrrd file formats. RIA calculates first-order,
-gray level co-occurrence matrix, gray level run length matrix and
-geometry-based statistics. Almost all calculations are done using
-vectorized formulas to optimize run speeds. Calculation of several
-thousands of parameters only takes minutes on a single core of a
-conventional PC.
+Calculates the dutch air quality index (LKI). This index was created on
+the basis of scientific studies of the health effects of air pollution.
+From these studies it can be deduced at what concentrations a certain
+percentage of the population can be affected. For more information see:
+<https://www.rivm.nl/bibliotheek/rapporten/2014-0050.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

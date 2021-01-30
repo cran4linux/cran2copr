@@ -1,30 +1,26 @@
-%global packname  tkRplotR
-%global packver   0.1.4
+%global packname  essentials
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Display Resizable Plots
+Summary:          Essential Functions not Included in Base R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
-Requires:         tcl >= 8.6
-Requires:         tk >= 8.6
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-tcltk 
-BuildRequires:    R-grDevices 
-Requires:         R-tcltk 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Display a plot in a Tk canvas.
+Functions for converting objects to scalars (vectors of length 1) and a
+more inclusive definition of data that can be interpreted as numbers
+(numeric and complex alike).
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,7 +38,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

@@ -1,9 +1,9 @@
 %global packname  rgrass7
-%global packver   0.2-4
+%global packver   0.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface Between GRASS 7 Geographical Information System and R
 

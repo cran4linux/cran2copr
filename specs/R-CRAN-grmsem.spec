@@ -1,13 +1,13 @@
-%global packname  IMIX
+%global packname  grmsem
 %global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Mixture Model for Multi-Omics Data Integration
+Summary:          Genetic-Relationship-Matrix Structural Equation Modelling (GRMSEM)
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,35 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-mixtools 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-msm >= 1.6
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-optimParallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-mixtools 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-msm >= 1.6
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-optimParallel 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-MASS 
 
 %description
-A multivariate Gaussian mixture model framework to integrate multiple
-types of genomic data and allow modeling of inter-data-type correlations
-for association analysis. 'IMIX' can be implemented to test whether a
-disease is associated with genes in multiple genomic data types, such as
-DNA methylation, copy number variation, gene expression, etc. It can also
-study the integration of multiple pathways. 'IMIX' uses the summary
-statistics of association test outputs and conduct integration analysis
-for two or three types of genomics data. 'IMIX' features
-statistically-principled model selection, global FDR control and
-computational efficiency. Details are described in Ziqiao Wang and Peng
-Wei (2020) <doi:10.1093/bioinformatics/btaa1001>.
+Quantitative genetics tool supporting the modelling of multivariate
+genetic variance structures in quantitative data. It allows fitting
+different models through multivariate genetic-relationship-matrix (GRM)
+structural equation modelling (SEM) in unrelated individuals, using a
+maximum likelihood approach. Specifically, it combines genome-wide
+genotyping information, as captured by GRMs, with twin-research-based SEM
+techniques, St Pourcain et al. (2017)
+<doi:10.1016/j.biopsych.2017.09.020>, Shapland et al. (2020)
+<doi:10.1101/2020.08.14.251199>.
 
 %prep
 %setup -q -c -n %{packname}

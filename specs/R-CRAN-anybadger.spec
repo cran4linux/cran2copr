@@ -1,35 +1,36 @@
-%global packname  RIA
-%global packver   1.5.0
+%global packname  anybadger
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Radiomics Image Analysis Toolbox for Medial Images
+Summary:          Create Custom Pipeline Badges
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nat >= 1.8.11
-BuildRequires:    R-CRAN-oro.nifti >= 0.9.1
-BuildRequires:    R-CRAN-oro.dicom >= 0.5.0
-Requires:         R-CRAN-nat >= 1.8.11
-Requires:         R-CRAN-oro.nifti >= 0.9.1
-Requires:         R-CRAN-oro.dicom >= 0.5.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-magrittr 
 
 %description
-Radiomics image analysis toolbox for 2D and 3D radiological images. RIA
-supports DICOM, NIfTI and nrrd file formats. RIA calculates first-order,
-gray level co-occurrence matrix, gray level run length matrix and
-geometry-based statistics. Almost all calculations are done using
-vectorized formulas to optimize run speeds. Calculation of several
-thousands of parameters only takes minutes on a single core of a
-conventional PC.
+You can use this package to create custom pipeline badges in a standard
+'svg' format. This is useful for a company to use internally, where it may
+not be possible to create badges through external providers. This project
+was inspired by the 'anybadge' library in python.
 
 %prep
 %setup -q -c -n %{packname}
