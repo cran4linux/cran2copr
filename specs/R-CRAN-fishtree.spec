@@ -1,9 +1,9 @@
 %global packname  fishtree
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the Fish Tree of Life API
 
@@ -12,21 +12,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape >= 5.2
 BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-rlang >= 0.4.1
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ape >= 5.2
 Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-rlang >= 0.4.1
-Requires:         R-utils 
 Requires:         R-CRAN-memoise 
 Requires:         R-parallel 
+Requires:         R-utils 
 
 %description
 An interface to the Fish Tree of Life API to download taxonomies,

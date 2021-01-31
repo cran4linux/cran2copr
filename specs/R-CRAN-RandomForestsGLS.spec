@@ -1,41 +1,36 @@
-%global packname  ADMUR
-%global packver   1.0.2
+%global packname  RandomForestsGLS
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ancient Demographic Modelling Using Radiocarbon
+Summary:          Random Forests for Dependent Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-BRISC 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-pbapply 
+Requires:         R-CRAN-BRISC 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-pbapply 
 
 %description
-Provides tools to directly model underlying population dynamics using date
-datasets (radiocarbon and other) with a Continuous Piecewise Linear (CPL)
-model framework. Various other model types included. Taphonomic loss
-included optionally as a power function. Model comparison framework using
-BIC. Package also calibrates 14C samples, generates Summed Probability
-Distributions (SPD), and performs SPD simulation analysis to generate a
-Goodness-of-fit test for the best selected model.
+Fits non-linear regression models on dependant data with Generalised Least
+Square (GLS) based Random Forest (RF-GLS) detailed in Saha, Basu and Datta
+(2020) <arXiv:2007.15421>.
 
 %prep
 %setup -q -c -n %{packname}
