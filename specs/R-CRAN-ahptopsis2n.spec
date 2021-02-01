@@ -1,9 +1,9 @@
 %global packname  ahptopsis2n
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hybrid Method for Multiple Criteria Decision-Making (MCDM)
 
@@ -17,9 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Implementation of an hybrid MCDM method build from the AHP (Analytic
+Implementation of a hybrid MCDM method build from the AHP (Analytic
 Hierarchy Process) and TOPSIS-2N (Technique for Order of Preference by
-Similarity to Ideal Solution - with two normalizations).
+Similarity to Ideal Solution - with two normalizations). This method is
+described in Souza et al. (2018) <doi: 10.1142/S0219622018500207>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  cli
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helpers for Developing Command Line Interfaces
 
@@ -15,26 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fansi 
-Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-fansi 
 
 %description
 A suite of tools to build attractive command line interfaces ('CLIs'),
 from semantic elements: headings, lists, alerts, paragraphs, etc. Supports
 custom themes via a 'CSS'-like language. It also contains a number of
 lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols
-with 'ASCII' alternatives. It integrates with the 'crayon' package to
-support 'ANSI' terminal colors.
+with 'ASCII' alternatives. It support ANSI colors and text styles as well.
 
 %prep
 %setup -q -c -n %{packname}

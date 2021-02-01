@@ -1,37 +1,37 @@
-%global packname  INLAMSM
-%global packver   0.2-2
+%global packname  colourvision
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Spatial Models with 'INLA'
+Summary:          Colour Vision Models
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spdep 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spdep 
 
 %description
-Implementation of several multivariate areal latent effects for 'INLA'
-using the 'rgeneric' latent effect (Palmí-Perales et al., 2019,
-<arXiv:1909.10804>). The 'INLA' package can be downloaded from
-<https://www.r-inla.org>. In particular, the package includes latent
-effects ready to use for several multivariate spatial models: intrinsic
-CAR, proper CAR and the M-model (Botella-Rocamora et al., 2015,
-<doi:10.1002/sim.6423>).
+Colour vision models, colour spaces and colour thresholds. Provides
+flexibility to build user-defined colour vision models for n number of
+photoreceptor types. Also includes Vorobyev & Osorio (1998) Receptor Noise
+Limited models <doi:10.1098/rspb.1998.0302>, Chittka (1992) colour hexagon
+<doi:10.1007/BF00199331>, and Endler & Mielke (2005) model
+<doi:10.1111/j.1095-8312.2005.00540.x>. Models have been extended to
+accept any number of photoreceptor types.
 
 %prep
 %setup -q -c -n %{packname}
