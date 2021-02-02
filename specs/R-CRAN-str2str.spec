@@ -1,28 +1,43 @@
-%global packname  VAM
-%global packver   0.5.0
+%global packname  str2str
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variance-Adjusted Mahalanobis
+Summary:          Convert R Objects from One Structure to Another
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-datasets 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-reshape 
+Requires:         R-datasets 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-reshape 
 
 %description
-Contains logic for cell-specific gene set scoring of single cell RNA
-sequencing data.
+Offers a suite of functions for converting to and from (atomic) vectors,
+matrices, data.frames, and (3D+) arrays as well as lists of these objects.
+It is an alternative to the base R as.<str>.<method>() functions (e.g.,
+as.data.frame.array()) that provides more useful and/or flexible
+restructuring of R objects. To do so, it only works with common
+structuring of R objects (e.g., data.frames with only atomic vector
+columns).
 
 %prep
 %setup -q -c -n %{packname}

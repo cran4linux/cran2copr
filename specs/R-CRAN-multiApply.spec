@@ -1,9 +1,9 @@
 %global packname  multiApply
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Functions to Multiple Multidimensional Arrays or Vectors
 

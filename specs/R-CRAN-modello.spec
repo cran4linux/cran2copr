@@ -1,30 +1,35 @@
-%global packname  Rd2md
-%global packver   0.0.5
+%global packname  modello
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markdown Reference Manuals
+Summary:          Homemade Deep Learning Library
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-knitr 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-LaF 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-LaF 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 
 %description
-The native R functionalities only allow PDF exports of reference manuals.
-This shall be extended by converting the package documentation files into
-markdown files and combining them into a markdown version of the package
-reference manual.
+Allows to build and train different flavors of Neural Networks. In
+particular, it can be used to build fairly complex computational graphs,
+which ca be automatically differentiated and optimized with gradient
+descent methods.
 
 %prep
 %setup -q -c -n %{packname}

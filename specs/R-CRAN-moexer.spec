@@ -1,38 +1,51 @@
-%global packname  R6P
-%global packver   0.2.0
+%global packname  moexer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Design Patterns in R
+Summary:          Interact with Moscow Exchange Informational and Statistical Server ('ISS')
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
 
 %description
-Build robust and maintainable software with object-oriented design
-patterns in R. Design patterns abstract and present in neat, well-defined
-components and interfaces the experience of many software designers and
-architects over many years of solving similar problems. These are
-solutions that have withstood the test of time with respect to
-re-usability, flexibility, and maintainability. 'R6P' provides abstract
-base classes with examples for a few known design patterns. The patterns
-were selected by their applicability to analytic projects in R. Using
-these patterns in R projects have proven effective in dealing with the
-complexity that data-driven applications possess.
+This is a thin wrapper around the 'MOEX' 'ISS' REST interface, see
+<https://iss.moex.com>.  It allows to quickly fetch price candles for a
+particular security, obtain its profile information and so on.
 
 %prep
 %setup -q -c -n %{packname}

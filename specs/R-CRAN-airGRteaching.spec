@@ -1,9 +1,9 @@
 %global packname  airGRteaching
-%global packver   0.2.9.25
+%global packver   0.2.10.112
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9.25
+Version:          0.2.10.112
 Release:          1%{?dist}%{?buildtag}
 Summary:          Teaching Hydrological Modelling with the GR Rainfall-Runoff Models ('Shiny' Interface Included)
 
@@ -12,23 +12,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-airGR >= 1.4.3.52
+BuildRequires:    R-CRAN-airGR >= 1.6.9.27
 BuildRequires:    R-CRAN-dygraphs >= 1.1.1.6
 BuildRequires:    R-CRAN-shiny >= 1.1.0
 BuildRequires:    R-CRAN-shinyjs >= 1.0
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-airGR >= 1.4.3.52
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-airGR >= 1.6.9.27
 Requires:         R-CRAN-dygraphs >= 1.1.1.6
 Requires:         R-CRAN-shiny >= 1.1.0
 Requires:         R-CRAN-shinyjs >= 1.0
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-xts 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Add-on package to the 'airGR' package that simplifies its use and is aimed

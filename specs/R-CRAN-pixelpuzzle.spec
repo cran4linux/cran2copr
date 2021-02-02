@@ -1,30 +1,30 @@
-%global packname  Rd2md
-%global packver   0.0.5
+%global packname  pixelpuzzle
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markdown Reference Manuals
+Summary:          Puzzle Game for the R Console
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-knitr 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-beepr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-stringr 
 
 %description
-The native R functionalities only allow PDF exports of reference manuals.
-This shall be extended by converting the package documentation files into
-markdown files and combining them into a markdown version of the package
-reference manual.
+Puzzle game that can be played in the R console. Restore the pixel art by
+shifting rows.
 
 %prep
 %setup -q -c -n %{packname}

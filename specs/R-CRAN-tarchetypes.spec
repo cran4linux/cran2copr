@@ -1,11 +1,11 @@
-%global packname  targets
-%global packver   0.1.0
+%global packname  tarchetypes
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Function-Oriented 'Make'-Like Declarative Workflows
+Summary:          Archetypes for Targets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,43 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr >= 3.4.3
-BuildRequires:    R-CRAN-tibble >= 3.0.1
-BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-withr >= 2.1.2
-BuildRequires:    R-CRAN-cli >= 2.0.2
-BuildRequires:    R-CRAN-igraph >= 1.2.5
-BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-fs >= 1.4.2
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-digest >= 0.6.25
-BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-vctrs >= 0.2.4
-BuildRequires:    R-CRAN-codetools >= 0.2.16
+BuildRequires:    R-CRAN-rlang >= 0.4.7
+BuildRequires:    R-CRAN-vctrs >= 0.3.4
+BuildRequires:    R-CRAN-targets >= 0.0.1
 BuildRequires:    R-utils 
-Requires:         R-CRAN-callr >= 3.4.3
-Requires:         R-CRAN-tibble >= 3.0.1
-Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-withr >= 2.1.2
-Requires:         R-CRAN-cli >= 2.0.2
-Requires:         R-CRAN-igraph >= 1.2.5
-Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-fs >= 1.4.2
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-digest >= 0.6.25
-Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-vctrs >= 0.2.4
-Requires:         R-CRAN-codetools >= 0.2.16
+Requires:         R-CRAN-rlang >= 0.4.7
+Requires:         R-CRAN-vctrs >= 0.3.4
+Requires:         R-CRAN-targets >= 0.0.1
 Requires:         R-utils 
 
 %description
-As a pipeline toolkit for Statistics and data science in R, the 'targets'
-package brings together function-oriented programming and 'Make'-like
-declarative workflows. It analyzes the dependency relationships among the
-tasks of a workflow, skips steps that are already up to date, runs the
-necessary computation with optional parallel workers, abstracts files as R
-objects, and provides tangible evidence that the results match the
-underlying code and data. The methodology in this package borrows from GNU
-'Make' (2015, ISBN:978-9881443519) and 'drake' (2018,
-<doi:10.21105/joss.00550>).
+Function-oriented Make-like declarative workflows for Statistics and data
+science are supported in the 'targets' R package. As an extension to
+'targets', the 'tarchetypes' package provides convenient user-side
+functions to make 'targets' easier to use. By establishing reusable
+archetypes for common kinds of targets and pipelines, these functions help
+express complicated reproducible workflows concisely and compactly. The
+methods in this package were influenced by the 'drake' R package by Will
+Landau (2018) <doi:10.21105/joss.00550>.
 
 %prep
 %setup -q -c -n %{packname}

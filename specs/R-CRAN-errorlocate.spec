@@ -1,9 +1,9 @@
 %global packname  errorlocate
-%global packver   0.5.1
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Locate Errors with Validation Rules
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-validate 
 BuildRequires:    R-CRAN-lpSolveAPI 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-validate 
 Requires:         R-CRAN-lpSolveAPI 
 Requires:         R-methods 
+Requires:         R-parallel 
 
 %description
 Errors in data can be located and removed using validation rules from

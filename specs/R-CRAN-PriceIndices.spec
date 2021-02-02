@@ -1,38 +1,45 @@
-%global packname  R6P
-%global packver   0.2.0
+%global packname  PriceIndices
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Design Patterns in R
+Summary:          Calculating Bilateral and Multilateral Price Indexes
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
+BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-reclin 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-caret 
+Requires:         R-CRAN-ggplot2 >= 3.2.0
+Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-reclin 
 Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-caret 
 
 %description
-Build robust and maintainable software with object-oriented design
-patterns in R. Design patterns abstract and present in neat, well-defined
-components and interfaces the experience of many software designers and
-architects over many years of solving similar problems. These are
-solutions that have withstood the test of time with respect to
-re-usability, flexibility, and maintainability. 'R6P' provides abstract
-base classes with examples for a few known design patterns. The patterns
-were selected by their applicability to analytic projects in R. Using
-these patterns in R projects have proven effective in dealing with the
-complexity that data-driven applications possess.
+Preparing a scanner data set for price dynamics calculations (data
+selecting, data classification, data matching, data filtering). Computing
+bilateral and multilateral indexes. For details on these methods see: de
+Haan and Krsinich (2017) <doi:10.1111/roiw.12304> and Diewert and Fox
+(2020) <doi:10.1080/07350015.2020.1816176>.
 
 %prep
 %setup -q -c -n %{packname}

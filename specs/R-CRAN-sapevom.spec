@@ -1,9 +1,9 @@
 %global packname  sapevom
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Ordinal Method for Multiple Criteria Decision-Making
 
@@ -23,7 +23,9 @@ Implementation of SAPEVO-M, a Group Ordinal Method for Multiple Criteria
 Decision-Making (MCDM). SAPEVO-M is an acronym for Simple Aggregation of
 Preferences Expressed by Ordinal Vectors Group Decision Making. This
 method provides alternatives ranking given decision makers' preferences:
-criteria preferences and alternatives preferences for each criterion.
+criteria preferences and alternatives preferences for each criterion.This
+method is described in Gomes et al. (2020) <doi:
+10.1590/0101-7438.2020.040.00226524 >.
 
 %prep
 %setup -q -c -n %{packname}

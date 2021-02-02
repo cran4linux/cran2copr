@@ -1,30 +1,37 @@
-%global packname  Rd2md
-%global packver   0.0.5
+%global packname  fmerPack
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markdown Reference Manuals
+Summary:          Tools of Heterogeneity Pursuit via Finite Mixture Effects Model
 
-License:          GPL
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-knitr 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-flexmix 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-utils 
+Requires:         R-CRAN-flexmix 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-abind 
 
 %description
-The native R functionalities only allow PDF exports of reference manuals.
-This shall be extended by converting the package documentation files into
-markdown files and combining them into a markdown version of the package
-reference manual.
+Heterogeneity pursuit methodologies for regularized finite mixture
+regression by effects-model formulation proposed by Li et al. (2021)
+<arXiv:2003.04787>.
 
 %prep
 %setup -q -c -n %{packname}

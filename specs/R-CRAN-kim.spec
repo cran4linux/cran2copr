@@ -1,9 +1,9 @@
 %global packname  kim
-%global packver   0.2.35
+%global packver   0.2.71
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.35
+Version:          0.2.71
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Behavioral Science Researchers
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-effsize 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
@@ -37,7 +36,6 @@ Requires:         R-CRAN-boot
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-effsize 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
@@ -56,8 +54,8 @@ Requires:         R-CRAN-WRS2
 Miscellaneous functions to simplify and expedite analyses of experimental
 data. Examples include a function that plots sample means of groups in a
 factorial experimental design, a function that conducts robust regressions
-with bootstrapped samples, and a function that conducts two-way analysis
-of variance.
+with bootstrapped samples, and a function that conducts robust two-way
+analysis of variance.
 
 %prep
 %setup -q -c -n %{packname}

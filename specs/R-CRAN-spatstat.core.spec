@@ -1,9 +1,9 @@
 %global packname  spatstat.core
-%global packver   1.65-0
+%global packver   1.65-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.65.0
+Version:          1.65.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Functionality of the 'spatstat' Package
 

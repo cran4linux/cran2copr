@@ -1,31 +1,38 @@
-%global packname  cecs
-%global packver   0.1.0
+%global packname  ergmclust
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for the C Implementation of CEC Benchmark Functions
+Summary:          ERGM-Based Network Clustering
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-lda 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lda 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-viridis 
 
 %description
-Goal of this package is to provide access to benchmark functions defined
-for the Special Session and Competition on Real-Parameter Single Objective
-Optimization in one place. The package contains functions from following
-years: 2013, 2014, 2017, 2021 (<https://github.com/P-N-Suganthan>).
-Implementations of CEC-2013 (Y. Gonzalez-Fernandez & M.
-Zambrano-Bigiarini) and CEC2017 (D. Jagodziński) are taken from existed R
-packages. Also, the original C source code has been cleaned and
-reorganized for better readability.
+Implements clustering and estimates parameters in Exponential-Family
+Random Graph Models (ERGMs) for static undirected and directed networks,
+developed in Vu et. al. (2013)
+<https://projecteuclid.org/euclid.aoas/1372338477>.
 
 %prep
 %setup -q -c -n %{packname}

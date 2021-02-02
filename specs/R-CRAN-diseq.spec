@@ -1,9 +1,9 @@
 %global packname  diseq
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation Methods for Markets in Equilibrium and Disequilibrium
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-dplyr >= 0.7.6
 BuildRequires:    R-CRAN-rlang >= 0.2.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppGSL 
+BuildRequires:    R-CRAN-RcppParallel 
 Requires:         R-CRAN-MASS >= 7.3.50
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-tibble >= 1.4.2
@@ -34,6 +36,8 @@ Requires:         R-CRAN-dplyr >= 0.7.6
 Requires:         R-CRAN-rlang >= 0.2.1
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppGSL 
+Requires:         R-CRAN-RcppParallel 
 
 %description
 Provides estimation methods for markets in equilibrium and disequilibrium.
