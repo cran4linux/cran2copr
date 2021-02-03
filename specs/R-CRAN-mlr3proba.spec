@@ -1,9 +1,9 @@
 %global packname  mlr3proba
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Supervised Learning for 'mlr3'
 
@@ -16,8 +16,8 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-distr6 >= 1.4.5
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
 BuildRequires:    R-CRAN-mlr3 >= 0.6.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.1.7
 BuildRequires:    R-CRAN-paradox >= 0.1.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
@@ -25,8 +25,8 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-distr6 >= 1.4.5
 Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-mlr3misc >= 0.7.0
 Requires:         R-CRAN-mlr3 >= 0.6.0
-Requires:         R-CRAN-mlr3misc >= 0.1.7
 Requires:         R-CRAN-paradox >= 0.1.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 

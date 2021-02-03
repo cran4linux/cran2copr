@@ -1,9 +1,9 @@
 %global packname  bigparallelr
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Parallel Tools
 
@@ -20,12 +20,14 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-flock 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-RhpcBLASctl 
 Requires:         R-CRAN-bigassertr >= 0.1.1
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-flock 
 Requires:         R-parallel 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-RhpcBLASctl 
 
 %description

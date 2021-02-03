@@ -1,9 +1,9 @@
 %global packname  bccp
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bias Correction under Censoring Plan
 
@@ -19,13 +19,14 @@ BuildRequires:    R-CRAN-pracma
 Requires:         R-CRAN-pracma 
 
 %description
-Developed for the following tasks. 1) Computing the Fisher information
-matrix under progressive type I interval censoring scheme, 2) Computing
-the bias corrected maximum likelihood estimator under progressive type I
-interval censoring based on the method of Cox and Snell (1968)
-<doi:10.1111/j.2517-6161.1968.tb00724.x> , 3) Computing the goodness of
-fit statistics including Anderson Darling and Cramer-von Mises , and 4)
-Simulating the progressive type I interval censoring scheme.
+Developed for the following tasks. Simulating, computing maximum
+likelihood estimator, computing the Fisher information matrix, computing
+goodness-of-fit measures, and correcting bias of the ML estimator for a
+wide range of distributions fitted to units placed on progressive type-I
+interval censoring and progressive type-II censoring plans. The methods of
+Cox and Snell (1968) <doi:10.1111/j.2517-6161.1968.tb00724.x> and
+bootstrap method for computing the bias-corrected maximum likelihood
+estimator.
 
 %prep
 %setup -q -c -n %{packname}

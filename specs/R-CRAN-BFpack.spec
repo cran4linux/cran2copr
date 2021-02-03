@@ -1,9 +1,9 @@
 %global packname  BFpack
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayes Factor Testing of Scientific Expectations
 
@@ -39,11 +39,11 @@ fields. The Bayes factor tests can be executed for statistical models such
 as univariate and multivariate normal linear models, generalized linear
 models, special cases of linear mixed models, survival models, relational
 event models. Parameters that can be tested are location parameters (e.g.,
-regression coefficients), variances (e.g., group variances), and measures
-of association (e.g,. bivariate correlations). The statistical
-underpinnings are described in Mulder, Hoijtink, and Xin (2019)
-<arXiv:1904.00679>, Mulder and Gelissen (2019) <arXiv:1807.05819>, Mulder
-(2016) <DOI:10.1016/j.jmp.2014.09.004>, Mulder and Fox (2019)
+group means, regression coefficients), variances (e.g., group variances),
+and measures of association (e.g,. bivariate correlations), among others.
+The statistical underpinnings are described in Mulder, Hoijtink, and Xin
+(2019) <arXiv:1904.00679>, Mulder and Gelissen (2019) <arXiv:1807.05819>,
+Mulder (2016) <DOI:10.1016/j.jmp.2014.09.004>, Mulder and Fox (2019)
 <DOI:10.1214/18-BA1115>, Mulder and Fox (2013)
 <DOI:10.1007/s11222-011-9295-3>, Boeing-Messing, van Assen, Hofman,
 Hoijtink, and Mulder <DOI:10.1037/met0000116>, Hoijtink, Mulder, van

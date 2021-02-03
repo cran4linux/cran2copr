@@ -1,9 +1,9 @@
 %global packname  envi
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Environmental Interpolation using Spatial Kernel Density Estimation
 
@@ -30,7 +30,8 @@ BuildRequires:    R-CRAN-rgeos
 BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sparr 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.core 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-concaveman 
@@ -48,7 +49,8 @@ Requires:         R-CRAN-rgeos
 Requires:         R-CRAN-ROCR 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sparr 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.core 
 Requires:         R-stats 
 Requires:         R-utils 
 

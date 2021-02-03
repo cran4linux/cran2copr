@@ -1,10 +1,10 @@
 %global packname  crs
-%global packver   0.15-31.1
+%global packver   0.15-33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.31.1
-Release:          3%{?dist}%{?buildtag}
+Version:          0.15.33
+Release:          1%{?dist}%{?buildtag}
 Summary:          Categorical Regression Splines
 
 License:          GPL (>= 3)
@@ -12,31 +12,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-boot 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-rgl 
-Requires:         R-boot 
+Requires:         R-CRAN-boot 
 Requires:         R-stats 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-rgl 
 
 %description
 Regression splines that handle a mix of continuous and categorical
 (discrete) data often encountered in applied settings. I would like to
 gratefully acknowledge support from the Natural Sciences and Engineering
-Research Council of Canada (NSERC, <http://www.nserc-crsng.gc.ca>), the
+Research Council of Canada (NSERC, <https://www.nserc-crsng.gc.ca>), the
 Social Sciences and Humanities Research Council of Canada (SSHRC,
-<http://www.sshrc-crsh.gc.ca>), and the Shared Hierarchical Academic
+<https://www.sshrc-crsh.gc.ca>), and the Shared Hierarchical Academic
 Research Computing Network (SHARCNET, <https://www.sharcnet.ca>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -44,21 +49,10 @@ Research Computing Network (SHARCNET, <https://www.sharcnet.ca>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

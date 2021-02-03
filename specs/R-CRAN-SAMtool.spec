@@ -1,9 +1,9 @@
 %global packname  SAMtool
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stock Assessment Methods Toolkit
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-TMB
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-snowfall 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-TMB
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gplots 
-Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-snowfall 
