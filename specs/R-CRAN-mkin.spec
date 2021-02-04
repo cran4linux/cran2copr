@@ -1,9 +1,9 @@
 %global packname  mkin
-%global packver   0.9.50.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.50.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kinetic Evaluation of Chemical Degradation Data
 
@@ -12,29 +12,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.15.1
+Requires:         R-core >= 2.15.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme >= 3.1.149
+BuildRequires:    R-CRAN-nlme >= 3.1.151
+BuildRequires:    R-CRAN-inline >= 0.3.17
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-inline 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-pkgbuild 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-nlme >= 3.1.149
+Requires:         R-CRAN-nlme >= 3.1.151
+Requires:         R-CRAN-inline >= 0.3.17
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-inline 
-Requires:         R-parallel 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-pkgbuild 

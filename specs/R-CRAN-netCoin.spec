@@ -1,9 +1,9 @@
 %global packname  netCoin
-%global packver   1.1.26
+%global packver   1.2.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.26
+Version:          1.2.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Analytic Networks
 
@@ -25,9 +25,7 @@ Requires:         R-CRAN-igraph >= 1.0.1
 %description
 Create interactive analytic networks. It joins the data analysis power of
 R to obtain coincidences, co-occurrences and correlations, and the
-visualization libraries of 'JavaScript' in one package. The methods are
-described in Escobar and Martinez-Uribe (2020)
-<doi:10.18637/jss.v093.i11>.
+visualization libraries of 'JavaScript' in one package.
 
 %prep
 %setup -q -c -n %{packname}

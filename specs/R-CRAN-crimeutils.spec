@@ -1,9 +1,9 @@
 %global packname  crimeutils
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Set of Functions to Clean, Analyze, and Present Crime Data
 
@@ -17,6 +17,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-magrittr 
@@ -25,8 +26,10 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-magrittr 
@@ -35,6 +38,7 @@ Requires:         R-grDevices
 Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
 A collection of functions that make it easier to understand crime (or

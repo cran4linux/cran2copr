@@ -1,9 +1,9 @@
 %global packname  iai
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Interpretable AI' Modules
 
@@ -15,14 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-JuliaCall 
+BuildRequires:    R-CRAN-JuliaCall >= 0.17.2
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-JuliaCall 
+BuildRequires:    R-CRAN-rappdirs 
+Requires:         R-CRAN-JuliaCall >= 0.17.2
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rappdirs 
 
 %description
 An interface to the algorithms of 'Interpretable AI'

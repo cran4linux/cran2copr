@@ -1,9 +1,9 @@
 %global packname  analogsea
-%global packver   0.9.0
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Digital Ocean'
 

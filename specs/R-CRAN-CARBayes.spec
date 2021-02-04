@@ -1,9 +1,9 @@
 %global packname  CARBayes
-%global packver   5.2.2
+%global packver   5.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.2
+Version:          5.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Generalised Linear Mixed Models for Areal Unit Data
 

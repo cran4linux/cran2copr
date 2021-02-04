@@ -1,9 +1,9 @@
 %global packname  PTXQC
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quality Report Generation for MaxQuant and mzTab Results
 
@@ -22,8 +22,10 @@ BuildRequires:    R-CRAN-ggdendro
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ontologyIndex 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
@@ -40,8 +42,10 @@ Requires:         R-CRAN-ggdendro
 Requires:         R-grid 
 Requires:         R-grDevices 
 Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-methods 
+Requires:         R-CRAN-ontologyIndex 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
