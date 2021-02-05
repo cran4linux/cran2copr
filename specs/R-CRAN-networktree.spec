@@ -1,9 +1,9 @@
 %global packname  networktree
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Partitioning of Network Models
 
@@ -43,7 +43,8 @@ Network trees recursively partition the data with respect to covariates.
 Two network tree algorithms are available: model-based trees based on a
 multivariate normal model and nonparametric trees based on covariance
 structures. After partitioning, correlation-based networks (psychometric
-networks) can be fit on the partitioned data.
+networks) can be fit on the partitioned data. For details see Jones, Mair,
+Simon, & Zeileis (2020) <doi:10.1007/s11336-020-09731-4>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  robslopes
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Algorithms for Robust Slopes
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.5
 Fast algorithms for the Theil-Sen estimator and Siegel's repeated median
 slope estimator. The implementation is based on algorithms by Dillencourt
 et. al (1992) <doi:10.1142/S0218195992000020> and Matousek et. al (1998)
-<doi:10.10.1007/PL00009190. Both algorithms run in quasilinear time.
+<doi:10.1007/PL00009190>. Both algorithms run in quasilinear time.
 
 %prep
 %setup -q -c -n %{packname}

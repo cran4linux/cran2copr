@@ -1,38 +1,34 @@
-%global packname  linkcomm
-%global packver   1.0-14
+%global packname  ridge
+%global packver   2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.14
+Version:          2.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Generating, Visualizing, and Analysing Link Communities in Networks
+Summary:          Ridge Regression with Automatic Selection of the Penalty Parameter
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-dynamicTreeCut 
-BuildRequires:    R-grid 
+BuildRequires:    gsl-devel >= 1.14
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-dynamicTreeCut 
-Requires:         R-grid 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-utils 
 
 %description
-Link communities reveal the nested and overlapping structure in networks,
-and uncover the key nodes that form connections to multiple communities.
-linkcomm provides a set of tools for generating, visualizing, and
-analysing link communities in networks of arbitrary size and type. The
-linkcomm package also includes tools for generating, visualizing, and
-analysing Overlapping Cluster Generator (OCG) communities. Kalinka and
-Tomancak (2011) <doi:10.1093/bioinformatics/btr311>.
+Linear and logistic ridge regression functions. Additionally includes
+special functions for genome-wide single-nucleotide polymorphism (SNP)
+data. More details can be found in <doi: 10.1002/gepi.21750> and <doi:
+10.1186/1471-2105-12-372>.
 
 %prep
 %setup -q -c -n %{packname}

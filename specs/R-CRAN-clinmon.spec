@@ -1,11 +1,11 @@
 %global packname  clinmon
-%global packver   0.5.5
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hemodynamic Indexes Calculated from Clinical Monitoring
+Summary:          Hemodynamic Calculations from Clinical Monitoring
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-signal >= 0.7.6
+Requires:         R-CRAN-signal >= 0.7.6
 
 %description
 Every research team have their own script for calculation of hemodynamic

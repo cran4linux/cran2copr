@@ -1,9 +1,9 @@
 %global packname  gWQS
-%global packver   3.0.2
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Weighted Quantile Sum Regression
 
@@ -47,8 +47,12 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-cowplot 
 
 %description
-Fits Weighted Quantile Sum (WQS) regressions for continuous, binomial,
-multinomial and count outcomes.
+Fits Weighted Quantile Sum (WQS) regression (Carrico et al. (2014)
+<doi:10.1007/s13253-014-0180-3>), a random subset implementation of WQS
+(Curtin et al. (2019) <doi:10.1080/03610918.2019.1577971>) and a repeated
+holdout validation WQS (Tanner et al. (2019)
+<doi:10.1016/j.mex.2019.11.008>) for continuous, binomial, multinomial,
+Poisson, quasi-Poisson and negative binomial outcomes.
 
 %prep
 %setup -q -c -n %{packname}

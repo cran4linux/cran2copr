@@ -1,38 +1,38 @@
-%global packname  linkcomm
-%global packver   1.0-14
+%global packname  SteppedPower
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.14
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Generating, Visualizing, and Analysing Link Communities in Networks
+Summary:          Power Calculation for Stepped Wedge Designs
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-dynamicTreeCut 
-BuildRequires:    R-grid 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-dynamicTreeCut 
-Requires:         R-grid 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-plotly 
+Requires:         R-grDevices 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Link communities reveal the nested and overlapping structure in networks,
-and uncover the key nodes that form connections to multiple communities.
-linkcomm provides a set of tools for generating, visualizing, and
-analysing link communities in networks of arbitrary size and type. The
-linkcomm package also includes tools for generating, visualizing, and
-analysing Overlapping Cluster Generator (OCG) communities. Kalinka and
-Tomancak (2011) <doi:10.1093/bioinformatics/btr311>.
+Tools for power and sample size calculation as well as design diagnostics
+for longitudinal mixed model settings, with a focus on stepped wedge
+designs. All calculations are oracle estimates i.e. assume random effect
+variances to be known (or guessed) in advance. The method is introduced in
+Hussey and Hughes (2007) <doi:10.1016/j.cct.2006.05.007>, extensions are
+discussed in Li et al. (2020) <doi:10.1177/0962280220932962>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global packname  envalysis
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Environmental Analyses
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

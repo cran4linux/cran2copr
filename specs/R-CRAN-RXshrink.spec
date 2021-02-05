@@ -1,9 +1,9 @@
 %global packname  RXshrink
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or Least Angle Regression Methods
 
@@ -30,11 +30,12 @@ the F-ratio for testing that true Beta coefficients are Zeros or [2] the
 "relative" MSE Risk (i.e. MSE divided by true sigma-square, where the
 "relative" variance of OLS is known.) The unr.ridge() function implements
 the "Unrestricted Path" introduced in Obenchain (2020) <arXiv:2005.14291>.
-This "new" p-parameter Shrinkage-Path is more efficient than the Paths
-used by qm.ridge(), aug.lars() and uc.lars(). Functions unr.aug() and
-unr.biv() augment the calculations made by unr.ridge() to provide plots of
-the bivariate confidence ellipses corresponding to any of the p*(p-1)
-possible pairs of shrunken regression coefficients.
+This "new" p-parameter Shrinkage-Path and that of eff.ridge() are both
+more efficient than the Paths used by qm.ridge(), aug.lars() and
+uc.lars(). Functions eff.aug() and eff.biv() augment the calculations made
+by eff.ridge() to provide plots of the bivariate confidence ellipses
+corresponding to any of the p*(p-1) possible pairs of shrunken regression
+coefficients.
 
 %prep
 %setup -q -c -n %{packname}

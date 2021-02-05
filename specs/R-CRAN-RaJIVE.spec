@@ -1,28 +1,36 @@
-%global packname  cachem
-%global packver   1.0.3
+%global packname  RaJIVE
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cache R Objects with Automatic Pruning
+Summary:          Robust Angle Based Joint and Individual Variation Explained
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-fastmap 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-fastmap 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Key-value stores with automatic pruning. Caches can limit either their
-total size or the age of the oldest object (or both), automatically
-pruning objects to maintain the constraints.
+A robust alternative to the aJIVE (angle based Joint and Individual
+Variation Explained) method (Feng et al 2018:
+<doi:10.1016/j.jmva.2018.03.008>) for the estimation of joint and
+individual components in the presence of outliers in multi-source data. It
+decomposes the multi-source data into joint, individual and residual
+(noise) contributions. The decomposition is robust to outliers and noise
+in the data. The method is illustrated in Ponzi et al (2021)
+<arXiv:2101.09110>.
 
 %prep
 %setup -q -c -n %{packname}

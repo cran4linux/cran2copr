@@ -1,28 +1,40 @@
-%global packname  cachem
-%global packver   1.0.3
+%global packname  MolgenisArmadillo
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cache R Objects with Automatic Pruning
+Summary:          Armadillo Client for the Armadillo Service
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-fastmap 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-aws.iam 
+BuildRequires:    R-CRAN-aws.s3 
+BuildRequires:    R-CRAN-MolgenisAuth 
+BuildRequires:    R-CRAN-arrow 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-fastmap 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-aws.iam 
+Requires:         R-CRAN-aws.s3 
+Requires:         R-CRAN-MolgenisAuth 
+Requires:         R-CRAN-arrow 
 
 %description
-Key-value stores with automatic pruning. Caches can limit either their
-total size or the age of the oldest object (or both), automatically
-pruning objects to maintain the constraints.
+A set of functions to be able to manage data shared on a 'MOLGENIS
+Armadillo' storage server ('MinIO').
 
 %prep
 %setup -q -c -n %{packname}

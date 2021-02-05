@@ -1,9 +1,9 @@
 %global packname  tramME
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models with Mixed Effects
 
@@ -21,9 +21,9 @@ BuildRequires:    R-CRAN-basefun >= 1.0.6
 BuildRequires:    R-CRAN-variables >= 1.0.2
 BuildRequires:    R-CRAN-tram >= 0.3.2
 BuildRequires:    R-CRAN-alabama 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB >= 1.7.15
@@ -33,9 +33,9 @@ Requires:         R-CRAN-basefun >= 1.0.6
 Requires:         R-CRAN-variables >= 1.0.2
 Requires:         R-CRAN-tram >= 0.3.2
 Requires:         R-CRAN-alabama 
-Requires:         R-Matrix 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-nlme 
+Requires:         R-CRAN-nlme 
 Requires:         R-stats 
 
 %description
@@ -50,9 +50,13 @@ differentiation (AD).
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -62,6 +66,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
