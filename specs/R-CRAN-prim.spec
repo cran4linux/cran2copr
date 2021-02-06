@@ -1,9 +1,9 @@
 %global packname  prim
-%global packver   1.0.19
+%global packver   1.0.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.19
+Version:          1.0.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Patient Rule Induction Method (PRIM)
 
@@ -15,22 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-misc3d 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
 BuildRequires:    R-tcltk 
-BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-misc3d 
-Requires:         R-CRAN-rgl 
+BuildRequires:    R-CRAN-plot3D 
 Requires:         R-CRAN-scales 
-Requires:         R-stats 
 Requires:         R-tcltk 
-Requires:         R-utils 
+Requires:         R-CRAN-plot3D 
 
 %description
 Patient Rule Induction Method (PRIM) for bump hunting in high-dimensional

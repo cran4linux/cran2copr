@@ -1,23 +1,41 @@
-%global packname  fastmatrix
-%global packver   0.3-81
+%global packname  tvgarch
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.81
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Computation of some Matrices Useful in Statistics
+Summary:          Time Varying GARCH Modelling
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-garchx 
+BuildRequires:    R-CRAN-hier.part 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-garchx 
+Requires:         R-CRAN-hier.part 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-zoo 
 
 %description
-Small set of functions to fast computation of some matrices and operations
-useful in statistics.
+Simulation, estimation and inference for TV(s)-GARCH(p,q,r)-X models,
+where s indicates the number and shape of the transition functions, p is
+the ARCH order, q is the GARCH order, r is the asymmetry order, and 'X'
+indicates that covariates can be included. The TV long-term component, as
+in the multiplicative TV-GARCH model of Amado and Ter"asvirta (2013)
+<doi:10.1016/j.jeconom.2013.03.006>, introduces non-stationarity in the
+variance process, where the GARCH-X short-term component describes
+conditional heteroscedasticity. Maximisation by parts leads to consistent
+and asymptotically normal estimates.
 
 %prep
 %setup -q -c -n %{packname}

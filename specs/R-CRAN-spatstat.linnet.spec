@@ -1,50 +1,43 @@
-%global packname  rangeMapper
-%global packver   2.0.0
+%global packname  spatstat.linnet
+%global packver   1.65-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.65.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Platform for the Study of Macro-Ecology of Life History Traits
+Summary:          Linear Networks Functionality of the 'spatstat' Package
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-spatstat.geom >= 1.65.0
+BuildRequires:    R-CRAN-spatstat.core >= 1.65.0
+BuildRequires:    R-CRAN-spatstat.data >= 1.4.2
+BuildRequires:    R-CRAN-spatstat.utils >= 1.17.0
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-exactextractr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-spatstat.geom >= 1.65.0
+Requires:         R-CRAN-spatstat.core >= 1.65.0
+Requires:         R-CRAN-spatstat.data >= 1.4.2
+Requires:         R-CRAN-spatstat.utils >= 1.17.0
+Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-exactextractr 
+Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
 
 %description
-Tools for generation of (life-history) traits and diversity maps on
-hexagonal or square grids.
+This is a subset of the 'spatstat' package, containing its functionality
+for spatial data on a linear network.
 
 %prep
 %setup -q -c -n %{packname}

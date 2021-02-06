@@ -1,13 +1,13 @@
-%global packname  unga
+%global packname  webdeveloper
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Makes Multiple Contingency Tables of a Data Frame
+Summary:          Functions for Web Development
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-CRAN-html5 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-httpuv 
+Requires:         R-CRAN-html5 
+Requires:         R-CRAN-stringi 
 
 %description
-Makes it easy to extract data from a survey. You can use an explanatory
-variable and make multiple contingency tables for all variables in a data
-frame. You can also summarize response alternatives. URL:
-<https://en.wikipedia.org/wiki/Contingency_table>.
+Organizational framework for web development in R including functions to
+serve static and dynamic content via HTTP methods, includes the html5
+package to create HTML pages, and offers other utility functions for
+common tasks related to web development.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -37,6 +47,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

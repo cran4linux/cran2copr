@@ -1,11 +1,11 @@
 %global packname  peruse
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sequence Iteration and Set Comprehension
+Summary:          A Tidy API for Sequence Iteration and Set Comprehension
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,8 +23,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-purrr 
 
 %description
-A friendly API for sequence iteration and set comprehension, and a tool
-for constructing and manipulating hash-table based data sets.
+A friendly API for sequence iteration and set comprehension.
 
 %prep
 %setup -q -c -n %{packname}

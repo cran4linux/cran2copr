@@ -1,11 +1,11 @@
-%global packname  fmpcloudr
-%global packver   0.1.3
+%global packname  fractD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Access to the 'FMP Cloud' and 'Financial Modeling Prep' API
+Summary:          Estimation of Fractal Dimension of a Black Area in 2D and 3D (Slices) Images
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-parallel >= 3.5.1
+BuildRequires:    R-stats >= 3.5.1
+BuildRequires:    R-utils >= 3.5.1
+BuildRequires:    R-CRAN-plyr >= 1.8.4
+BuildRequires:    R-CRAN-imager >= 0.42.1
+Requires:         R-parallel >= 3.5.1
+Requires:         R-stats >= 3.5.1
+Requires:         R-utils >= 3.5.1
+Requires:         R-CRAN-plyr >= 1.8.4
+Requires:         R-CRAN-imager >= 0.42.1
 
 %description
-Use R to access to the 'FMP Cloud' API <https://fmpcloud.io/> and
-'Financial Modeling Prep' API
-<https://financialmodelingprep.com/developer/docs/>. Data available
-includes stock prices, market indexes, company fundamentals, 13F holdings
-data, and much more. A valid API token must be set to enable functions.
+Estimate the of fractal dimension of a black area in 2D and 3D (slices)
+images using the box-counting method. See Klinkenberg B. (1994)
+<doi:10.1007/BF02065874>.
 
 %prep
 %setup -q -c -n %{packname}

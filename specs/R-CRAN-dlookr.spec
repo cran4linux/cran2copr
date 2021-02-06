@@ -1,9 +1,9 @@
 %global packname  dlookr
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Data Diagnosis, Exploration, Transformation
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.6
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-extrafont 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-hrbrthemes 
@@ -37,11 +37,12 @@ BuildRequires:    R-CRAN-rmarkdown
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-dplyr >= 0.7.6
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-extrafont 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-hrbrthemes 
@@ -59,6 +60,7 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
 A collection of tools that support data diagnosis, exploration, and

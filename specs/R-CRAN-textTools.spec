@@ -1,39 +1,31 @@
-%global packname  fmpcloudr
-%global packver   0.1.3
+%global packname  textTools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Access to the 'FMP Cloud' and 'Financial Modeling Prep' API
+Summary:          Functions for Text Cleansing and Text Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-Use R to access to the 'FMP Cloud' API <https://fmpcloud.io/> and
-'Financial Modeling Prep' API
-<https://financialmodelingprep.com/developer/docs/>. Data available
-includes stock prices, market indexes, company fundamentals, 13F holdings
-data, and much more. A valid API token must be set to enable functions.
+A framework for text cleansing and analysis. Conveniently prepare and
+process large amounts of text for analysis. Includes various metrics for
+word counts/frequencies that scale efficiently. Quickly analyze large
+amounts of text data using a text.table (a data.table created with one
+word (or unit of text analysis) per row, similar to the tidytext format).
+Offers flexibility to efficiently work with text data stored in vectors as
+well as text data formatted as a text.table.
 
 %prep
 %setup -q -c -n %{packname}

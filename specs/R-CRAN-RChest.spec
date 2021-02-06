@@ -1,13 +1,13 @@
-%global packname  fmpcloudr
-%global packver   0.1.3
+%global packname  RChest
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Access to the 'FMP Cloud' and 'Financial Modeling Prep' API
+Summary:          Locating Distributional Changes in Highly Dependent Time Series
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-reticulate 
 
 %description
-Use R to access to the 'FMP Cloud' API <https://fmpcloud.io/> and
-'Financial Modeling Prep' API
-<https://financialmodelingprep.com/developer/docs/>. Data available
-includes stock prices, market indexes, company fundamentals, 13F holdings
-data, and much more. A valid API token must be set to enable functions.
+We are using an implementation in Go with a strong focus on parallel
+computation in order to locate distributional changes in piece-wise
+stationary time-series with long-range dependencies like suggested by the
+papers A. Khaleghi, D. Ryabko (2014)
+<http://proceedings.mlr.press/v32/khaleghi14.html> and A. Khaleghi, D.
+Ryabko (2012)
+<https://proceedings.neurips.cc/paper/2012/file/299fb2142d7de959380f91c01c3a293c-Paper.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,29 @@
-%global packname  fmpcloudr
-%global packver   0.1.3
+%global packname  RcppFastFloat
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Access to the 'FMP Cloud' and 'Financial Modeling Prep' API
+Summary:          'Rcpp' Bindings for the 'fast_float' Header-Only Library for Number Parsing
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Use R to access to the 'FMP Cloud' API <https://fmpcloud.io/> and
-'Financial Modeling Prep' API
-<https://financialmodelingprep.com/developer/docs/>. Data available
-includes stock prices, market indexes, company fundamentals, 13F holdings
-data, and much more. A valid API token must be set to enable functions.
+Converting ascii text into (floating-point) numeric values is a very
+common problem. The 'fast_float' header-only C++ library by Daniel Lemire
+does it very well and very fast at up to or over to 1 gigabyte per second
+as described in more detail in <arXiv:2101.11408>. 'fast_float' is
+licensed under the Apache 2.0 license and provided here for use by other R
+packages via a simple 'LinkingTo:' statement.
 
 %prep
 %setup -q -c -n %{packname}

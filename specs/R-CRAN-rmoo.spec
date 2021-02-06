@@ -1,34 +1,42 @@
 %global packname  rmoo
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Non-Dominated Genetic Algorithms' Family
+Summary:          Multi-Objective Optimization in R
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ecr 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cdata 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-ecr 
-Requires:         R-CRAN-rgl 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cdata 
+Requires:         R-CRAN-plotly 
 
 %description
 A multiobjective optimization package based on K. Deb's algorithm and

@@ -1,34 +1,40 @@
-%global packname  nprotreg
-%global packver   1.1.0
+%global packname  motif
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Rotations for Sphere-Sphere Regression
+Summary:          Local Pattern Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-foreach 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-comat >= 0.7.0
+BuildRequires:    R-CRAN-philentropy 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-comat >= 0.7.0
+Requires:         R-CRAN-philentropy 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-tibble 
 
 %description
-Fits sphere-sphere regression models by estimating locally weighted
-rotations. Simulation of sphere-sphere data according to non-rigid
-rotation models. Provides methods for bias reduction applying iterative
-procedures within a Newton-Raphson learning scheme. Cross-validation is
-exploited to select smoothing parameters. See Marco Di Marzio, Agnese
-Panzera & Charles C. Taylor (2018) <doi:10.1080/01621459.2017.1421542>.
+Describes spatial patterns of categorical raster data for any defined
+regular and irregular areas. Patterns are described quantitatively using
+built-in signatures based on co-occurrence matrices but also allows for
+any user-defined functions. It enables spatial analysis such as search,
+change detection, and clustering to be performed on spatial patterns
+(Nowosad (2021) <doi:10.1007/s10980-020-01135-0>).
 
 %prep
 %setup -q -c -n %{packname}
