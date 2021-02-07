@@ -1,11 +1,11 @@
 %global packname  rdacca.hp
-%global packver   0.3.0
+%global packver   0.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Partitioning for Canonical Analysis
+Summary:          Hierarchical and Variation Partitioning for Canonical Analysis Without Limits for the Number of Predictors (Matrices)
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,11 +21,13 @@ Requires:         R-CRAN-vegan
 Requires:         R-CRAN-ggplot2 
 
 %description
-This function calculates the independent contribution of each explanatory
-variable to explained variation (R-squared) on RDA,CCA and db-RDA,
-applying the hierarchy algorithm of Chevan, A. and Sutherland, M. 1991
-Hierarchical Partitioning.The American Statistician, 90-96
-<DOI:10.1080/00031305.1991.10475776>.
+This function conducts variation partitioning and hierarchical
+partitioning to calculate the unique, shared (referred as to "common") and
+independent contributions of each predictor (or matrix) to explained
+variation (R-squared and adjusted R-squared) on canonical analysis
+(RDA,CCA and db-RDA), applying the hierarchy algorithm of Chevan, A. and
+Sutherland, M. 1991 Hierarchical Partitioning.The American Statistician,
+90-96 <DOI:10.1080/00031305.1991.10475776>.
 
 %prep
 %setup -q -c -n %{packname}

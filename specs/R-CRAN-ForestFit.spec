@@ -1,10 +1,10 @@
 %global packname  ForestFit
-%global packver   0.6.1
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
-Release:          2%{?dist}%{?buildtag}
+Version:          0.7.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Modelling for Plant Size Distributions
 
 License:          GPL (>= 2)
@@ -39,16 +39,21 @@ function, cumulative distribution function, and generating realizations
 from gamma shape mixture model introduced by Venturini et al. (2008)
 <doi:10.1214/07-AOAS156> , 8 ) The Bayesian inference, computing
 probability density function, cumulative distribution function, and
-generating realizations from four - parameter Johnson SB distribution, and
-9 ) Robust multiple linear regression analysis when error term follows
-skewed t distribution.
+generating realizations from four-parameter Johnson SB distribution, 9 )
+Robust multiple linear regression analysis when error term follows skewed
+t distribution, and 10 ) Estimating parameters of a given distribution
+fitted to grouped data using method of maximum likelihood.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -58,6 +63,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

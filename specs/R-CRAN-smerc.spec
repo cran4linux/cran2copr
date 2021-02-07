@@ -1,9 +1,9 @@
 %global packname  smerc
-%global packver   1.3.4
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Regional Counts
 
@@ -14,11 +14,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-MESS 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-randtoolbox 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-MESS 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-randtoolbox 
 Requires:         R-CRAN-sp 

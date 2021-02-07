@@ -1,9 +1,9 @@
 %global packname  tinylabels
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight Variable Labels
 
@@ -20,7 +20,7 @@ Requires:         R-stats
 
 %description
 Assign, extract, or remove variable labels from R vectors. Lightweight and
-free of non-base dependencies.
+dependency-free.
 
 %prep
 %setup -q -c -n %{packname}

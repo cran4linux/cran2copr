@@ -1,9 +1,9 @@
 %global packname  censo2017
-%global packver   0.3.2
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Base de Datos de Facil Acceso del Censo 2017 de Chile (2017 Chilean Census Easy Access Database)
 
@@ -18,10 +18,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-rstudioapi 
@@ -29,10 +27,8 @@ BuildRequires:    R-tools
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-rstudioapi 
@@ -41,15 +37,14 @@ Requires:         R-tools
 %description
 Provee un acceso conveniente a mas de 17 millones de registros de la base
 de datos del Censo 2017. Los datos fueron importados desde el DVD oficial
-del INE usando el Convertidor REDATAM creado por Pablo De Grande y ademas
-se proporcionan los mapas que acompanian a estos datos. Esta paquete esta
-documentado intencionalmente en castellano asciificado para que funcione
-sin problema en diferentes plataformas. (Provides convenient access to
-more than 17 million records from the Chilean Census 2017 database. The
-datasets were imported from the official DVD provided by the Chilean
-National Bureau of Statistics by using the REDATAM converter created by
-Pablo De Grande and in addition it includes the maps accompanying these
-datasets.)
+del INE usando el Convertidor REDATAM creado por Pablo De Grande. Esta
+paquete esta documentado intencionalmente en castellano asciificado para
+que funcione sin problema en diferentes plataformas. (Provides convenient
+access to more than 17 million records from the Chilean Census 2017
+database. The datasets were imported from the official DVD provided by the
+Chilean National Bureau of Statistics by using the REDATAM converter
+created by Pablo De Grande and in addition it includes the maps
+accompanying these datasets.)
 
 %prep
 %setup -q -c -n %{packname}

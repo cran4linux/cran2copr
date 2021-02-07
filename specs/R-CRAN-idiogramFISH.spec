@@ -1,11 +1,11 @@
 %global packname  idiogramFISH
-%global packver   1.16.8
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16.8
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Idiograms with Marks and Karyotype Indices
+Summary:          Shiny App. Idiograms with Marks and Karyotype Indices
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

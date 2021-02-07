@@ -1,11 +1,11 @@
 %global packname  H2x2Factorial
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical 2x2 Factorial Trials
+Summary:          Sample Size Calculation in Hierarchical 2x2 Factorial Trials
 
 License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,9 +18,9 @@ BuildArch:        noarch
 
 %description
 Implements the sample size methods for hierarchical 2x2 factorial trials
-under a series of hypothesis tests proposed in "Sample Size Calculation in
-Hierarchical 2x2 Factorial Trials with Unequal Cluster Sizes" (under
-review), as well as the table and plot generators for the sample size
+under a series of hypothesis tests proposed in "Sample size calculation in
+hierarchical 2x2 factorial trials with unequal cluster sizes" (under
+review), and provides the table and plot generators for the sample size
 estimations.
 
 %prep

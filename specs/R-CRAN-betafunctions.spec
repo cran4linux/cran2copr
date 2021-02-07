@@ -1,9 +1,9 @@
 %global packname  betafunctions
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Working with Two- And Four-Parameter Beta Probability Distributions
 
@@ -18,18 +18,17 @@ BuildArch:        noarch
 
 %description
 Package providing a number of functions for working with Two- and
-Four-parameter Beta distributions, including alternative
-parameterizations, calculation of moments, and fitting of Beta
-distributions to vectors of values. Also includes functions for estimating
-classification accuracy, diagnostic performance and consistency, using
-what is generally known as the "Livingston and Lewis approach" in the
-psychometric literature as the foundational method, which makes extensive
-use of the Beta distribution. A shiny application is now online, providing
-a GUI for the Livingston and Lewis approach. See documentation for LL.CA()
-function. Livingston and Lewis (1995)
-<doi:10.1111/j.1745-3984.1995.tb00462.x>. Hanson (1991)
-<https://files.eric.ed.gov/fulltext/ED344945.pdf>. Glas, Lijmer, Prins,
-Bonsel and Bossuyt (2003) <doi:10.1016/S0895-4356(03)00177-X>.
+Four-parameter Beta distributions, including parameterization in terms of
+moments, and fitting of Beta distributions to vectors of values. Also
+includes functions for estimating classification accuracy, diagnostic
+performance, and consistency, making use of what is generally known as the
+'Livingston and Lewis approach' in the psychometric literature as the
+foundational method, which makes extensive use of the Beta distribution. A
+shiny application is available, providing a GUI for the Livingston and
+Lewis approach. For link, see documentation for the LL.CA() function.
+Livingston and Lewis (1995) <doi:10.1111/j.1745-3984.1995.tb00462.x>.
+Hanson (1991) <https://files.eric.ed.gov/fulltext/ED344945.pdf>. Tharwat
+(2020) <doi:10.1016/j.aci.2018.08.003>.
 
 %prep
 %setup -q -c -n %{packname}
