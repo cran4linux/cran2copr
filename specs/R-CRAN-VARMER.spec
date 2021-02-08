@@ -1,9 +1,9 @@
 %global packname  VARMER
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variational Merging
 
@@ -15,16 +15,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-hydroGOF 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-parallel 
+Requires:         R-stats 
+Requires:         R-methods 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-deldir 
 Requires:         R-grDevices 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-hydroGOF 
+Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-cluster 
+Requires:         R-parallel 
 
 %description
 A new mathematical formulation to merge observed data with gridded images

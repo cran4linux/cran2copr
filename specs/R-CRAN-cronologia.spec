@@ -1,31 +1,28 @@
-%global packname  mde
-%global packver   0.3.0
+%global packname  cronologia
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Missing Data Explorer
+Summary:          Create an HTML Vertical Timeline from a Data Frame in 'rmarkdown' and 'shiny'
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.3
-BuildRequires:    R-CRAN-dplyr >= 0.8.9
-Requires:         R-CRAN-tidyr >= 1.0.3
-Requires:         R-CRAN-dplyr >= 0.8.9
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-glue 
 
 %description
-Correct identification and handling of missing data is one of the most
-important steps in any analysis. To aid this process, 'mde' provides a
-very easy to use yet robust framework to quickly get an idea of where the
-missing data lies and therefore find the most appropriate action to take.
-Graham WJ (2009) <doi:10.1146/annurev.psych.58.110405.085530>.
+Creates an HTML vertical timeline from a data frame as an input for
+'rmarkdown' documents and 'shiny' applications.
 
 %prep
 %setup -q -c -n %{packname}

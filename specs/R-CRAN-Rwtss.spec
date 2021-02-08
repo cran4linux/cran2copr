@@ -1,54 +1,55 @@
-%global packname  autoharp
-%global packver   0.0.4
+%global packname  Rwtss
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Automatic Grading of R and Rmd Scripts
+Summary:          Client for Web Time-Series Service
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-lintr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-pryr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-lintr 
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-zoo 
 
 %description
-A customisable set of tools for assessing and grading R or R-markdown
-scripts from students. It allows for checking correctness of code output,
-runtime statistics and static code analysis. The latter feature is made
-possible by representing R expressions using a tree structure.
+Allows remote access to satellite image time series provided by web time
+series services (WTSS). The WTSS API includes functions for listing the
+data sets available in WTSS servers, describing the contents of a data
+set, and retrieving a time series based on spatial location and temporal
+filters.
 
 %prep
 %setup -q -c -n %{packname}

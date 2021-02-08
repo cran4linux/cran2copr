@@ -1,11 +1,11 @@
-%global packname  PopVar
-%global packver   1.3.0
+%global packname  CEDARS
+%global packver   1.90
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.90
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genomic Breeding Tools: Genetic Variance Prediction and Cross-Validation
+Summary:          Simple and Efficient Pipeline for Electronic Health Record Annotation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,32 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BGLR 
-BuildRequires:    R-CRAN-qtl 
-BuildRequires:    R-CRAN-rrBLUP 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-mongolite 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-BGLR 
-Requires:         R-CRAN-qtl 
-Requires:         R-CRAN-rrBLUP 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-udpipe 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-mongolite 
 Requires:         R-parallel 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-udpipe 
+Requires:         R-utils 
 
 %description
-The main attribute of 'PopVar' is the prediction of genetic variance in
-bi-parental populations, from which the package derives its name. 'PopVar'
-contains a set of functions that use phenotypic and genotypic data from a
-set of candidate parents to 1) predict the mean, genetic variance, and
-superior progeny value of all, or a defined set of pairwise bi-parental
-crosses, and 2) perform cross-validation to estimate genome-wide
-prediction accuracy of multiple statistical models. More details are
-available in Mohammadi, Tiede, and Smith (2015,
-<doi:10.2135/cropsci2015.01.0030>). A dataset 'think_barley.rda' is
-included for reference and examples.
+Streamlined annotation pipeline for collection and aggregation of
+time-to-event data in retrospective clinical studies. 'CEDARS' aims to
+systematize and accelerate the review of electronic health record (EHR)
+corpora. It accomplishes those goals by deploying natural language
+processing as a tool to assist detection and characterization of clinical
+events by human abstractors. The online user manual presents the necessary
+steps to install 'CEDARS', process EHR corpora and obtain clinical event
+dates: <https://cedars.io>.
 
 %prep
 %setup -q -c -n %{packname}

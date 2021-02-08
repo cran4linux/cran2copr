@@ -1,9 +1,9 @@
 %global packname  Qtools
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Quantiles
 
@@ -18,7 +18,6 @@ BuildRequires:    R-CRAN-numDeriv >= 2016.8.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-glmx 
-BuildRequires:    R-CRAN-Gmisc 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-gtools 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-numDeriv >= 2016.8.1
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-utils 
 Requires:         R-CRAN-glmx 
-Requires:         R-CRAN-Gmisc 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-gtools 

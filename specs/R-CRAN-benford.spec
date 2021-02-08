@@ -1,31 +1,25 @@
-%global packname  mde
-%global packver   0.3.0
+%global packname  benford
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Missing Data Explorer
+Summary:          Benford's Analysis on Large Data Sets
 
-License:          GPL-3
+License:          Creative Commons Attribution 4.0 International License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.3
-BuildRequires:    R-CRAN-dplyr >= 0.8.9
-Requires:         R-CRAN-tidyr >= 1.0.3
-Requires:         R-CRAN-dplyr >= 0.8.9
 
 %description
-Correct identification and handling of missing data is one of the most
-important steps in any analysis. To aid this process, 'mde' provides a
-very easy to use yet robust framework to quickly get an idea of where the
-missing data lies and therefore find the most appropriate action to take.
-Graham WJ (2009) <doi:10.1146/annurev.psych.58.110405.085530>.
+Perform the Benford's Analysis to a data set in order to evaluate if it
+contains human fabricated data. For more details on the method see Moreau,
+2021, Model Assist. Statist. Appl., in press.
 
 %prep
 %setup -q -c -n %{packname}

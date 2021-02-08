@@ -1,31 +1,29 @@
-%global packname  mde
-%global packver   0.3.0
+%global packname  mlsbm
+%global packver   0.99.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.99.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Missing Data Explorer
+Summary:          Efficient Estimation of Bayesian SBMs & MLSBMs
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.3
-BuildRequires:    R-CRAN-dplyr >= 0.8.9
-Requires:         R-CRAN-tidyr >= 1.0.3
-Requires:         R-CRAN-dplyr >= 0.8.9
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Correct identification and handling of missing data is one of the most
-important steps in any analysis. To aid this process, 'mde' provides a
-very easy to use yet robust framework to quickly get an idea of where the
-missing data lies and therefore find the most appropriate action to take.
-Graham WJ (2009) <doi:10.1146/annurev.psych.58.110405.085530>.
+Fit Bayesian stochastic block models (SBMs) and multi-level stochastic
+block models (MLSBMs) using efficient Gibbs sampling implemented in
+'Rcpp'. The models assume symmetric, non-reflexive graphs (no self-loops)
+with unweighted, binary edges. Data are input as a symmetric binary
+adjacency matrix (SBMs), or list of such matrices (MLSBMs).
 
 %prep
 %setup -q -c -n %{packname}
