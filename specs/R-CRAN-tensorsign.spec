@@ -1,13 +1,13 @@
-%global packname  sbtools
-%global packver   1.1.13
+%global packname  tensorsign
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS ScienceBase Tools
+Summary:          Nonparametric Tensor Completion via Sign Series
 
-License:          CC0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-Matrix 
 
 %description
-Tools for interacting with U.S. Geological Survey ScienceBase
-<https://www.sciencebase.gov> interfaces. ScienceBase is a data cataloging
-and collaborative data management platform. Functions included for
-querying ScienceBase, and creating and fetching datasets.
+Efficient algorithm for nonparametric tensor completion via sign series.
+The algorithm employs the alternating optimization approach to solve the
+weighted classification problem. The detailed algorithm description can be
+found in Lee and Wang (2021) <arXiv:2102.00384>.
 
 %prep
 %setup -q -c -n %{packname}

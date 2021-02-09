@@ -1,10 +1,10 @@
 %global packname  LearningRlab
-%global packver   1.3
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
-Release:          3%{?dist}%{?buildtag}
+Version:          2.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Learning Functions
 
 License:          Unlimited
@@ -22,7 +22,7 @@ Requires:         R-CRAN-crayon
 %description
 Aids in learning statistical functions incorporating the result of
 calculus done with each function and how they are obtained, that is, which
-equations and variables are used. Also for all these equations and their
+equation and variables are used. Also for all these equations and their
 related variables detailed explanations and interactive exercises are also
 included. All these characteristics allow to the package user to improve
 the learning of statistics basics by means of their use.
@@ -30,6 +30,13 @@ the learning of statistics basics by means of their use.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -39,15 +46,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

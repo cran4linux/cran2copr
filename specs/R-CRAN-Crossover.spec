@@ -1,9 +1,9 @@
 %global packname  Crossover
-%global packver   0.1-19
+%global packver   0.1-20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.19
+Version:          0.1.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Search of Crossover Designs
 
@@ -45,8 +45,8 @@ Requires:         R-stats4
 Requires:         R-CRAN-digest 
 
 %description
-Package Crossover provides different crossover designs from combinatorial
-or search algorithms as well as from literature and a GUI to access them.
+Generate and analyse crossover designs from combinatorial or search
+algorithms as well as from literature and a GUI to access them.
 
 %prep
 %setup -q -c -n %{packname}

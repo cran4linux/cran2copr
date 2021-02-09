@@ -1,9 +1,9 @@
 %global packname  survHE
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survival Analysis in Health Economic Evaluation
 
@@ -49,7 +49,7 @@ specify a set of parametric models using a common notation and select the
 preferred mode of inference. The results can also be post-processed to
 produce probabilistic sensitivity analysis and can be used to export the
 output to an Excel file (e.g. for a Markov model, as often done by
-modellers and practitioners). doi:10.18637/jss.v095.i14.
+modellers and practitioners). <doi:10.18637/jss.v095.i14>.
 
 %prep
 %setup -q -c -n %{packname}

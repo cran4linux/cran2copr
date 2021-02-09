@@ -1,9 +1,9 @@
 %global packname  coin
-%global packver   1.4-0
+%global packver   1.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Inference Procedures in a Permutation Test Framework
 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-multcomp
 Conditional inference procedures for the general independence problem
 including two-sample, K-sample (non-parametric ANOVA), correlation,
 censored, ordered and multivariate problems described in
-doi{10.18637/jss.v028.i08}.
+<doi:10.18637/jss.v028.i08>.
 
 %prep
 %setup -q -c -n %{packname}

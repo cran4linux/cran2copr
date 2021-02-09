@@ -1,9 +1,9 @@
 %global packname  SMITIDvisu
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize Data for Host and Viral Population from 'SMITIDstruct' using 'HTMLwidgets'
 

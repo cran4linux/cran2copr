@@ -1,35 +1,32 @@
-%global packname  SpatMCA
-%global packver   1.0.2.0
+%global packname  circacompare
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularized Spatial Maximum Covariance Analysis
+Summary:          Analyses of Circadian Data
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-RcppParallel >= 0.11.2
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-RcppParallel >= 0.11.2
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-MASS 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provide regularized maximum covariance analysis incorporating smoothness,
-sparseness and orthogonality of couple patterns by using the alternating
-direction method of multipliers algorithm. The method can be applied to
-either regularly or irregularly spaced data, including 1D, 2D, and 3D
-(Wang and Huang, 2017 <doi:10.1002/env.2481>).
+Uses non-linear regression to statistically compare two circadian rhythms.
+Groups are only compared if both are rhythmic (amplitude is non-zero).
+Performs analyses regarding mesor, phase, and amplitude, reporting on
+estimates and statistical differences, for each, between groups.
 
 %prep
 %setup -q -c -n %{packname}

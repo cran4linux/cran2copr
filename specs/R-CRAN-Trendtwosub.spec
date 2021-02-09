@@ -1,35 +1,31 @@
-%global packname  segregation
-%global packver   0.5.0
+%global packname  Trendtwosub
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Entropy-Based Segregation Indices
+Summary:          Two Sample Order Free Trend Nonparametric Inference
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-usethis 
 
 %description
-Computes entropy-based segregation indices, as developed by Theil (1971)
-<isbn:978-0471858454>, with a focus on the Mutual Information Index (M)
-and Theil's Information Index (H). The M, further described by Mora and
-Ruiz-Castillo (2011) <doi:10.1111/j.1467-9531.2011.01237.x> and Frankel
-and Volij (2011) <doi:10.1016/j.jet.2010.10.008>, is a measure of
-segregation that is highly decomposable. The package provides tools to
-decompose the index by units and groups (local segregation), and by within
-and between terms. The package also provides a method to decompose
-differences in segregation as described by Elbers (2021)
-<doi:10.1177/0049124121986204> Includes standard error estimation by
-bootstrapping.
+Non-parametric trend comparison of two independent samples with sequential
+subsamples. For more details, please refer to Wang, Stapleton, and Chen
+(2018) <doi:10.1080/00949655.2018.1482492>.
 
 %prep
 %setup -q -c -n %{packname}

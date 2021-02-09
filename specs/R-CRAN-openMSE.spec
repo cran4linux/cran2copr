@@ -1,35 +1,37 @@
-%global packname  segregation
-%global packver   0.5.0
+%global packname  openMSE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Entropy-Based Segregation Indices
+Summary:          Easily Install and Load the 'openMSE' Packages
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-DLMtool >= 6.0.0
+BuildRequires:    R-CRAN-MSEtool >= 3.0.0
+BuildRequires:    R-CRAN-SAMtool 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-DLMtool >= 6.0.0
+Requires:         R-CRAN-MSEtool >= 3.0.0
+Requires:         R-CRAN-SAMtool 
+Requires:         R-CRAN-crayon 
 
 %description
-Computes entropy-based segregation indices, as developed by Theil (1971)
-<isbn:978-0471858454>, with a focus on the Mutual Information Index (M)
-and Theil's Information Index (H). The M, further described by Mora and
-Ruiz-Castillo (2011) <doi:10.1111/j.1467-9531.2011.01237.x> and Frankel
-and Volij (2011) <doi:10.1016/j.jet.2010.10.008>, is a measure of
-segregation that is highly decomposable. The package provides tools to
-decompose the index by units and groups (local segregation), and by within
-and between terms. The package also provides a method to decompose
-differences in segregation as described by Elbers (2021)
-<doi:10.1177/0049124121986204> Includes standard error estimation by
-bootstrapping.
+The 'openMSE' package is designed for building operating models, doing
+simulation modelling and management strategy evaluation for fisheries.
+'openMSE' is an umbrella package for the 'MSEtool' (Management Strategy
+Evaluation toolkit), 'DLMtool' (Data-Limited Methods toolkit), and SAMtool
+(Stock Assessment Methods toolkit) packages. By loading and installing
+'openMSE', users have access to the full functionality contained within
+these packages. Learn more about 'openMSE' at <https://openmse.com/>.
 
 %prep
 %setup -q -c -n %{packname}

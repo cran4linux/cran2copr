@@ -1,42 +1,31 @@
-%global packname  hddtools
-%global packver   0.9.3
+%global packname  adsDataHubR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hydrological Data Discovery Tools
+Summary:          Google Ads Data Hub API Client
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-rnrfa 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-rnrfa 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 
 %description
-Tools to discover hydrological data, accessing catalogues and databases
-from various data providers.
+Interact with Google Ads Data Hub API
+<https://developers.google.com/ads-data-hub/reference/rest>. The
+functionality allows to fetch customer details, submit queries to ADH.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,42 @@
-%global packname  segregation
-%global packver   0.5.0
+%global packname  multidplyr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Entropy-Based Segregation Indices
+Summary:          A Multi-Process 'dplyr' Backend
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-callr >= 3.5.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.6
+BuildRequires:    R-CRAN-qs >= 0.18.3
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-callr >= 3.5.1
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-vctrs >= 0.3.6
+Requires:         R-CRAN-qs >= 0.18.3
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-Computes entropy-based segregation indices, as developed by Theil (1971)
-<isbn:978-0471858454>, with a focus on the Mutual Information Index (M)
-and Theil's Information Index (H). The M, further described by Mora and
-Ruiz-Castillo (2011) <doi:10.1111/j.1467-9531.2011.01237.x> and Frankel
-and Volij (2011) <doi:10.1016/j.jet.2010.10.008>, is a measure of
-segregation that is highly decomposable. The package provides tools to
-decompose the index by units and groups (local segregation), and by within
-and between terms. The package also provides a method to decompose
-differences in segregation as described by Elbers (2021)
-<doi:10.1177/0049124121986204> Includes standard error estimation by
-bootstrapping.
+Partition a data frame across multiple worker processes to provide simple
+multicore parallelism.
 
 %prep
 %setup -q -c -n %{packname}
