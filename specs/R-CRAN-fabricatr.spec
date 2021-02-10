@@ -1,9 +1,9 @@
 %global packname  fabricatr
-%global packver   0.12.0
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imagine Your Data Before You Collect It
 
@@ -16,11 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.2.0
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-backports 
 Requires:         R-CRAN-rlang >= 0.2.0
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-backports 
 
 %description
 Helps you imagine your data before you collect it. Hierarchical data

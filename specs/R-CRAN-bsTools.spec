@@ -1,47 +1,28 @@
-%global packname  wikilake
-%global packver   0.5.0
+%global packname  bsTools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scrape Lake Metadata Tables from Wikipedia
+Summary:          Create HTML Content with Bootstrap 5 Classes and Layouts
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-WikipediR 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-selectr 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-WikipediR 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-sp 
-Requires:         R-graphics 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-selectr 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-html5 
+Requires:         R-CRAN-html5 
 
 %description
-Scrape lake metadata tables from Wikipedia <https://www.wikipedia.org/>.
+Functions are pre-configured to utilize Bootstrap 5 classes and HTML
+structures to create Bootstrap-styled HTML quickly and easily. Includes
+functions for creating common Bootstrap elements such as containers, rows,
+cols, navbars, etc. Intended to be used with the html5 package.
 
 %prep
 %setup -q -c -n %{packname}

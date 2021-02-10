@@ -1,9 +1,9 @@
 %global packname  pdi
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phenotypic Index Measures for Oak Decline Severity
 
@@ -43,14 +43,20 @@ spectrum of oak tree health condition. Two phenotypic oak decline indexes
 have been developed to quantitatively describe and differentiate oak
 decline syndromes in Quercus robur. This package provides a toolkit to
 generate these decline indexes from phenotypic descriptors using the
-machine learning algorithm random forest.
+machine learning algorithm random forest. The methodology for generating
+these indexes is outlined in Finch et al. (2121)
+<doi:10.1016/j.foreco.2021.118948>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,6 +66,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

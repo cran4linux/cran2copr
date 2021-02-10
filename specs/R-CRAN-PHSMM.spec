@@ -1,40 +1,32 @@
-%global packname  gasper
-%global packver   1.1.0
+%global packname  PHSMM
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph Signal Processing
+Summary:          Penalised Maximum Likelihood Estimation for Hidden Semi-Markov Models
 
-License:          LGPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Provides the standard operations for signal processing on graphs: graph
-Fourier transform, spectral graph wavelet transform, visualization tools.
-It also implements a data driven method for graph signal
-denoising/regression, for details see De Loynes, Navarro, Olivier (2019)
-<arxiv:1906.01882>. The package also provides an interface to the
-SuiteSparse Matrix Collection, <https://sparse.tamu.edu/>, a large and
-widely used set of sparse matrix benchmarks collected from a wide range of
-applications.
+Provides tools for penalised maximum likelihood estimation of hidden
+semi-Markov models (HSMMs) with flexible state dwell-time distributions.
+These include functions for model fitting, model checking and
+state-decoding. The package considers HSMMs for univariate time series
+with state-dependent gamma, normal, Poisson or Bernoulli distributions.
+For details, see Pohle, J., Adam, T. and Beumer, L.T. (2021): Flexible
+estimation of the state dwell-time distribution in hidden semi-Markov
+models. <arXiv:2101.09197>.
 
 %prep
 %setup -q -c -n %{packname}

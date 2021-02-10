@@ -1,11 +1,11 @@
 %global packname  eq5d
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Calculating 'EQ-5D' Utility Index Scores
+Summary:          Methods for Analysing 'EQ-5D' Data and Calculating 'EQ-5D' Index Scores
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,12 +33,13 @@ health surveys. The eq5d package provides methods to calculate index
 scores from a subject's dimension scores. 26 TTO and 11 VAS EQ-5D-3L value
 sets including those for countries in Szende et al (2007)
 <doi:10.1007/1-4020-5511-0> and Szende et al (2014)
-<doi:10.1007/978-94-007-7596-1>, 25 EQ-5D-5L EQ-VT value sets from the
+<doi:10.1007/978-94-007-7596-1>, 26 EQ-5D-5L EQ-VT value sets from the
 EuroQol website, and the EQ-5D-5L crosswalk value sets developed by van
-Hout et al. (2012) <doi:10.1016/j.jval.2012.02.008> are included.
-Additionally, a shiny web tool is included to enable the calculation,
-visualisation and automated statistical analysis of EQ-5D index values via
-a web browser using EQ-5D dimension scores stored in CSV or Excel files.
+Hout et al. (2012) <doi:10.1016/j.jval.2012.02.008> are included. Methods
+are also included for the analysis of EQ-5D profiles along with a shiny
+web tool to enable the calculation, visualisation and automated
+statistical analysis of EQ-5D data via a web browser using EQ-5D dimension
+scores stored in CSV or Excel files.
 
 %prep
 %setup -q -c -n %{packname}

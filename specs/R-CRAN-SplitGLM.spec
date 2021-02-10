@@ -1,47 +1,31 @@
-%global packname  wikilake
-%global packver   0.5.0
+%global packname  SplitGLM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scrape Lake Metadata Tables from Wikipedia
+Summary:          Split Generalized Linear Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-WikipediR 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-selectr 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-WikipediR 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-sp 
-Requires:         R-graphics 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-selectr 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-mvnfast 
 
 %description
-Scrape lake metadata tables from Wikipedia <https://www.wikipedia.org/>.
+Functions to compute split generalized linear models. The approach fits
+generalized linear models that split the covariates into groups. The
+optimal split of the variables into groups and the regularized estimation
+of the coefficients are performed by minimizing an objective function that
+encourages sparsity within each group and diversity among them.
 
 %prep
 %setup -q -c -n %{packname}
