@@ -1,9 +1,9 @@
 %global packname  stopwords
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilingual Stopword Lists
 
@@ -16,11 +16,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-desc 
 Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-desc 
 
 %description
 Provides multiple sources of stopwords, for use in text analysis and

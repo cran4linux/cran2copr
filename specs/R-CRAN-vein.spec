@@ -1,9 +1,9 @@
 %global packname  vein
-%global packver   0.9.0.1
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.1
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vehicular Emissions Inventories
 
@@ -19,11 +19,13 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dotCall64 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-units 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-dotCall64 
 
 %description
 Elaboration of vehicular emissions inventories, consisting in four stages,

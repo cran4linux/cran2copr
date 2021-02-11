@@ -1,38 +1,41 @@
-%global packname  RobKF
-%global packver   1.0.1
+%global packname  tastypie
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Innovative and/or Additive Outlier Robust Kalman Filtering
+Summary:          Easy Pie Charts
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-shadowtext 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-shadowtext 
 
 %description
-Implements a series of robust Kalman filtering approaches. It implements
-the additive outlier robust filters of Ruckdeschel et al. (2014)
-<arXiv:1204.3358> and Agamennoni et al. (2018)
-<doi:10.1109/ICRA.2011.5979605>, the innovative outlier robust filter of
-Ruckdeschel et al. (2014) <arXiv:1204.3358>, as well as the innovative and
-additive outlier robust filter of Fisch et al. (2020) <arXiv:2007.03238>.
+You only need to type 'why pie charts are bad' on Google to find thousands
+of articles full of (valid) reasons why other types of charts should be
+preferred over this one. Therefore, because of the little use due to the
+reasons already mentioned, making pie charts (and related) in R is not
+straightforward, so other functions are needed to simplify things. In this
+R package there are useful functions to make 'tasty' pie charts
+immediately by exploiting the many cool templates provided.
 
 %prep
 %setup -q -c -n %{packname}

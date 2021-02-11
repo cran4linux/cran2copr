@@ -1,35 +1,37 @@
-%global packname  FisPro
-%global packver   1.1
+%global packname  MLVSBM
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Inference System Design and Optimization
+Summary:          A Stochastic Block Model for Multilevel Networks
 
-License:          CeCILL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-blockmodels 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-blockmodels 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-magrittr 
 
 %description
-Fuzzy inference systems are based on fuzzy rules, which have a good
-capability for managing progressive phenomenons. This package is a basic
-implementation of the main functions to use a Fuzzy Inference System (FIS)
-provided by the open source software 'FisPro' <https://www.fispro.org>.
-'FisPro' allows to create fuzzy inference systems and to use them for
-reasoning purposes, especially for simulating a physical or biological
-system.
+Simulation, inference and clustering of multilevel networks using a
+Stochastic Block Model framework as described in Chabert-Liddell,
+Barbillon, Donnet and Lazega (2021) <doi:10.1016/j.csda.2021.107179>. A
+multilevel network is defined as the junction of two interaction networks,
+the upper level or inter-organizational level and the lower level or
+inter-individual level. The inter-level represents an affiliation
+relationship.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global packname  spatstat.data
-%global packver   1.7-0
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for 'spatstat'
+Summary:          Datasets for 'spatstat' Family
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,7 +21,7 @@ Requires:         R-CRAN-spatstat.utils
 Requires:         R-CRAN-Matrix 
 
 %description
-Contains all the datasets for the 'spatstat' package.
+Contains all the datasets for the 'spatstat' family of packages.
 
 %prep
 %setup -q -c -n %{packname}

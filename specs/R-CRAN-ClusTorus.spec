@@ -1,35 +1,41 @@
-%global packname  FisPro
-%global packver   1.1
+%global packname  ClusTorus
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Inference System Design and Optimization
+Summary:          Clustering on the Torus by Conformal Prediction
 
-License:          CeCILL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-BAMBI 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-BAMBI 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Fuzzy inference systems are based on fuzzy rules, which have a good
-capability for managing progressive phenomenons. This package is a basic
-implementation of the main functions to use a Fuzzy Inference System (FIS)
-provided by the open source software 'FisPro' <https://www.fispro.org>.
-'FisPro' allows to create fuzzy inference systems and to use them for
-reasoning purposes, especially for simulating a physical or biological
-system.
+Provides various tools of for clustering multivariate angular data on the
+torus. The package provides angular adaptations of usual clustering
+methods such as the k-means clustering, pairwise angular distances, which
+can be used as an input for distance-based clustering algorithms, and
+implements clustering based on the conformal prediction framework. Options
+for the conformal scores include scores based on a kernel density
+estimate, multivariate von Mises mixtures, and naive k-means clusters.
+Moreover, the package provides some basic data handling tools for angular
+data.
 
 %prep
 %setup -q -c -n %{packname}

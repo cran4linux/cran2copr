@@ -1,26 +1,29 @@
-%global packname  pkgnews
-%global packver   0.0.1
+%global packname  ontologySimilarity
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve R Package News Files
+Summary:          Calculating Ontological Similarities
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-ontologyIndex >= 2.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-ontologyIndex >= 2.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Read R package news files, regardless of whether or not the package is
-installed.
+Calculate similarity between ontological terms and sets of ontological
+terms based on term information content and assess statistical
+significance of similarity in the context of a collection of terms sets -
+Greene et al. 2017 <doi:10.1093/bioinformatics/btw763>.
 
 %prep
 %setup -q -c -n %{packname}

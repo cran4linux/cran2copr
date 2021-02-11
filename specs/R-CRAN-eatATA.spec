@@ -1,9 +1,9 @@
 %global packname  eatATA
-%global packver   0.9.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Constraints for Small Test Assembly Problems
 
@@ -25,9 +25,9 @@ Requires:         R-CRAN-lpSolve
 %description
 Provides simple functions to create constraints for small test assembly
 problems (e.g. van der Linden (2005, ISBN: 978-0-387-29054-6)) using
-sparse matrices. Currently, 'GLPK', 'lpSolve', and 'Gurobi' are supported
-as solvers. The 'gurobi' package is not available from any mainstream
-repository; see <https://www.gurobi.com/downloads/>.
+sparse matrices. Currently, 'GLPK', 'lpSolve', 'Symphony', and 'Gurobi'
+are supported as solvers. The 'gurobi' package is not available from any
+mainstream repository; see <https://www.gurobi.com/downloads/>.
 
 %prep
 %setup -q -c -n %{packname}

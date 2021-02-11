@@ -1,9 +1,9 @@
 %global packname  feature
-%global packver   1.2.14
+%global packver   1.2.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.14
+Version:          1.2.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Inferential Feature Significance for Multivariate Kernel Density Estimation
 
@@ -15,9 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 1.4.0
 Requires:         R-core >= 1.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ks >= 1.10.0
+BuildRequires:    R-CRAN-ks >= 1.12.0
+BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-tcltk 
-Requires:         R-CRAN-ks >= 1.10.0
+Requires:         R-CRAN-ks >= 1.12.0
+Requires:         R-CRAN-plot3D 
 Requires:         R-tcltk 
 
 %description

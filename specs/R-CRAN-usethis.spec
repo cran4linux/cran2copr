@@ -1,9 +1,9 @@
 %global packname  usethis
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automate Package and Project Setup
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-gh >= 1.2.0
 BuildRequires:    R-CRAN-rprojroot >= 1.2
 BuildRequires:    R-CRAN-gert >= 1.0.2
-BuildRequires:    R-CRAN-rlang >= 0.4.3
+BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-clipr >= 0.3.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
@@ -43,7 +43,7 @@ Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-gh >= 1.2.0
 Requires:         R-CRAN-rprojroot >= 1.2
 Requires:         R-CRAN-gert >= 1.0.2
-Requires:         R-CRAN-rlang >= 0.4.3
+Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-clipr >= 0.3.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 

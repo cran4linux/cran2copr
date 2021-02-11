@@ -1,9 +1,9 @@
 %global packname  datacleanr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive and Reproducible Data Cleaning
 
@@ -12,55 +12,55 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-summarytools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-plotly >= 4.9.2.1
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-lubridate >= 1.7.9.2
+BuildRequires:    R-CRAN-formatR >= 1.7
+BuildRequires:    R-CRAN-htmlwidgets >= 1.5.3
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-fs >= 1.5.0
+BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-summarytools >= 0.9.6
+BuildRequires:    R-CRAN-shinyFiles >= 0.8.0
+BuildRequires:    R-CRAN-clipr >= 0.7.1
+BuildRequires:    R-CRAN-shinyWidgets >= 0.5.4
+BuildRequires:    R-CRAN-htmltools >= 0.5
+BuildRequires:    R-CRAN-rlang >= 0.4.9
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-DT >= 0.16
+BuildRequires:    R-CRAN-rstudioapi >= 0.13
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-formatR 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-shinyFiles 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-summarytools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-plotly >= 4.9.2.1
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-lubridate >= 1.7.9.2
+Requires:         R-CRAN-formatR >= 1.7
+Requires:         R-CRAN-htmlwidgets >= 1.5.3
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-fs >= 1.5.0
+Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-RColorBrewer >= 1.1.2
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-summarytools >= 0.9.6
+Requires:         R-CRAN-shinyFiles >= 0.8.0
+Requires:         R-CRAN-clipr >= 0.7.1
+Requires:         R-CRAN-shinyWidgets >= 0.5.4
+Requires:         R-CRAN-htmltools >= 0.5
+Requires:         R-CRAN-rlang >= 0.4.9
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-DT >= 0.16
+Requires:         R-CRAN-rstudioapi >= 0.13
 Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-formatR 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-rstudioapi 
 Requires:         R-utils 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-htmlwidgets 
 Requires:         R-tools 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-shinyFiles 
 
 %description
 Flexible and efficient cleaning of data with interactivity. 'datacleanr'

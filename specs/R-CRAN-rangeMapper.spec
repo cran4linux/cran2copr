@@ -1,9 +1,9 @@
 %global packname  rangeMapper
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Platform for the Study of Macro-Ecology of Life History Traits
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
@@ -44,7 +44,8 @@ Requires:         R-CRAN-exactextractr
 
 %description
 Tools for generation of (life-history) traits and diversity maps on
-hexagonal or square grids.
+hexagonal or square grids. Valcu et al.(2012)
+<doi:10.1111/j.1466-8238.2011.00739.x>.
 
 %prep
 %setup -q -c -n %{packname}

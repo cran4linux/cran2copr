@@ -1,9 +1,9 @@
 %global packname  multiclassPairs
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build MultiClass Pair-Based Classifiers using TSPs or RF
 
@@ -53,6 +53,8 @@ filtered and the most important and informative rules will be kept. The
 informative rules will be assembled in an one-vs-rest model or in an RF
 model.  We provide a detailed description with each function in this
 package to explain the filtration and training methodology in each line.
+Reference: Marzouka & Eriksson (2021)
+<doi:10.1093/bioinformatics/btab088>.
 
 %prep
 %setup -q -c -n %{packname}

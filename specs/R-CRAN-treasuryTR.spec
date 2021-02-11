@@ -1,35 +1,37 @@
-%global packname  FisPro
-%global packver   1.1
+%global packname  treasuryTR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Inference System Design and Optimization
+Summary:          Generate Treasury Total Returns from Yield Data
 
-License:          CeCILL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xts >= 0.9.0
+BuildRequires:    R-CRAN-quantmod 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-xts >= 0.9.0
+Requires:         R-CRAN-quantmod 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
 
 %description
-Fuzzy inference systems are based on fuzzy rules, which have a good
-capability for managing progressive phenomenons. This package is a basic
-implementation of the main functions to use a Fuzzy Inference System (FIS)
-provided by the open source software 'FisPro' <https://www.fispro.org>.
-'FisPro' allows to create fuzzy inference systems and to use them for
-reasoning purposes, especially for simulating a physical or biological
-system.
+Generate Total Returns (TR) from bond yield data with fixed maturity, e.g.
+reported treasury yields. The generated TR series are very close to
+alternative series that can be purchased (e.g. CRSP, Bloomberg),
+suggesting they are a high-quality alternative for those, see Swinkels
+(2019) <doi:10.3390/data4030091>.
 
 %prep
 %setup -q -c -n %{packname}

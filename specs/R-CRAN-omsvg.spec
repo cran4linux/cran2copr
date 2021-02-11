@@ -1,35 +1,39 @@
-%global packname  FisPro
-%global packver   1.1
+%global packname  omsvg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Inference System Design and Optimization
+Summary:          Build and Transform 'SVG' Objects
 
-License:          CeCILL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xml2 >= 1.3.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.3
+BuildRequires:    R-CRAN-htmltools >= 0.5.1.1
+BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-sass >= 0.3.0
+BuildRequires:    R-CRAN-gt >= 0.2.2
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-xml2 >= 1.3.2
+Requires:         R-CRAN-dplyr >= 1.0.3
+Requires:         R-CRAN-htmltools >= 0.5.1.1
+Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-sass >= 0.3.0
+Requires:         R-CRAN-gt >= 0.2.2
+Requires:         R-CRAN-magrittr 
 
 %description
-Fuzzy inference systems are based on fuzzy rules, which have a good
-capability for managing progressive phenomenons. This package is a basic
-implementation of the main functions to use a Fuzzy Inference System (FIS)
-provided by the open source software 'FisPro' <https://www.fispro.org>.
-'FisPro' allows to create fuzzy inference systems and to use them for
-reasoning purposes, especially for simulating a physical or biological
-system.
+Build 'SVG' components using element-based functions. With an 'svg'
+object, we can modify its graphical elements with a suite of transform
+functions.
 
 %prep
 %setup -q -c -n %{packname}

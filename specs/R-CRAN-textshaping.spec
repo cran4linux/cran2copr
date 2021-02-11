@@ -1,9 +1,9 @@
 %global packname  textshaping
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to the 'HarfBuzz' and 'Fribidi' Libraries for Text Shaping
 
@@ -16,9 +16,9 @@ BuildRequires:    harfbuzz-devel
 BuildRequires:    fribidi-devel
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-systemfonts >= 0.3.0
+BuildRequires:    R-CRAN-systemfonts >= 1.0.0
 BuildRequires:    R-CRAN-cpp11 >= 0.2.1
-Requires:         R-CRAN-systemfonts >= 0.3.0
+Requires:         R-CRAN-systemfonts >= 1.0.0
 
 %description
 Provides access to the text shaping functionality in the 'HarfBuzz'

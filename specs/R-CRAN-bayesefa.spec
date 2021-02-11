@@ -1,35 +1,29 @@
-%global packname  FisPro
-%global packver   1.1
+%global packname  bayesefa
+%global packver   0.0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Inference System Design and Optimization
+Summary:          Bayesian Exploratory Factor
 
-License:          CeCILL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-psych 
 
 %description
-Fuzzy inference systems are based on fuzzy rules, which have a good
-capability for managing progressive phenomenons. This package is a basic
-implementation of the main functions to use a Fuzzy Inference System (FIS)
-provided by the open source software 'FisPro' <https://www.fispro.org>.
-'FisPro' allows to create fuzzy inference systems and to use them for
-reasoning purposes, especially for simulating a physical or biological
-system.
+Exploratory Bayesian factor analysis of continuous, mixed-type, and
+bounded continuous variables using the mode-jumping algorithm of Man and
+Culpepper (2020) <doi:10.1080/01621459.2020.1773833>.
 
 %prep
 %setup -q -c -n %{packname}

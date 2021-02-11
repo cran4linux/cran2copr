@@ -1,9 +1,9 @@
 %global packname  SymbolicDeterminants
-%global packver   1.3.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Symbolic Representation of Matrix Determinant
 
@@ -15,17 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-arrangements 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-arrangements 
+Requires:         R-CRAN-fs 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-fs 
 
 %description
-Creates a guide for writing the formula for the determinant of a square
-matrix (a detguide) as a function of the elements of the matrix and writes
-out that formula, the symbolic representation.
+Creates a numeric guide for writing the formula for the determinant of a
+square matrix (a detguide) as a function of the elements of the matrix and
+writes out that formula, the symbolic representation.
 
 %prep
 %setup -q -c -n %{packname}
