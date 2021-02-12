@@ -1,30 +1,29 @@
-%global packname  optimParallel
-%global packver   1.0-2
+%global packname  td
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Version of the L-BFGS-B Optimization Method
+Summary:          Access to the 'twelvedata' Financial Data API
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-RcppSimdJson 
+Requires:         R-CRAN-RcppSimdJson 
 
 %description
-Provides a parallel version of the L-BFGS-B method of optim(). The main
-function of the package is optimParallel(), which has the same usage and
-output as optim(). Using optimParallel() can significantly reduce the
-optimization time.
+The 'twelvedata' REST service offers access to current and historical data
+on stocks, standard as well as digital 'crypto' currencies, and other
+financial assets covering a wide variety of course and time spans. See
+<https://twelvedata.com/> for details, to create an account, and to
+request an API key for free-but-capped access to the data.
 
 %prep
 %setup -q -c -n %{packname}

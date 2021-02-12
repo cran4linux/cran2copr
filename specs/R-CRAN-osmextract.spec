@@ -1,30 +1,30 @@
-%global packname  optimParallel
-%global packver   1.0-2
+%global packname  osmextract
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Version of the L-BFGS-B Optimization Method
+Summary:          Download and Read OpenStreetMap Data Extracts
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-sf >= 0.8.1
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-sf >= 0.8.1
+Requires:         R-utils 
+Requires:         R-tools 
 
 %description
-Provides a parallel version of the L-BFGS-B method of optim(). The main
-function of the package is optimParallel(), which has the same usage and
-output as optim(). Using optimParallel() can significantly reduce the
-optimization time.
+Find, download, convert and read Open Street Map data extracts obtained
+from several providers.
 
 %prep
 %setup -q -c -n %{packname}

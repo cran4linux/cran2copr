@@ -1,44 +1,39 @@
-%global packname  vitae
-%global packver   0.4.1
+%global packname  ggh4x
+%global packver   0.1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Curriculum Vitae for R Markdown
+Summary:          Hacks for 'ggplot2'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.2
-BuildRequires:    R-CRAN-vctrs >= 0.3.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-rmarkdown >= 2.2
-Requires:         R-CRAN-vctrs >= 0.3.3
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-grid 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-pillar 
 
 %description
-Provides templates and functions to simplify the production and
-maintenance of curriculum vitae.
+A 'ggplot2' extension that does a variety of little helpful things.  The
+package extends 'ggplot2' facets through customisation, by setting
+individual scales per panel, resizing panels and providing nested facets.
+Also allows multiple colour and fill scales per plot. Also hosts a smaller
+collection of stats, geoms and axis guides.
 
 %prep
 %setup -q -c -n %{packname}

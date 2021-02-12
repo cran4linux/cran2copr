@@ -1,30 +1,39 @@
-%global packname  optimParallel
-%global packver   1.0-2
+%global packname  astrochron
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Version of the L-BFGS-B Optimization Method
+Summary:          A Computational Tool for Astrochronology
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-IDPmisc 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-multitaper 
 BuildRequires:    R-parallel 
-Requires:         R-stats 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-IDPmisc 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-multitaper 
 Requires:         R-parallel 
 
 %description
-Provides a parallel version of the L-BFGS-B method of optim(). The main
-function of the package is optimParallel(), which has the same usage and
-output as optim(). Using optimParallel() can significantly reduce the
-optimization time.
+Routines for astrochronologic testing, astronomical time scale
+construction, and time series analysis. Also included are a range of
+statistical analysis and modeling routines that are relevant to time scale
+development and paleoclimate analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,27 @@
-%global packname  rgeoda
-%global packver   0.0.6
+%global packname  MLpreemption
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Library for Spatial Data Analysis
+Summary:          Maximum Likelihood Estimation of the Niche Preemption Model
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-wkb 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
-Requires:         R-CRAN-wkb 
+BuildRequires:    R-devel >= 1.8.0
+Requires:         R-core >= 1.8.0
+BuildArch:        noarch
 
 %description
-Provides spatial data analysis functionalities including Exploratory
-Spatial Data Analysis, Spatial Cluster Detection and Clustering Analysis,
-Regionalization, etc. based on the C++ source code of 'GeoDa', which is an
-open-source software tool that serves as an introduction to spatial data
-analysis. The 'GeoDa' software and its documentation are available at
-<https://geodacenter.github.io>.
+Provides functions for obtaining estimates of the parameter of the niche
+preemption model (also known as the geometric series), in particular a
+maximum likelihood estimator (Graffelman, 2021)
+<doi:10.1101/2021.01.27.428381>. The niche preemption model is a widely
+used model in ecology and biodiversity studies.
 
 %prep
 %setup -q -c -n %{packname}

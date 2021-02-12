@@ -1,26 +1,34 @@
-%global packname  binostics
-%global packver   0.1.3
+%global packname  DiversificationR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Scagnostics
+Summary:          Econometric Tools to Measure Portfolio Diversification
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Calculates graph theoretic scagnostics.  Scagnostics describe various
-measures of interest for pairs of variables, based on their appearance on
-a scatterplot.  They are useful tool for discovering interesting or
-unusual scatterplots from a scatterplot matrix, without having to look at
-every individual plot.
+Diversification is one of the most important concepts in portfolio
+management. This framework offers scholars, practitioners and policymakers
+a useful toolbox to measure diversification. Specifically, this framework
+provides recent diversification measures from the recent literature. These
+diversification measures are based on the works of Rudin and Morgan (2006)
+<doi:10.3905/jpm.2006.611807>, Choueifaty and Coignard (2008)
+<doi:10.3905/JPM.2008.35.1.40>, Vermorken et al. (2012)
+<doi:10.3905/jpm.2012.39.1.067>, Flores et al. (2017)
+<doi:10.3905/jpm.2017.43.4.112>, Calvet et al. (2007)
+<doi:10.1086/524204>, and Candelon, Fuerst and Hasse (2020).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  DIZutils
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for 'DIZ' R Package Development
 
@@ -18,17 +18,27 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-rapportools 
 BuildRequires:    R-CRAN-RJDBC 
+BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-rapportools 
 Requires:         R-CRAN-RJDBC 
+Requires:         R-CRAN-RJSONIO 
 Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-xml2 
 
 %description
 Utility functions used for the R package development infrastructure inside

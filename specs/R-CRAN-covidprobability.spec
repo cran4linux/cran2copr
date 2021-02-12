@@ -1,30 +1,33 @@
-%global packname  optimParallel
-%global packver   1.0-2
+%global packname  covidprobability
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Version of the L-BFGS-B Optimization Method
+Summary:          Estimate the Unit-Wide Probability of COVID-19
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-parallel 
+Requires:         R-utils 
 
 %description
-Provides a parallel version of the L-BFGS-B method of optim(). The main
-function of the package is optimParallel(), which has the same usage and
-output as optim(). Using optimParallel() can significantly reduce the
-optimization time.
+We propose a method to estimate the probability of an undetected case of
+COVID-19 in a defined setting, when a given number of people have been
+exposed, with a given pretest probability of having COVID-19 as a result
+of that exposure. Since we are interested in undetected COVID-19, we
+assume no person has developed symptoms (which would warrant further
+investigation) and that everyone was tested on a given day, and all tested
+negative.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
-%global packname  promises
-%global packver   1.2.0.1
+%global packname  mojson
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Abstractions for Promise-Based Asynchronous Programming
+Summary:          A Serialization-Style Flattening and Description for JSON
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,25 +14,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-compareDF 
+Requires:         R-CRAN-RJSONIO 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-compareDF 
 
 %description
-Provides fundamental abstractions for doing asynchronous programming in R
-using promises. Asynchronous programming is useful for allowing a single R
-process to orchestrate multiple tasks in the background while also
-attending to something else. Semantics are similar to 'JavaScript'
-promises, but with a syntax that is idiomatic R.
+Support JSON flattening in a long data frame way, where the nesting keys
+will be stored in the absolute path. It also provides an easy way to
+summarize the basic description of a JSON list. The idea of 'mojson' is to
+transform a JSON object in an absolute serialization way, which means the
+early key-value pairs will appear in the heading rows of the resultant
+data frame. 'mojson' also provides an alternative way of comparing two
+different JSON lists, returning the left/inner/right-join style results.
 
 %prep
 %setup -q -c -n %{packname}

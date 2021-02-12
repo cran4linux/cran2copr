@@ -1,30 +1,33 @@
-%global packname  optimParallel
-%global packver   1.0-2
+%global packname  wordpiece
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Version of the L-BFGS-B Optimization Method
+Summary:          R Implementation of Wordpiece Tokenization
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-stringi >= 1.0
+BuildRequires:    R-CRAN-digest >= 0.6.5
+BuildRequires:    R-CRAN-rappdirs >= 0.3
+BuildRequires:    R-CRAN-purrr >= 0.2.3
+Requires:         R-CRAN-stringi >= 1.0
+Requires:         R-CRAN-digest >= 0.6.5
+Requires:         R-CRAN-rappdirs >= 0.3
+Requires:         R-CRAN-purrr >= 0.2.3
 
 %description
-Provides a parallel version of the L-BFGS-B method of optim(). The main
-function of the package is optimParallel(), which has the same usage and
-output as optim(). Using optimParallel() can significantly reduce the
-optimization time.
+Apply 'Wordpiece' (<arXiv:1609.08144>) tokenization to input text, given
+an appropriate vocabulary. The 'BERT' (<arXiv:1810.04805>) tokenization
+conventions are used by default.
 
 %prep
 %setup -q -c -n %{packname}

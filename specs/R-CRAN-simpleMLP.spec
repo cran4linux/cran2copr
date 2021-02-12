@@ -1,30 +1,30 @@
-%global packname  optimParallel
-%global packver   1.0-2
+%global packname  simpleMLP
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Version of the L-BFGS-B Optimization Method
+Summary:          Simple Multilayer Perceptron Neural Network
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-stats 
-Requires:         R-parallel 
+Requires:         R-CRAN-readr 
 
 %description
-Provides a parallel version of the L-BFGS-B method of optim(). The main
-function of the package is optimParallel(), which has the same usage and
-output as optim(). Using optimParallel() can significantly reduce the
-optimization time.
+Create, and train a multilayer perceptron, a type of feedforward, fully
+connected neural network. Features 2 ReLU hidden layers. Learn more about
+about the activation functions and backpropagation used by this network in
+Goodfellow et al. (2016, ISBN: 9780262035613) "Deep Learning".
 
 %prep
 %setup -q -c -n %{packname}

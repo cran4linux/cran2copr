@@ -1,9 +1,9 @@
 %global packname  BIGDAWG
-%global packver   2.3.1
+%global packver   2.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Case-Control Analysis of Multi-Allelic Loci
 
@@ -19,12 +19,10 @@ BuildRequires:    R-CRAN-XML
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-haplo.stats 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-haplo.stats 
 Requires:         R-parallel 
-Requires:         R-CRAN-knitr 
 
 %description
 Data sets and functions for chi-squared Hardy-Weinberg and case-control

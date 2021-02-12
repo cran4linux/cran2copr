@@ -1,30 +1,33 @@
-%global packname  optimParallel
-%global packver   1.0-2
+%global packname  likelihoodR
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Version of the L-BFGS-B Optimization Method
+Summary:          Likelihood Analyses for Common Statistical Tests
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-parallel 
 
 %description
-Provides a parallel version of the L-BFGS-B method of optim(). The main
-function of the package is optimParallel(), which has the same usage and
-output as optim(). Using optimParallel() can significantly reduce the
-optimization time.
+A collection of functions that calculate the log likelihood (support) for
+a range of statistical tests. Where possible the likelihood function and
+likelihood interval for the observed data are displayed. The evidential
+approach used here is based on the book "Likelihood" by A.W.F. Edwards
+(1992, ISBN-13 : 978-0801844430), "Statistical Evidence" by R. Royall
+(1997, ISBN-13 : 978-0412044113), S.N. Goodman & R. Royall (2011)
+<doi:10.2105/AJPH.78.12.1568>, "Understanding Psychology as a Science" by
+Z. Dienes (2008, ISBN-13 : 978-0230542310), S. Glover & P. Dixon
+<https://link.springer.com/article/10.3758/BF03196706> and others. This
+package accompanies "Evidence-Based Statistics" by P. Cahusac (2020,
+ISBN-13 : 978-1119549802).
 
 %prep
 %setup -q -c -n %{packname}

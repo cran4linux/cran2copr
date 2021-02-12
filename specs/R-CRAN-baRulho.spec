@@ -1,43 +1,44 @@
-%global packname  LipidMS
-%global packver   2.1.0
+%global packname  baRulho
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lipid Annotation for LC-MS/MS DDA or DIA Data
+Summary:          Quantifying Habitat-Induced Acoustic Signal Degradation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-warbleR >= 1.1.20
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readMzXmlData 
-BuildRequires:    R-CRAN-CHNOSZ 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-fftw 
+Requires:         R-CRAN-warbleR >= 1.1.20
+Requires:         R-CRAN-pbapply 
 Requires:         R-utils 
-Requires:         R-CRAN-readMzXmlData 
-Requires:         R-CRAN-CHNOSZ 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shinythemes 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-fftw 
 
 %description
-Lipid annotation in untargeted liquid chromatography mass spectrometry
-lipidomics based on fragmentation rules. Alcoriza-Balaguer MI,
-Garcia-Canaveras JC, Lopez A, Conde I, Juan O, Carretero J, Lahoz A (2019)
-<doi:10.1021/acs.analchem.8b03409>.
+Intended to facilitate acoustic analysis of (animal) sound transmission
+experiments, which typically aim to quantify changes in signal structure
+when transmitted in a given habitat by broadcasting and re-recording
+animal sounds at increasing distances. The package offers a workflow with
+functions to prepare the data set for analysis as well as to calculate and
+visualize several degradation metrics, including blur ratio,
+signal-to-noise ratio, excess attenuation and envelope correlation among
+others (Dabelsteen et al 1993 <doi:10.1121/1.406682>).
 
 %prep
 %setup -q -c -n %{packname}

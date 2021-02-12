@@ -1,9 +1,9 @@
 %global packname  Numero
-%global packver   1.7.4
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Framework to Define Subgroups in Complex Datasets
 

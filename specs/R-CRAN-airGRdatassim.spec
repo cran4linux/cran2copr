@@ -1,30 +1,37 @@
-%global packname  optimParallel
-%global packver   1.0-2
+%global packname  airGRdatassim
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Version of the L-BFGS-B Optimization Method
+Summary:          Ensemble-Based Data Assimilation with GR Hydrological Models
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-airGR >= 1.6.9.27
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-airGR >= 1.6.9.27
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-parallel 
+Requires:         R-utils 
 
 %description
-Provides a parallel version of the L-BFGS-B method of optim(). The main
-function of the package is optimParallel(), which has the same usage and
-output as optim(). Using optimParallel() can significantly reduce the
-optimization time.
+Add-on to the 'airGR' package which provides the tools to assimilate
+observed discharges in daily GR hydrological models. The package consists
+in two functions allowing to perform the assimilation of observed
+discharges via the Ensemble Kalman filter or the Particle filter as
+described in Piazzi et al. (2021) <doi:10.1029/2020WR028390>.
 
 %prep
 %setup -q -c -n %{packname}

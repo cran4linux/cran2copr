@@ -1,9 +1,9 @@
 %global packname  ccmReportR
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wraps 'CCM' with Utility Functions
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-keyring >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tibble >= 3.0.5
 Requires:         R-CRAN-lubridate >= 1.7.9
 Requires:         R-CRAN-jsonlite >= 1.7.1
@@ -29,6 +30,7 @@ Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-keyring >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-rlang 
 
 %description
 Provides a set of functions to perform queries against the 'CCM' API

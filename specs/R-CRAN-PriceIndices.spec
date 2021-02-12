@@ -1,9 +1,9 @@
 %global packname  PriceIndices
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Bilateral and Multilateral Price Indexes
 
@@ -21,18 +21,18 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-reclin 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-strex 
 Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-reclin 
 Requires:         R-CRAN-stringr 
-Requires:         R-stats 
 Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-caret 
+Requires:         R-CRAN-strex 
 
 %description
 Preparing a scanner data set for price dynamics calculations (data
