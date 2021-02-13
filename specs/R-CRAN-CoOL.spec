@@ -1,11 +1,11 @@
-%global packname  mlt
-%global packver   1.2-2
+%global packname  CoOL
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Most Likely Transformations
+Summary:          Causes of Outcome Learning
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,38 +14,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-basefun >= 1.0.5
-BuildRequires:    R-CRAN-variables >= 1.0.2
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-alabama 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-coneproj 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-nloptr 
-Requires:         R-CRAN-basefun >= 1.0.5
-Requires:         R-CRAN-variables >= 1.0.2
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-alabama 
-Requires:         R-stats 
-Requires:         R-CRAN-coneproj 
+BuildRequires:    R-CRAN-mltools 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ClustGeo 
+BuildRequires:    R-CRAN-wesanderson 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-pROC 
 Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-mltools 
+Requires:         R-stats 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ClustGeo 
+Requires:         R-CRAN-wesanderson 
 
 %description
-Likelihood-based estimation of conditional transformation models via the
-most likely transformation approach described in Hothorn et al. (2018)
-<DOI:10.1111/sjos.12291>.
+Implementing the computational phase of the Causes of Outcome Learning
+approach as described in Rieckmann, Dworzynski, Arras, Lapuschkin, Samek,
+Arah, Rod, Ekstrom. Causes of outcome learning: A causal
+inference-inspired machine learning approach to disentangling common
+combinations of potential causes of a health outcome. medRxiv (2020)
+<doi:10.1101/2020.12.10.20225243>. The optional 'ggtree' package can be
+obtained through Bioconductor.
 
 %prep
 %setup -q -c -n %{packname}

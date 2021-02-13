@@ -1,33 +1,26 @@
-%global packname  MASS
-%global packver   7.3-53.1
+%global packname  norm2
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.53.1
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Functions and Datasets for Venables and Ripley's MASS
+Summary:          Analysis of Incomplete Multivariate Data under a Normal Model
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
 
 %description
-Functions and datasets to support Venables and Ripley, "Modern Applied
-Statistics with S" (4th edition, 2002).
+Functions for parameter estimation, Bayesian posterior simulation and
+multiple imputation from incomplete multivariate data under a normal
+model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,43 @@
-%global packname  MASS
-%global packver   7.3-53.1
+%global packname  secsse
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.53.1
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Functions and Datasets for Venables and Ripley's MASS
+Summary:          Several Examined and Concealed States-Dependent Speciation and Extinction
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-DDD >= 4.0
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-apTreeshape 
+BuildRequires:    R-CRAN-phylobase 
+BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-CRAN-deSolve 
+Requires:         R-CRAN-DDD >= 4.0
 Requires:         R-utils 
-Requires:         R-methods 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-apTreeshape 
+Requires:         R-CRAN-phylobase 
+Requires:         R-CRAN-geiger 
+Requires:         R-CRAN-deSolve 
 
 %description
-Functions and datasets to support Venables and Ripley, "Modern Applied
-Statistics with S" (4th edition, 2002).
+Simultaneously infers state-dependent diversification across two or more
+states of a single or multiple traits while accounting for the role of a
+possible concealed trait. See Herrera-Alsina et al. 2019 Systematic
+Biology 68: 317-328 <DOI:10.1093/sysbio/syy057>.
 
 %prep
 %setup -q -c -n %{packname}

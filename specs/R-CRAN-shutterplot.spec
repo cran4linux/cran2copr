@@ -1,39 +1,26 @@
-%global packname  Rraven
-%global packver   1.0.11
+%global packname  shutterplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connecting R and 'Raven' Sound Analysis Software
+Summary:          The R Shutter Plot Package
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-warbleR 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-seewave 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-NatureSounds 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-warbleR 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-seewave 
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-NatureSounds 
 
 %description
-A tool to exchange data between R and 'Raven' sound analysis software
-(Cornell Lab of Ornithology). Functions work on data formats compatible
-with the R package 'warbleR'.
+Shows the scatter plot along with the fitted regression lines. It depicts
+min, max, the three quartiles, mean, and sd for each variable. It also
+depicts sd-line, sd-box, r, r-square, prediction boundaries, and
+regression outliers.
 
 %prep
 %setup -q -c -n %{packname}

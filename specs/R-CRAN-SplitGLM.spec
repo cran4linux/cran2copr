@@ -1,9 +1,9 @@
 %global packname  SplitGLM
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Split Generalized Linear Models
 
@@ -15,10 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-mvnfast 
 
 %description
 Functions to compute split generalized linear models. The approach fits

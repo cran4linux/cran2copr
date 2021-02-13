@@ -1,33 +1,25 @@
-%global packname  matrixprofiler
-%global packver   0.1.1
+%global packname  httpproblems
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrix Profile for R
+Summary:          Report Errors in Web Applications with 'Problem Details' (RFC 7807)
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-RcppParallel >= 4.4.4
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-RcppThread >= 0.5.0
-BuildRequires:    R-CRAN-RcppProgress >= 0.4.0
-Requires:         R-CRAN-RcppParallel >= 4.4.4
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-This is the core functions needed by the 'tsmp' package.  The low level
-and carefully checked mathematical functions are here. These are
-implementations of the Matrix Profile concept that was created by CS-UCR
-<http://www.cs.ucr.edu/~eamonn/MatrixProfile.html>.
+Tools for emitting the 'Problem Details' structure defined in 'RFC' 7807
+<https://tools.ietf.org/html/rfc7807> for reporting errors from 'HTTP'
+servers in a standard way.
 
 %prep
 %setup -q -c -n %{packname}

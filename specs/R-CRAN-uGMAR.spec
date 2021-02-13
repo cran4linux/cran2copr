@@ -1,9 +1,9 @@
 %global packname  uGMAR
-%global packver   3.2.6
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.6
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Univariate Gaussian or Student's t Mixture Autoregressive Model
 
@@ -16,10 +16,12 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-stats >= 3.3.2
+BuildRequires:    R-CRAN-gsl >= 1.9.10.3
 BuildRequires:    R-CRAN-pbapply >= 1.3.2
 BuildRequires:    R-CRAN-Brobdingnag >= 1.2.4
 BuildRequires:    R-parallel 
 Requires:         R-stats >= 3.3.2
+Requires:         R-CRAN-gsl >= 1.9.10.3
 Requires:         R-CRAN-pbapply >= 1.3.2
 Requires:         R-CRAN-Brobdingnag >= 1.2.4
 Requires:         R-parallel 

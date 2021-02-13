@@ -1,33 +1,35 @@
-%global packname  MASS
-%global packver   7.3-53.1
+%global packname  wiad
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.53.1
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Functions and Datasets for Venables and Ripley's MASS
+Summary:          Wood Image Analysis and Dataset
 
-License:          GPL-2 | GPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
 
 %description
-Functions and datasets to support Venables and Ripley, "Modern Applied
-Statistics with S" (4th edition, 2002).
+Providing a user-friendly interface to digitize wood imagery such as tree
+ring scans. The package offers a web-based application that the user can
+run locally from their computers to analyze wood characteristics.
 
 %prep
 %setup -q -c -n %{packname}

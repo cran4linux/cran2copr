@@ -1,33 +1,40 @@
-%global packname  MASS
-%global packver   7.3-53.1
+%global packname  cfda
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.53.1
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Functions and Datasets for Venables and Ripley's MASS
+Summary:          Categorical Functional Data Analysis
 
-License:          GPL-2 | GPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-diagram 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mgcv 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 
 %description
-Functions and datasets to support Venables and Ripley, "Modern Applied
-Statistics with S" (4th edition, 2002).
+Package for the analysis of categorical functional data. The main purpose
+is to compute an encoding (real functional variable) for each state
+<https://hal.inria.fr/hal-02973094>. It also provides functions to perform
+basic statistical analysis on categorical functional data.
 
 %prep
 %setup -q -c -n %{packname}

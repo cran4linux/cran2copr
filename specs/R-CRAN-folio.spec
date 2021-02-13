@@ -1,32 +1,28 @@
-%global packname  klassR
-%global packver   0.1.3
+%global packname  folio
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classifications and Codelists for Statistics Norway
+Summary:          Datasets for Teaching Archaeology and Paleontology
 
-License:          Apache License 2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Functions to search, retrieve and apply classifications and codelists
-using Statistics Norway's API <https://www.ssb.no/klass> from the system
-'KLASS'. Retrieves classifications by date with options to choose
-language, hierarchical level and formatting.
+Datasets for teaching quantitative approaches and modeling in archaeology
+and paleontology. This package provides several types of data related to
+broad topics (cultural evolution, radiocarbon dating, paleoenvironments,
+etc.), which can be used to illustrate statistical methods in the
+classroom (multivariate data analysis, compositional data analysis,
+diversity measurement, etc.).
 
 %prep
 %setup -q -c -n %{packname}

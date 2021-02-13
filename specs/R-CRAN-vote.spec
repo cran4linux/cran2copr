@@ -1,9 +1,9 @@
 %global packname  vote
-%global packver   2.1-0
+%global packver   2.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Election Vote Counting
 
@@ -26,9 +26,9 @@ Requires:         R-CRAN-fields
 
 %description
 Counting election votes and determining election results by different
-methods, including the single transferable vote or ranked choice (Newland
-and F.S. Britton, 1997; ISBN: 0903291185), approval, score, plurality,
-condorcet and two-round runoff methods.
+methods, including the single transferable vote or ranked choice,
+approval, score, plurality, condorcet and two-round runoff methods
+(Raftery et al. (2021) <arXiv:2102.05801>).
 
 %prep
 %setup -q -c -n %{packname}
