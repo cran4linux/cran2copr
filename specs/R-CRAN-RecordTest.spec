@@ -1,9 +1,9 @@
 %global packname  RecordTest
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference Tools in Time Series Based on Record Statistics
 
@@ -16,18 +16,16 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-parallel 
 Requires:         R-stats 
 
 %description
-Statistical tools based on probabilistic properties of the occurrence of
-records in a sequence (Xt) of independent and identically distributed
-random variables. In particular, tools to pre-process a time series as
-well as distribution-free tests for trend in location and plots to
-visualize the behavior of the records.
+Statistical tools based on the probabilistic properties of the record
+occurrence in a sequence of independent and identically distributed
+continuous random variables. In particular, tools to prepare a time series
+as well as distribution-free tests and graphical tools to visualize the
+record occurrence.
 
 %prep
 %setup -q -c -n %{packname}

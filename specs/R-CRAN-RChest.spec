@@ -1,13 +1,13 @@
 %global packname  RChest
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Locating Distributional Changes in Highly Dependent Time Series
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-reticulate 
 
 %description
-We are using an implementation in Go with a strong focus on parallel
-computation in order to locate distributional changes in piece-wise
-stationary time-series with long-range dependencies like suggested by the
-papers A. Khaleghi, D. Ryabko (2014)
-<http://proceedings.mlr.press/v32/khaleghi14.html> and A. Khaleghi, D.
-Ryabko (2012)
-<https://proceedings.neurips.cc/paper/2012/file/299fb2142d7de959380f91c01c3a293c-Paper.pdf>.
+Provides algorithms to locate multiple distributional change-points in
+piecewise stationary time series. The algorithms are provably consistent,
+even in the presence of long-range dependencies. Knowledge of the number
+of change-points is not required. The code is written in Go and interfaced
+with R.
 
 %prep
 %setup -q -c -n %{packname}

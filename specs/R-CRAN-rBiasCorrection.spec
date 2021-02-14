@@ -1,9 +1,9 @@
 %global packname  rBiasCorrection
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correct Bias in DNA Methylation Analyses
 
@@ -19,20 +19,20 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-nls2 
 BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-nls2 
 Requires:         R-CRAN-polynom 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Implementation of the algorithms (with minor modifications) to correct

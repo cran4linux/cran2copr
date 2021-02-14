@@ -1,9 +1,9 @@
 %global packname  fulltext
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Full Text of 'Scholarly' Articles Across Many Data Sources
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-rplos >= 0.8.0
 BuildRequires:    R-CRAN-rcrossref >= 0.8.0
 BuildRequires:    R-CRAN-crul >= 0.7.0
 BuildRequires:    R-CRAN-hoardr >= 0.5.0
-BuildRequires:    R-CRAN-crminer >= 0.2.0
 BuildRequires:    R-CRAN-microdemic >= 0.2.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-rplos >= 0.8.0
 Requires:         R-CRAN-rcrossref >= 0.8.0
 Requires:         R-CRAN-crul >= 0.7.0
 Requires:         R-CRAN-hoardr >= 0.5.0
-Requires:         R-CRAN-crminer >= 0.2.0
 Requires:         R-CRAN-microdemic >= 0.2.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 

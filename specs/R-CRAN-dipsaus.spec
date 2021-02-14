@@ -1,9 +1,9 @@
 %global packname  dipsaus
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-fastmap >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.11
 BuildRequires:    R-utils 
@@ -29,13 +30,13 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-fastmap 
 BuildRequires:    R-CRAN-base64url 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-synchronicity 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-startup 
 Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-fastmap >= 1.1.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-rstudioapi >= 0.11
 Requires:         R-utils 
@@ -50,7 +51,6 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-fastmap 
 Requires:         R-CRAN-base64url 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-synchronicity 
