@@ -1,13 +1,13 @@
-%global packname  simhelpers
-%global packver   0.1.1
+%global packname  huxtable
+%global packver   5.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          5.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Simulation Studies
+Summary:          Easily Create and Style Tables for LaTeX, HTML and Other Formats
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,37 +15,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr >= 1.2.0
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-commonmark 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-stringr >= 1.2.0
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-commonmark 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xml2 
 
 %description
-Calculates performance criteria measures and associated Monte Carlo
-standard errors for simulation results. Includes functions to help run
-simulation studies. Our derivation and explanation of formulas and our
-general simulation workflow is closely aligned with the approach described
-by Morris, White, and Crowther (2019) <DOI: 10.1002/sim.8086>.
+Creates styled tables for data presentation. Export to HTML, LaTeX, RTF,
+'Word', 'Excel', and 'PowerPoint'. Simple, modern interface to manipulate
+borders, size, position, captions, colours, text styles and number
+formatting. Table cells can span multiple rows and/or columns. Includes a
+'huxreg' function for creation of regression tables, and 'quick_*'
+one-liners to print data to a new document.
 
 %prep
 %setup -q -c -n %{packname}

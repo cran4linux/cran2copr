@@ -1,9 +1,9 @@
 %global packname  gert
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Git Client for R
 
@@ -33,9 +33,7 @@ Simple git client for R based on 'libgit2' with support for SSH and HTTPS
 remotes. All functions in 'gert' use basic R data types (such as vectors
 and data-frames) for their arguments and return values. User credentials
 are shared with command line 'git' through the git-credential store and
-ssh keys stored on disk or ssh-agent. On Linux, a somewhat recent version
-of 'libgit2' is required; we provide a 'PPA' for older Ubuntu 'LTS'
-versions.
+ssh keys stored on disk or ssh-agent.
 
 %prep
 %setup -q -c -n %{packname}

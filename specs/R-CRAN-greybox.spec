@@ -1,9 +1,9 @@
 %global packname  greybox
-%global packver   0.6.6
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolbox for Model Building and Forecasting
 
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-texreg 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-forecast 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 

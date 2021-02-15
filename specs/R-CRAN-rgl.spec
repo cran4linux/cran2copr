@@ -1,9 +1,9 @@
 %global packname  rgl
-%global packver   0.104.16
+%global packver   0.105.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.104.16
+Version:          0.105.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Visualization Using OpenGL
 
@@ -17,8 +17,8 @@ BuildRequires:    mesa-libGLU-devel
 BuildRequires:    zlib-devel
 BuildRequires:    libpng-devel >= 1.2.9
 BuildRequires:    freetype-devel
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.20
 BuildRequires:    R-CRAN-manipulateWidget >= 0.9.0
 BuildRequires:    R-graphics 

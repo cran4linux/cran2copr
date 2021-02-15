@@ -1,9 +1,9 @@
 %global packname  kableExtra
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Complex Table with 'kable' and Pipe Syntax
 
@@ -32,6 +32,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-webshot 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-svglite 
 Requires:         R-CRAN-rmarkdown >= 1.6
 Requires:         R-CRAN-knitr >= 1.16
 Requires:         R-CRAN-xml2 >= 1.1.1
@@ -49,6 +50,7 @@ Requires:         R-tools
 Requires:         R-CRAN-webshot 
 Requires:         R-CRAN-digest 
 Requires:         R-graphics 
+Requires:         R-CRAN-svglite 
 
 %description
 Build complex HTML or 'LaTeX' tables using 'kable()' from 'knitr' and the

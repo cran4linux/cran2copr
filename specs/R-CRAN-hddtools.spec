@@ -1,32 +1,41 @@
-%global packname  cluster
-%global packver   2.1.1
+%global packname  hddtools
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          "Finding Groups in Data": Cluster Analysis Extended Rousseeuw et al.
+Summary:          Hydrological Data Discovery Tools
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tidyr 
 
 %description
-Methods for Cluster analysis.  Much extended the original from Peter
-Rousseeuw, Anja Struyf and Mia Hubert, based on Kaufman and Rousseeuw
-(1990) "Finding Groups in Data".
+Tools to discover hydrological data, accessing catalogues and databases
+from various data providers. The package is described in Vitolo (2017)
+"hddtools: Hydrological Data Discovery Tools" <doi:10.21105/joss.00056>.
 
 %prep
 %setup -q -c -n %{packname}
