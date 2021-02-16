@@ -1,13 +1,13 @@
-%global packname  DesignCTPB
-%global packver   0.4.0
+%global packname  bifurcatingr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Design Clinical Trials with Potential Biomarker Effect
+Summary:          Bifurcating Autoregressive Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS >= 7.3.0
+BuildRequires:    R-graphics >= 4.0.0
+BuildRequires:    R-CRAN-igraph >= 1.2.5
+Requires:         R-CRAN-MASS >= 7.3.0
+Requires:         R-graphics >= 4.0.0
+Requires:         R-CRAN-igraph >= 1.2.5
 
 %description
-Applying 'CUDA' 'GPUs' via 'Numba' for optimal clinical design. It allows
-the user to utilize a 'reticulate' 'Python' environment and run intensive
-Monte Carlo simulation to get the optimal cutoff for the clinical design
-with potential biomarker effect, which can guide the realistic clinical
-trials.
+Estimation of bifurcating autoregressive models of any order, p, BAR(p) as
+well as several types of bias correction for the least squares estimators
+of the autoregressive parameters as described in Zhou and Basawa (2005)
+<doi:10.1016/j.spl.2005.04.024> and Elbayoumi and Mostafa (2020)
+<doi:10.1002/sta4.342>. Currently, the bias correction methods supported
+include bootstrap (single, double and fast-double) bias correction and
+linear-bias-function-based bias correction. Functions for generating and
+plotting bifurcating autoregressive data from any BAR(p) model are also
+included.
 
 %prep
 %setup -q -c -n %{packname}

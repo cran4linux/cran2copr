@@ -1,33 +1,34 @@
-%global packname  SpatPCA
-%global packver   1.3.3.0
+%global packname  briKmeans
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularized Principal Component Analysis for Spatial Data
+Summary:          Package for Brik and Fabrik Algorithms to Initialise Kmeans
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-depthTools 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-depthTools 
 
 %description
-Provide regularized principal component analysis incorporating smoothness,
-sparseness and orthogonality of eigenfunctions by using the alternating
-direction method of multipliers algorithm (Wang and Huang, 2017,
-<DOI:10.1080/10618600.2016.1157483>). The method can be applied to either
-regularly or irregularly spaced data, including 1D, 2D, and 3D.
+Implementation of the BRIk and FABRIk algorithms to initialise k-means.
+These methods are intended for the clustering of multivariate and
+functional data, respectively. They make use of the Modified Band Depth
+and bootstrap to identify appropriate initial seeds for k-means, which are
+proven to be better options than many techniques in the literature.
+Torrente and Romo (2020) <doi:10.1007/s00357-020-09372-3>.
 
 %prep
 %setup -q -c -n %{packname}

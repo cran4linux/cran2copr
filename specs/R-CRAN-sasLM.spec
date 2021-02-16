@@ -1,9 +1,9 @@
 %global packname  sasLM
-%global packver   0.3.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'SAS' Linear Model
 
@@ -15,10 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
 This is a core implementation of 'SAS' procedures for linear models - GLM,
-REG, and ANOVA. Some packages provide type II and type III SS. However,
+REG, and ANOVA. Some R packages provide type II and type III SS. However,
 the results of nested and complex designs are often different from those
 of 'SAS.' Different results does not necessarily mean incorrectness.
 However, many wants the same results to SAS. This package aims to achieve

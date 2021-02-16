@@ -1,34 +1,44 @@
-%global packname  matrixdist
-%global packver   1.0.1
+%global packname  collin
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics for Matrix Distributions
+Summary:          Effects of Collinearity in Distributed Lag and Other Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dlnm 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-dlnm 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-nlme 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-VGAM 
 
 %description
-Tools for homogeneous and in-homogeneous phase-type distributions. Methods
-for functional evaluation, simulation and estimation using the
-expectation-maximization (EM) algorithm are provided. The methods of this
-package are based on the following references. Asmussen, S., Nerman, O., &
-Olsson, M. (1996) <https://www.jstor.org/stable/4616418>, Olsson, M.
-(1996) <https://www.jstor.org/stable/4616419>. Albrecher, H., & Bladt, M.
-(2019) <doi:10.1017/jpr.2019.60> Albrecher, H., Bladt, M., & Yslas, J.
-(2020) <doi:10.1111/sjos.12505> Bladt, M., & Yslas, J. (2020)
-<arXiv:2011.03219>.
+Visual tool to assessing whether the results of a study could be driven by
+collinearity. The methods are described in Basagana X, Barrera-Gomez J
+(2021) "Visualizing the effects of collinearity in distributed lag
+models". International Journal of Epidemiology (under review).
 
 %prep
 %setup -q -c -n %{packname}

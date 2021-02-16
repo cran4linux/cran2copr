@@ -1,9 +1,9 @@
 %global packname  dm
-%global packver   0.1.10
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relational Data Models
 
@@ -16,7 +16,7 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 2.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.3
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-pillar
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-cli >= 2.2.0
-Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 1.0.3
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.10

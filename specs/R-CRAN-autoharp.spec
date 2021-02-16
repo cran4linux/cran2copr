@@ -1,42 +1,54 @@
-%global packname  vlad
-%global packver   0.2.2
+%global packname  autoharp
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Life Adjusted Display and Other Risk-Adjusted Quality Control Charts
+Summary:          Semi-Automatic Grading of R and Rmd Scripts
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-lintr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-lintr 
+Requires:         R-methods 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-testthat 
 
 %description
-Contains functions to set up risk-adjusted quality control charts in
-health care. For the variable life adjusted display (VLAD) proposed by
-Lovegrove et al. (1997) <doi:10.1016/S0140-6736(97)06507-0> signaling
-rules derived in Wittenberg et al. (2018) <doi:10.1002/sim.7647> are
-implemented. Additionally, for the risk-adjusted cumulative sum chart
-based on log-likelihood ratio statistic introduced by Steiner et al.
-(2000) <doi:10.1093/biostatistics/1.4.441> average run length and control
-limits can be computed with fast and accurate Markov chain approximations
-developed in Knoth et al. (2019) <doi:10.1002/sim.8104>.
+A customisable set of tools for assessing and grading R or R-markdown
+scripts from students. It allows for checking correctness of code output,
+runtime statistics and static code analysis. The latter feature is made
+possible by representing R expressions using a tree structure.
 
 %prep
 %setup -q -c -n %{packname}

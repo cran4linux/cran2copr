@@ -1,34 +1,31 @@
-%global packname  matrixdist
-%global packver   1.0.1
+%global packname  percentiles
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics for Matrix Distributions
+Summary:          Calculate (Stratified) Percentiles
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-assertive.types 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-assertive.types 
+Requires:         R-CRAN-R6 
 
 %description
-Tools for homogeneous and in-homogeneous phase-type distributions. Methods
-for functional evaluation, simulation and estimation using the
-expectation-maximization (EM) algorithm are provided. The methods of this
-package are based on the following references. Asmussen, S., Nerman, O., &
-Olsson, M. (1996) <https://www.jstor.org/stable/4616418>, Olsson, M.
-(1996) <https://www.jstor.org/stable/4616419>. Albrecher, H., & Bladt, M.
-(2019) <doi:10.1017/jpr.2019.60> Albrecher, H., Bladt, M., & Yslas, J.
-(2020) <doi:10.1111/sjos.12505> Bladt, M., & Yslas, J. (2020)
-<arXiv:2011.03219>.
+Calculate (stratified) percentiles on a data.frame Stratification will
+split the data.frame into subgroups and calculate percentiles for each
+independently.
 
 %prep
 %setup -q -c -n %{packname}

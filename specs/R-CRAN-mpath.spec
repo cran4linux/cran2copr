@@ -1,9 +1,9 @@
 %global packname  mpath
-%global packver   0.4-2.17
+%global packver   0.4-2.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2.17
+Version:          0.4.2.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Linear Models
 
@@ -41,8 +41,8 @@ Algorithms compute concave convex (CC) estimators including robust
 via the COCO - composite optimization by conjugation operator. The package
 also contains penalized Poisson, negative binomial, zero-inflated Poisson,
 zero-inflated negative binomial regression models and robust models with
-non-convex loss functions. See Wang et al. (2014) <doi:10.1002/sim.6314>,
-Wang et al. (2015) <doi:10.1002/bimj.201400143>, Wang et al. (2016)
+non-convex loss functions. Wang et al. (2014) <doi:10.1002/sim.6314>, Wang
+et al. (2015) <doi:10.1002/bimj.201400143>, Wang et al. (2016)
 <doi:10.1177/0962280214530608>, Wang (2019) <arXiv:1912.11119>, Wang
 (2020) <arXiv:2010.02848>.
 

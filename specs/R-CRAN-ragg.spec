@@ -1,9 +1,9 @@
 %global packname  ragg
-%global packver   0.4.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphic Devices Based on AGG
 
@@ -18,10 +18,10 @@ BuildRequires:    libtiff-devel
 BuildRequires:    libjpeg-turbo-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-systemfonts >= 0.2.1
-BuildRequires:    R-CRAN-textshaping 
-Requires:         R-CRAN-systemfonts >= 0.2.1
-Requires:         R-CRAN-textshaping 
+BuildRequires:    R-CRAN-systemfonts >= 1.0.0
+BuildRequires:    R-CRAN-textshaping >= 0.3.0
+Requires:         R-CRAN-systemfonts >= 1.0.0
+Requires:         R-CRAN-textshaping >= 0.3.0
 
 %description
 Anti-Grain Geometry (AGG) is a high-quality and high-performance 2D

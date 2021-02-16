@@ -1,9 +1,9 @@
 %global packname  r3dmol
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interactive 3D Visualizations of Molecular Data
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-bio3d 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-bio3d 
 
 %description
 Create rich and fully interactive 3D visualizations of molecular data.

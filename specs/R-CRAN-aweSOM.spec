@@ -1,9 +1,9 @@
 %global packname  aweSOM
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Self-Organizing Maps
 
@@ -55,8 +55,9 @@ Self-organizing maps (also known as SOM, see Kohonen (2001)
 <doi:10.1007/978-3-642-56927-2>) are a method for dimensionality reduction
 and clustering of continuous data. This package introduces interactive
 (html) graphics for easier analysis of SOM results. It also features an
-interactive interface, for push-button training and visualization of SOM,
-as well as tools to evaluate the quality of SOM.
+interactive interface, for push-button training and visualization of SOM
+on numeric, categorical or mixed data, as well as tools to evaluate the
+quality of SOM.
 
 %prep
 %setup -q -c -n %{packname}

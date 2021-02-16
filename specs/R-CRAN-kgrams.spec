@@ -1,34 +1,36 @@
-%global packname  matrixdist
-%global packver   1.0.1
+%global packname  kgrams
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics for Matrix Distributions
+Summary:          Classical k-gram Language Models
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-RcppProgress >= 0.1
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-RcppProgress >= 0.1
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
 Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Tools for homogeneous and in-homogeneous phase-type distributions. Methods
-for functional evaluation, simulation and estimation using the
-expectation-maximization (EM) algorithm are provided. The methods of this
-package are based on the following references. Asmussen, S., Nerman, O., &
-Olsson, M. (1996) <https://www.jstor.org/stable/4616418>, Olsson, M.
-(1996) <https://www.jstor.org/stable/4616419>. Albrecher, H., & Bladt, M.
-(2019) <doi:10.1017/jpr.2019.60> Albrecher, H., Bladt, M., & Yslas, J.
-(2020) <doi:10.1111/sjos.12505> Bladt, M., & Yslas, J. (2020)
-<arXiv:2011.03219>.
+Tools for training and evaluating k-gram language models in R, supporting
+several probability smoothing techniques, perplexity computations, random
+text generation and more.
 
 %prep
 %setup -q -c -n %{packname}

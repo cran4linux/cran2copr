@@ -1,35 +1,32 @@
-%global packname  modello
-%global packver   0.1.1
+%global packname  fundiversity
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Homemade Deep Learning Library
+Summary:          Easy Computation of Alpha Functional Diversity Indices
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-LaF 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-LaF 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-vegan 
 
 %description
-Allows to build and train different flavors of Neural Networks. In
-particular, it can be used to build fairly complex computational graphs,
-which ca be automatically differentiated and optimized with gradient
-descent methods.
+Computes 4 alpha-functional diversity indices: Functional Divergence FDiv,
+Function Evenness Feve, Functional Richness FRic, and Rao's entropy Q
+(reviewed in Villéger et al. 2008 <doi:10.1890/07-1206.1>). Provides
+efficient and modular functions to compute functional diversity indices.
 
 %prep
 %setup -q -c -n %{packname}

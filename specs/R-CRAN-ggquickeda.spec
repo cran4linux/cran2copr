@@ -1,9 +1,9 @@
 %global packname  ggquickeda
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quickly Explore Your Data Using 'ggplot2' and 'table1' Summary Tables
 
@@ -17,6 +17,7 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-GGally >= 2.1.0
 BuildRequires:    R-CRAN-table1 >= 1.2
 BuildRequires:    R-CRAN-shinyjs >= 1.1
 BuildRequires:    R-CRAN-shiny >= 1.0.4
@@ -25,15 +26,12 @@ BuildRequires:    R-CRAN-colourpicker
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-ggpmisc 
 BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotly 
@@ -41,15 +39,15 @@ BuildRequires:    R-CRAN-quantreg
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shinyjqui 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-RPostgres 
 Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-GGally >= 2.1.0
 Requires:         R-CRAN-table1 >= 1.2
 Requires:         R-CRAN-shinyjs >= 1.1
 Requires:         R-CRAN-shiny >= 1.0.4
@@ -58,15 +56,12 @@ Requires:         R-CRAN-colourpicker
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-ggpmisc 
 Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-grDevices 
-Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-markdown 
 Requires:         R-methods 
 Requires:         R-CRAN-plotly 
@@ -74,12 +69,11 @@ Requires:         R-CRAN-quantreg
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shinyjqui 
-Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-survminer 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-RPostgres 
 

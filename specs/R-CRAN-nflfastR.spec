@@ -1,9 +1,9 @@
 %global packname  nflfastR
-%global packver   3.2.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Efficiently Access NFL Play by Play Data
 
@@ -17,45 +17,43 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0
 BuildRequires:    R-CRAN-usethis >= 1.6.0
-BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-cli >= 1.1.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-xgboost >= 1.1
+BuildRequires:    R-CRAN-fastrmodels >= 1.0.1
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-progressr >= 0.6.0
-BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gsisdecoder 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tibble >= 3.0
 Requires:         R-CRAN-usethis >= 1.6.0
-Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-cli >= 1.1.0
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-xgboost >= 1.1
+Requires:         R-CRAN-fastrmodels >= 1.0.1
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-progressr >= 0.6.0
-Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gsisdecoder 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
 Requires:         R-CRAN-rlang 
 
 %description

@@ -1,11 +1,11 @@
-%global packname  xmeta
-%global packver   1.3-0
+%global packname  pcoxtime
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolbox for Multivariate Meta-Analysis
+Summary:          Penalized Cox Proportional Hazard Model for Time-Dependent Covariates
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,31 +14,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-aod 
-BuildRequires:    R-CRAN-glmmML 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-mvmeta 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-aod 
-Requires:         R-CRAN-glmmML 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-mvmeta 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-CRAN-riskRegression 
+BuildRequires:    R-CRAN-PermAlgo 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-prodlim 
+Requires:         R-CRAN-riskRegression 
+Requires:         R-CRAN-PermAlgo 
 
 %description
-A toolbox for meta-analysis. This package includes (1) a robust
-multivariate meta-analysis of continuous or binary outcomes; (2) a
-bivariate Egger's test for detecting small study effects; (3) Galaxy Plot:
-A New Visualization Tool of Bivariate Meta-Analysis Studies; and (4) a
-bivariate T&F method accounting for publication bias in bivariate
-meta-analysis, based on symmetry of the galaxy plot.
+Fits penalized models for both time-independent and time-dependent
+survival data. It fully implements elastic net and uses proximal gradient
+descent to solve the optimization problem. The package is an
+implementation of Steve Cygu and Benjamin M. Bolker. (2021)
+<arXiv:2102.02297>.
 
 %prep
 %setup -q -c -n %{packname}

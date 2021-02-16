@@ -1,44 +1,43 @@
-%global packname  xmeta
-%global packver   1.3-0
+%global packname  dynamichazard
+%global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.6.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolbox for Multivariate Meta-Analysis
+Summary:          Dynamic Hazard Models using State Space Models
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-aod 
-BuildRequires:    R-CRAN-glmmML 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-mvmeta 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.6
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-aod 
-Requires:         R-CRAN-glmmML 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-mvmeta 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.6
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-CRAN-survival 
+Requires:         R-parallel 
+Requires:         R-CRAN-boot 
 
 %description
-A toolbox for meta-analysis. This package includes (1) a robust
-multivariate meta-analysis of continuous or binary outcomes; (2) a
-bivariate Egger's test for detecting small study effects; (3) Galaxy Plot:
-A New Visualization Tool of Bivariate Meta-Analysis Studies; and (4) a
-bivariate T&F method accounting for publication bias in bivariate
-meta-analysis, based on symmetry of the galaxy plot.
+Contains functions that lets you fit dynamic hazard models using state
+space models. The first implemented model is described in Fahrmeir (1992)
+<doi:10.1080/01621459.1992.10475232> and Fahrmeir (1994)
+<doi:10.1093/biomet/81.2.317>. Extensions hereof are available where the
+Extended Kalman filter is replaced by an unscented Kalman filter and other
+options including particle filters. The implemented particle filters
+support more general state space models.
 
 %prep
 %setup -q -c -n %{packname}
